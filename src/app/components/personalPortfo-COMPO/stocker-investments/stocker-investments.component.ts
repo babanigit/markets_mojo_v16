@@ -8,10 +8,24 @@ import { IGetOverview } from '../../../models/overview';
   styleUrls: ['./stocker-investments.component.css'],
 })
 export class StockerInvestmentsComponent {
-
   @ViewChild('element1') element1!: ElementRef;
-  @ViewChild('element2') element2!: ElementRef;
+  // @ViewChild('element2') element2!: ElementRef;
   @ViewChild('element3') element3!: ElementRef;
+  @ViewChild('element4') element4!: ElementRef;
+
+  @ViewChild('element5') element5!: ElementRef;
+
+  @ViewChild('element6') element6!: ElementRef;
+
+  @ViewChild('element7') element7!: ElementRef;
+
+  @ViewChild('element8') element8!: ElementRef;
+
+  @ViewChild('element9') element9!: ElementRef;
+
+  @ViewChild('element10') element10!: ElementRef;
+
+  @ViewChild('element11') element11!: ElementRef;
 
   TYPE = 'Risk';
 
@@ -48,10 +62,23 @@ export class StockerInvestmentsComponent {
       case 'Tracker':
         return 'element1';
       case 'Overall Analysis':
-        return 'element2';
-      case 'Returns':
         return 'element3';
-      // Add more cases as needed
+      case 'Returns':
+        return 'element4';
+      case 'Risk':
+        return 'element5';
+      case 'Liquidity':
+        return 'element6';
+      case 'Diversification':
+        return 'element7';
+      case 'Quality':
+        return 'element8';
+      case 'Valuation':
+        return 'element9';
+      case 'Financial Trend':
+        return 'element10';
+      case 'Tax':
+        return 'element11';
       default:
         return '';
     }
