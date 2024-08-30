@@ -175,3 +175,26 @@ span.active .mat-icon {
 .more-button {
   background-color: #333;
 }
+
+/* Ensure the expansion panel header is always at the top */
+.mat-expansion-panel-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure the content inside the panel sticks to the top */
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Style the panel content to be consistent */
+.mat-expansion-panel-body {
+  padding: 16px;
+}
+
+/* Optional: Adjust image positioning if needed */
+.mat-expansion-panel-header img {
+  margin-right: 8px;
+}

@@ -7,7 +7,8 @@ import { StockerInvestmentsComponent } from '../../components/personalPortfo-COM
 import { MutualFundsInvestmentsComponent } from '../../components/personalPortfo-COMPO/mutual-funds-investments/mutual-funds-investments.component';
 import { PfPriceMsgComponent } from '../../components/personalPortfo-COMPO/pf-price-msg/pf-price-msg.component';
 import { DemoComponent } from '../../components/demo/demo.component';
-import { TablesComponent } from "../../components/personalPortfo-COMPO/tables/tables.component";
+import { TablesComponent } from '../../components/personalPortfo-COMPO/tables/tables.component';
+import { IpoFooterComponent } from 'src/app/components/ipo-COMPO/ipo-footer/ipo-footer.component';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,15 @@ import { TablesComponent } from "../../components/personalPortfo-COMPO/tables/ta
 
     // childerns
     StockerInvestmentsComponent,
-    MutualFundsInvestmentsComponent
-
+    MutualFundsInvestmentsComponent,
   ],
-  imports: [CommonModule, PersonalPortfoliosRoutingModule, PfPriceMsgComponent, DemoComponent, TablesComponent],
+  imports: [
+    CommonModule,
+    PersonalPortfoliosRoutingModule,
+    PfPriceMsgComponent,
+    DemoComponent,
+    TablesComponent,
+    IpoFooterComponent
+  ],
 })
 export class PersonalPortfoliosModule {}

@@ -12,22 +12,14 @@ export class StockerInvestmentsComponent {
   // @ViewChild('element2') element2!: ElementRef;
   @ViewChild('element3') element3!: ElementRef;
   @ViewChild('element4') element4!: ElementRef;
-
   @ViewChild('element5') element5!: ElementRef;
-
   @ViewChild('element6') element6!: ElementRef;
-
   @ViewChild('element7') element7!: ElementRef;
-
   @ViewChild('element8') element8!: ElementRef;
-
   @ViewChild('element9') element9!: ElementRef;
-
   @ViewChild('element10') element10!: ElementRef;
-
   @ViewChild('element11') element11!: ElementRef;
-
-  TYPE = 'Risk';
+  TYPE = 'Tracker';
 
   // List of items to display on navbar buttons
   items: any = [
