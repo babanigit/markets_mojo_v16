@@ -1,0 +1,66 @@
+<div class="card text-center" style="min-height: auto">
+  <div style="text-align: end; padding-right: 20px; padding-top: 20px">
+    <button
+      style="
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background-color: gray;
+        color: white;
+      "
+      (click)="onClose()"
+    >
+      X
+    </button>
+  </div>
+
+  <div class="card-body" style="display: grid">
+    <!-- head -->
+    <div style="font-weight: 500; padding: 0 40px; padding-bottom: 30px">
+      <div style="font-weight: 400; font-size: x-large">You Have Entered</div>
+      <div style="font-size: x-large">
+        Stock Name :- <strong> {{ reportData?.data?.sname }} </strong>
+      </div>
+      <div>
+        Sector: {{ reportData?.data?.ind_name }} | Market Cap:
+        {{ reportData?.data?.mcapclass }} (1,36,157 cr)
+      </div>
+    </div>
+
+    <hr style="border: none; border-top: 3px solid aqua; background: none" />
+
+    <div style="font-size: xx-large; font-weight: 400">
+      DO YOU WANT TO SWITCH TO
+    </div>
+
+    <div style="display: grid; justify-content: center">
+      <div
+        style="width: fit-content; text-align: left"
+        *ngIf="reportData!.data!.ques!.list[0].opt"
+      >
+        <div *ngFor="let hero of reportData!.data!.ques!.list[0].opt">
+          <input
+            style="color: aqua"
+            type="radio"
+            id="{{ hero.valsid }}"
+            name="{{ hero.short_name }}"
+            [(ngModel)]="selectedValue"
+            value="{{ hero.valsid }}"
+          />
+          <label for="{{ hero.valsid }}"> {{ hero.txt }} </label>
+        </div>
+
+        <br />
+        <button
+          style="width: 100%; background-color: aqua"
+          (click)="getSubmitValue(selectedValue)"
+        >
+          Run Switcher
+        </button>
+      </div>
+    </div>
+
+    <!-- body -->
+    <!-- copy paste from verdictreport -->
+  </div>
+</div>

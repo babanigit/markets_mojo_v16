@@ -1,0 +1,119 @@
+<!-- search -->
+<!-- it will give you sname onclick -->
+<app-research-service
+  [imgSrc]="'https://i.marketsmojo.com/switcher/switcher-logo2_new.png'"
+  [title]="
+    'A quick guide on how to replace your current stocks with mojo recommended stocks​'
+  "
+  [serachBoxText]="'RUN SWITCHER'"
+  [hideQuantityBox]="false"
+  (myEvent1_InputValue)="State_getInputStr($event)"
+  (myEvent2_ReportBoxState)="State_getReportBol($event)"
+  (myEvent4_ChooseValue)="State_getChoiceBol($event)"
+  (myEvent5_InputId)="State_getInputIdStr($event)"
+/>
+
+<!-- loading -->
+<app-verdictloading
+  [hidden]="LOADING_STATE"
+  [barColor]="'rgb(102, 102, 233)'"
+  [text1]="'Loading Switcher Report'"
+/>
+
+<div>
+  <div
+    *ngFor="
+      let item of switcherReportsAndOptions
+        | filterSwitcherReport : SNAME_INPUT_STRING
+    "
+  >
+    <!-- 1 -->
+    <app-switcher-report
+      [reportData]="item"
+      [hidden]="
+        !LOADING_STATE ||
+        SNAME_INPUT_STRING.length < 1 ||
+        REPORTB0X_STATE ||
+        switherReportData?.data?.ques?.switch_msg === 'YOU HAVE ENTERED'
+      "
+      (myEvent2_SendReportDataEvent)="State_getReportArr($event)"
+      (myEvent1_CloseBox)="State_getReportBol($event)"
+    />
+
+    <!-- 2 -->
+    <app-switch-options
+      [hidden]="
+        !LOADING_STATE ||
+        switherReportData?.data?.ques?.switch_msg !== 'YOU HAVE ENTERED' ||
+        REPORTB0X_STATE ||
+        CHOICE_VALUE_STATE
+      "
+      *ngIf="switherReportData?.data?.ques?.switch_msg === 'YOU HAVE ENTERED'"
+      [reportData]="switherReportData"
+      (myEvent1_CloseBox)="State_getReportBol($event)"
+      (myEvent2_ChoiceValue)="State_getChoiceBol($event)"
+      (myEvent3_afterChoiceSubmitState)="State_getResultBol($event)"
+    />
+  </div>
+
+  <!-- 3 -->
+  <div *ngIf="ID_CHOICE_VALUE">
+    <div
+      *ngFor="
+        let item of switcherResult
+          | filterChoiceResult : ID_CHOICE_VALUE : ID_INPUT_STRING
+      "
+    >
+
+      <app-switch-result
+        [reportData]="item"
+        [hidden]="!LOADING_STATE || SWITCHER_RESULT_STATE"
+        (myEvent_resultState)="State_getResultBol($event)"
+      />
+
+      <!-- loading2 -->
+      <app-verdictloading
+        [hidden]="LOADING_STATE2"
+        [barColor]="'rgb(102, 102, 233)'"
+        [text1]="'Evaluating Other Choices'"
+      />
+
+      <!-- 4 -->
+      <div
+        *ngIf="switherReportData_State"
+        [hidden]="
+          !LOADING_STATE ||
+          !LOADING_STATE2 ||
+          !ID_CHOICE_VALUE ||
+          SWITCHER_RESULT_STATE
+        "
+      >
+      
+        <app-switch-other-choices
+          [ID_CHOICE_VALUE]="ID_CHOICE_VALUE"
+          [ID_INPUT_STRING]="ID_INPUT_STRING"
+          [reportData]="item"
+        />
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- verdict 1 -->
+<app-verdict1
+  [verdictLists]="verdict1SwitcherListData"
+  [verdictListHeader]="'ASK US ABOUT ANY STOCK YOU HOLD'"
+  [imgageUrl]="'https://i.marketsmojo.com/switcher/switcher_thumb_new1.png'"
+/>
+
+<app-verdict2
+  [imgSrc]="'https://i.marketsmojo.com/switcher/switcher_thumb2.png'"
+/>
+
+<!-- section -->
+<app-verdict3new [sectionData]="sectionDataSwitcher" />
+
+<!-- footer -->
+<app-verdictfooter />

@@ -1,0 +1,85 @@
+<div class="container" style="padding: 30px">
+  <div class="">
+    <div class="col-md-12">
+      <div class="centered-box">
+        <div class="col">
+          <div>
+            <div
+              style="
+                display: grid;
+                align-items: center;
+                place-content: center;
+                padding-top: 100px;
+              "
+            >
+              <div *ngIf="imgSrc" style="text-align: center">
+                <img style="width: 270px" alt="imag" src="{{ imgSrc }}" />
+              </div>
+              <h3 style="text-align: center">{{ title }} ​</h3>
+              <div style="display: flex; place-content: center">
+                <input
+                  style="width: 400px; border-color: aqua"
+                  type="text"
+                  placeholder="Find your stock verdict"
+                  [(ngModel)]="INPUT_VALUE_SNAME"
+                  (click)="onInputBoxClick()"
+                  (input)="onInputValueChange($event)"
+                />
+
+                <input
+                  [hidden]="hideQuantityBox"
+                  style="width: 200px; border-color: aqua; margin: 0 50px"
+                  type="number"
+                  placeholder="Quantity (Optional)"
+                  [(ngModel)]="NumQuantity"
+                />
+
+                <button
+                  type="submit"
+                  class="btn"
+                  style="background-color: aqua"
+                  (click)="OnSubmitClick()"
+                >
+                  {{ serachBoxText }}
+                </button>
+              </div>
+            </div>
+
+            <!-- Filtering and displaying results -->
+            <div
+              [hidden]="INPUT_VALUE_SNAME.length <= 1 || FILTER_STATE"
+              style="display: flex; place-content: center"
+            >
+              <ul class="data-ul" style="list-style-type: none; padding: 0">
+                <li
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid black;
+                    padding: 5px;
+                    cursor: pointer; /* Add cursor pointer for hover effect */
+                  "
+                  *ngFor="let data of searchData | filter : INPUT_VALUE_SNAME"
+                  (click)="
+                    data.Company !== 'Not Found' ? onLiClick(data.sname,data.Id) : null
+                  "
+                >
+                  <span [innerHTML]="data.Company"></span>
+
+                  <span *ngIf="data.Company == 'Not Found' ? 0 : 1">
+                    (<span [innerHTML]="data.ExchangeName | uppercase"></span>
+                    -
+                    <span [innerHTML]="data.ScriptCode"></span>
+                    | NSE -
+                    <span [innerHTML]="data.Symbol"></span>)
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

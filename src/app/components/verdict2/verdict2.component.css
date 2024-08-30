@@ -1,0 +1,19 @@
+
+.banner-container {
+  background-color: gray;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.inner-container {
+  display: flex;
+  place-content: center;
+  font-weight: 600;
+  font-size: large;
+  color: gainsboro;
+  padding-top: 10px;
+}
+
+.banner-img img {
+  width: 70%;
+}

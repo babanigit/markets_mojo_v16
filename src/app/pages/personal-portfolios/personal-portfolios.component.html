@@ -1,0 +1,52 @@
+
+<!-- demo -->
+<app-demo />
+<!-- demo -->
+
+<app-pf-price-msg />
+
+<!-- navbar -->
+<nav
+  style="
+    display: flex;
+    justify-items: center;
+    place-content: center;
+    gap: 20px;
+    background-color: darkslategray;
+    height: auto;
+    padding: 1% 0%;
+    /* padding: 2%; */
+  "
+>
+  <div>
+    <a
+      [routerLink]="['/portfolio-plus/networth-tracker']"
+      [queryParams]="{ selected_menu: 'all' }"
+      >All</a
+    >
+  </div>
+
+  <div>
+    <a [routerLink]="['/portfolio-plus/stock-investments']">
+      stock-investments
+    </a>
+  </div>
+
+  <div>
+    <a [routerLink]="['/portfolio-plus/mutualfund-investments']">
+      mutualfund-investments
+    </a>
+  </div>
+
+  <div>
+    <a
+      [routerLink]="['/portfolio-plus/networth-tracker']"
+      [queryParams]="{ selected_menu: 'commodity' }"
+      >Commodity</a
+    >
+  </div>
+</nav>
+
+<div>
+  <router-outlet> </router-outlet>
+</div>

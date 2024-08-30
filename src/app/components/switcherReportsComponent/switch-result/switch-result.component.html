@@ -1,0 +1,314 @@
+<!-- trail -->
+
+<div class="card text-center" style="min-height: auto">
+  <div style="text-align: end; padding-right: 20px; padding-top: 20px">
+    <button
+      style="
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background-color: gray;
+        color: white;
+      "
+      (click)="onClose()"
+    >
+      X
+    </button>
+  </div>
+
+  <div class="card-body" style="display: grid">
+
+
+    <!-- body -->
+    <div class="container" style="height: 72vh">
+      <div class="row" style="height: 100%">
+        <!-- col1 -->
+        <div class="col-md-6">
+          <div class="" style="width: 100%">
+            <div
+              class="header"
+              style="font-stretch: extra-expanded; font-size: xx-large"
+            >
+              YOUR SWITCHER RESULT
+            </div>
+
+            <div class="content">
+              <span
+              [ngStyle]="{
+                'background-color':
+                  reportData.data.stocklist[reportData.data.stockids[0]]
+                    .clr
+              }"
+              class="dash"></span>
+              <span>Q</span>
+              <span
+              [ngStyle]="{
+                'background-color':
+                  reportData.data.stocklist[reportData.data.stockids[0]]
+                    .clr
+              }"
+              class="dash"></span>
+            </div>
+
+            <div class="content">
+              <div style="font-size: larger">
+                You Can Choose to <strong> Switch from </strong>
+                {{
+                  reportData.data.stocklist[reportData.data.stockids[0]].sname
+                }}
+              </div>
+              <div style="color: lightgreen; font-size: larger">To</div>
+              <div style="font-size: xx-large">
+                {{
+                  reportData.data.stocklist[reportData.data.stockids[1]].sname
+                }}
+              </div>
+            </div>
+
+            <div
+
+            class="content">
+              <span
+              [ngStyle]="{
+                'background-color':
+                  reportData.data.stocklist[reportData.data.stockids[1]]
+                    .clr
+              }"
+               class="dash"></span>
+              <span>Q</span>
+              <span
+              [ngStyle]="{
+                'background-color':
+                  reportData.data.stocklist[reportData.data.stockids[1]]
+                    .clr
+              }"
+              class="dash"></span>
+            </div>
+
+            <div
+            style="font-size: large; font-weight: 500;"
+            class="download-report">download report</div>
+          </div>
+        </div>
+
+        <!-- col2 -->
+        <div class="col-md-6">
+          <div
+            [ngStyle]="{
+              'background-image':
+                'linear-gradient(to right, ' +
+                reportData.data.stocklist[reportData.data.stockids[0]].clr +
+                ', ' +
+                reportData.data.stocklist[reportData.data.stockids[1]].clr +
+                ')'
+            }"
+            style="
+              height: 100%;
+              width: 80%;
+              background-image: linear-gradient(
+                to right,
+                red,
+                green
+              ); /* Gradient from left to right */
+              display: flex;
+              justify-content: center;
+              /* grid-template-rows: 30% 70%; */
+            "
+          >
+            <div
+              style="
+                height: 100%;
+                width: 90%;
+                padding-top: 20px;
+                color: aliceblue;
+                background-color: rgb(19, 35, 19);
+                display: grid;
+                grid-template-rows: 30% 70%;
+              "
+            >
+              <!-- Main Content Here -->
+              <div style="display: grid; grid-template-rows: 50% 50%">
+                <!-- upper -->
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: baseline;
+                    align-items: center;
+                    gap: 5px;
+                    /* background-color: blueviolet; */
+                    height: 100%;
+                    width: 100%;
+                  "
+                >
+                  <!-- <div style="margin: 0; padding: 0">mojo professional</div> -->
+                  <img
+                    style="
+                      text-align: center;
+
+                      width: 300px;
+                    "
+                    alt="imag"
+                    src="https://i.marketsmojo.com/switcher/switcher-logo.png"
+                  />
+
+                  <div
+                    style="
+                      text-align: left;
+                      margin: 0;
+                      padding-right: 10px;
+                      font-size: small;
+                    "
+                  >
+                    Report as on 15 July 2024 at 12:01 PM
+                  </div>
+                </div>
+
+                <!-- lower -->
+                <div
+                  style="
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-end;
+                  "
+                >
+                  <!-- [innerHTML]="
+                      reportData.data.verdict?.cover_page_data?.cover_headline
+                    " -->
+
+                  <div
+                    style="
+                      color: rgb(59, 180, 59);
+                      font-weight: 800;
+                      font-size: x-large;
+                      text-align: left;
+                      padding: 10px;
+                    "
+                  ></div>
+                </div>
+              </div>
+
+              <!-- two colms -->
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 50% 50%;
+                  font-size: small;
+                "
+              >
+                <!-- col1 -->
+                <div
+                  style="
+                    /* font-size: smaller; */
+                    text-align: left;
+                    border-right: 1px solid #ccc;
+                    place-content: center;
+                  "
+                >
+                  <!-- map -->
+                  <!-- *ngFor="
+                  let summary of reportData.data.verdict?.cover_page_data
+                    ?.cover_summary
+                " -->
+
+                  <div
+                    [ngStyle]="{
+                      'background-color':
+                        reportData.data.stocklist[reportData.data.stockids[0]]
+                          .clr
+                    }"
+                    style="
+                      width: 96%;
+                      height: 70%;
+                      border-top-right-radius: 20px;
+                      border-bottom-right-radius: 20px;
+                      padding-left: 10px;
+                      padding-top: 10px;
+                    "
+                  >
+                    <strong>
+                      {{
+                        reportData.data.stocklist[reportData.data.stockids[0]]
+                          .sname
+                      }}
+                    </strong>
+
+                    <div class="bullet_cio2">
+                      <ul>
+                        <li
+                          *ngFor="
+                            let item of reportData.data.stocklist[
+                              reportData.data.stockids[0]
+                            ].txt
+                          "
+                        >
+                          {{ item }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div style="height: 35px"></div>
+                </div>
+
+                <!-- col2 -->
+                <div
+                  style="
+                    width: 100%;
+                    display: flex;
+                    justify-content: right;
+                    align-items: center;
+                  "
+                >
+                  <div style="height: 35px"></div>
+                  <div
+                    [ngStyle]="{
+                      'background-color':
+                        reportData.data.stocklist[reportData.data.stockids[1]]
+                          .clr
+                    }"
+                    style="
+                      width: 96%;
+                      height: 70%;
+                      text-align: left;
+                      border-top-left-radius: 20px;
+                      border-bottom-left-radius: 20px;
+                      padding-left: 10px;
+                      padding-top: 10px;
+                    "
+                  >
+                    <strong>
+                      {{
+                        reportData.data.stocklist[reportData.data.stockids[1]]
+                          .sname
+                      }}
+                    </strong>
+                    <div class="bullet_cio2">
+                      <ul>
+                        <li
+                          *ngFor="
+                            let item of reportData.data.stocklist[
+                              reportData.data.stockids[1]
+                            ].txt
+                          "
+                        >
+                          {{ item }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- body -->
+    <!-- copy paste from verdictreport -->
+  </div>
+</div>
+
+<!-- trail -->

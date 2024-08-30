@@ -1,0 +1,45 @@
+<!-- scroll to the element navbar -->
+
+<section style="background-color: rgb(33, 44, 33)">
+
+
+  <!-- overview ,holding, price, etc... -->
+  <nav
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      /* background-color: rgba(64, 64, 64, 0.5); */
+    "
+  >
+    <span
+
+      *ngFor="let item of items"
+      [ngStyle]="{
+      'background-color': TYPE === item ? 'rgba(220,220,220)' : 'rgba(64, 64, 64, 0.4)',
+      color: TYPE === item ? 'black' : 'white',
+      padding: '1% 1.5%',
+      cursor: 'pointer',
+      'font-size': '12px',
+    }"
+      (click)="onClick(item)"
+    >
+      {{ item }}
+    </span>
+  </nav>
+
+  <!-- table and its buttons -->
+  <div style="padding: 0.5%" id="element1">
+    <div>
+      <app-tables />
+    </div>
+  </div>
+
+  <!-- Add IDs to the sections -->
+  <div id="element2">Element 2</div>
+
+  <div id="element3">Element 3</div>
+
+  <div id="element4">Element 4</div>
+
+</section>
