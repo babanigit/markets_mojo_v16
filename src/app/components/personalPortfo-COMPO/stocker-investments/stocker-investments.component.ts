@@ -1,13 +1,22 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { GetPersonalPFService } from '../../../services/personal-portfolio/get-personal-pf.service';
 import { IGetOverview } from '../../../models/overview';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-stocker-investments',
   templateUrl: './stocker-investments.component.html',
   styleUrls: ['./stocker-investments.component.css'],
 })
-export class StockerInvestmentsComponent {
+export class StockerInvestmentsComponent implements AfterViewInit {
+  constructor(private cdr: ChangeDetectorRef) {}
+
   @ViewChild('element1') element1!: ElementRef;
   // @ViewChild('element2') element2!: ElementRef;
   @ViewChild('element3') element3!: ElementRef;
@@ -35,16 +44,33 @@ export class StockerInvestmentsComponent {
     'Tax',
   ];
 
+  ngAfterViewInit() {}
+
+  TO_SHOW: Boolean = false;
+  showMore(): void {
+    this.TO_SHOW = true;
+  }
+
   onClick(item: string) {
+    if (item !== 'Tracker') {
+      this.TO_SHOW = true;
+    }
     this.TYPE = item;
     console.log(this.TYPE);
-    this.scrollToElement(item);
+    setTimeout(() => {
+      this.scrollToElement(item);
+    }, 0);
   }
 
   scrollToElement(item: string) {
     const elementId = this.getElementId(item);
     const element = document.getElementById(elementId);
+
+    console.log('Element ID:', elementId);
+    console.log('Element:', element);
+
     if (element) {
+      this.cdr.detectChanges();
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }

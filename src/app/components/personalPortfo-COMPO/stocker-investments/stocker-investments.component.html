@@ -1,6 +1,4 @@
-<!-- scroll to the element navbar -->
-
-<section style="background-color: rgb(33, 44, 33)">
+<section style="background-color: rgb(43, 43, 53)">
   <!-- overview ,holding, price, etc... -->
   <nav
     style="
@@ -32,64 +30,89 @@
     </div>
   </div>
 
-  <!-- Add IDs to the sections -->
   <div id="element2">
     <p class="heading">How am I doing Today</p>
     <app-demo />
   </div>
 
-  <div id="element3">
-    <p class="heading">How am I doing Overall</p>
-
-    <app-demo />
+  <!-- buttton -->
+  <div
+    *ngIf="!TO_SHOW"
+    style="
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      place-items: center;
+    "
+  >
+    <div
+      (click)="showMore()"
+      style="
+        cursor: pointer;
+        width: auto;
+        height: 60px;
+        background-color: rgb(11, 184, 184);
+        text-align: center;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        place-items: center;
+        font-size: x-large;
+        color: white;
+        padding: 0% 2%;
+      "
+    >
+      Click here for a comprehensive - <b>7 Mojo parameter analysis</b> on your
+      portfolio
+    </div>
   </div>
 
-  <div id="element4">
-    <p class="heading">Return Analysis</p>
+  <div *ngIf="TO_SHOW">
+    <div id="element3">
+      <p class="heading">How am I doing Overall</p>
+      <app-demo />
+    </div>
 
-    <app-demo />
-  </div>
+    <div id="element4">
+      <p class="heading">Return Analysis</p>
+      <app-demo />
+    </div>
 
-  <div id="element5">
-    <p class="heading">Risk Analysis</p>
+    <div id="element5">
+      <p class="heading">Risk Analysis</p>
+      <app-demo />
+    </div>
 
-    <app-demo />
-  </div>
+    <div id="element6">
+      <p class="heading">Liquidity Analysis</p>
+      <app-demo />
+    </div>
 
-  <div id="element6">
-    <p class="heading">Liquidity Analysis</p>
+    <div id="element7">
+      <p class="heading">Diversification Analysis</p>
+      <app-demo />
+    </div>
 
-    <app-demo />
-  </div>
+    <div id="element8">
+      <p class="heading">Quality</p>
+      <app-demo />
+    </div>
 
-  <div id="element7">
-    <p class="heading">Diversification Analysis</p>
+    <div id="element9">
+      <p class="heading">Valuation</p>
+      <app-demo />
+    </div>
 
-    <app-demo />
-  </div>
+    <div id="element10">
+      <p class="heading">Financial Trend</p>
+      <app-demo />
+    </div>
 
-  <div id="element8">
-    <p class="heading">Quality</p>
-
-    <app-demo />
-  </div>
-
-  <div id="element9">
-    <p class="heading">Valuation</p>
-
-    <app-demo />
-  </div>
-
-  <div id="element10">
-    <p class="heading">Financial Trend</p>
-
-    <app-demo />
-  </div>
-
-  <div id="element11">
-    <p class="heading">Tax Analysis</p>
-
-    <app-demo />
+    <div id="element11">
+      <p class="heading">Tax Analysis</p>
+      <app-demo />
+    </div>
   </div>
 </section>
 

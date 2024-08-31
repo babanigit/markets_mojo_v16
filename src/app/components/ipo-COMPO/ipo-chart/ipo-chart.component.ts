@@ -13,9 +13,7 @@ import { Observable } from 'rxjs';
   templateUrl: './ipo-chart.component.html',
   styleUrls: ['./ipo-chart.component.css'],
   standalone: true,
-  imports: [
-    ChartModule,
-     CommonModule],
+  imports: [ChartModule, CommonModule],
 })
 export class IpoChartComponent implements OnInit {
   graphData: IGraphData | undefined; // Initialize with an empty object
@@ -79,8 +77,7 @@ export class IpoChartComponent implements OnInit {
   }
 
   updateChart() {
-
-    const dataPoints:number[][] = this.extractDataPoints(this.graphData!); //get the data in number[][]
+    const dataPoints: number[][] = this.extractDataPoints(this.graphData!); //get the data in number[][]
     let minY: number;
     let maxY: number;
 
@@ -90,7 +87,14 @@ export class IpoChartComponent implements OnInit {
     maxY = Math.max(...dataPoints.map(([_, y]) => y));
     const previousClose = this.graphData!.data.graph_indices[0].PreviousClose;
 
-    console.log("the min y point is : ", minY, " and the max y is : ", maxY, " the prevClose is : ", previousClose)
+    console.log(
+      'the min y point is : ',
+      minY,
+      ' and the max y is : ',
+      maxY,
+      ' the prevClose is : ',
+      previousClose
+    );
 
     // Initialize segments
     const abovePreviousClose: [number, number][] = [];
@@ -115,14 +119,11 @@ export class IpoChartComponent implements OnInit {
 
       if (prevValue > previousClose && value > previousClose) {
         abovePreviousClose.push([timestamp, value]);
-
       } else if (prevValue < previousClose && value < previousClose) {
         belowPreviousClose.push([timestamp, value]);
-
       } else {
         // Handle intersections
         if (prevValue > previousClose && value < previousClose) {
-
           addSegment(
             [
               ...abovePreviousClose,
@@ -135,9 +136,7 @@ export class IpoChartComponent implements OnInit {
           abovePreviousClose.length = 0;
           belowPreviousClose.push([prevTimestamp, previousClose]);
           belowPreviousClose.push([timestamp, previousClose]);
-
         } else if (prevValue < previousClose && value > previousClose) {
-
           addSegment(
             [
               ...belowPreviousClose,
@@ -150,7 +149,6 @@ export class IpoChartComponent implements OnInit {
           belowPreviousClose.length = 0;
           abovePreviousClose.push([prevTimestamp, previousClose]);
           abovePreviousClose.push([timestamp, previousClose]);
-
         }
       }
     });
