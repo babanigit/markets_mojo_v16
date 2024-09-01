@@ -13,7 +13,7 @@ import {
   MatTableDataSource,
   MatTableModule,
 } from '@angular/material/table';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
+// import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { CommonModule } from '@angular/common';
 import { GetPersonalPFService } from '../../../services/personal-portfolio/get-personal-pf.service';
 import { MatIconModule } from '@angular/material/icon';
@@ -40,7 +40,7 @@ import { PopupComponent } from '../../others/popup/popup.component';
   ],
 })
 export class TablesComponent implements OnInit, AfterViewInit {
-  private _liveAnnouncer = inject(LiveAnnouncer);
+  // private _liveAnnouncer = inject(LiveAnnouncer);
   private serv = inject(GetPersonalPFService);
 
   displayedColumns: string[] = [];
@@ -115,11 +115,10 @@ export class TablesComponent implements OnInit, AfterViewInit {
     console.log('the type is : ', type);
     this.serv.getOverviewStocks(type).subscribe({
       next: (response) => {
-
         let elements;
-        if(type ==='RISK'){
+        if (type === 'RISK') {
           elements = Object.values(response.data);
-        }else{
+        } else {
           elements = Object.values(response.data.list);
         }
 
@@ -134,7 +133,13 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   updateStocks(
-    type: 'OVERVIEW' | 'HOLDING' | 'PRICE' | 'CONTRIBUTION' | 'DIVIDEND' |'RISK'
+    type:
+      | 'OVERVIEW'
+      | 'HOLDING'
+      | 'PRICE'
+      | 'CONTRIBUTION'
+      | 'DIVIDEND'
+      | 'RISK'
   ): void {
     this.dataSource2.data = this.dataCache[type] || [];
     // console.log('Updated data:', this.dataSource2);
@@ -226,16 +231,9 @@ export class TablesComponent implements OnInit, AfterViewInit {
           'lval',
         ];
         break;
-        case 'RISK':
-          this.displayedColumns = [
-            'short',
-            'score',
-            'cmp',
-            'mcap',
-
-
-          ];
-          break;
+      case 'RISK':
+        this.displayedColumns = ['short', 'score', 'cmp', 'mcap'];
+        break;
     }
   }
 
@@ -247,7 +245,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
       | 'CONTRIBUTION'
       | 'DIVIDEND'
       | 'MOJO'
-    | 'RISK'
+      | 'RISK'
     // | 'LIQUIDITY'
     // | 'TAX'
     // | 'RATIOS'
@@ -277,13 +275,13 @@ export class TablesComponent implements OnInit, AfterViewInit {
     }
   }
 
-  announceSortChange(sortState: Sort) {
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-  }
+  // announceSortChange(sortState: Sort) {
+  //   if (sortState.direction) {
+  //     this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+  //   } else {
+  //     this._liveAnnouncer.announce('Sorting cleared');
+  //   }
+  // }
 
   private sortData(sortState: Sort) {
     const data = this.dataSource2.data.slice();
@@ -328,7 +326,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
       return 0;
     });
 
-    this.announceSortChange(sortState);
+    // this.announceSortChange(sortState);
   }
 
   isSortActive(column: string): boolean {
