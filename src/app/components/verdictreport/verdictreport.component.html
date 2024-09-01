@@ -1,5 +1,4 @@
-<div class="card text-center" style="min-height: auto">
-
+<div class="card text-center" style="min-height: auto; margin: 12px">
   <div style="text-align: end; padding-right: 20px; padding-top: 20px">
     <button
       style="
@@ -17,7 +16,7 @@
 
   <div class="card-body" style="display: grid">
     <!-- head -->
-    <div style="font-weight: 600; padding: 0 40px; padding-bottom: 30px;">
+    <div style="font-weight: 600; padding: 0 40px; padding-bottom: 30px">
       <div style="font-weight: 700; font-size: x-large">
         {{ reportData.data.stock_details.sname }} Verdict Report
       </div>
@@ -30,7 +29,47 @@
     <!-- body -->
     <div class="container" style="height: 72vh">
       <div class="row" style="height: 100%">
-        <div class="col-md-6">DOWNLOAD</div>
+        <!-- download -->
+        <div class="col-md-6"
+
+        style="display: flex; flex-direction: column; ">
+          <div
+          style="
+          text-align: left;"
+          >
+            <button type="button" class="btn btn-info"
+            style="color: black;"
+            >DOWNLOAD</button>
+          </div>
+          <div
+          style="text-align: left;margin-left: 20px; font-size: x-large;"
+          >OR</div>
+          <div
+          style="
+          text-align: left;"
+          >
+            <div
+            style="font-size: medium;"
+            >
+              SEND BY EMAIL
+            </div>
+            <span
+              ><input
+                placeholder="Enter Email address"
+                style="
+                  background-color: rgb(199, 199, 199);
+                  color: black;
+                  height: 38px;
+                "
+                type="email"
+            /></span>
+            <span
+              ><button type="button" class="btn btn-info">Send Report Now</button>
+            </span>
+          </div>
+        </div>
+
+        <!-- verdict report -->
         <div class="col-md-6">
           <div
             style="
@@ -200,8 +239,5 @@
         </div>
       </div>
     </div>
-
-
-
   </div>
 </div>
