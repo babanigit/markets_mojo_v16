@@ -35,12 +35,12 @@ export class DemoComponent implements AfterViewInit {
     Swiper.use([Navigation, Pagination, Scrollbar]);
 
     new Swiper('.swiper-container', {
-      slidesPerView: 3, // Number of slides visible at a time
-      slidesPerGroup: 3, // Number of slides to move on navigation or autoplay
-      spaceBetween: 0, // No space between slides
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      spaceBetween: 0,
       autoplay: {
-        delay: 3000, // Delay in ms before moving to the next group of slides
-        disableOnInteraction: false, // Continue autoplay after user interactions
+        delay: 3000,
+        disableOnInteraction: false,
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -50,7 +50,11 @@ export class DemoComponent implements AfterViewInit {
         el: '.swiper-pagination',
         clickable: true,
       },
-      // Optional: Add more configuration based on your needs
     });
+
+    // console.log(swiperInstance); // Check the Swiper instance in the console
+
+
   }
+
 }

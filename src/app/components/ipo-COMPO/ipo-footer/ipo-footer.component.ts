@@ -22,4 +22,21 @@ export class IpoFooterComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  stockLetters: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+  getStockLink(letter: string): string {
+    return `/stocks-analysis/getstocksbyname?n=${letter}`;
+  }
+
+  links = [
+    { text: 'Careers', url: '/mojo/career' },
+    { text: 'Contact Us', url: '/mojo/feedback' },
+    { text: 'Disclaimer', url: '/mojo/disclaimer' },
+    { text: 'Privacy Policy', url: '/mojo/privacypolicy' },
+    { text: 'Refund Policy', url: '/mojo/refundpolicy' },
+    { text: 'Terms and Conditions', url: '/mojo/termsofuse' },
+    { text: 'Process Disclosure', url: '/mojo/processdisclosure' },
+    { text: 'Regulatory Information', url: '/mojo/complaints' }
+  ];
 }

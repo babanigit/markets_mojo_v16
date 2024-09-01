@@ -11,214 +11,14 @@
         class="foot-atozlinks"
         style="text-align: center !important; margin-bottom: 10px"
       >
-        <ul class="list14" style="color: gray">
+        <ul class="list14">
           <li class="title">Stock List</li>
-          <li>
+          <li *ngFor="let letter of stockLetters">
             <a
-              href="/stocks-analysis/getstocksbyname?n=A"
+              [href]="getStockLink(letter)"
               class="stock-name"
-              title="A"
-              >A</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=B"
-              class="stock-name"
-              title="B"
-              >B</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=C"
-              class="stock-name"
-              title="C"
-              >C</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=D"
-              class="stock-name"
-              title="D"
-              >D</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=E"
-              class="stock-name"
-              title="E"
-              >E</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=F"
-              class="stock-name"
-              title="F"
-              >F</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=G"
-              class="stock-name"
-              title="G"
-              >G</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=H"
-              class="stock-name"
-              title="H"
-              >H</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=I"
-              class="stock-name"
-              title="I"
-              >I</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=J"
-              class="stock-name"
-              title="J"
-              >J</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=K"
-              class="stock-name"
-              title="K"
-              >K</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=L"
-              class="stock-name"
-              title="L"
-              >L</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=M"
-              class="stock-name"
-              title="M"
-              >M</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=N"
-              class="stock-name"
-              title="N"
-              >N</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=O"
-              class="stock-name"
-              title="O"
-              >O</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=P"
-              class="stock-name"
-              title="P"
-              >P</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=Q"
-              class="stock-name"
-              title="Q"
-              >Q</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=R"
-              class="stock-name"
-              title="R"
-              >R</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=S"
-              class="stock-name"
-              title="S"
-              >S</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=T"
-              class="stock-name"
-              title="T"
-              >T</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=U"
-              class="stock-name"
-              title="U"
-              >U</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=V"
-              class="stock-name"
-              title="V"
-              >V</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=W"
-              class="stock-name"
-              title="W"
-              >W</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=X"
-              class="stock-name"
-              title="X"
-              >X</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=Y"
-              class="stock-name"
-              title="Y"
-              >Y</a
-            >
-          </li>
-          <li>
-            <a
-              href="/stocks-analysis/getstocksbyname?n=Z"
-              class="stock-name"
-              title="Z"
-              >Z</a
+              [attr.title]="letter"
+              >{{ letter }}</a
             >
           </li>
           <li>
@@ -236,55 +36,53 @@
 
   <!-- trail -->
   <div style="display: flex; width: 100%; height: auto">
-    <div style="flex: 1; padding: 10px; border-right: 1px solid gray">
-      <!-- data careers-->
-      <div
-        style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px"
-      >
-        <span class="finfoot"
-          ><a style="color: #a2a2a4" href="/mojo/career" target="_blank"
-            >Careers</a
-          ></span
+    <div
+      style="
+        flex: 1;
+        padding: 10px;
+        border-right: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        /* place-items: center; */
+        justify-content: center;
+        gap: 20px;
+      "
+    >
+      <!-- img -->
+      <div>
+        <img
+          [src]="'https://i.marketsmojo.com/bottom-logo.png'"
+          style="
+            width: 50%;
+            height: auto;
+            /* border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+          "
+        />
+      </div>
+
+      <!-- careers-->
+      <div class="footer-links">
+        <span
+          style="margin-right: 10px"
+          class="finfoot"
+          *ngFor="let link of links"
         >
-        <span class="finfoot"
-          ><a style="color: #a2a2a4" href="/mojo/feedback" target="_blank"
-            >Contact Us</a
-          ></span
-        >
-        <span class="finfoot"
-          ><a style="color: #a2a2a4" href="/mojo/disclaimer" target="_blank"
-            >Disclaimer</a
-          ></span
-        >
-        <span class="finfoot"
-          ><a style="color: #a2a2a4" href="/mojo/privacypolicy" target="_blank"
-            >Privacy Policy</a
-          ></span
-        >
-        <span class="finfoot"
-          ><a style="color: #a2a2a4" href="/mojo/refundpolicy" target="_blank"
-            >Refund Policy</a
-          ></span
-        >
-        <span class="finfoot"
-          ><a style="color: #a2a2a4" href="/mojo/termsofuse" target="_blank"
-            >Terms and Conditions</a
-          ></span
-        >
-        <span class="finfoot"
-          ><a
-            style="color: #a2a2a4"
-            href="/mojo/processdisclosure"
-            v
-            target="_blank"
-            >Process Disclosure</a
-          ></span
-        >
-        <span class="finfoot"
-          ><a style="color: #a2a2a4" href="/mojo/complaints" target="_blank"
-            >Regulatory Information</a
-          ></span
-        >
+          <a [href]="link.url" target="_blank">{{ link.text }}</a>
+        </span>
+      </div>
+
+      <!-- email -->
+      <div style="display: flex; justify-items: center; place-items: center">
+        <span
+          ><input
+            placeholder="abc@xyz.com"
+            style="background-color: transparent; color: white; height: 36px"
+            type="email"
+        /></span>
+        <span
+          ><button type="button" class="btn btn-primary">subscripe</button>
+        </span>
       </div>
     </div>
 
