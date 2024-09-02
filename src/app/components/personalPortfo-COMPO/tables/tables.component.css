@@ -198,3 +198,12 @@ span.active .mat-icon {
 .mat-expansion-panel-header img {
   margin-right: 8px;
 }
+
+.footer-cell {
+  width: 100%;
+  text-align: center;
+  /* display: flex;
+  justify-content: center; */
+
+  /* text-align: center; */
+}

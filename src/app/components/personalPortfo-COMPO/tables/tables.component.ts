@@ -107,13 +107,15 @@ export class TablesComponent implements OnInit, AfterViewInit {
   ];
 
   private fetchStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK') {
+
     if (this.dataCache[type]) {
+      // console.log('the data cache is : ', this.dataCache[type]);
       this.updateStocks(type);
       return;
     }
 
-    console.log('the type is : ', type);
     this.serv.getOverviewStocks(type).subscribe({
+
       next: (response) => {
         let elements;
         if (type === 'RISK') {
@@ -124,11 +126,12 @@ export class TablesComponent implements OnInit, AfterViewInit {
 
         this.dataCache[type] = elements;
         this.updateStocks(type);
-        // console.log('Fetched data:', elements);
+        console.log('Fetched data:', this.dataCache[type]);
       },
       error: (err) => {
         console.error('Failed to load data', err);
       },
+
     });
   }
 
@@ -405,13 +408,17 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   // trial
-  getTotal(strVal: string): number {
+  getTotal(propertyPath: string): number {
     let total = 0;
 
+    // Function to access nested properties
+    const getNestedValue = (obj: any, path: string) => {
+      return path.split('.').reduce((acc, key) => acc && acc[key], obj);
+    };
+
     for (let i = 0; i < this.dataSource2.data.length; i++) {
-      // Access the property dynamically using bracket notation
-      const value = this.dataSource2.data[i].dotsum[strVal];
-      total += Number(value); // Convert the value to a number
+      const value = getNestedValue(this.dataSource2.data[i], propertyPath);
+      total += Number(value) || 0; // Convert the value to a number and default to 0 if NaN
     }
 
     return total;

@@ -25,12 +25,7 @@
 
 <!-- table -->
 <div style="background-color: white" class="mat-elevation-z8">
-  <table
-    mat-table
-    [dataSource]="dataSource2"
-    matSort
-  >
-
+  <table mat-table [dataSource]="dataSource2" matSort>
     <!-- holding  -->
     <!-- short Company Column -->
     <ng-container matColumnDef="short">
@@ -44,7 +39,12 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <span
-          *ngIf="element.details! && TYPE !='PRICE' && TYPE !='CONTRIBUTION' && TYPE !='DIVIDEND'"
+          *ngIf="
+            element.details! &&
+            TYPE != 'PRICE' &&
+            TYPE != 'CONTRIBUTION' &&
+            TYPE != 'DIVIDEND'
+          "
           (click)="togglePanel(element)"
           style="cursor: pointer; top: 0%; left: 0%; z-index: 2"
         >
@@ -87,7 +87,11 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td
+        style="width: 100%; text-align: left; padding-left: 20px"
+        mat-footer-cell
+        *matFooterCellDef
+      >
         <!-- {{ footerData.short }} -->
         <Strong> Total </Strong>
       </td>
@@ -135,6 +139,7 @@
                       position: absolute;
                       left: 5px;
                       right: 7px;
+                      /* width: fit; */
 
                       top: -8px;
                       bottom: 25px;
@@ -284,9 +289,9 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
-        {{ getTotal("score") }}
+        <!-- {{ getTotal("dotsum.score") }} -->
       </td>
     </ng-container>
 
@@ -358,7 +363,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -462,7 +467,7 @@
         </div>
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -570,9 +575,8 @@
         </div>
       </td>
 
-      <td style="color: black" mat-footer-cell *matFooterCellDef>
-        hello
-        <!-- {{getTotal('ival')}} -->
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ getTotal("ival") }}
       </td>
     </ng-container>
 
@@ -686,9 +690,8 @@
         </div>
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
-        <!-- {{ footerData.short }} -->
-        hello
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ getTotal("dgain") }}
       </td>
     </ng-container>
 
@@ -802,9 +805,8 @@
         </div>
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
-        <!-- {{ footerData.short }} -->
-        hello
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ getTotal("unrgain") }}
       </td>
     </ng-container>
 
@@ -840,9 +842,8 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
-        <!-- {{ footerData.short }} -->
-        hello
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ getTotal("lval") }}
       </td>
     </ng-container>
 
@@ -905,7 +906,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -968,7 +969,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1008,10 +1009,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
-        <!-- {{ footerData.short }} -->
-        <Strong> Total </Strong>
-      </td>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
     <!-- f_txt, f_txt ,  Financial Trend -->
@@ -1062,7 +1060,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1103,12 +1101,13 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- {{ footerData.short }} -->
         <Strong> Total </Strong>
       </td>
     </ng-container>
 
+    <!-- price -->
     <!-- cvol, cvolp combined vol  -->
     <ng-container matColumnDef="cvol">
       <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
@@ -1167,7 +1166,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1224,7 +1223,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1281,7 +1280,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1337,7 +1336,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1393,7 +1392,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1449,7 +1448,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1505,7 +1504,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1562,7 +1561,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1605,7 +1604,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1648,7 +1647,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1692,7 +1691,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
       </td>
     </ng-container>
@@ -1771,7 +1770,7 @@
         </div>
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- {{ footerData.short }} -->
         hello
       </td>
@@ -1815,7 +1814,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- {{ footerData.short }} -->
         <Strong> Total </Strong>
       </td>
@@ -1858,7 +1857,7 @@
         <!--  -->
       </td>
 
-      <td mat-footer-cell *matFooterCellDef>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- {{ footerData.short }} -->
         <Strong> Total </Strong>
       </td>
@@ -1869,6 +1868,18 @@
     <!-- Header, footer and Row Definitions -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    <tr
+      [hidden]="
+        TYPE == 'OVERVIEW' ||
+        TYPE == 'PRICE' ||
+        TYPE == 'RISK' ||
+        TYPE == 'RATIOS' ||
+        TYPE == 'FINANCIALS' ||
+        TYPE == 'RETURN' ||
+        TYPE == 'RESULT'
+      "
+      mat-footer-row
+      *matFooterRowDef="displayedColumns"
+    ></tr>
   </table>
 </div>
