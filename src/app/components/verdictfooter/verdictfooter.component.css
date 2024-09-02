@@ -13,7 +13,6 @@
 
 .list14 li {
   display: inline-block; /* Display list items horizontally */
-  margin-right: 10px; /* Right margin between list items */
 }
 
 .list14 .title {
@@ -24,7 +23,7 @@
 .list14 .stock-name {
   text-decoration: none; /* Remove underline from links */
   color: gray; /* Link color */
-  padding: 5px 10px; /* Padding around each link */
+  padding: 5px 8px; /* Padding around each link */
   border-left: 1px solid #ccc; /* Border around each link */
 }
 
