@@ -1052,10 +1052,38 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <span>
-                  <div>{{ element.dotsum.f_txt }}</div>
-                  <!-- <div style="color: gray">{{ element.dotsum.volperc }}</div> -->
-                  date </span
-                ><span> img </span>
+                  <div>
+                    <b>
+                      <span>
+                        {{ element.dotsum.f_txt }}
+                      </span>
+                      <span> ({{ element.dotsum.f_pts }})</span>
+                    </b>
+                  </div>
+                  <div style="color: gray">
+                    {{ element.dotsum.score_date }}
+                  </div>
+                </span>
+
+                <span>
+                  <div
+                    [ngStyle]="{ 'background-color': element.dotsum.f_clr }"
+                    class="circle"
+                  >
+                    <div *ngIf="element.dotsum.f_dir == 1">
+                      <img
+                        src="https://i.marketsmojo.com/w_ar_up.png"
+                        alt="up"
+                      />
+                    </div>
+                    <div *ngIf="element.dotsum.f_dir == -1">
+                      <img
+                        src="https://i.marketsmojo.com/w_ar_dwn.png"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </span>
               </mat-panel-description>
             </mat-expansion-panel-header>
 

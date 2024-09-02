@@ -207,3 +207,43 @@ span.active .mat-icon {
 
   /* text-align: center; */
 }
+
+.circle {
+  margin: 3px;
+  width: 40px;          /* Width of the circle */
+  height: 40px;         /* Height of the circle (should be the same as width) */
+  background-color: #3498db; /* Fallback color */
+  border-radius: 50%;   /* Makes the div a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;   /* Needed for positioning the arrows */
+  color: white;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.arrow, .down {
+  width: 0;
+  height: 0;
+  position: absolute;  /* Position within the circle */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+}
+
+.arrow {
+  border-left: 10px solid transparent;  /* Width of the arrow sides */
+  border-right: 10px solid transparent; /* Width of the arrow sides */
+  border-bottom: 15px solid white;      /* Color and size of the up arrow */
+  top: 20%;            /* Adjust vertical positioning */
+}
+
+.down {
+  border-left: 10px solid transparent;  /* Width of the arrow sides */
+  border-right: 10px solid transparent; /* Width of the arrow sides */
+  border-top: 15px solid white;         /* Color and size of the down arrow */
+  top: 50%;            /* Center vertically */
+  transform: translateX(-50%) translateY(-50%); /* Center both horizontally and vertically */
+}
+
