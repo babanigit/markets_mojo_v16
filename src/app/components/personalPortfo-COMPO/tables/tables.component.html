@@ -763,7 +763,9 @@
             </mat-expansion-panel-header>
 
             <!-- Details section that will be shown when the panel is expanded -->
+
             <div
+              [hidden]="TYPE === 'CONTRIBUTION'"
               *ngIf="element.details && element.details.length > 0"
               style="width: 100%; padding-right: 10px; text-align: center"
             >
@@ -800,13 +802,16 @@
                 </div>
               </div>
             </div>
+
             <!-- Details section that will be shown when the panel is expanded end... -->
           </mat-expansion-panel>
         </div>
       </td>
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ getTotal("unrgain") }}
+        <div>
+          {{ getTotal("unrgain") }}
+        </div>
       </td>
     </ng-container>
 
@@ -835,7 +840,7 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <div style="height: 170px"></div>
+            <div *ngIf="false" style="height: 170px"></div>
             <!-- <p>This is the primary content of the panel.</p> -->
           </mat-expansion-panel>
         </mat-accordion>
@@ -1606,6 +1611,9 @@
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
+        <div>
+          {{ getTotal("unrgaincontri") }}
+        </div>
       </td>
     </ng-container>
 
@@ -1649,6 +1657,9 @@
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
+        <div *ngIf="TYPE !== 'MOJO'">
+          {{ getTotal("pwt") }}
+        </div>
       </td>
     </ng-container>
 
@@ -1772,7 +1783,10 @@
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- {{ footerData.short }} -->
-        hello
+        <!-- hello -->
+        <div>
+          {{ getTotal("tretp") }}
+        </div>
       </td>
     </ng-container>
 
@@ -1815,8 +1829,7 @@
       </td>
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        <!-- {{ footerData.short }} -->
-        <Strong> Total </Strong>
+        <div></div>
       </td>
     </ng-container>
 
@@ -1857,10 +1870,7 @@
         <!--  -->
       </td>
 
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        <!-- {{ footerData.short }} -->
-        <Strong> Total </Strong>
-      </td>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
     <!-- risk -->

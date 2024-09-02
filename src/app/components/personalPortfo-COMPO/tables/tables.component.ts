@@ -227,7 +227,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
           'cmp',
           'q_txt',
           'v_txt',
-          'unrgain',
+          // 'unrgain',
           'f_txt',
           'tech_txt',
           'pwt',
