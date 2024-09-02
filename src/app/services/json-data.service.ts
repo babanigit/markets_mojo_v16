@@ -9,9 +9,11 @@ import { IGetOverview } from '../models/overview';
 
 const defaultDropdownPath = 'assets/dropdown.json';
 const defaultVerdictReportPath = 'assets/verdictReports.json';
+
 const defaultVerdictSwticherReportandOptionsPath =
   'assets/switcherBasicReportsAndOptions.json';
 const defaultSwitcherResultPath = 'assets/switcherResult.json';
+
 const defaultIPOListPath = 'assets/ipoList.json';
 const defaulaTrailPath = 'assets/atrail.json';
 

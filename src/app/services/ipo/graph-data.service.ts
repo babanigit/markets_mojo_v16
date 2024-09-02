@@ -8,12 +8,12 @@ import { BehaviorSubject, catchError, delay, finalize, Observable, throwError, t
 })
 export class GraphDataService {
   private readonly paths = {
-    day: 'assets/graphDataDay.json',
-    week: 'assets/graphDataWeek.json',
-    month: 'assets/graphDataMonth.json',
-    YTD: 'assets/graphDataYTD.json',
-    year: 'assets/graphDataYear.json',
-    threeYears: 'assets/graphData3Years.json',
+    day: 'assets/graphData/graphDataDay.json',
+    week: 'assets/graphData/graphDataWeek.json',
+    month: 'assets/graphData/graphDataMonth.json',
+    YTD: 'assets/graphData/graphDataYTD.json',
+    year: 'assets/graphData/graphDataYear.json',
+    threeYears: 'assets/graphData/graphData3Years.json',
   };
 
   private loadingSubject = new BehaviorSubject<boolean>(false);
