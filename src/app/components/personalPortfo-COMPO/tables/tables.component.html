@@ -43,7 +43,8 @@
             element.details! &&
             TYPE != 'PRICE' &&
             TYPE != 'CONTRIBUTION' &&
-            TYPE != 'DIVIDEND'
+            TYPE != 'DIVIDEND' &&
+            TYPE != 'MOJO'
           "
           (click)="togglePanel(element)"
           style="cursor: pointer; top: 0%; left: 0%; z-index: 2"
@@ -341,7 +342,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.cmp }}</div>
+                  <div>{{ formatNumberWithCommas(element.cmp) }}</div>
                   <div style="color: gray">
                     <span>
                       {{ element.chg }}
@@ -421,7 +422,7 @@
                   margin-left: 0px;
                 "
               >
-                <div>{{ element.iprice }}</div>
+                <div>{{ formatNumberWithCommas(element.iprice) }}</div>
                 <div style="height: 20px">{{ element.iqty }}</div>
               </div>
             </mat-expansion-panel-header>
@@ -452,7 +453,7 @@
                     *ngIf="i < element.details.length - 1"
                     style="border: 1px solid black"
                   />
-                  <div>{{ detail.iprice }}</div>
+                  <div>{{ formatNumberWithCommas(detail.iprice) }}</div>
                   <div>{{ detail.iqty }}</div>
                   <!-- Horizontal line between rows -->
                   <hr
@@ -525,7 +526,7 @@
                   margin-left: 0px;
                 "
               >
-                <div>{{ element.ival }}</div>
+                <div>{{ formatNumberWithCommas(element.ival) }}</div>
                 <div style="font-size: small; color: gray; height: 20px">
                   {{ element.idate }}
                 </div>
@@ -558,7 +559,7 @@
                     *ngIf="i < element.details.length - 1"
                     style="border: 1px solid black"
                   />
-                  <div>{{ detail.ival }}</div>
+                  <div>{{ formatNumberWithCommas(detail.ival) }}</div>
                   <div style="font-size: small; color: gray">
                     {{ detail.idate }}
                   </div>
@@ -576,7 +577,7 @@
       </td>
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ getTotal("ival") }}
+        {{ formatNumberWithCommas(getTotal("ival")) }}
       </td>
     </ng-container>
 
@@ -691,7 +692,7 @@
       </td>
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ getTotal("dgain") }}
+        {{ formatNumberWithCommas(getTotal("dgain")) }}
       </td>
     </ng-container>
 
@@ -755,9 +756,9 @@
                   margin-left: 0px;
                 "
               >
-                <div>{{ element.unrgain }}</div>
+                <div>{{ formatNumberWithCommas(element.unrgain) }}</div>
                 <div style="font-size: small; color: gray; height: 20px">
-                  {{ element.unrgainp }}%
+                  {{ formatNumberWithCommas(element.unrgainp) }}%
                 </div>
               </div>
             </mat-expansion-panel-header>
@@ -790,7 +791,7 @@
                     *ngIf="i < element.details.length - 1"
                     style="border: 1px solid black"
                   />
-                  <div>{{ detail.unrgain }}</div>
+                  <div>{{ formatNumberWithCommas(detail.unrgain) }}</div>
                   <div style="font-size: small; color: gray">
                     {{ detail.unrgainp }}%
                   </div>
@@ -810,7 +811,7 @@
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <div>
-          {{ getTotal("unrgain") }}
+          {{ formatNumberWithCommas(getTotal("unrgain")) }}
         </div>
       </td>
     </ng-container>
@@ -836,7 +837,7 @@
             <mat-expansion-panel-header>
               <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
               <mat-panel-description>
-                {{ element.lval }}
+                {{ formatNumberWithCommas(element.lval) }}
               </mat-panel-description>
             </mat-expansion-panel-header>
 
@@ -848,7 +849,7 @@
       </td>
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ getTotal("lval") }}
+        {{ formatNumberWithCommas(getTotal("lval")) }}
       </td>
     </ng-container>
 
@@ -990,7 +991,10 @@
         Technical
       </th>
       <td
-        [ngStyle]="{ color: element.dotsum.tech_clr }"
+        [ngStyle]="{
+          color: element.dotsum.tech_clr,
+          'background-color': getBgColor(element.dotsum.tech_clr)
+        }"
         mat-cell
         *matCellDef="let element"
       >
@@ -1072,12 +1076,14 @@
                   >
                     <div *ngIf="element.dotsum.f_dir == 1">
                       <img
+                        class="arrow-img"
                         src="https://i.marketsmojo.com/w_ar_up.png"
                         alt="up"
                       />
                     </div>
                     <div *ngIf="element.dotsum.f_dir == -1">
                       <img
+                        class="arrow-img"
                         src="https://i.marketsmojo.com/w_ar_dwn.png"
                         alt=""
                       />
@@ -1108,11 +1114,7 @@
       >
         Things you should Know
       </th>
-      <td
-        [ngStyle]="{ color: element.dotsum.tech_clr }"
-        mat-cell
-        *matCellDef="let element"
-      >
+      <td mat-cell *matCellDef="let element">
         <!--  -->
         <mat-accordion>
           <mat-expansion-panel
@@ -1123,8 +1125,34 @@
             <mat-expansion-panel-header>
               <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
               <mat-panel-description>
-                <!-- {{ element.action!.list[0]!.header! }} -->
-                hello
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    place-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <div
+                    [ngStyle]="{
+                      'background-color':
+                        element.action?.list[0]?.dir === 1 ? 'green' : 'red'
+                    }"
+                    style="padding: 0% 4%; border-radius: 5px; color: white"
+                  >
+                    {{ element.action?.list[0]?.header }}
+                  </div>
+
+                  <div>
+                    {{ element.action?.list[0]?.msg }}
+                  </div>
+                </div>
+
+                <div *ngIf="element.action?.list[0]?.header == undefined">
+                  <b>
+                    <strong> - </strong>
+                  </b>
+                </div>
               </mat-panel-description>
             </mat-expansion-panel-header>
 
@@ -1180,7 +1208,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.cvol }}</div>
+                  <div>{{ formatNumberWithCommas(element.cvol) }}</div>
                   <div
                     [ngStyle]="{
                       color: getColor(element.cvolp),
@@ -1218,18 +1246,6 @@
             >
           </span>
         </div>
-        <!-- <div>
-                  <span
-                    (click)="sortBy('cvolp')"
-                    [ngClass]="{ active: isSortActive('cvolp') }"
-                    style="font-size: small; color: gray"
-                  >
-                    Changes(in%)
-                    <mat-icon [ngClass]="getSortIconClass('cvolp')"
-                      >arrow_downward</mat-icon
-                    >
-                  </span>
-                </div> -->
       </th>
 
       <td mat-cell *matCellDef="let element">
@@ -1243,9 +1259,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.dh }}</div>
-                  <!-- <div
-                          >{{ element.cvolp }}</div> -->
+                  <div>{{ formatNumberWithCommas(element.dh) }}</div>
                 </div>
               </mat-panel-description>
             </mat-expansion-panel-header>
@@ -1275,18 +1289,6 @@
             >
           </span>
         </div>
-        <!-- <div>
-                  <span
-                    (click)="sortBy('cvolp')"
-                    [ngClass]="{ active: isSortActive('cvolp') }"
-                    style="font-size: small; color: gray"
-                  >
-                    Changes(in%)
-                    <mat-icon [ngClass]="getSortIconClass('cvolp')"
-                      >arrow_downward</mat-icon
-                    >
-                  </span>
-                </div> -->
       </th>
 
       <td mat-cell *matCellDef="let element">
@@ -1300,9 +1302,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.dl }}</div>
-                  <!-- <div
-                          >{{ element.cvolp }}</div> -->
+                  <div>{{ formatNumberWithCommas(element.dl) }}</div>
                 </div>
               </mat-panel-description>
             </mat-expansion-panel-header>
@@ -1357,7 +1357,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.wk52h }}</div>
+                  <div>{{ formatNumberWithCommas(element.wk52h) }}</div>
                   <div style="color: gray">{{ element.wk52hdt }}</div>
                 </div>
               </mat-panel-description>
@@ -1413,7 +1413,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.wk52l }}</div>
+                  <div>{{ formatNumberWithCommas(element.wk52l) }}</div>
                   <div style="color: gray">{{ element.wk52ldt }}</div>
                 </div>
               </mat-panel-description>
@@ -1469,7 +1469,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.ath }}</div>
+                  <div>{{ formatNumberWithCommas(element.ath) }}</div>
                   <div style="color: gray">{{ element.athdt }}</div>
                 </div>
               </mat-panel-description>
@@ -1525,7 +1525,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.atl }}</div>
+                  <div>{{ formatNumberWithCommas(element.atl) }}</div>
                   <div style="color: gray">{{ element.atldt }}</div>
                 </div>
               </mat-panel-description>
@@ -1582,7 +1582,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.mcap }}</div>
+                  <div>{{ element.mcap | number : "1.2-2" }}</div>
                   <div style="color: gray">{{ element.mcapcls }}</div>
                 </div>
               </mat-panel-description>
@@ -1640,7 +1640,7 @@
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
         <div>
-          {{ getTotal("unrgaincontri") }}
+          {{ getTotal("unrgaincontri") | number : "1.2-2" }}
         </div>
       </td>
     </ng-container>
@@ -1686,7 +1686,7 @@
       <td class="footer-cell" mat-footer-cell *matFooterCellDef>
         <!-- hello -->
         <div *ngIf="TYPE !== 'MOJO'">
-          {{ getTotal("pwt") }}
+          {{ getTotal("pwt") | number : "1.2-2" }}
         </div>
       </td>
     </ng-container>
@@ -1719,7 +1719,7 @@
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <div>
-                  <div>{{ element.div }}</div>
+                  <div>{{ formatNumberWithCommas(element.div) }}</div>
                 </div>
               </mat-panel-description>
             </mat-expansion-panel-header>
@@ -1795,7 +1795,7 @@
                   margin-left: 0px;
                 "
               >
-                <div>{{ element.tret }}</div>
+                <div>{{ formatNumberWithCommas(element.tret) }}</div>
                 <div style="font-size: small; color: gray; height: 20px">
                   {{ element.tretp }}%
                 </div>
@@ -1813,7 +1813,7 @@
         <!-- {{ footerData.short }} -->
         <!-- hello -->
         <div>
-          {{ getTotal("tretp") }}
+          {{ formatNumberWithCommas(getTotal("tretp")) }}
         </div>
       </td>
     </ng-container>
@@ -1831,8 +1831,9 @@
       </th>
       <td
         [ngStyle]="{
-           color: element.dotsum.q_clr,
-         }"
+          color: element.dotsum.q_clr,
+          'background-color': getBgColor(element.dotsum.q_clr)
+        }"
         mat-cell
         *matCellDef="let element"
       >
@@ -1873,8 +1874,9 @@
       </th>
       <td
         [ngStyle]="{
-             color: element.dotsum.v_clr,
-           }"
+          color: element.dotsum.v_clr,
+          'background-color': getBgColor(element.dotsum.v_clr)
+        }"
         mat-cell
         *matCellDef="let element"
       >

@@ -107,7 +107,6 @@ export class TablesComponent implements OnInit, AfterViewInit {
   ];
 
   private fetchStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK') {
-
     if (this.dataCache[type]) {
       // console.log('the data cache is : ', this.dataCache[type]);
       this.updateStocks(type);
@@ -115,7 +114,6 @@ export class TablesComponent implements OnInit, AfterViewInit {
     }
 
     this.serv.getOverviewStocks(type).subscribe({
-
       next: (response) => {
         let elements;
         if (type === 'RISK') {
@@ -131,7 +129,6 @@ export class TablesComponent implements OnInit, AfterViewInit {
       error: (err) => {
         console.error('Failed to load data', err);
       },
-
     });
   }
 
@@ -257,8 +254,6 @@ export class TablesComponent implements OnInit, AfterViewInit {
     // | 'RESULT'
     // | 'TOTAL RETURNS'
   ): void {
-    // this.activeItem = type;
-
     this.TYPE = type;
     this.getColums(type);
 
@@ -277,14 +272,6 @@ export class TablesComponent implements OnInit, AfterViewInit {
       this.updateStocks(type);
     }
   }
-
-  // announceSortChange(sortState: Sort) {
-  //   if (sortState.direction) {
-  //     this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-  //   } else {
-  //     this._liveAnnouncer.announce('Sorting cleared');
-  //   }
-  // }
 
   private sortData(sortState: Sort) {
     const data = this.dataSource2.data.slice();
@@ -355,15 +342,29 @@ export class TablesComponent implements OnInit, AfterViewInit {
     return isNaN(value) || value < 0 ? 'red' : 'green';
   }
 
-  getBgColor(listedgl: string): string {
-    const value = parseFloat(listedgl);
+  getBgColor(str: string): string {
+    // Check for specific string values
+    if (str === 'green' || str === 'Green') {
+      return '#ccffcc';
+    } else if (str === 'red' || str === 'Red') {
+      return '#ffcccc';
+    } else if (str === 'orange' || str === 'Orange') {
+      return '#ffcc99';
+    }
+
+    // Attempt to parse the string as a number
+    const value = parseFloat(str);
+
     if (isNaN(value)) {
-      return '#e0e0e0'; // Fallback background color if value is not a number
+      return '#e0e0e0';
     }
+
     if (value === 0) {
-      return ''; // Neutral background color for 0
+      return '#ffffff';
     }
-    return value < 0 ? '#ffcccc' : '#ccffcc'; // Colors for negative and positive values
+
+    // Colors for negative and positive values
+    return value < 0 ? '#ffcccc' : '#ccffcc';
   }
 
   // mat-expansion-panel (expand element state)
@@ -379,7 +380,6 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   // score containts
-
   // Method to extract color name from the input string
   extractColor(input: string): string {
     let value;
@@ -398,16 +398,14 @@ export class TablesComponent implements OnInit, AfterViewInit {
 
   // toggle popup
   showPopup = false;
-
   togglePopup(): void {
     this.showPopup = !this.showPopup;
   }
-
   closePopup(): void {
     this.showPopup = false;
   }
 
-  // trial
+  // get total of the coloums
   getTotal(propertyPath: string): number {
     let total = 0;
 
@@ -424,10 +422,15 @@ export class TablesComponent implements OnInit, AfterViewInit {
     return total;
   }
 
-  getFooter() {
-    console.log(this.dataSource2.data);
-    // hello = this.dataSource2.
+  // Method to format number with commas
+  formatNumberWithCommas(value: string | number): string {
+    const numericValue = typeof value === 'string' ? parseFloat(value) : value;
+    if (isNaN(numericValue)) {
+      return '';
+    }
+    return new Intl.NumberFormat('en-US').format(numericValue);
   }
+
 }
 
 // Utility function to compare numbers

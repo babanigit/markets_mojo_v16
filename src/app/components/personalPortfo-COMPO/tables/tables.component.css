@@ -1,4 +1,3 @@
-
 /* Ensure that the span containing text and icons is a flex container */
 th span {
   display: flex;
@@ -17,12 +16,12 @@ td {
   padding: 0%;
 }
 
-
 /* Base style for the arrow */
 .mat-icon {
   font-size: 16px; /* Decrease size of the arrow */
   font-size: 16px; /* Decrease size of the arrow */
-  font-weight: bold; /* Increase thickness of the arrow */  opacity: 0; /* Initially hidden */
+  font-weight: bold; /* Increase thickness of the arrow */
+  opacity: 0; /* Initially hidden */
   transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
@@ -58,7 +57,6 @@ span.active .mat-icon {
   background-color: whitesmoke;
 }
 
-
 /* prompt3 */
 
 /* Remove the default shadow */
@@ -80,9 +78,6 @@ span.active .mat-icon {
 .mat-expansion-panel {
   box-shadow: none !important;
 }
-
-
-
 
 /*  helloooo this is new css here */
 .mat-elevation-z8 {
@@ -118,7 +113,9 @@ span.active .mat-icon {
   justify-content: space-between;
 }
 
-.price-small-text, .quality-small-text, .date-small-text {
+.price-small-text,
+.quality-small-text,
+.date-small-text {
   font-size: 12px;
   color: gray;
 }
@@ -210,40 +207,30 @@ span.active .mat-icon {
 
 .circle {
   margin: 3px;
-  width: 40px;          /* Width of the circle */
-  height: 40px;         /* Height of the circle (should be the same as width) */
+  width: 40px; /* Width of the circle */
+  height: 40px; /* Height of the circle (should be the same as width) */
   background-color: #3498db; /* Fallback color */
-  border-radius: 50%;   /* Makes the div a circle */
+  border-radius: 50%; /* Makes the div a circle */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;   /* Needed for positioning the arrows */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
   color: white;
   font-size: 20px;
   font-family: Arial, sans-serif;
   text-align: center;
 }
 
-.arrow, .down {
-  width: 0;
-  height: 0;
-  position: absolute;  /* Position within the circle */
-  left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
+.arrow-img {
+  width: 20px; /* Adjust the size of the image as needed */
+  height: 20px; /* Adjust the size of the image as needed */
+  display: block; /* Removes any inline spacing issues */
 }
 
-.arrow {
-  border-left: 10px solid transparent;  /* Width of the arrow sides */
-  border-right: 10px solid transparent; /* Width of the arrow sides */
-  border-bottom: 15px solid white;      /* Color and size of the up arrow */
-  top: 20%;            /* Adjust vertical positioning */
-}
 
 .down {
-  border-left: 10px solid transparent;  /* Width of the arrow sides */
+  border-left: 10px solid transparent; /* Width of the arrow sides */
   border-right: 10px solid transparent; /* Width of the arrow sides */
-  border-top: 15px solid white;         /* Color and size of the down arrow */
-  top: 50%;            /* Center vertically */
+  border-top: 15px solid white; /* Color and size of the down arrow */
+  top: 50%; /* Center vertically */
   transform: translateX(-50%) translateY(-50%); /* Center both horizontally and vertically */
 }
-
