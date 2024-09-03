@@ -26,6 +26,8 @@
 <!-- table -->
 <div style="background-color: white" class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource2" matSort>
+
+
     <!-- holding  -->
     <!-- short Company Column -->
     <ng-container matColumnDef="short">
@@ -38,6 +40,7 @@
         Company
       </th>
       <td mat-cell *matCellDef="let element">
+        <!-- images -->
         <span
           *ngIf="
             element.details! &&
@@ -161,7 +164,7 @@
                     </p>
                   </div>
 
-                  <!-- overlay div 2 -->
+                  <!-- Overlay div 2 -->
                   <div
                     *ngIf="element.more_button.show"
                     style="
@@ -1904,6 +1907,254 @@
     </ng-container>
 
     <!-- risk -->
+    <!-- Y1  -->
+    <ng-container matColumnDef="Y1">
+      <th
+        style="background-color: gainsboro"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        1 Year Return
+      </th>
+      <td
+        [ngStyle]="{
+          color: getColor(element.Y1?.dir),
+          'background-color': getBgColor(element.Y1?.dir)
+        }"
+        mat-cell
+        *matCellDef="let element"
+      >
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                {{ element.Y1?.val }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <p>This is the primary content of the panel.</p> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- volatility  -->
+    <ng-container matColumnDef="volatility">
+      <th
+        style="background-color: gainsboro"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        volatility
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                {{ element.volatility }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <p>This is the primary content of the panel.</p> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- riskadj  -->
+    <ng-container matColumnDef="riskadj">
+      <th
+        style="background-color: gainsboro"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        Risk Adj Returns
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                {{ element.riskadj }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <p>This is the primary content of the panel.</p> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- beta  -->
+    <ng-container matColumnDef="beta">
+      <th
+        style="background-color: gainsboro"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        Beta (Adjusted)
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                {{ element.beta }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <p>This is the primary content of the panel.</p> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- riskval  -->
+    <ng-container matColumnDef="riskval">
+      <th
+        style="background-color: gainsboro"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        Value At Risk
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                {{ element.riskval }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <p>This is the primary content of the panel.</p> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- liquidity -->
+      <!-- qty  -->
+    <ng-container matColumnDef="qty">
+      <th
+        style="background-color: gainsboro"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        Quantity
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                {{ element.qty }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <p>This is the primary content of the panel.</p> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+          <!-- d5avgvol  -->
+          <ng-container matColumnDef="d5avgvol">
+            <th
+              style="background-color: gainsboro"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+            Vol 20d Avg
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <!--  -->
+              <mat-accordion>
+                <mat-expansion-panel
+                  [expanded]="expandedElement === element"
+                  #shortPanel
+                  hideToggle
+                >
+                  <mat-expansion-panel-header>
+                    <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+                    <mat-panel-description>
+                      {{ element.d5avgvol }}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <!-- <p>This is the primary content of the panel.</p> -->
+                </mat-expansion-panel>
+              </mat-accordion>
+              <!--  -->
+            </td>
+
+            <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+
+
 
     <!-- Header, footer and Row Definitions -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

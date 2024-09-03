@@ -39,7 +39,8 @@ import { PopupComponent } from '../../others/popup/popup.component';
     PopupComponent,
   ],
 })
-export class TablesComponent implements OnInit, AfterViewInit {
+// , AfterViewInit
+export class TablesComponent implements OnInit {
   // private _liveAnnouncer = inject(LiveAnnouncer);
   private serv = inject(GetPersonalPFService);
 
@@ -106,7 +107,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
     'TOTAL RETURNS',
   ];
 
-  private fetchStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK') {
+  private fetchStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK'| 'LIQUIDITY') {
     if (this.dataCache[type]) {
       // console.log('the data cache is : ', this.dataCache[type]);
       this.updateStocks(type);
@@ -115,6 +116,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
 
     this.serv.getOverviewStocks(type).subscribe({
       next: (response) => {
+
         let elements;
         if (type === 'RISK') {
           elements = Object.values(response.data);
@@ -140,6 +142,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
       | 'CONTRIBUTION'
       | 'DIVIDEND'
       | 'RISK'
+      | 'LIQUIDITY'
   ): void {
     this.dataSource2.data = this.dataCache[type] || [];
     // console.log('Updated data:', this.dataSource2);
@@ -154,6 +157,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
       | 'DIVIDEND'
       | 'MOJO'
       | 'RISK'
+      | 'LIQUIDITY'
   ): void {
     switch (type) {
       case 'OVERVIEW':
@@ -232,7 +236,29 @@ export class TablesComponent implements OnInit, AfterViewInit {
         ];
         break;
       case 'RISK':
-        this.displayedColumns = ['short', 'score', 'cmp', 'mcap'];
+        this.displayedColumns = [
+          'short',
+          'score',
+          'cmp',
+          'mcap',
+          'Y1',
+          'volatility',
+          'riskadj',
+          'beta',
+          'riskval'
+        ];
+        break;
+        case 'LIQUIDITY':
+          this.displayedColumns = [
+            'short',
+            'score',
+            'cmp',
+            // 'q_txt',
+            'qty',
+            'd5avgvol',
+
+
+          ];
         break;
     }
   }
@@ -246,7 +272,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
       | 'DIVIDEND'
       | 'MOJO'
       | 'RISK'
-    // | 'LIQUIDITY'
+    | 'LIQUIDITY'
     // | 'TAX'
     // | 'RATIOS'
     // | 'FINANCIALS'
@@ -274,7 +300,12 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   private sortData(sortState: Sort) {
+    console.log('sortData called ...', sortState);
+
+    // Create a copy of the data to sort
     const data = this.dataSource2.data.slice();
+
+    // If no sorting is active or the direction is empty, return the unsorted data
     if (!sortState.active || sortState.direction === '') {
       this.dataSource2.data = data;
       return;
@@ -282,22 +313,52 @@ export class TablesComponent implements OnInit, AfterViewInit {
 
     const isAsc = sortState.direction === 'asc';
 
+    // Sort the data based on the dynamic property
     this.dataSource2.data = data.sort((a, b) => {
-      let valueA: number;
-      let valueB: number;
+      let valueA: number | string;
+      let valueB: number | string;
 
+      // for dotsum elements
       valueA = +a.dotsum[sortState.active] || 0;
       valueB = +b.dotsum[sortState.active] || 0;
 
-      console.log(
-        `Comparing ${valueA} with ${valueB} for column ${sortState.active}`
-      );
-      return compare(valueA, valueB, isAsc);
+      // Split the property path (e.g., 'Y1.val')
+      const [propertyPath] = sortState.active.split('.');
+
+      // if value is Y1
+      if (sortState.active === 'Y1') {
+        valueA = a[propertyPath]?.val;
+        valueB = b[propertyPath]?.val;
+      }
+
+      // Convert to numbers if possible, else keep as strings
+      const numA = isNaN(+valueA) ? valueA : +valueA;
+      const numB = isNaN(+valueB) ? valueB : +valueB;
+
+      return this.compare(numA, numB, isAsc);
     });
+  }
+
+  // Utility method to compare values
+  private compare(
+    valueA: number | string,
+    valueB: number | string,
+    isAsc: boolean
+  ): number {
+    if (typeof valueA === 'string' && typeof valueB === 'string') {
+      return isAsc
+        ? valueA.localeCompare(valueB)
+        : valueB.localeCompare(valueA);
+    }
+    // For numbers or mixed comparisons
+    return isAsc
+      ? (valueA as number) - (valueB as number)
+      : (valueB as number) - (valueA as number);
   }
 
   // specially for latest price cause it has two data inside and angular material dot suppport this.
   sortBy(property: string) {
+    console.log('sortBy clicked :- ', property);
     const sortState: Sort = {
       active: property,
       direction: this.sort.direction === 'asc' ? 'desc' : 'asc',
@@ -315,8 +376,6 @@ export class TablesComponent implements OnInit, AfterViewInit {
       }
       return 0;
     });
-
-    // this.announceSortChange(sortState);
   }
 
   isSortActive(column: string): boolean {
@@ -430,10 +489,4 @@ export class TablesComponent implements OnInit, AfterViewInit {
     }
     return new Intl.NumberFormat('en-US').format(numericValue);
   }
-
-}
-
-// Utility function to compare numbers
-function compare(a: number, b: number, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

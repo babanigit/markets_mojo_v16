@@ -11,7 +11,8 @@ export class GetPersonalPFService {
   private readonly paths = {
     OVERVIEW: 'assets/pp/getOverview.json',
     HOLDING: 'assets/pp/getHolding.json',
-    RISK: 'assets/pp/getRisk.json'
+    RISK: 'assets/pp/getRisk.json',
+    LIQUIDITY: 'assets/pp/getLiquidity.json'
 
   };
 
@@ -19,7 +20,7 @@ export class GetPersonalPFService {
     private http: HttpClient
   ) { }
 
-  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING'|'RISK') {
+  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING'|'RISK'| 'LIQUIDITY') {
 
     const path = this.paths[type] || this.paths.HOLDING; // default is holding
 
