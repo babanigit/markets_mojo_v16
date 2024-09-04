@@ -39,50 +39,152 @@ import { PopupComponent } from '../../others/popup/popup.component';
     PopupComponent,
   ],
 })
+
 // , AfterViewInit
 export class TablesComponent implements OnInit {
 
   solo = [
+
+    // tax
     {
       title: 'Price to Book (P/BV)',
       code: 'pbv',
+      hold: '',
+      defaultValue: 'NA',
+      footer: false,
     },
     {
       title: 'Return on Equity (ROE)',
       code: 'roe',
+      hold: '',
+      defaultValue: 'NA',
+      footer: false,
     },
     {
       title: 'Debt to Equity Ratio',
       code: 'debeq',
+      hold: '',
+      defaultValue: 'NA',
+      footer: false,
     },
 
-    // holding
-    // {
-    //   title: 'Latest Value',
-    //   code: 'lval',
-    // },
+    // risk
+    {
+      title: 'volatility',
+      code: 'volatility',
+      hold: '%',
+      defaultValue: 'NA',
+      footer: false,
+    },
+
+    {
+      title: ' Risk Adj Returns',
+      code: 'riskadj',
+      hold: '',
+      defaultValue: '0.00',
+      footer: false,
+    },
+
+    {
+      title: 'Beta (Adjusted)',
+      code: 'beta',
+      hold: '',
+      defaultValue: 'NA',
+      footer: false,
+    },
+
+    {
+      title: 'Value At Risk',
+      code: 'riskval',
+      hold: '',
+      defaultValue: 'NA',
+      footer: false,
+    },
 
     // price
     {
       title: "Day's High",
       code: 'dh',
+      hold: '',
+      defaultValue: 'NA',
+      footer: true,
     },
     {
       title: "Day's Low",
       code: 'dl',
+      hold: '',
+      defaultValue: 'NA',
+      footer: true,
     },
 
-// contribution
+    // contribution
     {
-      title: "Unrealized Gain Contribution",
+      title: 'Unrealized Gain Contribution',
       code: 'unrgaincontri',
-      per:true
+      hold: '%',
+      defaultValue: 'NA',
+      footer: true,
     },
     {
-      title: "Portfolio Weight",
+      title: 'Portfolio Weight',
       code: 'pwt',
-      per:true
+      hold: '%',
+      defaultValue: 'NA',
+      footer: false,
     },
+
+    //dividend
+    {
+      title: 'Dividend Received',
+      code: 'div',
+      hold: '',
+      defaultValue: 'NA',
+      footer: false,
+    },
+
+    // tax
+    // {
+    //   title: '31 Jan 2018',
+    //   code: 'jan31price',
+    //   hold: '',
+    //   defaultValue: '0.00',
+    //   footer: false,
+    // },
+    // {
+    //   title: ' Avg Holding (Yrs)',
+    //   code: 'avghold',
+    //   hold: '',
+    //   defaultValue: '0.00',
+    //   footer: true,
+    // },
+    // {
+    //   title: ' ST Tax (If Sold)',
+    //   code: 'sttax',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   footer: true,
+    // },
+    // {
+    //   title: 'Days left for ST Tax',
+    //   code: 'dayleft',
+    //   hold: '',
+    //   defaultValue: 'NA',
+    //   footer: false,
+    // },
+    // {
+    //   title: ' LT Tax (If Sold)',
+    //   code: 'lttax',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   footer: true,
+    // },
+    // {
+    //   title: ' Post Tax Value',
+    //   code: 'ptv',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   footer: true,
+    // },
   ];
 
   trail = 'pbv';

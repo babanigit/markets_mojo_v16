@@ -101,80 +101,87 @@
       </td>
     </ng-container>
 
-       <!-- lval latest value -->
-       <ng-container matColumnDef="lval">
-        <th
-          style="background-color: gainsboro"
-          mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-        >
-          Latest Value
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <!--  -->
-          <mat-accordion>
-            <mat-expansion-panel
+    <!-- lval latest value -->
+    <ng-container matColumnDef="lval">
+      <th
+        style="background-color: gainsboro"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        Latest Value
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
-            >
-              <mat-expansion-panel-header>
-                <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-                <mat-panel-description>
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                <div>
                   {{ formatNumberWithCommas(element.lval) }}
-                </mat-panel-description>
-              </mat-expansion-panel-header>
+                </div>
+                <div></div>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
 
-              <!-- Details section that will be shown when the panel is expanded -->
+            <!-- Details section that will be shown when the panel is expanded -->
+            <div
+              [hidden]="
+                TYPE === 'CONTRIBUTION' ||
+                TYPE === 'DIVIDEND' ||
+                TYPE === 'MOJO'
+              "
+              *ngIf="element.details && element.details.length > 0"
+              style="width: 100%; padding-right: 10px; text-align: center"
+            >
               <div
-                *ngIf="element.details && element.details.length > 0"
-                style="width: 100%; padding-right: 10px; text-align: center"
+                *ngFor="let detail of element.details; let i = index"
+                style="
+                  margin-bottom: 10px;
+                  padding-right: 10px;
+                  margin-top: 6px;
+                "
               >
                 <div
-                  *ngFor="let detail of element.details; let i = index"
                   style="
-                    margin-bottom: 10px;
-                    padding-right: 10px;
-                    margin-top: 6px;
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 0px;
+                    text-align: left;
                   "
                 >
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      margin-top: 0px;
-                      text-align: left;
-                    "
-                  >
-                    <!-- Horizontal line between rows -->
-                    <hr
-                      *ngIf="i < element.details.length - 1"
-                      style="border: 1px solid black"
-                    />
-                    <div>
-                      {{ formatNumberWithCommas(detail.lval) || "NA" }}
-                    </div>
-                    <!-- <div>{{ detail.iqty }}</div> -->
-                    <!-- Horizontal line between rows -->
-                    <hr
-                      *ngIf="i < element.details.length - 1"
-                      style="border: 1px solid black"
-                    />
+                  <!-- Horizontal line between rows -->
+                  <hr
+                    *ngIf="i < element.details.length - 1"
+                    style="border: 1px solid black"
+                  />
+                  <div>
+                    {{ formatNumberWithCommas(detail.lval) || "NA" }}
                   </div>
+                  <div></div>
+                  <!-- Horizontal line between rows -->
+                  <hr
+                    *ngIf="i < element.details.length - 1"
+                    style="border: 1px solid black"
+                  />
                 </div>
               </div>
-              <!-- Details section that will be shown when the panel is expanded end... -->
-            </mat-expansion-panel>
-          </mat-accordion>
-          <!--  -->
-        </td>
+            </div>
+            <!-- Details section that will be shown when the panel is expanded end... -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
 
-        <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-          {{ formatNumberWithCommas(getTotal("lval")) }}
-        </td>
-      </ng-container>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ formatNumberWithCommas(getTotal("lval")) }}
+      </td>
+    </ng-container>
 
     <!-- score -->
     <ng-container matColumnDef="score">
@@ -493,8 +500,7 @@
         <div>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
             style="width: 100%; padding: 0%"
           >
@@ -597,8 +603,7 @@
         <div>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
             style="width: 100%; padding: 0%"
           >
@@ -712,8 +717,7 @@
         <div>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
             style="width: 100%; padding: 0%"
           >
@@ -826,9 +830,8 @@
       >
         <div>
           <mat-expansion-panel
-            [expanded]="expandedElement === element "
-            (opened)="expandedElement = element  "
-            (closed)="expandedElement = null"
+            [expanded]="expandedElement === element"
+            #shortPanel
             hideToggle
             style="width: 100%; padding: 0%"
           >
@@ -853,8 +856,7 @@
             <!-- Details section that will be shown when the panel is expanded -->
 
             <div
-            [hidden]=" TYPE === 'CONTRIBUTION' || TYPE === 'DIVIDEND' "
-
+              [hidden]="TYPE === 'CONTRIBUTION' || TYPE === 'DIVIDEND'"
               *ngIf="element.details && element.details.length > 0"
               style="width: 100%; padding-right: 10px; text-align: center"
             >
@@ -1565,48 +1567,7 @@
     </ng-container>
 
     <!-- dividend -->
-    <!-- div Dividend  -->
-    <ng-container matColumnDef="div">
-      <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
-        <div>
-          <span
-            (click)="sortBy('div')"
-            [ngClass]="{ active: isSortActive('div') }"
-          >
-            Dividend Received
-            <mat-icon [ngClass]="getSortIconClass('div')"
-              >arrow_downward</mat-icon
-            >
-          </span>
-        </div>
-      </th>
 
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <mat-panel-description>
-                <div>
-                  <div>{{ formatNumberWithCommas(element.div) }}</div>
-                </div>
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- Details section that will be shown when the panel is expanded -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        <!-- hello -->
-      </td>
-    </ng-container>
 
     <!-- tret, tretp Day's Gain  -->
     <ng-container matColumnDef="tret">
@@ -1652,8 +1613,7 @@
         <div>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
             style="width: 100%; padding: 0%"
           >
@@ -1818,141 +1778,6 @@
       <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
-    <!-- volatility  -->
-    <ng-container matColumnDef="volatility">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        volatility
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ element.volatility }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- <p>This is the primary content of the panel.</p> -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
-
-    <!-- riskadj  -->
-    <ng-container matColumnDef="riskadj">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Risk Adj Returns
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ element.riskadj }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- <p>This is the primary content of the panel.</p> -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
-
-    <!-- beta  -->
-    <ng-container matColumnDef="beta">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Beta (Adjusted)
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ element.beta }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- <p>This is the primary content of the panel.</p> -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
-
-    <!-- riskval  -->
-    <ng-container matColumnDef="riskval">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Value At Risk
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ formatNumberWithCommas(element.riskval) || "NA" }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- <p>This is the primary content of the panel.</p> -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
 
     <!-- liquidity -->
     <!-- qty  -->
@@ -2212,8 +2037,7 @@
         <mat-accordion>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
           >
             <mat-expansion-panel-header>
@@ -2287,8 +2111,7 @@
         <mat-accordion>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
           >
             <mat-expansion-panel-header>
@@ -2362,8 +2185,7 @@
         <mat-accordion>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
           >
             <mat-expansion-panel-header>
@@ -2437,8 +2259,7 @@
         <mat-accordion>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
           >
             <mat-expansion-panel-header>
@@ -2512,8 +2333,7 @@
         <mat-accordion>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
           >
             <mat-expansion-panel-header>
@@ -2587,8 +2407,7 @@
         <mat-accordion>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
           >
             <mat-expansion-panel-header>
@@ -2663,8 +2482,7 @@
         <mat-accordion>
           <mat-expansion-panel
             [expanded]="expandedElement === element"
-            (opened)="expandedElement = element"
-            (closed)="expandedElement = null"
+            #shortPanel
             hideToggle
           >
             <mat-expansion-panel-header>
@@ -2768,8 +2586,7 @@
           <mat-accordion>
             <mat-expansion-panel
               [expanded]="expandedElement === element"
-              (opened)="expandedElement = element"
-              (closed)="expandedElement = null"
+              #shortPanel
               hideToggle
             >
               <mat-expansion-panel-header>
@@ -2778,7 +2595,7 @@
                   <span>
                     {{ formatNumberWithCommas(element[item.code]) || "0.00" }}
                   </span>
-                  <span *ngIf="item.per! == true">%</span>
+                  <span>{{ item.hold }}</span>
                 </mat-panel-description>
               </mat-expansion-panel-header>
 
@@ -2789,10 +2606,14 @@
         </td>
 
         <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-          <span>
-            {{ formatNumberWithCommas(getTotal(item.code)) }}
-          </span>
-          <span *ngIf="item.per! == true">%</span>
+          <div *ngIf="item.footer">
+            <b>
+              <span>
+                {{ formatNumberWithCommas(getTotal(item.code)) }}
+              </span>
+              <span>{{ item.hold }}</span>
+            </b>
+          </div>
         </td>
       </ng-container>
     </div>
