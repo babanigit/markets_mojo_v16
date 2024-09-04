@@ -4,30 +4,27 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GetPersonalPFService {
-
   private readonly paths = {
     OVERVIEW: 'assets/pp/getOverview.json',
     HOLDING: 'assets/pp/getHolding.json',
     RISK: 'assets/pp/getRisk.json',
-    LIQUIDITY: 'assets/pp/getLiquidity.json'
+    LIQUIDITY: 'assets/pp/getLiquidity.json',
+    TAX: 'assets/pp/getTax.json',
 
   };
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) {}
 
-  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING'|'RISK'| 'LIQUIDITY') {
+  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX') {
 
     const path = this.paths[type] || this.paths.HOLDING; // default is holding
 
-    console.log("the path in getOS : " , path);
+    console.log('the path in getOS : ', path);
 
     return this.http.get<any>(path).pipe(
-
       // delay(1200),
       catchError((err) => {
         console.error('Error fetching overview data', err);
@@ -35,5 +32,4 @@ export class GetPersonalPFService {
       })
     );
   }
-
 }

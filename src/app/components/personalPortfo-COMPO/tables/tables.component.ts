@@ -107,7 +107,9 @@ export class TablesComponent implements OnInit {
     'TOTAL RETURNS',
   ];
 
-  private fetchStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK'| 'LIQUIDITY') {
+  private fetchStocks(
+    type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX'
+  ) {
     if (this.dataCache[type]) {
       // console.log('the data cache is : ', this.dataCache[type]);
       this.updateStocks(type);
@@ -116,7 +118,6 @@ export class TablesComponent implements OnInit {
 
     this.serv.getOverviewStocks(type).subscribe({
       next: (response) => {
-
         let elements;
         if (type === 'RISK') {
           elements = Object.values(response.data);
@@ -143,6 +144,7 @@ export class TablesComponent implements OnInit {
       | 'DIVIDEND'
       | 'RISK'
       | 'LIQUIDITY'
+      | 'TAX'
   ): void {
     this.dataSource2.data = this.dataCache[type] || [];
     // console.log('Updated data:', this.dataSource2);
@@ -158,6 +160,7 @@ export class TablesComponent implements OnInit {
       | 'MOJO'
       | 'RISK'
       | 'LIQUIDITY'
+      | 'TAX'
   ): void {
     switch (type) {
       case 'OVERVIEW':
@@ -245,20 +248,36 @@ export class TablesComponent implements OnInit {
           'volatility',
           'riskadj',
           'beta',
-          'riskval'
+          'riskval',
         ];
         break;
-        case 'LIQUIDITY':
-          this.displayedColumns = [
-            'short',
-            'score',
-            'cmp',
-            // 'q_txt',
-            'qty',
-            'd5avgvol',
-
-
-          ];
+      case 'LIQUIDITY':
+        this.displayedColumns = [
+          'short',
+          'score',
+          'cmp',
+          // 'q_txt',
+          'qty',
+          'd5avgvol',
+          'd5delivol',
+          'risk',
+          'lval',
+        ];
+        break;
+      case 'TAX':
+        this.displayedColumns = [
+          'short',
+          'score',
+          'cmp',
+          'jan31price',
+          'qty',
+          'avghold',
+          'sttax',
+          'dayleft',
+          'lttax',
+          'lval',
+          'ptv',
+        ];
         break;
     }
   }
@@ -272,8 +291,8 @@ export class TablesComponent implements OnInit {
       | 'DIVIDEND'
       | 'MOJO'
       | 'RISK'
-    | 'LIQUIDITY'
-    // | 'TAX'
+      | 'LIQUIDITY'
+      | 'TAX'
     // | 'RATIOS'
     // | 'FINANCIALS'
     // | 'RETURN'
@@ -484,6 +503,11 @@ export class TablesComponent implements OnInit {
   // Method to format number with commas
   formatNumberWithCommas(value: string | number): string {
     const numericValue = typeof value === 'string' ? parseFloat(value) : value;
+
+    if (numericValue === -999999) {
+      return '-'
+    }
+
     if (isNaN(numericValue)) {
       return '';
     }
