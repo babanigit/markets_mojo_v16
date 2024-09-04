@@ -41,6 +41,52 @@ import { PopupComponent } from '../../others/popup/popup.component';
 })
 // , AfterViewInit
 export class TablesComponent implements OnInit {
+
+  solo = [
+    {
+      title: 'Price to Book (P/BV)',
+      code: 'pbv',
+    },
+    {
+      title: 'Return on Equity (ROE)',
+      code: 'roe',
+    },
+    {
+      title: 'Debt to Equity Ratio',
+      code: 'debeq',
+    },
+
+    // holding
+    // {
+    //   title: 'Latest Value',
+    //   code: 'lval',
+    // },
+
+    // price
+    {
+      title: "Day's High",
+      code: 'dh',
+    },
+    {
+      title: "Day's Low",
+      code: 'dl',
+    },
+
+// contribution
+    {
+      title: "Unrealized Gain Contribution",
+      code: 'unrgaincontri',
+      per:true
+    },
+    {
+      title: "Portfolio Weight",
+      code: 'pwt',
+      per:true
+    },
+  ];
+
+  trail = 'pbv';
+
   // private _liveAnnouncer = inject(LiveAnnouncer);
   private serv = inject(GetPersonalPFService);
 
@@ -286,14 +332,12 @@ export class TablesComponent implements OnInit {
           'short',
           'score',
           'cmp',
-          // 'jan31price',
-          // 'qty',
-          // 'avghold',
-          // 'sttax',
-          // 'dayleft',
-          // 'lttax',
-          // 'lval',
-          // 'ptv',
+          'mcap',
+          'divy',
+          'pe',
+          'roe',
+          'debeq',
+          'pbv',
         ];
         break;
     }

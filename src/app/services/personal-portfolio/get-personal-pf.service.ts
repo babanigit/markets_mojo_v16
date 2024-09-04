@@ -14,7 +14,7 @@ export class GetPersonalPFService {
     LIQUIDITY: 'assets/pp/getLiquidity.json',
     TAX: 'assets/pp/getTax.json',
     RATIOS: 'assets/pp/getRatio.json',
-    // FINANCIALS: 'assets/pp/getFinancials.json',
+    FINANCIALS: 'assets/pp/getFinancials.json',
     // RETURN: 'assets/pp/getReturn.json',
     // RESULT: 'assets/pp/getResult.json',
     // TOTALRETURNS: 'assets/pp/getTotalReturns.json',
@@ -23,7 +23,7 @@ export class GetPersonalPFService {
 
   constructor(private http: HttpClient) {}
 
-  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS') {
+  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS' | 'FINANCIALS') {
 
     const path = this.paths[type] || this.paths.HOLDING; // default is holding
 
