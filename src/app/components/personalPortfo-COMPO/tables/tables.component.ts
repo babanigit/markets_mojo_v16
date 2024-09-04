@@ -108,7 +108,7 @@ export class TablesComponent implements OnInit {
   ];
 
   private fetchStocks(
-    type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX'
+    type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS'
   ) {
     if (this.dataCache[type]) {
       // console.log('the data cache is : ', this.dataCache[type]);
@@ -119,7 +119,7 @@ export class TablesComponent implements OnInit {
     this.serv.getOverviewStocks(type).subscribe({
       next: (response) => {
         let elements;
-        if (type === 'RISK') {
+        if (type === 'RISK' || type === 'RATIOS') {
           elements = Object.values(response.data);
         } else {
           elements = Object.values(response.data.list);
@@ -145,6 +145,7 @@ export class TablesComponent implements OnInit {
       | 'RISK'
       | 'LIQUIDITY'
       | 'TAX'
+      | 'RATIOS'
   ): void {
     this.dataSource2.data = this.dataCache[type] || [];
     // console.log('Updated data:', this.dataSource2);
@@ -161,6 +162,7 @@ export class TablesComponent implements OnInit {
       | 'RISK'
       | 'LIQUIDITY'
       | 'TAX'
+      | 'RATIOS'
   ): void {
     switch (type) {
       case 'OVERVIEW':
@@ -279,6 +281,21 @@ export class TablesComponent implements OnInit {
           'ptv',
         ];
         break;
+      case 'RATIOS':
+        this.displayedColumns = [
+          'short',
+          'score',
+          'cmp',
+          // 'jan31price',
+          // 'qty',
+          // 'avghold',
+          // 'sttax',
+          // 'dayleft',
+          // 'lttax',
+          // 'lval',
+          // 'ptv',
+        ];
+        break;
     }
   }
 
@@ -293,7 +310,7 @@ export class TablesComponent implements OnInit {
       | 'RISK'
       | 'LIQUIDITY'
       | 'TAX'
-    // | 'RATIOS'
+      | 'RATIOS'
     // | 'FINANCIALS'
     // | 'RETURN'
     // | 'RESULT'
@@ -486,7 +503,6 @@ export class TablesComponent implements OnInit {
   // get total of the coloums
   getTotal(propertyPath: string): number {
     let total = 0;
-
     // Function to access nested properties
     const getNestedValue = (obj: any, path: string) => {
       return path.split('.').reduce((acc, key) => acc && acc[key], obj);
@@ -494,7 +510,12 @@ export class TablesComponent implements OnInit {
 
     for (let i = 0; i < this.dataSource2.data.length; i++) {
       const value = getNestedValue(this.dataSource2.data[i], propertyPath);
-      total += Number(value) || 0; // Convert the value to a number and default to 0 if NaN
+
+      let val = Number(value) || 0;
+      if (val === -999999) {
+        val = 0;
+      }
+      total += val; // Convert the value to a number and default to 0 if NaN
     }
 
     return total;
@@ -505,7 +526,7 @@ export class TablesComponent implements OnInit {
     const numericValue = typeof value === 'string' ? parseFloat(value) : value;
 
     if (numericValue === -999999) {
-      return '-'
+      return '-';
     }
 
     if (isNaN(numericValue)) {
@@ -516,12 +537,11 @@ export class TablesComponent implements OnInit {
 
   getExpandedHeight(element: any): number {
     if (element.details && element.details.length > 0) {
-
-      let height=80
-      if(this.TYPE === 'TAX') {
-        height=60;
+      let height = 80;
+      if (this.TYPE === 'TAX') {
+        height = 60;
       }
-      return element.details.length * height
+      return element.details.length * height;
     }
     return 0;
   }

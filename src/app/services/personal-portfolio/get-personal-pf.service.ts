@@ -13,12 +13,17 @@ export class GetPersonalPFService {
     RISK: 'assets/pp/getRisk.json',
     LIQUIDITY: 'assets/pp/getLiquidity.json',
     TAX: 'assets/pp/getTax.json',
+    RATIOS: 'assets/pp/getRatio.json',
+    // FINANCIALS: 'assets/pp/getFinancials.json',
+    // RETURN: 'assets/pp/getReturn.json',
+    // RESULT: 'assets/pp/getResult.json',
+    // TOTALRETURNS: 'assets/pp/getTotalReturns.json',
 
   };
 
   constructor(private http: HttpClient) {}
 
-  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX') {
+  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS') {
 
     const path = this.paths[type] || this.paths.HOLDING; // default is holding
 

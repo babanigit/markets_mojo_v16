@@ -2518,7 +2518,9 @@
         <!--  -->
       </td>
 
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ formatNumberWithCommas(getTotal("avghold")) }}
+      </td>
     </ng-container>
 
     <!-- sttax  -->
@@ -2591,7 +2593,9 @@
         <!--  -->
       </td>
 
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ formatNumberWithCommas(getTotal("sttax")) }}
+      </td>
     </ng-container>
 
     <!-- dayleft  -->
@@ -2664,7 +2668,9 @@
         <!--  -->
       </td>
 
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ formatNumberWithCommas(getTotal("dayleft")) }}
+      </td>
     </ng-container>
 
     <!-- lttax  -->
@@ -2737,7 +2743,9 @@
         <!--  -->
       </td>
 
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ formatNumberWithCommas(getTotal("lttax")) }}
+      </td>
     </ng-container>
 
     <!-- ptv  -->
@@ -2810,7 +2818,9 @@
         <!--  -->
       </td>
 
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        {{ formatNumberWithCommas(getTotal("ptv")) }}
+      </td>
     </ng-container>
 
     <!-- Header, footer and Row Definitions -->
