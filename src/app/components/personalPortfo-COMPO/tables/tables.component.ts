@@ -51,6 +51,7 @@ export class TablesComponent implements OnInit {
       code: 'pbv',
       hold: '',
       defaultValue: 'NA',
+      no_extend:true,
       footer: false,
     },
     {
@@ -58,6 +59,7 @@ export class TablesComponent implements OnInit {
       code: 'roe',
       hold: '',
       defaultValue: 'NA',
+      no_extend:true,
       footer: false,
     },
     {
@@ -65,6 +67,7 @@ export class TablesComponent implements OnInit {
       code: 'debeq',
       hold: '',
       defaultValue: 'NA',
+      no_extend:true,
       footer: false,
     },
 
@@ -74,6 +77,7 @@ export class TablesComponent implements OnInit {
       code: 'volatility',
       hold: '%',
       defaultValue: 'NA',
+      no_extend:true,
       footer: false,
     },
 
@@ -82,6 +86,7 @@ export class TablesComponent implements OnInit {
       code: 'riskadj',
       hold: '',
       defaultValue: '0.00',
+      no_extend:true,
       footer: false,
     },
 
@@ -90,6 +95,7 @@ export class TablesComponent implements OnInit {
       code: 'beta',
       hold: '',
       defaultValue: 'NA',
+      no_extend:true,
       footer: false,
     },
 
@@ -98,6 +104,7 @@ export class TablesComponent implements OnInit {
       code: 'riskval',
       hold: '',
       defaultValue: 'NA',
+      no_extend:true,
       footer: false,
     },
 
@@ -107,6 +114,7 @@ export class TablesComponent implements OnInit {
       code: 'dh',
       hold: '',
       defaultValue: 'NA',
+      no_extend:true,
       footer: true,
     },
     {
@@ -114,6 +122,7 @@ export class TablesComponent implements OnInit {
       code: 'dl',
       hold: '',
       defaultValue: 'NA',
+      no_extend:true,
       footer: true,
     },
 
@@ -123,6 +132,7 @@ export class TablesComponent implements OnInit {
       code: 'unrgaincontri',
       hold: '%',
       defaultValue: 'NA',
+      no_extend:true,
       footer: true,
     },
     {
@@ -130,6 +140,7 @@ export class TablesComponent implements OnInit {
       code: 'pwt',
       hold: '%',
       defaultValue: 'NA',
+      no_extend:true,
       footer: false,
     },
 
@@ -139,52 +150,59 @@ export class TablesComponent implements OnInit {
       code: 'div',
       hold: '',
       defaultValue: 'NA',
+      no_extend:true,
       footer: false,
     },
 
     // tax
-    // {
-    //   title: '31 Jan 2018',
-    //   code: 'jan31price',
-    //   hold: '',
-    //   defaultValue: '0.00',
-    //   footer: false,
-    // },
-    // {
-    //   title: ' Avg Holding (Yrs)',
-    //   code: 'avghold',
-    //   hold: '',
-    //   defaultValue: '0.00',
-    //   footer: true,
-    // },
-    // {
-    //   title: ' ST Tax (If Sold)',
-    //   code: 'sttax',
-    //   hold: '',
-    //   defaultValue: '-',
-    //   footer: true,
-    // },
-    // {
-    //   title: 'Days left for ST Tax',
-    //   code: 'dayleft',
-    //   hold: '',
-    //   defaultValue: 'NA',
-    //   footer: false,
-    // },
-    // {
-    //   title: ' LT Tax (If Sold)',
-    //   code: 'lttax',
-    //   hold: '',
-    //   defaultValue: '-',
-    //   footer: true,
-    // },
-    // {
-    //   title: ' Post Tax Value',
-    //   code: 'ptv',
-    //   hold: '',
-    //   defaultValue: '-',
-    //   footer: true,
-    // },
+    {
+      title: '31 Jan 2018',
+      code: 'jan31price',
+      hold: '',
+      defaultValue: '0.00',
+      no_extend:false,
+      footer: false,
+    },
+    {
+      title: ' Avg Holding (Yrs)',
+      code: 'avghold',
+      hold: '',
+      defaultValue: '0.00',
+      no_extend:false,
+      footer: true,
+    },
+    {
+      title: ' ST Tax (If Sold)',
+      code: 'sttax',
+      hold: '',
+      defaultValue: '-',
+      no_extend:false,
+      footer: true,
+    },
+    {
+      title: 'Days left for ST Tax',
+      code: 'dayleft',
+      hold: '',
+      defaultValue: 'NA',
+      no_extend:false,
+      footer: false,
+    },
+    {
+      title: ' LT Tax (If Sold)',
+      code: 'lttax',
+      hold: '',
+      defaultValue: '-',
+      no_extend:false,
+      footer: true,
+    },
+    {
+      title: ' Post Tax Value',
+      code: 'ptv',
+      hold: '',
+      defaultValue: '-',
+      no_extend:false,
+      footer: true,
+    },
   ];
 
   trail = 'pbv';

@@ -1568,7 +1568,6 @@
 
     <!-- dividend -->
 
-
     <!-- tret, tretp Day's Gain  -->
     <ng-container matColumnDef="tret">
       <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
@@ -1777,7 +1776,6 @@
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container>
-
 
     <!-- liquidity -->
     <!-- qty  -->
@@ -2022,449 +2020,6 @@
     </ng-container>
 
     <!-- tax -->
-    <!-- jan31price  -->
-    <ng-container matColumnDef="jan31price">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        31 Jan 2018
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ formatNumberWithCommas(element.jan31price) || "NA" }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- Details section that will be shown when the panel is expanded -->
-            <div
-              *ngIf="element.details && element.details.length > 0"
-              style="width: 100%; padding-right: 10px; text-align: center"
-            >
-              <div
-                *ngFor="let detail of element.details; let i = index"
-                style="
-                  margin-bottom: 10px;
-                  padding-right: 10px;
-                  margin-top: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: 0px;
-                    text-align: left;
-                  "
-                >
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                  <div>
-                    {{ formatNumberWithCommas(detail.jan31price) || "NA" }}
-                  </div>
-                  <!-- <div>{{ detail.iqty }}</div> -->
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- Details section that will be shown when the panel is expanded end... -->
-
-            <!-- <p>This is the primary content of the panel.</p> -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
-
-    <!-- avghold  -->
-    <ng-container matColumnDef="avghold">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Avg Holding (Yrs)
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ formatNumberWithCommas(element.avghold) || "NA" }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- Details section that will be shown when the panel is expanded -->
-            <div
-              *ngIf="element.details && element.details.length > 0"
-              style="width: 100%; padding-right: 10px; text-align: center"
-            >
-              <div
-                *ngFor="let detail of element.details; let i = index"
-                style="
-                  margin-bottom: 10px;
-                  padding-right: 10px;
-                  margin-top: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: 0px;
-                    text-align: left;
-                  "
-                >
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                  <div>
-                    {{ formatNumberWithCommas(detail.avghold) || "NA" }}
-                  </div>
-                  <!-- <div>{{ detail.iqty }}</div> -->
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- Details section that will be shown when the panel is expanded end... -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ formatNumberWithCommas(getTotal("avghold")) }}
-      </td>
-    </ng-container>
-
-    <!-- sttax  -->
-    <ng-container matColumnDef="sttax">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        ST Tax (If Sold)
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ formatNumberWithCommas(element.sttax) || "NA" }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- Details section that will be shown when the panel is expanded -->
-            <div
-              *ngIf="element.details && element.details.length > 0"
-              style="width: 100%; padding-right: 10px; text-align: center"
-            >
-              <div
-                *ngFor="let detail of element.details; let i = index"
-                style="
-                  margin-bottom: 10px;
-                  padding-right: 10px;
-                  margin-top: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: 0px;
-                    text-align: left;
-                  "
-                >
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                  <div>
-                    {{ formatNumberWithCommas(detail.sttax) || "NA" }}
-                  </div>
-                  <!-- <div>{{ detail.iqty }}</div> -->
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- Details section that will be shown when the panel is expanded end... -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ formatNumberWithCommas(getTotal("sttax")) }}
-      </td>
-    </ng-container>
-
-    <!-- dayleft  -->
-    <ng-container matColumnDef="dayleft">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Days left for ST Tax
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ element.dayleft || "NA" }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- Details section that will be shown when the panel is expanded -->
-            <div
-              *ngIf="element.details && element.details.length > 0"
-              style="width: 100%; padding-right: 10px; text-align: center"
-            >
-              <div
-                *ngFor="let detail of element.details; let i = index"
-                style="
-                  margin-bottom: 10px;
-                  padding-right: 10px;
-                  margin-top: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: 0px;
-                    text-align: left;
-                  "
-                >
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                  <div>
-                    {{ detail.dayleft || "NA" }}
-                  </div>
-                  <!-- <div>{{ detail.iqty }}</div> -->
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- Details section that will be shown when the panel is expanded end... -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ formatNumberWithCommas(getTotal("dayleft")) }}
-      </td>
-    </ng-container>
-
-    <!-- lttax  -->
-    <ng-container matColumnDef="lttax">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        LT Tax (If Sold)
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ formatNumberWithCommas(element.lttax) || "NA" }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- Details section that will be shown when the panel is expanded -->
-            <div
-              *ngIf="element.details && element.details.length > 0"
-              style="width: 100%; padding-right: 10px; text-align: center"
-            >
-              <div
-                *ngFor="let detail of element.details; let i = index"
-                style="
-                  margin-bottom: 10px;
-                  padding-right: 10px;
-                  margin-top: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: 0px;
-                    text-align: left;
-                  "
-                >
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                  <div>
-                    {{ formatNumberWithCommas(detail.lttax) || "NA" }}
-                  </div>
-                  <!-- <div>{{ detail.iqty }}</div> -->
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- Details section that will be shown when the panel is expanded end... -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ formatNumberWithCommas(getTotal("lttax")) }}
-      </td>
-    </ng-container>
-
-    <!-- ptv  -->
-    <ng-container matColumnDef="ptv">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Post Tax Value
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ formatNumberWithCommas(element.ptv) || "NA" }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- Details section that will be shown when the panel is expanded -->
-            <div
-              *ngIf="element.details && element.details.length > 0"
-              style="width: 100%; padding-right: 10px; text-align: center"
-            >
-              <div
-                *ngFor="let detail of element.details; let i = index"
-                style="
-                  margin-bottom: 10px;
-                  padding-right: 10px;
-                  margin-top: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: 0px;
-                    text-align: left;
-                  "
-                >
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                  <div>
-                    {{ formatNumberWithCommas(detail.ptv) || "NA" }}
-                  </div>
-                  <!-- <div>{{ detail.iqty }}</div> -->
-                  <!-- Horizontal line between rows -->
-                  <hr
-                    *ngIf="i < element.details.length - 1"
-                    style="border: 1px solid black"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- Details section that will be shown when the panel is expanded end... -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ formatNumberWithCommas(getTotal("ptv")) }}
-      </td>
-    </ng-container>
 
     <!-- ratio -->
     <!-- divy  -->
@@ -2593,13 +2148,55 @@
                 <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
                 <mat-panel-description>
                   <span>
-                    {{ formatNumberWithCommas(element[item.code]) || "0.00" }}
+                    {{ formatNumberWithCommas(element[item.code]) }}
                   </span>
                   <span>{{ item.hold }}</span>
                 </mat-panel-description>
               </mat-expansion-panel-header>
 
               <!-- Details section that will be shown when the panel is expanded -->
+              <div
+                [hidden]="item.no_extend"
+                *ngIf="element.details && element.details.length > 0"
+                style="width: 100%; padding-right: 10px; text-align: center"
+              >
+                <div
+                  *ngFor="let detail of element.details; let i = index"
+                  style="
+                    margin-bottom: 10px;
+                    padding-right: 10px;
+                    margin-top: 6px;
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      margin-top: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <!-- Horizontal line between rows -->
+                    <hr
+                      *ngIf="i < element.details.length - 1"
+                      style="border: 1px solid black"
+                    />
+                    <div>
+                      <span>
+                        {{ formatNumberWithCommas(detail[item.code]) }}
+                      </span>
+                      <span>{{ item.hold }}</span>
+                    </div>
+                    <!-- <div>{{ detail.iqty }}</div> -->
+                    <!-- Horizontal line between rows -->
+                    <hr
+                      *ngIf="i < element.details.length - 1"
+                      style="border: 1px solid black"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- Details section that will be shown when the panel is expanded end... -->
             </mat-expansion-panel>
           </mat-accordion>
           <!--  -->
