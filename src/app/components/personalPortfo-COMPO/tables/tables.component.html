@@ -80,8 +80,10 @@
 
             <div
               *ngIf="expandedElement === element"
-              style="height: 170px"
-            ></div>
+              [style.height.px]="getExpandedHeight(element)"
+            >
+              <!-- Content for expanded view -->
+            </div>
 
             <!-- <p>This is the primary content of the panel.</p> -->
           </mat-expansion-panel>
@@ -284,8 +286,10 @@
             <p>This is the primary content of the panel.</p> -->
             <div
               *ngIf="expandedElement === element"
-              style="height: 170px"
-            ></div>
+              [style.height.px]="getExpandedHeight(element)"
+            >
+              <!-- Content for expanded view -->
+            </div>
           </mat-expansion-panel>
         </mat-accordion>
         <!--  -->
@@ -356,10 +360,17 @@
 
             <!-- Details section that will be shown when the panel is expanded -->
 
+            <!-- <div
+            *ngIf="expandedElement === element"
+            style="height: 170px"
+          ></div> -->
+
             <div
               *ngIf="expandedElement === element"
-              style="height: 170px"
-            ></div>
+              [style.height.px]="getExpandedHeight(element)"
+            >
+              <!-- Content for expanded view -->
+            </div>
           </mat-expansion-panel>
         </mat-accordion>
         <!--  -->
@@ -881,7 +892,6 @@
               </div>
             </div>
             <!-- Details section that will be shown when the panel is expanded end... -->
-
           </mat-expansion-panel>
         </mat-accordion>
         <!--  -->
@@ -2242,8 +2252,10 @@
 
             <div
               *ngIf="expandedElement === element"
-              style="height: 170px"
-            ></div>
+              [style.height.px]="getExpandedHeight(element)"
+            >
+              <!-- Content for expanded view -->
+            </div>
           </mat-expansion-panel>
         </mat-accordion>
         <!--  -->
@@ -2305,8 +2317,10 @@
 
             <div
               *ngIf="expandedElement === element"
-              style="height: 170px"
-            ></div>
+              [style.height.px]="getExpandedHeight(element)"
+            >
+              <!-- Content for expanded view -->
+            </div>
           </mat-expansion-panel>
         </mat-accordion>
         <!--  -->
@@ -2325,7 +2339,7 @@
         *matHeaderCellDef
         mat-sort-header
       >
-      Liquidity Risk
+        Liquidity Risk
       </th>
       <td
         mat-cell
@@ -2373,10 +2387,10 @@
         <!--  -->
         <mat-accordion>
           <mat-expansion-panel
-          [expanded]="expandedElement === element"
-          (opened)="expandedElement = element"
-          (closed)="expandedElement = null"
-          hideToggle
+            [expanded]="expandedElement === element"
+            (opened)="expandedElement = element"
+            (closed)="expandedElement = null"
+            hideToggle
           >
             <mat-expansion-panel-header>
               <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
@@ -2448,10 +2462,10 @@
         <!--  -->
         <mat-accordion>
           <mat-expansion-panel
-          [expanded]="expandedElement === element"
-          (opened)="expandedElement = element"
-          (closed)="expandedElement = null"
-          hideToggle
+            [expanded]="expandedElement === element"
+            (opened)="expandedElement = element"
+            (closed)="expandedElement = null"
+            hideToggle
           >
             <mat-expansion-panel-header>
               <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
@@ -2521,10 +2535,10 @@
         <!--  -->
         <mat-accordion>
           <mat-expansion-panel
-          [expanded]="expandedElement === element"
-          (opened)="expandedElement = element"
-          (closed)="expandedElement = null"
-          hideToggle
+            [expanded]="expandedElement === element"
+            (opened)="expandedElement = element"
+            (closed)="expandedElement = null"
+            hideToggle
           >
             <mat-expansion-panel-header>
               <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
@@ -2594,10 +2608,10 @@
         <!--  -->
         <mat-accordion>
           <mat-expansion-panel
-          [expanded]="expandedElement === element"
-          (opened)="expandedElement = element"
-          (closed)="expandedElement = null"
-          hideToggle
+            [expanded]="expandedElement === element"
+            (opened)="expandedElement = element"
+            (closed)="expandedElement = null"
+            hideToggle
           >
             <mat-expansion-panel-header>
               <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
@@ -2667,10 +2681,10 @@
         <!--  -->
         <mat-accordion>
           <mat-expansion-panel
-          [expanded]="expandedElement === element"
-          (opened)="expandedElement = element"
-          (closed)="expandedElement = null"
-          hideToggle
+            [expanded]="expandedElement === element"
+            (opened)="expandedElement = element"
+            (closed)="expandedElement = null"
+            hideToggle
           >
             <mat-expansion-panel-header>
               <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
@@ -2740,10 +2754,10 @@
         <!--  -->
         <mat-accordion>
           <mat-expansion-panel
-          [expanded]="expandedElement === element"
-          (opened)="expandedElement = element"
-          (closed)="expandedElement = null"
-          hideToggle
+            [expanded]="expandedElement === element"
+            (opened)="expandedElement = element"
+            (closed)="expandedElement = null"
+            hideToggle
           >
             <mat-expansion-panel-header>
               <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
@@ -2798,7 +2812,6 @@
 
       <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container>
-
 
     <!-- Header, footer and Row Definitions -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

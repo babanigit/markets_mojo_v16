@@ -513,4 +513,16 @@ export class TablesComponent implements OnInit {
     }
     return new Intl.NumberFormat('en-US').format(numericValue);
   }
+
+  getExpandedHeight(element: any): number {
+    if (element.details && element.details.length > 0) {
+
+      let height=80
+      if(this.TYPE === 'TAX') {
+        height=60;
+      }
+      return element.details.length * height
+    }
+    return 0;
+  }
 }
