@@ -2148,6 +2148,95 @@
       <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
+    <!-- results -->
+
+    <!-- Result Date-->
+    <ng-container matColumnDef="resdt">
+      <th
+        style="background-color: gainsboro"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        Result Date
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                <div>
+                  <div>
+                    {{ element.resdt }}
+                  </div>
+                  <div>check result</div>
+                </div>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <p>This is the primary content of the panel.</p> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- rescomm -->
+    <ng-container matColumnDef="rescomm">
+      <th
+        style="background-color: gainsboro;
+
+        "
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        <div>Result</div>
+        <div>Commentary</div>
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        [ngStyle]="{
+          color: getColor(element?.rescomm.dir),
+          'background-color': getBgColor(element?.rescomm.dir)
+        }"
+      >
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                <div>
+                  <div>
+                    {{ element.rescomm.txt }}
+                  </div>
+                  <div> {{element.dotsum.prev_score}} </div>
+                </div>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <p>This is the primary content of the panel.</p> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
 
     <!-- mapping -->
     <!-- returns -->
@@ -2205,15 +2294,14 @@
     <div *ngFor="let item of col.solo">
       <ng-container matColumnDef="{{ item.code }}">
         <th
-        style="background-color: gainsboro"
+          style="background-color: gainsboro"
           mat-header-cell
           *matHeaderCellDef
           mat-sort-header
         >
           {{ item.title }}
         </th>
-        <td
-         mat-cell *matCellDef="let element">
+        <td mat-cell *matCellDef="let element">
           <mat-accordion>
             <mat-expansion-panel
               [expanded]="expandedElement === element"
@@ -2221,8 +2309,7 @@
               hideToggle
             >
               <mat-expansion-panel-header>
-                <mat-panel-description
-                >
+                <mat-panel-description>
                   <span>{{
                     formatNumberWithCommas(element[item.code]) ||
                       item.defaultValue
@@ -2234,14 +2321,9 @@
                 [hidden]="item.no_extend"
                 *ngIf="element.details && element.details.length > 0"
               >
-                <div
-                  *ngFor="let detail of element.details; let i = index"
-                >
-                  <div
-                   >
-                    <hr
-                      *ngIf="i < element.details.length - 1"
-                    />
+                <div *ngFor="let detail of element.details; let i = index">
+                  <div>
+                    <hr *ngIf="i < element.details.length - 1" />
                     <div>
                       <span>{{
                         formatNumberWithCommas(detail[item.code]) ||
@@ -2249,17 +2331,14 @@
                       }}</span>
                       <span>{{ item.hold }}</span>
                     </div>
-                    <hr
-                      *ngIf="i < element.details.length - 1"
-                    />
+                    <hr *ngIf="i < element.details.length - 1" />
                   </div>
                 </div>
               </div>
             </mat-expansion-panel>
           </mat-accordion>
         </td>
-        <td
-          mat-footer-cell *matFooterCellDef>
+        <td mat-footer-cell *matFooterCellDef>
           <div *ngIf="item.footer">
             <b>
               <span>{{ formatNumberWithCommas(getTotal(item.code)) }}</span>

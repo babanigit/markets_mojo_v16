@@ -357,7 +357,7 @@ export class TablesComponent implements OnInit {
         ];
         break;
       case 'RESULTS':
-        this.displayedColumns = ['short', 'score', 'cmp'];
+        this.displayedColumns = ['short', 'score', 'cmp', 'resdt' , 'f_txt', 'rescomm', ];
         break;
       case 'TOTAL_RETURNS':
         this.displayedColumns = ['short', 'score', 'cmp'];

@@ -16,7 +16,7 @@ export class GetPersonalPFService {
     RATIOS: 'assets/pp/getRatio.json',
     FINANCIALS: 'assets/pp/getFinancials.json',
     RETURNS: 'assets/pp/getReturn.json',
-    RESULTS: 'assets/pp/getResult.json',
+    RESULTS: 'assets/pp/getResults.json',
     TOTAL_RETURNS: 'assets/pp/getTotalReturns.json',
 
   };
