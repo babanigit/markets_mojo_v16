@@ -77,131 +77,86 @@ export class IpoChartComponent implements OnInit {
   }
 
   updateChart() {
-    const dataPoints: number[][] = this.extractDataPoints(this.graphData!); //get the data in number[][]
-    let minY: number;
-    let maxY: number;
+    if (
+      !this.graphData ||
+      !this.graphData.data ||
+      !this.graphData.data.graph_indices ||
+      this.graphData.data.graph_indices.length === 0
+    ) {
+      console.error('Invalid graph data');
+      return;
+    }
 
-    if (dataPoints.length === 0) return;
+    const dataPoints = this.extractDataPoints(this.graphData);
+    const previousClose = this.graphData.data.graph_indices[0].PreviousClose;
 
-    minY = Math.min(...dataPoints.map(([_, y]) => y)); //get max and min data point
-    maxY = Math.max(...dataPoints.map(([_, y]) => y));
-    const previousClose = this.graphData!.data.graph_indices[0].PreviousClose;
+    // Sort data points by timestamp
+    dataPoints.sort((a, b) => a[0] - b[0]);
 
-    console.log(
-      'the min y point is : ',
-      minY,
-      ' and the max y is : ',
-      maxY,
-      ' the prevClose is : ',
-      previousClose
-    );
+    const minY = Math.min(...dataPoints.map(([_, y]) => y));
+    const maxY = Math.max(...dataPoints.map(([_, y]) => y));
 
-    // Initialize segments
-    const abovePreviousClose: [number, number][] = [];
-    const belowPreviousClose: [number, number][] = [];
     let currentSeries: { data: [number, number][]; color: string }[] = [];
+    let currentSegment: [number, number][] = [];
+    let currentColor =
+      dataPoints[0][1] >= previousClose ? '#4CAF50' : '#FF6666';
 
-    // Function to add a new segment
-    const addSegment = (seriesData: [number, number][], color: string) => {
-      if (seriesData.length > 0) {
+    const addSegment = () => {
+      if (currentSegment.length > 0) {
         currentSeries.push({
-          data: seriesData,
-          color: color,
+          data: [...currentSegment],
+          color: currentColor,
         });
+        currentSegment = [];
       }
     };
 
-    // dataPoints
     dataPoints.forEach(([timestamp, value], index) => {
-      if (index === 0) return; // Skip first point for comparison
-
-      const [prevTimestamp, prevValue] = dataPoints[index - 1];
-
-      if (prevValue > previousClose && value > previousClose) {
-        abovePreviousClose.push([timestamp, value]);
-      } else if (prevValue < previousClose && value < previousClose) {
-        belowPreviousClose.push([timestamp, value]);
-      } else {
-        // Handle intersections
-        if (prevValue > previousClose && value < previousClose) {
-          addSegment(
-            [
-              ...abovePreviousClose,
-              [prevTimestamp, previousClose],
-              [timestamp, previousClose],
-            ],
-            '#4CAF50'
-          );
-
-          abovePreviousClose.length = 0;
-          belowPreviousClose.push([prevTimestamp, previousClose]);
-          belowPreviousClose.push([timestamp, previousClose]);
-        } else if (prevValue < previousClose && value > previousClose) {
-          addSegment(
-            [
-              ...belowPreviousClose,
-              [prevTimestamp, previousClose],
-              [timestamp, previousClose],
-            ],
-            '#FF6666'
-          );
-
-          belowPreviousClose.length = 0;
-          abovePreviousClose.push([prevTimestamp, previousClose]);
-          abovePreviousClose.push([timestamp, previousClose]);
-        }
+      if (index === 0) {
+        currentSegment.push([timestamp, value]);
+        return;
       }
+
+      const prevValue = dataPoints[index - 1][1];
+
+      if (
+        (prevValue >= previousClose && value < previousClose) ||
+        (prevValue < previousClose && value >= previousClose)
+      ) {
+        // Intersection point
+        const intersectionX = timestamp;
+        const intersectionY = previousClose;
+
+        currentSegment.push([intersectionX, intersectionY]);
+        addSegment();
+
+        currentColor = value >= previousClose ? '#4CAF50' : '#FF6666';
+        currentSegment.push([intersectionX, intersectionY]);
+      }
+
+      currentSegment.push([timestamp, value]);
     });
 
-    console.log('the data points is : ', dataPoints);
+    addSegment(); // Add the last segment
 
-    // Add remaining segments
-    if (abovePreviousClose.length > 0) {
-      addSegment(abovePreviousClose, '#4CAF50');
-    }
-    if (belowPreviousClose.length > 0) {
-      addSegment(belowPreviousClose, '#FF6666');
-    }
-
-    // Initialize or update the chart
     this.areaChart = new Chart({
-      accessibility: {
-        enabled: false,
-      },
-      chart: {
-        type: 'area',
-      },
-      title: {
-        text: '',
-      },
-      credits: {
-        enabled: false,
-      },
+      accessibility: { enabled: false },
+      chart: { type: 'area' },
+      title: { text: '' },
+      credits: { enabled: false },
       xAxis: {
         type: 'datetime',
         tickLength: 0,
-        labels: {
-          enabled: false,
-        },
+        labels: { enabled: false },
         gridLineWidth: 0,
-        title: {
-          text: null, // Ensure x-axis title is removed
-        },
+        title: { text: null },
       },
       yAxis: {
-        title: {
-          text: null,
-        },
+        title: { text: null },
         min: minY,
         max: maxY,
         tickAmount: 6,
-        labels: {
-          enabled: false,
-          // formatter: function () {
-          //   const value = this.value;
-          //   return typeof value === 'number' ? value.toFixed(2) : value;
-          // },
-        },
+        labels: { enabled: false },
         gridLineWidth: 0,
         plotLines: [
           {
@@ -209,11 +164,9 @@ export class IpoChartComponent implements OnInit {
             width: 2,
             value: previousClose,
             label: {
-              text: `PreviousClose line : ${previousClose.toFixed(2)}`,
+              text: `Previous Close: ${previousClose.toFixed(2)}`,
               align: 'right',
-              style: {
-                color: '#404040',
-              },
+              style: { color: '#404040' },
             },
           },
           {
@@ -223,9 +176,7 @@ export class IpoChartComponent implements OnInit {
             label: {
               text: `High: ${maxY.toFixed(2)}`,
               align: 'left',
-              style: {
-                color: '#404040',
-              },
+              style: { color: '#404040' },
             },
           },
           {
@@ -235,9 +186,7 @@ export class IpoChartComponent implements OnInit {
             label: {
               text: `Low: ${minY.toFixed(2)}`,
               align: 'left',
-              style: {
-                color: '#404040',
-              },
+              style: { color: '#404040' },
             },
           },
         ],
@@ -248,22 +197,17 @@ export class IpoChartComponent implements OnInit {
         data: series.data,
         color: series.color,
         fillColor: {
+          linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
           stops: [
-            [0, series.color],
-            [1, series.color],
+            [0, Highcharts.color(series.color).setOpacity(0.6).get('rgba')],
+            [1, Highcharts.color(series.color).setOpacity(0.2).get('rgba')],
           ],
-          zIndex: 0,
         },
         lineWidth: 1,
-        marker: {
-          enabled: false,
-          radius: 2,
-        },
-        tooltip: {
-          valueDecimals: 2,
-        },
-        smooth: true,
-      })) as unknown as Highcharts.SeriesOptionsType[],
+        marker: { enabled: false, radius: 2 },
+        tooltip: { valueDecimals: 2 },
+        threshold: previousClose,
+      })) as Highcharts.SeriesOptionsType[],
     });
   }
 

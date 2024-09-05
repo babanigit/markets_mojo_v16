@@ -9,6 +9,7 @@ import { PfPriceMsgComponent } from '../../components/personalPortfo-COMPO/pf-pr
 import { DemoComponent } from '../../components/demo/demo.component';
 import { TablesComponent } from '../../components/personalPortfo-COMPO/tables/tables.component';
 import { IpoFooterComponent } from 'src/app/components/ipo-COMPO/ipo-footer/ipo-footer.component';
+import { GraphDemoComponent } from 'src/app/components/graph-demo/graph-demo.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { IpoFooterComponent } from 'src/app/components/ipo-COMPO/ipo-footer/ipo-
     PfPriceMsgComponent,
     DemoComponent,
     TablesComponent,
-    IpoFooterComponent
+    IpoFooterComponent,
+    GraphDemoComponent
   ],
 })
 export class PersonalPortfoliosModule {}
