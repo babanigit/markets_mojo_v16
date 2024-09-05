@@ -252,3 +252,56 @@ span.active .mat-icon {
   top: 50%; /* Center vertically */
   transform: translateX(-50%) translateY(-50%); /* Center both horizontally and vertically */
 }
+
+
+
+
+/* claude */
+/* Compact table styles */
+.compact-header,
+.compact-cell {
+  padding: 0 4px !important; /* Reduce horizontal padding */
+  font-size: 0.9em; /* Slightly reduce font size */
+}
+
+.compact-description {
+  margin: 0 !important;
+}
+
+.mat-expansion-panel-header {
+  padding: 0 8px;
+  height: auto !important;
+  min-height: 36px;
+}
+
+.details-container {
+  padding: 8px 0;
+}
+
+.detail-row {
+  margin-bottom: 4px;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.detail-separator {
+  margin: 2px 0;
+  border: 0.5px solid #ddd;
+}
+
+/* Ensure the table doesn't exceed the window width */
+.mat-table {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Optional: If you want to allow horizontal scrolling for very narrow screens */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}

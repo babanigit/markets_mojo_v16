@@ -42,6 +42,84 @@ import { PopupComponent } from '../../others/popup/popup.component';
 
 // , AfterViewInit
 export class TablesComponent implements OnInit {
+
+  return=[
+    {
+      title: 'M1 ',
+      code: 'M1',
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+    // {
+    //   title: 'Net Sales / Int Earned (Rs Cr) ',
+    //   code: 'netsale',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   no_extend: true,
+    //   footer: false,
+    // },
+    // {
+    //   title: 'Net Sales / Int Earned (Rs Cr) ',
+    //   code: 'netsale',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   no_extend: true,
+    //   footer: false,
+    // },
+    // {
+    //   title: 'Net Sales / Int Earned (Rs Cr) ',
+    //   code: 'netsale',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   no_extend: true,
+    //   footer: false,
+    // },
+    // {
+    //   title: 'Net Sales / Int Earned (Rs Cr) ',
+    //   code: 'netsale',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   no_extend: true,
+    //   footer: false,
+    // },
+    // {
+    //   title: 'Net Sales / Int Earned (Rs Cr) ',
+    //   code: 'netsale',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   no_extend: true,
+    //   footer: false,
+    // },
+    // {
+    //   title: 'Net Sales / Int Earned (Rs Cr) ',
+    //   code: 'netsale',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   no_extend: true,
+    //   footer: false,
+    // },
+    // {
+    //   title: 'Net Sales / Int Earned (Rs Cr) ',
+    //   code: 'netsale',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   no_extend: true,
+    //   footer: false,
+    // },
+    // {
+    //   title: 'Net Sales / Int Earned (Rs Cr) ',
+    //   code: 'netsale',
+    //   hold: '',
+    //   defaultValue: '-',
+    //   no_extend: true,
+    //   footer: false,
+    // },
+
+
+  ]
+
   solo = [
 
     //financials
@@ -349,16 +427,19 @@ export class TablesComponent implements OnInit {
       | 'RESULTS'
       | 'TOTAL_RETURNS'
   ) {
-    if (this.dataCache[type]) {
-      // console.log('the data cache is : ', this.dataCache[type]);
-      this.updateStocks(type);
-      return;
-    }
+
+    // if (this.dataCache[type]) {
+    //   // console.log('the data cache is : ', this.dataCache[type]);
+    //   this.updateStocks(type);
+    //   return;
+    // }
 
     this.serv.getOverviewStocks(type).subscribe({
       next: (response) => {
+
+
         let elements;
-        if (type === 'RISK' || type === 'RATIOS' || type === 'FINANCIALS') {
+        if (type === 'RISK' || type === 'RATIOS' || type === 'FINANCIALS' || type === 'RETURNS' ) {
           elements = Object.values(response.data);
         } else {
           elements = Object.values(response.data.list);
@@ -558,7 +639,9 @@ export class TablesComponent implements OnInit {
         break;
 
       case 'RETURNS':
-        this.displayedColumns = ['short', 'score', 'cmp'];
+        this.displayedColumns = ['short', 'score', 'cmp'
+          // , 'D1'
+        ];
         break;
       case 'RESULTS':
         this.displayedColumns = ['short', 'score', 'cmp'];
@@ -606,6 +689,7 @@ export class TablesComponent implements OnInit {
   }
 
   private sortData(sortState: Sort) {
+
     console.log('sortData called ...', sortState);
 
     // Create a copy of the data to sort
@@ -631,10 +715,24 @@ export class TablesComponent implements OnInit {
       // Split the property path (e.g., 'Y1.val')
       const [propertyPath] = sortState.active.split('.');
 
-      // if value is Y1
-      if (sortState.active === 'Y1') {
-        valueA = a[propertyPath]?.val;
-        valueB = b[propertyPath]?.val;
+      // if RISK
+      if (this.TYPE === 'RISK') {
+        if (sortState.active === 'Y1') {
+          valueA = a[propertyPath]?.val;
+          valueB = b[propertyPath]?.val;
+        }
+      }
+
+      if ( (this.TYPE !== 'RISK') && (sortState.active === 'D1' || sortState.active === 'Y1')) {
+        valueA = a.returns?.[sortState.active]?.val;
+        valueB = b.returns?.[sortState.active]?.val;
+      } else if (a.dotsum && b.dotsum) {
+        valueA = +a.dotsum[sortState.active] || 0;
+        valueB = +b.dotsum[sortState.active] || 0;
+      } else {
+        // Default case
+        valueA = a[sortState.active];
+        valueB = b[sortState.active];
       }
 
       // Convert to numbers if possible, else keep as strings
