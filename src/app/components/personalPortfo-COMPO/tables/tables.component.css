@@ -1,3 +1,21 @@
+.expanded-panel {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.expanded-panel-header {
+  padding: 0 !important;
+}
+.detail-item {
+  margin-bottom: 5px;
+  padding-right: 5px;
+  margin-top: 4px;
+}
+.detail-item hr {
+  border: 0.5px solid black;
+}
+
+
+
 /* Ensure that the span containing text and icons is a flex container */
 th span {
   display: flex;

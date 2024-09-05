@@ -42,16 +42,73 @@ import { PopupComponent } from '../../others/popup/popup.component';
 
 // , AfterViewInit
 export class TablesComponent implements OnInit {
-
   solo = [
 
-    // tax
+    //financials
+    {
+      title: 'Net Sales / Int Earned (Rs Cr) ',
+      code: 'netsale',
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+    {
+      title: 'Other Income (Rs Cr) ',
+      code: 'othinc',
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+    {
+      title: 'Operating Profit (Rs Cr) ',
+      code: 'opprof',
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+    {
+      title: 'Interest Paid (Rs Cr) ',
+      code: 'intpaid',
+      hold: '%',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+    {
+      title: 'Tax Ratio (%)',
+      code: 'tax',
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+    {
+      title: 'Net Profit (Rs Cr) ',
+      code: 'netprof',
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+    {
+      title: 'EPS (Rs)',
+      code: 'eps',
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+
+    // ratios
     {
       title: 'Price to Book (P/BV)',
       code: 'pbv',
       hold: '',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: false,
     },
     {
@@ -59,7 +116,7 @@ export class TablesComponent implements OnInit {
       code: 'roe',
       hold: '',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: false,
     },
     {
@@ -67,7 +124,15 @@ export class TablesComponent implements OnInit {
       code: 'debeq',
       hold: '',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
+      footer: false,
+    },
+    {
+      title: 'Dividend Yield (%)',
+      code: 'divy',
+      hold: '%',
+      defaultValue: 'NA',
+      no_extend: true,
       footer: false,
     },
 
@@ -77,7 +142,7 @@ export class TablesComponent implements OnInit {
       code: 'volatility',
       hold: '%',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: false,
     },
 
@@ -86,7 +151,7 @@ export class TablesComponent implements OnInit {
       code: 'riskadj',
       hold: '',
       defaultValue: '0.00',
-      no_extend:true,
+      no_extend: true,
       footer: false,
     },
 
@@ -95,7 +160,7 @@ export class TablesComponent implements OnInit {
       code: 'beta',
       hold: '',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: false,
     },
 
@@ -104,7 +169,7 @@ export class TablesComponent implements OnInit {
       code: 'riskval',
       hold: '',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: false,
     },
 
@@ -114,7 +179,7 @@ export class TablesComponent implements OnInit {
       code: 'dh',
       hold: '',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: true,
     },
     {
@@ -122,7 +187,7 @@ export class TablesComponent implements OnInit {
       code: 'dl',
       hold: '',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: true,
     },
 
@@ -132,7 +197,7 @@ export class TablesComponent implements OnInit {
       code: 'unrgaincontri',
       hold: '%',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: true,
     },
     {
@@ -140,7 +205,7 @@ export class TablesComponent implements OnInit {
       code: 'pwt',
       hold: '%',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: false,
     },
 
@@ -150,7 +215,7 @@ export class TablesComponent implements OnInit {
       code: 'div',
       hold: '',
       defaultValue: 'NA',
-      no_extend:true,
+      no_extend: true,
       footer: false,
     },
 
@@ -160,7 +225,7 @@ export class TablesComponent implements OnInit {
       code: 'jan31price',
       hold: '',
       defaultValue: '0.00',
-      no_extend:false,
+      no_extend: false,
       footer: false,
     },
     {
@@ -168,7 +233,7 @@ export class TablesComponent implements OnInit {
       code: 'avghold',
       hold: '',
       defaultValue: '0.00',
-      no_extend:false,
+      no_extend: false,
       footer: true,
     },
     {
@@ -176,15 +241,15 @@ export class TablesComponent implements OnInit {
       code: 'sttax',
       hold: '',
       defaultValue: '-',
-      no_extend:false,
+      no_extend: false,
       footer: true,
     },
     {
       title: 'Days left for ST Tax',
       code: 'dayleft',
       hold: '',
-      defaultValue: 'NA',
-      no_extend:false,
+      defaultValue: 'Tax Free',
+      no_extend: false,
       footer: false,
     },
     {
@@ -192,7 +257,7 @@ export class TablesComponent implements OnInit {
       code: 'lttax',
       hold: '',
       defaultValue: '-',
-      no_extend:false,
+      no_extend: false,
       footer: true,
     },
     {
@@ -200,12 +265,10 @@ export class TablesComponent implements OnInit {
       code: 'ptv',
       hold: '',
       defaultValue: '-',
-      no_extend:false,
+      no_extend: false,
       footer: true,
     },
   ];
-
-  trail = 'pbv';
 
   // private _liveAnnouncer = inject(LiveAnnouncer);
   private serv = inject(GetPersonalPFService);
@@ -230,9 +293,9 @@ export class TablesComponent implements OnInit {
     | 'TAX'
     | 'RATIOS'
     | 'FINANCIALS'
-    | 'RETURN'
-    | 'RESULT'
-    | 'TOTAL RETURNS' = 'HOLDING';
+    | 'RETURNS'
+    | 'RESULTS'
+    | 'TOTAL_RETURNS' = 'HOLDING';
 
   private dataCache: { [key: string]: any[] | undefined } = {};
 
@@ -268,13 +331,23 @@ export class TablesComponent implements OnInit {
     'TAX',
     'RATIOS',
     'FINANCIALS',
-    'RETURN',
-    'RESULT',
-    'TOTAL RETURNS',
+    'RETURNS',
+    'RESULTS',
+    'TOTAL_RETURNS',
   ];
 
   private fetchStocks(
-    type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS'
+    type:
+      | 'OVERVIEW'
+      | 'HOLDING'
+      | 'RISK'
+      | 'LIQUIDITY'
+      | 'TAX'
+      | 'RATIOS'
+      | 'FINANCIALS'
+      | 'RETURNS'
+      | 'RESULTS'
+      | 'TOTAL_RETURNS'
   ) {
     if (this.dataCache[type]) {
       // console.log('the data cache is : ', this.dataCache[type]);
@@ -285,7 +358,7 @@ export class TablesComponent implements OnInit {
     this.serv.getOverviewStocks(type).subscribe({
       next: (response) => {
         let elements;
-        if (type === 'RISK' || type === 'RATIOS') {
+        if (type === 'RISK' || type === 'RATIOS' || type === 'FINANCIALS') {
           elements = Object.values(response.data);
         } else {
           elements = Object.values(response.data.list);
@@ -312,6 +385,10 @@ export class TablesComponent implements OnInit {
       | 'LIQUIDITY'
       | 'TAX'
       | 'RATIOS'
+      | 'FINANCIALS'
+      | 'RETURNS'
+      | 'RESULTS'
+      | 'TOTAL_RETURNS'
   ): void {
     this.dataSource2.data = this.dataCache[type] || [];
     // console.log('Updated data:', this.dataSource2);
@@ -329,6 +406,10 @@ export class TablesComponent implements OnInit {
       | 'LIQUIDITY'
       | 'TAX'
       | 'RATIOS'
+      | 'FINANCIALS'
+      | 'RETURNS'
+      | 'RESULTS'
+      | 'TOTAL_RETURNS'
   ): void {
     switch (type) {
       case 'OVERVIEW':
@@ -460,6 +541,31 @@ export class TablesComponent implements OnInit {
           'pbv',
         ];
         break;
+      case 'FINANCIALS':
+        this.displayedColumns = [
+          'short',
+          'score',
+          'cmp',
+          'year',
+          'netsale',
+          'othinc',
+          'opprof',
+          'intpaid',
+          'tax',
+          'netprof',
+          'eps',
+        ];
+        break;
+
+      case 'RETURNS':
+        this.displayedColumns = ['short', 'score', 'cmp'];
+        break;
+      case 'RESULTS':
+        this.displayedColumns = ['short', 'score', 'cmp'];
+        break;
+      case 'TOTAL_RETURNS':
+        this.displayedColumns = ['short', 'score', 'cmp'];
+        break;
     }
   }
 
@@ -475,10 +581,10 @@ export class TablesComponent implements OnInit {
       | 'LIQUIDITY'
       | 'TAX'
       | 'RATIOS'
-    // | 'FINANCIALS'
-    // | 'RETURN'
-    // | 'RESULT'
-    // | 'TOTAL RETURNS'
+      | 'FINANCIALS'
+      | 'RETURNS'
+      | 'RESULTS'
+      | 'TOTAL_RETURNS'
   ): void {
     this.TYPE = type;
     this.getColums(type);

@@ -2019,45 +2019,6 @@
       <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
-    <!-- tax -->
-
-    <!-- ratio -->
-    <!-- divy  -->
-    <ng-container matColumnDef="divy">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Dividend Yield (%)
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ formatNumberWithCommas(element.divy) || "NA" }}%
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- Details section that will be shown when the panel is expanded -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        {{ formatNumberWithCommas(getTotal("divy")) }}
-      </td>
-    </ng-container>
-
     <!-- pe  PE (TTM)  -->
     <ng-container matColumnDef="pe">
       <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
@@ -2125,6 +2086,114 @@
       <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
+    <!-- finacials -->
+    <!-- year  Year End  -->
+    <ng-container matColumnDef="year">
+      <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
+        <div>
+          <span
+            (click)="sortBy('year')"
+            [ngClass]="{ active: isSortActive('year') }"
+          >
+            Year End
+            <mat-icon [ngClass]="getSortIconClass('year')"
+              >arrow_downward</mat-icon
+            >
+          </span>
+        </div>
+        <div>
+          <span
+            (click)="sortBy('type')"
+            [ngClass]="{ active: isSortActive('type') }"
+            style="font-size: small; color: gray"
+          >
+            Result Type
+            <mat-icon [ngClass]="getSortIconClass('type')"
+              >arrow_downward</mat-icon
+            >
+          </span>
+        </div>
+      </th>
+
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                <div>
+                  <div>
+                    {{ element.year || "Result Not Found" }}
+                  </div>
+                  <div style="color: gray">
+                    {{ element.type }}
+                  </div>
+                </div>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Details section that will be shown when the panel is expanded -->
+
+            <div
+              *ngIf="expandedElement === element"
+              [style.height.px]="getExpandedHeight(element)"
+            >
+              <!-- Content for expanded view -->
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- returns -->
+    <!-- D1  -->
+    <ng-container matColumnDef="D1">
+      <th
+        style="background-color: gainsboro"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        1 Day
+      </th>
+      <td
+        [ngStyle]="{
+          color: getColor(element.D1?.dir),
+          'background-color': getBgColor(element.D1?.dir)
+        }"
+        mat-cell
+        *matCellDef="let element"
+      >
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
+              <mat-panel-description>
+                {{ element.D1?.val }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <p>This is the primary content of the panel.</p> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
     <!-- solo  -->
     <div *ngFor="let item of solo">
       <ng-container matColumnDef="{{ item.code }}">
@@ -2148,7 +2217,10 @@
                 <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
                 <mat-panel-description>
                   <span>
-                    {{ formatNumberWithCommas(element[item.code]) }}
+                    {{
+                      formatNumberWithCommas(element[item.code]) ||
+                        item.defaultValue
+                    }}
                   </span>
                   <span>{{ item.hold }}</span>
                 </mat-panel-description>
@@ -2183,7 +2255,10 @@
                     />
                     <div>
                       <span>
-                        {{ formatNumberWithCommas(detail[item.code]) }}
+                        {{
+                          formatNumberWithCommas(detail[item.code]) ||
+                            item.defaultValue
+                        }}
                       </span>
                       <span>{{ item.hold }}</span>
                     </div>
@@ -2225,8 +2300,8 @@
         TYPE == 'RISK' ||
         TYPE == 'RATIOS' ||
         TYPE == 'FINANCIALS' ||
-        TYPE == 'RETURN' ||
-        TYPE == 'RESULT'
+        TYPE == 'RETURNS' ||
+        TYPE == 'RESULTS'
       "
       mat-footer-row
       *matFooterRowDef="displayedColumns"

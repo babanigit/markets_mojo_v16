@@ -15,15 +15,15 @@ export class GetPersonalPFService {
     TAX: 'assets/pp/getTax.json',
     RATIOS: 'assets/pp/getRatio.json',
     FINANCIALS: 'assets/pp/getFinancials.json',
-    // RETURN: 'assets/pp/getReturn.json',
-    // RESULT: 'assets/pp/getResult.json',
-    // TOTALRETURNS: 'assets/pp/getTotalReturns.json',
+    RETURNS: 'assets/pp/getReturn.json',
+    RESULTS: 'assets/pp/getResult.json',
+    TOTAL_RETURNS: 'assets/pp/getTotalReturns.json',
 
   };
 
   constructor(private http: HttpClient) {}
 
-  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS' | 'FINANCIALS') {
+  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS' | 'FINANCIALS' | 'RETURNS' | 'RESULTS' | 'TOTAL_RETURNS' ) {
 
     const path = this.paths[type] || this.paths.HOLDING; // default is holding
 

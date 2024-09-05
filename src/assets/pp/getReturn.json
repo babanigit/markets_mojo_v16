@@ -43,13 +43,13 @@
           "indname": "Mining & Minerals",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 503.35,
-          "chg": -0.35,
-          "chgp": -0.07,
+          "cmp": 502.7,
+          "chg": -1,
+          "chgp": -0.2,
           "cmpdir": -1,
           "prevclose": 503.7,
           "mcap": "Large Cap",
-          "sect_chgp": 0.19,
+          "sect_chgp": 0.18,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -57,16 +57,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 142805.38,
-          "othinc": 8315.86,
-          "opprof": 39588.06,
-          "intpaid": 850.26,
-          "tax": 23.95,
-          "netprof": 36571.62,
-          "eps": 59.34,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": -0.2,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": -4.72,
+                  "dir": -1
+              },
+              "M1": {
+                  "val": -0.74,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": 9.19,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 9.08,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 33.71,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 96.94,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 243.73,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 157.99,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 35.41,
+                  "dir": 1
+              }
+          }
       },
       "454045": {
           "sid": 454045,
@@ -109,13 +141,13 @@
           "indname": "Pesticides & Agrochem",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 1735,
-          "chg": 23.55,
-          "chgp": 1.38,
+          "cmp": 1736.25,
+          "chg": 24.8,
+          "chgp": 1.45,
           "cmpdir": 1,
           "prevclose": 1711.45,
           "mcap": "Small Cap",
-          "sect_chgp": 0.76,
+          "sect_chgp": 0.55,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -123,16 +155,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 1262.66,
-          "othinc": 1.71,
-          "opprof": 114.48,
-          "intpaid": 18.36,
-          "tax": 29.9,
-          "netprof": 33.42,
-          "eps": 22.18,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 1.45,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 1.77,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 20.07,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 36.66,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 25.47,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 187.79,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 140.59,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 230.02,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 1908.39,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 1864.08,
+                  "dir": 1
+              }
+          }
       },
       "119922": {
           "sid": 119922,
@@ -175,13 +239,13 @@
           "indname": "Private Banks",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 170.05,
-          "chg": 1.45,
-          "chgp": 0.86,
+          "cmp": 169.95,
+          "chg": 1.35,
+          "chgp": 0.8,
           "cmpdir": 1,
           "prevclose": 168.6,
           "mcap": "Mid Cap",
-          "sect_chgp": 0.05,
+          "sect_chgp": 0.02,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -189,16 +253,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Standalone",
-          "netsale": 5393.05,
-          "othinc": 742.31,
-          "opprof": 733.64,
-          "intpaid": 3246.94,
-          "tax": 19.19,
-          "netprof": 1052.95,
-          "eps": 14.22,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 0.8,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.77,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 4.97,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 17.49,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 23.51,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 14.14,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 31.64,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 10.21,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": -13.02,
+                  "dir": -1
+              },
+              "Y10": {
+                  "val": 167.76,
+                  "dir": 1
+              }
+          }
       },
       "400868": {
           "sid": 400868,
@@ -241,13 +337,13 @@
           "indname": "Power ",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 210.2,
-          "chg": -1.95,
-          "chgp": -0.92,
-          "cmpdir": -1,
+          "cmp": 217.35,
+          "chg": 5.2,
+          "chgp": 2.45,
+          "cmpdir": 1,
           "prevclose": 212.15,
           "mcap": "Mid Cap",
-          "sect_chgp": -0.01,
+          "sect_chgp": -0.42,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -255,16 +351,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 23687.23,
-          "othinc": 442.86,
-          "opprof": 3120.7,
-          "intpaid": 2209.25,
-          "tax": -17.15,
-          "netprof": -1169.55,
-          "eps": -29.52,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 2.45,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 2.62,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 11.2,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 44.95,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": -4.1,
+                  "dir": -1
+              },
+              "YTD": {
+                  "val": 3.43,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 14.12,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 208.3,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 482.71,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": -69.13,
+                  "dir": -1
+              }
+          }
       },
       "431628": {
           "sid": 431628,
@@ -307,13 +435,13 @@
           "indname": "Finance/NBFC",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 626.15,
-          "chg": 2.65,
-          "chgp": 0.43,
+          "cmp": 630,
+          "chg": 6.5,
+          "chgp": 1.04,
           "cmpdir": 1,
           "prevclose": 623.5,
           "mcap": "Large Cap",
-          "sect_chgp": 0.25,
+          "sect_chgp": 0.27,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -321,16 +449,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 49495.85,
-          "othinc": 76.05,
-          "opprof": 49455.36,
-          "intpaid": 30919.32,
-          "tax": 21.25,
-          "netprof": 14637.6,
-          "eps": 55.59,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 1.04,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.6,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 8.8,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 37.12,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 35.5,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 52.65,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 162.12,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 444.39,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 492.17,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 513.47,
+                  "dir": 1
+              }
+          }
       },
       "837957": {
           "sid": 837957,
@@ -373,13 +533,13 @@
           "indname": "Capital Goods",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 3618,
-          "chg": -40,
-          "chgp": -1.09,
+          "cmp": 3632.55,
+          "chg": -25.45,
+          "chgp": -0.7,
           "cmpdir": -1,
           "prevclose": 3658,
           "mcap": "Large Cap",
-          "sect_chgp": -0.14,
+          "sect_chgp": -0.21,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -387,16 +547,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 228350.36,
-          "othinc": 3933.11,
-          "opprof": 29937.88,
-          "intpaid": 9253.45,
-          "tax": 23.81,
-          "netprof": 13351.83,
-          "eps": 97.13,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": -0.7,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": -1.35,
+                  "dir": -1
+              },
+              "M1": {
+                  "val": 2.96,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 6.54,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 0.59,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 2.99,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 32.88,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 115.38,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 175.1,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 238.59,
+                  "dir": 1
+              }
+          }
       },
       "151046": {
           "sid": 151046,
@@ -445,7 +637,7 @@
           "cmpdir": 1,
           "prevclose": 70.4,
           "mcap": "Micro Cap",
-          "sect_chgp": 0.25,
+          "sect_chgp": 0.27,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -453,16 +645,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 0,
-          "othinc": 0,
-          "opprof": -0.34,
-          "intpaid": 0.39,
-          "tax": 0,
-          "netprof": -1.68,
-          "eps": -0.69,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 5,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 27.6,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 189.77,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 190.11,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 156.13,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 236.92,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 178.73,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 284,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 744.8,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 1038.98,
+                  "dir": 1
+              }
+          }
       },
       "616556": {
           "sid": 616556,
@@ -505,13 +729,13 @@
           "indname": "Public Banks",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 112.4,
-          "chg": -0.6,
-          "chgp": -0.53,
+          "cmp": 112.75,
+          "chg": -0.25,
+          "chgp": -0.22,
           "cmpdir": -1,
           "prevclose": 113,
           "mcap": "Large Cap",
-          "sect_chgp": 0.14,
+          "sect_chgp": 0.1,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -519,16 +743,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Standalone",
-          "netsale": 110312.59,
-          "othinc": 13559.25,
-          "opprof": 11984.73,
-          "intpaid": 69257.52,
-          "tax": 37.79,
-          "netprof": 10240.74,
-          "eps": 9.3,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": -0.22,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": -2.38,
+                  "dir": -1
+              },
+              "M1": {
+                  "val": -1.05,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": -7.43,
+                  "dir": -1
+              },
+              "M6": {
+                  "val": -13.07,
+                  "dir": -1
+              },
+              "YTD": {
+                  "val": 17.71,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 67.43,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 196.32,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 84.53,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": -39.75,
+                  "dir": -1
+              }
+          }
       },
       "1002872": {
           "sid": 1002872,
@@ -571,13 +827,13 @@
           "indname": "Finance/NBFC",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 753.35,
-          "chg": -5.05,
-          "chgp": -0.67,
+          "cmp": 753,
+          "chg": -5.4,
+          "chgp": -0.71,
           "cmpdir": -1,
           "prevclose": 758.4,
           "mcap": "Large Cap",
-          "sect_chgp": 0.25,
+          "sect_chgp": 0.27,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -585,16 +841,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 105044.21,
-          "othinc": 500.65,
-          "opprof": 437.56,
-          "intpaid": 0,
-          "tax": -74.41,
-          "netprof": 1636.35,
-          "eps": 7.61,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": -0.71,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": 2.25,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 6.13,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 36.52,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 23.93,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 16.37,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 17.5,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 2.53,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 42.45,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
       },
       "302744": {
           "sid": 302744,
@@ -637,13 +925,13 @@
           "indname": "Power ",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 17.91,
-          "chg": -0.04,
-          "chgp": -0.22,
-          "cmpdir": -1,
+          "cmp": 18,
+          "chg": 0.05,
+          "chgp": 0.28,
+          "cmpdir": 1,
           "prevclose": 17.95,
           "mcap": "Mid Cap",
-          "sect_chgp": -0.01,
+          "sect_chgp": -0.42,
           "show_mojostock": "yes",
           "show_fallstock": "no",
           "product_icon_list": [
@@ -664,16 +952,48 @@
               "show": 1,
               "text": "+1 More"
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 6809.66,
-          "othinc": 405.94,
-          "opprof": 2504.74,
-          "intpaid": 439.09,
-          "tax": 22.44,
-          "netprof": 1178.84,
-          "eps": 1.72,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 0.28,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.33,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": -4.31,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": -1.04,
+                  "dir": -1
+              },
+              "M6": {
+                  "val": 2.45,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 29.03,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 111.02,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 346.65,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 1004.29,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 32.84,
+                  "dir": 1
+              }
+          }
       },
       "10039196": {
           "sid": 10039196,
@@ -716,13 +1036,13 @@
           "indname": "Textile - Machinery",
           "exch": "NSE",
           "exchcode": 1,
-          "cmp": 834,
-          "chg": 11.8,
-          "chgp": 1.44,
-          "cmpdir": 1,
+          "cmp": 818,
+          "chg": -4.2,
+          "chgp": -0.51,
+          "cmpdir": -1,
           "prevclose": 822.2,
           "mcap": "Micro Cap",
-          "sect_chgp": 0.79,
+          "sect_chgp": 0.5,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -730,16 +1050,48 @@
               "show": 0,
               "text": ""
           },
-          "fres": 0,
-          "year": "Result not available",
-          "type": "-",
-          "netsale": "-",
-          "othinc": "-",
-          "opprof": "-",
-          "intpaid": "-",
-          "tax": "-",
-          "netprof": "-",
-          "eps": "-"
+          "returns": {
+              "D1": {
+                  "val": -0.51,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": 7.07,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 13.61,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 96,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "YTD": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y1": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y3": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y5": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
       },
       "234277": {
           "sid": 234277,
@@ -782,13 +1134,13 @@
           "indname": "IT - Software ",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 5256.6,
-          "chg": 8.6,
-          "chgp": 0.16,
+          "cmp": 5253.55,
+          "chg": 5.55,
+          "chgp": 0.11,
           "cmpdir": 1,
           "prevclose": 5248,
           "mcap": "Large Cap",
-          "sect_chgp": 0.2,
+          "sect_chgp": -0.14,
           "show_mojostock": "yes",
           "show_fallstock": "no",
           "product_icon_list": [
@@ -803,16 +1155,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 10237.59,
-          "othinc": 137.01,
-          "opprof": 1756.59,
-          "intpaid": 48.24,
-          "tax": 24.01,
-          "netprof": 1171.14,
-          "eps": 93.18,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 0.11,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 3.58,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 15.59,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 47.31,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 27.42,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 42.23,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 77.42,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 205.38,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 1769.76,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 1510.53,
+                  "dir": 1
+              }
+          }
       },
       "304521": {
           "sid": 304521,
@@ -855,13 +1239,13 @@
           "indname": "Tyres",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 2960,
-          "chg": 67.6,
-          "chgp": 2.34,
+          "cmp": 2926,
+          "chg": 33.6,
+          "chgp": 1.16,
           "cmpdir": 1,
           "prevclose": 2892.4,
           "mcap": "Mid Cap",
-          "sect_chgp": 0.8,
+          "sect_chgp": 0.49,
           "show_mojostock": "yes",
           "show_fallstock": "no",
           "product_icon_list": [
@@ -876,16 +1260,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 12201.13,
-          "othinc": 22.63,
-          "opprof": 1648.01,
-          "intpaid": 260.78,
-          "tax": 26.51,
-          "netprof": 652.2,
-          "eps": 161.24,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 1.16,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 4.49,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 14.67,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 22.49,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 2.04,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 20.52,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 30.55,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 123.45,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 222.66,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 351.2,
+                  "dir": 1
+              }
+          }
       },
       "1003511": {
           "sid": 1003511,
@@ -928,13 +1344,13 @@
           "indname": "IT - Software ",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 254.5,
-          "chg": 11.6,
-          "chgp": 4.78,
+          "cmp": 254.8,
+          "chg": 11.9,
+          "chgp": 4.9,
           "cmpdir": 1,
           "prevclose": 242.9,
           "mcap": "Large Cap",
-          "sect_chgp": 0.2,
+          "sect_chgp": -0.14,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -942,16 +1358,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 13904,
-          "othinc": 902,
-          "opprof": 267,
-          "intpaid": 79,
-          "tax": -10.46,
-          "netprof": 602,
-          "eps": 0.7,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 4.9,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 1.03,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": -0.59,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": 38.67,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 53.45,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 105.98,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 159.42,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 70.26,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
       },
       "1003648": {
           "sid": 1003648,
@@ -994,13 +1442,13 @@
           "indname": "Finance/NBFC",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 1060.35,
-          "chg": -4.2,
-          "chgp": -0.39,
-          "cmpdir": -1,
+          "cmp": 1070,
+          "chg": 5.45,
+          "chgp": 0.51,
+          "cmpdir": 1,
           "prevclose": 1064.55,
           "mcap": "Large Cap",
-          "sect_chgp": 0.25,
+          "sect_chgp": 0.27,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -1008,16 +1456,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 868137.84,
-          "othinc": 15744.47,
-          "opprof": 27554.98,
-          "intpaid": 0,
-          "tax": 13.68,
-          "netprof": 41825.19,
-          "eps": 66.13,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 0.51,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.03,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": -3.32,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": 13.56,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 4.21,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 28.41,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 62.1,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y5": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
       },
       "1003566": {
           "sid": 1003566,
@@ -1060,13 +1540,13 @@
           "indname": "Finance/NBFC",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 619.4,
-          "chg": 5.3,
-          "chgp": 0.86,
+          "cmp": 616.65,
+          "chg": 2.55,
+          "chgp": 0.42,
           "cmpdir": 1,
           "prevclose": 614.1,
           "mcap": "Large Cap",
-          "sect_chgp": 0.25,
+          "sect_chgp": 0.27,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -1074,16 +1554,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Consolidated",
-          "netsale": 9137.8,
-          "othinc": 561.7,
-          "opprof": -1406.2,
-          "intpaid": 21.8,
-          "tax": -1.55,
-          "netprof": -1898.8,
-          "eps": -29.87,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 0.42,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 11.22,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 23.63,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 81.45,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 52.6,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": -2.94,
+                  "dir": -1
+              },
+              "Y1": {
+                  "val": -30,
+                  "dir": -1
+              },
+              "Y3": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y5": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
       },
       "161419": {
           "sid": 161419,
@@ -1126,13 +1638,13 @@
           "indname": "Chemicals",
           "exch": "BSE",
           "exchcode": 0,
-          "cmp": 49.25,
-          "chg": -0.13,
-          "chgp": -0.26,
-          "cmpdir": -1,
+          "cmp": 49.51,
+          "chg": 0.13,
+          "chgp": 0.26,
+          "cmpdir": 1,
           "prevclose": 49.38,
           "mcap": "Micro Cap",
-          "sect_chgp": 0.72,
+          "sect_chgp": 0.5,
           "show_mojostock": "no",
           "show_fallstock": "no",
           "product_icon_list": [],
@@ -1140,16 +1652,48 @@
               "show": 0,
               "text": ""
           },
-          "year": "Jun-24",
-          "type": "Standalone",
-          "netsale": 243.09,
-          "othinc": 0.17,
-          "opprof": 5.35,
-          "intpaid": 0.15,
-          "tax": 52.33,
-          "netprof": 1.23,
-          "eps": 0.35,
-          "fres": 1
+          "returns": {
+              "D1": {
+                  "val": 0.26,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.88,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 13.11,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 6.89,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": -14.13,
+                  "dir": -1
+              },
+              "YTD": {
+                  "val": -1.1,
+                  "dir": -1
+              },
+              "Y1": {
+                  "val": 3.48,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 595.9,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 665,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 557.71,
+                  "dir": 1
+              }
+          }
       }
   }
 }
