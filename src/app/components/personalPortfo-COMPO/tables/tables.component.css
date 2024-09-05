@@ -214,14 +214,6 @@ span.active .mat-icon {
   margin-right: 8px;
 }
 
-.footer-cell {
-  width: 100%;
-  text-align: center;
-  /* display: flex;
-  justify-content: center; */
-
-  /* text-align: center; */
-}
 
 .circle {
   margin: 3px;
@@ -258,39 +250,10 @@ span.active .mat-icon {
 
 /* claude */
 /* Compact table styles */
-.compact-header,
-.compact-cell {
-  padding: 0 4px !important; /* Reduce horizontal padding */
-  font-size: 0.9em; /* Slightly reduce font size */
-}
-
-.compact-description {
-  margin: 0 !important;
-}
-
 .mat-expansion-panel-header {
   padding: 0 8px;
   height: auto !important;
   min-height: 36px;
-}
-
-.details-container {
-  padding: 8px 0;
-}
-
-.detail-row {
-  margin-bottom: 4px;
-}
-
-.detail-content {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.detail-separator {
-  margin: 2px 0;
-  border: 0.5px solid #ddd;
 }
 
 /* Ensure the table doesn't exceed the window width */
@@ -305,3 +268,8 @@ span.active .mat-icon {
   width: 100%;
   overflow-x: auto;
 }
+
+
+/* expanded height */
+
+/* Consistent height styles */
