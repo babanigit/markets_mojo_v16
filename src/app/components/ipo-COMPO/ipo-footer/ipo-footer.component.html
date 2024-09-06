@@ -61,7 +61,7 @@
         />
       </div>
 
-      <!-- careers-->
+      <!-- careers, contact us, ...etc... -->
       <div class="footer-links">
         <span
           style="margin-right: 10px"
@@ -72,7 +72,7 @@
         </span>
       </div>
 
-      <!-- email -->
+      <!-- email input section  -->
       <div style="display: flex; justify-items: center; place-items: center">
         <span
           ><input
@@ -178,58 +178,8 @@
 
       <!-- Slider Section -->
       <!-- start -->
-      <div
-        id="carouselExampleIndicators2"
-        class="carousel slide"
-        data-bs-ride="carousel"
-        data-bs-interval="1200"
-      >
-        <!-- content -->
-        <div class="carousel-inner">
-          <div
-            *ngFor="let hero of images; let i = index"
-            class="carousel-item"
-            [ngClass]="{ active: i === 0 }"
-          >
-            <div
-              class="d-flex justify-content-center align-items-center"
-              style="width: 100%; height: 200px"
-            >
-              <!-- main -->
-              <img
-                [src]="hero"
-                style="
-                  width: 30%;
-                  height: auto;
-                  border-radius: 8px;
-                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                "
-              />
-            </div>
-          </div>
-          <!-- Repeat carousel-item for other slides -->
-        </div>
 
-        <!-- navigations -->
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleIndicators2"
-          role="button"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleIndicators2"
-          role="button"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </a>
-      </div>
+      <!-- <app-demo /> -->
       <!-- end -->
 
       <!-- text -->

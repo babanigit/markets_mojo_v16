@@ -1,6 +1,10 @@
 <div class="swiper-container">
   <div class="swiper-wrapper">
-    <div class="swiper-slide" *ngFor="let slide of slides">
+    <div
+      class="swiper-slide"
+      *ngFor="let slide of slides"
+      [ngStyle]="{ 'width.px': slide.width }"
+    >
       <div class="slide-content">
         <h2>{{ slide.title }}</h2>
         <p>{{ slide.content }}</p>

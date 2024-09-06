@@ -146,14 +146,14 @@
 .footer-links-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  /* gap: 2px; */
   padding: 10px;
 }
 
 .footer-links {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columns layout */
-  gap: 10px;
+  /* gap: 2px; */
 }
 
 .finfoot {

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { DemoComponent } from '../../demo/demo.component';
 
 @Component({
   selector: 'app-ipo-footer',
@@ -7,7 +8,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./ipo-footer.component.css'],
   // styleUrl: './ipo-footer.component.css',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DemoComponent],
   encapsulation: ViewEncapsulation.None // Disable encapsulation
 })
 export class IpoFooterComponent implements OnInit {

@@ -1,7 +1,7 @@
 .swiper-container {
   width: 100%;
   max-width: 100vw; /* Ensure it doesn't exceed viewport width */
-  height: 300px; /* Adjust as needed */
+  height: 350px; /* Adjust as needed */
   overflow: hidden; /* Hide any overflowing content */
   position: relative; /* Position relative for absolute positioning of navigation buttons */
 }
