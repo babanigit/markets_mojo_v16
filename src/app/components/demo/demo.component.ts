@@ -4,8 +4,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import Swiper, { Navigation, Pagination, Scrollbar } from 'swiper';
-
+import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 
 @Component({
   selector: 'app-demo',
@@ -14,9 +13,8 @@ import Swiper, { Navigation, Pagination, Scrollbar } from 'swiper';
   standalone: true,
   imports: [
     CommonModule,
-    // SwiperModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA], // To prevent error when using Angular Material's components in a custom element
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DemoComponent implements AfterViewInit {
   slides = [
@@ -28,18 +26,17 @@ export class DemoComponent implements AfterViewInit {
     { title: 'Section 6', content: 'Content for section 6' },
     { title: 'Section 7', content: 'Content for section 7' },
     { title: 'Section 8', content: 'Content for section 8' },
-    // Add more slides if needed
   ];
 
   ngAfterViewInit() {
-    Swiper.use([Navigation, Pagination, Scrollbar]);
-
-    new Swiper('.swiper-container', {
+    Swiper.use([Navigation, Pagination, Scrollbar, Autoplay]);
+    const swiper = new Swiper('.swiper-container', {
       slidesPerView: 3,
       slidesPerGroup: 3,
-      spaceBetween: 0,
+      spaceBetween: 30,
+      loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 1000,
         disableOnInteraction: false,
       },
       navigation: {
@@ -52,9 +49,6 @@ export class DemoComponent implements AfterViewInit {
       },
     });
 
-    // console.log(swiperInstance); // Check the Swiper instance in the console
-
-
+    console.log('Swiper instance:', swiper);
   }
-
 }

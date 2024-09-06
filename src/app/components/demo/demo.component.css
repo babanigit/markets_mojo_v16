@@ -1,58 +1,57 @@
-
-@import '../../../../node_modules/swiper/swiper-bundle.min.css';
-
-/* slider.component.css */
 .swiper-container {
   width: 100%;
-  height: 400px; /* Set height of the slider */
-  position: relative; /* Ensure navigation buttons are positioned correctly */
-  overflow: hidden; /* Hide overflow to ensure clean scroll */
-}
-
-.swiper-wrapper {
-  display: flex;
-  align-items: center;
+  max-width: 100vw; /* Ensure it doesn't exceed viewport width */
+  height: 300px; /* Adjust as needed */
+  overflow: hidden; /* Hide any overflowing content */
 }
 
 .swiper-slide {
-  width: 60vw; /* Adjust the width as needed */
-  height: 100%; /* Full height of the container */
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #eee;
-  box-sizing: border-box;
-  padding: 20px; /* Optional padding for content */
-  /* Add a border or shadow to visualize slide boundaries */
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 .slide-content {
-  text-align: center;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Allow scrolling if content exceeds slide size */
 }
 
+/* Ensure navigation buttons don't push content */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #000; /* Customize navigation arrows */
-  width: 44px; /* Width of the navigation buttons */
-  height: 44px; /* Height of the navigation buttons */
-  background-color: rgba(255, 255, 255, 0.5); /* Background for visibility */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%; /* Circular navigation buttons */
-  z-index: 10; /* Ensure buttons are on top */
+  top: 50%;
+  width: 27px;
+  height: 44px;
+  margin-top: -22px;
+  z-index: 10;
+  cursor: pointer;
+  background-size: 27px 44px;
+  /* background-position: center; */
+  background-repeat: no-repeat;
 }
 
 .swiper-button-next {
-  right: 10px; /* Position the next button to the right */
+  right: 10px;
+  left: auto;
 }
 
 .swiper-button-prev {
-  left: 10px; /* Position the previous button to the left */
+  left: 10px;
+  right: auto;
 }
 
-.swiper-pagination-bullet {
-  background: #000; /* Customize pagination bullets */
+/* Ensure pagination doesn't push content */
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
 }
