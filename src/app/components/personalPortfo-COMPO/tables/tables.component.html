@@ -812,6 +812,7 @@
               display: flex;
               align-items: center;
             "
+             *ngIf="this.TYPE != 'TOTAL_RETURNS'"
           >
             in%
             <mat-icon [ngClass]="getSortIconClass('unrgainp')"
@@ -822,8 +823,8 @@
       </th>
       <td
         [ngStyle]="{
-          color: getColor(element.unrgainp),
-          'background-color': getBgColor(element.unrgainp)
+          color: getColor(element.unrgaindir),
+          'background-color': getBgColor(element.unrgaindir)
         }"
         mat-cell
         *matCellDef="let element"
@@ -847,7 +848,9 @@
                 "
               >
                 <div>{{ formatNumberWithCommas(element.unrgain) }}</div>
-                <div style="font-size: small; color: gray; height: 20px">
+                <div
+                *ngIf="this.TYPE != 'TOTAL_RETURNS'"
+                style="font-size: small; color: gray; height: 20px">
                   {{ formatNumberWithCommas(element.unrgainp) }}%
                 </div>
               </div>
@@ -1567,7 +1570,6 @@
     </ng-container>
 
     <!-- dividend -->
-
     <!-- tret, tretp Day's Gain  -->
     <ng-container matColumnDef="tret">
       <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
@@ -1773,7 +1775,7 @@
       <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container> -->
 
-    <!-- liquidity -->
+    <!-- liquidity, total return -->
     <!-- qty  -->
     <ng-container matColumnDef="qty">
       <th
@@ -1795,7 +1797,7 @@
             <mat-expansion-panel-header>
               <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
               <mat-panel-description>
-                {{ formatNumberWithCommas(element.qty) }}
+                {{ element.qty || "NA" }}
               </mat-panel-description>
             </mat-expansion-panel-header>
 
@@ -1825,7 +1827,7 @@
                     *ngIf="i < element.details.length - 1"
                     style="border: 1px solid black"
                   />
-                  <div>{{ formatNumberWithCommas(detail.qty) || "NA" }}</div>
+                  <div>{{ detail.qty || "NA" }}</div>
                   <!-- <div>{{ detail.iqty }}</div> -->
                   <!-- Horizontal line between rows -->
                   <hr
@@ -2149,7 +2151,6 @@
     </ng-container>
 
     <!-- results -->
-
     <!-- Result Date-->
     <ng-container matColumnDef="resdt">
       <th
@@ -2191,24 +2192,96 @@
 
     <!-- rescomm -->
     <ng-container matColumnDef="rescomm">
-      <th
-        style="background-color: gainsboro;
-
-        "
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        <div>Result</div>
-        <div>Commentary</div>
+      <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
+        <div>
+          <span
+            (click)="sortBy('rescomm')"
+            [ngClass]="{ active: isSortActive('rescomm') }"
+          >
+            Result
+            <!-- <mat-icon [ngClass]="getSortIconClass('rescomm')"
+              >arrow_downward</mat-icon
+            > -->
+          </span>
+        </div>
+        <div>
+          <span style="font-size: small; color: gray">
+            Commentary
+            <!-- <mat-icon [ngClass]="getSortIconClass('f.txt')"
+              >arrow_downward</mat-icon
+            > -->
+          </span>
+        </div>
       </th>
+
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                <div>
+                  <div
+                    [ngStyle]="{
+                    color: getColor(element?.rescomm?.dir),
+
+                  }"
+                  >
+                    {{ element.rescomm?.txt }}
+                  </div>
+                  <div>
+                    (Prev Score <b> {{ element.dotsum.prev_score || 0 }} </b> )
+                  </div>
+                </div>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Details section that will be shown when the panel is expanded -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        <!-- hello -->
+      </td>
+    </ng-container>
+
+    <!-- resultdt -->
+    <ng-container matColumnDef="resultdt">
+      <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
+        <div>
+          <span
+            (click)="sortBy('resultdt')"
+            [ngClass]="{ active: isSortActive('resultdt') }"
+          >
+            Returns
+            <!-- <mat-icon [ngClass]="getSortIconClass('resultdt')"
+              >arrow_downward</mat-icon
+            > -->
+          </span>
+        </div>
+        <div>
+          <span style="font-size: small; color: gray">
+            since result
+            <!-- <mat-icon [ngClass]="getSortIconClass('f.txt')"
+              >arrow_downward</mat-icon
+            > -->
+          </span>
+        </div>
+      </th>
+
       <td
+        [ngStyle]="{
+          color: getColor(element?.resret?.resultdt?.dir),
+          'background-color': getBgColor(element?.resret?.resultdt?.dir)
+        }"
         mat-cell
         *matCellDef="let element"
-        [ngStyle]="{
-          color: getColor(element?.rescomm.dir),
-          'background-color': getBgColor(element?.rescomm.dir)
-        }"
       >
         <!--  -->
         <mat-accordion>
@@ -2218,25 +2291,84 @@
             hideToggle
           >
             <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
               <mat-panel-description>
                 <div>
                   <div>
-                    {{ element.rescomm.txt }}
+                    {{ element.resret?.resultdt?.chgp }}
                   </div>
-                  <div> {{element.dotsum.prev_score}} </div>
                 </div>
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <!-- <p>This is the primary content of the panel.</p> -->
+            <!-- Details section that will be shown when the panel is expanded -->
           </mat-expansion-panel>
         </mat-accordion>
         <!--  -->
       </td>
 
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        <!-- hello -->
+      </td>
     </ng-container>
+
+    <!-- pv -->
+    <ng-container matColumnDef="pv">
+      <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
+        <div>
+          <span
+            (click)="sortBy('pv')"
+            [ngClass]="{ active: isSortActive('pv') }"
+          >
+            Portfolio Value
+            <!-- <mat-icon [ngClass]="getSortIconClass('pv')"
+              >arrow_downward</mat-icon
+            > -->
+          </span>
+        </div>
+        <div>
+          <span style="font-size: small; color: gray">
+            (Weight)
+            <!-- <mat-icon [ngClass]="getSortIconClass('f.txt')"
+              >arrow_downward</mat-icon
+            > -->
+          </span>
+        </div>
+      </th>
+
+      <td mat-cell *matCellDef="let element">
+        <!--  -->
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="expandedElement === element"
+            #shortPanel
+            hideToggle
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                <div>
+                  <div>
+                    {{ element.pv }}
+                  </div>
+                  <div style="color: gray">
+                    {{ element.pwt }} <span>%</span>
+                  </div>
+                </div>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Details section that will be shown when the panel is expanded -->
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  -->
+      </td>
+
+      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
+        <!-- hello -->
+      </td>
+    </ng-container>
+
+    <!-- total return -->
+
 
     <!-- mapping -->
     <!-- returns -->
@@ -2348,6 +2480,74 @@
         </td>
       </ng-container>
     </div>
+
+    <!-- total return -->
+    <div *ngFor="let item of col.total_returns">
+      <ng-container matColumnDef="{{ item.code }}">
+        <th
+          style="background-color: gainsboro"
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+        >
+          {{ item.title }}
+        </th>
+        <td
+
+        [ngStyle]="{
+          color: getColor(element[item.dir]),
+          'background-color': getBgColor(element[item.dir])
+        }"
+        mat-cell *matCellDef="let element">
+          <mat-accordion>
+            <mat-expansion-panel
+              [expanded]="expandedElement === element"
+              #shortPanel
+              hideToggle
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-description>
+                  <span>{{
+                    formatNumberWithCommas(element[item.code]) ||
+                      item.defaultValue
+                  }}</span>
+                  <span>{{ item.hold }}</span>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <!-- after extand -->
+              <div
+                [hidden]="item.no_extend"
+                *ngIf="element.details && element.details.length > 0"
+              >
+                <div *ngFor="let detail of element.details; let i = index">
+                  <div>
+                    <hr *ngIf="i < element.details.length - 1" />
+                    <div>
+                      <span>{{
+                        formatNumberWithCommas(detail[item.code]) ||
+                          item.defaultValue
+                      }}</span>
+                      <span>{{ item.hold }}</span>
+                    </div>
+                    <hr *ngIf="i < element.details.length - 1" />
+                  </div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+        <td mat-footer-cell *matFooterCellDef>
+          <div *ngIf="item.footer">
+            <b>
+              <span>{{ formatNumberWithCommas(getTotal(item.code)) }}</span>
+              <span>{{ item.hold }}</span>
+            </b>
+          </div>
+        </td>
+      </ng-container>
+    </div>
+
 
     <!-- Header, footer and Row Definitions -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

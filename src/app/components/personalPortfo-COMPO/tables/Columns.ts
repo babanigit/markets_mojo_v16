@@ -7,13 +7,28 @@ interface BaseColumn {
   footer: boolean;
 }
 
+interface Total_return {
+  title: string;
+  code: string;
+  hold: string;
+  defaultValue: string;
+  no_extend: boolean;
+  footer: boolean;
+  dir:string
+}
+
 export interface IColumns {
   solo: BaseColumn[];
   returns: BaseColumn[];
+  total_returns:Total_return[]
 }
 
 export const columns: IColumns = {
   solo: [
+
+
+
+
     //financials
     {
       title: 'Net Sales / Int Earned (Rs Cr) ',
@@ -239,6 +254,7 @@ export const columns: IColumns = {
       footer: true,
     },
   ],
+
   returns: [
     {
       title: '1 Day ',
@@ -316,4 +332,36 @@ export const columns: IColumns = {
       footer: false,
     },
   ],
+
+  total_returns: [
+     // total returns
+     {
+      title: 'Realised Gain ',
+      code: 'rgain',
+      hold: '',
+      defaultValue: '-',
+      no_extend: false,
+      footer: true,
+      dir: 'rgaindir'
+    },
+    {
+      title: 'Total Gain ',
+      code: 'tgain',
+      hold: '',
+      defaultValue: '-',
+      no_extend: false,
+      footer: true,
+      dir: 'tgaindir'
+    },
+    {
+      title: 'Total Gain (%)  ',
+      code: 'tgainp',
+      hold: '%',
+      defaultValue: '-',
+      no_extend: false,
+      footer: true,
+      dir: 'tgainpdir'
+    },
+  ]
+
 };

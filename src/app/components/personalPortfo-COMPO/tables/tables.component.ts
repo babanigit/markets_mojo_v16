@@ -357,10 +357,19 @@ export class TablesComponent implements OnInit {
         ];
         break;
       case 'RESULTS':
-        this.displayedColumns = ['short', 'score', 'cmp', 'resdt' , 'f_txt', 'rescomm', ];
+        this.displayedColumns = [
+          'short',
+          'score',
+          'cmp',
+          'resdt',
+          'f_txt',
+          'rescomm',
+          'resultdt',
+          'pv',
+        ];
         break;
       case 'TOTAL_RETURNS':
-        this.displayedColumns = ['short', 'score', 'cmp'];
+        this.displayedColumns = ['short', 'score', 'cmp', 'qty', 'rgain' , 'unrgain', 'tgain', 'tgainp'];
         break;
     }
   }
@@ -427,16 +436,16 @@ export class TablesComponent implements OnInit {
       // Split the property path (e.g., 'Y1.val')
       const [propertyPath] = sortState.active.split('.');
 
-      // if RISK
-      if (this.TYPE === 'RISK') {
-        if (sortState.active === 'Y1') {
-          valueA = a[propertyPath]?.val;
-          valueB = b[propertyPath]?.val;
-        }
-      }
+      // // if RISK
+      // if (this.TYPE === 'RISK') {
+      //   if (sortState.active === 'Y1') {
+      //     valueA = a[propertyPath]?.val;
+      //     valueB = b[propertyPath]?.val;
+      //   }
+      // }
 
       if (
-        this.TYPE !== 'RISK' &&
+        // this.TYPE !== 'RISK' &&
         // sortState.active === 'D1' || sortState.active === 'Y1'
         ['D1', 'W1', 'M1', 'M3', 'Y1', 'Y3', 'Y5'].includes(sortState.active)
       ) {
@@ -535,11 +544,11 @@ export class TablesComponent implements OnInit {
     const value = parseFloat(str);
 
     if (isNaN(value)) {
-      return '#e0e0e0';
+      return 'white';
     }
 
     if (value === 0) {
-      return '#ffffff';
+      return '#white';
     }
 
     // Colors for negative and positive values
