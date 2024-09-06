@@ -1,38 +1,77 @@
 interface BaseColumn {
   title: string;
   code: string;
+  short_header?:string,
   hold: string;
   defaultValue: string;
   no_extend: boolean;
   footer: boolean;
+  clr?: string;
+
 }
 
 interface Total_return {
   title: string;
   code: string;
+  short_header?:string,
   hold: string;
   defaultValue: string;
   no_extend: boolean;
   footer: boolean;
-  dir:string
+  dir: string;
 }
 
 export interface IColumns {
   solo: BaseColumn[];
   returns: BaseColumn[];
-  total_returns:Total_return[]
+  total_returns: Total_return[];
+  mojo:BaseColumn[]
 }
 
 export const columns: IColumns = {
+  mojo:[
+   {
+      title: 'Quantity ',
+      code: 'q_txt',
+      short_header:'dotsum.q_txt',
+      clr:'q_clr',
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+    {
+      title: 'Valuation ',
+      code: 'v_txt',
+      short_header:'dotsum.v_txt',
+      clr:'v_clr',
+
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+    {
+      title: ' Technical ',
+      code: 'tech_txt',
+      short_header:'dotsum.tech_txt',
+      clr:'tech_clr',
+
+      hold: '',
+      defaultValue: '-',
+      no_extend: true,
+      footer: false,
+    },
+  ],
+  // mix
   solo: [
-
-
-
+    // mojo
 
     //financials
     {
       title: 'Net Sales / Int Earned (Rs Cr) ',
       code: 'netsale',
+      // short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: true,
@@ -41,6 +80,7 @@ export const columns: IColumns = {
     {
       title: 'Other Income (Rs Cr) ',
       code: 'othinc',
+      // short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: true,
@@ -49,6 +89,7 @@ export const columns: IColumns = {
     {
       title: 'Operating Profit (Rs Cr) ',
       code: 'opprof',
+      // short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: true,
@@ -57,6 +98,7 @@ export const columns: IColumns = {
     {
       title: 'Interest Paid (Rs Cr) ',
       code: 'intpaid',
+      // short_header:'',
       hold: '%',
       defaultValue: '-',
       no_extend: true,
@@ -65,6 +107,7 @@ export const columns: IColumns = {
     {
       title: 'Tax Ratio (%)',
       code: 'tax',
+      // short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: true,
@@ -73,6 +116,7 @@ export const columns: IColumns = {
     {
       title: 'Net Profit (Rs Cr) ',
       code: 'netprof',
+      // short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: true,
@@ -81,6 +125,7 @@ export const columns: IColumns = {
     {
       title: 'EPS (Rs)',
       code: 'eps',
+      // short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: true,
@@ -91,6 +136,7 @@ export const columns: IColumns = {
     {
       title: 'Price to Book (P/BV)',
       code: 'pbv',
+      // short_header:'',
       hold: '',
       defaultValue: 'NA',
       no_extend: true,
@@ -99,6 +145,7 @@ export const columns: IColumns = {
     {
       title: 'Return on Equity (ROE)',
       code: 'roe',
+      // short_header:'',
       hold: '',
       defaultValue: 'NA',
       no_extend: true,
@@ -107,6 +154,7 @@ export const columns: IColumns = {
     {
       title: 'Debt to Equity Ratio',
       code: 'debeq',
+      // short_header:'',
       hold: '',
       defaultValue: 'NA',
       no_extend: true,
@@ -115,6 +163,7 @@ export const columns: IColumns = {
     {
       title: 'Dividend Yield (%)',
       code: 'divy',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -125,6 +174,7 @@ export const columns: IColumns = {
     {
       title: 'volatility',
       code: 'volatility',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -134,6 +184,7 @@ export const columns: IColumns = {
     {
       title: ' Risk Adj Returns',
       code: 'riskadj',
+      // short_header:'',
       hold: '',
       defaultValue: '0.00',
       no_extend: true,
@@ -143,6 +194,7 @@ export const columns: IColumns = {
     {
       title: 'Beta (Adjusted)',
       code: 'beta',
+      // short_header:'',
       hold: '',
       defaultValue: 'NA',
       no_extend: true,
@@ -152,6 +204,7 @@ export const columns: IColumns = {
     {
       title: 'Value At Risk',
       code: 'riskval',
+      // short_header:'',
       hold: '',
       defaultValue: 'NA',
       no_extend: true,
@@ -162,6 +215,7 @@ export const columns: IColumns = {
     {
       title: "Day's High",
       code: 'dh',
+      // short_header:'',
       hold: '',
       defaultValue: 'NA',
       no_extend: true,
@@ -170,6 +224,7 @@ export const columns: IColumns = {
     {
       title: "Day's Low",
       code: 'dl',
+      // short_header:'',
       hold: '',
       defaultValue: 'NA',
       no_extend: true,
@@ -180,6 +235,7 @@ export const columns: IColumns = {
     {
       title: 'Unrealized Gain Contribution',
       code: 'unrgaincontri',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -188,6 +244,7 @@ export const columns: IColumns = {
     {
       title: 'Portfolio Weight',
       code: 'pwt',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -198,6 +255,7 @@ export const columns: IColumns = {
     {
       title: 'Dividend Received',
       code: 'div',
+      // short_header:'',
       hold: '',
       defaultValue: 'NA',
       no_extend: true,
@@ -208,6 +266,7 @@ export const columns: IColumns = {
     {
       title: '31 Jan 2018',
       code: 'jan31price',
+      // short_header:'',
       hold: '',
       defaultValue: '0.00',
       no_extend: false,
@@ -216,6 +275,7 @@ export const columns: IColumns = {
     {
       title: ' Avg Holding (Yrs)',
       code: 'avghold',
+      // short_header:'',
       hold: '',
       defaultValue: '0.00',
       no_extend: false,
@@ -224,6 +284,7 @@ export const columns: IColumns = {
     {
       title: ' ST Tax (If Sold)',
       code: 'sttax',
+      // short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: false,
@@ -232,6 +293,7 @@ export const columns: IColumns = {
     {
       title: 'Days left for ST Tax',
       code: 'dayleft',
+      // short_header:'',
       hold: '',
       defaultValue: 'Tax Free',
       no_extend: false,
@@ -240,6 +302,7 @@ export const columns: IColumns = {
     {
       title: ' LT Tax (If Sold)',
       code: 'lttax',
+      // short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: false,
@@ -248,6 +311,7 @@ export const columns: IColumns = {
     {
       title: ' Post Tax Value',
       code: 'ptv',
+      // short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: false,
@@ -259,6 +323,7 @@ export const columns: IColumns = {
     {
       title: '1 Day ',
       code: 'D1',
+      // short_header:'',
       hold: '%',
       defaultValue: '-',
       no_extend: true,
@@ -267,6 +332,7 @@ export const columns: IColumns = {
     {
       title: '1 Week  ',
       code: 'W1',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -275,6 +341,7 @@ export const columns: IColumns = {
     {
       title: '1 Month   ',
       code: 'M1',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -283,6 +350,7 @@ export const columns: IColumns = {
     {
       title: '3 Months ',
       code: 'M3',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -291,6 +359,7 @@ export const columns: IColumns = {
     {
       title: '6 Months ',
       code: 'M6',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -299,6 +368,7 @@ export const columns: IColumns = {
     {
       title: 'YTD ',
       code: 'YTD',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -308,6 +378,7 @@ export const columns: IColumns = {
     {
       title: '1 Year  ',
       code: 'Y1',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -317,6 +388,7 @@ export const columns: IColumns = {
     {
       title: '3 Year  ',
       code: 'Y3',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -326,6 +398,7 @@ export const columns: IColumns = {
     {
       title: '5 Year ',
       code: 'Y5',
+      // short_header:'',
       hold: '%',
       defaultValue: 'NA',
       no_extend: true,
@@ -334,34 +407,37 @@ export const columns: IColumns = {
   ],
 
   total_returns: [
-     // total returns
-     {
+    // total returns
+    {
       title: 'Realised Gain ',
       code: 'rgain',
+      short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: false,
       footer: true,
-      dir: 'rgaindir'
+      dir: 'rgaindir',
     },
     {
       title: 'Total Gain ',
       code: 'tgain',
+      short_header:'',
       hold: '',
       defaultValue: '-',
       no_extend: false,
       footer: true,
-      dir: 'tgaindir'
+      dir: 'tgaindir',
     },
     {
       title: 'Total Gain (%)  ',
       code: 'tgainp',
+      short_header:'',
       hold: '%',
       defaultValue: '-',
       no_extend: false,
       footer: true,
-      dir: 'tgainpdir'
+      dir: 'tgainpdir',
     },
-  ]
+  ],
 
 };

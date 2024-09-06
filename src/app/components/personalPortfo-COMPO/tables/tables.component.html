@@ -189,7 +189,7 @@
         style="background-color: gainsboro"
         mat-header-cell
         *matHeaderCellDef
-        mat-sort-header
+        mat-sort-header="dotsum.score"
       >
         Score
       </th>
@@ -1036,50 +1036,12 @@
       </td>
     </ng-container>
 
-    <!-- tech_txt dotsum.tech_txt -->
-    <ng-container matColumnDef="tech_txt">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Technical
-      </th>
-      <td
-        [ngStyle]="{
-          color: element.dotsum.tech_clr,
-          'background-color': getBgColor(element.dotsum.tech_clr)
-        }"
-        mat-cell
-        *matCellDef="let element"
-      >
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ element.dotsum.tech_txt }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
 
-            <!-- <p>This is the primary content of the panel.</p> -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
 
     <!-- f_txt, f_txt ,  Financial Trend -->
     <ng-container matColumnDef="f_txt">
-      <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
+      <th style="background-color: gainsboro"
+      mat-header-cell *matHeaderCellDef>
         <div>
           <span
             (click)="sortBy('f_txt')"
@@ -1652,90 +1614,7 @@
       </td>
     </ng-container>
 
-    <!-- mojo -->
-    <!-- quantity q_txt dotsum.q_txt -->
-    <ng-container matColumnDef="q_txt">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Quantity
-      </th>
-      <td
-        [ngStyle]="{
-          color: element.dotsum.q_clr,
-          'background-color': getBgColor(element.dotsum.q_clr)
-        }"
-        mat-cell
-        *matCellDef="let element"
-      >
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ element.dotsum.q_txt }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
 
-            <!-- <p>This is the primary content of the panel.</p> -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef>
-        <div></div>
-      </td>
-    </ng-container>
-
-    <!-- valuation v_txt dotsum.v_txt -->
-    <ng-container matColumnDef="v_txt">
-      <th
-        style="background-color: gainsboro"
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-      >
-        Valuation
-      </th>
-      <td
-        [ngStyle]="{
-          color: element.dotsum.v_clr,
-          'background-color': getBgColor(element.dotsum.v_clr)
-        }"
-        mat-cell
-        *matCellDef="let element"
-      >
-        <!--  -->
-        <mat-accordion>
-          <mat-expansion-panel
-            [expanded]="expandedElement === element"
-            #shortPanel
-            hideToggle
-          >
-            <mat-expansion-panel-header>
-              <!-- <mat-panel-title> This is the expansion title </mat-panel-title> -->
-              <mat-panel-description>
-                {{ element.dotsum.v_txt }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- <p>This is the primary content of the panel.</p> -->
-          </mat-expansion-panel>
-        </mat-accordion>
-        <!--  -->
-      </td>
-
-      <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
 
     <!-- risk -->
     <!-- Y1  -->
@@ -2017,6 +1896,7 @@
       <td class="footer-cell" mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
+    <!-- ratios -->
     <!-- pe  PE (TTM)  -->
     <ng-container matColumnDef="pe">
       <th style="background-color: gainsboro" mat-header-cell *matHeaderCellDef>
@@ -2371,6 +2251,71 @@
 
 
     <!-- mapping -->
+
+      <!-- mojo -->
+      <div *ngFor="let item of col.mojo">
+        <ng-container matColumnDef="{{ item.code }}">
+          <th
+            style="background-color: gainsboro"
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header="{{item.short_header}}"
+          >
+            {{ item.title }}
+          </th>
+          <td
+          [ngStyle]="{
+            color: element.dotsum[item.clr!],
+            'background-color': getBgColor(element.dotsum[item.clr!])
+          }"
+          mat-cell *matCellDef="let element">
+            <mat-accordion>
+              <mat-expansion-panel
+                [expanded]="expandedElement === element"
+                #shortPanel
+                hideToggle
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-description>
+                    <span>{{
+                      element.dotsum[item.code] ||
+                        item.defaultValue
+                    }}</span>
+                    <span>{{ item.hold }}</span>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div
+                  [hidden]="item.no_extend"
+                  *ngIf="element.details && element.details.length > 0"
+                >
+                  <div *ngFor="let detail of element.details; let i = index">
+                    <div>
+                      <hr *ngIf="i < element.details.length - 1" />
+                      <div>
+                        <span>{{
+                          formatNumberWithCommas(detail[item.code]) ||
+                            item.defaultValue
+                        }}</span>
+                        <span>{{ item.hold }}</span>
+                      </div>
+                      <hr *ngIf="i < element.details.length - 1" />
+                    </div>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </td>
+          <td mat-footer-cell *matFooterCellDef>
+            <div *ngIf="item.footer">
+              <b>
+                <span>{{ formatNumberWithCommas(getTotal(item.code)) }}</span>
+                <span>{{ item.hold }}</span>
+              </b>
+            </div>
+          </td>
+        </ng-container>
+      </div>
+
     <!-- returns -->
     <div *ngFor="let item of col.returns">
       <ng-container matColumnDef="{{ item.code }}">

@@ -412,77 +412,51 @@ export class TablesComponent implements OnInit {
 
   private sortData(sortState: Sort) {
     console.log('sortData called ...', sortState);
-
-    // Create a copy of the data to sort
     const data = this.dataSource2.data.slice();
-
-    // If no sorting is active or the direction is empty, return the unsorted data
     if (!sortState.active || sortState.direction === '') {
       this.dataSource2.data = data;
       return;
     }
-
     const isAsc = sortState.direction === 'asc';
 
-    // Sort the data based on the dynamic property
     this.dataSource2.data = data.sort((a, b) => {
-      let valueA: number | string;
-      let valueB: number | string;
+      let valueA: any;
+      let valueB: any;
 
-      // for dotsum elements
-      valueA = +a.dotsum[sortState.active] || 0;
-      valueB = +b.dotsum[sortState.active] || 0;
-
-      // Split the property path (e.g., 'Y1.val')
-      const [propertyPath] = sortState.active.split('.');
-
-      // // if RISK
-      // if (this.TYPE === 'RISK') {
-      //   if (sortState.active === 'Y1') {
-      //     valueA = a[propertyPath]?.val;
-      //     valueB = b[propertyPath]?.val;
-      //   }
-      // }
-
-      if (
-        // this.TYPE !== 'RISK' &&
-        // sortState.active === 'D1' || sortState.active === 'Y1'
-        ['D1', 'W1', 'M1', 'M3', 'Y1', 'Y3', 'Y5'].includes(sortState.active)
-      ) {
+      if (['D1', 'W1', 'M1', 'M3', 'Y1', 'Y3', 'Y5'].includes(sortState.active)) {
         valueA = a.returns?.[sortState.active]?.val;
         valueB = b.returns?.[sortState.active]?.val;
       } else if (a.dotsum && b.dotsum) {
-        valueA = +a.dotsum[sortState.active] || 0;
-        valueB = +b.dotsum[sortState.active] || 0;
+        // Handle nested properties like 'q_txt' inside dotsum
+        const props = sortState.active.split('.');
+        valueA = props.reduce((obj, prop) => obj?.[prop], a);
+        valueB = props.reduce((obj, prop) => obj?.[prop], b);
       } else {
-        // Default case
         valueA = a[sortState.active];
         valueB = b[sortState.active];
       }
 
-      // Convert to numbers if possible, else keep as strings
-      const numA = isNaN(+valueA) ? valueA : +valueA;
-      const numB = isNaN(+valueB) ? valueB : +valueB;
-
-      return this.compare(numA, numB, isAsc);
+      return this.compare(valueA, valueB, isAsc);
     });
   }
 
-  // Utility method to compare values
-  private compare(
-    valueA: number | string,
-    valueB: number | string,
-    isAsc: boolean
-  ): number {
-    if (typeof valueA === 'string' && typeof valueB === 'string') {
-      return isAsc
-        ? valueA.localeCompare(valueB)
-        : valueB.localeCompare(valueA);
+  private compare(valueA: any, valueB: any, isAsc: boolean): number {
+    if (valueA === valueB) {
+      return 0;
     }
-    // For numbers or mixed comparisons
-    return isAsc
-      ? (valueA as number) - (valueB as number)
-      : (valueB as number) - (valueA as number);
+
+    if (typeof valueA === 'string' && typeof valueB === 'string') {
+      return isAsc ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+    }
+
+    if (typeof valueA === 'number' && typeof valueB === 'number') {
+      return isAsc ? valueA - valueB : valueB - valueA;
+    }
+
+    // If types are different or one of the values is null/undefined
+    const aString = String(valueA);
+    const bString = String(valueB);
+    return isAsc ? aString.localeCompare(bString) : bString.localeCompare(aString);
   }
 
   // specially for latest price cause it has two data inside and angular material dot suppport this.
