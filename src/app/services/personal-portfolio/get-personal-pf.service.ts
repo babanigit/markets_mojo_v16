@@ -8,16 +8,16 @@ import { catchError } from 'rxjs';
 })
 export class GetPersonalPFService {
   private readonly paths = {
-    OVERVIEW: 'assets/pp/getOverview.json',
-    HOLDING: 'assets/pp/getHolding.json',
-    RISK: 'assets/pp/getRisk.json',
-    LIQUIDITY: 'assets/pp/getLiquidity.json',
-    TAX: 'assets/pp/getTax.json',
-    RATIOS: 'assets/pp/getRatio.json',
-    FINANCIALS: 'assets/pp/getFinancials.json',
-    RETURNS: 'assets/pp/getReturn.json',
-    RESULTS: 'assets/pp/getResults.json',
-    TOTAL_RETURNS: 'assets/pp/getTotalReturns.json',
+    OVERVIEW: 'assets/pp/table/getOverview.json',
+    HOLDING: 'assets/pp/table/getHolding.json',
+    RISK: 'assets/pp/table/getRisk.json',
+    LIQUIDITY: 'assets/pp/table/getLiquidity.json',
+    TAX: 'assets/pp/table/getTax.json',
+    RATIOS: 'assets/pp/table/getRatio.json',
+    FINANCIALS: 'assets/pp/table/getFinancials.json',
+    RETURNS: 'assets/pp/table/getReturn.json',
+    RESULTS: 'assets/pp/table/getResults.json',
+    TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
 
   };
 
@@ -37,4 +37,5 @@ export class GetPersonalPFService {
       })
     );
   }
+
 }
