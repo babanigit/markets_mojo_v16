@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { SwitcherpageRoutingModule } from './switcherpage-routing.module';
 import { SwitcherpageComponent } from './switcherpage.component';
-import { VerdictfooterComponent } from '../../components/verdictfooter/verdictfooter.component';
 import { Verdict3newComponent } from '../../components/verdict3new/verdict3new.component';
 import { Verdict1Component } from '../../components/verdict1/verdict1.component';
 import { Verdict2Component } from '../../components/verdict2/verdict2.component';
@@ -18,6 +17,7 @@ import { SwitchOptionsComponent } from '../../components/switcherReportsComponen
 import { FilterChoiceResultPipe } from '../../pipes/switcher/filter-choice-result.pipe';
 import { DemoComponent } from '../../components/demo/demo.component';
 import { IpoFooterComponent } from '../../components/ipo-COMPO/ipo-footer/ipo-footer.component';
+import { VerdictFooterNComponent } from 'src/app/components/verdict-footer-n/verdict-footer-n.component';
 
 
 @NgModule({
@@ -25,7 +25,6 @@ import { IpoFooterComponent } from '../../components/ipo-COMPO/ipo-footer/ipo-fo
   imports: [
     CommonModule,
     SwitcherpageRoutingModule,
-    VerdictfooterComponent,
     Verdict3newComponent,
     Verdict1Component,
     Verdict1Component,
@@ -40,7 +39,8 @@ import { IpoFooterComponent } from '../../components/ipo-COMPO/ipo-footer/ipo-fo
     SwitchOptionsComponent,
     FilterChoiceResultPipe,
     DemoComponent,
-    IpoFooterComponent
+    IpoFooterComponent,
+    VerdictFooterNComponent
   ],
 })
 export class SwitcherpageModule {}

@@ -1,15 +1,25 @@
-
 /* In styles.css or angular.json */
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import '../node_modules/swiper/swiper-bundle.min.css';
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/swiper/swiper-bundle.min.css";
 
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
-@import url("https://c.marketsmojo.com/angular-swiper/swiper.css?v=20230418110518");
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* markets mojo style urls */
+/* @import url("https://c.marketsmojo.com/angular-swiper/swiper.css?v=20230418110518"); */
+@import url("https://c.marketsmojo.com/header_nav.css?v=20240906145500");
+@import url("https://c.marketsmojo.com/mojoprofessional/verdict.css?v=20240906145500");
+
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 /* to remove that div which is generating below app-root div */
 .cdk-describedby-message-container {

@@ -2,22 +2,16 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-verdictfooter',
+  selector: 'app-verdict-footer-n',
+  templateUrl: './verdict-footer-n.component.html',
+  // styleUrls: ['./verdict-footer-n.component.css'],
   standalone: true,
-  imports: [
-CommonModule
-  ],
-  templateUrl: './verdictfooter.component.html',
-  styleUrls: ['./verdictfooter.component.css']
-  // styleUrl: './verdictfooter.component.css'
+  imports: [CommonModule],
 })
-export class VerdictfooterComponent {
-
-
+export class VerdictFooterNComponent {
   stockLetters: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   getStockLink(letter: string): string {
     return `/stocks-analysis/getstocksbyname?n=${letter}`;
   }
-
 }

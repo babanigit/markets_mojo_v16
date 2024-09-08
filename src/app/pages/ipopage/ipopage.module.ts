@@ -9,7 +9,6 @@ import { IpoChartComponent } from '../../components/ipo-COMPO/ipo-chart/ipo-char
 import { IPOpageComponent } from './ipopage.component';
 import { IpoSliderComponent } from '../../components/ipo-COMPO/ipo-slider/ipo-slider.component';
 import { IpoSnapshotComponent } from '../../components/ipo-COMPO/ipo-snapshot/ipo-snapshot.component';
-import { VerdictfooterComponent } from '../../components/verdictfooter/verdictfooter.component';
 import { SnapshotFilterPipe } from '../../pipes/ipo/snapshot-filter.pipe';
 
 import { IpoSliderDemoComponent } from '../../components/ipo-COMPO/ipo-slider-demo/ipo-slider-demo.component';
@@ -33,7 +32,6 @@ import { IpoFooterComponent } from "../../components/ipo-COMPO/ipo-footer/ipo-fo
     IpoChartComponent,
     IpoSliderComponent,
     IpoSnapshotComponent,
-    VerdictfooterComponent,
     IpoSliderDemoComponent,
     IpoFooterComponent
 ],
