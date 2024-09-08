@@ -5,7 +5,7 @@ import { ISectionData } from '../../assets/sectionData';
 @Component({
   selector: 'app-verdict3new',
   templateUrl: './verdict3new.component.html',
-  styleUrls: ['./verdict3new.component.css'],
+  // styleUrls: ['./verdict3new.component.css'],
   standalone: true,
   imports:[
     CommonModule
@@ -15,5 +15,4 @@ import { ISectionData } from '../../assets/sectionData';
 })
 export class Verdict3newComponent {
   @Input() sectionData!: ISectionData[]; //props
-
 }
