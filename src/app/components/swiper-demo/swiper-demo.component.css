@@ -1,0 +1,59 @@
+.swiper-container {
+  width: 100%;
+  max-width: 100vw; /* Ensure it doesn't exceed viewport width */
+  height: 350px; /* Adjust as needed */
+  overflow: hidden; /* Hide any overflowing content */
+  position: relative; /* Position relative for absolute positioning of navigation buttons */
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.slide-content {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Allow scrolling if content exceeds slide size */
+}
+
+/* Ensure navigation buttons are on top of Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute; /* Position absolutely within the swiper-container */
+  top: 50%; /* Center vertically */
+  width: 27px;
+  height: 44px;
+  margin-top: -22px; /* Adjust to center vertically */
+  z-index: 10; /* Make sure it appears on top of the Swiper slides */
+  cursor: pointer;
+  background-size: 27px 44px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.swiper-button-next {
+  right: 10px; /* Adjust for spacing from the right edge */
+  left: auto;
+}
+
+.swiper-button-prev {
+  left: 10px; /* Adjust for spacing from the left edge */
+  right: auto;
+}
+
+/* Ensure pagination doesn't push content */
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  bottom: 10px; /* Position pagination at the bottom of the swiper-container */
+  width: 100%;
+  z-index: 10;
+}

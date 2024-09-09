@@ -1,0 +1,39 @@
+<div class="slide-card cf" id="MenusectToday">
+  <div class="swiper-container">
+    <div class="section-head cf">
+      <h3>How am I doing Today</h3>
+    </div>
+
+    <div class="SectionDetails">
+      <span class="txt-sml no-tab"></span>
+
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="swiper-wrapper reco-slide" id="sectToday" sect-reveal="true">
+      <!-- <div
+        class="swiper-slide"
+        *ngFor="let slide of slides"
+        [ngStyle]="{ 'width.px': slide.width }"
+      >
+        <div class="slide-content">
+          <h2>{{ slide.title }}</h2>
+          <p>{{ slide.content }}</p>
+        </div>
+      </div> -->
+
+      <section data-reveal="true"
+      id="sectToday_movement"
+      class="swiper-slide padnno-sec marginright swiper-slide-visible swiper-slide-active"
+      data-scrolled="0"
+      data-visited="0">
+        <div class="slide-content">hello</div>
+      </section>
+    </div>
+
+    <!-- Add Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>

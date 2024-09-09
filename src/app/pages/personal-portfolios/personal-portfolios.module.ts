@@ -11,6 +11,7 @@ import { TablesComponent } from '../../components/personalPortfo-COMPO/tables/ta
 import { IpoFooterComponent } from 'src/app/components/ipo-COMPO/ipo-footer/ipo-footer.component';
 import { GraphDemoComponent } from 'src/app/components/graph-demo/graph-demo.component';
 import { SwiperHowAmComponent } from "../../components/personalPortfo-COMPO/stocker-investments/swipers/swiper-how-am/swiper-how-am.component";
+import { SwiperDemoComponent } from "../../components/swiper-demo/swiper-demo.component";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SwiperHowAmComponent } from "../../components/personalPortfo-COMPO/stoc
     TablesComponent,
     IpoFooterComponent,
     GraphDemoComponent,
-    SwiperHowAmComponent
+    SwiperHowAmComponent,
+    SwiperDemoComponent
 ],
 })
 export class PersonalPortfoliosModule {}

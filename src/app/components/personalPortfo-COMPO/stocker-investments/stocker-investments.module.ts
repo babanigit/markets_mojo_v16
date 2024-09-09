@@ -5,6 +5,7 @@ import { StockerInvestmentsRoutingModule } from './stocker-investments-routing.m
 import { TablesComponent } from '../tables/tables.component';
 import { SwiperHowAmComponent } from './swipers/swiper-how-am/swiper-how-am.component';
 import { SwiperDoingOverallComponent } from './swipers/swiper-doing-overall/swiper-doing-overall.component';
+import { SwiperDemoComponent } from '../../swiper-demo/swiper-demo.component';
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,7 @@ import { SwiperDoingOverallComponent } from './swipers/swiper-doing-overall/swip
     TablesComponent,
     SwiperHowAmComponent,
     SwiperDoingOverallComponent,
+    SwiperDemoComponent
   ],
 })
 export class StockerInvestmentsModule {}

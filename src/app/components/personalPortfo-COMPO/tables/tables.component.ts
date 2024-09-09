@@ -45,7 +45,7 @@ type TableType =
     MatExpansionModule,
     PopupComponent,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TablesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;

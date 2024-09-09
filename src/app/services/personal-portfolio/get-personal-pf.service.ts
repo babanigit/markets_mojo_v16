@@ -7,8 +7,10 @@ import { catchError } from 'rxjs';
   providedIn: 'root',
 })
 export class GetPersonalPFService {
+
   private readonly paths = {
     OVERVIEW: 'assets/pp/table/getOverview.json',
+    // HOLDING: 'https://frapi.marketsmojo.com/portfolioapi_portfolio/getHoldings' || 'assets/pp/table/getHolding.json' ,
     HOLDING: 'assets/pp/table/getHolding.json',
     RISK: 'assets/pp/table/getRisk.json',
     LIQUIDITY: 'assets/pp/table/getLiquidity.json',
@@ -36,14 +38,17 @@ export class GetPersonalPFService {
       | 'TOTAL_RETURNS'
   ) {
     const path = this.paths[type] || this.paths.HOLDING; // default is holding
-
     console.log('the path in getOS : ', path);
 
     return this.http.get<any>(path).pipe(
       catchError((err) => {
-        console.error('Error fetching overview data', err);
+        console.error('Error fetching data for type:', type);
+        console.error('Error details:', err);
         throw err;
       })
     );
   }
+
+
+
 }
