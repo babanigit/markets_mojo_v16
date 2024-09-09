@@ -8,7 +8,7 @@ import { IVerdict1ListData } from '../../assets/verdict1Data';
   imports: [CommonModule],
   templateUrl: './verdict1.component.html',
   // styleUrl: './verdict1.component.css',
-  styleUrls: ['./verdict1.component.css'],
+  // styleUrls: ['./verdict1.component.css'],
 })
 export class Verdict1Component {
   @Input() verdictLists!: IVerdict1ListData[]; //props

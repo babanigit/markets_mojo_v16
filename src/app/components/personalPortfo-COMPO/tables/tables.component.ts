@@ -369,7 +369,16 @@ export class TablesComponent implements OnInit {
         ];
         break;
       case 'TOTAL_RETURNS':
-        this.displayedColumns = ['short', 'score', 'cmp', 'qty', 'rgain' , 'unrgain', 'tgain', 'tgainp'];
+        this.displayedColumns = [
+          'short',
+          'score',
+          'cmp',
+          'qty',
+          'rgain',
+          'unrgain',
+          'tgain',
+          'tgainp',
+        ];
         break;
     }
   }
@@ -423,7 +432,9 @@ export class TablesComponent implements OnInit {
       let valueA: any;
       let valueB: any;
 
-      if (['D1', 'W1', 'M1', 'M3', 'Y1', 'Y3', 'Y5'].includes(sortState.active)) {
+      if (
+        ['D1', 'W1', 'M1', 'M3', 'Y1', 'Y3', 'Y5'].includes(sortState.active)
+      ) {
         valueA = a.returns?.[sortState.active]?.val;
         valueB = b.returns?.[sortState.active]?.val;
       } else if (a.dotsum && b.dotsum) {
@@ -446,7 +457,9 @@ export class TablesComponent implements OnInit {
     }
 
     if (typeof valueA === 'string' && typeof valueB === 'string') {
-      return isAsc ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+      return isAsc
+        ? valueA.localeCompare(valueB)
+        : valueB.localeCompare(valueA);
     }
 
     if (typeof valueA === 'number' && typeof valueB === 'number') {
@@ -456,7 +469,9 @@ export class TablesComponent implements OnInit {
     // If types are different or one of the values is null/undefined
     const aString = String(valueA);
     const bString = String(valueB);
-    return isAsc ? aString.localeCompare(bString) : bString.localeCompare(aString);
+    return isAsc
+      ? aString.localeCompare(bString)
+      : bString.localeCompare(aString);
   }
 
   // specially for latest price cause it has two data inside and angular material dot suppport this.
