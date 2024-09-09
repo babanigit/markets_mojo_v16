@@ -138,7 +138,7 @@ export class TablesComponent implements OnInit {
     this.serv.getOverviewStocks(type).subscribe({
       next: (response) => {
 
-        let elements;
+        let elements:any ;
         if (
           type === 'RISK' ||
           type === 'RATIOS' ||
@@ -152,6 +152,7 @@ export class TablesComponent implements OnInit {
 
         this.dataCache[type] = elements;
         console.log("dataCache is : " + this.dataCache[type]);
+        // console.log(" details is : " + typeof elements['112501'].details! )
 
         this.updateStocks(type);
       },
