@@ -18,24 +18,32 @@ export class GetPersonalPFService {
     RETURNS: 'assets/pp/table/getReturn.json',
     RESULTS: 'assets/pp/table/getResults.json',
     TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
-
   };
 
   constructor(private http: HttpClient) {}
 
-  getOverviewStocks(type: 'OVERVIEW' | 'HOLDING' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS' | 'FINANCIALS' | 'RETURNS' | 'RESULTS' | 'TOTAL_RETURNS' ) {
-
+  getOverviewStocks(
+    type:
+      | 'OVERVIEW'
+      | 'HOLDING'
+      | 'RISK'
+      | 'LIQUIDITY'
+      | 'TAX'
+      | 'RATIOS'
+      | 'FINANCIALS'
+      | 'RETURNS'
+      | 'RESULTS'
+      | 'TOTAL_RETURNS'
+  ) {
     const path = this.paths[type] || this.paths.HOLDING; // default is holding
 
     console.log('the path in getOS : ', path);
 
     return this.http.get<any>(path).pipe(
-      // delay(1200),
       catchError((err) => {
         console.error('Error fetching overview data', err);
         throw err;
       })
     );
   }
-
 }
