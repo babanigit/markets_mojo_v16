@@ -18,7 +18,7 @@ export class StockerInvestmentsComponent implements AfterViewInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   @ViewChild('element1') element1!: ElementRef;
-  // @ViewChild('element2') element2!: ElementRef;
+  @ViewChild('element2') element2!: ElementRef;
   @ViewChild('element3') element3!: ElementRef;
   @ViewChild('element4') element4!: ElementRef;
   @ViewChild('element5') element5!: ElementRef;
@@ -27,7 +27,6 @@ export class StockerInvestmentsComponent implements AfterViewInit {
   @ViewChild('element8') element8!: ElementRef;
   @ViewChild('element9') element9!: ElementRef;
   @ViewChild('element10') element10!: ElementRef;
-  @ViewChild('element11') element11!: ElementRef;
   TYPE = 'Tracker';
 
   // List of items to display on navbar buttons
@@ -80,23 +79,23 @@ export class StockerInvestmentsComponent implements AfterViewInit {
       case 'Tracker':
         return 'element1';
       case 'Overall Analysis':
-        return 'element3';
+        return 'element2';
       case 'Returns':
-        return 'element4';
+        return 'element3';
       case 'Risk':
-        return 'element5';
+        return 'element4';
       case 'Liquidity':
-        return 'element6';
+        return 'element5';
       case 'Diversification':
-        return 'element7';
+        return 'element6';
       case 'Quality':
-        return 'element8';
+        return 'element7';
       case 'Valuation':
-        return 'element9';
+        return 'element8';
       case 'Financial Trend':
-        return 'element10';
+        return 'element9';
       case 'Tax':
-        return 'element11';
+        return 'element10';
       default:
         return '';
     }

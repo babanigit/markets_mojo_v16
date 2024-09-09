@@ -45,14 +45,15 @@ import { columns, IColumns } from './Columns';
 // , AfterViewInit
 export class TablesComponent implements OnInit {
   // private _liveAnnouncer = inject(LiveAnnouncer);
-  private serv = inject(GetPersonalPFService);
+
+  @ViewChild(MatSort) sort!: MatSort;
 
   displayedColumns: string[] = [];
   dataSource2 = new MatTableDataSource<any>([]);
 
-  TOTAL_DATA: any;
+  private dataCache: { [key: string]: any[] | undefined } = {};
 
-  @ViewChild(MatSort) sort!: MatSort;
+  col: IColumns;
 
   // type
   TYPE:
@@ -71,11 +72,9 @@ export class TablesComponent implements OnInit {
     | 'RESULTS'
     | 'TOTAL_RETURNS' = 'HOLDING';
 
-  private dataCache: { [key: string]: any[] | undefined } = {};
 
-  col: IColumns;
-
-  constructor() {
+  // private serv = inject(GetPersonalPFService);
+  constructor(private serv:GetPersonalPFService) {
     this.col = columns;
   }
 
@@ -99,7 +98,7 @@ export class TablesComponent implements OnInit {
   }
 
   // List of items to display on navbar buttons
-  items: any = [
+  NAVBAR_ITEMS: any = [
     'OVERVIEW',
     'HOLDING',
     'PRICE',
@@ -129,6 +128,7 @@ export class TablesComponent implements OnInit {
       | 'RESULTS'
       | 'TOTAL_RETURNS'
   ) {
+
     if (this.dataCache[type]) {
       // console.log('the data cache is : ', this.dataCache[type]);
       this.updateStocks(type);
@@ -137,6 +137,7 @@ export class TablesComponent implements OnInit {
 
     this.serv.getOverviewStocks(type).subscribe({
       next: (response) => {
+
         let elements;
         if (
           type === 'RISK' ||
@@ -150,8 +151,9 @@ export class TablesComponent implements OnInit {
         }
 
         this.dataCache[type] = elements;
+        console.log("dataCache is : " + this.dataCache[type]);
+
         this.updateStocks(type);
-        console.log('Fetched data:', this.dataCache[type]);
       },
       error: (err) => {
         console.error('Failed to load data', err);
@@ -159,6 +161,7 @@ export class TablesComponent implements OnInit {
     });
   }
 
+  // updating the dataSource2.data
   updateStocks(
     type:
       | 'OVERVIEW'
@@ -176,7 +179,6 @@ export class TablesComponent implements OnInit {
       | 'TOTAL_RETURNS'
   ): void {
     this.dataSource2.data = this.dataCache[type] || [];
-    // console.log('Updated data:', this.dataSource2);
   }
 
   getColums(
@@ -341,7 +343,6 @@ export class TablesComponent implements OnInit {
           'eps',
         ];
         break;
-
       case 'RETURNS':
         this.displayedColumns = [
           'short',
@@ -400,6 +401,7 @@ export class TablesComponent implements OnInit {
       | 'RESULTS'
       | 'TOTAL_RETURNS'
   ): void {
+
     this.TYPE = type;
     this.getColums(type);
 
@@ -412,6 +414,7 @@ export class TablesComponent implements OnInit {
       type = 'HOLDING';
     }
 
+    // fetch or update
     if (!this.dataCache[type]) {
       this.fetchStocks(type);
     } else {
