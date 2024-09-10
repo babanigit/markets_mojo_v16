@@ -1,5 +1,23 @@
+
+
+<!-- navbar -->
+<div id="tabcol">
+  <ul class="nav nav-tabs">
+    <li
+    *ngFor="let item of NAVBAR_ITEMS"
+    (click)="onClick(item)"
+    [ngClass]="{'tab': true, 'tab active': TYPE === item}"
+
+    >
+    <!-- {{item}} -->
+      <a  > {{ item }} </a>
+    </li>
+
+  </ul>
+</div>
+
 <!-- buttons navbar -->
-<nav
+<!-- <nav
   style="
     display: flex;
     flex-wrap: wrap;
@@ -21,7 +39,7 @@
   >
     {{ item }}
   </span>
-</nav>
+</nav> -->
 
 <!-- table -->
 <div style="background-color: white" class="mat-table">

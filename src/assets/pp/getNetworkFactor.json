@@ -10,13 +10,13 @@
             "name": "Stocks",
             "uname": "stocks",
             "data": {
-              "lval": 231867,
-              "ival": 104461,
-              "dgain": 2738,
-              "dgaindir": 1,
-              "dgainp": "1.18",
-              "unrgain": 127404,
-              "unrgainp": "121.96",
+              "lval": 235567,
+              "ival": 104501,
+              "dgain": -1954,
+              "dgaindir": -1,
+              "dgainp": "-0.83",
+              "unrgain": 131065,
+              "unrgainp": "125.42",
               "unrgaindir": 1
             }
           },
@@ -25,13 +25,13 @@
             "name": "Mutual Funds",
             "uname": "mf",
             "data": {
-              "lval": 415348,
-              "ival": 277173,
-              "dgain": 1867,
+              "lval": 516700,
+              "ival": 337749,
+              "dgain": 1060,
               "dgaindir": 0,
               "dgainp": 0,
-              "unrgain": 138175,
-              "unrgainp": "49.85",
+              "unrgain": 178951,
+              "unrgainp": "52.98",
               "unrgaindir": 1
             }
           },
@@ -173,15 +173,15 @@
     },
     "total": {
       "net": {
-        "val": 647215,
-        "chg": 265581,
-        "chgp": "69.59",
+        "val": 752267,
+        "chg": 310017,
+        "chgp": "70.10",
         "dir": 1
       },
       "assets": {
-        "val": 647215,
-        "chg": 265581,
-        "chgp": "69.59",
+        "val": 752267,
+        "chg": 310017,
+        "chgp": "70.10",
         "dir": 1
       },
       "insurance": {

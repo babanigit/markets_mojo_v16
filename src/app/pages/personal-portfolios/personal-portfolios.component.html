@@ -1,54 +1,423 @@
-<!-- demo -->
-<!-- <app-demo /> -->
- <app-graph-demo />
-<!-- demo -->
+<div style="background: url(https://i.marketsmojo.com/bg.gif)">
 
-<app-pf-price-msg />
 
-<!-- navbar -->
-<nav
-  style="
-    display: flex;
-    justify-items: center;
-    place-content: center;
-    gap: 20px;
-    background-color: darkslategray;
-    height: auto;
-    padding: 1% 0%;
-    /* padding: 2%; */
-  "
->
-  <div>
-    <a
-      [routerLink]="['/portfolio-plus/networth-tracker']"
-      [queryParams]="{ selected_menu: 'all' }"
-      >All</a
-    >
+  <div id="midcontent2">
+    <div class="main-bodynet" id="stockpfpricemsg">
+      <div
+        class=" padding0 ng-scope"
+        id="midcontent3"
+        ng-controller="pf_video"
+      >
+
+        <!-- message -->
+        <app-pf-price-msg />
+
+        <!-- end ngIf: transaction.pf_score.show -->
+        <!--****************************-->
+
+        <!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="personal_flex">
+        <div class="personal_flex2 no-mob no-tab2" ng-click="showImportModal(1)">
+          <a href="" class="importbuttonnew">Add Stocks</a>
+        </div>
+        <div class="imttext">
+          You can add stocks to your portfolio by searching and adding them or by importing your stock holdings from top 10 top brokers in just one click . We don't store your login credentials, your information is safe.
+        </div>
+        <div class="personal_flex2 no-web no-tab" ng-click="showImportModal(1)">
+          <a href="" class="importbuttonnew12">Add Stocks <span><img src="https://i.marketsmojo.com/portfolio/rightar.png"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+        <div class="container-fluid padding0 no-mob no-tab2">
+          <div class="row">
+            <div class="col-lg-12" id="middmenu">
+              <div class="middmenubar navpadd ulpadd">
+
+
+                <ul>
+                  <!-- ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 -->
+                  <li
+                    class="nav-item ng-scope"
+                    ng-repeat="(key,value) in menu"
+                    ng-if="opt_list[0][key]['display'] == 1"
+                    ng-click="redirect_menu(key,value.type)"
+                  >
+                    <a
+                      class="nav-link menubartext2 ng-binding"
+                      data-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                      ng-class="selected_menu == key ? 'netactivetab' : ''"
+                      >
+
+                      <a
+                      [routerLink]="['/portfolio-plus/networth-tracker']"
+                      [queryParams]="{ selected_menu: 'all' }"
+                      >All</a>
+                      </a
+                    >
+                  </li>
+                  <!-- end ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 -->
+                  <li
+                    class="nav-item ng-scope"
+                    ng-repeat="(key,value) in menu"
+                    ng-if="opt_list[0][key]['display'] == 1"
+                    ng-click="redirect_menu(key,value.type)"
+                  >
+                    <a
+                      class="nav-link menubartext2 ng-binding netactivetab"
+                      data-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                      ng-class="selected_menu == key ? 'netactivetab' : ''"
+                      > <a [routerLink]="['/portfolio-plus/stock-investments']">
+                        stock-investments
+                      </a></a
+                    >
+                  </li>
+                  <!-- end ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 -->
+                  <li
+                    class="nav-item ng-scope"
+                    ng-repeat="(key,value) in menu"
+                    ng-if="opt_list[0][key]['display'] == 1"
+                    ng-click="redirect_menu(key,value.type)"
+                  >
+                    <a
+                      class="nav-link menubartext2 ng-binding"
+                      data-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                      ng-class="selected_menu == key ? 'netactivetab' : ''"
+                      >
+                      <a [routerLink]="['/portfolio-plus/mutualfund-investments']">
+                        mutualfund-investments
+                      </a>
+                      </a
+                    >
+                  </li>
+                  <!-- end ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 -->
+                  <li
+                    class="nav-item ng-scope"
+                    ng-repeat="(key,value) in menu"
+                    ng-if="opt_list[0][key]['display'] == 1"
+                    ng-click="redirect_menu(key,value.type)"
+                  >
+                    <a
+                      class="nav-link menubartext2 ng-binding"
+                      data-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                      ng-class="selected_menu == key ? 'netactivetab' : ''"
+                      >Commodity</a
+                    >
+                  </li>
+                  <!-- end ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 -->
+                  <li
+                    class="nav-item ng-scope"
+                    ng-repeat="(key,value) in menu"
+                    ng-if="opt_list[0][key]['display'] == 1"
+                    ng-click="redirect_menu(key,value.type)"
+                  >
+                    <a
+                      class="nav-link menubartext2 ng-binding"
+                      data-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                      ng-class="selected_menu == key ? 'netactivetab' : ''"
+                      >Fixed Income</a
+                    >
+                  </li>
+                  <!-- end ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 -->
+                  <li
+                    class="nav-item ng-scope"
+                    ng-repeat="(key,value) in menu"
+                    ng-if="opt_list[0][key]['display'] == 1"
+                    ng-click="redirect_menu(key,value.type)"
+                  >
+                    <a
+                      class="nav-link menubartext2 ng-binding"
+                      data-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                      ng-class="selected_menu == key ? 'netactivetab' : ''"
+                      >Property</a
+                    >
+                  </li>
+                  <!-- end ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 -->
+                  <li
+                    class="nav-item ng-scope"
+                    ng-repeat="(key,value) in menu"
+                    ng-if="opt_list[0][key]['display'] == 1"
+                    ng-click="redirect_menu(key,value.type)"
+                  >
+                    <a
+                      class="nav-link menubartext2 ng-binding"
+                      data-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                      ng-class="selected_menu == key ? 'netactivetab' : ''"
+                      >Cash</a
+                    >
+                  </li>
+                  <!-- end ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu --><!-- ngIf: opt_list[0][key]['display'] == 1 -->
+                  <li
+                    class="nav-item ng-scope"
+                    ng-repeat="(key,value) in menu"
+                    ng-if="opt_list[0][key]['display'] == 1"
+                    ng-click="redirect_menu(key,value.type)"
+                  >
+                    <a
+                      class="nav-link menubartext2 ng-binding"
+                      data-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                      ng-class="selected_menu == key ? 'netactivetab' : ''"
+                      >Borrowings</a
+                    >
+                  </li>
+                  <!-- end ngIf: opt_list[0][key]['display'] == 1 --><!-- end ngRepeat: (key,value) in menu -->
+                </ul>
+
+
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ngIf: showcardsData.show && showcardsData.data.banner.show -->
+        </div>
+
+        <div class="container-fluid padding0 no-web no-tab">
+          <div class="row">
+            <div class="col-lg-12" id="middmenu">
+              <div class="middmenubar navpadd ulpadd">
+                <ul>
+                  <li
+                    class="nav-item active"
+                    ng-click="menu_pf = 'tracker';other_section_visible('MenuSectTab');"
+                    ng-class="menu_pf == 'tracker' ? 'active' : ''"
+                  >
+                    <a
+                      class="nav-link menubartext2"
+                      onmouseover=""
+                      style="cursor: pointer"
+                      >Tracker</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link menubartext2"
+                      href="javascript:void(0);"
+                      ng-click="other_section_visible('MenusectOverall')"
+                      >Overall Analysis</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link menubartext2"
+                      href="javascript:void(0);"
+                      ng-click="other_section_visible('MenusectReturn')"
+                      >Returns</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link menubartext2"
+                      href="javascript:void(0);"
+                      ng-click="other_section_visible('MenusectRisk')"
+                      >Risk</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link menubartext2"
+                      href="javascript:void(0);"
+                      ng-click="other_section_visible('MenusectLiq')"
+                      >Liquidity</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link menubartext2"
+                      href="javascript:void(0);"
+                      ng-click="other_section_visible('MenusectDiverse')"
+                      >Diversification</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link menubartext2"
+                      href="javascript:void(0);"
+                      ng-click="other_section_visible('MenusectQuality')"
+                      >Quality</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link menubartext2"
+                      href="javascript:void(0);"
+                      ng-click="other_section_visible('MenusectValuation')"
+                      >Valuation</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link menubartext2"
+                      href="javascript:void(0);"
+                      ng-click="other_section_visible('MenusectFintrend')"
+                      >Financial Trend</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link menubartext2"
+                      href="javascript:void(0);"
+                      ng-click="other_section_visible('MenusectTax')"
+                      >Tax</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="portfoliobutton-mob" class="no-web no-tab">
+          <!-- ngIf: selected_menu != 'all' && !block_clmm_content -->
+          <div
+            class="portfolioadd4 ng-scope"
+            ng-click="redirect_menu('all','asset')"
+            ng-if="selected_menu != 'all' &amp;&amp; !block_clmm_content"
+          >
+            <i class="fa fa-arrow-left"></i>
+            <a href="javascript:void(0);"
+              ><span class="continubutton">Back</span></a
+            >
+          </div>
+          <!-- end ngIf: selected_menu != 'all' && !block_clmm_content -->
+
+          <!-- ngIf: selected_menu != 'all' && selected_menu != 'mf' && selected_menu != 'stocks' -->
+          <!-- ngIf: selected_menu != 'all' && selected_menu != 'mf' && selected_menu != 'stocks' -->
+
+          <!-- ngIf: !block_clmm_content -->
+          <div
+            class="portfolioadd4 ng-scope"
+            ng-if="!block_clmm_content"
+            ng-click="showhidediv('addcashpopup')"
+          >
+            <a href="javascript:void(0);"
+              ><span class="continubutton">ADD CASH</span></a
+            >
+          </div>
+          <!-- end ngIf: !block_clmm_content -->
+          <!-- ngIf: !block_clmm_content -->
+          <div
+            class="portfolioadd4 ng-scope"
+            ng-if="!block_clmm_content"
+            ng-click="showhidediv('removecashpopup')"
+          >
+            <a href="javascript:void(0);"
+              ><span class="continubutton">REDUCE CASH</span></a
+            >
+          </div>
+          <!-- end ngIf: !block_clmm_content -->
+        </div>
+
+      </div>
+    </div>
   </div>
 
-  <div>
-    <a [routerLink]="['/portfolio-plus/stock-investments']">
-      stock-investments
-    </a>
+  <!-- navbar -->
+  <!-- new -->
+  <!-- <div class="middmenubar navpadd ulpadd">
+    <ul>
+      <li
+        class="nav-item ng-scope"
+        ng-repeat="(key,value) in menu"
+        ng-if="opt_list[0][key]['display'] == 1"
+        ng-click="redirect_menu(key,value.type)"
+      >
+        <a
+          class="nav-link menubartext2 ng-binding"
+          data-toggle="tab"
+          href="#home"
+          role="tab"
+          aria-controls="home"
+          aria-selected="true"
+          ng-class="selected_menu == key ? 'netactivetab' : ''"
+          >All</a
+        >
+      </li>
+    </ul>
+  </div> -->
+
+  <!-- old -->
+  <!-- <nav
+    style="
+      display: flex;
+      justify-items: center;
+      place-content: center;
+      gap: 20px;
+      height: auto;
+      padding: 1% 0%;
+      /* padding: 2%; */
+    "
+    class="middmenubar navpadd ulpadd"
+  >
+    <div>
+      <a
+        [routerLink]="['/portfolio-plus/networth-tracker']"
+        [queryParams]="{ selected_menu: 'all' }"
+        >All</a
+      >
+    </div>
+
+    <div>
+      <a [routerLink]="['/portfolio-plus/stock-investments']">
+        stock-investments
+      </a>
+    </div>
+
+    <div>
+      <a [routerLink]="['/portfolio-plus/mutualfund-investments']">
+        mutualfund-investments
+      </a>
+    </div>
+
+    <div>
+      <a
+        [routerLink]="['/portfolio-plus/networth-tracker']"
+        [queryParams]="{ selected_menu: 'commodity' }"
+        >Commodity</a
+      >
+    </div>
+  </nav> -->
+
+  <!-- routes childers -->
+  <div style="width: 100%">
+    <router-outlet> </router-outlet>
   </div>
 
-  <div>
-    <a [routerLink]="['/portfolio-plus/mutualfund-investments']">
-      mutualfund-investments
-    </a>
-  </div>
-
-  <div>
-    <a
-      [routerLink]="['/portfolio-plus/networth-tracker']"
-      [queryParams]="{ selected_menu: 'commodity' }"
-      >Commodity</a
-    >
-  </div>
-</nav>
-
-<div>
-  <router-outlet> </router-outlet>
+  <!-- <app-ipo-footer /> -->
 </div>
-
-<app-ipo-footer />

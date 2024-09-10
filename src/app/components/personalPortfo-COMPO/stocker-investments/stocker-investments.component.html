@@ -1,42 +1,53 @@
+<div>
+  <!-- tracker  overall analysis etc...-->
+  <!-- new -->
 
+  <div class="tabcol">
+    <div id="tabcol-modal" class="no-mob no-tab2">
+      <ul class="nav nav-tabs">
+        <li
+          *ngFor="let item of items"
+          [ngStyle]="{
+        'background-color': TYPE === item ? 'rgba(220,220,220)' : 'rgba(64, 64, 64, 0.4)',
+        color: TYPE === item ? 'black' : 'white',
 
-<section style="background-color: rgb(43, 43, 53)">
-  <!-- overview ,holding, price, etc... -->
-  <nav
-    style="
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3px;
-      /* background-color: rgba(64, 64, 64, 0.5); */
-    "
-  >
-    <span
-      *ngFor="let item of items"
-      [ngStyle]="{
-      'background-color': TYPE === item ? 'rgba(220,220,220)' : 'rgba(64, 64, 64, 0.4)',
-      color: TYPE === item ? 'black' : 'white',
-      padding: '1% 1.5%',
-      cursor: 'pointer',
-      'font-size': '12px',
-    }"
-      (click)="onClick(item)"
-    >
-      {{ item }}
-    </span>
-  </nav>
+      }"
+          [ngClass]="{ tab: true, 'tab active': TYPE === item }"
+          (click)="onClick(item)"
+        >
+          <a onmouseover="" style="cursor: pointer">
+            {{ item }}
+          </a>
+        </li>
+        <li class="tab opttab" style="background-color: #182c36 !important">
+          <a
+            href="/portfolio-plus/stock-report"
+            class="opttablink"
+            style="
+              color: #a624e8 !important;
+              background-color: #182c36 !important;
+            "
+            ><strong>Download Report</strong>
+            <img
+              src="https://i.marketsmojo.com/pdf-file-download.png"
+              style="height: 16px; width: 16px"
+          /></a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <!-- table and its buttons -->
-  <div style="padding: 0.5%" id="element1">
+  <div  id="element1">
     <div>
       <app-tables />
     </div>
   </div>
 
   <div>
-
     <!-- <p class="heading">How am I doing Today</p> -->
-   <app-swiper-demo/>
-     <app-swiper-how-am />
+    <!-- <app-swiper-demo/> -->
+    <app-swiper-how-am />
   </div>
 
   <!-- buttton -->
@@ -76,8 +87,6 @@
   <!-- remaining elements -->
 
   <div *ngIf="TO_SHOW">
-
-
     <div id="element2">
       <p class="heading">How am I doing Overall</p>
       <app-demo />
@@ -122,9 +131,8 @@
       <p class="heading">Tax Analysis</p>
       <app-demo />
     </div> -->
-
   </div>
-</section>
+</div>
 
 <!-- footer -->
 <!-- <app-ipo-footer /> -->

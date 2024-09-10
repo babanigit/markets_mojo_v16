@@ -1,13 +1,674 @@
-<section
-  class="container-fluid"
-  style="
-    height: 250px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    place-items: center;
-    background-color: wheat;
-  "
->
-  <div>portfolio price message</div>
-</section>
+<!-- div 1 -->
+<div class="row" style="display: block">
+  <div class="col-md-12 netcolpadding">
+    <div class="pf-top-ac no-web no-tab">
+      <!-- ngIf: !$parent.$parent.block_clmm_content -->
+      <div
+        class="row ng-scope"
+        style="margin-left: 0px"
+        ng-if="!$parent.$parent.block_clmm_content"
+      >
+        <div class="col-xs-5">
+          <div id="accountwrap">
+            <div class="dropdown" style="position: relative; margin-left: 4px">
+              <button
+                class="btn btn-default dropdown-toggle head-input topselect"
+                value=""
+                type="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true"
+                ng-click="showaccountlist = !showaccountlist;hide('IsStockEditMenu');hide('IsStockMenu');"
+                dir-click-anywhere="showaccountlist = false"
+              >
+                <!-- ngIf: (headerAccId.name).length>8 && headerAccId.id != 0 --><!-- ngIf: (headerAccId.name).length<=8 || headerAccId.id == 0 --><span
+                  ng-if="headerAccId.name.length <= 8 || headerAccId.id == 0"
+                  class="ng-binding ng-scope"
+                  >All Accounts</span
+                ><!-- end ngIf: (headerAccId.name).length<=8 || headerAccId.id == 0 -->
+              </button>
+              <ul
+                class="dropdown-menu noclose portdropdown ng-pristine ng-untouched ng-valid ng-not-empty ng-hide"
+                ng-show="showaccountlist"
+                ng-init="acc = '0'"
+                ng-model="acc"
+                style="display: block"
+              >
+                <li class="adb">
+                  <button
+                    name="btn_add_acc"
+                    class="headinputbtn btn-info"
+                    ng-click="data_added[accountlist.length + 1]={};add_account(accountlist.length + 1);changeAccount('-999')"
+                    dir-click-anywhere="showaccountlist = false"
+                  >
+                    ADD ACCOUNT
+                  </button>
+                  <button
+                    name="btn_add_acc"
+                    class="headinputbtn btn-info"
+                    ng-click="data_added[accountlist.length + 1]={};add_account(accountlist.length + 1);changeAccount('-9999')"
+                    dir-click-anywhere="showaccountlist = false"
+                  >
+                    EDIT ACCOUNT
+                  </button>
+                </li>
+                <li>
+                  <ul name="account_list" class="portdropsubdown inline">
+                    <li
+                      style="margin-bottom: 1px"
+                      ng-click="showaccountlist = !showaccountlist;changeAccount(0)"
+                    >
+                      <a
+                        style="font-size: 1.1rem; color: #3b444b"
+                        href="javascript:void(0)"
+                        data-value=""
+                        >All Accounts</a
+                      >
+                    </li>
+                    <!-- ngRepeat: accounts in accountlist -->
+                    <li
+                      style="margin-bottom: 1px"
+                      ng-repeat="accounts in accountlist"
+                      ng-click="showaccountlist = !showaccountlist;changeAccount(accounts.id)"
+                      class="ng-scope"
+                    >
+                      <a
+                        style="font-size: 1.1rem; color: #3b444b"
+                        href="javascript:void(0)"
+                        data-value="1737511"
+                        class="ng-binding"
+                        >dhruvin</a
+                      >
+                    </li>
+                    <!-- end ngRepeat: accounts in accountlist -->
+                    <li
+                      style="margin-bottom: 1px"
+                      ng-repeat="accounts in accountlist"
+                      ng-click="showaccountlist = !showaccountlist;changeAccount(accounts.id)"
+                      class="ng-scope"
+                    >
+                      <a
+                        style="font-size: 1.1rem; color: #3b444b"
+                        href="javascript:void(0)"
+                        data-value="1825297"
+                        class="ng-binding"
+                        >MFTransact</a
+                      >
+                    </li>
+                    <!-- end ngRepeat: accounts in accountlist -->
+                    <li
+                      style="margin-bottom: 1px"
+                      ng-repeat="accounts in accountlist"
+                      ng-click="showaccountlist = !showaccountlist;changeAccount(accounts.id)"
+                      class="ng-scope"
+                    >
+                      <a
+                        style="font-size: 1.1rem; color: #3b444b"
+                        href="javascript:void(0)"
+                        data-value="1985879"
+                        class="ng-binding"
+                        >Broker_Zerodha</a
+                      >
+                    </li>
+                    <!-- end ngRepeat: accounts in accountlist -->
+                    <li
+                      style="margin-bottom: 1px"
+                      ng-repeat="accounts in accountlist"
+                      ng-click="showaccountlist = !showaccountlist;changeAccount(accounts.id)"
+                      class="ng-scope"
+                    >
+                      <a
+                        style="font-size: 1.1rem; color: #3b444b"
+                        href="javascript:void(0)"
+                        data-value="2021789"
+                        class="ng-binding"
+                        >40</a
+                      >
+                    </li>
+                    <!-- end ngRepeat: accounts in accountlist -->
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-7" id="portfoliobutton" style="padding-left: 0px">
+          <div class="pf-menu2">
+            <div
+              class="portfolioadd2"
+              ng-click="show('IsStockMenu');hide('IsStockEditMenu');showaccountlist=false;"
+              dir-click-anywhere="hide('IsStockMenu')"
+            >
+              <a href="javascript:void(0);"
+                ><span class="continubutton">ADD STOCKS</span></a
+              >
+            </div>
+            <div ng-show="IsStockMenu" class="adddown ng-hide">
+              <ul class="dropdown-menu adddown2" style="display: block">
+                <li>
+                  <a href="/mojofeed/add-stocks-portfolio" class="flt2">
+                    <span>One-click Import</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="flt2 modal-trigger"
+                    href="javascript:void(0)"
+                    ng-click="setStockTab('add_stock',1)"
+                  >
+                    <!-- <a class="flt2 modal-trigger"  > -->
+                    <span>Search &amp; Add Stocks </span>
+                  </a>
+                </li>
+
+                <li class="no-mob no-tab">
+                  <!-- <a  class="flt2" > -->
+                  <a
+                    href="javascript:void(0)"
+                    class="flt2"
+                    ng-click="setStockTab('add_stock',2)"
+                  >
+                    <span>Import Stocks </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="portfolioadd2"
+              ng-click="show('IsStockEditMenu');hide('IsStockMenu');showaccountlist=false;"
+              dir-click-anywhere="hide('IsStockEditMenu')"
+            >
+              <a href="javascript:void(0);"
+                ><span class="continubutton">More</span></a
+              >
+            </div>
+
+            <div ng-show="IsStockEditMenu" class="adddown1 ng-hide">
+              <ul class="dropdown-menu adddown3" style="display: block">
+                <li>
+                  <a
+                    class="flt2 modal-trigger"
+                    href="#edit-stock-list"
+                    ng-click="decide_transaction_call(1,'','buy');commonModalOpen('edit_stock',0)"
+                  >
+                    <span>Edit Stocks </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="flt2 modal-trigger"
+                    href="#sell-stock-list"
+                    ng-click="decide_transaction_call(1,'','sell');commonModalOpen('sell_stock',0)"
+                  >
+                    <span>Sell Stocks </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="flt2 modal-trigger"
+                    href="javascript:void(0);"
+                    ng-click="openadjustmentPopup('adjustment_box');"
+                  >
+                    <span>Corporate Action</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end ngIf: !$parent.$parent.block_clmm_content -->
+    </div>
+    <div class="nettopbg" id="nethead">
+      <div class="row no-web no-tab">
+        <div class="col-xs-12">
+          <span class="netstocktopmob">NETWORTH :</span>
+          <span class="netstocktop3 ng-binding">7,52,823</span>
+          <div class="video-mob" ng-click="videoPopup()">
+            <div class="video-icon">
+              <span class="video-icon-arrow"><i class="fa fa-play"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row topborder" ng-init="hd = ''">
+        <!-- ngRepeat: head in header_seq |limitTo : hd -->
+        <div
+          class="col-md-4 col-sm-6 ng-scope"
+          ng-repeat="head in header_seq |limitTo : hd"
+        >
+          <!-- ngIf: head.id=='Stocks' || head.id=='stocks' -->
+          <div
+            class="stokcol ng-scope"
+            ng-if="head.id == 'Stocks' || head.id == 'stocks'"
+          >
+            <div class="stokcol2">
+              <div class="stokcol3">
+                <div class="stokcol4">
+                  <span class="ng-binding"
+                    >{{ nf_data_list?.stocks?.name }} :</span
+                  >
+                  <span class="netstocktop ng-binding">{{
+                    nf_data_list?.stocks?.data.lval
+                  }}</span>
+
+                  <!-- ngIf: head.id == 'stocks' -->
+                  <div
+                    ng-if="head.id == 'stocks'"
+                    class="video-mob no-mob no-tab2 ng-scope"
+                    ng-click="videoPopup()"
+                  >
+                    <div class="video-icon">
+                      <span class="video-icon-arrow"
+                        ><i class="fa fa-play"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <!-- end ngIf: head.id == 'stocks' -->
+                </div>
+                <hr class="style-two" />
+              </div>
+
+              <div class="red-box stokcol5">
+                <div class="stokcol6">DAY'S GAIN</div>
+
+                <!-- ngIf: head.id == 'mf' || head.id == 'stocks' -->
+                <div
+                  class="sensex-details ng-scope"
+                  ng-if="head.id == 'mf' || head.id == 'stocks'"
+                >
+                  <ul
+                    [ngClass]="{
+                        green: nf_data_list?.stocks?.data.dgain > 0,
+                        red: nf_data_list?.stocks?.data.dgain < 0,
+                        grey: nf_data_list?.stocks?.data.dgain == 0,
+                      }"
+                  >
+                    <li class="arrow-sensex-red"></li>
+                    <li class="ng-binding">
+                      {{ nf_data_list?.stocks?.data.dgain }}
+                    </li>
+                    <li class="ng-binding">
+                      {{ nf_data_list?.stocks?.data.dgainp }}
+                    </li>
+                  </ul>
+                </div>
+                <!-- end ngIf: head.id == 'mf' || head.id == 'stocks' -->
+                <!-- ngIf: head.id != 'mf' && head.id != 'stocks' -->
+              </div>
+
+              <div class="red-box stokcol7">
+                <div class="stokcol6">UNREALIZED GAIN</div>
+                <!-- ngIf: head.id != 'cash' && head.id != 'other-borrowing' -->
+                <div
+                  class="sensex-details ng-scope"
+                  ng-if="head.id != 'cash' &amp;&amp; head.id != 'other-borrowing'"
+                >
+                  <ul
+                    [ngClass]="{
+                    green: nf_data_list?.stocks?.data.unrgaindir > 0,
+                    red: nf_data_list?.stocks?.data.unrgaindir < 0,
+                    grey: nf_data_list?.stocks?.data.unrgaindir == 0,
+                  }"
+                  >
+                    <li class="arrow-sensex-green"></li>
+                    <li class="ng-binding">
+                      {{ nf_data_list?.stocks?.data.unrgain }}
+                    </li>
+                    <li class="ng-binding">
+                      {{ nf_data_list?.stocks?.data.unrgainp }}
+                    </li>
+                  </ul>
+                </div>
+                <!-- end ngIf: head.id != 'cash' && head.id != 'other-borrowing' -->
+                <!-- ngIf: head.id == 'cash' || head.id == 'other-borrowing' -->
+              </div>
+            </div>
+          </div>
+          <!-- end ngIf: head.id=='Stocks' || head.id=='stocks' -->
+          <!-- ngIf: head.id=='mf' && !$parent.$parent.block_clmm_content -->
+        </div>
+        <!-- end ngRepeat: head in header_seq |limitTo : hd -->
+        <div
+          class="col-md-4 col-sm-6 ng-scope"
+          ng-repeat="head in header_seq |limitTo : hd"
+        >
+          <!-- ngIf: head.id=='Stocks' || head.id=='stocks' -->
+          <!-- ngIf: head.id=='mf' && !$parent.$parent.block_clmm_content -->
+          <div
+            class="stokcol ng-scope"
+            ng-if="head.id=='mf' &amp;&amp; !$parent.$parent.block_clmm_content"
+          >
+            <div class="stokcol2">
+              <div class="stokcol3">
+                <div class="stokcol4">
+                  <span class="ng-binding">
+                    {{ nf_data_list?.mf?.name }} :</span
+                  >
+                  <span class="netstocktop ng-binding">
+                    {{ nf_data_list?.mf?.data.lval }}
+                  </span>
+
+                  <!-- ngIf: head.id == 'stocks' -->
+                </div>
+                <hr class="style-two" />
+              </div>
+              <div class="red-box stokcol5">
+                <div class="stokcol6">DAY'S GAIN</div>
+
+                <!-- ngIf: head.id == 'mf' || head.id == 'stocks' -->
+                <div
+                  class="sensex-details ng-scope"
+                  ng-if="head.id == 'mf' || head.id == 'stocks'"
+                >
+                  <ul
+                    [ngClass]="{
+                    green: nf_data_list?.mf?.data.dgaindir > 0,
+                    red: nf_data_list?.mf?.data.dgaindir < 0,
+                    grey: nf_data_list?.mf?.data.dgaindir == 0,
+                  }"
+                  >
+                    <li class="arrow-sensex-grey"></li>
+                    <li class="ng-binding">
+                      {{ nf_data_list?.mf?.data.dgain }}
+                    </li>
+                    <li class="ng-binding">
+                      v{{ nf_data_list?.mf?.data.dgainp }}
+                    </li>
+                  </ul>
+                </div>
+                <!-- end ngIf: head.id == 'mf' || head.id == 'stocks' -->
+                <!-- ngIf: head.id != 'mf' && head.id != 'stocks' -->
+              </div>
+              <div class="red-box stokcol7">
+                <div class="stokcol6">UNREALIZED GAIN</div>
+                <!-- ngIf: head.id != 'cash' && head.id != 'other-borrowing' -->
+                <div
+                  class="sensex-details ng-scope"
+                  ng-if="head.id != 'cash' &amp;&amp; head.id != 'other-borrowing'"
+                >
+                  <ul
+                    [ngClass]="{
+                    green: nf_data_list?.mf?.data.unrgaindir > 0,
+                    red: nf_data_list?.mf?.data.unrgaindir < 0,
+                    grey: nf_data_list?.mf?.data.unrgaindir == 0,
+                  }"
+                  >
+                    <li class="arrow-sensex-green"></li>
+                    <li class="ng-binding">
+                      {{ nf_data_list?.mf?.data.unrgain }}
+                    </li>
+                    <li class="ng-binding">
+                      v{{ nf_data_list?.mf?.data.unrgainp }}
+                    </li>
+                  </ul>
+                </div>
+                <!-- end ngIf: head.id != 'cash' && head.id != 'other-borrowing' -->
+                <!-- ngIf: head.id == 'cash' || head.id == 'other-borrowing' -->
+              </div>
+            </div>
+          </div>
+          <!-- end ngIf: head.id=='mf' && !$parent.$parent.block_clmm_content -->
+        </div>
+        <!-- end ngRepeat: head in header_seq |limitTo : hd -->
+
+        <div class="col-md-4 no-mob no-tab2">
+          <div class="row">
+            <div class="col-md-12 ncopadd">
+              <div class="stokcol9">
+                <div class="stokcol8">
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <span>ASSETS :</span>
+                    </div>
+                    <div class="col-xs-8">
+                      <span
+                      [ngClass]="{
+                        green:  nf_data.data?.total?.assets?.dir > 0,
+                        red:  nf_data.data?.total?.assets?.dir < 0,
+                        grey:  nf_data.data?.total?.assets?.dir == 0,
+                      }"
+                      class="netstocktop ng-binding">{{
+                        nf_data.data?.total?.assets?.val
+                      }}</span>
+
+                      <div
+                        class="aboutsection_new no-mob no-tab2"
+                        style="cursor: pointer"
+                        ng-click="video_popup_open()"
+                      >
+                        <div class="abouttoptextarea_new">View Demo</div>
+                        <div class="arrowvideo">
+                          <i class="fa fa-play arrowplay"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="style-two" />
+              </div>
+              <div class="stokcol9">
+                <div class="stokcol8">
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <span>LIABILITIES :</span>
+                    </div>
+                    <div class="col-xs-8">
+                      <span
+                      [ngClass]="{
+                        green:  nf_data.data?.total?.liabilities?.dir > 0,
+                        red:  nf_data.data?.total?.liabilities?.dir < 0,
+                        grey:  nf_data.data?.total?.liabilities?.dir == 0,
+                      }"
+                      class="netstocktop ng-binding">
+                        {{ nf_data.data?.total?.liabilities?.val }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <hr class="style-two" />
+              </div>
+              <div class="stokcol10">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <span>NETWORTH :</span>
+                  </div>
+                  <div class="col-xs-8">
+                    <span
+                    [ngClass]="{
+                      green:  nf_data.data?.total?.net?.dir > 0,
+                      red:  nf_data.data?.total?.net?.dir < 0,
+                      grey:  nf_data.data?.total?.net?.dir == 0,
+                    }"
+                    class="netstocktop3 ng-binding">
+                      {{ nf_data.data?.total?.net?.val }}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ngIf: showcardsData.show && showcardsData.data.banner.show -->
+<!--********************new section*********-->
+<!-- ngIf: transaction.pf_score.show -->
+
+<!-- div 2 -->
+<div class="scconetnt ng-scope" ng-if="transaction.pf_score.show">
+  <div class="scconetnt2">
+    <!--<div class="betatag">
+  <img src="<?//php echo IMG_URL; ?>portfolio/beta.png" />
+</div>-->
+    <div class="row">
+      <div class="col-md-5">
+        <p class="sc1 no-web no-tab">Hey dhruvin,</p>
+        <p class="sc2">
+          <span class="no-mob no-tab2">Hey dhruvin,</span> Your Portfolio Score
+          is <span class="redtext pf_txt">Below Average</span>
+        </p>
+        <p></p>
+        <div class="sc3">
+          <div class="sc3_1">
+            <!-- ngRepeat: (key,value) in transaction.pf_score.grade_arr -->
+            <div
+              class="scoredxt ng-scope"
+              ng-repeat="(key,value) in transaction.pf_score.grade_arr"
+            >
+              <!-- ngIf: key == transaction.pf_score.score_txt -->
+              <div class="poor">Poor</div>
+            </div>
+            <!-- end ngRepeat: (key,value) in transaction.pf_score.grade_arr -->
+            <div
+              class="scoredxt ng-scope"
+              ng-repeat="(key,value) in transaction.pf_score.grade_arr"
+            >
+              <!-- ngIf: key == transaction.pf_score.score_txt -->
+              <div
+                ng-if="key == transaction.pf_score.score_txt"
+                style="left: 94.73684210526315%"
+                class="arrowhead poor_arrow ng-scope"
+              >
+                <!--<span class="{{transaction.pf_score.cls_arr[transaction.pf_score.score_txt]}}">{{key}}</span>-->
+                <span class="ng-binding">58</span>
+                <div>
+                  <img src="https://i.marketsmojo.com/portfolio/arrowd.png" />
+                </div>
+              </div>
+              <!-- end ngIf: key == transaction.pf_score.score_txt -->
+              <div class="belowaverage">Below Average</div>
+            </div>
+            <!-- end ngRepeat: (key,value) in transaction.pf_score.grade_arr -->
+            <div
+              class="scoredxt ng-scope"
+              ng-repeat="(key,value) in transaction.pf_score.grade_arr"
+            >
+              <!-- ngIf: key == transaction.pf_score.score_txt -->
+              <div class="average">Average</div>
+            </div>
+            <!-- end ngRepeat: (key,value) in transaction.pf_score.grade_arr -->
+            <div
+              class="scoredxt ng-scope"
+              ng-repeat="(key,value) in transaction.pf_score.grade_arr"
+            >
+              <!-- ngIf: key == transaction.pf_score.score_txt -->
+              <div class="good">Good</div>
+            </div>
+            <!-- end ngRepeat: (key,value) in transaction.pf_score.grade_arr -->
+            <div
+              class="scoredxt ng-scope"
+              ng-repeat="(key,value) in transaction.pf_score.grade_arr"
+            >
+              <!-- ngIf: key == transaction.pf_score.score_txt -->
+              <div class="excellent">Excellent</div>
+            </div>
+            <!-- end ngRepeat: (key,value) in transaction.pf_score.grade_arr -->
+          </div>
+        </div>
+        <!-- ngIf: transaction.opti_profile !='' -->
+        <div
+          class="row no-web no-tab ng-scope"
+          ng-if="transaction.opti_profile != ''"
+        >
+          <div class="col-md-12">
+            <div class="sc14">
+              <span class="sc15">Portfolio Profile:</span>
+              <span class="sc16 ng-binding">Very Aggressive</span>
+            </div>
+          </div>
+        </div>
+        <!-- end ngIf: transaction.opti_profile !='' -->
+      </div>
+
+      <div class="col-md-7 scpadd">
+        <div class="sc4">
+          <div class="sc5">
+            <div class="sc6 redbg">
+              <p class="sc7">
+                <img src="https://i.marketsmojo.com/portfolio/aleart.png" />
+              </p>
+              <p class="sc7_1 redtext">Alert</p>
+            </div>
+            <div class="sc8">
+              <div class="sc82">
+                <div class="sc8_1">
+                  <p class="sc9 ng-binding">
+                    Replacing 3 stocks can drastically improve your portfolio
+                    performance
+                  </p>
+                </div>
+                <div class="sc8_2">
+                  <div class="sc12">
+                    <a
+                      href="/portfolio-plus/optimizer-score#pfscore"
+                      class="ng-binding"
+                      >Action this Now
+                      <span
+                        ><img
+                          src="https://i.marketsmojo.com/portfolio/rightar.png" /></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="sc13 ng-binding">
+                You have lost Rs -5,745 so far in these stocks
+              </div>
+              <p class="givefeedback">
+                <a href="/mojo/feedback"
+                  >Give us your feedback on our NEW Portfolio Score feature</a
+                >
+              </p>
+            </div>
+            <div class="col-12 col-md-6">
+              <!-- ngIf: !$parent.$parent.block_clmm_content -->
+              <div
+                class="addsts ng-scope"
+                ng-if="!$parent.$parent.block_clmm_content"
+              >
+                <div class="addsts2">
+                  <div class="newtag">
+                    <img src="https://i.marketsmojo.com/new-tag.png" />
+                  </div>
+                  <a
+                    class="addimp"
+                    type="button"
+                    href="/mojofeed/add-stocks-portfolio"
+                    >One Click Import</a
+                  >
+                </div>
+                <div class="newtagtext">
+                  Import your latest holdings straight from your broker
+                  effortlessly
+                </div>
+              </div>
+              <!-- end ngIf: !$parent.$parent.block_clmm_content -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ngIf: transaction.opti_profile!='' -->
+    <div
+      class="row no-mob no-tab2 ng-scope"
+      ng-if="transaction.opti_profile != ''"
+    >
+      <div class="col-md-12">
+        <div class="sc14">
+          <span class="sc15">Portfolio Profile:</span>
+          <span class="sc16 ng-binding">Very Aggressive</span>
+        </div>
+      </div>
+    </div>
+    <!-- end ngIf: transaction.opti_profile!='' -->
+  </div>
+</div>

@@ -93,7 +93,9 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   private fetchStocks(type: TableType) {
+
     if (this.dataCache[type]) {
+      console.log( "If dataCache : ",  this.dataCache[type])
       this.updateStocks(type);
       return;
     }
@@ -123,6 +125,8 @@ export class TablesComponent implements OnInit, AfterViewInit {
 
   private updateStocks(type: TableType): void {
     this.dataSource.data = this.dataCache[type] || [];
+
+    console.log( "updated dataSource is : ",  this.dataSource.data)
   }
 
   private getColumns(type: TableType): void {

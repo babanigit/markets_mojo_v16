@@ -3,11 +3,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs';
 
+const nf_path = 'assets/pp/getNetworkFactor.json';
+
 @Injectable({
   providedIn: 'root',
 })
 export class GetPersonalPFService {
-
   private readonly paths = {
     OVERVIEW: 'assets/pp/table/getOverview.json',
     // HOLDING: 'https://frapi.marketsmojo.com/portfolioapi_portfolio/getHoldings' || 'assets/pp/table/getHolding.json' ,
@@ -50,5 +51,13 @@ export class GetPersonalPFService {
   }
 
 
-
+  getNetworkFactor(jsonPath: string = nf_path ) {
+    return this.http.get<any>(jsonPath).pipe(
+      // delay(1200),
+      catchError((err) => {
+        console.error('Error fetching nf data', err);
+        throw err;
+      })
+    );
+  }
 }
