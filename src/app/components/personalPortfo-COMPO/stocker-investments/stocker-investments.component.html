@@ -46,39 +46,21 @@
     <app-swiper-how-am />
   </div>
 
-  <!-- buttton -->
+  <!-- new -->
   <div
-    *ngIf="!TO_SHOW"
-    style="
-      width: 100%;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      place-items: center;
-    "
-  >
-    <div
-      (click)="showMore()"
-      style="
-        cursor: pointer;
-        width: auto;
-        height: 60px;
-        background-color: rgb(11, 184, 184);
-        text-align: center;
-        border-radius: 25px;
-        display: flex;
-        justify-content: center;
-        place-items: center;
-        font-size: x-large;
-        color: white;
-        padding: 0% 2%;
-      "
-    >
-      Click here for a comprehensive -
-      <b style="margin: 0px 8px">7 Mojo parameter analysis </b> on your
-      portfolio
-    </div>
-  </div>
+  *ngIf="!TO_SHOW"
+  class="container-fluid hideInteraction ng-scope" style="padding-bottom:300px;" id="lnkAllCardsToggle">
+		<div class="row">
+			<div class="col-md-12">
+				<div style="text-align:center !important;" class="pf-info-txt">
+					<button
+          (click)="showMore()"
+          type="button" class="btn btn-info blu-but_new">Click here for a comprehensive - <b>7 Mojo parameter analysis</b> on your portfolio</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
   <!-- remaining elements -->
 

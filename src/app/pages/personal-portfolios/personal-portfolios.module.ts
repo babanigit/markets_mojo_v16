@@ -15,6 +15,7 @@ import { SwiperDemoComponent } from "../../components/swiper-demo/swiper-demo.co
 import { SwiperDoingOverallComponent } from "../../components/personalPortfo-COMPO/stocker-investments/swipers/swiper-doing-overall/swiper-doing-overall.component";
 import { SwiperReturnAnalysisComponent } from "../../components/personalPortfo-COMPO/stocker-investments/swipers/swiper-return-analysis/swiper-return-analysis.component";
 import { SwiperRiskAnalysisComponent } from "../../components/personalPortfo-COMPO/stocker-investments/swipers/swiper-risk-analysis/swiper-risk-analysis.component";
+import { IpoFooterNewComponent } from 'src/app/components/ipo-COMPO/ipo-footer-new/ipo-footer-new.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +32,14 @@ import { SwiperRiskAnalysisComponent } from "../../components/personalPortfo-COM
     DemoComponent,
     TablesComponent,
     IpoFooterComponent,
+    IpoFooterNewComponent,
+
     GraphDemoComponent,
     SwiperHowAmComponent,
     SwiperDemoComponent,
     SwiperDoingOverallComponent,
     SwiperReturnAnalysisComponent,
-    SwiperRiskAnalysisComponent
+    SwiperRiskAnalysisComponent,
 ],
 })
 export class PersonalPortfoliosModule {}
