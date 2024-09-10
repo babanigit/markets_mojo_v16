@@ -5,8 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { GetPersonalPFService } from '../../../services/personal-portfolio/get-personal-pf.service';
-import { IGetOverview } from '../../../models/overview';
+
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({

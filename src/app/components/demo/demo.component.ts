@@ -24,6 +24,7 @@ export class DemoComponent implements AfterViewInit {
   ];
 
 
+
   ngAfterViewInit() {
     Swiper.use([Navigation, Pagination, Scrollbar, Autoplay]);
     const swiper = new Swiper('.swiper-container', {

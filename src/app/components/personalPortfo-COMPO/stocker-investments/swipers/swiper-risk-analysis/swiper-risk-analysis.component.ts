@@ -1,3 +1,4 @@
+
 import {
   Component,
   AfterViewInit,
@@ -7,19 +8,20 @@ import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 
 @Component({
-  selector: 'app-swiper-how-am',
-  templateUrl: './swiper-how-am.component.html',
-  styleUrls: ['./swiper-how-am.component.css'],
-  standalone:true,
-  imports: [CommonModule],
+  selector: 'app-swiper-risk-analysis',
+  templateUrl: './swiper-risk-analysis.component.html',
+  styleUrls: ['./swiper-risk-analysis.component.css'],
+  standalone: true,
+  imports: [
+    CommonModule
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SwiperHowAmComponent  implements AfterViewInit {
-
+export class SwiperRiskAnalysisComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     Swiper.use([Navigation, Pagination, Scrollbar, Autoplay]);
-    const swiper = new Swiper('.swiper-1', {
+    const swiper = new Swiper('.swiper-6', {
       slidesPerView: 'auto',
       // slidesPerGroup: 3,
       spaceBetween: 30,
