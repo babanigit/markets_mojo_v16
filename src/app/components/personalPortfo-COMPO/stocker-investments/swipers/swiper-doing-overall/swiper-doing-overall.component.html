@@ -1,1 +1,2141 @@
-<p>swiper-doing-overall works!</p>
+<div
+  class="slide-card cf ng-scope"
+  id="MenusectOverall"
+  ng-if="other_card_visibile"
+  style=""
+>
+  <div
+    class="swiper-container swiper-6 swiper-container-horizontal"
+    id="scrollOverAll"
+  >
+    <div class="section-head cf">
+      <h3>How am I doing overall</h3>
+    </div>
+    <div class="SectionDetails">
+      <span class="txt-sml no-tab"></span>
+      <div
+        class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
+      >
+        <span
+          class="swiper-pagination-bullet swiper-pagination-bullet-active"
+        ></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span>
+      </div>
+    </div>
+    <div
+      class="swiper-wrapper reco-slide"
+      id="sectOverall"
+      sect-reveal="true"
+      style="transform: translate3d(-783px, 0px, 0px); transition-duration: 0ms"
+    >
+      <section
+        data-reveal="true"
+        id="sectOverall_analysis"
+        class="swiper-slide padnno-sec marginright no-web no-tab no-tab2 swiper-slide-visible swiper-slide-active"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div class="card">
+          <div class="card-content">
+            <div class="card-head">
+              <h2>Overall portfolio analysis</h2>
+            </div>
+            <!-- ngIf: loader[0].pf_overall_analysis == true -->
+            <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 1 -->
+
+            <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
+            <div
+              class="pf-overall-boxs ng-scope"
+              ng-if="loader[0].pf_overall_analysis == false &amp;&amp; error_flag[0].overall_analysis == 0"
+              style=""
+            >
+              <div class="row">
+                <div
+                  class="pf-box col-md-12"
+                  ng-click="other_section_visible('MenusectReturn')"
+                >
+                  <div
+                    class="pf-box-hed red-dot"
+                    onclick="javascript:jumpToSectionV2('#navReturns')"
+                  >
+                    Returns :
+                    <span class="red"
+                      >Underperformed Composite Index by -13.77%</span
+                    >
+                    <span></span>,
+                    <span class="red">Composite Index Returns 74.45%</span>
+                    <span></span>
+                  </div>
+                </div>
+                <div
+                  class="pf-box col-md-12"
+                  ng-click="other_section_visible('MenusectRisk')"
+                >
+                  <div
+                    class="pf-box-hed red-dot"
+                    onclick="javascript:jumpToSectionV2('#navRisk')"
+                  >
+                    Risk : <span class="red">High Risk</span>
+                  </div>
+                </div>
+                <div
+                  class="pf-box col-md-12"
+                  ng-click="other_section_visible('MenusectLiq')"
+                >
+                  <div
+                    class="pf-box-hed green-dot"
+                    onclick="javascript:jumpToSectionV2('#navLiquidity')"
+                  >
+                    Liquidity : <span class="green">No Liquidity Issues</span>
+                  </div>
+                </div>
+                <div
+                  class="pf-box col-md-12"
+                  ng-click="other_section_visible('MenusectDiverse')"
+                >
+                  <div
+                    class="pf-box-hed red-dot"
+                    onclick="javascript:jumpToSectionV2('#navDiversification')"
+                  >
+                    Diversification:
+                    <span class="red">Highly Concentrated</span>
+                  </div>
+                </div>
+                <div
+                  class="pf-box col-md-12"
+                  ng-click="other_section_visible('MenusectQuality')"
+                >
+                  <div
+                    class="pf-box-hed red-dot"
+                    onclick="javascript:jumpToSectionV2('#navQuality')"
+                  >
+                    Quality : <span class="red"></span>
+                    <small
+                      ng-bind-html="overall.quality.text"
+                      class="ng-binding"
+                      ><strong class="red">60.0%</strong> of your portfolio has
+                      Average or Below Average Quality</small
+                    >
+                  </div>
+                </div>
+                <div
+                  class="pf-box col-md-12"
+                  ng-click="other_section_visible('MenusectValuation')"
+                >
+                  <div
+                    class="pf-box-hed red-dot"
+                    onclick="javascript:jumpToSectionV2('#navValuation')"
+                  >
+                    Valuation : <span class="red"></span>
+                    <small
+                      ng-bind-html="overall.valuation.text"
+                      class="ng-binding"
+                      ><strong class="red">58.0%</strong> of your portfolio has
+                      Expensive or worse Valuation</small
+                    >
+                  </div>
+                </div>
+                <div
+                  class="pf-box col-md-12"
+                  ng-click="other_section_visible('MenusectFintrend')"
+                >
+                  <div
+                    class="pf-box-hed orange-dot"
+                    onclick="javascript:jumpToSectionV2('#navFinancialTrend')"
+                  >
+                    Fin Trend : <span class="orange"></span>
+                    <small
+                      ng-bind-html="overall.fin_trend.text"
+                      class="ng-binding"
+                      ><strong class="yellow">64.0%</strong> of your portfolio
+                      has Positive or better Financial Trend</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
+          </div>
+        </div>
+      </section>
+      <section
+        data-reveal="true"
+        id="sectOverall_analysis"
+        class="swiper-slide padnno-sec marginright no-mob swiper-slide-visible swiper-slide-next"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div id="returnsOverview" class="card">
+          <div class="card-content">
+            <div class="card-head">
+              <h2>
+                Overall portfolio analysis
+                <span
+                  class="card-title activator info-act"
+                  ng-click="isCollapseOverallAnalysis = !isCollapseOverallAnalysis"
+                ></span>
+              </h2>
+            </div>
+            <!-- ngIf: loader[0].pf_overall_analysis == true -->
+            <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 1 -->
+
+            <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
+            <div
+              class="card-body ng-scope"
+              ng-if="loader[0].pf_overall_analysis == false &amp;&amp; error_flag[0].overall_analysis == 0"
+              style=""
+            >
+              <div class="pf-overall-boxs">
+                <div class="pf-box-set">
+                  <div
+                    class="pf-box red-bx"
+                    ng-click="other_section_visible('MenusectReturn')"
+                  >
+                    <a
+                      class="pf-bx-a"
+                      href="javascript:void(0)"
+                      onclick="javascript:jumpToSectionV2('#navReturns')"
+                    >
+                      <div class="pf-box-hed">RETURNS</div>
+                      <small style="color: black"
+                        ><i class="ng-binding">26 Dec 2016</i></small
+                      >
+                      <div class="pf-box-txt1 red">60.68%</div>
+                      <div class="pf-box-txt2 ng-binding">
+                        Underperformed Composite Index by -13.77%
+                      </div>
+                      <div class="pf-box-txt4 ng-binding">
+                        Composite Index Returns 74.45%
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="pf-box red-bx"
+                    ng-click="other_section_visible('MenusectRisk')"
+                  >
+                    <a
+                      class="pf-bx-a"
+                      href="javascript:void(0)"
+                      onclick="javascript:jumpToSectionV2('#navRisk')"
+                    >
+                      <div class="pf-box-hed">RISK</div>
+                      <div class="pf-box-txt1 red">High Risk</div>
+                      <div class="pf-box-txt2 ng-binding">
+                        High Beta (adjusted) of 1.45 with sensex
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="pf-box green-bx"
+                    ng-click="other_section_visible('MenusectLiq')"
+                  >
+                    <a
+                      class="pf-bx-a"
+                      href="javascript:void(0)"
+                      onclick="javascript:jumpToSectionV2('#navLiquidity')"
+                    >
+                      <div class="pf-box-hed">LIQUIDITY</div>
+                      <div class="pf-box-txt1 green">No Liquidity Issues</div>
+                      <div class="pf-box-txt2 ng-binding">
+                        None of your portfolio stocks seem to have liquidity
+                        issues
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="pf-box red-bx"
+                    ng-click="other_section_visible('MenusectDiverse')"
+                  >
+                    <a
+                      class="pf-bx-a"
+                      href="javascript:void(0)"
+                      onclick="javascript:jumpToSectionV2('#navDiversification')"
+                    >
+                      <div class="pf-box-hed">DIVERSIFICATION</div>
+                      <div class="pf-box-txt1 red">Highly Concentrated</div>
+                      <div class="pf-box-txt2"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="pf-overall-boxs2">
+                <div class="pf-box-set">
+                  <div
+                    class="pf-box red-bx"
+                    ng-click="other_section_visible('MenusectQuality')"
+                  >
+                    <a
+                      class="pf-bx-a"
+                      href="javascript:void(0)"
+                      onclick="javascript:jumpToSectionV2('#navQuality')"
+                    >
+                      <div class="pf-box-hed">QUALITY</div>
+                      <div
+                        class="pf-box-txt2 ng-binding"
+                        ng-bind-html="overall.quality.text"
+                      >
+                        <strong class="red">60.0%</strong> of your portfolio has
+                        Average or Below Average Quality
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="pf-box red-bx"
+                    ng-click="other_section_visible('MenusectValuation')"
+                  >
+                    <a
+                      class="pf-bx-a"
+                      href="javascript:void(0)"
+                      onclick="javascript:jumpToSectionV2('#navValuation')"
+                    >
+                      <div class="pf-box-hed">VALUATION</div>
+                      <div
+                        class="pf-box-txt2 ng-binding"
+                        ng-bind-html="overall.valuation.text"
+                      >
+                        <strong class="red">58.0%</strong> of your portfolio has
+                        Expensive or worse Valuation
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="pf-box yellow-bx"
+                    ng-click="other_section_visible('MenusectFintrend')"
+                  >
+                    <a
+                      class="pf-bx-a"
+                      href="javascript:void(0)"
+                      onclick="javascript:jumpToSectionV2('#navFinancialTrend')"
+                    >
+                      <div class="pf-box-hed">FINANCIAL TREND</div>
+                      <div
+                        class="pf-box-txt2 ng-binding"
+                        ng-bind-html="overall.fin_trend.text"
+                      >
+                        <strong class="yellow">64.0%</strong> of your portfolio
+                        has Positive or better Financial Trend
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
+          </div>
+          <div
+            class="card-reveal animate-slide ng-hide"
+            ng-show="isCollapseOverallAnalysis"
+          >
+            <span class="card-title grey-text text-darken-4">
+              Card Title<i
+                class="material-icons right"
+                ng-click="isCollapseOverallAnalysis = !isCollapseOverallAnalysis"
+                >close</i
+              >
+            </span>
+            <div class="card-reveal-text">
+              <p>7 Dot Portfolio Analysis</p>
+              <ul>
+                <li>
+                  <b>Returns</b>
+                  <ul>
+                    <li>
+                      Your portfolio returns since you created your portfolio
+                      are compared to returns generated by your composite index
+                      during the same period
+                    </li>
+                    <li>
+                      Colour of the dot is dependent on the relative performance
+                      of your portfolio and composite index
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Risk</b>
+                  <ul>
+                    <li>
+                      Your portfolio volatility (standard deviation) since you
+                      created your portfolio is compared to volatility of your
+                      composite index during the same period
+                    </li>
+                    <li>
+                      Colour of the dot is dependent on the relative performance
+                      of your portfolio and composite index
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b> Liquidity</b>
+                  <ul>
+                    <li>
+                      Proportion of your portfolio that may consist of stocks
+                      with liquidity issue
+                    </li>
+                    <li>
+                      Liquidity issue may be if
+                      <ul>
+                        <li>
+                          Quantity held is more than 2% of the stock’s 5-day
+                          average volume or,
+                        </li>
+                        <li>
+                          Quantity held is more than 5% of the stock’s 5-day
+                          average delivery volume or,
+                        </li>
+                        <li>
+                          Stocks that may take more than 1 day to liquidate
+                          (basis 2% of 5-day average volume) or,
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      While selling stocks with liquidity issues, you may face
+                      longer time or you may not get exit at your desired price
+                      Diversification
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Diversification</b>
+                  <ul>
+                    <li>
+                      Diversification is assessed basis the construct of your
+                      portfolio
+                    </li>
+                    <li>
+                      We not only look at the number of stocks but also your
+                      allocation to Sectors, Market Caps and holdings
+                    </li>
+                    <li>
+                      We exclude tail stocks while studying number of stocks;
+                      tail stocks are the ones with less than 1% allocation in
+                      portfolio
+                    </li>
+                    <li>We penalize under as well as over diversification</li>
+                  </ul>
+                </li>
+                <li>
+                  <b> Quality</b>
+                  <ul>
+                    <li>
+                      Construct of your portfolio and Quality of your portfolio
+                      stocks as per Markets Mojo’s Quality assessment module
+                    </li>
+                    <li>
+                      Quality signifies long term financial performance of a
+                      company vis-à-vis its competitors in the industry. We
+                      believe high quality companies with consistent record of
+                      financial performance will reward investors in the long
+                      run.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Valuation</b>
+                  <ul>
+                    <li>
+                      Construct of your portfolio and Valuation of your
+                      portfolio stocks as per Markets Mojo’s Valuation
+                      assessment module
+                    </li>
+                    <li>
+                      Valuation refers to attractiveness of the company at its
+                      current stock price by looking at its past financial
+                      performance and valuation matrices. We believe valuation
+                      helps the investor to estimate the timing of entry and
+                      exit in stocks.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Financial Trend</b>
+                  <ul>
+                    <li>
+                      Construct of your portfolio and Financial Trend of your
+                      portfolio stocks as per Markets Mojo’s Financial Trend
+                      assessment module
+                    </li>
+                    <li>
+                      Financial trend analyses result of the company in the
+                      recent quarters. We believe companies which have been
+                      trending higher on financial trend in the latest periods
+                      have potential to generate returns in the short term.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <p><em>Colour Significance</em></p>
+              <p><em>Green: Portfolio has done well in this area</em></p>
+              <p><em>Yellow: Portfolio needs improvement in this area</em></p>
+              <p><em>Red: Portfolio has done badly in this area</em></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--<section ng-cloak ng-if="showcardsData.data.cards.overall != undefined && showcardsData.data.cards.overall.img != ''" class="swiper-slide small-card marginright swiper-slide-visible"  style="padding: 0px !important;background-color:#00add4 !important;" data-scrolled="0" data-visited="0">
+              <div class="card" style="padding: 0px !important;background-color:#00add4 !important;">
+                  <div class="card-content happend" style="padding: 0px !important;background-color:#00add4 !important;">
+                      <a ng-href="{{showcardsData.data.cards.overall.link}}"><img src="{{showcardsData.data.cards.overall.img}}" style="width:100%;" /></a>
+                  </div>
+              </div>
+          </section>-->
+
+      <!-- ngIf: !block_clmm_content -->
+      <section
+        ng-if="!block_clmm_content"
+        class="swiper-slide small-card marginright ng-scope swiper-slide-visible"
+        style="padding: 0px !important; background-color: #2124a3 !important"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div
+          class="card"
+          style="padding: 0px !important; background-color: #2124a3 !important"
+        >
+          <div
+            class="card-content happend"
+            style="
+              padding: 0px !important;
+              background-color: #2124a3 !important;
+            "
+          >
+            <a href="/mojo/heroes" target="_blank"
+              ><img
+                src="https://i.marketsmojo.com/heroes/heroes-banner.png"
+                style="width: 100%"
+            /></a>
+          </div>
+        </div>
+      </section>
+      <!-- end ngIf: !block_clmm_content -->
+      <script>
+        function getStarted(url) {
+          ga("send", "event", "Banners", "click", "Screener_Withrates");
+
+          location.href = url;
+        }
+      </script>
+
+      <section
+        data-reveal="true"
+        id="sectOverall_profile"
+        class="swiper-slide small-card marginright swiper-slide-visible"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div class="card">
+          <div class="card-content portfoliocard">
+            <div class="card-head">
+              <h2>
+                Portfolio Profile
+                <span
+                  class="card-title activator info-act"
+                  ng-click="isCollapseOverallProfile = !isCollapseOverallProfile"
+                ></span>
+              </h2>
+            </div>
+            <!-- ngIf: loader[0].pf_overall_profile == true -->
+            <!-- ngIf: loader[0].pf_overall_profile == false && error_flag[0].overall_profile == 1 -->
+
+            <!-- ngIf: loader[0].pf_overall_profile == false && error_flag[0].overall_profile == 0 -->
+            <div
+              class="pf-profile ng-scope"
+              ng-if="loader[0].pf_overall_profile == false &amp;&amp; error_flag[0].overall_profile == 0"
+              style=""
+            >
+              <div class="pf-profile-sec1">
+                <div>
+                  <div class="pf-profile-txt1">Portfolio Value</div>
+                  <div class="pf-profile-txt2 ng-binding">2,33,226</div>
+                </div>
+                <div>
+                  <div class="pf-profile-txt1">Total Returns(%)</div>
+                  <div
+                    ng-class="
+                      'pf-profile-txt2 ' + getDirClrDefault(overall.tretdir)
+                    "
+                    class="ng-binding pf-profile-txt2 green"
+                  >
+                    2,01,659
+                  </div>
+                  <!-- ngIf: overall.tretp != "" -->
+                  <div
+                    ng-class="
+                      'pf-profile-txt3 ' + getDirClrDefault(overall.tretpdir)
+                    "
+                    ng-if="overall.tretp != ''"
+                    class="ng-binding ng-scope pf-profile-txt3 green"
+                  >
+                    (60.68%)
+                  </div>
+                  <!-- end ngIf: overall.tretp != "" -->
+                </div>
+              </div>
+
+              <div class="pf-profile-sec2">
+                <div>
+                  <div class="pf-profile-txt2 ng-binding">17</div>
+                  <div class="pf-profile-txt3C">Stocks</div>
+                </div>
+                <div>
+                  <div class="pf-profile-txt2 ng-binding">11</div>
+                  <div class="pf-profile-txt3C">Sectors</div>
+                </div>
+                <div>
+                  <div class="pf-profile-txt2 ng-binding">
+                    6
+                    <small class="ng-binding">(1.51%)</small>
+                  </div>
+                  <div class="pf-profile-txt3C">Tail Stock</div>
+                </div>
+              </div>
+              <div class="pf-profile-sec3">
+                <div>
+                  <div class="pf-profile-txt4">Highest Stock Holding</div>
+                  <div class="pf-profile-txt2">
+                    <a
+                      ng-href="/Stocks?StockId=454045&amp;Exchange=0"
+                      target="_blank"
+                      class="ng-binding"
+                      href="/Stocks?StockId=454045&amp;Exchange=0"
+                      >Jubilant Inds.</a
+                    >
+                    <!-- ngIf: overall.histock.pwt != "" --><span
+                      ng-if="overall.histock.pwt != ''"
+                      class="ng-binding ng-scope"
+                      >(38.85%)</span
+                    ><!-- end ngIf: overall.histock.pwt != "" -->
+                  </div>
+                </div>
+              </div>
+              <div class="pf-profile-sec3">
+                <div class="pf-profile-txt4">Highest Sector Allocation</div>
+                <div class="pf-profile-txt2 ng-binding">
+                  Pesticides &amp; Agrochemicals (38.85%)
+                </div>
+              </div>
+
+              <div class="pf-profile-sec3">
+                <div class="pf-profile-txt4">Highest Market Cap Allocation</div>
+                <div class="pf-profile-txt2 ng-binding">Large Cap (48.96%)</div>
+              </div>
+              <div class="pf-profile-sec4">
+                <div>
+                  <div class="pf-profile-txt1">Portfolio Construct</div>
+                  <div class="pf-profile-txt2 red">Highly Concentrated</div>
+                </div>
+                <div>
+                  <div class="pf-profile-txt1">Inception Date</div>
+                  <div class="pf-profile-txt2">
+                    <i class="ng-binding">26 Dec 2016</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end ngIf: loader[0].pf_overall_profile == false && error_flag[0].overall_profile == 0 -->
+          </div>
+          <div
+            class="card-reveal animate-slide ng-hide"
+            ng-show="isCollapseOverallProfile"
+          >
+            <span class="card-title grey-text text-darken-4">
+              Card Title<i
+                class="material-icons right"
+                ng-click="isCollapseOverallProfile = !isCollapseOverallProfile"
+                >close</i
+              >
+            </span>
+            <div class="card-reveal-text">
+              <ul>
+                <li>Important details of your portfolio at one glance</li>
+                <li>
+                  Total Returns include not just the unrealized return from your
+                  current portfolio construct, but also realized returns on past
+                  holdings and dividends received
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        data-reveal="true"
+        id="sectOverall_breakup"
+        class="swiper-slide small-card marginright"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div class="card PortNet">
+          <div class="card-content">
+            <div class="card-head">
+              <h2>
+                Portfolio Networth Break-Up
+                <span
+                  class="card-title activator info-act"
+                  ng-click="isCollapseOverallBreakup = !isCollapseOverallBreakup"
+                ></span>
+              </h2>
+            </div>
+            <!-- ngIf: loader[0].pf_overall_breakup == true -->
+            <!-- ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 1 -->
+
+            <!-- ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 0 -->
+            <div
+              class="card-body ng-scope"
+              ng-if="loader[0].pf_overall_breakup == false &amp;&amp; error_flag[0].overall_networth == 0"
+              style=""
+            >
+              <div class="pf-net-breakup">
+                <div class="companycv">
+                  <ul style="padding: 0">
+                    <li>
+                      Your Holding Value :
+                      <strong class="ng-binding">Rs 2,33,226</strong>
+                    </li>
+                    <li>
+                      You bought :
+                      <strong class="ng-binding">Rs 15,28,037</strong>
+                    </li>
+                    <!-- ngIf: overall.sellval != 0 -->
+                    <li ng-if="overall.sellval != 0" class="ng-scope">
+                      You sold :
+                      <strong class="ng-binding">Rs 14,94,811</strong>
+                    </li>
+                    <!-- end ngIf: overall.sellval != 0 -->
+                    <!-- ngIf: overall.sellval == 0 -->
+                  </ul>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="pf-">Total Gain/Loss</th>
+                      <th
+                        ng-class="getDirClrDefault(overall.tgaindir, 'orange')"
+                        class="ng-binding green"
+                      >
+                        Rs 2,01,659
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="pf-">Realized Gain/Loss</td>
+                      <!-- ngIf: overall.rgain == 'NA' -->
+                      <!-- ngIf: overall.rgain != 'NA' -->
+                      <td
+                        ng-if="overall.rgain != 'NA'"
+                        ng-class="getDirClrDefault(overall.rgaindir)"
+                        class="ng-binding ng-scope green"
+                      >
+                        Rs 71,276
+                      </td>
+                      <!-- end ngIf: overall.rgain != 'NA' -->
+                    </tr>
+                    <tr>
+                      <td class="pf-">Dividend Received</td>
+                      <!-- ngIf: overall.dividend == 'NA' -->
+                      <!-- ngIf: overall.dividend != 'NA' -->
+                      <td
+                        ng-if="overall.dividend != 'NA'"
+                        ng-class="getDirClrDefault(overall.divdir, 'orange')"
+                        class="ng-binding ng-scope green"
+                      >
+                        Rs 1,659
+                      </td>
+                      <!-- end ngIf: overall.dividend != 'NA' -->
+                    </tr>
+                    <tr>
+                      <td class="pf-">Unrealized Gain/Loss</td>
+                      <!-- ngIf: overall.unrgain == 'NA' -->
+                      <!-- ngIf: overall.unrgain != 'NA' -->
+                      <td
+                        ng-if="overall.unrgain != 'NA'"
+                        ng-class="
+                          getDirClrDefault(overall.unrgaindir, 'orange')
+                        "
+                        class="ng-binding ng-scope green"
+                      >
+                        Rs 1,28,724
+                      </td>
+                      <!-- end ngIf: overall.unrgain != 'NA' -->
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="condi-p">
+                  <p>Tax has not been considered for this analysis</p>
+                </div>
+              </div>
+            </div>
+            <!-- end ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 0 -->
+          </div>
+          <div
+            class="card-reveal animate-slide ng-hide"
+            ng-show="isCollapseOverallBreakup"
+          >
+            <span class="card-title grey-text text-darken-4">
+              Card Title<i
+                class="material-icons right"
+                ng-click="isCollapseOverallBreakup = !isCollapseOverallBreakup"
+                >close</i
+              >
+            </span>
+            <div class="card-reveal-text">
+              <ul>
+                <li>Quick summary of the total money made by you</li>
+                <li>
+                  The card bifurcates the current value of your holdings and
+                  your total investments (You bought) and withdrawals (you sold)
+                  from portfolio
+                </li>
+                <li>
+                  Your total money made is bifurcated into
+                  <ul>
+                    <li>Realized gain/loss: Money made on shares sold</li>
+                    <li>
+                      Dividend Received: Dividend on your current and past
+                      holdings
+                    </li>
+                    <li>
+                      Unrealized gain/loss: Money that will be made if the
+                      current portfolio is liquidated at the latest prices. This
+                      is notional gain and there is no guarantee that when you
+                      go to sell in the market, the shares can be sold at the
+                      exact same prices to make the same gain.
+                    </li>
+                  </ul>
+                </li>
+                <li>Tax has not been considered for this analysis</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        data-reveal="true"
+        id="sectOverall_contri"
+        class="swiper-slide small-card marginright"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div class="card">
+          <div class="card-content PortNet">
+            <div class="card-head">
+              <h2>
+                Overall Contributors
+                <span
+                  class="card-title activator info-act"
+                  ng-click="isCollapseOverallContri = !isCollapseOverallContri"
+                ></span>
+              </h2>
+            </div>
+            <!-- ngIf: loader[0].pf_overall_contri == true -->
+            <!-- ngIf: loader[0].pf_overall_contri == false && error_flag[0].overall_contri == 1 -->
+
+            <!-- ngIf: loader[0].pf_overall_contri == false && error_flag[0].overall_contri == 0 -->
+            <div
+              class="contributors list-mojo ng-scope"
+              ng-if="loader[0].pf_overall_contri == false &amp;&amp; error_flag[0].overall_contri == 0"
+              style=""
+            >
+              <table class="table1">
+                <thead>
+                  <tr>
+                    <th class="textcenter">Stock</th>
+                    <th class="textcenter">Unrealized Gain<br />in %</th>
+                    <th class="textcenter">Latest<br />Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- ngRepeat: value in overall.overall.contri| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.contri| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=454045&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=454045&amp;Exchange=0"
+                          >Jubilant Inds.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">1,812.15</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">70,093</p>
+                      <p class="pf-tbl-txt2 ng-binding">341.66%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">90,608</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.contri| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.contri| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=431628&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=431628&amp;Exchange=0"
+                          >REC Ltd</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">577.20</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">29,777</p>
+                      <p class="pf-tbl-txt2 ng-binding">804.72%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">33,478</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.contri| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.contri| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=421555&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=421555&amp;Exchange=0"
+                          >Coal India</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="orange-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">491.10</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">22,855</p>
+                      <p class="pf-tbl-txt2 ng-binding">139.07%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">39,288</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.contri| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.contri| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=837957&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=837957&amp;Exchange=0"
+                          >Larsen &amp; Toubro</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="orange-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">3,598.50</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">13,371</p>
+                      <p class="pf-tbl-txt2 ng-binding">113.13%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">25,190</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.contri| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.contri| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=302744&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=302744&amp;Exchange=0"
+                          >JP Power Ven.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">17.54</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">1,104</p>
+                      <p class="pf-tbl-txt2 ng-binding">18.51%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">7,069</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.contri| limitTo:5 -->
+                </tbody>
+              </table>
+            </div>
+            <!-- end ngIf: loader[0].pf_overall_contri == false && error_flag[0].overall_contri == 0 -->
+          </div>
+          <div
+            class="card-reveal animate-slide ng-hide"
+            ng-show="isCollapseOverallContri"
+          >
+            <span class="card-title grey-text text-darken-4">
+              Card Title<i
+                class="material-icons right"
+                ng-click="isCollapseOverallContri = !isCollapseOverallContri"
+                >close</i
+              >
+            </span>
+            <div class="card-reveal-text">
+              <ul>
+                <li>
+                  The card mentions the stocks currently in your portfolio that
+                  have made money for you
+                </li>
+                <li>
+                  This is unrealized gain/loss i.e. money that will be made if
+                  the stocks are liquidated at the current prices. This is
+                  notional gain and there is no guarantee that when you go to
+                  sell in the market, the shares can be sold at the exact same
+                  prices to make the same gain.
+                </li>
+                <li>
+                  Returns include effect of buys/sell transactions during the
+                  day
+                </li>
+                <li>It is ordered by profit made, highest to lowest</li>
+                <li>
+                  Click on Full Details to see all stocks in portfolio that have
+                  made money for you
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="porbottomlink">
+          <div class="bottom-card-links">
+            <div class="bottom-card-links no-web">
+              <a
+                class="seefull waves-light modal-trigger"
+                ng-click="setOverallPopup('contri');modalOpen('overall_popup', 1)"
+                href="javascript:void(0)"
+                ><img
+                  src="https://i.marketsmojo.com/arrow_rt.png"
+                  alt="ArrowRight"
+                  height="16"
+                />
+                Full Details</a
+              >
+            </div>
+            <div class="bottom-card-links no-mob">
+              <a
+                class="seefull waves-light"
+                ng-click="setOverallPopup('contri');modalOpen('overall_popup', 1)"
+                href="javascript:void(0)"
+                ><img
+                  src="https://i.marketsmojo.com/arrow_rt.png"
+                  alt="ArrowRight"
+                  height="16"
+                />
+                Full Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        data-reveal="true"
+        id="sectOverall_drags"
+        class="swiper-slide small-card marginright"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div class="card">
+          <div class="card-content PortNet">
+            <div class="card-head">
+              <h2>
+                Overall Drags
+                <span
+                  class="card-title activator info-act"
+                  ng-click="isCollapseOverallDrags = !isCollapseOverallDrags"
+                ></span>
+              </h2>
+            </div>
+            <!-- ngIf: loader[0].pf_overall_drags == true -->
+            <!-- ngIf: loader[0].pf_overall_drags == false && error_flag[0].overall_drags == 1 -->
+
+            <!-- ngIf: loader[0].pf_overall_drags == false && error_flag[0].overall_drags == 0 -->
+            <div
+              class="contributors list-mojo ng-scope"
+              ng-if="loader[0].pf_overall_drags == false &amp;&amp; error_flag[0].overall_drags == 0"
+              style=""
+            >
+              <table class="table1">
+                <thead>
+                  <tr>
+                    <th class="textcenter">Stock</th>
+                    <th class="textcenter">Unrealized Loss<br />in %</th>
+                    <th class="textcenter">Latest<br />Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- ngRepeat: value in overall.overall.drags| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.drags| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=400868&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=400868&amp;Exchange=0"
+                          >Reliance Infra.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">216.97</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-5,731</p>
+                      <p class="pf-tbl-txt2 ng-binding">-56.91%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">4,339</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.drags| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.drags| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=234277&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=234277&amp;Exchange=0"
+                          >Persistent Sys</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">5,274.20</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-2,376</p>
+                      <p class="pf-tbl-txt2 ng-binding">-31.06%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,274</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.drags| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.drags| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=119922&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=119922&amp;Exchange=0"
+                          >City Union Bank</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="orange-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">168.16</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-1,204</p>
+                      <p class="pf-tbl-txt2 ng-binding">-8.72%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">12,612</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.drags| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.drags| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=616556&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=616556&amp;Exchange=0"
+                          >Punjab Natl.Bank</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">109.59</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-521</p>
+                      <p class="pf-tbl-txt2 ng-binding">-8.68%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,480</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.drags| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.drags| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=1003566&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=1003566&amp;Exchange=0"
+                          >One 97</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="red-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">653.40</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-106</p>
+                      <p class="pf-tbl-txt2 ng-binding">-13.94%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">653</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.drags| limitTo:5 -->
+                </tbody>
+              </table>
+            </div>
+            <!-- end ngIf: loader[0].pf_overall_drags == false && error_flag[0].overall_drags == 0 -->
+          </div>
+          <div
+            class="card-reveal animate-slide ng-hide"
+            ng-show="isCollapseOverallDrags"
+          >
+            <span class="card-title grey-text text-darken-4">
+              Card Title<i
+                class="material-icons right"
+                ng-click="isCollapseOverallDrags = !isCollapseOverallDrags"
+                >close</i
+              >
+            </span>
+            <div class="card-reveal-text">
+              <ul>
+                <li>
+                  The card mentions the stocks currently in your portfolio that
+                  have made money for you
+                </li>
+                <li>
+                  This is unrealized gain/loss i.e. money that will be made if
+                  the stocks are liquidated at the current prices. This is
+                  notional gain and there is no guarantee that when you go to
+                  sell in the market, the shares can be sold at the exact same
+                  prices to make the same gain.
+                </li>
+                <li>
+                  Returns include effect of buys/sell transactions during the
+                  day
+                </li>
+                <li>It is ordered by profit made, highest to lowest</li>
+                <li>
+                  Click on Full Details to see all stocks in portfolio that have
+                  made money for you
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="porbottomlink">
+          <div class="bottom-card-links">
+            <div class="bottom-card-links no-web">
+              <a
+                class="seefull waves-light modal-trigger"
+                ng-click="setOverallPopup('drags');modalOpen('overall_popup', 1)"
+                href="javascript:void(0)"
+                ><img
+                  src="https://i.marketsmojo.com/arrow_rt.png"
+                  alt="ArrowRight"
+                  height="16"
+                />
+                Full Details</a
+              >
+            </div>
+            <div class="bottom-card-links no-mob">
+              <a
+                class="seefull waves-light"
+                ng-click="setOverallPopup('drags');modalOpen('overall_popup', 1)"
+                href="javascript:void(0)"
+                ><img
+                  src="https://i.marketsmojo.com/arrow_rt.png"
+                  alt="ArrowRight"
+                  height="16"
+                />
+                Full Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        data-reveal="true"
+        id="sectOverall_gainer"
+        class="swiper-slide small-card marginright"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div class="card">
+          <div class="card-content PortNet">
+            <div class="card-head">
+              <h2>
+                Overall Gainers
+                <span
+                  class="card-title activator info-act"
+                  ng-click="isCollapseOverallGainer = !isCollapseOverallGainer"
+                ></span>
+              </h2>
+            </div>
+            <!-- ngIf: loader[0].pf_overall_gainer == true -->
+            <!-- ngIf: loader[0].pf_overall_gainer == false && error_flag[0].overall_gainer == 1 -->
+
+            <!-- ngIf: loader[0].pf_overall_gainer == false && error_flag[0].overall_gainer == 0 -->
+            <div
+              class="contributors list-mojo ng-scope"
+              ng-if="loader[0].pf_overall_gainer == false &amp;&amp; error_flag[0].overall_gainer == 0"
+              style=""
+            >
+              <table class="table1">
+                <thead>
+                  <tr>
+                    <th class="textcenter">Stock</th>
+                    <th class="textcenter">Unrealized Gain<br />in %</th>
+                    <th class="textcenter">Latest<br />Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- ngRepeat: value in overall.overall.gainers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.gainers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=151046&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=151046&amp;Exchange=0"
+                          >Innovassynth Inv</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="grey-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="orange-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">80.74</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">654</p>
+                      <p class="pf-tbl-txt2 ng-binding">900.50%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">727</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.gainers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.gainers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=431628&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=431628&amp;Exchange=0"
+                          >REC Ltd</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">577.20</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">29,777</p>
+                      <p class="pf-tbl-txt2 ng-binding">804.72%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">33,478</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.gainers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.gainers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=454045&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=454045&amp;Exchange=0"
+                          >Jubilant Inds.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">1,812.15</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">70,093</p>
+                      <p class="pf-tbl-txt2 ng-binding">341.66%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">90,608</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.gainers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.gainers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=421555&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=421555&amp;Exchange=0"
+                          >Coal India</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="orange-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">491.10</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">22,855</p>
+                      <p class="pf-tbl-txt2 ng-binding">139.07%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">39,288</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.gainers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.gainers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=837957&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=837957&amp;Exchange=0"
+                          >Larsen &amp; Toubro</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="orange-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">3,598.50</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">13,371</p>
+                      <p class="pf-tbl-txt2 ng-binding">113.13%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">25,190</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.gainers| limitTo:5 -->
+                </tbody>
+              </table>
+            </div>
+            <!-- end ngIf: loader[0].pf_overall_gainer == false && error_flag[0].overall_gainer == 0 -->
+          </div>
+          <div
+            class="card-reveal animate-slide ng-hide"
+            ng-show="isCollapseOverallGainer"
+          >
+            <span class="card-title grey-text text-darken-4">
+              Card Title<i
+                class="material-icons right"
+                ng-click="isCollapseOverallGainer = !isCollapseOverallGainer"
+                >close</i
+              >
+            </span>
+            <div class="card-reveal-text">
+              <ul>
+                <li>
+                  The card mentions the stocks currently in your portfolio that
+                  have gained for you
+                </li>
+                <li>
+                  This is unrealized gain/loss i.e. money that will be made if
+                  the stocks are liquidated at the current prices. This is
+                  notional gain and there is no guarantee that when you go to
+                  sell in the market, the shares can be sold at the exact same
+                  prices to make the same gain.
+                </li>
+                <li>It is ordered by percentage gain, highest to lowest</li>
+                <li>
+                  Click on Full Details to see all stocks in portfolio that
+                  gained for you
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="porbottomlink">
+          <div class="bottom-card-links">
+            <div class="bottom-card-links no-web">
+              <a
+                class="seefull waves-light modal-trigger"
+                ng-click="setOverallPopup('gainers');modalOpen('overall_popup', 1)"
+                href="javascript:void(0)"
+                ><img
+                  src="https://i.marketsmojo.com/arrow_rt.png"
+                  alt="ArrowRight"
+                  height="16"
+                />
+                Full Details</a
+              >
+            </div>
+            <div class="bottom-card-links no-mob">
+              <a
+                class="seefull waves-light"
+                ng-click="setOverallPopup('gainers');modalOpen('overall_popup', 1)"
+                href="javascript:void(0)"
+                ><img
+                  src="https://i.marketsmojo.com/arrow_rt.png"
+                  alt="ArrowRight"
+                  height="16"
+                />
+                Full Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        data-reveal="true"
+        id="sectOverall_loser"
+        class="swiper-slide small-card marginright"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div class="card">
+          <div class="card-content PortNet">
+            <div class="card-head">
+              <h2>
+                Overall Losers
+                <span
+                  class="card-title activator info-act"
+                  ng-click="isCollapseOverallLoser = !isCollapseOverallLoser"
+                ></span>
+              </h2>
+            </div>
+            <!-- ngIf: loader[0].pf_overall_looser == true -->
+            <!-- ngIf: loader[0].pf_overall_looser == false && error_flag[0].overall_loser == 1 -->
+
+            <!-- ngIf: loader[0].pf_overall_looser == false && error_flag[0].overall_loser == 0 -->
+            <div
+              class="contributors list-mojo ng-scope"
+              ng-if="loader[0].pf_overall_looser == false &amp;&amp; error_flag[0].overall_loser == 0"
+              style=""
+            >
+              <table class="table1">
+                <thead>
+                  <tr>
+                    <th class="textcenter">Stock</th>
+                    <th class="textcenter">Unrealized Loss<br />in %</th>
+                    <th class="textcenter">Latest<br />Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- ngRepeat: value in overall.overall.losers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.losers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=400868&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=400868&amp;Exchange=0"
+                          >Reliance Infra.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">216.97</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-5,731</p>
+                      <p class="pf-tbl-txt2 ng-binding">-56.91%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">4,339</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.losers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.losers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=234277&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=234277&amp;Exchange=0"
+                          >Persistent Sys</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">5,274.20</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-2,376</p>
+                      <p class="pf-tbl-txt2 ng-binding">-31.06%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,274</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.losers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.losers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=1003566&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=1003566&amp;Exchange=0"
+                          >One 97</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="red-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">653.40</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-106</p>
+                      <p class="pf-tbl-txt2 ng-binding">-13.94%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">653</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.losers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.losers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=119922&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=119922&amp;Exchange=0"
+                          >City Union Bank</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="orange-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">168.16</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-1,204</p>
+                      <p class="pf-tbl-txt2 ng-binding">-8.72%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">12,612</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.losers| limitTo:5 -->
+                  <tr
+                    ng-repeat="value in overall.overall.losers| limitTo:5"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=616556&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=616556&amp;Exchange=0"
+                          >Punjab Natl.Bank</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">109.59</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.unrgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-521</p>
+                      <p class="pf-tbl-txt2 ng-binding">-8.68%</p>
+                    </td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,480</td>
+                  </tr>
+                  <!-- end ngRepeat: value in overall.overall.losers| limitTo:5 -->
+                </tbody>
+              </table>
+            </div>
+            <!-- end ngIf: loader[0].pf_overall_looser == false && error_flag[0].overall_loser == 0 -->
+          </div>
+          <div
+            class="card-reveal animate-slide ng-hide"
+            ng-show="isCollapseOverallLoser"
+          >
+            <span class="card-title grey-text text-darken-4">
+              Card Title<i
+                class="material-icons right"
+                ng-click="isCollapseOverallLoser = !isCollapseOverallLoser"
+                >close</i
+              >
+            </span>
+            <div class="card-reveal-text">
+              <ul>
+                <li>
+                  The card mentions the stocks currently in your portfolio that
+                  have made a loss for you
+                </li>
+                <li>
+                  This is unrealized gain/loss i.e. money that will be made if
+                  the stocks are liquidated at the current prices. This is
+                  notional gain and there is no guarantee that when you go to
+                  sell in the market, the shares can be sold at the exact same
+                  prices to make the same gain.
+                </li>
+                <li>
+                  Returns include effect of buys/sell transactions during the
+                  day
+                </li>
+                <li>It is ordered by percentage loss, highest to lowest</li>
+                <li>
+                  Click on Full Details to see all stocks in portfolio that have
+                  made a loss for you
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="porbottomlink">
+          <div class="bottom-card-links">
+            <div class="bottom-card-links no-web">
+              <a
+                class="seefull waves-light modal-trigger"
+                ng-click="setOverallPopup('losers');modalOpen('overall_popup', 1)"
+                href="javascript:void(0)"
+                ><img
+                  src="https://i.marketsmojo.com/arrow_rt.png"
+                  alt="ArrowRight"
+                  height="16"
+                />
+                Full Details</a
+              >
+            </div>
+            <div class="bottom-card-links no-mob">
+              <a
+                class="seefull waves-light"
+                ng-click="setOverallPopup('losers');modalOpen('overall_popup', 1)"
+                href="javascript:void(0)"
+                ><img
+                  src="https://i.marketsmojo.com/arrow_rt.png"
+                  alt="ArrowRight"
+                  height="16"
+                />
+                Full Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--//////section end//////////-->
+    </div>
+    <div class="swiper-scrollbar"></div>
+    <div class="swiper-button-next" style="margin-top: 0px">
+      <a class="btn-floating btn-large waves-effect waves-light black">
+        <i class="material-icons large">skip_next</i>
+      </a>
+    </div>
+    <div
+      class="swiper-button-prev swiper-button-disabled"
+      style="margin-top: 0px"
+    >
+      <a class="btn-floating btn-large waves-effect waves-light black">
+        <i class="material-icons large">skip_previous</i>
+      </a>
+    </div>
+  </div>
+</div>

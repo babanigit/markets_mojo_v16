@@ -16,6 +16,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { PopupComponent } from '../../others/popup/popup.component';
 import { columns, IColumns } from './Columns';
 
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
+
 type TableType =
   | 'OVERVIEW'
   | 'HOLDING'
@@ -44,6 +47,8 @@ type TableType =
     MatIconModule,
     MatExpansionModule,
     PopupComponent,
+
+    ScrollingModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

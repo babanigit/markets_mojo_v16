@@ -23,13 +23,6 @@ export class DemoComponent implements AfterViewInit {
     'https://i.marketsmojo.com/logo/integrated-logo-v1.png',
   ];
 
-  slides = [
-    { title: 'Section 1', content: 'Content for section 1', width: 650 },
-    { title: 'Section 2', content: 'Content for section 2', width: 300 },
-    { title: 'Section 3', content: 'Content for section 3', width: 180 },
-    { title: 'Section 4', content: 'Content for section 4', width: 820 },
-    { title: 'Section 5', content: 'Content for section 5', width: 160 },
-  ];
 
   ngAfterViewInit() {
     Swiper.use([Navigation, Pagination, Scrollbar, Autoplay]);

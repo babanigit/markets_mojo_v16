@@ -258,9 +258,18 @@ span.active .mat-icon {
 
 /* Ensure the table doesn't exceed the window width */
 .mat-table {
+  /* height: 100%; */
+   /* Adjust based on your needs */
+
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
+}
+
+
+.viewport {
+  height: 100%;
+  width: 100%;
 }
 
 /* Optional: If you want to allow horizontal scrolling for very narrow screens */

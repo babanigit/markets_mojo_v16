@@ -1,18 +1,31 @@
-<p>swiper-how-am works!</p>
 <div class="slide-card cf" id="MenusectToday">
   <div class="swiper-container swiper-1 swiper-container-horizontal">
     <div class="section-head cf">
       <h3>How am I doing Today</h3>
     </div>
-
     <div class="SectionDetails">
       <span class="txt-sml no-tab"></span>
-
-      <!-- Add Pagination -->
-      <div class="swiper-pagination"></div>
+      <div
+        class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
+      >
+        <span
+          class="swiper-pagination-bullet swiper-pagination-bullet-active"
+        ></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span>
+      </div>
     </div>
-
-    <div class="swiper-wrapper reco-slide" id="sectToday" sect-reveal="true">
+    <div
+      class="swiper-wrapper reco-slide"
+      id="sectToday"
+      sect-reveal="true"
+      style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"
+    >
       <!--  -->
 
       <section
@@ -23,7 +36,889 @@
         data-visited="0"
       >
         <div class="card">
-          <div class="card-content movementcard">graph</div>
+          <div class="card-content movementcard">
+            <div id="pricemovement" class="card-head">
+              <h2>
+                <span class="no-mob no-tab2"
+                  >Your Portfolio Movement Today</span
+                >
+                <span class="no-web no-tab"
+                  >Portfolio Movement (Cash Adjusted)</span
+                >
+                <!--<span class="card-title activator info-act" ng-click="isCollapseTodayMov = !isCollapseTodayMov"></span>-->
+                <span class="pull-right" style="display: block">
+                  <a
+                    href="javascript:void(0)"
+                    class="refresh-link"
+                    ng-click='act_today_graph_tab="1D";getToday(1);'
+                  >
+                    <i class="fa fa-refresh refresh-text"></i>
+                    Refresh
+                  </a>
+                </span>
+              </h2>
+            </div>
+            <!-- ngIf: loader[0].pf_today_graph == true -->
+
+            <div
+              class="tabcol"
+              ng-show="loader[0].pf_today_graph == false"
+              style=""
+            >
+              <div id="tabcol-new" class="day-week cf no-mob no-tab2">
+                <ul class="nav nav-tabs">
+                  <li class="tab">
+                    <a
+                      href="javascript:void(0)"
+                      id=""
+                      ng-class="act_tab_class['1D']"
+                      class="active red"
+                      ng-click=" getToday(0,1);"
+                      style=""
+                      >1D</a
+                    >
+                  </li>
+                  <!-- ngRepeat: value in act_tab_name -->
+                  <li
+                    class="tab ng-scope"
+                    ng-repeat="value in act_tab_name"
+                    style=""
+                  >
+                    <a
+                      href="javascript:void(0)"
+                      id=""
+                      class="green"
+                      ng-class="act_tab_class[value]"
+                      ng-click=" getActGraph(value,act_today_graph_type)"
+                      >1M</a
+                    >
+                  </li>
+                  <!-- end ngRepeat: value in act_tab_name -->
+                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
+                    <a
+                      href="javascript:void(0)"
+                      id=""
+                      class="green"
+                      ng-class="act_tab_class[value]"
+                      ng-click=" getActGraph(value,act_today_graph_type)"
+                      >3M</a
+                    >
+                  </li>
+                  <!-- end ngRepeat: value in act_tab_name -->
+                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
+                    <a
+                      href="javascript:void(0)"
+                      id=""
+                      class="green"
+                      ng-class="act_tab_class[value]"
+                      ng-click=" getActGraph(value,act_today_graph_type)"
+                      >6M</a
+                    >
+                  </li>
+                  <!-- end ngRepeat: value in act_tab_name -->
+                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
+                    <a
+                      href="javascript:void(0)"
+                      id=""
+                      class="green"
+                      ng-class="act_tab_class[value]"
+                      ng-click=" getActGraph(value,act_today_graph_type)"
+                      >YTD</a
+                    >
+                  </li>
+                  <!-- end ngRepeat: value in act_tab_name -->
+                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
+                    <a
+                      href="javascript:void(0)"
+                      id=""
+                      class="green"
+                      ng-class="act_tab_class[value]"
+                      ng-click=" getActGraph(value,act_today_graph_type)"
+                      >1Y</a
+                    >
+                  </li>
+                  <!-- end ngRepeat: value in act_tab_name -->
+                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
+                    <a
+                      href="javascript:void(0)"
+                      id=""
+                      class="green"
+                      ng-class="act_tab_class[value]"
+                      ng-click=" getActGraph(value,act_today_graph_type)"
+                      >3Y</a
+                    >
+                  </li>
+                  <!-- end ngRepeat: value in act_tab_name -->
+                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
+                    <a
+                      href="javascript:void(0)"
+                      id=""
+                      class="green"
+                      ng-class="act_tab_class[value]"
+                      ng-click=" getActGraph(value,act_today_graph_type)"
+                      >INCEPTION</a
+                    >
+                  </li>
+                  <!-- end ngRepeat: value in act_tab_name -->
+                  <!--									<li class="tab">
+                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['3M']}}"  ng-class="{active:act_today_graph_tab == '3M'}"  ng-click="act_today_graph_tab = '3M'; getActGraph('3M',act_today_graph_type)">3M</a>
+                </li>
+                                                                      <li class="tab">
+                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['YTD']}}"  ng-class="{active:act_today_graph_tab == 'YTD'}"  ng-click="act_today_graph_tab = 'YTD'; getActGraph('YTD',act_today_graph_type)">YTD </a>
+                </li>
+                <li class="tab">
+                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['1Y']}}" ng-class="{active:act_today_graph_tab == '1Y'}"  ng-click="act_today_graph_tab = '1Y'; getActGraph('1Y',act_today_graph_type)">1Y</a>
+                </li>
+                <li class="tab">
+                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['3Y']}}" ng-class="{active:act_today_graph_tab == '3Y'}"  ng-click="act_today_graph_tab = '3Y'; getActGraph('3Y',act_today_graph_type)">3Y</a>
+                </li>
+                <li class="tab">
+                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['inception']}}" ng-class="{active:act_today_graph_tab == 'inception'}"  ng-click="act_today_graph_tab = 'inception'; getActGraph('inception',act_today_graph_type)">Inception</a>
+                </li>-->
+                  <!-- ngIf: act_today_graph_tab !='1D' -->
+                  <!-- ngIf: act_today_graph_tab !='1D' -->
+                </ul>
+              </div>
+              <div id="tabcol" class="no-web no-tab">
+                <div class="col-md-12">
+                  <div class="tabdropdown pf-menu">
+                    <select
+                      ng-model="act_today_graph_tab"
+                      ng-change="(act_today_graph_tab != '1D')?getActGraph(act_today_graph_tab,act_today_graph_type):getToday(0,1);"
+                      class="ng-pristine ng-untouched ng-valid ng-not-empty"
+                    >
+                      <option value="1D" selected="selected">1D</option>
+                      <!-- ngRepeat: value in act_tab_name -->
+                      <option
+                        ng-repeat="value in act_tab_name"
+                        ng-value="value"
+                        class="ng-binding ng-scope"
+                        value="string:1M"
+                        style=""
+                      >
+                        1M
+                      </option>
+                      <!-- end ngRepeat: value in act_tab_name -->
+                      <option
+                        ng-repeat="value in act_tab_name"
+                        ng-value="value"
+                        class="ng-binding ng-scope"
+                        value="string:3M"
+                      >
+                        3M
+                      </option>
+                      <!-- end ngRepeat: value in act_tab_name -->
+                      <option
+                        ng-repeat="value in act_tab_name"
+                        ng-value="value"
+                        class="ng-binding ng-scope"
+                        value="string:6M"
+                      >
+                        6M
+                      </option>
+                      <!-- end ngRepeat: value in act_tab_name -->
+                      <option
+                        ng-repeat="value in act_tab_name"
+                        ng-value="value"
+                        class="ng-binding ng-scope"
+                        value="string:YTD"
+                      >
+                        YTD
+                      </option>
+                      <!-- end ngRepeat: value in act_tab_name -->
+                      <option
+                        ng-repeat="value in act_tab_name"
+                        ng-value="value"
+                        class="ng-binding ng-scope"
+                        value="string:1Y"
+                      >
+                        1Y
+                      </option>
+                      <!-- end ngRepeat: value in act_tab_name -->
+                      <option
+                        ng-repeat="value in act_tab_name"
+                        ng-value="value"
+                        class="ng-binding ng-scope"
+                        value="string:3Y"
+                      >
+                        3Y
+                      </option>
+                      <!-- end ngRepeat: value in act_tab_name -->
+                      <option
+                        ng-repeat="value in act_tab_name"
+                        ng-value="value"
+                        class="ng-binding ng-scope"
+                        value="string:inception"
+                      >
+                        INCEPTION
+                      </option>
+                      <!-- end ngRepeat: value in act_tab_name -->
+                      <!--                                                                                    <option value="3M">3M</option>
+                                                                                  <option value="YTD">YTD</option>
+                                                                                  <option value="1Y">1Y</option>
+                                                                                  <option value="3Y">3Y</option>
+                                                                                  <option value="inception">Inception</option> -->
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-content">
+                <!-- ngIf: loader[0].pf_today_graph == false && error_flag[0].actionToday_graph == 1 && actionToday.error != 1 -->
+                <!-- ngIf: loader[0].pf_today_graph == false && actionToday.error == 1 -->
+
+                <div
+                  class="cardmiddle"
+                  ng-show="loader[0].pf_today_graph == false &amp;&amp; error_flag[0].actionToday_graph == 0 &amp;&amp; actionToday.error != 1"
+                  style=""
+                >
+                  <div
+                    class="cardgraph"
+                    id="container_actiontoday"
+                    data-highcharts-chart="70"
+                  >
+                    <div
+                      id="highcharts-1rl6spd-237"
+                      style="
+                        position: relative;
+                        overflow: hidden;
+                        width: 600px;
+                        height: 260px;
+                        text-align: left;
+                        line-height: normal;
+                        z-index: 0;
+                        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                      "
+                      dir="ltr"
+                      class="highcharts-container"
+                    >
+                      <svg
+                        version="1.1"
+                        class="highcharts-root"
+                        style="
+                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
+                            Arial, Helvetica, sans-serif;
+                          font-size: 12px;
+                        "
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="600"
+                        height="260"
+                        viewBox="0 0 600 260"
+                      >
+                        <desc>Created with Highstock 6.1.0</desc>
+                        <defs>
+                          <clipPath id="highcharts-1rl6spd-238">
+                            <rect
+                              x="0"
+                              y="0"
+                              width="550"
+                              height="210"
+                              fill="none"
+                            ></rect>
+                          </clipPath>
+                          <clipPath id="highcharts-1rl6spd-240">
+                            <rect
+                              x="0"
+                              y="0"
+                              width="550"
+                              height="210"
+                              fill="none"
+                            ></rect>
+                          </clipPath>
+                        </defs>
+                        <rect
+                          fill="#fff"
+                          class="highcharts-background"
+                          stroke="#fff"
+                          stroke-width="1"
+                          x="0.5"
+                          y="0.5"
+                          width="598"
+                          height="258"
+                          rx="0"
+                          ry="0"
+                        ></rect>
+                        <rect
+                          fill="none"
+                          class="highcharts-plot-background"
+                          x="40"
+                          y="25"
+                          width="550"
+                          height="210"
+                        ></rect>
+                        <g class="highcharts-pane-group"></g>
+                        <g class="highcharts-grid highcharts-xaxis-grid">
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 45.5 25 L 45.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 71.5 25 L 71.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 97.5 25 L 97.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 122.5 25 L 122.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 148.5 25 L 148.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 173.5 25 L 173.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 199.5 25 L 199.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 224.5 25 L 224.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 250.5 25 L 250.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 276.5 25 L 276.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 301.5 25 L 301.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 327.5 25 L 327.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 352.5 25 L 352.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 378.5 25 L 378.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 404.5 25 L 404.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 429.5 25 L 429.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 455.5 25 L 455.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 480.5 25 L 480.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 506.5 25 L 506.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 531.5 25 L 531.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 557.5 25 L 557.5 235"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 583.5 25 L 583.5 235"
+                            opacity="1"
+                          ></path>
+                        </g>
+                        <g class="highcharts-grid highcharts-yaxis-grid">
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 40 235.5 L 590 235.5"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 40 165.5 L 590 165.5"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 40 95.5 L 590 95.5"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-grid-line"
+                            d="M 40 25.5 L 590 25.5"
+                            opacity="1"
+                          ></path>
+                        </g>
+                        <rect
+                          fill="none"
+                          class="highcharts-plot-border"
+                          x="40"
+                          y="25"
+                          width="550"
+                          height="210"
+                        ></rect>
+                        <g class="highcharts-axis highcharts-xaxis">
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 45.5 225 L 45.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 71.5 225 L 71.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 97.5 225 L 97.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 122.5 225 L 122.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 148.5 225 L 148.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 173.5 225 L 173.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 199.5 225 L 199.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 224.5 225 L 224.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 250.5 225 L 250.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 276.5 225 L 276.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 301.5 225 L 301.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 327.5 225 L 327.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 352.5 225 L 352.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 378.5 225 L 378.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 404.5 225 L 404.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 429.5 225 L 429.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 455.5 225 L 455.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 480.5 225 L 480.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 506.5 225 L 506.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 531.5 225 L 531.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 557.5 225 L 557.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-tick"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 583.5 225 L 583.5 215"
+                            opacity="1"
+                          ></path>
+                          <path
+                            fill="none"
+                            class="highcharts-axis-line"
+                            stroke="#ccd6eb"
+                            stroke-width="1"
+                            d="M 40 225.5 L 590 225.5"
+                          ></path>
+                        </g>
+                        <g class="highcharts-axis highcharts-yaxis">
+                          <path
+                            fill="none"
+                            class="highcharts-axis-line"
+                            d="M 10 25 L 10 235"
+                          ></path>
+                        </g>
+                        <g class="highcharts-series-group">
+                          <g
+                            class="highcharts-series highcharts-series-0 highcharts-line-series highcharts-color-0"
+                            transform="translate(40,25) scale(1 1)"
+                            clip-path="url(#highcharts-1rl6spd-240)"
+                          >
+                            <path
+                              fill="#3FC499"
+                              d="M 6.3953488372093 70.54851999999991 L 19.186046511628 19.561079999999606 L 31.976744186047 19.20016000000004 L 44.767441860465 26.300399999999684 L 57.558139534884 44.839199999999835 L 70.348837209302 42.494760000000355 L 83.139534883721 47.03299999999999 L 95.93023255814 59.96816000000004 L 108.72093023256 57.80207999999959 L 121.51162790698 59.65092000000038 L 134.3023255814 46.8325199999999 L 147.09302325581 49.7319200000004 L 159.88372093023 76.64832000000007 L 159.88372093023 210 L 6.3953488372093 210"
+                              stroke="#3FC499"
+                              stroke-width="2"
+                              stroke-linejoin="round"
+                              stroke-linecap="round"
+                            ></path>
+                            <path
+                              fill="#DD7470"
+                              d="M 159.88372093023 76.64832000000007 L 172.67441860465 77.53116000000003 L 185.46511627907 89.24832000000006 L 198.25581395349 93.4914400000003 L 211.04651162791 97.85860000000032 L 223.83720930233 91.63532000000006 L 236.62790697674 75.37487999999976 L 249.41860465116 75.31271999999973 L 262.20930232558 109.5385199999999 L 275 118.14292000000039 L 287.79069767442 127.21323999999964 L 300.58139534884 117.11083999999997 L 313.37209302326 170.6434800000001 L 326.16279069767 135.7434400000003 L 338.95348837209 130.8599600000002 L 351.74418604651 126.19432000000006 L 364.53488372093 127.76680000000016 L 377.32558139535 126.82432000000006 L 390.11627906977 140.46283999999997 L 402.90697674419 176.76119999999983 L 415.6976744186 169.6690799999996 L 428.48837209302 182.5325599999997 L 441.27906976744 194.40567999999993 L 454.06976744186 198.29096000000018 L 466.86046511628 200.01576000000037 L 479.6511627907 185.4960799999996 L 492.44186046512 190.0525199999999 L 505.23255813953 180.95839999999967 L 518.02325581395 190.09480000000016 L 530.81395348837 191.22516000000002 L 543.60465116279 191.0935599999997 L 543.60465116279 210 L 159.88372093023 210"
+                              stroke="#DD7470"
+                              stroke-width="2"
+                              stroke-linejoin="round"
+                              stroke-linecap="round"
+                            ></path>
+                            <path
+                              fill="none"
+                              d="M -3.6046511627906996 70.54851999999991 L 6.3953488372093 70.54851999999991 L 19.186046511628 19.561079999999606 L 31.976744186047 19.20016000000004 L 44.767441860465 26.300399999999684 L 57.558139534884 44.839199999999835 L 70.348837209302 42.494760000000355 L 83.139534883721 47.03299999999999 L 95.93023255814 59.96816000000004 L 108.72093023256 57.80207999999959 L 121.51162790698 59.65092000000038 L 134.3023255814 46.8325199999999 L 147.09302325581 49.7319200000004 L 159.88372093023 76.64832000000007 L 159.88372093023 210 L 6.3953488372093 210 L 16.3953488372093 210 M 149.88372093023 76.64832000000007 L 159.88372093023 76.64832000000007 L 172.67441860465 77.53116000000003 L 185.46511627907 89.24832000000006 L 198.25581395349 93.4914400000003 L 211.04651162791 97.85860000000032 L 223.83720930233 91.63532000000006 L 236.62790697674 75.37487999999976 L 249.41860465116 75.31271999999973 L 262.20930232558 109.5385199999999 L 275 118.14292000000039 L 287.79069767442 127.21323999999964 L 300.58139534884 117.11083999999997 L 313.37209302326 170.6434800000001 L 326.16279069767 135.7434400000003 L 338.95348837209 130.8599600000002 L 351.74418604651 126.19432000000006 L 364.53488372093 127.76680000000016 L 377.32558139535 126.82432000000006 L 390.11627906977 140.46283999999997 L 402.90697674419 176.76119999999983 L 415.6976744186 169.6690799999996 L 428.48837209302 182.5325599999997 L 441.27906976744 194.40567999999993 L 454.06976744186 198.29096000000018 L 466.86046511628 200.01576000000037 L 479.6511627907 185.4960799999996 L 492.44186046512 190.0525199999999 L 505.23255813953 180.95839999999967 L 518.02325581395 190.09480000000016 L 530.81395348837 191.22516000000002 L 543.60465116279 191.0935599999997 L 543.60465116279 210 L 159.88372093023 210 L 169.88372093023 210"
+                              stroke-linejoin="round"
+                              visibility="visible"
+                              stroke="rgba(192,192,192,0.002)"
+                              stroke-width="22"
+                              class="highcharts-tracker"
+                            ></path>
+                          </g>
+                          <g
+                            class="highcharts-markers highcharts-series-0 highcharts-line-series highcharts-color-0 highcharts-tracker"
+                            transform="translate(40,25) scale(1 1)"
+                          ></g>
+                        </g>
+                        <text
+                          x="300"
+                          text-anchor="middle"
+                          class="highcharts-subtitle"
+                          style="color: #666666; fill: #666666"
+                          y="24"
+                        ></text>
+                        <g class="highcharts-plot-lines-5">
+                          <path
+                            fill="none"
+                            stroke="#3FC499"
+                            stroke-width="1"
+                            stroke-dasharray="none"
+                            d="M 40 44.5 L 590 44.5"
+                          ></path>
+                          <path
+                            fill="none"
+                            stroke="#DD7470"
+                            stroke-width="1"
+                            stroke-dasharray="none"
+                            d="M 40 225.5 L 590 225.5"
+                          ></path>
+                          <path
+                            fill="none"
+                            stroke="#c0c1c2"
+                            stroke-width="1"
+                            stroke-dasharray="none"
+                            d="M 40 96.5 L 590 96.5"
+                          ></path>
+                        </g>
+                        <g
+                          class="highcharts-axis-labels highcharts-xaxis-labels"
+                        ></g>
+                        <g
+                          class="highcharts-axis-labels highcharts-yaxis-labels"
+                        ></g></svg
+                      ><span
+                        class="highcharts-title"
+                        style="
+                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
+                            Arial, Helvetica, sans-serif;
+                          font-size: 1em;
+                          position: absolute;
+                          white-space: nowrap;
+                          margin-left: 0px;
+                          margin-top: 0px;
+                          left: 293px;
+                          top: 3px;
+                          color: rgb(51, 51, 51);
+                        "
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="cardgraphright">
+                    <div class="valuation-new">
+                      <div class="stockmargin">
+                        <div
+                          class="sector-per red-border"
+                          ng-class="
+                            getDirClrDefault(actionTodayGraphweb.portdir) +
+                            '-border'
+                          "
+                          style="display: block"
+                        >
+                          <h6 class="stockName">PORTFOLIO</h6>
+                          <p class="Dcolor ng-binding">-1.78%</p>
+                        </div>
+                      </div>
+                      <div class="stockmargin">
+                        <div
+                          class="sector-per green-border"
+                          ng-class="
+                            getDirClrDefault(actionTodayGraphweb.compdir) +
+                            '-border'
+                          "
+                          style="display: block"
+                        >
+                          <h6>COMPOSITE INDEX</h6>
+                          <p class="Dcolor ng-binding">0.87%</p>
+                        </div>
+                      </div>
+                      <div class="stockmargin">
+                        <div
+                          class="sector-per green-border"
+                          ng-class="
+                            getDirClrDefault(actionTodayGraphweb.sensexdir) +
+                            '-border'
+                          "
+                          style="display: block"
+                        >
+                          <h6>SENSEX</h6>
+                          <p class="Dcolor ng-binding">0.44%</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ngIf: act_today_graph_tab =='1D' -->
+                  <div
+                    class="cardgraphbottom ng-scope"
+                    ng-if="act_today_graph_tab == '1D'"
+                  >
+                    <div class="row adv-dec no-mob pr-gr-bottright-content">
+                      <div class="col-xs-6">
+                        <div
+                          id="gainer"
+                          data=""
+                          ng-class="
+                            actionToday.overall.contri[0]['dgaindir'] == 1
+                              ? 'advance'
+                              : 'decliens'
+                          "
+                          class="advance"
+                          style=""
+                        >
+                          <h6>TOP CONTRIBUTOR</h6>
+                          <!-- ngIf: error_flag[0].actionToday_contri == 1 -->
+                          <!-- ngIf: error_flag[0].actionToday_contri != 1 -->
+                          <div
+                            ng-if="error_flag[0].actionToday_contri != 1"
+                            class="ng-binding ng-scope"
+                          >
+                            Coal India
+                          </div>
+                          <!-- end ngIf: error_flag[0].actionToday_contri != 1 -->
+                          <!-- ngIf: error_flag[0].actionToday_contri != 1 -->
+                          <h4
+                            ng-if="error_flag[0].actionToday_contri != 1"
+                            class="ng-scope"
+                          >
+                            <span><b class="ng-binding">532</b></span>
+                            <span class="ng-binding">(1.37%)</span>
+                          </h4>
+                          <!-- end ngIf: error_flag[0].actionToday_contri != 1 -->
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div
+                          id="gainer"
+                          data=""
+                          ng-class="
+                            actionToday.overall.drags[0]['dgaindir'] == 1
+                              ? 'advance'
+                              : 'decliens'
+                          "
+                          class="decliens"
+                        >
+                          <h6>TOP DRAG</h6>
+                          <!-- ngIf: error_flag[0].actionToday_drags == 1 -->
+                          <!-- ngIf: error_flag[0].actionToday_drags != 1 -->
+                          <div
+                            ng-if="error_flag[0].actionToday_drags != 1"
+                            class="ng-binding ng-scope"
+                          >
+                            Jubilant Inds.
+                          </div>
+                          <!-- end ngIf: error_flag[0].actionToday_drags != 1 -->
+                          <!-- ngIf: error_flag[0].actionToday_drags != 1 -->
+                          <h4
+                            ng-if="error_flag[0].actionToday_drags != 1"
+                            class="ng-scope"
+                          >
+                            <span><b class="ng-binding">-4,393</b></span>
+                            <span class="ng-binding">(-4.62%)</span>
+                          </h4>
+                          <!-- end ngIf: error_flag[0].actionToday_drags != 1 -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end ngIf: act_today_graph_tab =='1D' -->
+                  <!-- ngIf: act_today_graph_tab !='1D' -->
+                </div>
+              </div>
+            </div>
+          </div>
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseTodayMov"
@@ -35,13 +930,135 @@
                 >close</i
               >
             </span>
+            <div class="card-reveal-text">
+              <p>Elements on the Price Movement Card</p>
+              <ul>
+                <li>
+                  <b>Price Chart</b>
+                  <ul>
+                    <li>
+                      The interactive chart gives a quick view of the movement
+                      in Portfolio Value during the selected time frame
+                    </li>
+                    <li>
+                      The Portfolio Value is adjusted for any buying/selling
+                      activity done by you, because of which there wonâ€™t be
+                      spikes at the time of your transactions
+                    </li>
+                    <li>The graph is updated every 15 minutes</li>
+                    <li>
+                      The Green area highlights the periods where the portfolio
+                      is above its previous close and the Red area highlights
+                      the periods where the portfolio is below its previous
+                      close
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Headline</b>
+                  <ul>
+                    <li>
+                      Basis the period selected this starts the money made
+                      during the period and performance as compared to broad
+                      market (Sensex) during the period
+                    </li>
+                    <li>
+                      Portfolio returns consider not just returns made yon our
+                      current investments but also on your past investments as
+                      well as the dividends received
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Returns</b>
+                  <ul>
+                    <li>
+                      The portfolio return in the period is compared with your
+                      customized composite index and sensex in the period
+                    </li>
+                    <li>
+                      Portfolio returns consider not just returns made yon our
+                      current investments but also on your past investments as
+                      well as the dividends received
+                    </li>
+                    <li>
+                      The returns do not include the tax impact on securities
+                      sold or the notional tax that you may pay if you liquidate
+                      your holdings today
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Composite Index</b>
+                  <ul>
+                    <li>
+                      As every portfolio is unique, we create a customized
+                      benchmark index basis your portfolio allocation to Large,
+                      Mid and Small/Micro cap stocks
+                    </li>
+                    <li>
+                      Basis your allocations, we virtually invest your
+                      investment amount in BSE Sensex, BSE Midcap and BSE Small
+                      cap and then track the investments in these indices
+                    </li>
+                    <li>
+                      The purpose of creating a composite index is so that you
+                      always have a right benchmark to compare your returns with
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Top Contributor and Drag</b>
+                  <ul>
+                    <li>
+                      Basis the performance of your portfolio stocks today, the
+                      stock that made and lost the most money for you today are
+                      categorized as Top Contributor and Top Drag respectively
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Advance and Decline</b>
+                  <ul>
+                    <li>
+                      The number of days in the selected period where the
+                      portfolio ended with a profit or loss are categorized as
+                      advance and decline respectively
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <p>
+                <em
+                  >You can click on the time period tabs and see the analysis
+                  for the selected period</em
+                >
+              </p>
+            </div>
           </div>
         </div>
       </section>
+      <!--<section class="swiper-slide small-card swiper-slide-next marginright" style="background:#2C3033;padding:0px !important;" data-scrolled="0" data-visited="0">
+                  <div class="card" style="padding:0 !important;background:#2C3033;">
+                      <div class="card-content happend">
+                      <a href="https://tradesmartonline.in/landing-page/online-trading/?utm_refer=MarketMojo&landing_page=asli-trader&utm_source=Associate&utm_medium=Banner&utm_campaign=MarketMojo_01stNov2019&utm_content=Trade15_60Xexposure" target="{{ getDevice() != 'app' ? '_blank' : '_self' }}"><img  src="https://i.marketsmojo.com/banner/trad_banner.gif" style="width:100%;" /></a>
+                      </div>
+                  </div>
+              </section>  -->
+
+      <!--  -->
+
+      <!-- <section data-scrolled="0" data-visited="0" class="swiper-slide small-card marginright swiper-slide-visible" style="background-color:#00add4;padding: 0px !important;" ng-if="showcardsData.next_webinar.show_banner != 'yes'">
+             <div class="card" style="padding: 0px !important;background-color:#00add4;" ng-click="commonModalOpen('landingvideo')">
+                <div class="card-content happend" style="padding: 0px !important;">
+                   <a href="javascript:void(0);"><img class="videobanner" src="banner/video-banner.jpg"></a>
+                </div>
+             </div>
+          </section> -->
 
       <!-- ngIf: !block_clmm_content && showcardsData.next_webinar.show_banner == 'yes' && (showcardsData.next_webinar.webinar_card_img == '' || showcardsData.next_webinar.webinar_card_img == undefined) -->
       <section
-        class="swiper-slide small-card marginright webinarcard_blue swiper-slide-visible swiper-slide-next"
+        class="swiper-slide small-card marginright webinarcard_black swiper-slide-visible swiper-slide-next"
         onclick=""
         style="padding: 0px !important"
         data-scrolled="0"
@@ -51,13 +1068,15 @@
         <!-- ngIf: showcardsData.next_webinar.isyoutubelive == 'yes' -->
         <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' --><a
           ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
-          href="https://www.marketsmojo.com/mojo/webinar?wid=1400&amp;utm_source=MM_AllUsers_SiteCard_WebinarInvite_0_0&amp;fp=1"
+          href="https://www.marketsmojo.com/mojo/webinar?wid=1398&amp;utm_source=MM_AllUsers_SiteCard_WebinarInvite_0_0&amp;fp=1"
           class="ng-scope"
         >
           <div class="card webinarconetnt">
             <div class="card-content">
               <p class="webinar2">Webinar on</p>
-              <p class="webinar3 ng-binding">Latest Additions across MojoOne</p>
+              <p class="webinar3 ng-binding">
+                Revealing the MojoOne Stock of the Month
+              </p>
               <!--<p class="webbutton">{{showcardsData.next_webinar.sitecard_reg_text}}</p>-->
               <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
               <p
@@ -78,7 +1097,7 @@
                 Join me on
               </p>
               <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p class="webinar4_1 ng-binding">09 Sep '24</p>
+              <p class="webinar4_1 ng-binding">10 Sep '24</p>
               <p class="webinar4_2 ng-binding">7:00 PM on YouTube</p>
               <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
               <p
@@ -90,8 +1109,8 @@
               <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
               <p class="webinar6">
                 <img
-                  ng-src="https://i.marketsmojo.com/webinar/kevin-1.png"
-                  src="https://i.marketsmojo.com/webinar/kevin-1.png"
+                  ng-src="https://i.marketsmojo.com/webinar/amit-golia.png"
+                  src="https://i.marketsmojo.com/webinar/amit-golia.png"
                 />
               </p>
             </div>
@@ -99,6 +1118,26 @@
           <!-- ngIf: showcardsData.next_webinar.isyoutubelive == 'yes' --> </a
         ><!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
       </section>
+      <!-- end ngIf: !block_clmm_content && showcardsData.next_webinar.show_banner == 'yes' && (showcardsData.next_webinar.webinar_card_img == '' || showcardsData.next_webinar.webinar_card_img == undefined) -->
+
+      <!-- ngIf: !block_clmm_content && showcardsData.next_webinar.show_banner == 'yes' && showcardsData.next_webinar.webinar_card_img != '' -->
+
+      <script type="text/ng-template" id="landingvideo">
+        <!--************new video**********-->
+        <div id="videomodel" class="colapsearea modal bs-modal-lg"  style="display:block;">
+            <a class="modal-action modal-close close-blk" ng-click="commonModalClose('landingvideo')" href="javascript:void(0)"><i class="fa fa-times"></i></a>
+            <iframe class="iframevideonew" src="https://www.youtube.com/embed/KXHQUESIMk4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!--<iframe class="iframevideonew" src="https://sandbox-st.marketsmojo.com/images/landing/marketsmojoFinalcut.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+        </div>
+      </script>
+
+      <!--<section data-scrolled="0" data-visited="0" class="swiper-slide small-card marginright swiper-slide-visible" style="background-color:#efdbbf;padding: 0px !important;">
+       <div class="card" style="padding: 0px !important;background-color:#efdbbf;">
+        <div class="card-content happend" style="padding: 0px !important;">
+         <a href="/blog/investmentletters/how-to-find-a-multibagger-exclusive-webinar-by-ceo-founder-dr-mohit-batra-2629.html?utm_source=MM_Blog_SiteCard"><img style="width:100%;" src="https://i.marketsmojo.com/banner/site_cards_blog.png"></a>
+        </div>
+       </div>
+    </section>-->
 
       <section
         data-reveal="true"
@@ -326,10 +1365,10 @@
                   <div
                     class="cardgraph"
                     id="container_actiontoday_mob"
-                    data-highcharts-chart="131"
+                    data-highcharts-chart="69"
                   >
                     <div
-                      id="highcharts-e0ezrrm-416"
+                      id="highcharts-1rl6spd-233"
                       dir="ltr"
                       class="highcharts-container"
                       style="
@@ -358,7 +1397,7 @@
                       >
                         <desc>Created with Highstock 6.1.0</desc>
                         <defs>
-                          <clipPath id="highcharts-e0ezrrm-417">
+                          <clipPath id="highcharts-1rl6spd-234">
                             <rect
                               x="0"
                               y="0"
@@ -367,7 +1406,7 @@
                               fill="none"
                             ></rect>
                           </clipPath>
-                          <clipPath id="highcharts-e0ezrrm-419">
+                          <clipPath id="highcharts-1rl6spd-236">
                             <rect
                               x="0"
                               y="0"
@@ -552,11 +1591,11 @@
                           <g
                             class="highcharts-series highcharts-series-0 highcharts-line-series highcharts-color-0"
                             transform="translate(40,25) scale(1 1)"
-                            clip-path="url(#highcharts-e0ezrrm-419)"
+                            clip-path="url(#highcharts-1rl6spd-236)"
                           >
                             <path
                               fill="#3FC499"
-                              d="M 45.833333333333 138.11987000000002 L 137.5 93.83640000000008 L 229.16666666667 17.176740000000052 L 320.83333333333 20.90333000000001 L 412.5 10.506860000000074 L 504.16666666667 27.107219999999927 L 504.16666666667 210 L 45.833333333333 210"
+                              d="M 45.833333333333 138.11987000000002 L 137.5 93.83640000000008 L 229.16666666667 17.176740000000052 L 320.83333333333 20.90333000000001 L 412.5 10.506860000000074 L 504.16666666667 47.77338999999992 L 504.16666666667 210 L 45.833333333333 210"
                               stroke="#3FC499"
                               stroke-width="2"
                               stroke-linejoin="round"
@@ -564,7 +1603,7 @@
                             ></path>
                             <path
                               fill="none"
-                              d="M 35.833333333333 138.11987000000002 L 45.833333333333 138.11987000000002 L 137.5 93.83640000000008 L 229.16666666667 17.176740000000052 L 320.83333333333 20.90333000000001 L 412.5 10.506860000000074 L 504.16666666667 27.107219999999927 L 504.16666666667 210 L 45.833333333333 210 L 55.833333333333 210"
+                              d="M 35.833333333333 138.11987000000002 L 45.833333333333 138.11987000000002 L 137.5 93.83640000000008 L 229.16666666667 17.176740000000052 L 320.83333333333 20.90333000000001 L 412.5 10.506860000000074 L 504.16666666667 47.77338999999992 L 504.16666666667 210 L 45.833333333333 210 L 55.833333333333 210"
                               stroke-linejoin="round"
                               visibility="visible"
                               stroke="rgba(192,192,192,0.002)"
@@ -641,7 +1680,7 @@
                           style="display: block"
                         >
                           <h6 class="stockName">PORTFOLIO</h6>
-                          <p class="Dcolor ng-binding">7.83%</p>
+                          <p class="Dcolor ng-binding">6.64%</p>
                         </div>
                       </div>
                       <div class="stockmargin">
@@ -653,7 +1692,7 @@
                           style="display: block"
                         >
                           <h6>COMPOSITE INDEX</h6>
-                          <p class="Dcolor ng-binding">2.36%</p>
+                          <p class="Dcolor ng-binding">3.60%</p>
                         </div>
                       </div>
                       <div class="stockmargin">
@@ -666,7 +1705,7 @@
                           style="display: block"
                         >
                           <h6>SENSEX</h6>
-                          <p class="Dcolor ng-binding">2.19%</p>
+                          <p class="Dcolor ng-binding">2.85%</p>
                         </div>
                       </div>
                     </div>
@@ -795,8 +1834,24 @@
         </div>
       </section>
 
+      <!-- ngIf: stock_of_the_month -->
+
+      <!-- ngIf: thankyou_stock_of_month -->
+      <script>
+        function url_redirect(url) {
+          ga(
+            "send",
+            "event",
+            "Banner",
+            "click",
+            "CIOSTOCKPICK_Landing_2ndbutton"
+          );
+          location.href = url;
+        }
+      </script>
+
       <section
-        class="swiper-slide small-card marginright"
+        class="swiper-slide small-card marginright swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"
       >
@@ -814,7 +1869,7 @@
                   class="pricesummrytext02 ng-binding ng-scope"
                   ng-if="loader[0].pf_today_summary == false &amp;&amp; actionToday.graph!=''"
                   style=""
-                  >at 02:00 PM on 09-Sep</span
+                ></span
                 ><!-- end ngIf: loader[0].pf_today_summary == false && actionToday.graph!='' -->
                 <!--<a href="javascript:void(0)" onclick="GetSummary();" class="ref-text"> <i class="fa fa-refresh refresh-text"></i> Refresh </a>-->
               </h2>
@@ -830,68 +1885,58 @@
               style=""
             >
               <!-- ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-red">
+              <div ng-repeat="news in todaySummary" class="qtr-red" style="">
                 <span class="red"
                   ><b class="ng-binding">Performance Today</b></span
                 >
                 :
                 <span ng-bind-html="news.text" class="ng-binding"
-                  >Oh! Your Portfolio is down Rs 1,041.00 today and is also
-                  underperforming Sensex by -0.7%</span
+                  >Oh! Your Portfolio is down Rs 4,230.00 today and is also
+                  underperforming Sensex by -2.22%</span
                 >
               </div>
               <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-grey">
+              <div ng-repeat="news in todaySummary" class="qtr-grey" style="">
                 <span class="grey"><b class="ng-binding">Open</b></span> :
                 <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio opened with a change of Rs -2,173.58</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-green">
-                <span class="green"><b class="ng-binding">Day's High</b></span>
-                :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio had touched a gain of Rs 3,296.98 during the
-                  day</span
+                  >Portfolio opened with a change of Rs 1,833.87</span
                 >
               </div>
               <!-- end ngRepeat: news in todaySummary -->
               <div ng-repeat="news in todaySummary" class="qtr-red">
                 <span class="red"><b class="ng-binding">Day's Low</b></span> :
                 <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio had touched a loss of Rs -3,490.02 during the
+                  >Portfolio had touched a loss of Rs -4,623.41 during the
                   day</span
                 >
               </div>
               <!-- end ngRepeat: news in todaySummary -->
               <div ng-repeat="news in todaySummary" class="qtr-red">
                 <span class="red"
-                  ><b class="ng-binding">More Stocks Falling</b></span
+                  ><b class="ng-binding">Stock Advances</b></span
                 >
                 :
                 <span ng-bind-html="news.text" class="ng-binding"
-                  >12 stocks are falling (Top loser:
-                  <a
-                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxjNUo4dFNIdTQ5UjZUYld1ZEtKMTVHL1lLZ1RxQUUxcCsvWE9lQ0ExVm5Fa0doR1RZbTY3NVJqbXRaMWdRbUtsMm9JRUM3L21ud3c9PQ=="
-                    >REC Ltd -4.01%</a
-                  >) while 5 stocks gaining (Top gainer:
-                  <a
-                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxkN1o4dFNIdDhrb0s2S2RMVk9HOEJzR0FMcTBHam5hQXZjTEx1UGl4bWVGNVZMQzVWRUVybUZrYUxOYWJnck0xaDl4dk5BeWM5NTZJPQ=="
-                    >One 97 Communications Ltd 2.44%</a
-                  >)</span
+                  >Even though more stocks have gained, portfolio has incurred
+                  loss</span
                 >
               </div>
               <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-green">
+              <div ng-repeat="news in todaySummary" class="qtr-green" style="">
                 <span class="green"
-                  ><b class="ng-binding"
-                    >Significant increase in 3 month</b
-                  ></span
+                  ><b class="ng-binding">More Stocks Gaining</b></span
                 >
                 :
                 <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio has delivered 21.60% returns in the period</span
+                  >11 stocks are gaining (Top gainer:
+                  <a
+                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxkN1o4dFNIdDhrb0s2S2RMVk9HOEJzR0FMcTBHam5hQXZjTEx1UGl4bWVGNVZMQzVWRUVybUZrYUxOYWJnck0xaDl4dk5BeWM5NTZJPQ=="
+                    >One 97 Communications Ltd 4.09%</a
+                  >) while 6 stocks falling (Top Loser:
+                  <a
+                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxjNUo4dFNIdTQ5UjZUYld1ZEtKMTVHL1lLZ1RxQUUxcCsvWE9lQ0ExVm5Fa0doR1RZbTY3NVJqbXRaMWdRbUtsd3BZY0U0dmx3SkE9PQ=="
+                    >Jubilant Industries Ltd -4.62%</a
+                  >)</span
                 >
               </div>
               <!-- end ngRepeat: news in todaySummary -->
@@ -901,7 +1946,7 @@
                 >
                 :
                 <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio has delivered 56.92% returns in the period</span
+                  >Portfolio has delivered 55.19% returns in the period</span
                 >
               </div>
               <!-- end ngRepeat: news in todaySummary -->
@@ -913,7 +1958,29 @@
                 >
                 :
                 <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio has delivered 77.91% returns in the period</span
+                  >Portfolio has delivered 75.96% returns in the period</span
+                >
+              </div>
+              <!-- end ngRepeat: news in todaySummary -->
+              <div ng-repeat="news in todaySummary" class="qtr-green">
+                <span class="green"
+                  ><b class="ng-binding">Action In Market Cap</b></span
+                >
+                :
+                <span ng-bind-html="news.text" class="ng-binding"
+                  >BSE Small Cap has risen by 1.53% today. Your exposure to
+                  Small &amp; Micro Cap stocks has changed by -4.62%</span
+                >
+              </div>
+              <!-- end ngRepeat: news in todaySummary -->
+              <div ng-repeat="news in todaySummary" class="qtr-green">
+                <span class="green"
+                  ><b class="ng-binding">Action In Sector</b></span
+                >
+                :
+                <span ng-bind-html="news.text" class="ng-binding"
+                  >Textile - Machinery has gained by 2.33% today. Your exposure
+                  to companies in the sector has changed by 0.56%</span
                 >
               </div>
               <!-- end ngRepeat: news in todaySummary -->
@@ -938,8 +2005,8 @@
                 :
                 <span ng-bind-html="news.text" class="ng-binding"
                   ><a
-                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxjNUo4dFNIdTQ5UjZUYld1ZEtKMTVHL1lLZ1RxQUUxcCsvWE9lQ0ExVm5Fa0doR1RZbTY3NVJqbXRaMWdRbUtsM29JSUY0dm1GZ2c9PQ=="
-                    >Coal India (-1.74%)</a
+                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxkN1o4dFNIdDhrb0s2S2RMVk9HOEJzR0FMcTBHam5hQXZjTEx1UGl4bWVGNVZMQzVWRUVybUZrYUxOYWJnck0xaDl4ckFBaU5pcFRRPQ=="
+                    >HDFC Life Insur. (-4.43%)</a
                   >
                   has been falling for at least 5 days.</span
                 >
@@ -1014,113 +2081,26 @@
                   <tr
                     ng-repeat="value in actionToday.overall.contri| limitTo:limit"
                     class="ng-scope"
+                    style=""
                   >
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=454045&amp;Exchange=0"
+                          ng-href="/Stocks?StockId=421555&amp;Exchange=0"
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=454045&amp;Exchange=0"
-                          >Jubilant Inds.</a
+                          href="/Stocks?StockId=421555&amp;Exchange=0"
+                          >Coal India</a
                         >
                         <br />
                         <span
                           ><span
                             ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
                             class="green-mojo"
                           ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">1,888.45</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="green txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">1,460</p>
-                      <p class="pf-tbl-txt2 ng-binding">1.57%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">94,423</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=1003566&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=1003566&amp;Exchange=0"
-                          >One 97</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
                           <span
                             ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="red-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">617.50</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="green txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">15</p>
-                      <p class="pf-tbl-txt2 ng-binding">2.44%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">618</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=151046&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=151046&amp;Exchange=0"
-                          >Innovassynth Inv</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="grey-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
+                            class="green-mojo"
                           ></span>
                           <span
                             ng-class="getClassbyClr(value.dotsum.f_clr)"
@@ -1128,7 +2108,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">79.16</p>
+                      <p class="ng-binding">491.10</p>
                     </td>
                     <td
                       ng-class="
@@ -1136,11 +2116,11 @@
                       "
                       class="green txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">14</p>
-                      <p class="pf-tbl-txt2 ng-binding">2.00%</p>
+                      <p class="pf-tbl-txt1 ng-binding">532</p>
+                      <p class="pf-tbl-txt2 ng-binding">1.37%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">712</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">39,288</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
                   <tr
@@ -1172,7 +2152,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">3,575.00</p>
+                      <p class="ng-binding">3,598.50</p>
                     </td>
                     <td
                       ng-class="
@@ -1180,11 +2160,11 @@
                       "
                       class="green txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">6</p>
-                      <p class="pf-tbl-txt2 ng-binding">0.02%</p>
+                      <p class="pf-tbl-txt1 ng-binding">147</p>
+                      <p class="pf-tbl-txt2 ng-binding">0.59%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">25,025</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">25,190</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
                   <tr
@@ -1194,17 +2174,61 @@
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=1003511&amp;Exchange=0"
+                          ng-href="/Stocks?StockId=302744&amp;Exchange=0"
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=1003511&amp;Exchange=0"
-                          >Zomato Ltd</a
+                          href="/Stocks?StockId=302744&amp;Exchange=0"
+                          >JP Power Ven.</a
                         >
                         <br />
                         <span
                           ><span
                             ng-class="getClassbyClr(value.dotsum.q_clr)"
                             class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">17.54</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">109</p>
+                      <p class="pf-tbl-txt2 ng-binding">1.56%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">7,069</td>
+                  </tr>
+                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
+                  <tr
+                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=234277&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=234277&amp;Exchange=0"
+                          >Persistent Sys</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
                           ></span>
                           <span
                             ng-class="getClassbyClr(value.dotsum.v_clr)"
@@ -1216,7 +2240,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">262.15</p>
+                      <p class="ng-binding">5,274.20</p>
                     </td>
                     <td
                       ng-class="
@@ -1224,11 +2248,99 @@
                       "
                       class="green txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">2</p>
-                      <p class="pf-tbl-txt2 ng-binding">0.81%</p>
+                      <p class="pf-tbl-txt1 ng-binding">105</p>
+                      <p class="pf-tbl-txt2 ng-binding">2.04%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">262</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,274</td>
+                  </tr>
+                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
+                  <tr
+                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=400868&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=400868&amp;Exchange=0"
+                          >Reliance Infra.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">216.97</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">104</p>
+                      <p class="pf-tbl-txt2 ng-binding">2.47%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">4,339</td>
+                  </tr>
+                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
+                  <tr
+                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=119922&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=119922&amp;Exchange=0"
+                          >City Union Bank</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="orange-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">168.16</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">48</p>
+                      <p class="pf-tbl-txt2 ng-binding">0.38%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">12,612</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
                 </tbody>
@@ -1329,6 +2441,51 @@
                   <tr
                     ng-repeat="value in actionToday.overall.drags| limitTo:limit"
                     class="ng-scope"
+                    style=""
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=454045&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=454045&amp;Exchange=0"
+                          >Jubilant Inds.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">1,812.15</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-4,393</p>
+                      <p class="pf-tbl-txt2 ng-binding">-4.62%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">90,608</td>
+                  </tr>
+                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
+                  <tr
+                    ng-repeat="value in actionToday.overall.drags| limitTo:limit"
+                    class="ng-scope"
                   >
                     <td>
                       <div>
@@ -1355,7 +2512,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">583.10</p>
+                      <p class="ng-binding">577.20</p>
                     </td>
                     <td
                       ng-class="
@@ -1363,11 +2520,11 @@
                       "
                       class="red txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">-1,412</p>
-                      <p class="pf-tbl-txt2 ng-binding">-4.01%</p>
+                      <p class="pf-tbl-txt1 ng-binding">-754</p>
+                      <p class="pf-tbl-txt2 ng-binding">-2.20%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">33,820</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">33,478</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
                   <tr
@@ -1377,11 +2534,55 @@
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=421555&amp;Exchange=0"
+                          ng-href="/Stocks?StockId=1002872&amp;Exchange=0"
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=421555&amp;Exchange=0"
-                          >Coal India</a
+                          href="/Stocks?StockId=1002872&amp;Exchange=0"
+                          >HDFC Life Insur.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">702.85</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-163</p>
+                      <p class="pf-tbl-txt2 ng-binding">-4.43%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">3,514</td>
+                  </tr>
+                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
+                  <tr
+                    ng-repeat="value in actionToday.overall.drags| limitTo:limit"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=304521&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=304521&amp;Exchange=0"
+                          >CEAT</a
                         >
                         <br />
                         <span
@@ -1399,7 +2600,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">480.25</p>
+                      <p class="ng-binding">2,842.00</p>
                     </td>
                     <td
                       ng-class="
@@ -1407,11 +2608,11 @@
                       "
                       class="red txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">-680</p>
-                      <p class="pf-tbl-txt2 ng-binding">-1.74%</p>
+                      <p class="pf-tbl-txt1 ng-binding">-15</p>
+                      <p class="pf-tbl-txt2 ng-binding">-0.51%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">38,420</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">2,842</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
                   <tr
@@ -1443,7 +2644,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">107.70</p>
+                      <p class="ng-binding">109.59</p>
                     </td>
                     <td
                       ng-class="
@@ -1451,11 +2652,11 @@
                       "
                       class="red txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">-113</p>
-                      <p class="pf-tbl-txt2 ng-binding">-2.05%</p>
+                      <p class="pf-tbl-txt1 ng-binding">-2</p>
+                      <p class="pf-tbl-txt2 ng-binding">-0.04%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,385</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,480</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
                   <tr
@@ -1465,11 +2666,11 @@
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=302744&amp;Exchange=0"
+                          ng-href="/Stocks?StockId=161419&amp;Exchange=0"
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=302744&amp;Exchange=0"
-                          >JP Power Ven.</a
+                          href="/Stocks?StockId=161419&amp;Exchange=0"
+                          >Syschem (India)</a
                         >
                         <br />
                         <span
@@ -1479,103 +2680,15 @@
                           ></span>
                           <span
                             ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">17.23</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="red txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">-93</p>
-                      <p class="pf-tbl-txt2 ng-binding">-1.32%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">6,944</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.drags| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=119922&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=119922&amp;Exchange=0"
-                          >City Union Bank</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">165.40</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="red txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">-75</p>
-                      <p class="pf-tbl-txt2 ng-binding">-0.60%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">12,405</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.drags| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=400868&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=400868&amp;Exchange=0"
-                          >Reliance Infra.</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
                             class="red-mojo"
                           ></span>
                           <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
                             ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
+                            class="orange-mojo"
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">209.80</p>
+                      <p class="ng-binding">48.10</p>
                     </td>
                     <td
                       ng-class="
@@ -1583,11 +2696,11 @@
                       "
                       class="red txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">-66</p>
-                      <p class="pf-tbl-txt2 ng-binding">-1.55%</p>
+                      <p class="pf-tbl-txt1 ng-binding">-1</p>
+                      <p class="pf-tbl-txt2 ng-binding">-1.80%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">4,196</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">48</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
                 </tbody>
@@ -1695,30 +2808,28 @@
                 ng-repeat="value in actionToday.news|orderBy:'-rawdate'"
                 ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_news == 0"
                 class="ng-scope"
+                style=""
               >
                 <!-- ngIf: value.imgurl=='' -->
                 <div class="news-item ng-scope" ng-if="value.imgurl == ''">
                   <div class="news-cont-noimg">
                     <div class="newshead">
                       <a
-                        ng-href="/Stocks?StockId=616556&amp;Exchange=0"
+                        ng-href="/Stocks?StockId=421555&amp;Exchange=0"
                         target="_blank"
-                        href="/Stocks?StockId=616556&amp;Exchange=0"
-                        ><strong class="ng-binding"
-                          >Punjab Natl.Bank :
-                        </strong></a
+                        href="/Stocks?StockId=421555&amp;Exchange=0"
+                        ><strong class="ng-binding">Coal India : </strong></a
                       ><a
-                        href="https://news.google.com/rss/articles/CBMigwJBVV95cUxPQ0gzUzlBRzdMWXhlOTdXTFF0dXM1amFHeVhHcUhfT2Y4R1hSUmNQSG9FYUlURm41M3dvb0k2OU9SZ0pjZEpBdmV2REw5cUtnTDJGUzNwNGppcWJTZ20tdkVUOU5wd25jbk1aRzBuaVdBU1NDd3RGR1hJNG5Uejhwanh2dHZibVZSY1M3Y3BlZkpvNlFGazE3aEl4RTFsOUdBelBqRHdXczdnWEdPdGJLY2dpUUE0WkxQbFpjYVVBS3FBMXNtQXBHc0d3QXROcy1oeEpIWkxJSHZKcGVDTDZ1dnljdExDZ2FYRjItM3JxaDBCdnRmdEJzZFZlZkxNVk14SC1v0gGIAkFVX3lxTE5tMUZIMTZMR3E0cGFOX3pUR0E0STFMUGxWemo5NC1kYjVfUkt5eHB6Nk8zZ1I2WHVWd0VBM1JRbndvM1RXTnpENGtLbEJTeWtXb253U1J0NTh3cFhCWXpmLXhfQ2pJSS1kR3NXcEtKZDFSM2dEVHJUQzR4T2pRRmdDWnBuRUtoQ0h0amFlM1B0bGZNYUQyUzh4MVV3UHQ4T0hmSDN4ZHJwbER5empTQ1NGb1M1UFZkeDZtNmJqMlRGSEZlM25hRzQtOG53WDRGMkw5RDhDSVVkbGN6ZmRjSURULWwxNGhsZ0U1Tm4xREFtVUptMk1PNm1PbUE4cmhKOWlfazVQWVVmWQ?oc=5"
+                        href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQZWN3S2d4ZFpJWVc5TXM4QjhDSlZBb281aUd6SnVZcXlpVTdZTUw2ZTU2XzJEcXFGc0hNWXNBN1JvOWZvTzZRRVEwTnlDWXhweWhUeDlZV21ESjdxUjFMampQdTYwc1AtSXlSU0haSGY1VFpEZVFmTTFlNG9Ud0w2ekZGa3hhX1Z5WE4tSmRsb1JPQnc2WEhmS2ZWN3p3YndzcHRSRk04SWlFWjRJbWNJeHpn?oc=5"
                         target="_blank"
                         class="ng-binding"
-                        >Stocks to Watch: Jio Financial Services, SpiceJet, Ola
-                        Electric Mobility, PNB Housing, Mazagon Dock and more |
-                        Stock Market News</a
+                        >Coal India to Spend $8 Billion on Coal-Fired Plants
+                        Near Mines</a
                       >
                     </div>
                     <div class="news-date ng-binding">
-                      09-Sep-2024 08:21<span class="ng-binding">
-                        https://www.livemint.com</span
+                      10-Sep-2024 12:46<span class="ng-binding">
+                        https://www.bloomberg.com</span
                       >
                     </div>
                   </div>
@@ -1744,16 +2855,51 @@
                           >Punjab Natl.Bank :
                         </strong></a
                       ><a
-                        href="https://news.google.com/rss/articles/CBMizAFBVV95cUxON2dzcUhMNURQV2hvZGNFTFpIRUJPazI5ZGV4clhDVGc1d3FjMEdqMXV6UG5aZGJ2dTllSVdRcUVITUw5d2tuOW9wTW5KWWdoNTRjeDEzNDFnc3JyUGZZT3R4eEJDb0RPQVVGb1N6UXZjZjVtd29GaHlMTEZ2dHcwT2pfSnNYVDVXdl9OSkZEczJ1c3psb0VjZVFSNDk0WHBPUlZ6MUdfWlZDN3oyWjdDOVNQWEJDYnkxOFptUHNVZmgzbEJVZjI3dGhRbFfSAdIBQVVfeXFMTmhhNzJoQXVrZ29TX0I0VWNnTkdSejVxeTFvSDBaTjhfeWhsTDBiNjRkcmFydHVMcld6S0hQNFBFclQ1c0ROSXpxamZPbjN4M1ptbWRfVzFiaFlSZmMxZVZxU3dWMDljQzhtaEFtQnlfbmhfam1udURHSFlHY1k3dE1aeGNTTzVCZnJoZ2ZuTnRZOEtIWEhVVFVTZkR4MzZMWF9EbE1fMEs1Y0RXUmF2WW50OU1HTXM5S3FFUy1BamJDVVZDeU9wWVZUZ1BGMHdTMk9n?oc=5"
+                        href="https://news.google.com/rss/articles/CBMisAFBVV95cUxNeWlSX2tmR0l0UENJanlaR09GN1VPMjgxckN5UXFQVUg1UGN3OTJBaWdfbUJRWmhkYjJvMDZhMjZGWTJFamRTdk9KRTljRjFPd1p1bWtnUXFxcW5uV3VLcWlrblNEdV9VRjlCTFRnYmdMM2tYeXlycEtiMl9pZTQtUDZhMWhEemZXY3lsX1FvUFVuMGFfbFNoMUwzTXgxMjNvSHdHTnQyTGlqMkJpM3JTRdIBtwFBVV95cUxPMExjcGZ1OTI3UlhmQ3F5Z0tScW1CYW9yMjhTeXFrTUg4Wk9UZzZESWxsVGUtSDI3WThMUS1JaG1LdUpMSWN0c0pZcHFqSFdVRzhYTFBQalN4cWw1RU1icU5wTndqVWdzUmpUWTkxVldycjB5Uk5qeVZvUW10M29pTkdfRHM1UzZoZk13X0d3dGxrbUoxYy1UVzV5UDdERmRaNHMybzVfREZqaExUNm03cjNwQUFpXzQ?oc=5"
                         target="_blank"
                         class="ng-binding"
-                        >Stocks to Watch: Jio Fin, PNB Housing, SpiceJet,
-                        Mazagon, Ola Electric</a
+                        >PNB Housing Finance Share Price Today Live Updates, 10
+                        Sep, 2024: PNB Housing Finance down by 0.76%</a
                       >
                     </div>
                     <div class="news-date ng-binding">
-                      09-Sep-2024 07:01<span class="ng-binding">
-                        https://www.business-standard.com</span
+                      10-Sep-2024 10:45<span class="ng-binding">
+                        https://www.financialexpress.com</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- end ngIf: value.imgurl=='' -->
+                <!-- ngIf: value.imgurl!='' -->
+              </div>
+              <!-- end ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 --><!-- end ngRepeat: value in actionToday.news|orderBy:'-rawdate' --><!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 -->
+              <div
+                ng-repeat="value in actionToday.news|orderBy:'-rawdate'"
+                ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_news == 0"
+                class="ng-scope"
+              >
+                <!-- ngIf: value.imgurl=='' -->
+                <div class="news-item ng-scope" ng-if="value.imgurl == ''">
+                  <div class="news-cont-noimg">
+                    <div class="newshead">
+                      <a
+                        ng-href="/Stocks?StockId=234277&amp;Exchange=0"
+                        target="_blank"
+                        href="/Stocks?StockId=234277&amp;Exchange=0"
+                        ><strong class="ng-binding"
+                          >Persistent Sys :
+                        </strong></a
+                      ><a
+                        href="https://news.google.com/rss/articles/CBMiuwJBVV95cUxNUDQ1LW4zdk12V1VsZkhqSFdyWTVIQWZmbGFRX01VRkpsQzZ1bmZsd09lbElLdjlScjNBYnNIMF9PN2stV29hUlMxY2ZERjFoMWwxZFR0S25sS3FHMWNXMWlVeUtGMmRvY1ZKMTJ2cWx0Z1VhRWQ0XzZ3enBtWUZTVWpDMVJ3eEh1SGNRMnBFbWVERzB3b1c4UDdhd3VjWHNORHNoM0dzWTc3ejZXX3hrZERRcnpHUVJSUFo0MTFKZmVwLU9NWlVGekJmVjk2NzRPcjQtLWRSYmpoTVJMRlZVWEctUk42ZVR4SmJnekoxYzBQMWVvemotZEVBZlZDcXBXdS13Rnl1MUtQOFBxRTYyRWF6bzBPNjBIbGtoNzgwdDN2ZzJMOU1JOGNDRzMtWmlPVUNpWkdrdFEzaUnSAdcBQVVfeXFMTXRQVWdsdTdNTHZiVno2dldkZ0FpNVBFRzRzZXZZR3Zuc2RodzhxMC1uSmd5YUE4UktyUkI2WGtiYjRPel9oa1ZzVWhsNDFIN05zQjU2ZG53VmxVd3h6YlFDNVlQVV9UdmdqdHBNaUpDaDAxMkNHWS14Z1RNcUpoZDQtbFpEMG1pZlRQdXd6LXpVM1JWaHppWkZCZ2UzWlVkYXFiQW9XRVJXQktZNEtZSHNsMXkyMjZXVFBKR3g4VlhSWFd6c3pxeVF2ay1FWmE5NGxLbWRPLTA?oc=5"
+                        target="_blank"
+                        class="ng-binding"
+                        >Buy Persistent Systems, target price Rs 6300: Motilal
+                        Oswal</a
+                      >
+                    </div>
+                    <div class="news-date ng-binding">
+                      09-Sep-2024 09:22<span class="ng-binding">
+                        https://economictimes.indiatimes.com</span
                       >
                     </div>
                   </div>
@@ -1788,108 +2934,6 @@
                     <div class="news-date ng-binding">
                       06-Sep-2024 15:38<span class="ng-binding">
                         https://economictimes.indiatimes.com</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <!-- end ngIf: value.imgurl=='' -->
-                <!-- ngIf: value.imgurl!='' -->
-              </div>
-              <!-- end ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 --><!-- end ngRepeat: value in actionToday.news|orderBy:'-rawdate' --><!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 -->
-              <div
-                ng-repeat="value in actionToday.news|orderBy:'-rawdate'"
-                ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_news == 0"
-                class="ng-scope"
-              >
-                <!-- ngIf: value.imgurl=='' -->
-                <div class="news-item ng-scope" ng-if="value.imgurl == ''">
-                  <div class="news-cont-noimg">
-                    <div class="newshead">
-                      <a
-                        ng-href="/Stocks?StockId=421555&amp;Exchange=0"
-                        target="_blank"
-                        href="/Stocks?StockId=421555&amp;Exchange=0"
-                        ><strong class="ng-binding">Coal India : </strong></a
-                      ><a
-                        href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxQdVh0M3NzZzN5Vy1jdzhVeXprbzlnMUQ5Vm15VzZtWmZpUGkxQjVQQ1JsYWJZaUl5QWJPSGRDTDJveEdWTXFnUk5pa2ZsYzhjTTFzUjM5TGtDUU9UX3luai1KekR0MTZTSE95bmh3M2R3N1ljejkxRnZmamN5RnkwdzRDQkZURGdidGR5S0dacVVFbV9FelJmblJPTEhkNzlKVDNqMV9DUHFsUWQtR3VQSEdxakhMOXQyUmhMc1UyS0NMem_SAcgBQVVfeXFMT1Y0ZVQ3MktGdklHaGJacVFrbF9UamNYV08zX3AtYkdsSjBQYUJYS29EeWh0Q2tiWXdYaU14dFFSc0VWc0dwbEFoVHAzU2ZDUnZZRUgtMkc5dFFOMUQyNzVvcFdDODNUT1NBVGMzQVZFZFByRjNLSEU4RVBnUFpYd0dZYm5ya0t4Vjh4N3FfR3VEV0pxYzB2Y053MzBzOHc4V3lhUFdLSUxOZFpXQ3FaSHJOM0h2VFljTC02SnlEN2JnNFpjdmh3V3o?oc=5"
-                        target="_blank"
-                        class="ng-binding"
-                        >Coal India Share Price Live blog for 06 Sep 2024 |
-                        Stock Market News</a
-                      >
-                    </div>
-                    <div class="news-date ng-binding">
-                      06-Sep-2024 08:00<span class="ng-binding">
-                        https://www.livemint.com</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <!-- end ngIf: value.imgurl=='' -->
-                <!-- ngIf: value.imgurl!='' -->
-              </div>
-              <!-- end ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 --><!-- end ngRepeat: value in actionToday.news|orderBy:'-rawdate' --><!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 -->
-              <div
-                ng-repeat="value in actionToday.news|orderBy:'-rawdate'"
-                ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_news == 0"
-                class="ng-scope"
-              >
-                <!-- ngIf: value.imgurl=='' -->
-                <div class="news-item ng-scope" ng-if="value.imgurl == ''">
-                  <div class="news-cont-noimg">
-                    <div class="newshead">
-                      <a
-                        ng-href="/Stocks?StockId=421555&amp;Exchange=0"
-                        target="_blank"
-                        href="/Stocks?StockId=421555&amp;Exchange=0"
-                        ><strong class="ng-binding">Coal India : </strong></a
-                      ><a
-                        href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxOR2pUVXRMM3BVQzd2SFAyeFYybHRweTNESmhfZGNfaDhoLU9WR3o0ZlBkSFlkRzFQS3o3NlB1N0NTWDZScUllRkVYV1VBTmE5aDltMGl3ckZBT3JObUprS2trTU5WaENkMklreHpoSTZtVXBFZGlPLWUxVndWTFpFNkxPVVZpX21VT2dGMjhCV3dza0ozV0dVdjVwTTBrald3SnJvVk5aRnNIdF9OWWxzVVdldGJUdEgt0gG_AUFVX3lxTFBXbzJNeFFBOTU2RlZ6WkZWT09vQTNCMHRRVURGMlFGUzh1NDFYNUNYc1gwT0ZoT3VEam9QT05teFB4bW0wSHRZUGduSF9LSWp3cEFYT2lYY2Z2SjlONFNOc2hxazBFc0pjdDlGSFpkSkhUNDJXS2ZTNDNsOXpSYzBNLWI1dFdBUk1oc1hSdUdMU0J3eFBQYTJPOTBhczY2Z3R4eGlZTUhfY1FNUlVsRlNYVENDdXd5VG83dnVINlJJ?oc=5"
-                        target="_blank"
-                        class="ng-binding"
-                        >Coal India aims to add 5-GW green energy capacity by
-                        2028</a
-                      >
-                    </div>
-                    <div class="news-date ng-binding">
-                      06-Sep-2024 01:00<span class="ng-binding">
-                        https://www.financialexpress.com</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <!-- end ngIf: value.imgurl=='' -->
-                <!-- ngIf: value.imgurl!='' -->
-              </div>
-              <!-- end ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 --><!-- end ngRepeat: value in actionToday.news|orderBy:'-rawdate' --><!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 -->
-              <div
-                ng-repeat="value in actionToday.news|orderBy:'-rawdate'"
-                ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_news == 0"
-                class="ng-scope"
-              >
-                <!-- ngIf: value.imgurl=='' -->
-                <div class="news-item ng-scope" ng-if="value.imgurl == ''">
-                  <div class="news-cont-noimg">
-                    <div class="newshead">
-                      <a
-                        ng-href="/Stocks?StockId=234277&amp;Exchange=0"
-                        target="_blank"
-                        href="/Stocks?StockId=234277&amp;Exchange=0"
-                        ><strong class="ng-binding"
-                          >Persistent Sys :
-                        </strong></a
-                      ><a
-                        href="https://news.google.com/rss/articles/CBMikgJBVV95cUxQYUYzRFdmejlLT2Y2TmEtTG0yVDZwa3FKSElqLW8zMmZpUGVpQW5ENmxHb0FkdVZTUzJza0djMUFlZnZERHNaRlpOR2JlclViS3NFZ0NoVnB6Z1IzMENSQ2RPSXh5bnNhUTBtOEk1NjNfRWd0d0NTUlhEZ3V5SVU2dHllRC15VDBTbERzbUpsb0phbXJNNjN0WDhpN1JHdmk4MmlxdnZPc1VfWUlxNzBfQ0s1SUhwZmRRc2pidkl3VWZzZXBib0RSRFFCNWFZTW1talhZSnlnUFdibWF6anJGNlNTcm93eFFmcUp1dnBZb2J4NV9ieXVrdEdNS3RpdHczTVNGWkpNNmlQSG1iQ09FOHN30gGXAkFVX3lxTFBfX3R4TmgyZmRVXzNjdXF4U1Nrb1JibF9jYjNtcjFTWnZtOEkwdU9OSHg0eVpldkh0NnFhMmJlcEctWjNsUWZ4Tm90YlQzN1hyZ18xZERSZ3FRYlZuemdLNHpQaDBYRFNyazJKTG1La1BuUGQzTFdRWWs1YTUwSHp5MlVDV3V2Q29VU3hmb3pmQ2ZCWnI3YlR1blIxQVNvWnFrQmxjZ1ZiYWJJdmw1dUNSX1A2azk4R091VUN3cTRoUkhxbjg3YVFocC00c0Y4Q0YyVVFCT3J2SXpoaGFCTVlaTVAzT1dKazFTRW5PUXpsWFVlb19oU3NOSWUyNkE2RkRvY2NwdERtSW1JUkw0Q1pNSU5tdVhlQQ?oc=5"
-                        target="_blank"
-                        class="ng-binding"
-                        >Prabhudas Lilladher favours mid-cap IT over large-caps:
-                        Initiates coverage on Cyient, Persistent Systems and
-                        Mphasis | Stock Market News</a
-                      >
-                    </div>
-                    <div class="news-date ng-binding">
-                      04-Sep-2024 15:50<span class="ng-binding">
-                        https://www.livemint.com</span
                       >
                     </div>
                   </div>
@@ -2144,6 +3188,7 @@
             <div
               class="alert alert-warning mar-empty ng-scope"
               ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_corp == 1"
+              style=""
             >
               <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
             </div>
@@ -2221,7 +3266,7 @@
                           class="ng-binding pf-txt-2 red"
                           style=""
                         >
-                          Rs.-2,240(-1.94%)
+                          Rs.-102(-0.09%)
                         </div>
                       </td>
                       <td>
@@ -2240,7 +3285,7 @@
                           class="ng-binding pf-txt-2 green"
                           style=""
                         >
-                          (0.26%)
+                          (0.44%)
                         </div>
                       </td>
                     </tr>
@@ -2251,10 +3296,10 @@
                 <div class="pf-undr-txt txt-cr pf-by-margin">
                   <h6
                     ng-class="getDirClrDefault(actionToday.mcap.mid.labeldir)"
-                    class="ng-binding red"
+                    class="ng-binding green"
                     style=""
                   >
-                    Underperformed
+                    Outperformed
                   </h6>
                 </div>
                 <table class="pftbl-lt">
@@ -2267,10 +3312,10 @@
                             'pf-txt-2 ' +
                             getDirClrDefault(actionToday.mcap.mid.gaindir)
                           "
-                          class="ng-binding pf-txt-2 red"
+                          class="ng-binding pf-txt-2 green"
                           style=""
                         >
-                          Rs.-255(-0.96%)
+                          Rs.247(0.93%)
                         </div>
                       </td>
                       <td>
@@ -2286,10 +3331,10 @@
                               'orange'
                             )
                           "
-                          class="ng-binding pf-txt-2 red"
+                          class="ng-binding pf-txt-2 green"
                           style=""
                         >
-                          (-0.71%)
+                          (0.53%)
                         </div>
                       </td>
                     </tr>
@@ -2302,10 +3347,10 @@
                     ng-class="
                       getDirClrDefault(actionToday.mcap.smallmicro.labeldir)
                     "
-                    class="ng-binding green"
+                    class="ng-binding red"
                     style=""
                   >
-                    Outperformed
+                    Underperformed
                   </h6>
                 </div>
                 <table class="pftbl-lt">
@@ -2322,10 +3367,10 @@
                               actionToday.mcap.smallmicro.gaindir
                             )
                           "
-                          class="ng-binding pf-txt-2 green"
+                          class="ng-binding pf-txt-2 red"
                           style=""
                         >
-                          Rs.1,460(1.57%)
+                          Rs.-4,393(-4.62%)
                         </div>
                       </td>
                       <td>
@@ -2341,10 +3386,10 @@
                               'orange'
                             )
                           "
-                          class="ng-binding pf-txt-2 red"
+                          class="ng-binding pf-txt-2 green"
                           style=""
                         >
-                          (-1.00%)
+                          (1.53%)
                         </div>
                       </td>
                     </tr>
@@ -2459,6 +3504,7 @@
                   <tr
                     ng-repeat="value in actionToday.overall.gainers| limitTo:limit"
                     class="ng-scope"
+                    style=""
                   >
                     <td>
                       <div>
@@ -2485,7 +3531,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">617.50</p>
+                      <p class="ng-binding">653.40</p>
                     </td>
                     <td
                       ng-class="
@@ -2493,11 +3539,99 @@
                       "
                       class="green txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">15</p>
-                      <p class="pf-tbl-txt2 ng-binding">2.44%</p>
+                      <p class="pf-tbl-txt1 ng-binding">26</p>
+                      <p class="pf-tbl-txt2 ng-binding">4.10%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">618</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">653</td>
+                  </tr>
+                  <!-- end ngRepeat: value in actionToday.overall.gainers| limitTo:limit -->
+                  <tr
+                    ng-repeat="value in actionToday.overall.gainers| limitTo:limit"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=400868&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=400868&amp;Exchange=0"
+                          >Reliance Infra.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">216.97</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">104</p>
+                      <p class="pf-tbl-txt2 ng-binding">2.47%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">4,339</td>
+                  </tr>
+                  <!-- end ngRepeat: value in actionToday.overall.gainers| limitTo:limit -->
+                  <tr
+                    ng-repeat="value in actionToday.overall.gainers| limitTo:limit"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=234277&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=234277&amp;Exchange=0"
+                          >Persistent Sys</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="green-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">5,274.20</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="green txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">105</p>
+                      <p class="pf-tbl-txt2 ng-binding">2.04%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,274</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.gainers| limitTo:limit -->
                   <tr
@@ -2529,7 +3663,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">79.16</p>
+                      <p class="ng-binding">80.74</p>
                     </td>
                     <td
                       ng-class="
@@ -2541,51 +3675,7 @@
                       <p class="pf-tbl-txt2 ng-binding">2.00%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">712</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.gainers| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.gainers| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=454045&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=454045&amp;Exchange=0"
-                          >Jubilant Inds.</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">1,888.45</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="green txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">1,460</p>
-                      <p class="pf-tbl-txt2 ng-binding">1.57%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">94,423</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">727</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.gainers| limitTo:limit -->
                   <tr
@@ -2617,7 +3707,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">262.15</p>
+                      <p class="ng-binding">267.70</p>
                     </td>
                     <td
                       ng-class="
@@ -2625,11 +3715,11 @@
                       "
                       class="green txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">2</p>
-                      <p class="pf-tbl-txt2 ng-binding">0.81%</p>
+                      <p class="pf-tbl-txt1 ng-binding">5</p>
+                      <p class="pf-tbl-txt2 ng-binding">1.71%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">262</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">268</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.gainers| limitTo:limit -->
                   <tr
@@ -2639,11 +3729,11 @@
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=837957&amp;Exchange=0"
+                          ng-href="/Stocks?StockId=302744&amp;Exchange=0"
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=837957&amp;Exchange=0"
-                          >Larsen &amp; Toubro</a
+                          href="/Stocks?StockId=302744&amp;Exchange=0"
+                          >JP Power Ven.</a
                         >
                         <br />
                         <span
@@ -2657,11 +3747,11 @@
                           ></span>
                           <span
                             ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
+                            class="green-mojo"
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">3,575.00</p>
+                      <p class="ng-binding">17.54</p>
                     </td>
                     <td
                       ng-class="
@@ -2669,11 +3759,11 @@
                       "
                       class="green txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">6</p>
-                      <p class="pf-tbl-txt2 ng-binding">0.02%</p>
+                      <p class="pf-tbl-txt1 ng-binding">109</p>
+                      <p class="pf-tbl-txt2 ng-binding">1.56%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">25,025</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">7,069</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.gainers| limitTo:limit -->
                 </tbody>
@@ -2733,7 +3823,6 @@
           </div>
         </div>
       </section>
-
       <section
         data-reveal="true"
         id="sectToday_losers"
@@ -2774,6 +3863,95 @@
                   <tr
                     ng-repeat="value in actionToday.overall.losers| limitTo:limit"
                     class="ng-scope"
+                    style=""
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=454045&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=454045&amp;Exchange=0"
+                          >Jubilant Inds.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">1,812.15</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-4,393</p>
+                      <p class="pf-tbl-txt2 ng-binding">-4.62%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">90,608</td>
+                  </tr>
+                  <!-- end ngRepeat: value in actionToday.overall.losers| limitTo:limit -->
+                  <tr
+                    ng-repeat="value in actionToday.overall.losers| limitTo:limit"
+                    class="ng-scope"
+                  >
+                    <td>
+                      <div>
+                        <a
+                          ng-href="/Stocks?StockId=1002872&amp;Exchange=0"
+                          target="_blank"
+                          class="ng-binding"
+                          href="/Stocks?StockId=1002872&amp;Exchange=0"
+                          >HDFC Life Insur.</a
+                        >
+                        <br />
+                        <span
+                          ><span
+                            ng-class="getClassbyClr(value.dotsum.q_clr)"
+                            class="orange-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.v_clr)"
+                            class="red-mojo"
+                          ></span>
+                          <span
+                            ng-class="getClassbyClr(value.dotsum.f_clr)"
+                            class="green-mojo"
+                          ></span>
+                        </span>
+                      </div>
+                      <p class="ng-binding">702.85</p>
+                    </td>
+                    <td
+                      ng-class="
+                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      "
+                      class="red txt-rt"
+                    >
+                      <p class="pf-tbl-txt1 ng-binding">-163</p>
+                      <p class="pf-tbl-txt2 ng-binding">-4.43%</p>
+                    </td>
+
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">3,514</td>
+                  </tr>
+                  <!-- end ngRepeat: value in actionToday.overall.losers| limitTo:limit -->
+                  <tr
+                    ng-repeat="value in actionToday.overall.losers| limitTo:limit"
+                    class="ng-scope"
                   >
                     <td>
                       <div>
@@ -2800,7 +3978,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">583.10</p>
+                      <p class="ng-binding">577.20</p>
                     </td>
                     <td
                       ng-class="
@@ -2808,11 +3986,11 @@
                       "
                       class="red txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">-1,412</p>
-                      <p class="pf-tbl-txt2 ng-binding">-4.01%</p>
+                      <p class="pf-tbl-txt1 ng-binding">-754</p>
+                      <p class="pf-tbl-txt2 ng-binding">-2.20%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">33,820</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">33,478</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.losers| limitTo:limit -->
                   <tr
@@ -2844,7 +4022,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">49.47</p>
+                      <p class="ng-binding">48.10</p>
                     </td>
                     <td
                       ng-class="
@@ -2853,10 +4031,10 @@
                       class="red txt-rt"
                     >
                       <p class="pf-tbl-txt1 ng-binding">-1</p>
-                      <p class="pf-tbl-txt2 ng-binding">-2.43%</p>
+                      <p class="pf-tbl-txt2 ng-binding">-1.80%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">49</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">48</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.losers| limitTo:limit -->
                   <tr
@@ -2866,29 +4044,29 @@
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=10039196&amp;Exchange=0"
+                          ng-href="/Stocks?StockId=304521&amp;Exchange=0"
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=10039196&amp;Exchange=0"
-                          >Shree Karni</a
+                          href="/Stocks?StockId=304521&amp;Exchange=0"
+                          >CEAT</a
                         >
                         <br />
                         <span
                           ><span
                             ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
+                            class="green-mojo"
                           ></span>
                           <span
                             ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
+                            class="green-mojo"
                           ></span>
                           <span
                             ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="grey-mojo"
+                            class="orange-mojo"
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">815.00</p>
+                      <p class="ng-binding">2,842.00</p>
                     </td>
                     <td
                       ng-class="
@@ -2896,11 +4074,11 @@
                       "
                       class="red txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">-19</p>
-                      <p class="pf-tbl-txt2 ng-binding">-2.27%</p>
+                      <p class="pf-tbl-txt1 ng-binding">-15</p>
+                      <p class="pf-tbl-txt2 ng-binding">-0.51%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">815</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">2,842</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.losers| limitTo:limit -->
                   <tr
@@ -2932,7 +4110,7 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">107.70</p>
+                      <p class="ng-binding">109.59</p>
                     </td>
                     <td
                       ng-class="
@@ -2940,99 +4118,11 @@
                       "
                       class="red txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">-113</p>
-                      <p class="pf-tbl-txt2 ng-binding">-2.05%</p>
+                      <p class="pf-tbl-txt1 ng-binding">-2</p>
+                      <p class="pf-tbl-txt2 ng-binding">-0.04%</p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,385</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.losers| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.losers| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=421555&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=421555&amp;Exchange=0"
-                          >Coal India</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">480.25</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="red txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">-680</p>
-                      <p class="pf-tbl-txt2 ng-binding">-1.74%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">38,420</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.losers| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.losers| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=1003648&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=1003648&amp;Exchange=0"
-                          >Life Insurance</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">1,021.55</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="red txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">-17</p>
-                      <p class="pf-tbl-txt2 ng-binding">-1.66%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">1,022</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,480</td>
                   </tr>
                   <!-- end ngRepeat: value in actionToday.overall.losers| limitTo:limit -->
                 </tbody>
@@ -3093,25 +4183,19 @@
         </div>
       </section>
     </div>
-
     <div class="swiper-scrollbar"></div>
-
-    <!-- <div class="swiper-button-next" >
+    <div class="swiper-button-next" style="margin-top: 0px">
       <a class="btn-floating btn-large waves-effect waves-light black">
         <i class="material-icons large">skip_next</i>
       </a>
     </div>
-
     <div
       class="swiper-button-prev swiper-button-disabled"
-
+      style="margin-top: 0px"
     >
       <a class="btn-floating btn-large waves-effect waves-light black">
         <i class="material-icons large">skip_previous</i>
       </a>
-    </div> -->
-
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    </div>
   </div>
 </div>

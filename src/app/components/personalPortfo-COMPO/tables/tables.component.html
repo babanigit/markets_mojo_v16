@@ -16,33 +16,13 @@
   </ul>
 </div>
 
-<!-- buttons navbar -->
-<!-- <nav
-  style="
-    display: flex;
-    flex-wrap: wrap;
-    background-color: rgba(64, 64, 64, 0.5);
-  "
->
-  <span
-    *ngFor="let item of NAVBAR_ITEMS"
-    [ngStyle]="{
-      'background-color': TYPE === item ? 'gainsboro' : '',
-      color: TYPE === item ? 'black' : 'white',
-      padding: '1% 1.5%',
-      'border-right': '1px solid gray',
-      cursor: 'pointer',
-      'font-size': '12px',
-
-    }"
-    (click)="onClick(item)"
-  >
-    {{ item }}
-  </span>
-</nav> -->
-
 <!-- table -->
+
+
 <div style="background-color: white" class="mat-table">
+
+  <!-- <cdk-virtual-scroll-viewport itemSize="80" class="viewport"> -->
+
   <table mat-table [dataSource]="dataSource" matSort>
     <!-- holding  -->
     <!-- short Company Column -->
@@ -2526,4 +2506,7 @@
       *matFooterRowDef="displayedColumns"
     ></tr>
   </table>
+
+<!-- </cdk-virtual-scroll-viewport> -->
+
 </div>
