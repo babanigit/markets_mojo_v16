@@ -14,8 +14,6 @@
   border: 0.5px solid black;
 }
 
-
-
 /* Ensure that the span containing text and icons is a flex container */
 th span {
   display: flex;
@@ -214,7 +212,6 @@ span.active .mat-icon {
   margin-right: 8px;
 }
 
-
 .circle {
   margin: 3px;
   width: 40px; /* Width of the circle */
@@ -236,7 +233,6 @@ span.active .mat-icon {
   display: block; /* Removes any inline spacing issues */
 }
 
-
 .down {
   border-left: 10px solid transparent; /* Width of the arrow sides */
   border-right: 10px solid transparent; /* Width of the arrow sides */
@@ -244,9 +240,6 @@ span.active .mat-icon {
   top: 50%; /* Center vertically */
   transform: translateX(-50%) translateY(-50%); /* Center both horizontally and vertically */
 }
-
-
-
 
 /* claude */
 /* Compact table styles */
@@ -258,14 +251,15 @@ span.active .mat-icon {
 
 /* Ensure the table doesn't exceed the window width */
 .mat-table {
-  /* height: 100%; */
-   /* Adjust based on your needs */
-
+  /* newly added */
+  height: 600px;
   width: 100%;
-  max-width: 100%;
+  border: 1px solid black;
+  background-color: white;
+
+  /* old */
   overflow-x: auto;
 }
-
 
 .viewport {
   height: 100%;
@@ -278,12 +272,8 @@ span.active .mat-icon {
   overflow-x: auto;
 }
 
-
 /* expanded height */
 
 /* Consistent height styles */
 
-
 /* extend css cl */
-
-

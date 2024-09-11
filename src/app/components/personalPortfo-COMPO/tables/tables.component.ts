@@ -16,8 +16,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { PopupComponent } from '../../others/popup/popup.component';
 import { columns, IColumns } from './Columns';
 
-import { ScrollingModule } from '@angular/cdk/scrolling';
-
+import {
+  CdkVirtualScrollViewport,
+  ScrollingModule,
+} from '@angular/cdk/scrolling';
+import { DataSource } from '@angular/cdk/collections';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 type TableType =
   | 'OVERVIEW'
@@ -48,15 +52,21 @@ type TableType =
     MatExpansionModule,
     PopupComponent,
 
-    ScrollingModule
+    ScrollingModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TablesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
+  @ViewChild(CdkVirtualScrollViewport) viewport:
+    | CdkVirtualScrollViewport
+    | undefined;
+
   displayedColumns: string[] = [];
-  dataSource = new MatTableDataSource<any>([]);
+  // dataSource = new MatTableDataSource<any>([]);
+  dataSource: MyDataSource;
+
   private dataCache: { [key in TableType]?: any[] } = {};
   col: IColumns = columns;
   TYPE: TableType = 'HOLDING';
@@ -83,7 +93,10 @@ export class TablesComponent implements OnInit, AfterViewInit {
   constructor(
     private serv: GetPersonalPFService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    this.dataSource = new MyDataSource();
+
+  }
 
   ngOnInit() {
     this.getColumns('HOLDING');
@@ -94,13 +107,14 @@ export class TablesComponent implements OnInit, AfterViewInit {
     if (this.sort) {
       this.dataSource.sort = this.sort;
       this.sort.sortChange.subscribe(this.sortData.bind(this));
+
+      this.cdr.detectChanges();
     }
   }
 
   private fetchStocks(type: TableType) {
-
     if (this.dataCache[type]) {
-      console.log( "If dataCache : ",  this.dataCache[type])
+      console.log('If dataCache : ', this.dataCache[type]);
       this.updateStocks(type);
       return;
     }
@@ -129,9 +143,11 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   private updateStocks(type: TableType): void {
-    this.dataSource.data = this.dataCache[type] || [];
+    // this.dataSource.data = this.dataCache[type] || [];
+    this.dataSource.setData(this.dataCache[type] || []);
 
-    console.log( "updated dataSource is : ",  this.dataSource.data)
+
+    // console.log('updated dataSource is : ', this.dataSource.data);
   }
 
   private getColumns(type: TableType): void {
@@ -303,18 +319,32 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   private sortData(sort: Sort) {
-    const data = this.dataSource.data.slice();
+    // const data = this.dataSource.data.slice();
+    // if (!sort.active || sort.direction === '') {
+    //   this.dataSource.data = data;
+    //   return;
+    // }
+
+    const data = this.dataSource.getData().slice();
     if (!sort.active || sort.direction === '') {
-      this.dataSource.data = data;
+      this.dataSource.setData(data);
       return;
     }
-    this.dataSource.data = data.sort((a, b) =>
+
+    const sortedData = data.sort((a, b) =>
       this.compare(
         this.getPropertyValue(a, sort.active),
         this.getPropertyValue(b, sort.active),
         sort.direction === 'asc'
       )
     );
+
+    // this.dataSource = new MatTableDataSource(sortedData);
+    // this.dataSource.sort = this.sort;
+
+    this.dataSource.setData(sortedData);
+    this.cdr.detectChanges();
+
   }
 
   private getPropertyValue(item: any, property: string): any {
@@ -405,11 +435,12 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   getTotal(propertyPath: string): number {
-    return this.dataSource.data.reduce((total, item) => {
-      const value = this.getPropertyValue(item, propertyPath);
-      const numValue = Number(value) || 0;
-      return total + (numValue === -999999 ? 0 : numValue);
-    }, 0);
+    // return this.dataSource.data.reduce((total, item) => {
+    //   const value = this.getPropertyValue(item, propertyPath);
+    //   const numValue = Number(value) || 0;
+    //   return total + (numValue === -999999 ? 0 : numValue);
+    // }, 0);
+    return 0;
   }
 
   formatNumberWithCommas(value: string | number): string {
@@ -425,5 +456,37 @@ export class TablesComponent implements OnInit, AfterViewInit {
     return element.details?.length
       ? element.details.length * (this.TYPE === 'TAX' ? 60 : 80)
       : 0;
+  }
+
+  trackByIndex(index: number, item: any): number {
+    return index;
+  }
+}
+
+
+
+// Custom DataSource to work with virtual scrolling
+export class MyDataSource extends DataSource<any> {
+  private _dataStream = new BehaviorSubject<any[]>([]);
+  private _data: any[] = [];
+  sort: MatSort | null = null;
+
+  constructor() {
+    super();
+  }
+
+  connect(): Observable<any[]> {
+    return this._dataStream;
+  }
+
+  disconnect() {}
+
+  setData(data: any[]) {
+    this._data = data;
+    this._dataStream.next(data);
+  }
+
+  getData(): any[] {
+    return this._data;
   }
 }

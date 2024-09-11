@@ -16,13 +16,13 @@ export class IpoFooterNewComponent   implements AfterViewInit {
 
   ngAfterViewInit() {
     Swiper.use([Navigation, Pagination, Scrollbar, Autoplay]);
-    const swiper = new Swiper('.swiper-container_foot', {
+    const swiper = new Swiper('.swiper-container-new', {
       slidesPerView: 'auto',
       slidesPerGroup: 3,
       spaceBetween: 30,
       loop: true,
       autoplay: {
-        delay: 1000,
+        delay: 3000,
         disableOnInteraction: false,
       },
       navigation: {
@@ -30,7 +30,7 @@ export class IpoFooterNewComponent   implements AfterViewInit {
         prevEl: '.swiper-button-prev',
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: '.swiper-pagination-footer',
         clickable: true,
       },
     });
