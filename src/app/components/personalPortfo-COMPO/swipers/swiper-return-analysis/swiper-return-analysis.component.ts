@@ -41,6 +41,6 @@ export class SwiperReturnAnalysisComponent  implements AfterViewInit {
       },
     });
 
-    console.log('Swiper instance:', swiper);
+    // console.log('Swiper instance:', swiper);
   }
 }

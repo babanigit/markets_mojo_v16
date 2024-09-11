@@ -3,11 +3,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs';
 
-const nf_path = 'assets/pp/getNetworkFactor.json';
-
 @Injectable({
   providedIn: 'root',
 })
+
 export class GetPersonalPFService {
   private readonly paths = {
     OVERVIEW: 'assets/pp/table/getOverview.json',
@@ -21,6 +20,21 @@ export class GetPersonalPFService {
     RETURNS: 'assets/pp/table/getReturn.json',
     RESULTS: 'assets/pp/table/getResults.json',
     TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
+  };
+
+  private nf_path = 'assets/pp/networkFactor/getNetworkFactor.json';
+
+  private readonly paths2 = {
+    today: 'assets/pp/swiper/today.json',
+    overall: 'assets/pp/swiper/overall.json',
+    return: 'assets/pp/swiper/return.json',
+    // LIQUIDITY: 'assets/pp/table/getLiquidity.json',
+    // TAX: 'assets/pp/table/getTax.json',
+    // RATIOS: 'assets/pp/table/getRatio.json',
+    // FINANCIALS: 'assets/pp/table/getFinancials.json',
+    // RETURNS: 'assets/pp/table/getReturn.json',
+    // RESULTS: 'assets/pp/table/getResults.json',
+    // TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
   };
 
   constructor(private http: HttpClient) {}
@@ -50,12 +64,34 @@ export class GetPersonalPFService {
     );
   }
 
-
-  getNetworkFactor(jsonPath: string = nf_path ) {
+  getNetworkFactor(jsonPath: string = this.nf_path) {
     return this.http.get<any>(jsonPath).pipe(
       // delay(1200),
       catchError((err) => {
         console.error('Error fetching nf data', err);
+        throw err;
+      })
+    );
+  }
+
+  getSwitcherDatas(
+    type: 'today' | 'overall' | 'return'
+    // | 'LIQUIDITY'
+    // | 'TAX'
+    // | 'RATIOS'
+    // | 'FINANCIALS'
+    // | 'RETURNS'
+    // | 'RESULTS'
+    // | 'TOTAL_RETURNS'
+  ) {
+    const path = this.paths2[type] || this.paths2.today; // default is holding
+
+    console.log('the path in getOS : ', path);
+
+    return this.http.get<any>(path).pipe(
+      catchError((err) => {
+        console.error('Error fetching data for type:', type);
+        console.error('Error details:', err);
         throw err;
       })
     );

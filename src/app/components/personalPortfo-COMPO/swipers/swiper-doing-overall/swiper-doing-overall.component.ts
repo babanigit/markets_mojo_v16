@@ -2,19 +2,33 @@ import {
   Component,
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
+  OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
+import { GetPersonalPFService } from 'src/app/services/personal-portfolio/getTableAndNetFactor/get-personal-pf.service';
 @Component({
   selector: 'app-swiper-doing-overall',
   templateUrl: './swiper-doing-overall.component.html',
   styleUrls: ['./swiper-doing-overall.component.css'],
   standalone: true,
-  imports: []
+  imports: [],
 })
-export class SwiperDoingOverallComponent {
+export class SwiperDoingOverallComponent implements OnInit {
 
+  DATA: any = [];
+  constructor(private serv: GetPersonalPFService) {}
 
+  ngOnInit(): void {
+    this.fetchData();
+  }
+
+  fetchData(): void {
+    this.serv.getSwitcherDatas('overall').subscribe((data) => {
+      console.log('the overall switcher : ', data);
+      this.DATA = data;
+    });
+  }
 
   ngAfterViewInit() {
     Swiper.use([Navigation, Pagination, Scrollbar, Autoplay]);
@@ -37,7 +51,6 @@ export class SwiperDoingOverallComponent {
       },
     });
 
-    console.log('Swiper instance:', swiper);
+    // console.log('Swiper instance:', swiper);
   }
-
 }

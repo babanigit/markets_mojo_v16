@@ -1,0 +1,5552 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+    "1M": {
+      "port_prevclose": 220268.59,
+      "idx_prevclose": 367.18,
+      "sensex": 2.99,
+      "portret": 5.96,
+      "compret": 3.79,
+      "sensexdir": 1,
+      "portdir": 1,
+      "compdir": 1,
+      "low": 220268.59,
+      "high": 238499.02,
+      "plotgraph": [
+        {
+          "dt": "2024-08-09",
+          "disdt": "09-Aug-2024",
+          "port": 220268.59,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 367.18
+        },
+        {
+          "dt": "2024-08-16",
+          "disdt": "16-Aug-2024",
+          "port": 226594.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 377.65
+        },
+        {
+          "dt": "2024-08-23",
+          "disdt": "23-Aug-2024",
+          "port": 237546.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.9
+        },
+        {
+          "dt": "2024-08-30",
+          "disdt": "30-Aug-2024",
+          "port": 237013.81,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.02
+        },
+        {
+          "dt": "2024-09-06",
+          "disdt": "06-Sep-2024",
+          "port": 238499.02,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        },
+        {
+          "dt": "2024-09-11",
+          "disdt": "11-Sep-2024",
+          "port": 231473.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        }
+      ]
+    },
+    "3M": {
+      "port_prevclose": 216187.05,
+      "idx_prevclose": 361.55,
+      "sensex": 7.08,
+      "portret": 15.56,
+      "compret": 9.31,
+      "sensexdir": 1,
+      "portdir": 1,
+      "compdir": 1,
+      "low": 212446.82,
+      "high": 238499.02,
+      "plotgraph": [
+        {
+          "dt": "2024-06-14",
+          "disdt": "14-Jun-2024",
+          "port": 216187.05,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 361.55
+        },
+        {
+          "dt": "2024-06-21",
+          "disdt": "21-Jun-2024",
+          "port": 212446.82,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 355.29
+        },
+        {
+          "dt": "2024-06-28",
+          "disdt": "28-Jun-2024",
+          "port": 217951.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 364.5
+        },
+        {
+          "dt": "2024-07-05",
+          "disdt": "05-Jul-2024",
+          "port": 222081.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 371.41
+        },
+        {
+          "dt": "2024-07-12",
+          "disdt": "12-Jul-2024",
+          "port": 221456.45,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 370.36
+        },
+        {
+          "dt": "2024-07-19",
+          "disdt": "19-Jul-2024",
+          "port": 213710.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 357.41
+        },
+        {
+          "dt": "2024-07-26",
+          "disdt": "26-Jul-2024",
+          "port": 223493.52,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 373.77
+        },
+        {
+          "dt": "2024-08-02",
+          "disdt": "02-Aug-2024",
+          "port": 220779.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 369.23
+        },
+        {
+          "dt": "2024-08-09",
+          "disdt": "09-Aug-2024",
+          "port": 220268.59,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 367.18
+        },
+        {
+          "dt": "2024-08-16",
+          "disdt": "16-Aug-2024",
+          "port": 226594.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 377.65
+        },
+        {
+          "dt": "2024-08-23",
+          "disdt": "23-Aug-2024",
+          "port": 237546.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.9
+        },
+        {
+          "dt": "2024-08-30",
+          "disdt": "30-Aug-2024",
+          "port": 237013.81,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.02
+        },
+        {
+          "dt": "2024-09-06",
+          "disdt": "06-Sep-2024",
+          "port": 238499.02,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        },
+        {
+          "dt": "2024-09-11",
+          "disdt": "11-Sep-2024",
+          "port": 231473.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        }
+      ]
+    },
+    "6M": {
+      "port_prevclose": 174542.47,
+      "idx_prevclose": 306.38,
+      "sensex": 11.35,
+      "portret": 18.47,
+      "compret": 22.65,
+      "sensexdir": 1,
+      "portdir": 1,
+      "compdir": 1,
+      "low": 170857.76,
+      "high": 238499.02,
+      "plotgraph": [
+        {
+          "dt": "2024-03-15",
+          "disdt": "15-Mar-2024",
+          "port": 174542.47,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 306.38
+        },
+        {
+          "dt": "2024-03-22",
+          "disdt": "22-Mar-2024",
+          "port": 181610.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 318.78
+        },
+        {
+          "dt": "2024-03-28",
+          "disdt": "28-Mar-2024",
+          "port": 175721.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 308.45
+        },
+        {
+          "dt": "2024-04-05",
+          "disdt": "05-Apr-2024",
+          "port": 187609.22,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 329.31
+        },
+        {
+          "dt": "2024-04-12",
+          "disdt": "12-Apr-2024",
+          "port": 177845.14,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 312.17
+        },
+        {
+          "dt": "2024-04-19",
+          "disdt": "19-Apr-2024",
+          "port": 173530.12,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 304.6
+        },
+        {
+          "dt": "2024-04-26",
+          "disdt": "26-Apr-2024",
+          "port": 178156.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 312.72
+        },
+        {
+          "dt": "2024-05-03",
+          "disdt": "03-May-2024",
+          "port": 181817.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 319.15
+        },
+        {
+          "dt": "2024-05-10",
+          "disdt": "10-May-2024",
+          "port": 170857.76,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 299.91
+        },
+        {
+          "dt": "2024-05-17",
+          "disdt": "17-May-2024",
+          "port": 178451.35,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 313.24
+        },
+        {
+          "dt": "2024-05-24",
+          "disdt": "24-May-2024",
+          "port": 179578.77,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 315.22
+        },
+        {
+          "dt": "2024-05-31",
+          "disdt": "31-May-2024",
+          "port": 188862.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 331.51
+        },
+        {
+          "dt": "2024-06-07",
+          "disdt": "07-Jun-2024",
+          "port": 194603.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 325.45
+        },
+        {
+          "dt": "2024-06-14",
+          "disdt": "14-Jun-2024",
+          "port": 216187.05,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 361.55
+        },
+        {
+          "dt": "2024-06-21",
+          "disdt": "21-Jun-2024",
+          "port": 212446.82,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 355.29
+        },
+        {
+          "dt": "2024-06-28",
+          "disdt": "28-Jun-2024",
+          "port": 217951.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 364.5
+        },
+        {
+          "dt": "2024-07-05",
+          "disdt": "05-Jul-2024",
+          "port": 222081.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 371.41
+        },
+        {
+          "dt": "2024-07-12",
+          "disdt": "12-Jul-2024",
+          "port": 221456.45,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 370.36
+        },
+        {
+          "dt": "2024-07-19",
+          "disdt": "19-Jul-2024",
+          "port": 213710.85,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 357.41
+        },
+        {
+          "dt": "2024-07-26",
+          "disdt": "26-Jul-2024",
+          "port": 223493.52,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 373.77
+        },
+        {
+          "dt": "2024-08-02",
+          "disdt": "02-Aug-2024",
+          "port": 220779.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 369.23
+        },
+        {
+          "dt": "2024-08-09",
+          "disdt": "09-Aug-2024",
+          "port": 220268.59,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 367.18
+        },
+        {
+          "dt": "2024-08-16",
+          "disdt": "16-Aug-2024",
+          "port": 226594.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 377.65
+        },
+        {
+          "dt": "2024-08-23",
+          "disdt": "23-Aug-2024",
+          "port": 237546.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.9
+        },
+        {
+          "dt": "2024-08-30",
+          "disdt": "30-Aug-2024",
+          "port": 237013.81,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.02
+        },
+        {
+          "dt": "2024-09-06",
+          "disdt": "06-Sep-2024",
+          "port": 238499.02,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        },
+        {
+          "dt": "2024-09-11",
+          "disdt": "11-Sep-2024",
+          "port": 231473.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        }
+      ]
+    },
+    "YTD": {
+      "port_prevclose": 132020.91,
+      "idx_prevclose": 247.76,
+      "sensex": 13.51,
+      "portret": 54.22,
+      "compret": 25.41,
+      "sensexdir": 1,
+      "portdir": 1,
+      "compdir": 1,
+      "low": 132020.91,
+      "high": 238499.02,
+      "plotgraph": [
+        {
+          "dt": "2023-12-29",
+          "disdt": "29-Dec-2023",
+          "port": 132020.91,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 247.76
+        },
+        {
+          "dt": "2024-01-05",
+          "disdt": "05-Jan-2024",
+          "port": 134918.9,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 253.2
+        },
+        {
+          "dt": "2024-01-12",
+          "disdt": "12-Jan-2024",
+          "port": 144356.85,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 251.97
+        },
+        {
+          "dt": "2024-01-19",
+          "disdt": "19-Jan-2024",
+          "port": 144920.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 252.95
+        },
+        {
+          "dt": "2024-01-25",
+          "disdt": "25-Jan-2024",
+          "port": 146586.94,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 255.86
+        },
+        {
+          "dt": "2024-02-02",
+          "disdt": "02-Feb-2024",
+          "port": 152709.62,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 263.3
+        },
+        {
+          "dt": "2024-02-09",
+          "disdt": "09-Feb-2024",
+          "port": 154539.34,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 266.45
+        },
+        {
+          "dt": "2024-02-16",
+          "disdt": "16-Feb-2024",
+          "port": 171368.29,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 300.8
+        },
+        {
+          "dt": "2024-02-23",
+          "disdt": "23-Feb-2024",
+          "port": 182667.87,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 320.64
+        },
+        {
+          "dt": "2024-03-01",
+          "disdt": "01-Mar-2024",
+          "port": 189936.13,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 333.4
+        },
+        {
+          "dt": "2024-03-07",
+          "disdt": "07-Mar-2024",
+          "port": 194331.87,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 341.11
+        },
+        {
+          "dt": "2024-03-15",
+          "disdt": "15-Mar-2024",
+          "port": 174542.47,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 306.38
+        },
+        {
+          "dt": "2024-03-22",
+          "disdt": "22-Mar-2024",
+          "port": 181610.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 318.78
+        },
+        {
+          "dt": "2024-03-28",
+          "disdt": "28-Mar-2024",
+          "port": 175721.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 308.45
+        },
+        {
+          "dt": "2024-04-05",
+          "disdt": "05-Apr-2024",
+          "port": 187609.22,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 329.31
+        },
+        {
+          "dt": "2024-04-12",
+          "disdt": "12-Apr-2024",
+          "port": 177845.14,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 312.17
+        },
+        {
+          "dt": "2024-04-19",
+          "disdt": "19-Apr-2024",
+          "port": 173530.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 304.6
+        },
+        {
+          "dt": "2024-04-26",
+          "disdt": "26-Apr-2024",
+          "port": 178156.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 312.72
+        },
+        {
+          "dt": "2024-05-03",
+          "disdt": "03-May-2024",
+          "port": 181817.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 319.15
+        },
+        {
+          "dt": "2024-05-10",
+          "disdt": "10-May-2024",
+          "port": 170857.76,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 299.91
+        },
+        {
+          "dt": "2024-05-17",
+          "disdt": "17-May-2024",
+          "port": 178451.35,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 313.24
+        },
+        {
+          "dt": "2024-05-24",
+          "disdt": "24-May-2024",
+          "port": 179578.77,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 315.22
+        },
+        {
+          "dt": "2024-05-31",
+          "disdt": "31-May-2024",
+          "port": 188862.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 331.51
+        },
+        {
+          "dt": "2024-06-07",
+          "disdt": "07-Jun-2024",
+          "port": 194603.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 325.45
+        },
+        {
+          "dt": "2024-06-14",
+          "disdt": "14-Jun-2024",
+          "port": 216187.05,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 361.55
+        },
+        {
+          "dt": "2024-06-21",
+          "disdt": "21-Jun-2024",
+          "port": 212446.82,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 355.29
+        },
+        {
+          "dt": "2024-06-28",
+          "disdt": "28-Jun-2024",
+          "port": 217951.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 364.5
+        },
+        {
+          "dt": "2024-07-05",
+          "disdt": "05-Jul-2024",
+          "port": 222081.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 371.41
+        },
+        {
+          "dt": "2024-07-12",
+          "disdt": "12-Jul-2024",
+          "port": 221456.45,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 370.36
+        },
+        {
+          "dt": "2024-07-19",
+          "disdt": "19-Jul-2024",
+          "port": 213710.85,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 357.41
+        },
+        {
+          "dt": "2024-07-26",
+          "disdt": "26-Jul-2024",
+          "port": 223493.52,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 373.77
+        },
+        {
+          "dt": "2024-08-02",
+          "disdt": "02-Aug-2024",
+          "port": 220779.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 369.23
+        },
+        {
+          "dt": "2024-08-09",
+          "disdt": "09-Aug-2024",
+          "port": 220268.59,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 367.18
+        },
+        {
+          "dt": "2024-08-16",
+          "disdt": "16-Aug-2024",
+          "port": 226594.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 377.65
+        },
+        {
+          "dt": "2024-08-23",
+          "disdt": "23-Aug-2024",
+          "port": 237546.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.9
+        },
+        {
+          "dt": "2024-08-30",
+          "disdt": "30-Aug-2024",
+          "port": 237013.81,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.02
+        },
+        {
+          "dt": "2024-09-06",
+          "disdt": "06-Sep-2024",
+          "port": 238499.02,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        },
+        {
+          "dt": "2024-09-11",
+          "disdt": "11-Sep-2024",
+          "port": 231473.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        }
+      ]
+    },
+    "1Y": {
+      "port_prevclose": 111092.66,
+      "idx_prevclose": 208.48,
+      "sensex": 22.03,
+      "portret": 75.88,
+      "compret": 39.98,
+      "sensexdir": 1,
+      "portdir": 1,
+      "compdir": 1,
+      "low": 109068.01,
+      "high": 238499.02,
+      "plotgraph": [
+        {
+          "dt": "2023-09-15",
+          "disdt": "15-Sep-2023",
+          "port": 111092.66,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 208.48
+        },
+        {
+          "dt": "2023-09-22",
+          "disdt": "22-Sep-2023",
+          "port": 111582.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 209.4
+        },
+        {
+          "dt": "2023-09-29",
+          "disdt": "29-Sep-2023",
+          "port": 112939.16,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 211.95
+        },
+        {
+          "dt": "2023-10-06",
+          "disdt": "06-Oct-2023",
+          "port": 113336.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 212.7
+        },
+        {
+          "dt": "2023-10-13",
+          "disdt": "13-Oct-2023",
+          "port": 113210.65,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 212.46
+        },
+        {
+          "dt": "2023-10-20",
+          "disdt": "20-Oct-2023",
+          "port": 112543.78,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 211.21
+        },
+        {
+          "dt": "2023-10-27",
+          "disdt": "27-Oct-2023",
+          "port": 109068.01,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 204.68
+        },
+        {
+          "dt": "2023-11-03",
+          "disdt": "03-Nov-2023",
+          "port": 114267.03,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 214.44
+        },
+        {
+          "dt": "2023-11-10",
+          "disdt": "10-Nov-2023",
+          "port": 118171.46,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 221.77
+        },
+        {
+          "dt": "2023-11-17",
+          "disdt": "17-Nov-2023",
+          "port": 121196.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 227.45
+        },
+        {
+          "dt": "2023-11-24",
+          "disdt": "24-Nov-2023",
+          "port": 123008.51,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 230.85
+        },
+        {
+          "dt": "2023-12-01",
+          "disdt": "01-Dec-2023",
+          "port": 126098.98,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 236.65
+        },
+        {
+          "dt": "2023-12-08",
+          "disdt": "08-Dec-2023",
+          "port": 130298.53,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 244.53
+        },
+        {
+          "dt": "2023-12-15",
+          "disdt": "15-Dec-2023",
+          "port": 132179.17,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 248.06
+        },
+        {
+          "dt": "2023-12-22",
+          "disdt": "22-Dec-2023",
+          "port": 130132.93,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 244.22
+        },
+        {
+          "dt": "2023-12-29",
+          "disdt": "29-Dec-2023",
+          "port": 132020.91,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 247.76
+        },
+        {
+          "dt": "2024-01-05",
+          "disdt": "05-Jan-2024",
+          "port": 134918.9,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 253.2
+        },
+        {
+          "dt": "2024-01-12",
+          "disdt": "12-Jan-2024",
+          "port": 144356.85,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 251.97
+        },
+        {
+          "dt": "2024-01-19",
+          "disdt": "19-Jan-2024",
+          "port": 144920.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 252.95
+        },
+        {
+          "dt": "2024-01-25",
+          "disdt": "25-Jan-2024",
+          "port": 146586.94,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 255.86
+        },
+        {
+          "dt": "2024-02-02",
+          "disdt": "02-Feb-2024",
+          "port": 152709.62,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 263.3
+        },
+        {
+          "dt": "2024-02-09",
+          "disdt": "09-Feb-2024",
+          "port": 154539.34,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 266.45
+        },
+        {
+          "dt": "2024-02-16",
+          "disdt": "16-Feb-2024",
+          "port": 171368.29,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 300.8
+        },
+        {
+          "dt": "2024-02-23",
+          "disdt": "23-Feb-2024",
+          "port": 182667.87,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 320.64
+        },
+        {
+          "dt": "2024-03-01",
+          "disdt": "01-Mar-2024",
+          "port": 189936.13,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 333.4
+        },
+        {
+          "dt": "2024-03-07",
+          "disdt": "07-Mar-2024",
+          "port": 194331.87,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 341.11
+        },
+        {
+          "dt": "2024-03-15",
+          "disdt": "15-Mar-2024",
+          "port": 174542.47,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 306.38
+        },
+        {
+          "dt": "2024-03-22",
+          "disdt": "22-Mar-2024",
+          "port": 181610.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 318.78
+        },
+        {
+          "dt": "2024-03-28",
+          "disdt": "28-Mar-2024",
+          "port": 175721.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 308.45
+        },
+        {
+          "dt": "2024-04-05",
+          "disdt": "05-Apr-2024",
+          "port": 187609.22,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 329.31
+        },
+        {
+          "dt": "2024-04-12",
+          "disdt": "12-Apr-2024",
+          "port": 177845.14,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 312.17
+        },
+        {
+          "dt": "2024-04-19",
+          "disdt": "19-Apr-2024",
+          "port": 173530.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 304.6
+        },
+        {
+          "dt": "2024-04-26",
+          "disdt": "26-Apr-2024",
+          "port": 178156.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 312.72
+        },
+        {
+          "dt": "2024-05-03",
+          "disdt": "03-May-2024",
+          "port": 181817.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 319.15
+        },
+        {
+          "dt": "2024-05-10",
+          "disdt": "10-May-2024",
+          "port": 170857.76,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 299.91
+        },
+        {
+          "dt": "2024-05-17",
+          "disdt": "17-May-2024",
+          "port": 178451.35,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 313.24
+        },
+        {
+          "dt": "2024-05-24",
+          "disdt": "24-May-2024",
+          "port": 179578.77,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 315.22
+        },
+        {
+          "dt": "2024-05-31",
+          "disdt": "31-May-2024",
+          "port": 188862.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 331.51
+        },
+        {
+          "dt": "2024-06-07",
+          "disdt": "07-Jun-2024",
+          "port": 194603.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 325.45
+        },
+        {
+          "dt": "2024-06-14",
+          "disdt": "14-Jun-2024",
+          "port": 216187.05,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 361.55
+        },
+        {
+          "dt": "2024-06-21",
+          "disdt": "21-Jun-2024",
+          "port": 212446.82,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 355.29
+        },
+        {
+          "dt": "2024-06-28",
+          "disdt": "28-Jun-2024",
+          "port": 217951.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 364.5
+        },
+        {
+          "dt": "2024-07-05",
+          "disdt": "05-Jul-2024",
+          "port": 222081.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 371.41
+        },
+        {
+          "dt": "2024-07-12",
+          "disdt": "12-Jul-2024",
+          "port": 221456.45,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 370.36
+        },
+        {
+          "dt": "2024-07-19",
+          "disdt": "19-Jul-2024",
+          "port": 213710.85,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 357.41
+        },
+        {
+          "dt": "2024-07-26",
+          "disdt": "26-Jul-2024",
+          "port": 223493.52,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 373.77
+        },
+        {
+          "dt": "2024-08-02",
+          "disdt": "02-Aug-2024",
+          "port": 220779.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 369.23
+        },
+        {
+          "dt": "2024-08-09",
+          "disdt": "09-Aug-2024",
+          "port": 220268.59,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 367.18
+        },
+        {
+          "dt": "2024-08-16",
+          "disdt": "16-Aug-2024",
+          "port": 226594.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 377.65
+        },
+        {
+          "dt": "2024-08-23",
+          "disdt": "23-Aug-2024",
+          "port": 237546.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.9
+        },
+        {
+          "dt": "2024-08-30",
+          "disdt": "30-Aug-2024",
+          "port": 237013.81,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.02
+        },
+        {
+          "dt": "2024-09-06",
+          "disdt": "06-Sep-2024",
+          "port": 238499.02,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        },
+        {
+          "dt": "2024-09-11",
+          "disdt": "11-Sep-2024",
+          "port": 231473.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        }
+      ]
+    },
+    "3Y": {
+      "port_prevclose": 91197.15,
+      "idx_prevclose": 136.38,
+      "sensex": 41,
+      "portret": 173.63,
+      "compret": 57,
+      "sensexdir": 1,
+      "portdir": 1,
+      "compdir": 1,
+      "low": 74413.55,
+      "high": 238499.02,
+      "plotgraph": [
+        {
+          "dt": "2021-09-17",
+          "disdt": "17-Sep-2021",
+          "port": 91197.15,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 136.38
+        },
+        {
+          "dt": "2021-09-24",
+          "disdt": "24-Sep-2021",
+          "port": 91742.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 137.2
+        },
+        {
+          "dt": "2021-10-01",
+          "disdt": "01-Oct-2021",
+          "port": 94365,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 141.12
+        },
+        {
+          "dt": "2021-10-08",
+          "disdt": "08-Oct-2021",
+          "port": 96523.65,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 144.35
+        },
+        {
+          "dt": "2021-10-22",
+          "disdt": "22-Oct-2021",
+          "port": 95339.45,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 142.58
+        },
+        {
+          "dt": "2021-10-29",
+          "disdt": "29-Oct-2021",
+          "port": 95668.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 143.07
+        },
+        {
+          "dt": "2021-11-12",
+          "disdt": "12-Nov-2021",
+          "port": 96847.15,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 144.83
+        },
+        {
+          "dt": "2021-11-26",
+          "disdt": "26-Nov-2021",
+          "port": 87848.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 131.38
+        },
+        {
+          "dt": "2021-12-03",
+          "disdt": "03-Dec-2021",
+          "port": 88737.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 132.7
+        },
+        {
+          "dt": "2021-12-10",
+          "disdt": "10-Dec-2021",
+          "port": 91382,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 136.66
+        },
+        {
+          "dt": "2021-12-17",
+          "disdt": "17-Dec-2021",
+          "port": 88037.45,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 131.66
+        },
+        {
+          "dt": "2021-12-24",
+          "disdt": "24-Dec-2021",
+          "port": 88456.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 132.29
+        },
+        {
+          "dt": "2021-12-31",
+          "disdt": "31-Dec-2021",
+          "port": 100695.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 150.59
+        },
+        {
+          "dt": "2022-01-07",
+          "disdt": "07-Jan-2022",
+          "port": 99380.15,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 148.62
+        },
+        {
+          "dt": "2022-01-14",
+          "disdt": "14-Jan-2022",
+          "port": 104102.85,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 155.68
+        },
+        {
+          "dt": "2022-01-21",
+          "disdt": "21-Jan-2022",
+          "port": 100671.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 150.55
+        },
+        {
+          "dt": "2022-01-28",
+          "disdt": "28-Jan-2022",
+          "port": 98444.9,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 147.22
+        },
+        {
+          "dt": "2022-02-04",
+          "disdt": "04-Feb-2022",
+          "port": 98585.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 147.43
+        },
+        {
+          "dt": "2022-02-11",
+          "disdt": "11-Feb-2022",
+          "port": 76727.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 135.94
+        },
+        {
+          "dt": "2022-02-18",
+          "disdt": "18-Feb-2022",
+          "port": 85233.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 131.23
+        },
+        {
+          "dt": "2022-02-25",
+          "disdt": "25-Feb-2022",
+          "port": 80990.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 124.7
+        },
+        {
+          "dt": "2022-03-04",
+          "disdt": "04-Mar-2022",
+          "port": 82018.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 126.28
+        },
+        {
+          "dt": "2022-03-11",
+          "disdt": "11-Mar-2022",
+          "port": 84137.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 129.54
+        },
+        {
+          "dt": "2022-03-25",
+          "disdt": "25-Mar-2022",
+          "port": 84980.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 130.84
+        },
+        {
+          "dt": "2022-04-01",
+          "disdt": "01-Apr-2022",
+          "port": 86749,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 133.56
+        },
+        {
+          "dt": "2022-04-08",
+          "disdt": "08-Apr-2022",
+          "port": 90047.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 138.64
+        },
+        {
+          "dt": "2022-04-22",
+          "disdt": "22-Apr-2022",
+          "port": 87410.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 134.58
+        },
+        {
+          "dt": "2022-04-29",
+          "disdt": "29-Apr-2022",
+          "port": 84993.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 130.86
+        },
+        {
+          "dt": "2022-05-06",
+          "disdt": "06-May-2022",
+          "port": 81689.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 125.77
+        },
+        {
+          "dt": "2022-05-13",
+          "disdt": "13-May-2022",
+          "port": 74996,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 115.47
+        },
+        {
+          "dt": "2022-05-20",
+          "disdt": "20-May-2022",
+          "port": 78787.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 121.3
+        },
+        {
+          "dt": "2022-05-27",
+          "disdt": "27-May-2022",
+          "port": 78109.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 120.26
+        },
+        {
+          "dt": "2022-06-03",
+          "disdt": "03-Jun-2022",
+          "port": 82177.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 126.52
+        },
+        {
+          "dt": "2022-06-10",
+          "disdt": "10-Jun-2022",
+          "port": 80121,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 123.36
+        },
+        {
+          "dt": "2022-06-17",
+          "disdt": "17-Jun-2022",
+          "port": 74501.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 114.7
+        },
+        {
+          "dt": "2022-06-24",
+          "disdt": "24-Jun-2022",
+          "port": 74413.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 114.57
+        },
+        {
+          "dt": "2022-07-01",
+          "disdt": "01-Jul-2022",
+          "port": 77433,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 119.22
+        },
+        {
+          "dt": "2022-07-08",
+          "disdt": "08-Jul-2022",
+          "port": 82194.3,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 126.55
+        },
+        {
+          "dt": "2022-07-15",
+          "disdt": "15-Jul-2022",
+          "port": 81982.3,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 126.22
+        },
+        {
+          "dt": "2022-07-22",
+          "disdt": "22-Jul-2022",
+          "port": 85277.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 131.3
+        },
+        {
+          "dt": "2022-07-29",
+          "disdt": "29-Jul-2022",
+          "port": 86958.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 133.88
+        },
+        {
+          "dt": "2022-08-05",
+          "disdt": "05-Aug-2022",
+          "port": 87364,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 134.51
+        },
+        {
+          "dt": "2022-08-12",
+          "disdt": "12-Aug-2022",
+          "port": 90560,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 139.43
+        },
+        {
+          "dt": "2022-08-19",
+          "disdt": "19-Aug-2022",
+          "port": 92616,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 142.59
+        },
+        {
+          "dt": "2022-08-26",
+          "disdt": "26-Aug-2022",
+          "port": 98965.65,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 152.37
+        },
+        {
+          "dt": "2022-09-02",
+          "disdt": "02-Sep-2022",
+          "port": 100416.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 154.6
+        },
+        {
+          "dt": "2022-09-09",
+          "disdt": "09-Sep-2022",
+          "port": 101460.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 156.21
+        },
+        {
+          "dt": "2022-09-16",
+          "disdt": "16-Sep-2022",
+          "port": 99115.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 152.6
+        },
+        {
+          "dt": "2022-09-23",
+          "disdt": "23-Sep-2022",
+          "port": 96396.3,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 148.41
+        },
+        {
+          "dt": "2022-09-30",
+          "disdt": "30-Sep-2022",
+          "port": 93219.75,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 143.52
+        },
+        {
+          "dt": "2022-10-07",
+          "disdt": "07-Oct-2022",
+          "port": 97251.2,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 149.73
+        },
+        {
+          "dt": "2022-10-14",
+          "disdt": "14-Oct-2022",
+          "port": 95470.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 146.99
+        },
+        {
+          "dt": "2022-10-21",
+          "disdt": "21-Oct-2022",
+          "port": 96041.1,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 147.87
+        },
+        {
+          "dt": "2022-10-28",
+          "disdt": "28-Oct-2022",
+          "port": 92624.15,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 151.73
+        },
+        {
+          "dt": "2022-11-04",
+          "disdt": "04-Nov-2022",
+          "port": 93470.35,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 153.11
+        },
+        {
+          "dt": "2022-11-11",
+          "disdt": "11-Nov-2022",
+          "port": 91997.55,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 150.7
+        },
+        {
+          "dt": "2022-11-18",
+          "disdt": "18-Nov-2022",
+          "port": 88784.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 145.44
+        },
+        {
+          "dt": "2022-11-25",
+          "disdt": "25-Nov-2022",
+          "port": 90628.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 148.46
+        },
+        {
+          "dt": "2022-12-02",
+          "disdt": "02-Dec-2022",
+          "port": 91869.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 150.49
+        },
+        {
+          "dt": "2022-12-09",
+          "disdt": "09-Dec-2022",
+          "port": 92509.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 151.54
+        },
+        {
+          "dt": "2022-12-16",
+          "disdt": "16-Dec-2022",
+          "port": 91466.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 149.83
+        },
+        {
+          "dt": "2022-12-23",
+          "disdt": "23-Dec-2022",
+          "port": 84862.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 139.01
+        },
+        {
+          "dt": "2022-12-30",
+          "disdt": "30-Dec-2022",
+          "port": 89153.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 146.04
+        },
+        {
+          "dt": "2023-01-06",
+          "disdt": "06-Jan-2023",
+          "port": 88676.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 145.26
+        },
+        {
+          "dt": "2023-01-13",
+          "disdt": "13-Jan-2023",
+          "port": 88398.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 144.81
+        },
+        {
+          "dt": "2023-01-20",
+          "disdt": "20-Jan-2023",
+          "port": 90015.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 147.46
+        },
+        {
+          "dt": "2023-01-27",
+          "disdt": "27-Jan-2023",
+          "port": 85756.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 140.48
+        },
+        {
+          "dt": "2023-02-03",
+          "disdt": "03-Feb-2023",
+          "port": 87386.6,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 143.15
+        },
+        {
+          "dt": "2023-02-10",
+          "disdt": "10-Feb-2023",
+          "port": 86392.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 141.52
+        },
+        {
+          "dt": "2023-02-17",
+          "disdt": "17-Feb-2023",
+          "port": 84847.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 138.99
+        },
+        {
+          "dt": "2023-02-24",
+          "disdt": "24-Feb-2023",
+          "port": 82963.7,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 135.9
+        },
+        {
+          "dt": "2023-03-03",
+          "disdt": "03-Mar-2023",
+          "port": 86424.19,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 141.57
+        },
+        {
+          "dt": "2023-03-10",
+          "disdt": "10-Mar-2023",
+          "port": 87705.04,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 143.67
+        },
+        {
+          "dt": "2023-03-17",
+          "disdt": "17-Mar-2023",
+          "port": 85948.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 140.79
+        },
+        {
+          "dt": "2023-03-24",
+          "disdt": "24-Mar-2023",
+          "port": 83895.99,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 137.43
+        },
+        {
+          "dt": "2023-03-31",
+          "disdt": "31-Mar-2023",
+          "port": 83715.71,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 137.14
+        },
+        {
+          "dt": "2023-04-06",
+          "disdt": "06-Apr-2023",
+          "port": 86868.31,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 142.3
+        },
+        {
+          "dt": "2023-04-13",
+          "disdt": "13-Apr-2023",
+          "port": 87459.95,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 143.27
+        },
+        {
+          "dt": "2023-04-21",
+          "disdt": "21-Apr-2023",
+          "port": 88424.95,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 144.85
+        },
+        {
+          "dt": "2023-04-28",
+          "disdt": "28-Apr-2023",
+          "port": 92062.51,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 150.81
+        },
+        {
+          "dt": "2023-05-05",
+          "disdt": "05-May-2023",
+          "port": 92422.36,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 151.4
+        },
+        {
+          "dt": "2023-05-12",
+          "disdt": "12-May-2023",
+          "port": 92161.2,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 150.97
+        },
+        {
+          "dt": "2023-05-19",
+          "disdt": "19-May-2023",
+          "port": 93696.69,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 153.49
+        },
+        {
+          "dt": "2023-05-26",
+          "disdt": "26-May-2023",
+          "port": 83008.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 156.07
+        },
+        {
+          "dt": "2023-06-02",
+          "disdt": "02-Jun-2023",
+          "port": 93294.44,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 154.06
+        },
+        {
+          "dt": "2023-06-09",
+          "disdt": "09-Jun-2023",
+          "port": 83821.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 156.65
+        },
+        {
+          "dt": "2023-06-16",
+          "disdt": "16-Jun-2023",
+          "port": 88529.63,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 165.45
+        },
+        {
+          "dt": "2023-06-23",
+          "disdt": "23-Jun-2023",
+          "port": 86881.54,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 162.37
+        },
+        {
+          "dt": "2023-06-30",
+          "disdt": "30-Jun-2023",
+          "port": 88980.04,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 166.29
+        },
+        {
+          "dt": "2023-07-07",
+          "disdt": "07-Jul-2023",
+          "port": 99628.88,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 168.07
+        },
+        {
+          "dt": "2023-07-14",
+          "disdt": "14-Jul-2023",
+          "port": 87594.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 164.09
+        },
+        {
+          "dt": "2023-07-21",
+          "disdt": "21-Jul-2023",
+          "port": 89169.41,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 167.04
+        },
+        {
+          "dt": "2023-07-28",
+          "disdt": "28-Jul-2023",
+          "port": 98447.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 173.26
+        },
+        {
+          "dt": "2023-08-04",
+          "disdt": "04-Aug-2023",
+          "port": 95801.41,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 179.79
+        },
+        {
+          "dt": "2023-08-11",
+          "disdt": "11-Aug-2023",
+          "port": 97524.67,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 183.02
+        },
+        {
+          "dt": "2023-08-18",
+          "disdt": "18-Aug-2023",
+          "port": 100389.75,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 188.4
+        },
+        {
+          "dt": "2023-08-25",
+          "disdt": "25-Aug-2023",
+          "port": 100479.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 188.57
+        },
+        {
+          "dt": "2023-09-01",
+          "disdt": "01-Sep-2023",
+          "port": 104960.2,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 196.98
+        },
+        {
+          "dt": "2023-09-08",
+          "disdt": "08-Sep-2023",
+          "port": 114165,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 214.25
+        },
+        {
+          "dt": "2023-09-15",
+          "disdt": "15-Sep-2023",
+          "port": 111092.66,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 208.48
+        },
+        {
+          "dt": "2023-09-22",
+          "disdt": "22-Sep-2023",
+          "port": 111582.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 209.4
+        },
+        {
+          "dt": "2023-09-29",
+          "disdt": "29-Sep-2023",
+          "port": 112939.16,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 211.95
+        },
+        {
+          "dt": "2023-10-06",
+          "disdt": "06-Oct-2023",
+          "port": 113336.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 212.7
+        },
+        {
+          "dt": "2023-10-13",
+          "disdt": "13-Oct-2023",
+          "port": 113210.65,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 212.46
+        },
+        {
+          "dt": "2023-10-20",
+          "disdt": "20-Oct-2023",
+          "port": 112543.78,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 211.21
+        },
+        {
+          "dt": "2023-10-27",
+          "disdt": "27-Oct-2023",
+          "port": 109068.01,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 204.68
+        },
+        {
+          "dt": "2023-11-03",
+          "disdt": "03-Nov-2023",
+          "port": 114267.03,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 214.44
+        },
+        {
+          "dt": "2023-11-10",
+          "disdt": "10-Nov-2023",
+          "port": 118171.46,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 221.77
+        },
+        {
+          "dt": "2023-11-17",
+          "disdt": "17-Nov-2023",
+          "port": 121196.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 227.45
+        },
+        {
+          "dt": "2023-11-24",
+          "disdt": "24-Nov-2023",
+          "port": 123008.51,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 230.85
+        },
+        {
+          "dt": "2023-12-01",
+          "disdt": "01-Dec-2023",
+          "port": 126098.98,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 236.65
+        },
+        {
+          "dt": "2023-12-08",
+          "disdt": "08-Dec-2023",
+          "port": 130298.53,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 244.53
+        },
+        {
+          "dt": "2023-12-15",
+          "disdt": "15-Dec-2023",
+          "port": 132179.17,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 248.06
+        },
+        {
+          "dt": "2023-12-22",
+          "disdt": "22-Dec-2023",
+          "port": 130132.93,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 244.22
+        },
+        {
+          "dt": "2023-12-29",
+          "disdt": "29-Dec-2023",
+          "port": 132020.91,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 247.76
+        },
+        {
+          "dt": "2024-01-05",
+          "disdt": "05-Jan-2024",
+          "port": 134918.9,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 253.2
+        },
+        {
+          "dt": "2024-01-12",
+          "disdt": "12-Jan-2024",
+          "port": 144356.85,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 251.97
+        },
+        {
+          "dt": "2024-01-19",
+          "disdt": "19-Jan-2024",
+          "port": 144920.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 252.95
+        },
+        {
+          "dt": "2024-01-25",
+          "disdt": "25-Jan-2024",
+          "port": 146586.94,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 255.86
+        },
+        {
+          "dt": "2024-02-02",
+          "disdt": "02-Feb-2024",
+          "port": 152709.62,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 263.3
+        },
+        {
+          "dt": "2024-02-09",
+          "disdt": "09-Feb-2024",
+          "port": 154539.34,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 266.45
+        },
+        {
+          "dt": "2024-02-16",
+          "disdt": "16-Feb-2024",
+          "port": 171368.29,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 300.8
+        },
+        {
+          "dt": "2024-02-23",
+          "disdt": "23-Feb-2024",
+          "port": 182667.87,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 320.64
+        },
+        {
+          "dt": "2024-03-01",
+          "disdt": "01-Mar-2024",
+          "port": 189936.13,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 333.4
+        },
+        {
+          "dt": "2024-03-07",
+          "disdt": "07-Mar-2024",
+          "port": 194331.87,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 341.11
+        },
+        {
+          "dt": "2024-03-15",
+          "disdt": "15-Mar-2024",
+          "port": 174542.47,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 306.38
+        },
+        {
+          "dt": "2024-03-22",
+          "disdt": "22-Mar-2024",
+          "port": 181610.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 318.78
+        },
+        {
+          "dt": "2024-03-28",
+          "disdt": "28-Mar-2024",
+          "port": 175721.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 308.45
+        },
+        {
+          "dt": "2024-04-05",
+          "disdt": "05-Apr-2024",
+          "port": 187609.22,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 329.31
+        },
+        {
+          "dt": "2024-04-12",
+          "disdt": "12-Apr-2024",
+          "port": 177845.14,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 312.17
+        },
+        {
+          "dt": "2024-04-19",
+          "disdt": "19-Apr-2024",
+          "port": 173530.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 304.6
+        },
+        {
+          "dt": "2024-04-26",
+          "disdt": "26-Apr-2024",
+          "port": 178156.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 312.72
+        },
+        {
+          "dt": "2024-05-03",
+          "disdt": "03-May-2024",
+          "port": 181817.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 319.15
+        },
+        {
+          "dt": "2024-05-10",
+          "disdt": "10-May-2024",
+          "port": 170857.76,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 299.91
+        },
+        {
+          "dt": "2024-05-17",
+          "disdt": "17-May-2024",
+          "port": 178451.35,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 313.24
+        },
+        {
+          "dt": "2024-05-24",
+          "disdt": "24-May-2024",
+          "port": 179578.77,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 315.22
+        },
+        {
+          "dt": "2024-05-31",
+          "disdt": "31-May-2024",
+          "port": 188862.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 331.51
+        },
+        {
+          "dt": "2024-06-07",
+          "disdt": "07-Jun-2024",
+          "port": 194603.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 325.45
+        },
+        {
+          "dt": "2024-06-14",
+          "disdt": "14-Jun-2024",
+          "port": 216187.05,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 361.55
+        },
+        {
+          "dt": "2024-06-21",
+          "disdt": "21-Jun-2024",
+          "port": 212446.82,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 355.29
+        },
+        {
+          "dt": "2024-06-28",
+          "disdt": "28-Jun-2024",
+          "port": 217951.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 364.5
+        },
+        {
+          "dt": "2024-07-05",
+          "disdt": "05-Jul-2024",
+          "port": 222081.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 371.41
+        },
+        {
+          "dt": "2024-07-12",
+          "disdt": "12-Jul-2024",
+          "port": 221456.45,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 370.36
+        },
+        {
+          "dt": "2024-07-19",
+          "disdt": "19-Jul-2024",
+          "port": 213710.85,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 357.41
+        },
+        {
+          "dt": "2024-07-26",
+          "disdt": "26-Jul-2024",
+          "port": 223493.52,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 373.77
+        },
+        {
+          "dt": "2024-08-02",
+          "disdt": "02-Aug-2024",
+          "port": 220779.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 369.23
+        },
+        {
+          "dt": "2024-08-09",
+          "disdt": "09-Aug-2024",
+          "port": 220268.59,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 367.18
+        },
+        {
+          "dt": "2024-08-16",
+          "disdt": "16-Aug-2024",
+          "port": 226594.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 377.65
+        },
+        {
+          "dt": "2024-08-23",
+          "disdt": "23-Aug-2024",
+          "port": 237546.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.9
+        },
+        {
+          "dt": "2024-08-30",
+          "disdt": "30-Aug-2024",
+          "port": 237013.81,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.02
+        },
+        {
+          "dt": "2024-09-06",
+          "disdt": "06-Sep-2024",
+          "port": 238499.02,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        },
+        {
+          "dt": "2024-09-11",
+          "disdt": "11-Sep-2024",
+          "port": 231473.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        }
+      ]
+    },
+    "inception": {
+      "port_prevclose": 185554,
+      "idx_prevclose": 100,
+      "sensex": 217.87,
+      "portret": 60.23,
+      "compret": 74.58,
+      "sensexdir": 1,
+      "portdir": 1,
+      "compdir": 1,
+      "low": 49537.53,
+      "high": 347776.96,
+      "plotgraph": [
+        {
+          "dt": "2016-12-30",
+          "disdt": "30-Dec-2016",
+          "port": 185554,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 100
+        },
+        {
+          "dt": "2017-01-06",
+          "disdt": "06-Jan-2017",
+          "port": 189088,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 101.9
+        },
+        {
+          "dt": "2017-01-13",
+          "disdt": "13-Jan-2017",
+          "port": 191179,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 103.03
+        },
+        {
+          "dt": "2017-01-20",
+          "disdt": "20-Jan-2017",
+          "port": 126982.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.72
+        },
+        {
+          "dt": "2017-01-27",
+          "disdt": "27-Jan-2017",
+          "port": 168083,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.93
+        },
+        {
+          "dt": "2017-02-03",
+          "disdt": "03-Feb-2017",
+          "port": 188583.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 103.92
+        },
+        {
+          "dt": "2017-02-10",
+          "disdt": "10-Feb-2017",
+          "port": 108990.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.18
+        },
+        {
+          "dt": "2017-02-17",
+          "disdt": "17-Feb-2017",
+          "port": 83742,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.93
+        },
+        {
+          "dt": "2017-02-23",
+          "disdt": "23-Feb-2017",
+          "port": 83806.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 105.01
+        },
+        {
+          "dt": "2017-03-03",
+          "disdt": "03-Mar-2017",
+          "port": 90418,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.43
+        },
+        {
+          "dt": "2017-03-10",
+          "disdt": "10-Mar-2017",
+          "port": 129775.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.83
+        },
+        {
+          "dt": "2017-03-17",
+          "disdt": "17-Mar-2017",
+          "port": 63415,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.54
+        },
+        {
+          "dt": "2017-03-24",
+          "disdt": "24-Mar-2017",
+          "port": 90169.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.87
+        },
+        {
+          "dt": "2017-03-31",
+          "disdt": "31-Mar-2017",
+          "port": 101524,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.94
+        },
+        {
+          "dt": "2017-04-07",
+          "disdt": "07-Apr-2017",
+          "port": 101971.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.39
+        },
+        {
+          "dt": "2017-04-13",
+          "disdt": "13-Apr-2017",
+          "port": 102866.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.28
+        },
+        {
+          "dt": "2017-04-21",
+          "disdt": "21-Apr-2017",
+          "port": 100375.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.63
+        },
+        {
+          "dt": "2017-04-28",
+          "disdt": "28-Apr-2017",
+          "port": 133462.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.14
+        },
+        {
+          "dt": "2017-05-05",
+          "disdt": "05-May-2017",
+          "port": 123780.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.1
+        },
+        {
+          "dt": "2017-05-12",
+          "disdt": "12-May-2017",
+          "port": 151076.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.06
+        },
+        {
+          "dt": "2017-05-19",
+          "disdt": "19-May-2017",
+          "port": 109460,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.96
+        },
+        {
+          "dt": "2017-05-26",
+          "disdt": "26-May-2017",
+          "port": 126971,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.38
+        },
+        {
+          "dt": "2017-06-02",
+          "disdt": "02-Jun-2017",
+          "port": 193646.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 101.53
+        },
+        {
+          "dt": "2017-06-09",
+          "disdt": "09-Jun-2017",
+          "port": 179799.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.72
+        },
+        {
+          "dt": "2017-06-16",
+          "disdt": "16-Jun-2017",
+          "port": 123769.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.61
+        },
+        {
+          "dt": "2017-06-23",
+          "disdt": "23-Jun-2017",
+          "port": 115664,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.34
+        },
+        {
+          "dt": "2017-06-30",
+          "disdt": "30-Jun-2017",
+          "port": 113816.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.71
+        },
+        {
+          "dt": "2017-07-07",
+          "disdt": "07-Jul-2017",
+          "port": 118072.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.47
+        },
+        {
+          "dt": "2017-07-14",
+          "disdt": "14-Jul-2017",
+          "port": 116570,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.14
+        },
+        {
+          "dt": "2017-07-21",
+          "disdt": "21-Jul-2017",
+          "port": 114244.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.08
+        },
+        {
+          "dt": "2017-07-28",
+          "disdt": "28-Jul-2017",
+          "port": 117697.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.13
+        },
+        {
+          "dt": "2017-08-04",
+          "disdt": "04-Aug-2017",
+          "port": 235174.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 103.28
+        },
+        {
+          "dt": "2017-08-11",
+          "disdt": "11-Aug-2017",
+          "port": 222188.1,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 97.58
+        },
+        {
+          "dt": "2017-08-18",
+          "disdt": "18-Aug-2017",
+          "port": 224206.2,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 98.47
+        },
+        {
+          "dt": "2017-08-24",
+          "disdt": "24-Aug-2017",
+          "port": 225030.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 98.83
+        },
+        {
+          "dt": "2017-09-01",
+          "disdt": "01-Sep-2017",
+          "port": 218639,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 100.16
+        },
+        {
+          "dt": "2017-09-08",
+          "disdt": "08-Sep-2017",
+          "port": 221789.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 101.61
+        },
+        {
+          "dt": "2017-09-15",
+          "disdt": "15-Sep-2017",
+          "port": 229046.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 104.93
+        },
+        {
+          "dt": "2017-09-22",
+          "disdt": "22-Sep-2017",
+          "port": 222519.3,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 101.94
+        },
+        {
+          "dt": "2017-09-29",
+          "disdt": "29-Sep-2017",
+          "port": 218679.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 100.18
+        },
+        {
+          "dt": "2017-10-06",
+          "disdt": "06-Oct-2017",
+          "port": 221255,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 101.36
+        },
+        {
+          "dt": "2017-10-13",
+          "disdt": "13-Oct-2017",
+          "port": 220881.9,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 101.19
+        },
+        {
+          "dt": "2017-10-18",
+          "disdt": "18-Oct-2017",
+          "port": 221614.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 101.53
+        },
+        {
+          "dt": "2017-10-27",
+          "disdt": "27-Oct-2017",
+          "port": 232779.4,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 106.64
+        },
+        {
+          "dt": "2017-11-03",
+          "disdt": "03-Nov-2017",
+          "port": 233953,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 107.18
+        },
+        {
+          "dt": "2017-11-10",
+          "disdt": "10-Nov-2017",
+          "port": 233991.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 107.2
+        },
+        {
+          "dt": "2017-11-17",
+          "disdt": "17-Nov-2017",
+          "port": 228817,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 104.83
+        },
+        {
+          "dt": "2017-11-24",
+          "disdt": "24-Nov-2017",
+          "port": 228697.2,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 104.77
+        },
+        {
+          "dt": "2017-12-01",
+          "disdt": "01-Dec-2017",
+          "port": 212316.3,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 105.28
+        },
+        {
+          "dt": "2017-12-08",
+          "disdt": "08-Dec-2017",
+          "port": 214381.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 106.31
+        },
+        {
+          "dt": "2017-12-15",
+          "disdt": "15-Dec-2017",
+          "port": 212959.5,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 105.6
+        },
+        {
+          "dt": "2017-12-22",
+          "disdt": "22-Dec-2017",
+          "port": 221527.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 109.85
+        },
+        {
+          "dt": "2017-12-29",
+          "disdt": "29-Dec-2017",
+          "port": 221338.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 109.76
+        },
+        {
+          "dt": "2018-01-05",
+          "disdt": "05-Jan-2018",
+          "port": 228909.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 113.51
+        },
+        {
+          "dt": "2018-01-12",
+          "disdt": "12-Jan-2018",
+          "port": 133219,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 116.83
+        },
+        {
+          "dt": "2018-01-19",
+          "disdt": "19-Jan-2018",
+          "port": 129908.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 113.93
+        },
+        {
+          "dt": "2018-01-25",
+          "disdt": "25-Jan-2018",
+          "port": 130877.05,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 114.78
+        },
+        {
+          "dt": "2018-02-02",
+          "disdt": "02-Feb-2018",
+          "port": 124191.6,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 108.92
+        },
+        {
+          "dt": "2018-02-09",
+          "disdt": "09-Feb-2018",
+          "port": 123872.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 108.64
+        },
+        {
+          "dt": "2018-02-16",
+          "disdt": "16-Feb-2018",
+          "port": 125001.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 109.63
+        },
+        {
+          "dt": "2018-02-23",
+          "disdt": "23-Feb-2018",
+          "port": 124509.05,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 109.2
+        },
+        {
+          "dt": "2018-03-01",
+          "disdt": "01-Mar-2018",
+          "port": 126624.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 111.05
+        },
+        {
+          "dt": "2018-03-09",
+          "disdt": "09-Mar-2018",
+          "port": 122131.45,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 107.11
+        },
+        {
+          "dt": "2018-03-16",
+          "disdt": "16-Mar-2018",
+          "port": 118623.6,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.03
+        },
+        {
+          "dt": "2018-03-23",
+          "disdt": "23-Mar-2018",
+          "port": 115635.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.41
+        },
+        {
+          "dt": "2018-03-28",
+          "disdt": "28-Mar-2018",
+          "port": 118893.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.27
+        },
+        {
+          "dt": "2018-04-06",
+          "disdt": "06-Apr-2018",
+          "port": 120970.7,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 106.09
+        },
+        {
+          "dt": "2018-04-13",
+          "disdt": "13-Apr-2018",
+          "port": 122959.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 107.84
+        },
+        {
+          "dt": "2018-04-20",
+          "disdt": "20-Apr-2018",
+          "port": 123379.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 108.2
+        },
+        {
+          "dt": "2018-04-27",
+          "disdt": "27-Apr-2018",
+          "port": 123031.14,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 107.84
+        },
+        {
+          "dt": "2018-05-04",
+          "disdt": "04-May-2018",
+          "port": 121132.84,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 106.17
+        },
+        {
+          "dt": "2018-05-11",
+          "disdt": "11-May-2018",
+          "port": 120838.59,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 105.91
+        },
+        {
+          "dt": "2018-05-18",
+          "disdt": "18-May-2018",
+          "port": 117464.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.96
+        },
+        {
+          "dt": "2018-05-25",
+          "disdt": "25-May-2018",
+          "port": 118545.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.9
+        },
+        {
+          "dt": "2018-06-01",
+          "disdt": "01-Jun-2018",
+          "port": 122871.39,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 107.7
+        },
+        {
+          "dt": "2018-06-08",
+          "disdt": "08-Jun-2018",
+          "port": 120737.71,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 105.83
+        },
+        {
+          "dt": "2018-06-15",
+          "disdt": "15-Jun-2018",
+          "port": 121025.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 106.08
+        },
+        {
+          "dt": "2018-06-22",
+          "disdt": "22-Jun-2018",
+          "port": 116812.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.39
+        },
+        {
+          "dt": "2018-06-29",
+          "disdt": "29-Jun-2018",
+          "port": 113829.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 99.77
+        },
+        {
+          "dt": "2018-07-06",
+          "disdt": "06-Jul-2018",
+          "port": 114504,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.36
+        },
+        {
+          "dt": "2018-07-13",
+          "disdt": "13-Jul-2018",
+          "port": 112378.04,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 98.5
+        },
+        {
+          "dt": "2018-07-20",
+          "disdt": "20-Jul-2018",
+          "port": 109370.05,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 95.86
+        },
+        {
+          "dt": "2018-07-27",
+          "disdt": "27-Jul-2018",
+          "port": 115414.27,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.16
+        },
+        {
+          "dt": "2018-08-03",
+          "disdt": "03-Aug-2018",
+          "port": 117331.18,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.84
+        },
+        {
+          "dt": "2018-08-10",
+          "disdt": "10-Aug-2018",
+          "port": 117759.43,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.22
+        },
+        {
+          "dt": "2018-08-17",
+          "disdt": "17-Aug-2018",
+          "port": 118385.3,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.76
+        },
+        {
+          "dt": "2018-08-24",
+          "disdt": "24-Aug-2018",
+          "port": 122886.76,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 107.71
+        },
+        {
+          "dt": "2018-08-31",
+          "disdt": "31-Aug-2018",
+          "port": 127811.79,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 112.03
+        },
+        {
+          "dt": "2018-09-07",
+          "disdt": "07-Sep-2018",
+          "port": 123787.48,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 108.5
+        },
+        {
+          "dt": "2018-09-14",
+          "disdt": "14-Sep-2018",
+          "port": 122049.31,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 106.98
+        },
+        {
+          "dt": "2018-09-21",
+          "disdt": "21-Sep-2018",
+          "port": 116985.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.54
+        },
+        {
+          "dt": "2018-09-28",
+          "disdt": "28-Sep-2018",
+          "port": 111570.82,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 97.79
+        },
+        {
+          "dt": "2018-10-05",
+          "disdt": "05-Oct-2018",
+          "port": 106858.11,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 93.66
+        },
+        {
+          "dt": "2018-10-12",
+          "disdt": "12-Oct-2018",
+          "port": 111148.95,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 97.42
+        },
+        {
+          "dt": "2018-10-19",
+          "disdt": "19-Oct-2018",
+          "port": 111208.62,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 97.47
+        },
+        {
+          "dt": "2018-10-26",
+          "disdt": "26-Oct-2018",
+          "port": 110735.33,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 97.06
+        },
+        {
+          "dt": "2018-11-02",
+          "disdt": "02-Nov-2018",
+          "port": 115656.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.37
+        },
+        {
+          "dt": "2018-11-09",
+          "disdt": "09-Nov-2018",
+          "port": 115813.72,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.51
+        },
+        {
+          "dt": "2018-11-16",
+          "disdt": "16-Nov-2018",
+          "port": 114849,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.66
+        },
+        {
+          "dt": "2018-11-22",
+          "disdt": "22-Nov-2018",
+          "port": 101234.64,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.05
+        },
+        {
+          "dt": "2018-11-30",
+          "disdt": "30-Nov-2018",
+          "port": 98798.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 98.62
+        },
+        {
+          "dt": "2018-12-07",
+          "disdt": "07-Dec-2018",
+          "port": 112035.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 98.1
+        },
+        {
+          "dt": "2018-12-14",
+          "disdt": "14-Dec-2018",
+          "port": 113173.53,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 99.09
+        },
+        {
+          "dt": "2018-12-21",
+          "disdt": "21-Dec-2018",
+          "port": 117822.34,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.16
+        },
+        {
+          "dt": "2018-12-28",
+          "disdt": "28-Dec-2018",
+          "port": 117626.3,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.99
+        },
+        {
+          "dt": "2019-01-04",
+          "disdt": "04-Jan-2019",
+          "port": 116670.97,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.16
+        },
+        {
+          "dt": "2019-01-11",
+          "disdt": "11-Jan-2019",
+          "port": 115912.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.49
+        },
+        {
+          "dt": "2019-01-18",
+          "disdt": "18-Jan-2019",
+          "port": 114782.26,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.5
+        },
+        {
+          "dt": "2019-01-25",
+          "disdt": "25-Jan-2019",
+          "port": 111094.95,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 97.27
+        },
+        {
+          "dt": "2019-02-01",
+          "disdt": "01-Feb-2019",
+          "port": 112625.88,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 98.61
+        },
+        {
+          "dt": "2019-02-08",
+          "disdt": "08-Feb-2019",
+          "port": 106663.54,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 93.39
+        },
+        {
+          "dt": "2019-02-15",
+          "disdt": "15-Feb-2019",
+          "port": 105514.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 92.39
+        },
+        {
+          "dt": "2019-02-22",
+          "disdt": "22-Feb-2019",
+          "port": 106993.66,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 93.68
+        },
+        {
+          "dt": "2019-03-01",
+          "disdt": "01-Mar-2019",
+          "port": 112049.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 98.11
+        },
+        {
+          "dt": "2019-03-08",
+          "disdt": "08-Mar-2019",
+          "port": 114053.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 99.86
+        },
+        {
+          "dt": "2019-03-15",
+          "disdt": "15-Mar-2019",
+          "port": 116971.44,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.42
+        },
+        {
+          "dt": "2019-03-22",
+          "disdt": "22-Mar-2019",
+          "port": 117088.74,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.52
+        },
+        {
+          "dt": "2019-03-29",
+          "disdt": "29-Mar-2019",
+          "port": 119378.32,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.53
+        },
+        {
+          "dt": "2019-04-05",
+          "disdt": "05-Apr-2019",
+          "port": 118774.84,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104
+        },
+        {
+          "dt": "2019-04-12",
+          "disdt": "12-Apr-2019",
+          "port": 118116.21,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.42
+        },
+        {
+          "dt": "2019-04-18",
+          "disdt": "18-Apr-2019",
+          "port": 120048.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 105.42
+        },
+        {
+          "dt": "2019-04-26",
+          "disdt": "26-Apr-2019",
+          "port": 118652,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.3
+        },
+        {
+          "dt": "2019-05-03",
+          "disdt": "03-May-2019",
+          "port": 117085.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.92
+        },
+        {
+          "dt": "2019-05-10",
+          "disdt": "10-May-2019",
+          "port": 115351.98,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.4
+        },
+        {
+          "dt": "2019-05-17",
+          "disdt": "17-May-2019",
+          "port": 114526.6,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.67
+        },
+        {
+          "dt": "2019-05-24",
+          "disdt": "24-May-2019",
+          "port": 108156.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 109.15
+        },
+        {
+          "dt": "2019-05-31",
+          "disdt": "31-May-2019",
+          "port": 109110,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 110.11
+        },
+        {
+          "dt": "2019-06-07",
+          "disdt": "07-Jun-2019",
+          "port": 109977.01,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 110.99
+        },
+        {
+          "dt": "2019-06-14",
+          "disdt": "14-Jun-2019",
+          "port": 109505.02,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 110.51
+        },
+        {
+          "dt": "2019-06-21",
+          "disdt": "21-Jun-2019",
+          "port": 108105.45,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 109.1
+        },
+        {
+          "dt": "2019-06-28",
+          "disdt": "28-Jun-2019",
+          "port": 110271.38,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 111.28
+        },
+        {
+          "dt": "2019-07-05",
+          "disdt": "05-Jul-2019",
+          "port": 106961.96,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 107.94
+        },
+        {
+          "dt": "2019-07-12",
+          "disdt": "12-Jul-2019",
+          "port": 102352.16,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.29
+        },
+        {
+          "dt": "2019-07-19",
+          "disdt": "19-Jul-2019",
+          "port": 341533.29,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 99.22
+        },
+        {
+          "dt": "2019-07-26",
+          "disdt": "26-Jul-2019",
+          "port": 332724.07,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 96.66
+        },
+        {
+          "dt": "2019-08-02",
+          "disdt": "02-Aug-2019",
+          "port": 326103.31,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 94.74
+        },
+        {
+          "dt": "2019-08-09",
+          "disdt": "09-Aug-2019",
+          "port": 332998,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 96.74
+        },
+        {
+          "dt": "2019-08-16",
+          "disdt": "16-Aug-2019",
+          "port": 333473.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 96.88
+        },
+        {
+          "dt": "2019-08-23",
+          "disdt": "23-Aug-2019",
+          "port": 324530.24,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 94.28
+        },
+        {
+          "dt": "2019-08-30",
+          "disdt": "30-Aug-2019",
+          "port": 340018.77,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 98.78
+        },
+        {
+          "dt": "2019-09-06",
+          "disdt": "06-Sep-2019",
+          "port": 335159.38,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 97.37
+        },
+        {
+          "dt": "2019-09-13",
+          "disdt": "13-Sep-2019",
+          "port": 321243.75,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 97.99
+        },
+        {
+          "dt": "2019-09-20",
+          "disdt": "20-Sep-2019",
+          "port": 339718.25,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 103.63
+        },
+        {
+          "dt": "2019-09-27",
+          "disdt": "27-Sep-2019",
+          "port": 345205.35,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 105.3
+        },
+        {
+          "dt": "2019-10-04",
+          "disdt": "04-Oct-2019",
+          "port": 342836.55,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 104.58
+        },
+        {
+          "dt": "2019-10-11",
+          "disdt": "11-Oct-2019",
+          "port": 347776.96,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 106.09
+        },
+        {
+          "dt": "2019-10-18",
+          "disdt": "18-Oct-2019",
+          "port": 344045.04,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 104.95
+        },
+        {
+          "dt": "2019-10-25",
+          "disdt": "25-Oct-2019",
+          "port": 334956.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 102.18
+        },
+        {
+          "dt": "2019-11-01",
+          "disdt": "01-Nov-2019",
+          "port": 341773.54,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 104.26
+        },
+        {
+          "dt": "2019-11-08",
+          "disdt": "08-Nov-2019",
+          "port": 341785.38,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 104.26
+        },
+        {
+          "dt": "2019-11-15",
+          "disdt": "15-Nov-2019",
+          "port": 336522.6,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 102.65
+        },
+        {
+          "dt": "2019-11-22",
+          "disdt": "22-Nov-2019",
+          "port": 341078.07,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 104.04
+        },
+        {
+          "dt": "2019-11-29",
+          "disdt": "29-Nov-2019",
+          "port": 219382.28,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 110.78
+        },
+        {
+          "dt": "2019-12-06",
+          "disdt": "06-Dec-2019",
+          "port": 80049.11,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 108.37
+        },
+        {
+          "dt": "2019-12-13",
+          "disdt": "13-Dec-2019",
+          "port": 81019.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 109.69
+        },
+        {
+          "dt": "2019-12-20",
+          "disdt": "20-Dec-2019",
+          "port": 81101.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 109.8
+        },
+        {
+          "dt": "2019-12-27",
+          "disdt": "27-Dec-2019",
+          "port": 82603.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 111.83
+        },
+        {
+          "dt": "2020-01-03",
+          "disdt": "03-Jan-2020",
+          "port": 85020.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 115.1
+        },
+        {
+          "dt": "2020-01-10",
+          "disdt": "10-Jan-2020",
+          "port": 85009.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 115.09
+        },
+        {
+          "dt": "2020-01-17",
+          "disdt": "17-Jan-2020",
+          "port": 85872.99,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 116.26
+        },
+        {
+          "dt": "2020-01-24",
+          "disdt": "24-Jan-2020",
+          "port": 85348.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 115.55
+        },
+        {
+          "dt": "2020-01-31",
+          "disdt": "31-Jan-2020",
+          "port": 84017.49,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 113.75
+        },
+        {
+          "dt": "2020-02-07",
+          "disdt": "07-Feb-2020",
+          "port": 83831.43,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 113.49
+        },
+        {
+          "dt": "2020-02-14",
+          "disdt": "14-Feb-2020",
+          "port": 79812.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 108.05
+        },
+        {
+          "dt": "2020-02-28",
+          "disdt": "28-Feb-2020",
+          "port": 74466.03,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.82
+        },
+        {
+          "dt": "2020-03-06",
+          "disdt": "06-Mar-2020",
+          "port": 72917.26,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 98.72
+        },
+        {
+          "dt": "2020-03-13",
+          "disdt": "13-Mar-2020",
+          "port": 66230.19,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 89.67
+        },
+        {
+          "dt": "2020-03-20",
+          "disdt": "20-Mar-2020",
+          "port": 56117.78,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 75.97
+        },
+        {
+          "dt": "2020-03-27",
+          "disdt": "27-Mar-2020",
+          "port": 51659.68,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 69.94
+        },
+        {
+          "dt": "2020-04-03",
+          "disdt": "03-Apr-2020",
+          "port": 49537.53,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 67.07
+        },
+        {
+          "dt": "2020-04-17",
+          "disdt": "17-Apr-2020",
+          "port": 56900.97,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 77.03
+        },
+        {
+          "dt": "2020-04-24",
+          "disdt": "24-Apr-2020",
+          "port": 53068.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 71.85
+        },
+        {
+          "dt": "2020-05-08",
+          "disdt": "08-May-2020",
+          "port": 52668.34,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 71.3
+        },
+        {
+          "dt": "2020-05-15",
+          "disdt": "15-May-2020",
+          "port": 54764.22,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 74.14
+        },
+        {
+          "dt": "2020-05-22",
+          "disdt": "22-May-2020",
+          "port": 51466.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 69.68
+        },
+        {
+          "dt": "2020-05-29",
+          "disdt": "29-May-2020",
+          "port": 55796.61,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 75.54
+        },
+        {
+          "dt": "2020-06-05",
+          "disdt": "05-Jun-2020",
+          "port": 57776.04,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 78.22
+        },
+        {
+          "dt": "2020-06-12",
+          "disdt": "12-Jun-2020",
+          "port": 57269.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 77.53
+        },
+        {
+          "dt": "2020-06-19",
+          "disdt": "19-Jun-2020",
+          "port": 56665.61,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 76.72
+        },
+        {
+          "dt": "2020-06-26",
+          "disdt": "26-Jun-2020",
+          "port": 58600.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 79.34
+        },
+        {
+          "dt": "2020-07-03",
+          "disdt": "03-Jul-2020",
+          "port": 57044.81,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 77.23
+        },
+        {
+          "dt": "2020-07-10",
+          "disdt": "10-Jul-2020",
+          "port": 56936,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 77.08
+        },
+        {
+          "dt": "2020-07-17",
+          "disdt": "17-Jul-2020",
+          "port": 55690,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 75.4
+        },
+        {
+          "dt": "2020-07-24",
+          "disdt": "24-Jul-2020",
+          "port": 55983.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 75.79
+        },
+        {
+          "dt": "2020-07-31",
+          "disdt": "31-Jul-2020",
+          "port": 54729.01,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 74.09
+        },
+        {
+          "dt": "2020-08-07",
+          "disdt": "07-Aug-2020",
+          "port": 57312.95,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 77.59
+        },
+        {
+          "dt": "2020-08-14",
+          "disdt": "14-Aug-2020",
+          "port": 59659.13,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 80.77
+        },
+        {
+          "dt": "2020-08-21",
+          "disdt": "21-Aug-2020",
+          "port": 62018.07,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 83.96
+        },
+        {
+          "dt": "2020-08-28",
+          "disdt": "28-Aug-2020",
+          "port": 63544.76,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 86.03
+        },
+        {
+          "dt": "2020-09-04",
+          "disdt": "04-Sep-2020",
+          "port": 60532.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 81.95
+        },
+        {
+          "dt": "2020-09-11",
+          "disdt": "11-Sep-2020",
+          "port": 58239.12,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 78.85
+        },
+        {
+          "dt": "2020-09-18",
+          "disdt": "18-Sep-2020",
+          "port": 58697.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 79.47
+        },
+        {
+          "dt": "2020-09-25",
+          "disdt": "25-Sep-2020",
+          "port": 55260.44,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 74.81
+        },
+        {
+          "dt": "2020-10-09",
+          "disdt": "09-Oct-2020",
+          "port": 57310.83,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 77.59
+        },
+        {
+          "dt": "2020-10-16",
+          "disdt": "16-Oct-2020",
+          "port": 55314.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 74.89
+        },
+        {
+          "dt": "2020-10-23",
+          "disdt": "23-Oct-2020",
+          "port": 58259.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 78.87
+        },
+        {
+          "dt": "2020-10-30",
+          "disdt": "30-Oct-2020",
+          "port": 57355,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 77.65
+        },
+        {
+          "dt": "2020-11-06",
+          "disdt": "06-Nov-2020",
+          "port": 61024.3,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 82.62
+        },
+        {
+          "dt": "2020-11-13",
+          "disdt": "13-Nov-2020",
+          "port": 68280.6,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 92.44
+        },
+        {
+          "dt": "2020-11-20",
+          "disdt": "20-Nov-2020",
+          "port": 68325.47,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 92.5
+        },
+        {
+          "dt": "2020-11-27",
+          "disdt": "27-Nov-2020",
+          "port": 71183.91,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 96.37
+        },
+        {
+          "dt": "2020-12-04",
+          "disdt": "04-Dec-2020",
+          "port": 73989.78,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.17
+        },
+        {
+          "dt": "2020-12-11",
+          "disdt": "11-Dec-2020",
+          "port": 76149.68,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.09
+        },
+        {
+          "dt": "2020-12-18",
+          "disdt": "18-Dec-2020",
+          "port": 77725.36,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 105.23
+        },
+        {
+          "dt": "2021-01-01",
+          "disdt": "01-Jan-2021",
+          "port": 76878.03,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.08
+        },
+        {
+          "dt": "2021-01-08",
+          "disdt": "08-Jan-2021",
+          "port": 80599.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 109.12
+        },
+        {
+          "dt": "2021-01-15",
+          "disdt": "15-Jan-2021",
+          "port": 79624.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 107.8
+        },
+        {
+          "dt": "2021-01-22",
+          "disdt": "22-Jan-2021",
+          "port": 77396.06,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 104.78
+        },
+        {
+          "dt": "2021-01-29",
+          "disdt": "29-Jan-2021",
+          "port": 74572.7,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 100.96
+        },
+        {
+          "dt": "2021-02-05",
+          "disdt": "05-Feb-2021",
+          "port": 81186.24,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 109.91
+        },
+        {
+          "dt": "2021-02-12",
+          "disdt": "12-Feb-2021",
+          "port": 78883.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 106.8
+        },
+        {
+          "dt": "2021-02-19",
+          "disdt": "19-Feb-2021",
+          "port": 78996.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 106.95
+        },
+        {
+          "dt": "2021-02-26",
+          "disdt": "26-Feb-2021",
+          "port": 78325.88,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 106.04
+        },
+        {
+          "dt": "2021-03-05",
+          "disdt": "05-Mar-2021",
+          "port": 80005.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 108.31
+        },
+        {
+          "dt": "2021-03-12",
+          "disdt": "12-Mar-2021",
+          "port": 81264.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 110.02
+        },
+        {
+          "dt": "2021-03-19",
+          "disdt": "19-Mar-2021",
+          "port": 76571.99,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 103.67
+        },
+        {
+          "dt": "2021-03-26",
+          "disdt": "26-Mar-2021",
+          "port": 73178.23,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 99.07
+        },
+        {
+          "dt": "2021-04-09",
+          "disdt": "09-Apr-2021",
+          "port": 75389.47,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 102.07
+        },
+        {
+          "dt": "2021-04-16",
+          "disdt": "16-Apr-2021",
+          "port": 72573.97,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 98.25
+        },
+        {
+          "dt": "2021-04-23",
+          "disdt": "23-Apr-2021",
+          "port": 75299.76,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 101.94
+        },
+        {
+          "dt": "2021-04-30",
+          "disdt": "30-Apr-2021",
+          "port": 80318.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 108.74
+        },
+        {
+          "dt": "2021-05-07",
+          "disdt": "07-May-2021",
+          "port": 81148.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 109.86
+        },
+        {
+          "dt": "2021-05-14",
+          "disdt": "14-May-2021",
+          "port": 82826.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 112.13
+        },
+        {
+          "dt": "2021-05-21",
+          "disdt": "21-May-2021",
+          "port": 83785.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 113.43
+        },
+        {
+          "dt": "2021-05-28",
+          "disdt": "28-May-2021",
+          "port": 84325.7,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 114.16
+        },
+        {
+          "dt": "2021-06-04",
+          "disdt": "04-Jun-2021",
+          "port": 87206.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 118.06
+        },
+        {
+          "dt": "2021-06-11",
+          "disdt": "11-Jun-2021",
+          "port": 90011.82,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 121.86
+        },
+        {
+          "dt": "2021-06-18",
+          "disdt": "18-Jun-2021",
+          "port": 86300.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 116.84
+        },
+        {
+          "dt": "2021-06-25",
+          "disdt": "25-Jun-2021",
+          "port": 86767.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 117.47
+        },
+        {
+          "dt": "2021-07-02",
+          "disdt": "02-Jul-2021",
+          "port": 85612.51,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 115.91
+        },
+        {
+          "dt": "2021-07-09",
+          "disdt": "09-Jul-2021",
+          "port": 86929.61,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 117.69
+        },
+        {
+          "dt": "2021-07-16",
+          "disdt": "16-Jul-2021",
+          "port": 85812.45,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 116.18
+        },
+        {
+          "dt": "2021-07-23",
+          "disdt": "23-Jul-2021",
+          "port": 77776.46,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 116.02
+        },
+        {
+          "dt": "2021-07-30",
+          "disdt": "30-Jul-2021",
+          "port": 78113.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 116.52
+        },
+        {
+          "dt": "2021-08-06",
+          "disdt": "06-Aug-2021",
+          "port": 81088.7,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 120.96
+        },
+        {
+          "dt": "2021-08-13",
+          "disdt": "13-Aug-2021",
+          "port": 87512,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 130.54
+        },
+        {
+          "dt": "2021-08-20",
+          "disdt": "20-Aug-2021",
+          "port": 81892.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 122.47
+        },
+        {
+          "dt": "2021-08-27",
+          "disdt": "27-Aug-2021",
+          "port": 83031.3,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 124.17
+        },
+        {
+          "dt": "2021-09-03",
+          "disdt": "03-Sep-2021",
+          "port": 86650.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 129.58
+        },
+        {
+          "dt": "2021-09-17",
+          "disdt": "17-Sep-2021",
+          "port": 91197.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 136.38
+        },
+        {
+          "dt": "2021-09-24",
+          "disdt": "24-Sep-2021",
+          "port": 91742.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 137.2
+        },
+        {
+          "dt": "2021-10-01",
+          "disdt": "01-Oct-2021",
+          "port": 94365,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 141.12
+        },
+        {
+          "dt": "2021-10-08",
+          "disdt": "08-Oct-2021",
+          "port": 96523.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 144.35
+        },
+        {
+          "dt": "2021-10-22",
+          "disdt": "22-Oct-2021",
+          "port": 95339.45,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 142.58
+        },
+        {
+          "dt": "2021-10-29",
+          "disdt": "29-Oct-2021",
+          "port": 95668.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 143.07
+        },
+        {
+          "dt": "2021-11-12",
+          "disdt": "12-Nov-2021",
+          "port": 96847.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 144.83
+        },
+        {
+          "dt": "2021-11-26",
+          "disdt": "26-Nov-2021",
+          "port": 87848.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 131.38
+        },
+        {
+          "dt": "2021-12-03",
+          "disdt": "03-Dec-2021",
+          "port": 88737.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 132.7
+        },
+        {
+          "dt": "2021-12-10",
+          "disdt": "10-Dec-2021",
+          "port": 91382,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 136.66
+        },
+        {
+          "dt": "2021-12-17",
+          "disdt": "17-Dec-2021",
+          "port": 88037.45,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 131.66
+        },
+        {
+          "dt": "2021-12-24",
+          "disdt": "24-Dec-2021",
+          "port": 88456.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 132.29
+        },
+        {
+          "dt": "2021-12-31",
+          "disdt": "31-Dec-2021",
+          "port": 100695.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 150.59
+        },
+        {
+          "dt": "2022-01-07",
+          "disdt": "07-Jan-2022",
+          "port": 99380.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 148.62
+        },
+        {
+          "dt": "2022-01-14",
+          "disdt": "14-Jan-2022",
+          "port": 104102.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 155.68
+        },
+        {
+          "dt": "2022-01-21",
+          "disdt": "21-Jan-2022",
+          "port": 100671.7,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 150.55
+        },
+        {
+          "dt": "2022-01-28",
+          "disdt": "28-Jan-2022",
+          "port": 98444.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 147.22
+        },
+        {
+          "dt": "2022-02-04",
+          "disdt": "04-Feb-2022",
+          "port": 98585.7,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 147.43
+        },
+        {
+          "dt": "2022-02-11",
+          "disdt": "11-Feb-2022",
+          "port": 76727.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 135.94
+        },
+        {
+          "dt": "2022-02-18",
+          "disdt": "18-Feb-2022",
+          "port": 85233.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 131.23
+        },
+        {
+          "dt": "2022-02-25",
+          "disdt": "25-Feb-2022",
+          "port": 80990.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 124.7
+        },
+        {
+          "dt": "2022-03-04",
+          "disdt": "04-Mar-2022",
+          "port": 82018.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 126.28
+        },
+        {
+          "dt": "2022-03-11",
+          "disdt": "11-Mar-2022",
+          "port": 84137.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 129.54
+        },
+        {
+          "dt": "2022-03-25",
+          "disdt": "25-Mar-2022",
+          "port": 84980.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 130.84
+        },
+        {
+          "dt": "2022-04-01",
+          "disdt": "01-Apr-2022",
+          "port": 86749,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 133.56
+        },
+        {
+          "dt": "2022-04-08",
+          "disdt": "08-Apr-2022",
+          "port": 90047.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 138.64
+        },
+        {
+          "dt": "2022-04-22",
+          "disdt": "22-Apr-2022",
+          "port": 87410.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 134.58
+        },
+        {
+          "dt": "2022-04-29",
+          "disdt": "29-Apr-2022",
+          "port": 84993.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 130.86
+        },
+        {
+          "dt": "2022-05-06",
+          "disdt": "06-May-2022",
+          "port": 81689.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 125.77
+        },
+        {
+          "dt": "2022-05-13",
+          "disdt": "13-May-2022",
+          "port": 74996,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 115.47
+        },
+        {
+          "dt": "2022-05-20",
+          "disdt": "20-May-2022",
+          "port": 78787.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 121.3
+        },
+        {
+          "dt": "2022-05-27",
+          "disdt": "27-May-2022",
+          "port": 78109.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 120.26
+        },
+        {
+          "dt": "2022-06-03",
+          "disdt": "03-Jun-2022",
+          "port": 82177.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 126.52
+        },
+        {
+          "dt": "2022-06-10",
+          "disdt": "10-Jun-2022",
+          "port": 80121,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 123.36
+        },
+        {
+          "dt": "2022-06-17",
+          "disdt": "17-Jun-2022",
+          "port": 74501.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 114.7
+        },
+        {
+          "dt": "2022-06-24",
+          "disdt": "24-Jun-2022",
+          "port": 74413.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 114.57
+        },
+        {
+          "dt": "2022-07-01",
+          "disdt": "01-Jul-2022",
+          "port": 77433,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 119.22
+        },
+        {
+          "dt": "2022-07-08",
+          "disdt": "08-Jul-2022",
+          "port": 82194.3,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 126.55
+        },
+        {
+          "dt": "2022-07-15",
+          "disdt": "15-Jul-2022",
+          "port": 81982.3,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 126.22
+        },
+        {
+          "dt": "2022-07-22",
+          "disdt": "22-Jul-2022",
+          "port": 85277.8,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 131.3
+        },
+        {
+          "dt": "2022-07-29",
+          "disdt": "29-Jul-2022",
+          "port": 86958.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 133.88
+        },
+        {
+          "dt": "2022-08-05",
+          "disdt": "05-Aug-2022",
+          "port": 87364,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 134.51
+        },
+        {
+          "dt": "2022-08-12",
+          "disdt": "12-Aug-2022",
+          "port": 90560,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 139.43
+        },
+        {
+          "dt": "2022-08-19",
+          "disdt": "19-Aug-2022",
+          "port": 92616,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 142.59
+        },
+        {
+          "dt": "2022-08-26",
+          "disdt": "26-Aug-2022",
+          "port": 98965.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 152.37
+        },
+        {
+          "dt": "2022-09-02",
+          "disdt": "02-Sep-2022",
+          "port": 100416.6,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 154.6
+        },
+        {
+          "dt": "2022-09-09",
+          "disdt": "09-Sep-2022",
+          "port": 101460.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 156.21
+        },
+        {
+          "dt": "2022-09-16",
+          "disdt": "16-Sep-2022",
+          "port": 99115.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 152.6
+        },
+        {
+          "dt": "2022-09-23",
+          "disdt": "23-Sep-2022",
+          "port": 96396.3,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 148.41
+        },
+        {
+          "dt": "2022-09-30",
+          "disdt": "30-Sep-2022",
+          "port": 93219.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 143.52
+        },
+        {
+          "dt": "2022-10-07",
+          "disdt": "07-Oct-2022",
+          "port": 97251.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 149.73
+        },
+        {
+          "dt": "2022-10-14",
+          "disdt": "14-Oct-2022",
+          "port": 95470.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 146.99
+        },
+        {
+          "dt": "2022-10-21",
+          "disdt": "21-Oct-2022",
+          "port": 96041.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 147.87
+        },
+        {
+          "dt": "2022-10-28",
+          "disdt": "28-Oct-2022",
+          "port": 92624.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 151.73
+        },
+        {
+          "dt": "2022-11-04",
+          "disdt": "04-Nov-2022",
+          "port": 93470.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 153.11
+        },
+        {
+          "dt": "2022-11-11",
+          "disdt": "11-Nov-2022",
+          "port": 91997.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 150.7
+        },
+        {
+          "dt": "2022-11-18",
+          "disdt": "18-Nov-2022",
+          "port": 88784.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 145.44
+        },
+        {
+          "dt": "2022-11-25",
+          "disdt": "25-Nov-2022",
+          "port": 90628.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 148.46
+        },
+        {
+          "dt": "2022-12-02",
+          "disdt": "02-Dec-2022",
+          "port": 91869.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 150.49
+        },
+        {
+          "dt": "2022-12-09",
+          "disdt": "09-Dec-2022",
+          "port": 92509.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 151.54
+        },
+        {
+          "dt": "2022-12-16",
+          "disdt": "16-Dec-2022",
+          "port": 91466.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 149.83
+        },
+        {
+          "dt": "2022-12-23",
+          "disdt": "23-Dec-2022",
+          "port": 84862.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 139.01
+        },
+        {
+          "dt": "2022-12-30",
+          "disdt": "30-Dec-2022",
+          "port": 89153.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 146.04
+        },
+        {
+          "dt": "2023-01-06",
+          "disdt": "06-Jan-2023",
+          "port": 88676.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 145.26
+        },
+        {
+          "dt": "2023-01-13",
+          "disdt": "13-Jan-2023",
+          "port": 88398.25,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 144.81
+        },
+        {
+          "dt": "2023-01-20",
+          "disdt": "20-Jan-2023",
+          "port": 90015.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 147.46
+        },
+        {
+          "dt": "2023-01-27",
+          "disdt": "27-Jan-2023",
+          "port": 85756.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 140.48
+        },
+        {
+          "dt": "2023-02-03",
+          "disdt": "03-Feb-2023",
+          "port": 87386.6,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 143.15
+        },
+        {
+          "dt": "2023-02-10",
+          "disdt": "10-Feb-2023",
+          "port": 86392.55,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 141.52
+        },
+        {
+          "dt": "2023-02-17",
+          "disdt": "17-Feb-2023",
+          "port": 84847.15,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 138.99
+        },
+        {
+          "dt": "2023-02-24",
+          "disdt": "24-Feb-2023",
+          "port": 82963.7,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 135.9
+        },
+        {
+          "dt": "2023-03-03",
+          "disdt": "03-Mar-2023",
+          "port": 86424.19,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 141.57
+        },
+        {
+          "dt": "2023-03-10",
+          "disdt": "10-Mar-2023",
+          "port": 87705.04,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 143.67
+        },
+        {
+          "dt": "2023-03-17",
+          "disdt": "17-Mar-2023",
+          "port": 85948.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 140.79
+        },
+        {
+          "dt": "2023-03-24",
+          "disdt": "24-Mar-2023",
+          "port": 83895.99,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 137.43
+        },
+        {
+          "dt": "2023-03-31",
+          "disdt": "31-Mar-2023",
+          "port": 83715.71,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 137.14
+        },
+        {
+          "dt": "2023-04-06",
+          "disdt": "06-Apr-2023",
+          "port": 86868.31,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 142.3
+        },
+        {
+          "dt": "2023-04-13",
+          "disdt": "13-Apr-2023",
+          "port": 87459.95,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 143.27
+        },
+        {
+          "dt": "2023-04-21",
+          "disdt": "21-Apr-2023",
+          "port": 88424.95,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 144.85
+        },
+        {
+          "dt": "2023-04-28",
+          "disdt": "28-Apr-2023",
+          "port": 92062.51,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 150.81
+        },
+        {
+          "dt": "2023-05-05",
+          "disdt": "05-May-2023",
+          "port": 92422.36,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 151.4
+        },
+        {
+          "dt": "2023-05-12",
+          "disdt": "12-May-2023",
+          "port": 92161.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 150.97
+        },
+        {
+          "dt": "2023-05-19",
+          "disdt": "19-May-2023",
+          "port": 93696.69,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 153.49
+        },
+        {
+          "dt": "2023-05-26",
+          "disdt": "26-May-2023",
+          "port": 83008.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 156.07
+        },
+        {
+          "dt": "2023-06-02",
+          "disdt": "02-Jun-2023",
+          "port": 93294.44,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 154.06
+        },
+        {
+          "dt": "2023-06-09",
+          "disdt": "09-Jun-2023",
+          "port": 83821.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 156.65
+        },
+        {
+          "dt": "2023-06-16",
+          "disdt": "16-Jun-2023",
+          "port": 88529.63,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 165.45
+        },
+        {
+          "dt": "2023-06-23",
+          "disdt": "23-Jun-2023",
+          "port": 86881.54,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 162.37
+        },
+        {
+          "dt": "2023-06-30",
+          "disdt": "30-Jun-2023",
+          "port": 88980.04,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 166.29
+        },
+        {
+          "dt": "2023-07-07",
+          "disdt": "07-Jul-2023",
+          "port": 99628.88,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 168.07
+        },
+        {
+          "dt": "2023-07-14",
+          "disdt": "14-Jul-2023",
+          "port": 87594.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 164.09
+        },
+        {
+          "dt": "2023-07-21",
+          "disdt": "21-Jul-2023",
+          "port": 89169.41,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 167.04
+        },
+        {
+          "dt": "2023-07-28",
+          "disdt": "28-Jul-2023",
+          "port": 98447.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 173.26
+        },
+        {
+          "dt": "2023-08-04",
+          "disdt": "04-Aug-2023",
+          "port": 95801.41,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 179.79
+        },
+        {
+          "dt": "2023-08-11",
+          "disdt": "11-Aug-2023",
+          "port": 97524.67,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 183.02
+        },
+        {
+          "dt": "2023-08-18",
+          "disdt": "18-Aug-2023",
+          "port": 100389.75,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 188.4
+        },
+        {
+          "dt": "2023-08-25",
+          "disdt": "25-Aug-2023",
+          "port": 100479.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 188.57
+        },
+        {
+          "dt": "2023-09-01",
+          "disdt": "01-Sep-2023",
+          "port": 104960.2,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 196.98
+        },
+        {
+          "dt": "2023-09-08",
+          "disdt": "08-Sep-2023",
+          "port": 114165,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 214.25
+        },
+        {
+          "dt": "2023-09-15",
+          "disdt": "15-Sep-2023",
+          "port": 111092.66,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 208.48
+        },
+        {
+          "dt": "2023-09-22",
+          "disdt": "22-Sep-2023",
+          "port": 111582.12,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 209.4
+        },
+        {
+          "dt": "2023-09-29",
+          "disdt": "29-Sep-2023",
+          "port": 112939.16,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 211.95
+        },
+        {
+          "dt": "2023-10-06",
+          "disdt": "06-Oct-2023",
+          "port": 113336.99,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 212.7
+        },
+        {
+          "dt": "2023-10-13",
+          "disdt": "13-Oct-2023",
+          "port": 113210.65,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 212.46
+        },
+        {
+          "dt": "2023-10-20",
+          "disdt": "20-Oct-2023",
+          "port": 112543.78,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 211.21
+        },
+        {
+          "dt": "2023-10-27",
+          "disdt": "27-Oct-2023",
+          "port": 109068.01,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 204.68
+        },
+        {
+          "dt": "2023-11-03",
+          "disdt": "03-Nov-2023",
+          "port": 114267.03,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 214.44
+        },
+        {
+          "dt": "2023-11-10",
+          "disdt": "10-Nov-2023",
+          "port": 118171.46,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 221.77
+        },
+        {
+          "dt": "2023-11-17",
+          "disdt": "17-Nov-2023",
+          "port": 121196.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 227.45
+        },
+        {
+          "dt": "2023-11-24",
+          "disdt": "24-Nov-2023",
+          "port": 123008.51,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 230.85
+        },
+        {
+          "dt": "2023-12-01",
+          "disdt": "01-Dec-2023",
+          "port": 126098.98,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 236.65
+        },
+        {
+          "dt": "2023-12-08",
+          "disdt": "08-Dec-2023",
+          "port": 130298.53,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 244.53
+        },
+        {
+          "dt": "2023-12-15",
+          "disdt": "15-Dec-2023",
+          "port": 132179.17,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 248.06
+        },
+        {
+          "dt": "2023-12-22",
+          "disdt": "22-Dec-2023",
+          "port": 130132.93,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 244.22
+        },
+        {
+          "dt": "2023-12-29",
+          "disdt": "29-Dec-2023",
+          "port": 132020.91,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 247.76
+        },
+        {
+          "dt": "2024-01-05",
+          "disdt": "05-Jan-2024",
+          "port": 134918.9,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 253.2
+        },
+        {
+          "dt": "2024-01-12",
+          "disdt": "12-Jan-2024",
+          "port": 144356.85,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 251.97
+        },
+        {
+          "dt": "2024-01-19",
+          "disdt": "19-Jan-2024",
+          "port": 144920.6,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 252.95
+        },
+        {
+          "dt": "2024-01-25",
+          "disdt": "25-Jan-2024",
+          "port": 146586.94,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 255.86
+        },
+        {
+          "dt": "2024-02-02",
+          "disdt": "02-Feb-2024",
+          "port": 152709.62,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 263.3
+        },
+        {
+          "dt": "2024-02-09",
+          "disdt": "09-Feb-2024",
+          "port": 154539.34,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 266.45
+        },
+        {
+          "dt": "2024-02-16",
+          "disdt": "16-Feb-2024",
+          "port": 171368.29,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 300.8
+        },
+        {
+          "dt": "2024-02-23",
+          "disdt": "23-Feb-2024",
+          "port": 182667.87,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 320.64
+        },
+        {
+          "dt": "2024-03-01",
+          "disdt": "01-Mar-2024",
+          "port": 189936.13,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 333.4
+        },
+        {
+          "dt": "2024-03-07",
+          "disdt": "07-Mar-2024",
+          "port": 194331.87,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 341.11
+        },
+        {
+          "dt": "2024-03-15",
+          "disdt": "15-Mar-2024",
+          "port": 174542.47,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 306.38
+        },
+        {
+          "dt": "2024-03-22",
+          "disdt": "22-Mar-2024",
+          "port": 181610.5,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 318.78
+        },
+        {
+          "dt": "2024-03-28",
+          "disdt": "28-Mar-2024",
+          "port": 175721.18,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 308.45
+        },
+        {
+          "dt": "2024-04-05",
+          "disdt": "05-Apr-2024",
+          "port": 187609.22,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 329.31
+        },
+        {
+          "dt": "2024-04-12",
+          "disdt": "12-Apr-2024",
+          "port": 177845.14,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 312.17
+        },
+        {
+          "dt": "2024-04-19",
+          "disdt": "19-Apr-2024",
+          "port": 173530.12,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 304.6
+        },
+        {
+          "dt": "2024-04-26",
+          "disdt": "26-Apr-2024",
+          "port": 178156.68,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 312.72
+        },
+        {
+          "dt": "2024-05-03",
+          "disdt": "03-May-2024",
+          "port": 181817.4,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 319.15
+        },
+        {
+          "dt": "2024-05-10",
+          "disdt": "10-May-2024",
+          "port": 170857.76,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 299.91
+        },
+        {
+          "dt": "2024-05-17",
+          "disdt": "17-May-2024",
+          "port": 178451.35,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 313.24
+        },
+        {
+          "dt": "2024-05-24",
+          "disdt": "24-May-2024",
+          "port": 179578.77,
+          "portcolor": "#DD7470",
+          "idxcolor": "#DD7470",
+          "portidx": 315.22
+        },
+        {
+          "dt": "2024-05-31",
+          "disdt": "31-May-2024",
+          "port": 188862.7,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 331.51
+        },
+        {
+          "dt": "2024-06-07",
+          "disdt": "07-Jun-2024",
+          "port": 194603.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 325.45
+        },
+        {
+          "dt": "2024-06-14",
+          "disdt": "14-Jun-2024",
+          "port": 216187.05,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 361.55
+        },
+        {
+          "dt": "2024-06-21",
+          "disdt": "21-Jun-2024",
+          "port": 212446.82,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 355.29
+        },
+        {
+          "dt": "2024-06-28",
+          "disdt": "28-Jun-2024",
+          "port": 217951.12,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 364.5
+        },
+        {
+          "dt": "2024-07-05",
+          "disdt": "05-Jul-2024",
+          "port": 222081.99,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 371.41
+        },
+        {
+          "dt": "2024-07-12",
+          "disdt": "12-Jul-2024",
+          "port": 221456.45,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 370.36
+        },
+        {
+          "dt": "2024-07-19",
+          "disdt": "19-Jul-2024",
+          "port": 213710.85,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 357.41
+        },
+        {
+          "dt": "2024-07-26",
+          "disdt": "26-Jul-2024",
+          "port": 223493.52,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 373.77
+        },
+        {
+          "dt": "2024-08-02",
+          "disdt": "02-Aug-2024",
+          "port": 220779.68,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 369.23
+        },
+        {
+          "dt": "2024-08-09",
+          "disdt": "09-Aug-2024",
+          "port": 220268.59,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 367.18
+        },
+        {
+          "dt": "2024-08-16",
+          "disdt": "16-Aug-2024",
+          "port": 226594.8,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 377.65
+        },
+        {
+          "dt": "2024-08-23",
+          "disdt": "23-Aug-2024",
+          "port": 237546.18,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.9
+        },
+        {
+          "dt": "2024-08-30",
+          "disdt": "30-Aug-2024",
+          "port": 237013.81,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 395.02
+        },
+        {
+          "dt": "2024-09-06",
+          "disdt": "06-Sep-2024",
+          "port": 238499.02,
+          "portcolor": "#3FC499",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        },
+        {
+          "dt": "2024-09-11",
+          "disdt": "11-Sep-2024",
+          "port": 231473.1,
+          "portcolor": "#DD7470",
+          "idxcolor": "#3FC499",
+          "portidx": 397.49
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2351 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+    "sector": {
+      "list": {
+        "Bank - Private": {
+          "txt": "Bank - Private",
+          "list": [
+            {
+              "sid": 112501,
+              "sname": "Axis Bank",
+              "tgain": 1153,
+              "tgainp": 0.35,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 1002649,
+              "sname": "RBL Bank",
+              "tgain": 1841,
+              "tgainp": 0.55,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 119922,
+              "sname": "City Union Bank",
+              "tgain": 28899,
+              "tgainp": 8.7,
+              "tgaindir": 1,
+              "pwt": 5.392129404211497,
+              "lval": 12514
+            }
+          ],
+          "tgain": 31893,
+          "tgainp": 9.6,
+          "tgaindir": 1,
+          "pwt": 5.39,
+          "pwtflag": 1
+        },
+        "Telecommunication - Service  Provider": {
+          "txt": "Telecommunication - Service  Provider",
+          "list": [
+            {
+              "sid": 468567,
+              "sname": "Bharti Airtel",
+              "tgain": 933,
+              "tgainp": 0.28,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 933,
+          "tgainp": 0.28,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Cigarettes/Tobacco": {
+          "txt": "Cigarettes/Tobacco",
+          "list": [
+            {
+              "sid": 397071,
+              "sname": "ITC",
+              "tgain": 934,
+              "tgainp": 0.28,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 934,
+          "tgainp": 0.28,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "IT - Software": {
+          "txt": "IT - Software ",
+          "list": [
+            {
+              "sid": 522321,
+              "sname": "Just Dial",
+              "tgain": 453,
+              "tgainp": 0.14,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 399834,
+              "sname": "Infosys",
+              "tgain": 888,
+              "tgainp": 0.27,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 949649,
+              "sname": "Tata Elxsi",
+              "tgain": 3098,
+              "tgainp": 0.93,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 273832,
+              "sname": "Rolta India",
+              "tgain": 165,
+              "tgainp": 0.05,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 779228,
+              "sname": "Tech Mahindra",
+              "tgain": 355,
+              "tgainp": 0.11,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 234277,
+              "sname": "Persistent Sys",
+              "tgain": -2248,
+              "tgainp": -0.68,
+              "tgaindir": -1,
+              "pwt": 2.3095583831367765,
+              "lval": 5360
+            },
+            {
+              "sid": 1003511,
+              "sname": "Zomato Ltd",
+              "tgain": 143,
+              "tgainp": 0.04,
+              "tgaindir": 1,
+              "pwt": 0.1197867967373179,
+              "lval": 278
+            }
+          ],
+          "tgain": 2854,
+          "tgainp": 0.86,
+          "tgaindir": 1,
+          "pwt": 2.43,
+          "pwtflag": 1
+        },
+        "Diamond  & Gold  Jewellery": {
+          "txt": "Diamond  & Gold  Jewellery",
+          "list": [
+            {
+              "sid": 372338,
+              "sname": "Titan Company",
+              "tgain": 744,
+              "tgainp": 0.22,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 744,
+          "tgainp": 0.22,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Paints": {
+          "txt": "Paints",
+          "list": [
+            {
+              "sid": 244442,
+              "sname": "Asian Paints",
+              "tgain": 1724,
+              "tgainp": 0.52,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 1724,
+          "tgainp": 0.52,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Consumer durables": {
+          "txt": "Consumer durables",
+          "list": [
+            {
+              "sid": 919264,
+              "sname": "Bata India",
+              "tgain": 692,
+              "tgainp": 0.21,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 692,
+          "tgainp": 0.21,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "FMCG": {
+          "txt": "FMCG",
+          "list": [
+            {
+              "sid": 779011,
+              "sname": "Hind. Unilever",
+              "tgain": 1020,
+              "tgainp": 0.31,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 171892,
+              "sname": "Dabur India",
+              "tgain": 267,
+              "tgainp": 0.08,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 1287,
+          "tgainp": 0.39,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Pharmaceuticals & Drugs": {
+          "txt": "Pharmaceuticals & Drugs",
+          "list": [
+            {
+              "sid": 290229,
+              "sname": "Zydus Lifesci.",
+              "tgain": 458,
+              "tgainp": 0.14,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 164981,
+              "sname": "Aurobindo Pharma",
+              "tgain": 1020,
+              "tgainp": 0.31,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 597145,
+              "sname": "Cipla",
+              "tgain": 697,
+              "tgainp": 0.21,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 256229,
+              "sname": "Wockhardt",
+              "tgain": 635,
+              "tgainp": 0.19,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 948699,
+              "sname": "Sun Pharma.Inds.",
+              "tgain": 909,
+              "tgainp": 0.27,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 509760,
+              "sname": "Divi's Lab.",
+              "tgain": 62,
+              "tgainp": 0.02,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 149140,
+              "sname": "Amrutanjan Healt",
+              "tgain": 1784,
+              "tgainp": 0.54,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 641789,
+              "sname": "Lupin",
+              "tgain": 204,
+              "tgainp": 0.06,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 734514,
+              "sname": "Dr Reddy's Labs",
+              "tgain": 972,
+              "tgainp": 0.29,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 201791,
+              "sname": "Biocon",
+              "tgain": 527,
+              "tgainp": 0.16,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 7268,
+          "tgainp": 2.19,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Aluminium & Aluminium Products": {
+          "txt": "Aluminium & Aluminium Products",
+          "list": [
+            {
+              "sid": 557714,
+              "sname": "Hindalco Inds.",
+              "tgain": 3140,
+              "tgainp": 0.94,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 3140,
+          "tgainp": 0.94,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Mining & Minerals": {
+          "txt": "Mining & Minerals",
+          "list": [
+            {
+              "sid": 421555,
+              "sname": "Coal India",
+              "tgain": 17923,
+              "tgainp": 5.39,
+              "tgaindir": 1,
+              "pwt": 16.918376931992984,
+              "lval": 39264
+            }
+          ],
+          "tgain": 17923,
+          "tgainp": 5.39,
+          "tgaindir": 1,
+          "pwt": 16.92,
+          "pwtflag": 1
+        },
+        "Public Banks": {
+          "txt": "Public Banks",
+          "list": [
+            {
+              "sid": 347516,
+              "sname": "St Bk of India",
+              "tgain": 726,
+              "tgainp": 0.22,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 616556,
+              "sname": "Punjab Natl.Bank",
+              "tgain": -460,
+              "tgainp": -0.14,
+              "tgaindir": -1,
+              "pwt": 2.354801597731807,
+              "lval": 5465
+            }
+          ],
+          "tgain": 266,
+          "tgainp": 0.08,
+          "tgaindir": 1,
+          "pwt": 2.35,
+          "pwtflag": 1
+        },
+        "Airlines": {
+          "txt": "Airlines",
+          "list": [
+            {
+              "sid": 437299,
+              "sname": "Jet Airways",
+              "tgain": 421,
+              "tgainp": 0.13,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 421,
+          "tgainp": 0.13,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Lifestyle": {
+          "txt": "Lifestyle",
+          "list": [
+            {
+              "sid": 274240,
+              "sname": "Jubilant Food.",
+              "tgain": 913,
+              "tgainp": 0.27,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 913,
+          "tgainp": 0.27,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Paper & Paper Products": {
+          "txt": "Paper & Paper Products",
+          "list": [
+            {
+              "sid": 565761,
+              "sname": "JK Paper",
+              "tgain": 30,
+              "tgainp": 0.01,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 30,
+          "tgainp": 0.01,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Pesticides & Agrochemicals": {
+          "txt": "Pesticides & Agrochemicals",
+          "list": [
+            {
+              "sid": 454045,
+              "sname": "Jubilant Inds.",
+              "tgain": 69195,
+              "tgainp": 20.82,
+              "tgaindir": 1,
+              "pwt": 38.65494077447766,
+              "lval": 89710
+            }
+          ],
+          "tgain": 69195,
+          "tgainp": 20.82,
+          "tgaindir": 1,
+          "pwt": 38.65,
+          "pwtflag": 1
+        },
+        "Finance/NBFC": {
+          "txt": "Finance/NBFC",
+          "list": [
+            {
+              "sid": 477559,
+              "sname": "Edelweiss.Fin.",
+              "tgain": 388,
+              "tgainp": 0.12,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 431628,
+              "sname": "REC Ltd",
+              "tgain": 25041,
+              "tgainp": 7.54,
+              "tgaindir": 1,
+              "pwt": 14.312798659077297,
+              "lval": 33217
+            },
+            {
+              "sid": 151046,
+              "sname": "Innovassynth Inv",
+              "tgain": 669,
+              "tgainp": 0.2,
+              "tgaindir": 1,
+              "pwt": 0.3192878287134984,
+              "lval": 741
+            },
+            {
+              "sid": 1003648,
+              "sname": "Life Insurance",
+              "tgain": 121,
+              "tgainp": 0.04,
+              "tgaindir": 1,
+              "pwt": 0.44165995199910374,
+              "lval": 1025
+            },
+            {
+              "sid": 1003566,
+              "sname": "One 97",
+              "tgain": -84,
+              "tgainp": -0.03,
+              "tgaindir": -1,
+              "pwt": 0.29084923668233664,
+              "lval": 675
+            },
+            {
+              "sid": 1002872,
+              "sname": "HDFC Life Insur.",
+              "tgain": 116,
+              "tgainp": 0.03,
+              "tgaindir": 1,
+              "pwt": 1.5106924797159587,
+              "lval": 3506
+            }
+          ],
+          "tgain": 26251,
+          "tgainp": 7.9,
+          "tgaindir": 1,
+          "pwt": 16.87,
+          "pwtflag": 1
+        },
+        "Oil Exploration/Refineries": {
+          "txt": "Oil Exploration/Refineries",
+          "list": [
+            {
+              "sid": 640830,
+              "sname": "ONGC",
+              "tgain": 183,
+              "tgainp": 0.05,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 183,
+          "tgainp": 0.06,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Metal - Non Ferrous": {
+          "txt": "Metal - Non Ferrous ",
+          "list": [
+            {
+              "sid": 801588,
+              "sname": "Vedanta",
+              "tgain": -13,
+              "tgainp": -0,
+              "tgaindir": -1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": -13,
+          "tgainp": -0,
+          "tgaindir": -1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Air Conditioners": {
+          "txt": "Air Conditioners",
+          "list": [
+            {
+              "sid": 226565,
+              "sname": "Voltas",
+              "tgain": 78,
+              "tgainp": 0.02,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 78,
+          "tgainp": 0.02,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Textile": {
+          "txt": "Textile ",
+          "list": [
+            {
+              "sid": 435326,
+              "sname": "Arvind Ltd",
+              "tgain": 335,
+              "tgainp": 0.1,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 335,
+          "tgainp": 0.1,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "TV Broadcasting & Software": {
+          "txt": "TV Broadcasting & Software",
+          "list": [
+            {
+              "sid": 758477,
+              "sname": "Sun TV Network",
+              "tgain": 394,
+              "tgainp": 0.12,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 394,
+          "tgainp": 0.12,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Power Generation/Distribution": {
+          "txt": "Power Generation/Distribution",
+          "list": [
+            {
+              "sid": 400868,
+              "sname": "Reliance Infra.",
+              "tgain": -5101,
+              "tgainp": -1.54,
+              "tgaindir": -1,
+              "pwt": 1.873069084234248,
+              "lval": 4347
+            },
+            {
+              "sid": 302744,
+              "sname": "JP Power Ven.",
+              "tgain": 1076,
+              "tgainp": 0.32,
+              "tgaindir": 1,
+              "pwt": 3.033449816657259,
+              "lval": 7040
+            }
+          ],
+          "tgain": -4025,
+          "tgainp": -1.21,
+          "tgaindir": -1,
+          "pwt": 4.9,
+          "pwtflag": 1
+        },
+        "Auto - Tractor": {
+          "txt": "Auto - Tractor",
+          "list": [
+            {
+              "sid": 282332,
+              "sname": "Escorts Kubota",
+              "tgain": 102,
+              "tgainp": 0.03,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 102,
+          "tgainp": 0.03,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Finance - Housing": {
+          "txt": "Finance - Housing",
+          "list": [
+            {
+              "sid": 559955,
+              "sname": "Sammaan Capital",
+              "tgain": 195,
+              "tgainp": 0.06,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 195,
+          "tgainp": 0.06,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Cable": {
+          "txt": "Cable",
+          "list": [
+            {
+              "sid": 381936,
+              "sname": "Havells India",
+              "tgain": 63,
+              "tgainp": 0.02,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 63,
+          "tgainp": 0.02,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Capital Goods": {
+          "txt": "Capital Goods",
+          "list": [
+            {
+              "sid": 837957,
+              "sname": "Larsen & Toubro",
+              "tgain": 35306,
+              "tgainp": 10.63,
+              "tgaindir": 1,
+              "pwt": 10.852339074194562,
+              "lval": 25186
+            }
+          ],
+          "tgain": 35306,
+          "tgainp": 10.63,
+          "tgaindir": 1,
+          "pwt": 10.85,
+          "pwtflag": 1
+        },
+        "Batteries": {
+          "txt": "Batteries",
+          "list": [
+            {
+              "sid": 639617,
+              "sname": "Exide Inds.",
+              "tgain": 319,
+              "tgainp": 0.1,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 319,
+          "tgainp": 0.1,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Gas Transmission/Marketing": {
+          "txt": "Gas Transmission/Marketing",
+          "list": [
+            {
+              "sid": 667248,
+              "sname": "GAIL (India)",
+              "tgain": 380,
+              "tgainp": 0.11,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "tgain": 380,
+          "tgainp": 0.11,
+          "tgaindir": 1,
+          "pwt": 0,
+          "pwtflag": 1
+        },
+        "Tyres & Allied": {
+          "txt": "Tyres & Allied",
+          "list": [
+            {
+              "sid": 304521,
+              "sname": "CEAT",
+              "tgain": 397,
+              "tgainp": 0.12,
+              "tgaindir": 1,
+              "pwt": 1.2448347330004006,
+              "lval": 2889
+            }
+          ],
+          "tgain": 397,
+          "tgainp": 0.12,
+          "tgaindir": 1,
+          "pwt": 1.24,
+          "pwtflag": 1
+        },
+        "Textile - Machinery": {
+          "txt": "Textile - Machinery",
+          "list": [
+            {
+              "sid": 10039196,
+              "sname": "Shree Karni",
+              "tgain": 95,
+              "tgainp": 0.03,
+              "tgaindir": 1,
+              "pwt": 0.35117352280904346,
+              "lval": 815
+            }
+          ],
+          "tgain": 95,
+          "tgainp": 0.03,
+          "tgaindir": 1,
+          "pwt": 0.35,
+          "pwtflag": 1
+        },
+        "Chemicals": {
+          "txt": "Chemicals",
+          "list": [
+            {
+              "sid": 161419,
+              "sname": "Syschem (India)",
+              "tgain": 8,
+              "tgainp": 0,
+              "tgaindir": 1,
+              "pwt": 0.020682612386299492,
+              "lval": 48
+            }
+          ],
+          "tgain": 8,
+          "tgainp": 0,
+          "tgaindir": 1,
+          "pwt": 0.02,
+          "pwtflag": 1
+        }
+      },
+      "summtxt": "20.82% of your returns is contributed by Pesticides & Agrochemicals",
+      "txt1": "Pesticides & Agrochemicals sector has contributed 20.82% to your returns"
+    },
+    "mcap": {
+      "list": {
+        "Large Cap": {
+          "txt": "Large Cap",
+          "tgain": 98108,
+          "tgainp": 29.52,
+          "tgaindir": 1,
+          "pwt": 49.1,
+          "pwtflag": 1,
+          "list": [
+            {
+              "sid": 112501,
+              "sname": "Axis Bank",
+              "tgain": 1153,
+              "tgainp": 0.35,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 468567,
+              "sname": "Bharti Airtel",
+              "tgain": 933,
+              "tgainp": 0.28,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 397071,
+              "sname": "ITC",
+              "tgain": 934.05,
+              "tgainp": 0.28,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 372338,
+              "sname": "Titan Company",
+              "tgain": 744,
+              "tgainp": 0.22,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 244442,
+              "sname": "Asian Paints",
+              "tgain": 1723.5,
+              "tgainp": 0.52,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 779011,
+              "sname": "Hind. Unilever",
+              "tgain": 1020.35,
+              "tgainp": 0.31,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 290229,
+              "sname": "Zydus Lifesci.",
+              "tgain": 457.8,
+              "tgainp": 0.14,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 164981,
+              "sname": "Aurobindo Pharma",
+              "tgain": 1020,
+              "tgainp": 0.31,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 171892,
+              "sname": "Dabur India",
+              "tgain": 266.5,
+              "tgainp": 0.08,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 597145,
+              "sname": "Cipla",
+              "tgain": 697,
+              "tgainp": 0.21,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 557714,
+              "sname": "Hindalco Inds.",
+              "tgain": 3140,
+              "tgainp": 0.94,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 399834,
+              "sname": "Infosys",
+              "tgain": 888,
+              "tgainp": 0.27,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 948699,
+              "sname": "Sun Pharma.Inds.",
+              "tgain": 909,
+              "tgainp": 0.27,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 421555,
+              "sname": "Coal India",
+              "tgain": 17922.5,
+              "tgainp": 5.39,
+              "tgaindir": 1,
+              "pwt": 16.918376931992984,
+              "lval": 39264
+            },
+            {
+              "sid": 347516,
+              "sname": "St Bk of India",
+              "tgain": 726.4,
+              "tgainp": 0.22,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 274240,
+              "sname": "Jubilant Food.",
+              "tgain": 913,
+              "tgainp": 0.27,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 509760,
+              "sname": "Divi's Lab.",
+              "tgain": 61.5,
+              "tgainp": 0.02,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 641789,
+              "sname": "Lupin",
+              "tgain": 203.5,
+              "tgainp": 0.06,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 734514,
+              "sname": "Dr Reddy's Labs",
+              "tgain": 971.65,
+              "tgainp": 0.29,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 640830,
+              "sname": "ONGC",
+              "tgain": 182.5,
+              "tgainp": 0.05,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 801588,
+              "sname": "Vedanta",
+              "tgain": -12.5,
+              "tgainp": -0,
+              "tgaindir": -1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 226565,
+              "sname": "Voltas",
+              "tgain": 77.5,
+              "tgainp": 0.02,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 949649,
+              "sname": "Tata Elxsi",
+              "tgain": 3098.25,
+              "tgainp": 0.93,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 758477,
+              "sname": "Sun TV Network",
+              "tgain": 394,
+              "tgainp": 0.12,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 282332,
+              "sname": "Escorts Kubota",
+              "tgain": 102,
+              "tgainp": 0.03,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 431628,
+              "sname": "REC Ltd",
+              "tgain": 25041.27,
+              "tgainp": 7.54,
+              "tgaindir": 1,
+              "pwt": 14.312798659077297,
+              "lval": 33217
+            },
+            {
+              "sid": 201791,
+              "sname": "Biocon",
+              "tgain": 527,
+              "tgainp": 0.16,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 381936,
+              "sname": "Havells India",
+              "tgain": 63,
+              "tgainp": 0.02,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 779228,
+              "sname": "Tech Mahindra",
+              "tgain": 355,
+              "tgainp": 0.11,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 837957,
+              "sname": "Larsen & Toubro",
+              "tgain": 35305.95,
+              "tgainp": 10.63,
+              "tgaindir": 1,
+              "pwt": 10.852339074194562,
+              "lval": 25186
+            },
+            {
+              "sid": 639617,
+              "sname": "Exide Inds.",
+              "tgain": 319.05,
+              "tgainp": 0.1,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 667248,
+              "sname": "GAIL (India)",
+              "tgain": 380,
+              "tgainp": 0.11,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 234277,
+              "sname": "Persistent Sys",
+              "tgain": -2247.85,
+              "tgainp": -0.68,
+              "tgaindir": -1,
+              "pwt": 2.3095583831367765,
+              "lval": 5360
+            },
+            {
+              "sid": 1003511,
+              "sname": "Zomato Ltd",
+              "tgain": 143.05,
+              "tgainp": 0.04,
+              "tgaindir": 1,
+              "pwt": 0.1197867967373179,
+              "lval": 278
+            },
+            {
+              "sid": 1003648,
+              "sname": "Life Insurance",
+              "tgain": 120.5,
+              "tgainp": 0.04,
+              "tgaindir": 1,
+              "pwt": 0.44165995199910374,
+              "lval": 1025
+            },
+            {
+              "sid": 1003566,
+              "sname": "One 97",
+              "tgain": -84.3,
+              "tgainp": -0.03,
+              "tgaindir": -1,
+              "pwt": 0.29084923668233664,
+              "lval": 675
+            },
+            {
+              "sid": 616556,
+              "sname": "Punjab Natl.Bank",
+              "tgain": -460,
+              "tgainp": -0.14,
+              "tgaindir": -1,
+              "pwt": 2.354801597731807,
+              "lval": 5465
+            },
+            {
+              "sid": 1002872,
+              "sname": "HDFC Life Insur.",
+              "tgain": 115.5,
+              "tgainp": 0.03,
+              "tgaindir": 1,
+              "pwt": 1.5106924797159587,
+              "lval": 3506
+            }
+          ]
+        },
+        "Mid Cap": {
+          "txt": "Mid Cap",
+          "tgain": 29840,
+          "tgainp": 8.98,
+          "tgaindir": 1,
+          "pwt": 11.53,
+          "pwtflag": 1,
+          "list": [
+            {
+              "sid": 522321,
+              "sname": "Just Dial",
+              "tgain": 452.5,
+              "tgainp": 0.14,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 919264,
+              "sname": "Bata India",
+              "tgain": 691.5,
+              "tgainp": 0.21,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 256229,
+              "sname": "Wockhardt",
+              "tgain": 635,
+              "tgainp": 0.19,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 565761,
+              "sname": "JK Paper",
+              "tgain": 30,
+              "tgainp": 0.01,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 1002649,
+              "sname": "RBL Bank",
+              "tgain": 1840.95,
+              "tgainp": 0.55,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 477559,
+              "sname": "Edelweiss.Fin.",
+              "tgain": 387.5,
+              "tgainp": 0.12,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 119922,
+              "sname": "City Union Bank",
+              "tgain": 28898.5,
+              "tgainp": 8.7,
+              "tgaindir": 1,
+              "pwt": 5.392129404211497,
+              "lval": 12514
+            },
+            {
+              "sid": 435326,
+              "sname": "Arvind Ltd",
+              "tgain": 335,
+              "tgainp": 0.1,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 400868,
+              "sname": "Reliance Infra.",
+              "tgain": -5101,
+              "tgainp": -1.54,
+              "tgaindir": -1,
+              "pwt": 1.873069084234248,
+              "lval": 4347
+            },
+            {
+              "sid": 559955,
+              "sname": "Sammaan Capital",
+              "tgain": 194.5,
+              "tgainp": 0.06,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 304521,
+              "sname": "CEAT",
+              "tgain": 396.7,
+              "tgainp": 0.12,
+              "tgaindir": 1,
+              "pwt": 1.2448347330004006,
+              "lval": 2889
+            },
+            {
+              "sid": 302744,
+              "sname": "JP Power Ven.",
+              "tgain": 1076.01,
+              "tgainp": 0.32,
+              "tgaindir": 1,
+              "pwt": 3.033449816657259,
+              "lval": 7040
+            }
+          ]
+        },
+        "Small Cap": {
+          "txt": "Small Cap",
+          "tgain": 70979,
+          "tgainp": 21.36,
+          "tgaindir": 1,
+          "pwt": 38.65,
+          "pwtflag": 1,
+          "list": [
+            {
+              "sid": 149140,
+              "sname": "Amrutanjan Healt",
+              "tgain": 1784.15,
+              "tgainp": 0.54,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 454045,
+              "sname": "Jubilant Inds.",
+              "tgain": 69195,
+              "tgainp": 20.82,
+              "tgaindir": 1,
+              "pwt": 38.65494077447766,
+              "lval": 89710
+            }
+          ]
+        },
+        "Micro Cap": {
+          "txt": "Micro Cap",
+          "tgain": 1358,
+          "tgainp": 0.41,
+          "tgaindir": 1,
+          "pwt": 0.69,
+          "pwtflag": 1,
+          "list": [
+            {
+              "sid": 437299,
+              "sname": "Jet Airways",
+              "tgain": 421.25,
+              "tgainp": 0.13,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 273832,
+              "sname": "Rolta India",
+              "tgain": 165,
+              "tgainp": 0.05,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 151046,
+              "sname": "Innovassynth Inv",
+              "tgain": 668.52,
+              "tgainp": 0.2,
+              "tgaindir": 1,
+              "pwt": 0.3192878287134984,
+              "lval": 741
+            },
+            {
+              "sid": 10039196,
+              "sname": "Shree Karni",
+              "tgain": 95,
+              "tgainp": 0.03,
+              "tgaindir": 1,
+              "pwt": 0.35117352280904346,
+              "lval": 815
+            },
+            {
+              "sid": 161419,
+              "sname": "Syschem (India)",
+              "tgain": 8,
+              "tgainp": 0,
+              "tgaindir": 1,
+              "pwt": 0.020682612386299492,
+              "lval": 48
+            }
+          ]
+        }
+      },
+      "summtxt": "29.52% of your returns is contributed by Large Cap",
+      "txt1": "Large Cap has contributed 29.52% to your returns"
+    },
+    "holdings": {
+      "list": {
+        "Top 3 Holdings": {
+          "txt": "Top 3 Holdings",
+          "tgain": 112158.77,
+          "tgainp": 33.75,
+          "tgaindir": 1,
+          "pwt": 69.89,
+          "list": [
+            {
+              "sid": 454045,
+              "sname": "Jubilant Inds.",
+              "tgain": 69195,
+              "tgainp": 20.82,
+              "tgaindir": 1,
+              "pwt": 38.65494077447766,
+              "lval": 89710
+            },
+            {
+              "sid": 421555,
+              "sname": "Coal India",
+              "tgain": 17922.5,
+              "tgainp": 5.39,
+              "tgaindir": 1,
+              "pwt": 16.918376931992984,
+              "lval": 39264
+            },
+            {
+              "sid": 431628,
+              "sname": "REC Ltd",
+              "tgain": 25041.27,
+              "tgainp": 7.54,
+              "tgaindir": 1,
+              "pwt": 14.312798659077297,
+              "lval": 33217
+            }
+          ],
+          "pwtflag": 1
+        },
+        "Tail Stocks": {
+          "txt": "Tail Stocks",
+          "tgain": 950.77,
+          "tgainp": 0.29,
+          "tgaindir": 1,
+          "pwt": 1.54,
+          "list": [
+            {
+              "sid": 151046,
+              "sname": "Innovassynth Inv",
+              "tgain": 668.52,
+              "tgainp": 0.2,
+              "tgaindir": 1,
+              "pwt": 0.3192878287134984,
+              "lval": 33217
+            },
+            {
+              "sid": 1003511,
+              "sname": "Zomato Ltd",
+              "tgain": 143.05,
+              "tgainp": 0.04,
+              "tgaindir": 1,
+              "pwt": 0.1197867967373179,
+              "lval": 33217
+            },
+            {
+              "sid": 1003648,
+              "sname": "Life Insurance",
+              "tgain": 120.5,
+              "tgainp": 0.04,
+              "tgaindir": 1,
+              "pwt": 0.44165995199910374,
+              "lval": 33217
+            },
+            {
+              "sid": 1003566,
+              "sname": "One 97",
+              "tgain": -84.3,
+              "tgainp": -0.03,
+              "tgaindir": -1,
+              "pwt": 0.29084923668233664,
+              "lval": 33217
+            },
+            {
+              "sid": 10039196,
+              "sname": "Shree Karni",
+              "tgain": 95,
+              "tgainp": 0.03,
+              "tgaindir": 1,
+              "pwt": 0.35117352280904346,
+              "lval": 33217
+            },
+            {
+              "sid": 161419,
+              "sname": "Syschem (India)",
+              "tgain": 8,
+              "tgainp": 0,
+              "tgaindir": 1,
+              "pwt": 0.020682612386299492,
+              "lval": 33217
+            }
+          ],
+          "pwtflag": 1
+        },
+        "Remaining": {
+          "txt": "Remaining",
+          "tgain": 87169.20999999999,
+          "tgainp": 26.23,
+          "tgaindir": 1,
+          "pwt": 28.57,
+          "list": [
+            {
+              "sid": 837957,
+              "sname": "Larsen & Toubro",
+              "tgain": 35305.95,
+              "tgainp": 10.63,
+              "tgaindir": 1,
+              "pwt": 10.852339074194562,
+              "lval": 25186
+            },
+            {
+              "sid": 119922,
+              "sname": "City Union Bank",
+              "tgain": 28898.5,
+              "tgainp": 8.7,
+              "tgaindir": 1,
+              "pwt": 5.392129404211497,
+              "lval": 12514
+            },
+            {
+              "sid": 302744,
+              "sname": "JP Power Ven.",
+              "tgain": 1076.01,
+              "tgainp": 0.32,
+              "tgaindir": 1,
+              "pwt": 3.033449816657259,
+              "lval": 7040
+            },
+            {
+              "sid": 616556,
+              "sname": "Punjab Natl.Bank",
+              "tgain": -460,
+              "tgainp": -0.14,
+              "tgaindir": -1,
+              "pwt": 2.354801597731807,
+              "lval": 5465
+            },
+            {
+              "sid": 234277,
+              "sname": "Persistent Sys",
+              "tgain": -2247.85,
+              "tgainp": -0.68,
+              "tgaindir": -1,
+              "pwt": 2.3095583831367765,
+              "lval": 5360
+            },
+            {
+              "sid": 400868,
+              "sname": "Reliance Infra.",
+              "tgain": -5101,
+              "tgainp": -1.54,
+              "tgaindir": -1,
+              "pwt": 1.873069084234248,
+              "lval": 4347
+            },
+            {
+              "sid": 1002872,
+              "sname": "HDFC Life Insur.",
+              "tgain": 115.5,
+              "tgainp": 0.03,
+              "tgaindir": 1,
+              "pwt": 1.5106924797159587,
+              "lval": 3506
+            },
+            {
+              "sid": 304521,
+              "sname": "CEAT",
+              "tgain": 396.7,
+              "tgainp": 0.12,
+              "tgaindir": 1,
+              "pwt": 1.2448347330004006,
+              "lval": 2889
+            },
+            {
+              "sid": 779228,
+              "sname": "Tech Mahindra",
+              "tgain": 355,
+              "tgainp": 0.11,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 381936,
+              "sname": "Havells India",
+              "tgain": 63,
+              "tgainp": 0.02,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 201791,
+              "sname": "Biocon",
+              "tgain": 527,
+              "tgainp": 0.16,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 559955,
+              "sname": "Sammaan Capital",
+              "tgain": 194.5,
+              "tgainp": 0.06,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 226565,
+              "sname": "Voltas",
+              "tgain": 77.5,
+              "tgainp": 0.02,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 282332,
+              "sname": "Escorts Kubota",
+              "tgain": 102,
+              "tgainp": 0.03,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 639617,
+              "sname": "Exide Inds.",
+              "tgain": 319.05,
+              "tgainp": 0.1,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 667248,
+              "sname": "GAIL (India)",
+              "tgain": 380,
+              "tgainp": 0.11,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 758477,
+              "sname": "Sun TV Network",
+              "tgain": 394,
+              "tgainp": 0.12,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 949649,
+              "sname": "Tata Elxsi",
+              "tgain": 3098.25,
+              "tgainp": 0.93,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 435326,
+              "sname": "Arvind Ltd",
+              "tgain": 335,
+              "tgainp": 0.1,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 273832,
+              "sname": "Rolta India",
+              "tgain": 165,
+              "tgainp": 0.05,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 112501,
+              "sname": "Axis Bank",
+              "tgain": 1153,
+              "tgainp": 0.35,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 801588,
+              "sname": "Vedanta",
+              "tgain": -12.5,
+              "tgainp": -0,
+              "tgaindir": -1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 557714,
+              "sname": "Hindalco Inds.",
+              "tgain": 3140,
+              "tgainp": 0.94,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 397071,
+              "sname": "ITC",
+              "tgain": 934.05,
+              "tgainp": 0.28,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 522321,
+              "sname": "Just Dial",
+              "tgain": 452.5,
+              "tgainp": 0.14,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 372338,
+              "sname": "Titan Company",
+              "tgain": 744,
+              "tgainp": 0.22,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 244442,
+              "sname": "Asian Paints",
+              "tgain": 1723.5,
+              "tgainp": 0.52,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 919264,
+              "sname": "Bata India",
+              "tgain": 691.5,
+              "tgainp": 0.21,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 779011,
+              "sname": "Hind. Unilever",
+              "tgain": 1020.35,
+              "tgainp": 0.31,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 290229,
+              "sname": "Zydus Lifesci.",
+              "tgain": 457.8,
+              "tgainp": 0.14,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 164981,
+              "sname": "Aurobindo Pharma",
+              "tgain": 1020,
+              "tgainp": 0.31,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 171892,
+              "sname": "Dabur India",
+              "tgain": 266.5,
+              "tgainp": 0.08,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 597145,
+              "sname": "Cipla",
+              "tgain": 697,
+              "tgainp": 0.21,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 256229,
+              "sname": "Wockhardt",
+              "tgain": 635,
+              "tgainp": 0.19,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 399834,
+              "sname": "Infosys",
+              "tgain": 888,
+              "tgainp": 0.27,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 468567,
+              "sname": "Bharti Airtel",
+              "tgain": 933,
+              "tgainp": 0.28,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 948699,
+              "sname": "Sun Pharma.Inds.",
+              "tgain": 909,
+              "tgainp": 0.27,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 347516,
+              "sname": "St Bk of India",
+              "tgain": 726.4,
+              "tgainp": 0.22,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 437299,
+              "sname": "Jet Airways",
+              "tgain": 421.25,
+              "tgainp": 0.13,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 274240,
+              "sname": "Jubilant Food.",
+              "tgain": 913,
+              "tgainp": 0.27,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 509760,
+              "sname": "Divi's Lab.",
+              "tgain": 61.5,
+              "tgainp": 0.02,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 149140,
+              "sname": "Amrutanjan Healt",
+              "tgain": 1784.15,
+              "tgainp": 0.54,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 565761,
+              "sname": "JK Paper",
+              "tgain": 30,
+              "tgainp": 0.01,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 1002649,
+              "sname": "RBL Bank",
+              "tgain": 1840.95,
+              "tgainp": 0.55,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 641789,
+              "sname": "Lupin",
+              "tgain": 203.5,
+              "tgainp": 0.06,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 477559,
+              "sname": "Edelweiss.Fin.",
+              "tgain": 387.5,
+              "tgainp": 0.12,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 734514,
+              "sname": "Dr Reddy's Labs",
+              "tgain": 971.65,
+              "tgainp": 0.29,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            },
+            {
+              "sid": 640830,
+              "sname": "ONGC",
+              "tgain": 182.5,
+              "tgainp": 0.05,
+              "tgaindir": 1,
+              "pwt": "Not held currently",
+              "lval": 0
+            }
+          ],
+          "pwtflag": 1
+        }
+      },
+      "summtxt": "33.75% of your returns is contributed by Top 3 Holdings",
+      "txt1": "Top 3 Holdings has contributed 33.75% to your returns"
+    },
+    "scorecard": {
+      "txt1": "Underperformed Composite Index by -14.27%",
+      "txt2": "Composite Index Returns 74.61%",
+      "compperform": "UNDERPERFORMED",
+      "comperformby": -14.27,
+      "return": "60.34%",
+      "returndir": 1,
+      "compo": "74.61%",
+      "compodir": 1,
+      "dt": "26 Dec 2016",
+      "returnsen": "218.03",
+      "sendir": 1,
+      "senperfomby": -157.69,
+      "senperfom": "UNDERPERFORMED",
+      "divp": 0.5,
+      "dir": {
+        "comperformby": -1,
+        "senperfomby": -1
+      },
+      "dotclr": "red"
+    },
+    "networth": {
+      "buyval": 1528037,
+      "sellval": 1494811,
+      "pv": 232079,
+      "cash": 0,
+      "unrgain": 127578,
+      "unrgaindir": 1,
+      "dividend": 1425,
+      "divdir": 1,
+      "rgain": 71276,
+      "rgaindir": 1,
+      "tgain": 200279,
+      "tgaindir": 1
+    },
+    "retcompo": {
+      "W1": {
+        "return": "-0.30%",
+        "returndir": -1,
+        "compo": "-0.09%",
+        "compodir": -1
+      },
+      "M1": {
+        "return": "6.13%",
+        "returndir": 1,
+        "compo": "3.82%",
+        "compodir": 1
+      },
+      "M3": {
+        "return": "15.74%",
+        "returndir": 1,
+        "compo": "9.34%",
+        "compodir": 1
+      },
+      "M6": {
+        "return": "18.66%",
+        "returndir": 1,
+        "compo": "22.69%",
+        "compodir": 1
+      },
+      "YTD": {
+        "return": "54.46%",
+        "returndir": 1,
+        "compo": "25.45%",
+        "compodir": 1
+      },
+      "Y1": {
+        "return": "76.15%",
+        "returndir": 1,
+        "compo": "40.02%",
+        "compodir": 1
+      },
+      "Y2": {
+        "return": "123.94%",
+        "returndir": 1,
+        "compo": "56.38%",
+        "compodir": 1
+      },
+      "Y3": {
+        "return": "174.04%",
+        "returndir": 1,
+        "compo": "57.04%",
+        "compodir": 1
+      }
+    },
+    "divcontri": {
+      "list": [
+        {
+          "period": "6 Month",
+          "divrec": 1556,
+          "divret": 0.79,
+          "price": 17.87,
+          "total": 18.66
+        },
+        {
+          "period": "1 Year",
+          "divrec": 1592,
+          "divret": 1.2,
+          "price": 74.95,
+          "total": 76.15
+        },
+        {
+          "period": "2 Year",
+          "divrec": 1659,
+          "divret": 1.57,
+          "price": 122.36,
+          "total": 123.94
+        },
+        {
+          "period": "3 Year",
+          "divrec": 1659,
+          "divret": 1.93,
+          "price": 172.12,
+          "total": 174.04
+        },
+        {
+          "period": "*All",
+          "divrec": 1659,
+          "divret": 0.5,
+          "price": 59.84,
+          "total": 60.34
+        }
+      ],
+      "txtbottom": "*Absolute Returns from 26 Dec 2016",
+      "txt1": "Total Dividend Contribution (0.50%)",
+      "txt2": "Dividend Received till date: Rs 1.66 k"
+    },
+    "calendar": {
+      "caldisp": 1,
+      "years": [
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "absret": {
+        "2016": -26024.1,
+        "2017": 32738.31,
+        "2018": 419.03,
+        "2019": 15362.32,
+        "2020": -7288.04,
+        "2021": 32274.5,
+        "2022": 1516.82,
+        "2023": 54917.26,
+        "2024": 80793.2
+      },
+      "divrec": {
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0,
+        "2023": 67,
+        "2024": 1592
+      },
+      "port": {
+        "2016": {
+          "data": -13.46,
+          "color": -1,
+          "year": "2016"
+        },
+        "2017": {
+          "data": 10.74,
+          "color": 1,
+          "year": "2017"
+        },
+        "2018": {
+          "data": 0.17,
+          "color": 1,
+          "year": "2018"
+        },
+        "2019": {
+          "data": 4.34,
+          "color": 1,
+          "year": "2019"
+        },
+        "2020": {
+          "data": -9.07,
+          "color": -1,
+          "year": "2020"
+        },
+        "2021": {
+          "data": 44.16,
+          "color": 1,
+          "year": "2021"
+        },
+        "2022": {
+          "data": 1.56,
+          "color": 1,
+          "year": "2022"
+        },
+        "2023": {
+          "data": 61.67,
+          "color": 1,
+          "year": "2023"
+        },
+        "2024": {
+          "data": 54.46,
+          "color": 1,
+          "year": "2024"
+        }
+      },
+      "comp": {
+        "2016": {
+          "data": "NA",
+          "color": 0,
+          "year": "2016"
+        },
+        "2017": {
+          "data": 16.21,
+          "color": 1,
+          "year": "2017"
+        },
+        "2018": {
+          "data": -2.03,
+          "color": -1,
+          "year": "2018"
+        },
+        "2019": {
+          "data": 4.47,
+          "color": 1,
+          "year": "2019"
+        },
+        "2020": {
+          "data": 19.59,
+          "color": 1,
+          "year": "2020"
+        },
+        "2021": {
+          "data": 33.2,
+          "color": 1,
+          "year": "2021"
+        },
+        "2022": {
+          "data": 1.89,
+          "color": 1,
+          "year": "2022"
+        },
+        "2023": {
+          "data": 30.37,
+          "color": 1,
+          "year": "2023"
+        },
+        "2024": {
+          "data": 25.45,
+          "color": 1,
+          "year": "2024"
+        }
+      },
+      "sensex": {
+        "2016": {
+          "data": 3.18,
+          "color": 1,
+          "year": "2016"
+        },
+        "2017": {
+          "data": 27.91,
+          "color": 1,
+          "year": "2017"
+        },
+        "2018": {
+          "data": 5.91,
+          "color": 1,
+          "year": "2018"
+        },
+        "2019": {
+          "data": 14.38,
+          "color": 1,
+          "year": "2019"
+        },
+        "2020": {
+          "data": 15.75,
+          "color": 1,
+          "year": "2020"
+        },
+        "2021": {
+          "data": 21.99,
+          "color": 1,
+          "year": "2021"
+        },
+        "2022": {
+          "data": 4.44,
+          "color": 1,
+          "year": "2022"
+        },
+        "2023": {
+          "data": 18.74,
+          "color": 1,
+          "year": "2023"
+        },
+        "2024": {
+          "data": 13.56,
+          "color": 1,
+          "year": "2024"
+        }
+      },
+      "midcap": {
+        "2016": {
+          "data": 4.57,
+          "color": 1,
+          "year": "2016"
+        },
+        "2017": {
+          "data": 48.13,
+          "color": 1,
+          "year": "2017"
+        },
+        "2018": {
+          "data": -13.38,
+          "color": -1,
+          "year": "2018"
+        },
+        "2019": {
+          "data": -3.05,
+          "color": -1,
+          "year": "2019"
+        },
+        "2020": {
+          "data": 19.87,
+          "color": 1,
+          "year": "2020"
+        },
+        "2021": {
+          "data": 39.18,
+          "color": 1,
+          "year": "2021"
+        },
+        "2022": {
+          "data": 1.38,
+          "color": 1,
+          "year": "2022"
+        },
+        "2023": {
+          "data": 45.53,
+          "color": 1,
+          "year": "2023"
+        },
+        "2024": {
+          "data": 31.61,
+          "color": 1,
+          "year": "2024"
+        }
+      },
+      "smallcap": {
+        "2016": {
+          "data": 4.31,
+          "color": 1,
+          "year": "2016"
+        },
+        "2017": {
+          "data": 59.64,
+          "color": 1,
+          "year": "2017"
+        },
+        "2018": {
+          "data": -23.52,
+          "color": -1,
+          "year": "2018"
+        },
+        "2019": {
+          "data": -6.85,
+          "color": -1,
+          "year": "2019"
+        },
+        "2020": {
+          "data": 32.11,
+          "color": 1,
+          "year": "2020"
+        },
+        "2021": {
+          "data": 62.77,
+          "color": 1,
+          "year": "2021"
+        },
+        "2022": {
+          "data": -1.8,
+          "color": -1,
+          "year": "2022"
+        },
+        "2023": {
+          "data": 47.52,
+          "color": 1,
+          "year": "2023"
+        },
+        "2024": {
+          "data": 31.62,
+          "color": 1,
+          "year": "2024"
+        }
+      }
+    }
+  }
+}

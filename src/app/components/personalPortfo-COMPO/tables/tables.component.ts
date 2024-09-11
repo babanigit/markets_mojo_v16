@@ -10,7 +10,6 @@ import {
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
-import { GetPersonalPFService } from '../../../services/personal-portfolio/get-personal-pf.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PopupComponent } from '../../others/popup/popup.component';
@@ -22,6 +21,7 @@ import {
 } from '@angular/cdk/scrolling';
 import { DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { GetPersonalPFService } from 'src/app/services/personal-portfolio/getTableAndNetFactor/get-personal-pf.service';
 
 type TableType =
   | 'OVERVIEW'

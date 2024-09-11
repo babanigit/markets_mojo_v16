@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class GetDotFunctionsService {
+
   private maxValue: number = 100; // Default value for maxValue
   private dotPositions: Map<any, string> = new Map();
   private dotColors: Map<any, string> = new Map();
@@ -68,4 +69,5 @@ export class GetDotFunctionsService {
     }
     return 'black'; // Default color if sub_point is undefined or invalid
   }
+
 }

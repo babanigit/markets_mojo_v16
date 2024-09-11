@@ -2,21 +2,37 @@ import {
   Component,
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
+  OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
+import { GetPersonalPFService } from 'src/app/services/personal-portfolio/getTableAndNetFactor/get-personal-pf.service';
 
 @Component({
   selector: 'app-swiper-how-am',
   templateUrl: './swiper-how-am.component.html',
   styleUrls: ['./swiper-how-am.component.css'],
-  standalone:true,
+  standalone: true,
   imports: [CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SwiperHowAmComponent  implements AfterViewInit {
+export class SwiperHowAmComponent implements AfterViewInit, OnInit {
+
+  DATA: any = [];
 
 
+  constructor(private serv: GetPersonalPFService) {}
+
+  ngOnInit(): void {
+    this.fetchData();
+  }
+
+  fetchData(): void {
+    this.serv.getSwitcherDatas('overall').subscribe((data) => {
+      console.log('the today switcher : ', data);
+      this.DATA = data;
+    });
+  }
   ngAfterViewInit() {
     Swiper.use([Navigation, Pagination, Scrollbar, Autoplay]);
     const swiper = new Swiper('.swiper-1', {
@@ -38,6 +54,6 @@ export class SwiperHowAmComponent  implements AfterViewInit {
       },
     });
 
-    console.log('Swiper instance:', swiper);
+    // console.log('Swiper instance:', swiper);
   }
 }
