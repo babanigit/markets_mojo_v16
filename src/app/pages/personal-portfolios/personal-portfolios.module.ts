@@ -19,7 +19,6 @@ import { SwiperRiskAnalysisComponent } from 'src/app/components/personalPortfo-C
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 import { GraphDemoComponent } from 'src/app/components/demos/graph-demo/graph-demo.component';
 import { SwiperDemoComponent } from 'src/app/components/demos/swiper-demo/swiper-demo.component';
-import { PfPriceMsgModule } from 'src/app/components/personalPortfo-COMPO/pf-price-msg/pf-price-msg.module';
 
 
 

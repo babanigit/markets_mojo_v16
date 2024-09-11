@@ -1813,7 +1813,7 @@
         </div>
       </section>
 
-      <!-- today porfolio -->
+      <!-- today's porfolio -->
       <section
         class="swiper-slide small-card marginright swiper-slide-visible"
         data-scrolled="0"
@@ -1880,6 +1880,8 @@
             </div>
             <!-- end ngIf: loader[0].pf_today_summary == false  && error_flag[0].actionToday_summary == 0 && actionToday.error == 0 -->
           </div>
+
+          <!-- extend button -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseTodayHappen"
@@ -1944,6 +1946,7 @@
 
                 <tbody>
                   <!-- ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
+
                   <!-- start -->
                   <tr
                     ng-repeat="value in actionToday.overall.contri| limitTo:limit"
@@ -1953,10 +1956,11 @@
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=421555&amp;Exchange=0"
+                          [href]="
+                            '/Stocks?StockId=' + item.dotsum.sid + '&Exchange=0'
+                          "
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=421555&amp;Exchange=0"
                         >
                           {{ item.short }}
                         </a>
@@ -1979,19 +1983,27 @@
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">491.10</p>
+                      <p class="ng-binding">
+                        {{ item.cmp | roundOff | twoCommas }}
+                      </p>
                     </td>
                     <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      [ngClass]="
+                        this.fun.getDirClrDefault(item.dgaindir, 'orange') +
+                        ' txt-rt'
                       "
-                      class="green txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">532</p>
-                      <p class="pf-tbl-txt2 ng-binding">1.37%</p>
+                      <p class="pf-tbl-txt1 ng-binding">
+                        {{ item.dgain | roundOff | twoCommas }}%
+                      </p>
+                      <p class="pf-tbl-txt2 ng-binding">
+                        {{ item.dgainp | roundOff | twoCommas }}%
+                      </p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">39,288</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">
+                      {{ item.lval | roundOff | twoCommas }}
+                    </td>
                   </tr>
                   <!-- end -->
                 </tbody>
@@ -1999,6 +2011,8 @@
             </div>
             <!-- end ngIf: loader[0].pf_today_contri == false && error_flag[0].actionToday_contri == 0 -->
           </div>
+
+          <!-- extend button -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseTodayContri"
@@ -2029,6 +2043,8 @@
             </div>
           </div>
         </div>
+
+        <!-- full details button -->
         <div class="porbottomlink">
           <div
             class="bottom-card-links ng-scope"
@@ -2052,6 +2068,7 @@
         </div>
       </section>
 
+      <!-- today's drags -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
@@ -2077,7 +2094,6 @@
             <div
               class="contributors list-mojo ng-scope"
               ng-if="loader[0].pf_today_drags == false &amp;&amp; error_flag[0].actionToday_drags == 0"
-              style=""
             >
               <table class="table1">
                 <thead>
@@ -2088,275 +2104,71 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <!-- start -->
                   <!-- ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
                   <tr
                     ng-repeat="value in actionToday.overall.drags| limitTo:limit"
                     class="ng-scope"
-                    style=""
+                    *ngFor="let item of data_drags"
                   >
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=454045&amp;Exchange=0"
+                          [href]="
+                            '/Stocks?StockId=' + item.dotsum.sid + '&Exchange=0'
+                          "
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=454045&amp;Exchange=0"
-                          >Jubilant Inds.</a
+                        >
+                          {{ item.short }}</a
                         >
                         <br />
                         <span
                           ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="red-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.dotsum.q_clr)
+                            "
                           ></span>
                           <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.dotsum.v_clr)
+                            "
                           ></span>
                           <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.dotsum.f_clr)
+                            "
                           ></span>
                         </span>
                       </div>
-                      <p class="ng-binding">1,812.15</p>
+                      <p class="ng-binding">
+                        {{ item.cmp | roundOff | twoCommas }}
+                      </p>
                     </td>
                     <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
+                      [ngClass]="
+                        this.fun.getDirClrDefault(item.dgaindir, 'orange') +
+                        ' txt-rt'
                       "
-                      class="red txt-rt"
                     >
-                      <p class="pf-tbl-txt1 ng-binding">-4,393</p>
-                      <p class="pf-tbl-txt2 ng-binding">-4.62%</p>
+                      <p class="pf-tbl-txt1 ng-binding">
+                        {{ item.dgain | roundOff | twoCommas }}
+                      </p>
+                      <p class="pf-tbl-txt2 ng-binding">
+                        {{ item.dgainp | roundOff | twoCommas }}%
+                      </p>
                     </td>
 
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">90,608</td>
+                    <td class="txt-rt pf-tbl-txt3 ng-binding">
+                      {{ item.lval | roundOff | twoCommas }}
+                    </td>
                   </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.drags| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=431628&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=431628&amp;Exchange=0"
-                          >REC Ltd</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">577.20</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="red txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">-754</p>
-                      <p class="pf-tbl-txt2 ng-binding">-2.20%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">33,478</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.drags| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=1002872&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=1002872&amp;Exchange=0"
-                          >HDFC Life Insur.</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">702.85</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="red txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">-163</p>
-                      <p class="pf-tbl-txt2 ng-binding">-4.43%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">3,514</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.drags| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=304521&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=304521&amp;Exchange=0"
-                          >CEAT</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">2,842.00</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="red txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">-15</p>
-                      <p class="pf-tbl-txt2 ng-binding">-0.51%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">2,842</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.drags| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=616556&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=616556&amp;Exchange=0"
-                          >Punjab Natl.Bank</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">109.59</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="red txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">-2</p>
-                      <p class="pf-tbl-txt2 ng-binding">-0.04%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,480</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.drags| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=161419&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=161419&amp;Exchange=0"
-                          >Syschem (India)</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">48.10</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="red txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">-1</p>
-                      <p class="pf-tbl-txt2 ng-binding">-1.80%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">48</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.drags| limitTo:limit -->
+                  <!-- end -->
                 </tbody>
               </table>
             </div>
+
+            <!-- extend -->
             <!-- end ngIf: loader[0].pf_today_drags == false && error_flag[0].actionToday_drags == 0 -->
             <div class="card-reveal" style="display: none">
               <span class="card-title grey-text text-darken-4">
@@ -2381,6 +2193,7 @@
               </div>
             </div>
           </div>
+
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseTodayDrags"
@@ -2434,6 +2247,7 @@
         </div>
       </section>
 
+      <!-- news -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"

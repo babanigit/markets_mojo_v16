@@ -449,6 +449,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
       ? '-'
       : isNaN(numValue)
       ? ''
+
       : new Intl.NumberFormat('en-US').format(numValue);
   }
 

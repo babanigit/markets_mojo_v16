@@ -8,25 +8,29 @@ import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
+import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 
 @Component({
   selector: 'app-swiper-how-am',
   templateUrl: './swiper-how-am.component.html',
   styleUrls: ['./swiper-how-am.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,
+    TwoCommasPipe,
+    RoundOffPipe
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   main_data: any = [];
-  data_summary: any =[];
-  data_contri: any =[];
-value: any;
-
+  data_summary: any = [];
+  data_contri: any = [];
+  data_drags: any = [];
+  data_news:any=[];
 
   constructor(
     private serv: GetPersonalPFService,
-
     public fun: PpFunctionsService
   ) {}
 
@@ -36,6 +40,7 @@ value: any;
 
   fetchData(): void {
     this.serv.getSwitcherDatas('today').subscribe((res) => {
+
       this.main_data = res;
       console.log('res : ', res);
 
@@ -44,6 +49,10 @@ value: any;
 
       this.data_contri = res.data.overall.contri;
       console.log('data_contri ', this.data_contri);
+
+      this.data_drags = res.data.overall.drags;
+      console.log('data_drags ', this.data_drags);
+
     });
   }
   ngAfterViewInit() {
@@ -68,5 +77,8 @@ value: any;
     });
 
     // console.log('Swiper instance:', swiper);
+  }
+  yee(str:any){
+   return this.fun.getClassbyClr(str)
   }
 }

@@ -1,0 +1,159 @@
+  <!-- today's contributors -->
+  <section
+  class="swiper-slide small-card marginright"
+  data-scrolled="0"
+  data-visited="0"
+>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-head">
+        <h2>
+          Today's Contributors
+          <span
+            class="card-title activator info-act"
+            ng-click="isCollapseTodayContri = !isCollapseTodayContri"
+          ></span>
+        </h2>
+      </div>
+      <!-- ngIf: loader[0].pf_today_contri == true -->
+      <!-- ngIf: loader[0].pf_today_contri == false && error_flag[0].actionToday_contri == 1 -->
+
+      <!-- ngIf: loader[0].pf_today_contri == false && error_flag[0].actionToday_contri == 0 -->
+      <div
+        class="contributors list-mojo ng-scope"
+        ng-if="loader[0].pf_today_contri == false &amp;&amp; error_flag[0].actionToday_contri == 0"
+      >
+        <table class="table1">
+
+          <thead>
+            <tr>
+              <th class="textcenter">
+                Company <br />
+                Price
+              </th>
+              <th class="textcenter">Day's Gain<br />in %</th>
+              <th class="textcenter">Latest<br />Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
+
+            <!-- start -->
+            <tr
+              ng-repeat="value in actionToday.overall.contri| limitTo:limit"
+              class="ng-scope"
+              *ngFor="let item of data_contri"
+            >
+              <td>
+                <div>
+                  <a
+                    [href]="
+                      '/Stocks?StockId=' + item.dotsum.sid + '&Exchange=0'
+                    "
+                    target="_blank"
+                    class="ng-binding"
+                  >
+                    {{ item.short }}
+                  </a>
+                  <br />
+                  <span
+                    ><span
+                      [ngClass]="
+                        this.fun.getClassbyClr(item.dotsum.q_clr)
+                      "
+                    ></span>
+                    <span
+                      [ngClass]="
+                        this.fun.getClassbyClr(item.dotsum.v_clr)
+                      "
+                    ></span>
+                    <span
+                      [ngClass]="
+                        this.fun.getClassbyClr(item.dotsum.f_clr)
+                      "
+                    ></span>
+                  </span>
+                </div>
+                <p class="ng-binding">{{ item.cmp }}</p>
+              </td>
+              <td
+                [ngClass]="
+                  this.fun.getDirClrDefault(item.dgaindir, 'orange') +
+                  ' txt-rt'
+                "
+              >
+                <p class="pf-tbl-txt1 ng-binding">{{ item.dgain }}%</p>
+                <p class="pf-tbl-txt2 ng-binding">{{ item.dgainp }}%</p>
+              </td>
+
+              <td class="txt-rt pf-tbl-txt3 ng-binding">
+                {{ item.lval }}
+              </td>
+            </tr>
+            <!-- end -->
+
+          </tbody>
+        </table>
+      </div>
+      <!-- end ngIf: loader[0].pf_today_contri == false && error_flag[0].actionToday_contri == 0 -->
+    </div>
+
+    <!-- extend button -->
+    <div
+      class="card-reveal animate-slide ng-hide"
+      ng-show="isCollapseTodayContri"
+    >
+      <span class="card-title grey-text text-darken-4">
+        Card Title<i
+          class="material-icons right"
+
+          ng-click="isCollapseTodayContri = !isCollapseTodayContri"
+          >close</i
+        >
+      </span>
+      <div class="card-reveal-text">
+        <ul>
+          <li>
+            The card mentions the stocks that have made money for you
+            today
+          </li>
+          <li>
+            Returns include effect of buys/sell transactions during the
+            day
+          </li>
+          <li>It is ordered by profit made, highest to lowest</li>
+          <li>
+            Click on Full Details to see all stocks making money for you
+            today
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+<!-- full details button -->
+  <div class="porbottomlink">
+    <div
+      class="bottom-card-links ng-scope"
+      ng-controller="ModalDemoCtrl as $ctrl"
+    >
+      <div class="bottom-card-links">
+        <a
+          ng-click="setActionTodayPopup('contri'); modalOpen('actionToday_popup', 1)"
+          href="javascript:void(0)"
+          class="seefull waves-effect waves-light modal-trigger"
+        >
+          <img
+            src="https://i.marketsmojo.com/arrow_rt.png"
+            alt="ArrowRight"
+            height="16"
+          />
+          Full Details
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>

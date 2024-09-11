@@ -1,5 +1,5 @@
 /* In styles.css or angular.json */
-@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+/* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
 /* @import "../node_modules/swiper/swiper-bundle.min.css"; */
 
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
@@ -8,7 +8,6 @@
 /* markets mojo style urls */
 
 /* fonts */
-/* @import url("https://c.marketsmojo.com/bootstrap.min.css?v=20230418110518"); */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Solway:wght@400;500&family=Bebas+Neue&family=Quicksand:wght@300;400;600;700&family=Roboto+Condensed&family=Roboto:wght@300;400;600;700&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;600;700&family=Crimson+Text&family=Galada:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700,900|Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@200;400;500;600;700;800&display=swap");
@@ -17,10 +16,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Solway:wght@400;500&family=Bebas+Neue&family=Quicksand:wght@300;400;600;700&family=Roboto+Condensed&family=Roboto:wght@300;400;600;700&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;600;700&family=Crimson+Text&family=Galada:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700;900&family=Abril+Fatface&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Black+Ops+One&display=swap&display=swap&family=Solway:wght@400;500&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* others */
-/* @import url('https://c.marketsmojo.com/pfplus_style.css?v=20240906145500'); */
+@import url("https://c.marketsmojo.com/bootstrap.min.css?v=20230418110518");
+@import url('https://c.marketsmojo.com/pfplus_style.css?v=20240906145500');
 @import url("https://c.marketsmojo.com/angular-swiper/swiper.css?v=20230418110518");
 @import url("https://c.marketsmojo.com/header_nav.css?v=20240906145500");
 @import url("https://c.marketsmojo.com/mojoprofessional/verdict.css?v=20240906145500");
+@import url("https://c.marketsmojo.com/mm-header/header.css?v=20240906145500");
+@import url('https://c.marketsmojo.com/networth_style1.css?v=20240906145500');
+
 
 /* to remove that div which is generating below app-root div */
 .cdk-describedby-message-container {
