@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PersonalPortfoliosRoutingModule } from './personal-portfolios-routing.module';
@@ -19,19 +19,27 @@ import { SwiperRiskAnalysisComponent } from 'src/app/components/personalPortfo-C
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 import { GraphDemoComponent } from 'src/app/components/demos/graph-demo/graph-demo.component';
 import { SwiperDemoComponent } from 'src/app/components/demos/swiper-demo/swiper-demo.component';
+import { PfPriceMsgModule } from 'src/app/components/personalPortfo-COMPO/pf-price-msg/pf-price-msg.module';
+
+
 
 @NgModule({
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
   declarations: [
     PersonalPortfoliosComponent,
 
     // childerns
     StockerInvestmentsComponent,
     MutualFundsInvestmentsComponent,
+
+
   ],
   imports: [
     CommonModule,
     PersonalPortfoliosRoutingModule,
-    PfPriceMsgComponent,
+
     DemoComponent,
     TablesComponent,
     IpoFooterComponent,
@@ -43,6 +51,12 @@ import { SwiperDemoComponent } from 'src/app/components/demos/swiper-demo/swiper
     SwiperDoingOverallComponent,
     SwiperReturnAnalysisComponent,
     SwiperRiskAnalysisComponent,
+    PfPriceMsgComponent
+
+    // PfPriceMsgModule
+
+
+
 ],
 })
 export class PersonalPortfoliosModule {}

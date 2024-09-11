@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { TwocolnumPipe } from 'src/app/pipes/pp/twocolnum.pipe';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get-personal-pf.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get-pe
   // styleUrl: './pf-price-msg.component.css',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    TwocolnumPipe
   ],
 })
 export class PfPriceMsgComponent implements OnInit {

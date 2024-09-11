@@ -8,6 +8,7 @@ import { TablesMComponent } from './components/personalPortfo-COMPO/tables-m/tab
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+
 @NgModule({
   declarations: [AppComponent, TablesMComponent],
   imports: [

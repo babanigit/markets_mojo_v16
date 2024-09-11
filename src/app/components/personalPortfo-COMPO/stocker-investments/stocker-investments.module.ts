@@ -12,7 +12,6 @@ import { SwiperDemoComponent } from '../../demos/swiper-demo/swiper-demo.compone
 @NgModule({
   declarations: [
 
-
   ],
 
   imports: [
@@ -21,8 +20,6 @@ import { SwiperDemoComponent } from '../../demos/swiper-demo/swiper-demo.compone
     TablesComponent,
     SwiperDemoComponent,
     DemoComponent,
-
-
 
   ],
 })

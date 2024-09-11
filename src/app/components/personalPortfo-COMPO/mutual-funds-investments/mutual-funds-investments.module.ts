@@ -4,8 +4,11 @@ import { CommonModule } from '@angular/common';
 import { MutualFundsInvestmentsRoutingModule } from './mutual-funds-investments-routing.module';
 
 
+
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
     MutualFundsInvestmentsRoutingModule

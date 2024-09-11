@@ -248,10 +248,10 @@
               <div class="stokcol3">
                 <div class="stokcol4">
                   <span class="ng-binding"
-                    >{{ nf_data_list?.stocks?.name }} :</span
+                    >{{ nf_data_list?.stocks?.name | uppercase }} :</span
                   >
                   <span class="netstocktop ng-binding">{{
-                    nf_data_list?.stocks?.data.lval
+                    nf_data_list?.stocks?.data.lval | twocolnum
                   }}</span>
 
                   <!-- ngIf: head.id == 'stocks' -->
@@ -288,10 +288,10 @@
                   >
                     <li class="arrow-sensex-red"></li>
                     <li class="ng-binding">
-                      {{ nf_data_list?.stocks?.data.dgain }}
+                      {{ nf_data_list?.stocks?.data.dgain  | twocolnum }}
                     </li>
                     <li class="ng-binding">
-                      {{ nf_data_list?.stocks?.data.dgainp }}
+                      {{ nf_data_list?.stocks?.data.dgainp | twocolnum }}%
                     </li>
                   </ul>
                 </div>
@@ -315,10 +315,10 @@
                   >
                     <li class="arrow-sensex-green"></li>
                     <li class="ng-binding">
-                      {{ nf_data_list?.stocks?.data.unrgain }}
+                      {{ nf_data_list?.stocks?.data.unrgain | twocolnum }}
                     </li>
                     <li class="ng-binding">
-                      {{ nf_data_list?.stocks?.data.unrgainp }}
+                      {{ nf_data_list?.stocks?.data.unrgainp | twocolnum }}%
                     </li>
                   </ul>
                 </div>
@@ -348,7 +348,7 @@
                     {{ nf_data_list?.mf?.name }} :</span
                   >
                   <span class="netstocktop ng-binding">
-                    {{ nf_data_list?.mf?.data.lval }}
+                    {{ nf_data_list?.mf?.data.lval | twocolnum }}
                   </span>
 
                   <!-- ngIf: head.id == 'stocks' -->
@@ -372,10 +372,10 @@
                   >
                     <li class="arrow-sensex-grey"></li>
                     <li class="ng-binding">
-                      {{ nf_data_list?.mf?.data.dgain }}
+                      {{ nf_data_list?.mf?.data.dgain | twocolnum }}
                     </li>
                     <li class="ng-binding">
-                      v{{ nf_data_list?.mf?.data.dgainp }}
+                      v{{ nf_data_list?.mf?.data.dgainp | twocolnum }}%
                     </li>
                   </ul>
                 </div>
@@ -398,10 +398,10 @@
                   >
                     <li class="arrow-sensex-green"></li>
                     <li class="ng-binding">
-                      {{ nf_data_list?.mf?.data.unrgain }}
+                      {{ nf_data_list?.mf?.data.unrgain | twocolnum }}
                     </li>
                     <li class="ng-binding">
-                      v{{ nf_data_list?.mf?.data.unrgainp }}
+                      v{{ nf_data_list?.mf?.data.unrgainp | twocolnum }}%
                     </li>
                   </ul>
                 </div>
@@ -425,14 +425,14 @@
                     </div>
                     <div class="col-xs-8">
                       <span
-                      [ngClass]="{
+                        [ngClass]="{
                         green:  nf_data.data?.total?.assets?.dir > 0,
                         red:  nf_data.data?.total?.assets?.dir < 0,
                         grey:  nf_data.data?.total?.assets?.dir == 0,
                       }"
-                      class="netstocktop ng-binding">{{
-                        nf_data.data?.total?.assets?.val
-                      }}</span>
+                        class="netstocktop ng-binding"
+                        >{{ nf_data.data?.total?.assets?.val | twocolnum }}</span
+                      >
 
                       <div
                         class="aboutsection_new no-mob no-tab2"
@@ -457,13 +457,14 @@
                     </div>
                     <div class="col-xs-8">
                       <span
-                      [ngClass]="{
+                        [ngClass]="{
                         green:  nf_data.data?.total?.liabilities?.dir > 0,
                         red:  nf_data.data?.total?.liabilities?.dir < 0,
                         grey:  nf_data.data?.total?.liabilities?.dir == 0,
                       }"
-                      class="netstocktop ng-binding">
-                        {{ nf_data.data?.total?.liabilities?.val }}
+                        class="netstocktop ng-binding"
+                      >
+                        {{ nf_data.data?.total?.liabilities?.val | twocolnum }}
                       </span>
                     </div>
                   </div>
@@ -477,13 +478,14 @@
                   </div>
                   <div class="col-xs-8">
                     <span
-                    [ngClass]="{
+                      [ngClass]="{
                       green:  nf_data.data?.total?.net?.dir > 0,
                       red:  nf_data.data?.total?.net?.dir < 0,
                       grey:  nf_data.data?.total?.net?.dir == 0,
                     }"
-                    class="netstocktop3 ng-binding">
-                      {{ nf_data.data?.total?.net?.val }}</span
+                      class="netstocktop3 ng-binding"
+                    >
+                      {{ nf_data.data?.total?.net?.val | twocolnum }}</span
                     >
                   </div>
                 </div>
