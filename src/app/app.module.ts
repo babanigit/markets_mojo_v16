@@ -11,11 +11,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [AppComponent, TablesMComponent],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NavbarComponent,
     HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

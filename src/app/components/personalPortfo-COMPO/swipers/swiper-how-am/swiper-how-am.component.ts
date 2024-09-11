@@ -10,16 +10,14 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
+import { CardComponent } from '../../card/card.component';
 
 @Component({
   selector: 'app-swiper-how-am',
   templateUrl: './swiper-how-am.component.html',
   styleUrls: ['./swiper-how-am.component.css'],
   standalone: true,
-  imports: [CommonModule,
-    TwoCommasPipe,
-    RoundOffPipe
-  ],
+  imports: [CommonModule, TwoCommasPipe, RoundOffPipe, CardComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {
@@ -27,7 +25,11 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   data_summary: any = [];
   data_contri: any = [];
   data_drags: any = [];
-  data_news:any=[];
+  data_news: any = [];
+  data_corpact: any = [];
+  data_gainers:any = [];
+  data_losers:any = [];
+
 
   constructor(
     private serv: GetPersonalPFService,
@@ -53,6 +55,18 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
       this.data_drags = res.data.overall.drags;
       console.log('data_drags ', this.data_drags);
 
+      this.data_news = res.data.news;
+      console.log('data_news ', this.data_news);
+
+      this.data_corpact = res.data.corpact;
+      console.log('data_corpact ', this.data_corpact);
+
+      this.data_gainers = res.data.overall.gainers;
+      console.log('data_gainers ', this.data_gainers);
+
+      this.data_losers = res.data.overall.losers;
+      console.log('data_losers ', this.data_losers);
+
     });
   }
   ngAfterViewInit() {
@@ -77,8 +91,5 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
     });
 
     // console.log('Swiper instance:', swiper);
-  }
-  yee(str:any){
-   return this.fun.getClassbyClr(str)
   }
 }
