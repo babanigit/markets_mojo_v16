@@ -21,7 +21,7 @@ import {
 } from '@angular/cdk/scrolling';
 import { DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { GetPersonalPFService } from 'src/app/services/personal-portfolio/getTableAndNetFactor/get-personal-pf.service';
+import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 
 type TableType =
   | 'OVERVIEW'

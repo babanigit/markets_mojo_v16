@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TwocolnumPipe } from 'src/app/pipes/pp/twocolnum.pipe';
-import { GetPersonalPFService } from 'src/app/services/personal-portfolio/getTableAndNetFactor/get-personal-pf.service';
+import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 
 @Component({
   selector: 'app-pf-price-msg',

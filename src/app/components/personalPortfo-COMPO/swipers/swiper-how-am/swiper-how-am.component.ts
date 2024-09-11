@@ -6,7 +6,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
-import { GetPersonalPFService } from 'src/app/services/personal-portfolio/getTableAndNetFactor/get-personal-pf.service';
+import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
+import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 
 @Component({
   selector: 'app-swiper-how-am',
@@ -17,20 +18,32 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/getTab
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {
+  main_data: any = [];
+  data_summary: any =[];
+  data_contri: any =[];
+value: any;
 
-  DATA: any = [];
 
+  constructor(
+    private serv: GetPersonalPFService,
 
-  constructor(private serv: GetPersonalPFService) {}
+    public fun: PpFunctionsService
+  ) {}
 
   ngOnInit(): void {
     this.fetchData();
   }
 
   fetchData(): void {
-    this.serv.getSwitcherDatas('overall').subscribe((data) => {
-      console.log('the today switcher : ', data);
-      this.DATA = data;
+    this.serv.getSwitcherDatas('today').subscribe((res) => {
+      this.main_data = res;
+      console.log('res : ', res);
+
+      this.data_summary = res.data.summary;
+      console.log('data_summary ', this.data_summary);
+
+      this.data_contri = res.data.overall.contri;
+      console.log('data_contri ', this.data_contri);
     });
   }
   ngAfterViewInit() {

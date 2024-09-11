@@ -60,11 +60,7 @@
             </div>
             <!-- ngIf: loader[0].pf_today_graph == true -->
 
-            <div
-              class="tabcol"
-              ng-show="loader[0].pf_today_graph == false"
-              style=""
-            >
+            <div class="tabcol" ng-show="loader[0].pf_today_graph == false">
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
                   <li class="tab">
@@ -1038,23 +1034,6 @@
           </div>
         </div>
       </section>
-      <!--<section class="swiper-slide small-card swiper-slide-next marginright" style="background:#2C3033;padding:0px !important;" data-scrolled="0" data-visited="0">
-                  <div class="card" style="padding:0 !important;background:#2C3033;">
-                      <div class="card-content happend">
-                      <a href="https://tradesmartonline.in/landing-page/online-trading/?utm_refer=MarketMojo&landing_page=asli-trader&utm_source=Associate&utm_medium=Banner&utm_campaign=MarketMojo_01stNov2019&utm_content=Trade15_60Xexposure" target="{{ getDevice() != 'app' ? '_blank' : '_self' }}"><img  src="https://i.marketsmojo.com/banner/trad_banner.gif" style="width:100%;" /></a>
-                      </div>
-                  </div>
-              </section>  -->
-
-      <!--  -->
-
-      <!-- <section data-scrolled="0" data-visited="0" class="swiper-slide small-card marginright swiper-slide-visible" style="background-color:#00add4;padding: 0px !important;" ng-if="showcardsData.next_webinar.show_banner != 'yes'">
-             <div class="card" style="padding: 0px !important;background-color:#00add4;" ng-click="commonModalOpen('landingvideo')">
-                <div class="card-content happend" style="padding: 0px !important;">
-                   <a href="javascript:void(0);"><img class="videobanner" src="banner/video-banner.jpg"></a>
-                </div>
-             </div>
-          </section> -->
 
       <!-- ngIf: !block_clmm_content && showcardsData.next_webinar.show_banner == 'yes' && (showcardsData.next_webinar.webinar_card_img == '' || showcardsData.next_webinar.webinar_card_img == undefined) -->
       <section
@@ -1834,22 +1813,7 @@
         </div>
       </section>
 
-      <!-- ngIf: stock_of_the_month -->
-
-      <!-- ngIf: thankyou_stock_of_month -->
-      <script>
-        function url_redirect(url) {
-          ga(
-            "send",
-            "event",
-            "Banner",
-            "click",
-            "CIOSTOCKPICK_Landing_2ndbutton"
-          );
-          location.href = url;
-        }
-      </script>
-
+      <!-- today porfolio -->
       <section
         class="swiper-slide small-card marginright swiper-slide-visible"
         data-scrolled="0"
@@ -1882,135 +1846,36 @@
             <div
               class="qtrl-details list-mojo ng-scope"
               ng-if="loader[0].pf_today_summary == false  &amp;&amp; error_flag[0].actionToday_summary == 0 &amp;&amp; actionToday.error == 0"
-              style=""
             >
               <!-- ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-red" style="">
-                <span class="red"
-                  ><b class="ng-binding">Performance Today</b></span
+
+              <div
+                *ngFor="let item of data_summary"
+                [ngClass]="{
+                  'qtr-green': item.color === 'green',
+                  'qtr-red': item.color === 'red',
+                  'qtr-gray': item.color === 'gray'
+                }"
+              >
+                >
+                <span
+                  [ngClass]="{
+                    green: item.color === 'green',
+                    red: item.color === 'red',
+                    gray: item.color === 'gray'
+                  }"
+                >
+                  ><b class="ng-binding">{{ item.header }} </b></span
                 >
                 :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >Oh! Your Portfolio is down Rs 4,230.00 today and is also
-                  underperforming Sensex by -2.22%</span
+
+                <span
+                  class="ng-binding"
+                  [innerHTML]="this.fun.getSanitizedHtml(item.text)"
+                ></span>
                 >
               </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-grey" style="">
-                <span class="grey"><b class="ng-binding">Open</b></span> :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio opened with a change of Rs 1,833.87</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-red">
-                <span class="red"><b class="ng-binding">Day's Low</b></span> :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio had touched a loss of Rs -4,623.41 during the
-                  day</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-red">
-                <span class="red"
-                  ><b class="ng-binding">Stock Advances</b></span
-                >
-                :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >Even though more stocks have gained, portfolio has incurred
-                  loss</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-green" style="">
-                <span class="green"
-                  ><b class="ng-binding">More Stocks Gaining</b></span
-                >
-                :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >11 stocks are gaining (Top gainer:
-                  <a
-                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxkN1o4dFNIdDhrb0s2S2RMVk9HOEJzR0FMcTBHam5hQXZjTEx1UGl4bWVGNVZMQzVWRUVybUZrYUxOYWJnck0xaDl4dk5BeWM5NTZJPQ=="
-                    >One 97 Communications Ltd 4.09%</a
-                  >) while 6 stocks falling (Top Loser:
-                  <a
-                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxjNUo4dFNIdTQ5UjZUYld1ZEtKMTVHL1lLZ1RxQUUxcCsvWE9lQ0ExVm5Fa0doR1RZbTY3NVJqbXRaMWdRbUtsd3BZY0U0dmx3SkE9PQ=="
-                    >Jubilant Industries Ltd -4.62%</a
-                  >)</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-green">
-                <span class="green"
-                  ><b class="ng-binding">Significant YTD increase</b></span
-                >
-                :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio has delivered 55.19% returns in the period</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-green">
-                <span class="green"
-                  ><b class="ng-binding"
-                    >Significant increase in 1 Year</b
-                  ></span
-                >
-                :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >Portfolio has delivered 75.96% returns in the period</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-green">
-                <span class="green"
-                  ><b class="ng-binding">Action In Market Cap</b></span
-                >
-                :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >BSE Small Cap has risen by 1.53% today. Your exposure to
-                  Small &amp; Micro Cap stocks has changed by -4.62%</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-green">
-                <span class="green"
-                  ><b class="ng-binding">Action In Sector</b></span
-                >
-                :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  >Textile - Machinery has gained by 2.33% today. Your exposure
-                  to companies in the sector has changed by 0.56%</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-green">
-                <span class="green"
-                  ><b class="ng-binding">Stocks on Consecutive Rise</b></span
-                >
-                :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  ><a
-                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxjNUo4dFNIdTQ5UjZUYld1ZEtKMTVHL1lLZ1RxQUUxcCsvWE9lQ0ExVm5Fa0doR1RZbTY3NVJqbXRaMWdRbUt4d29JY0U0Zm5mNmc9PQ=="
-                    >Innovassynth Inv (2.00%)</a
-                  >
-                  has been gaining for at least 5 days.</span
-                >
-              </div>
-              <!-- end ngRepeat: news in todaySummary -->
-              <div ng-repeat="news in todaySummary" class="qtr-red">
-                <span class="red"
-                  ><b class="ng-binding">Stocks on Consecutive Fall</b></span
-                >
-                :
-                <span ng-bind-html="news.text" class="ng-binding"
-                  ><a
-                    href="https://www.marketsmojo.com/mojo/loginfwd?hash=S1NFVzNkQmx4a2J6SGdualVQQmJjVVZZV04ycDdyU0pqQkxkN1o4dFNIdDhrb0s2S2RMVk9HOEJzR0FMcTBHam5hQXZjTEx1UGl4bWVGNVZMQzVWRUVybUZrYUxOYWJnck0xaDl4ckFBaU5pcFRRPQ=="
-                    >HDFC Life Insur. (-4.43%)</a
-                  >
-                  has been falling for at least 5 days.</span
-                >
-              </div>
+
               <!-- end ngRepeat: news in todaySummary -->
             </div>
             <!-- end ngIf: loader[0].pf_today_summary == false  && error_flag[0].actionToday_summary == 0 && actionToday.error == 0 -->
@@ -2040,6 +1905,7 @@
         </div>
       </section>
 
+      <!-- today's contributors -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
@@ -2063,7 +1929,6 @@
             <div
               class="contributors list-mojo ng-scope"
               ng-if="loader[0].pf_today_contri == false &amp;&amp; error_flag[0].actionToday_contri == 0"
-              style=""
             >
               <table class="table1">
                 <thead>
@@ -2076,12 +1941,14 @@
                     <th class="textcenter">Latest<br />Value</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   <!-- ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
+                  <!-- start -->
                   <tr
                     ng-repeat="value in actionToday.overall.contri| limitTo:limit"
                     class="ng-scope"
-                    style=""
+                    *ngFor="let item of data_contri"
                   >
                     <td>
                       <div>
@@ -2090,21 +1957,25 @@
                           target="_blank"
                           class="ng-binding"
                           href="/Stocks?StockId=421555&amp;Exchange=0"
-                          >Coal India</a
                         >
+                          {{ item.short }}
+                        </a>
                         <br />
                         <span
                           ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.dotsum.q_clr)
+                            "
                           ></span>
                           <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.dotsum.v_clr)
+                            "
                           ></span>
                           <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.dotsum.f_clr)
+                            "
                           ></span>
                         </span>
                       </div>
@@ -2122,227 +1993,7 @@
 
                     <td class="txt-rt pf-tbl-txt3 ng-binding">39,288</td>
                   </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=837957&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=837957&amp;Exchange=0"
-                          >Larsen &amp; Toubro</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">3,598.50</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="green txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">147</p>
-                      <p class="pf-tbl-txt2 ng-binding">0.59%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">25,190</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=302744&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=302744&amp;Exchange=0"
-                          >JP Power Ven.</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">17.54</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="green txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">109</p>
-                      <p class="pf-tbl-txt2 ng-binding">1.56%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">7,069</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=234277&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=234277&amp;Exchange=0"
-                          >Persistent Sys</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">5,274.20</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="green txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">105</p>
-                      <p class="pf-tbl-txt2 ng-binding">2.04%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">5,274</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=400868&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=400868&amp;Exchange=0"
-                          >Reliance Infra.</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">216.97</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="green txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">104</p>
-                      <p class="pf-tbl-txt2 ng-binding">2.47%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">4,339</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
-                  <tr
-                    ng-repeat="value in actionToday.overall.contri| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=119922&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=119922&amp;Exchange=0"
-                          >City Union Bank</a
-                        >
-                        <br />
-                        <span
-                          ><span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                      <p class="ng-binding">168.16</p>
-                    </td>
-                    <td
-                      ng-class="
-                        getDirClrDefault(value.dgaindir, 'orange') + ' txt-rt'
-                      "
-                      class="green txt-rt"
-                    >
-                      <p class="pf-tbl-txt1 ng-binding">48</p>
-                      <p class="pf-tbl-txt2 ng-binding">0.38%</p>
-                    </td>
-
-                    <td class="txt-rt pf-tbl-txt3 ng-binding">12,612</td>
-                  </tr>
-                  <!-- end ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
+                  <!-- end -->
                 </tbody>
               </table>
             </div>
@@ -3823,6 +3474,7 @@
           </div>
         </div>
       </section>
+
       <section
         data-reveal="true"
         id="sectToday_losers"
