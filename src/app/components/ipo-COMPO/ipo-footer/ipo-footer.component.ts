@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { DemoComponent } from '../../demo/demo.component';
+import { DemoComponent } from '../../demos/demo/demo.component';
+
 
 @Component({
   selector: 'app-ipo-footer',

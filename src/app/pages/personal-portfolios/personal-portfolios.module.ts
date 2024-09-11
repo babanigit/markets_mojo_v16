@@ -6,16 +6,19 @@ import { PersonalPortfoliosComponent } from './personal-portfolios.component';
 import { StockerInvestmentsComponent } from '../../components/personalPortfo-COMPO/stocker-investments/stocker-investments.component';
 import { MutualFundsInvestmentsComponent } from '../../components/personalPortfo-COMPO/mutual-funds-investments/mutual-funds-investments.component';
 import { PfPriceMsgComponent } from '../../components/personalPortfo-COMPO/pf-price-msg/pf-price-msg.component';
-import { DemoComponent } from '../../components/demo/demo.component';
+
 import { TablesComponent } from '../../components/personalPortfo-COMPO/tables/tables.component';
 import { IpoFooterComponent } from 'src/app/components/ipo-COMPO/ipo-footer/ipo-footer.component';
-import { GraphDemoComponent } from 'src/app/components/graph-demo/graph-demo.component';
-import { SwiperHowAmComponent } from "../../components/personalPortfo-COMPO/stocker-investments/swipers/swiper-how-am/swiper-how-am.component";
-import { SwiperDemoComponent } from "../../components/swiper-demo/swiper-demo.component";
-import { SwiperDoingOverallComponent } from "../../components/personalPortfo-COMPO/stocker-investments/swipers/swiper-doing-overall/swiper-doing-overall.component";
-import { SwiperReturnAnalysisComponent } from "../../components/personalPortfo-COMPO/stocker-investments/swipers/swiper-return-analysis/swiper-return-analysis.component";
-import { SwiperRiskAnalysisComponent } from "../../components/personalPortfo-COMPO/stocker-investments/swipers/swiper-risk-analysis/swiper-risk-analysis.component";
+
+
 import { IpoFooterNewComponent } from 'src/app/components/ipo-COMPO/ipo-footer-new/ipo-footer-new.component';
+import { SwiperHowAmComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-how-am/swiper-how-am.component';
+import { SwiperDoingOverallComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-doing-overall/swiper-doing-overall.component';
+import { SwiperReturnAnalysisComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-return-analysis/swiper-return-analysis.component';
+import { SwiperRiskAnalysisComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-risk-analysis/swiper-risk-analysis.component';
+import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
+import { GraphDemoComponent } from 'src/app/components/demos/graph-demo/graph-demo.component';
+import { SwiperDemoComponent } from 'src/app/components/demos/swiper-demo/swiper-demo.component';
 
 @NgModule({
   declarations: [

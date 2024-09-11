@@ -15,9 +15,10 @@ import { SwitchResultComponent } from '../../components/switcherReportsComponent
 import { SwitchOtherChoicesComponent } from '../../components/switcherReportsComponent/switch-other-choices/switch-other-choices.component';
 import { SwitchOptionsComponent } from '../../components/switcherReportsComponent/switch-options/switch-options.component';
 import { FilterChoiceResultPipe } from '../../pipes/switcher/filter-choice-result.pipe';
-import { DemoComponent } from '../../components/demo/demo.component';
+
 import { IpoFooterComponent } from '../../components/ipo-COMPO/ipo-footer/ipo-footer.component';
 import { VerdictFooterNComponent } from 'src/app/components/verdict-footer-n/verdict-footer-n.component';
+import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 
 
 @NgModule({
