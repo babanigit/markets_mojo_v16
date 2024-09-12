@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
 // import { IGetOverview } from '../../models/overview';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  delay,
+  finalize,
+  Observable,
+  throwError,
+} from 'rxjs';
+import { IGraphData } from 'src/app/models/graphData';
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class GetPersonalPFService {
   private readonly paths = {
     OVERVIEW: 'assets/pp/table/getOverview.json',
@@ -25,6 +32,7 @@ export class GetPersonalPFService {
   private nf_path = 'assets/pp/networkFactor/getNetworkFactor.json';
 
   private readonly paths2 = {
+
     today: 'assets/pp/swiper/today.json',
     overall: 'assets/pp/swiper/overall.json',
     return: 'assets/pp/swiper/return.json',
@@ -94,6 +102,32 @@ export class GetPersonalPFService {
         console.error('Error details:', err);
         throw err;
       })
+    );
+  }
+
+
+  private loadingSubject = new BehaviorSubject<boolean>(false);
+  private errorSubject = new BehaviorSubject<string | null>(null);
+
+  loading$ = this.loadingSubject.asObservable();
+  error$ = this.errorSubject.asObservable();
+
+  getGraphToday(
+
+  ): Observable<IGraphData> {
+    const path = ' assets/pp/graph/getPortfolioGraph.json'
+    this.loadingSubject.next(true); // Set loading to true
+
+    return this.http.get<IGraphData>(path).pipe(
+
+      // delay(1000),
+      catchError((err) => {
+        this.loadingSubject.next(false); // Set loading to false on error
+        this.errorSubject.next('Error fetching graph data'); // Set error message
+        console.error('Error fetching graph data', err);
+        return throwError(err); // Return an observable error
+      }),
+      finalize(() => this.loadingSubject.next(false)) // Emit loading false after HTTP request
     );
   }
 }
