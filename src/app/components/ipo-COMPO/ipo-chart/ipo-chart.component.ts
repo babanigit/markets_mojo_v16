@@ -76,6 +76,8 @@ export class IpoChartComponent implements OnInit {
     return []; // Return empty array if no valid data
   }
 
+//start
+
   updateChart() {
     if (
       !this.graphData ||
@@ -90,54 +92,10 @@ export class IpoChartComponent implements OnInit {
     const dataPoints = this.extractDataPoints(this.graphData);
     const previousClose = this.graphData.data.graph_indices[0].PreviousClose;
 
-    // Sort data points by timestamp
     dataPoints.sort((a, b) => a[0] - b[0]);
 
     const minY = Math.min(...dataPoints.map(([_, y]) => y));
     const maxY = Math.max(...dataPoints.map(([_, y]) => y));
-
-    let currentSeries: { data: [number, number][]; color: string }[] = [];
-    let currentSegment: [number, number][] = [];
-    let currentColor =
-      dataPoints[0][1] >= previousClose ? '#4CAF50' : '#FF6666';
-
-    const addSegment = () => {
-      if (currentSegment.length > 0) {
-        currentSeries.push({
-          data: [...currentSegment],
-          color: currentColor,
-        });
-        currentSegment = [];
-      }
-    };
-
-    dataPoints.forEach(([timestamp, value], index) => {
-      if (index === 0) {
-        currentSegment.push([timestamp, value]);
-        return;
-      }
-
-      const prevValue = dataPoints[index - 1][1];
-
-      if (
-        (prevValue >= previousClose && value < previousClose) ||
-        (prevValue < previousClose && value >= previousClose)
-      ) {
-        // Intersection point
-        const intersectionX = timestamp;
-        const intersectionY = previousClose;
-
-        currentSegment.push([intersectionX, intersectionY]);
-        addSegment();
-
-        currentColor = value >= previousClose ? '#4CAF50' : '#FF6666';
-        currentSegment.push([intersectionX, intersectionY]);
-      }
-
-      currentSegment.push([timestamp, value]);
-    });
-
-    addSegment(); // Add the last segment
 
     this.areaChart = new Chart({
       accessibility: { enabled: false },
@@ -191,26 +149,40 @@ export class IpoChartComponent implements OnInit {
           },
         ],
       },
-      series: currentSeries.map((series) => ({
+      series: [{
         type: 'area',
         name: 'Stock Data',
-        data: series.data,
-        color: series.color,
+        data: dataPoints,
+        color: {
+          linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+          stops: [
+            [0, '#4CAF50'],
+            [1, '#FF6666']
+          ]
+        },
         fillColor: {
           linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
           stops: [
-            [0, Highcharts.color(series.color).setOpacity(0.6).get('rgba')],
-            [1, Highcharts.color(series.color).setOpacity(0.2).get('rgba')],
-          ],
+            [0, Highcharts.color('#4CAF50').setOpacity(0.6).get('rgba')],
+            [0.5, Highcharts.color('#FFFFFF').setOpacity(0.2).get('rgba')],
+            [1, Highcharts.color('#FF6666').setOpacity(0.6).get('rgba')]
+          ]
         },
         lineWidth: 1,
         marker: { enabled: false, radius: 2 },
         tooltip: { valueDecimals: 2 },
         threshold: previousClose,
-      })) as Highcharts.SeriesOptionsType[],
+        zones: [{
+          value: previousClose,
+          color: '#FF6666'
+        }, {
+          color: '#4CAF50'
+        }]
+      }] as Highcharts.SeriesOptionsType[],
     });
   }
 
+// end
   getDotProperties(hero: IGraphData) {
     return this.dot.getDotPropertiesService(
       hero.data.graph_indices[0].WEEK_POINTER_52,

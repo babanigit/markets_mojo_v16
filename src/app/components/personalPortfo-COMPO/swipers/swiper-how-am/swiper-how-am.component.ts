@@ -11,13 +11,14 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { CardComponent } from '../../card/card.component';
+import { GraphTodayComponent } from '../../graph/graph-today/graph-today.component';
 
 @Component({
   selector: 'app-swiper-how-am',
   templateUrl: './swiper-how-am.component.html',
   styleUrls: ['./swiper-how-am.component.css'],
   standalone: true,
-  imports: [CommonModule, TwoCommasPipe, RoundOffPipe, CardComponent],
+  imports: [CommonModule, TwoCommasPipe, RoundOffPipe, CardComponent,GraphTodayComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {

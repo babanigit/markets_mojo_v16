@@ -38,6 +38,8 @@
       >
         <div class="card">
           <div class="card-content movementcard">
+
+            <!-- head -->
             <div id="pricemovement" class="card-head">
               <h2>
                 <span class="no-mob no-tab2"
@@ -59,9 +61,12 @@
                 </span>
               </h2>
             </div>
+
             <!-- ngIf: loader[0].pf_today_graph == true -->
 
             <div class="tabcol" ng-show="loader[0].pf_today_graph == false">
+
+              <!-- button section -->
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
                   <li class="tab">
@@ -176,6 +181,8 @@
                   <!-- ngIf: act_today_graph_tab !='1D' -->
                 </ul>
               </div>
+
+              <!-- button section  -->
               <div id="tabcol" class="no-web no-tab">
                 <div class="col-md-12">
                   <div class="tabdropdown pf-menu">
@@ -274,6 +281,7 @@
                     id="container_actiontoday"
                     data-highcharts-chart="70"
                   >
+
                     <div
                       id="highcharts-1rl6spd-237"
                       style="
@@ -289,6 +297,8 @@
                       dir="ltr"
                       class="highcharts-container"
                     >
+
+                    <!-- graph section -->
                       <svg
                         version="1.1"
                         class="highcharts-root"
@@ -792,8 +802,13 @@
                           color: rgb(51, 51, 51);
                         "
                       ></span>
+
                     </div>
+
                   </div>
+
+
+                  <!-- portfolio, composite index  -->
                   <div class="cardgraphright">
                     <div class="valuation-new">
                       <div class="stockmargin">
@@ -837,12 +852,15 @@
                       </div>
                     </div>
                   </div>
+
+
                   <!-- ngIf: act_today_graph_tab =='1D' -->
                   <div
                     class="cardgraphbottom ng-scope"
                     ng-if="act_today_graph_tab == '1D'"
                   >
                     <div class="row adv-dec no-mob pr-gr-bottright-content">
+
                       <div class="col-xs-6">
                         <div
                           id="gainer"
@@ -876,6 +894,8 @@
                           <!-- end ngIf: error_flag[0].actionToday_contri != 1 -->
                         </div>
                       </div>
+
+                      <!-- top contri, top drag -->
                       <div class="col-xs-6">
                         <div
                           id="gainer"
@@ -908,14 +928,18 @@
                           <!-- end ngIf: error_flag[0].actionToday_drags != 1 -->
                         </div>
                       </div>
+
                     </div>
                   </div>
+
                   <!-- end ngIf: act_today_graph_tab =='1D' -->
                   <!-- ngIf: act_today_graph_tab !='1D' -->
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- slider -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseTodayMov"
@@ -1033,6 +1057,7 @@
               </p>
             </div>
           </div>
+
         </div>
       </section>
 
