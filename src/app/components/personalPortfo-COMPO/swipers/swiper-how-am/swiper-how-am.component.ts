@@ -45,28 +45,28 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
     this.serv.getSwitcherDatas('today').subscribe((res) => {
 
       this.main_data = res;
-      console.log('res : ', res);
+      // console.log('res : ', res);
 
       this.data_summary = res.data.summary;
-      console.log('data_summary ', this.data_summary);
+      // console.log('data_summary ', this.data_summary);
 
       this.data_contri = res.data.overall.contri;
-      console.log('data_contri ', this.data_contri);
+      // console.log('data_contri ', this.data_contri);
 
       this.data_drags = res.data.overall.drags;
-      console.log('data_drags ', this.data_drags);
+      // console.log('data_drags ', this.data_drags);
 
       this.data_news = res.data.news;
-      console.log('data_news ', this.data_news);
+      // console.log('data_news ', this.data_news);
 
       this.data_corpact = res.data.corpact;
-      console.log('data_corpact ', this.data_corpact);
+      // console.log('data_corpact ', this.data_corpact);
 
       this.data_gainers = res.data.overall.gainers;
-      console.log('data_gainers ', this.data_gainers);
+      // console.log('data_gainers ', this.data_gainers);
 
       this.data_losers = res.data.overall.losers;
-      console.log('data_losers ', this.data_losers);
+      // console.log('data_losers ', this.data_losers);
 
     });
   }

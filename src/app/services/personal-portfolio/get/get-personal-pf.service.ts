@@ -92,9 +92,9 @@ export class GetPersonalPFService {
     // | 'RESULTS'
     // | 'TOTAL_RETURNS'
   ) {
-    const path = this.paths2[type] || this.paths2.today; // default is holding
+    const path = this.paths2[type] || this.paths2.today;
 
-    console.log('the path in getOS : ', path);
+    console.log('the path in getSwitcherDatas : ', path);
 
     return this.http.get<any>(path).pipe(
       catchError((err) => {
@@ -113,7 +113,6 @@ export class GetPersonalPFService {
   error$ = this.errorSubject.asObservable();
 
   getGraphToday(
-
   ): Observable<IGraphData> {
     const path = ' assets/pp/graph/getPortfolioGraph.json'
     this.loadingSubject.next(true); // Set loading to true

@@ -8,17 +8,19 @@
         <span
           class="card-title activator info-act"
           (click)="isCollapseTodayContri = !isCollapseTodayContri"
-
         ></span>
       </h2>
     </div>
 
-  <!-- table -->
+    <!-- body -->
     <div
       class="contributors list-mojo ng-scope"
       ng-if="loader[0].pf_today_contri == false &amp;&amp; error_flag[0].actionToday_contri == 0"
     >
+
+    <!-- table -->
       <table class="table1">
+
         <thead>
           <tr>
             <th class="textcenter">
@@ -83,18 +85,17 @@
             </td>
           </tr>
           <!-- end -->
-
         </tbody>
       </table>
-    </div>
 
+    </div>
   </div>
 
   <!-- extend button -->
   <div
-  class="card-reveal animate-slide"
-  [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
->
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+  >
     <span class="card-title grey-text text-darken-4">
       Card Title<i
         class="material-icons right"
