@@ -13,6 +13,7 @@ import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { GraphTodayComponent } from '../../graph/graph-today/graph-today.component';
 import { CardComponent } from '../../cards/card/card.component';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
+import { OverallPortfolioAnalysisComponent } from '../../cards/overall-portfolio-analysis/overall-portfolio-analysis.component';
 @Component({
   selector: 'app-swiper-doing-overall',
   templateUrl: './swiper-doing-overall.component.html',
@@ -25,6 +26,7 @@ import { BreakupComponent } from '../../cards/breakup/breakup.component';
     CardComponent,
     GraphTodayComponent,
     BreakupComponent,
+    OverallPortfolioAnalysisComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
