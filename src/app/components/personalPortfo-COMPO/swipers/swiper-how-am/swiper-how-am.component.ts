@@ -10,8 +10,8 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
-import { CardComponent } from '../../card/card.component';
 import { GraphTodayComponent } from '../../graph/graph-today/graph-today.component';
+import { CardComponent } from '../../cards/card/card.component';
 
 @Component({
   selector: 'app-swiper-how-am',

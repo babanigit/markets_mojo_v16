@@ -10,34 +10,43 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
-import { CardComponent } from '../../card/card.component';
 import { GraphTodayComponent } from '../../graph/graph-today/graph-today.component';
+import { CardComponent } from '../../cards/card/card.component';
+import { BreakupComponent } from '../../cards/breakup/breakup.component';
 @Component({
   selector: 'app-swiper-doing-overall',
   templateUrl: './swiper-doing-overall.component.html',
   styleUrls: ['./swiper-doing-overall.component.css'],
   standalone: true,
-  imports: [CommonModule, TwoCommasPipe, RoundOffPipe, CardComponent,GraphTodayComponent],
+  imports: [
+    CommonModule,
+    TwoCommasPipe,
+    RoundOffPipe,
+    CardComponent,
+    GraphTodayComponent,
+    BreakupComponent,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
-
   main_data: any = [];
 
-    // data
-    data_news: any = [];
-    data_corpact: any = [];
-    data_summary: any = [];
+  // data
+  data_news: any = [];
+  data_corpact: any = [];
+  data_summary: any = [];
 
-// data.overall
+  // data.overall
   data_contri: any = [];
   data_drags: any = [];
-  data_gainers:any = [];
-  data_losers:any = [];
+  data_gainers: any = [];
+  data_losers: any = [];
+
 
   constructor(
     private serv: GetPersonalPFService,
-    public fun: PpFunctionsService
+    public fun: PpFunctionsService,
+
   ) {}
 
   ngOnInit(): void {
@@ -46,7 +55,6 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
 
   fetchData(): void {
     this.serv.getSwitcherDatas('overall').subscribe((res) => {
-
       this.main_data = res.data;
       console.log('res : ', res.data);
 
@@ -62,7 +70,6 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
       this.data_losers = res.data.overall.losers;
       console.log('data_losers ', this.data_losers);
 
-
       this.data_summary = res.data.summary;
       console.log('data_summary ', this.data_summary);
 
@@ -71,7 +78,6 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
 
       this.data_corpact = res.data.corpact;
       console.log('data_corpact ', this.data_corpact);
-
     });
   }
 
@@ -98,4 +104,22 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
 
     // console.log('Swiper instance:', swiper);
   }
+
+
+    // Method to get class by color
+    getClassByColor(color: string): string {
+      console.log('hello');
+      // return 'green';
+      return this.fun.getClassbyClr(color);
+    }
+
+    // Method to get direction color default
+    getDirClrDefault(value: string, defaultColor: string): string {
+      // console.log('hello');
+      return this.fun.getDirClrDefault(value, defaultColor);
+    }
+
+    trackByFn(index: number, item: any): any {
+      return item.dotsum.sid; // Use a unique identifier if possible
+    }
 }

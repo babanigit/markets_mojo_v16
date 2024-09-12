@@ -1,0 +1,155 @@
+<div class="card PortNet">
+  <div class="card-content">
+
+
+    <!-- head  -->
+    <div class="card-head">
+      <h2>
+        Portfolio Networth Break-Up
+        <span
+        *ngIf="SHOW_BUTTON"
+        class="card-title activator info-act"
+        (click)="isCollapseTodayContri = !isCollapseTodayContri"
+        ></span>
+      </h2>
+    </div>
+
+    <!-- ngIf: loader[0].pf_overall_breakup == true -->
+    <!-- ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 1 -->
+
+    <!-- ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 0 -->
+    <div
+      class="card-body ng-scope"
+      ng-if="loader[0].pf_overall_breakup == false &amp;&amp; error_flag[0].overall_networth == 0"
+
+    >
+      <div class="pf-net-breakup">
+
+        <div class="companycv">
+          <ul style="padding: 0">
+            <li>
+              Your Holding Value :
+              <strong class="ng-binding"> Rs {{DATA.lval | roundOff | twoCommas  }} </strong>
+            </li>
+            <li>
+              You bought :
+              <strong class="ng-binding"> Rs {{DATA.buyval  | roundOff  | twoCommas }} </strong>
+            </li>
+            <!-- ngIf: overall.sellval != 0 -->
+            <li ng-if="overall.sellval != 0" class="ng-scope">
+              You sold :
+              <strong class="ng-binding">Rs {{DATA.sellval  | roundOff  | twoCommas }} </strong>
+            </li>
+            <!-- end ngIf: overall.sellval != 0 -->
+            <!-- ngIf: overall.sellval == 0 -->
+          </ul>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="pf-">Total Gain/Loss</th>
+              <th
+                [ngClass]="this.fun.getDirClrDefault(DATA.tgaindir, 'orange')"
+                class="ng-binding "
+              >
+                Rs  {{DATA.tgain | roundOff | twoCommas  }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="pf-">Realized Gain/Loss</td>
+              <!-- ngIf: overall.rgain == 'NA' -->
+              <!-- ngIf: overall.rgain != 'NA' -->
+              <td
+              *ngIf="DATA.rgain != 'NA'"
+              [ngClass]="this.fun.getDirClrDefault(DATA.rgaindir, 'orange')"
+                class="ng-binding ng-scope "
+              >
+                Rs  {{DATA.rgain | roundOff | twoCommas  }}
+              </td>
+              <!-- end ngIf: overall.rgain != 'NA' -->
+            </tr>
+            <tr>
+              <td class="pf-">Dividend Received</td>
+              <!-- ngIf: overall.dividend == 'NA' -->
+              <!-- ngIf: overall.dividend != 'NA' -->
+              <td
+                *ngIf="DATA.dividend != 'NA'"
+                [ngClass]="this.fun.getDirClrDefault(DATA.divdir, 'orange')"
+                class="ng-binding ng-scope "
+              >
+                Rs  {{DATA.dividend | roundOff | twoCommas  }}
+              </td>
+              <!-- end ngIf: overall.dividend != 'NA' -->
+            </tr>
+            <tr>
+              <td class="pf-">Unrealized Gain/Loss</td>
+              <!-- ngIf: overall.unrgain == 'NA' -->
+              <!-- ngIf: overall.unrgain != 'NA' -->
+              <td
+              *ngIf="DATA.unrgain != 'NA'"
+
+              [ngClass]="this.fun.getDirClrDefault(DATA.unrgaindir, 'orange')"
+                class="ng-binding ng-scope "
+              >
+                Rs  {{DATA.unrgain | roundOff | twoCommas  }}
+              </td>
+              <!-- end ngIf: overall.unrgain != 'NA' -->
+            </tr>
+          </tbody>
+        </table>
+        <div class="condi-p">
+          <p>Tax has not been considered for this analysis</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- end ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 0 -->
+  </div>
+
+  <!-- slider -->
+  <div
+  *ngIf="SHOW_BUTTON"
+  class="card-reveal animate-slide"
+  [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+  >
+    <span class="card-title grey-text text-darken-4">
+      Card Title<i
+      class="material-icons right"
+      (click)="isCollapseTodayContri = !isCollapseTodayContri"
+        >close</i
+      >
+    </span>
+    <div class="card-reveal-text">
+      <ul>
+        <li>Quick summary of the total money made by you</li>
+        <li>
+          The card bifurcates the current value of your holdings and
+          your total investments (You bought) and withdrawals (you sold)
+          from portfolio
+        </li>
+        <li>
+          Your total money made is bifurcated into
+          <ul>
+            <li>Realized gain/loss: Money made on shares sold</li>
+            <li>
+              Dividend Received: Dividend on your current and past
+              holdings
+            </li>
+            <li>
+              Unrealized gain/loss: Money that will be made if the
+              current portfolio is liquidated at the latest prices. This
+              is notional gain and there is no guarantee that when you
+              go to sell in the market, the shares can be sold at the
+              exact same prices to make the same gain.
+            </li>
+          </ul>
+        </li>
+        <li>Tax has not been considered for this analysis</li>
+      </ul>
+    </div>
+  </div>
+
+</div>

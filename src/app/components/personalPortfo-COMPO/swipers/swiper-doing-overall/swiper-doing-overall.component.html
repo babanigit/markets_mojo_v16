@@ -2,7 +2,6 @@
   class="slide-card cf ng-scope"
   id="MenusectOverall"
   ng-if="other_card_visibile"
-
 >
   <div
     class="swiper-container swiper-6 swiper-container-horizontal"
@@ -32,8 +31,7 @@
       sect-reveal="true"
       style="transform: translate3d(-783px, 0px, 0px); transition-duration: 0ms"
     >
-
-    <!-- overall porfolio analysis -->
+      <!-- overall porfolio analysis -->
       <section
         data-reveal="true"
         id="sectOverall_analysis"
@@ -56,6 +54,8 @@
               style=""
             >
               <div class="row">
+
+
                 <div
                   class="pf-box col-md-12"
                   ng-click="other_section_visible('MenusectReturn')"
@@ -73,6 +73,7 @@
                     <span></span>
                   </div>
                 </div>
+
                 <div
                   class="pf-box col-md-12"
                   ng-click="other_section_visible('MenusectRisk')"
@@ -84,6 +85,7 @@
                     Risk : <span class="red">High Risk</span>
                   </div>
                 </div>
+
                 <div
                   class="pf-box col-md-12"
                   ng-click="other_section_visible('MenusectLiq')"
@@ -95,6 +97,7 @@
                     Liquidity : <span class="green">No Liquidity Issues</span>
                   </div>
                 </div>
+
                 <div
                   class="pf-box col-md-12"
                   ng-click="other_section_visible('MenusectDiverse')"
@@ -107,6 +110,7 @@
                     <span class="red">Highly Concentrated</span>
                   </div>
                 </div>
+
                 <div
                   class="pf-box col-md-12"
                   ng-click="other_section_visible('MenusectQuality')"
@@ -124,6 +128,7 @@
                     >
                   </div>
                 </div>
+
                 <div
                   class="pf-box col-md-12"
                   ng-click="other_section_visible('MenusectValuation')"
@@ -141,6 +146,7 @@
                     >
                   </div>
                 </div>
+
                 <div
                   class="pf-box col-md-12"
                   ng-click="other_section_visible('MenusectFintrend')"
@@ -158,6 +164,9 @@
                     >
                   </div>
                 </div>
+
+
+
               </div>
             </div>
             <!-- end ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
@@ -518,7 +527,7 @@
         }
       </script>
 
- <!-- personal profile -->
+      <!-- personal profile -->
       <section
         data-reveal="true"
         id="sectOverall_profile"
@@ -537,39 +546,34 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_overall_profile == true -->
-            <!-- ngIf: loader[0].pf_overall_profile == false && error_flag[0].overall_profile == 1 -->
 
-            <!-- ngIf: loader[0].pf_overall_profile == false && error_flag[0].overall_profile == 0 -->
+            <!-- body -->
             <div
-              class="pf-profile ng-scope"
+              class="card-body"
               ng-if="loader[0].pf_overall_profile == false &amp;&amp; error_flag[0].overall_profile == 0"
               style=""
             >
               <div class="pf-profile-sec1">
                 <div>
                   <div class="pf-profile-txt1">Portfolio Value</div>
-                  <div class="pf-profile-txt2 ng-binding">2,33,226</div>
+                  <div class="pf-profile-txt2 ng-binding">
+                    {{ main_data.lval | roundOff | twoCommas }}
+                  </div>
                 </div>
                 <div>
                   <div class="pf-profile-txt1">Total Returns(%)</div>
                   <div
-                    ng-class="
-                      'pf-profile-txt2 ' + getDirClrDefault(overall.tretdir)
-                    "
-                    class="ng-binding pf-profile-txt2 green"
+                    [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
+                    class="ng-binding pf-profile-txt2"
                   >
-                    2,01,659
+                    {{ main_data.tret | roundOff | twoCommas }}
                   </div>
                   <!-- ngIf: overall.tretp != "" -->
                   <div
-                    ng-class="
-                      'pf-profile-txt3 ' + getDirClrDefault(overall.tretpdir)
-                    "
-                    ng-if="overall.tretp != ''"
-                    class="ng-binding ng-scope pf-profile-txt3 green"
+                    [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
+                    class="ng-binding ng-scope pf-profile-txt3"
                   >
-                    (60.68%)
+                    ({{ main_data.tretp | roundOff | twoCommas }}%)
                   </div>
                   <!-- end ngIf: overall.tretp != "" -->
                 </div>
@@ -577,17 +581,17 @@
 
               <div class="pf-profile-sec2">
                 <div>
-                  <div class="pf-profile-txt2 ng-binding">17</div>
+                  <div class="pf-profile-txt2 ng-binding">{{ main_data.tstock | roundOff | twoCommas }}</div>
                   <div class="pf-profile-txt3C">Stocks</div>
                 </div>
                 <div>
-                  <div class="pf-profile-txt2 ng-binding">11</div>
+                  <div class="pf-profile-txt2 ng-binding">{{ main_data.tsector | roundOff | twoCommas }}</div>
                   <div class="pf-profile-txt3C">Sectors</div>
                 </div>
                 <div>
                   <div class="pf-profile-txt2 ng-binding">
-                    6
-                    <small class="ng-binding">(1.51%)</small>
+                    {{ main_data.tailcnt | roundOff | twoCommas }}
+                    <small class="ng-binding">({{ main_data.tailpwt | roundOff | twoCommas }}%)</small>
                   </div>
                   <div class="pf-profile-txt3C">Tail Stock</div>
                 </div>
@@ -597,16 +601,15 @@
                   <div class="pf-profile-txt4">Highest Stock Holding</div>
                   <div class="pf-profile-txt2">
                     <a
-                      ng-href="/Stocks?StockId=454045&amp;Exchange=0"
                       target="_blank"
                       class="ng-binding"
-                      href="/Stocks?StockId=454045&amp;Exchange=0"
-                      >Jubilant Inds.</a
+                      [href]="'/Stocks?StockId=' + main_data?.histock?.sid + '&Exchange=0'"
+                      >{{ main_data?.histock?.name }}</a
                     >
                     <!-- ngIf: overall.histock.pwt != "" --><span
-                      ng-if="overall.histock.pwt != ''"
+
                       class="ng-binding ng-scope"
-                      >(38.85%)</span
+                      >( {{ main_data?.histock?.pwt | roundOff | twoCommas }}%)</span
                     ><!-- end ngIf: overall.histock.pwt != "" -->
                   </div>
                 </div>
@@ -614,23 +617,25 @@
               <div class="pf-profile-sec3">
                 <div class="pf-profile-txt4">Highest Sector Allocation</div>
                 <div class="pf-profile-txt2 ng-binding">
-                  Pesticides &amp; Agrochemicals (38.85%)
+                  {{main_data.hisect}} ({{ main_data.hisectpwt | roundOff | twoCommas }}%)
                 </div>
               </div>
 
               <div class="pf-profile-sec3">
                 <div class="pf-profile-txt4">Highest Market Cap Allocation</div>
-                <div class="pf-profile-txt2 ng-binding">Large Cap (48.96%)</div>
+                <div class="pf-profile-txt2 ng-binding">{{main_data.himcap}} ({{ main_data.himcappwt | roundOff | twoCommas }}%)</div>
               </div>
               <div class="pf-profile-sec4">
                 <div>
                   <div class="pf-profile-txt1">Portfolio Construct</div>
-                  <div class="pf-profile-txt2 red">Highly Concentrated</div>
+                  <div
+                  [ngClass]="main_data?.diversified?.color"
+                  class="pf-profile-txt2 "> {{main_data?.diversified?.text}} </div>
                 </div>
                 <div>
                   <div class="pf-profile-txt1">Inception Date</div>
                   <div class="pf-profile-txt2">
-                    <i class="ng-binding">26 Dec 2016</i>
+                    <i class="ng-binding">{{main_data.incepdt}}</i>
                   </div>
                 </div>
               </div>
@@ -670,158 +675,11 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <div class="card PortNet">
-          <div class="card-content">
-
-            <!-- head  -->
-            <div class="card-head">
-              <h2>
-                Portfolio Networth Break-Up
-                <span
-                  class="card-title activator info-act"
-                  ng-click="isCollapseOverallBreakup = !isCollapseOverallBreakup"
-                ></span>
-              </h2>
-            </div>
-
-            <!-- ngIf: loader[0].pf_overall_breakup == true -->
-            <!-- ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 1 -->
-
-            <!-- ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 0 -->
-            <div
-              class="card-body ng-scope"
-              ng-if="loader[0].pf_overall_breakup == false &amp;&amp; error_flag[0].overall_networth == 0"
-
-            >
-              <div class="pf-net-breakup">
-
-                <div class="companycv">
-                  <ul style="padding: 0">
-                    <li>
-                      Your Holding Value :
-                      <strong class="ng-binding"> Rs {{main_data.lval | roundOff | twoCommas  }} </strong>
-                    </li>
-                    <li>
-                      You bought :
-                      <strong class="ng-binding"> Rs {{main_data.buyval  | roundOff  | twoCommas }} </strong>
-                    </li>
-                    <!-- ngIf: overall.sellval != 0 -->
-                    <li ng-if="overall.sellval != 0" class="ng-scope">
-                      You sold :
-                      <strong class="ng-binding">Rs {{main_data.sellval  | roundOff  | twoCommas }} </strong>
-                    </li>
-                    <!-- end ngIf: overall.sellval != 0 -->
-                    <!-- ngIf: overall.sellval == 0 -->
-                  </ul>
-                </div>
-
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th class="pf-">Total Gain/Loss</th>
-                      <th
-                        [ngClass]="this.fun.getDirClrDefault(main_data.tgaindir, 'orange')"
-                        class="ng-binding "
-                      >
-                        Rs  {{main_data.tgain | roundOff | twoCommas  }}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="pf-">Realized Gain/Loss</td>
-                      <!-- ngIf: overall.rgain == 'NA' -->
-                      <!-- ngIf: overall.rgain != 'NA' -->
-                      <td
-                      *ngIf="main_data.rgain != 'NA'"
-                      [ngClass]="this.fun.getDirClrDefault(main_data.rgaindir, 'orange')"
-                        class="ng-binding ng-scope "
-                      >
-                        Rs  {{main_data.rgain | roundOff | twoCommas  }}
-                      </td>
-                      <!-- end ngIf: overall.rgain != 'NA' -->
-                    </tr>
-                    <tr>
-                      <td class="pf-">Dividend Received</td>
-                      <!-- ngIf: overall.dividend == 'NA' -->
-                      <!-- ngIf: overall.dividend != 'NA' -->
-                      <td
-                        *ngIf="main_data.dividend != 'NA'"
-                        [ngClass]="this.fun.getDirClrDefault(main_data.divdir, 'orange')"
-                        class="ng-binding ng-scope "
-                      >
-                        Rs  {{main_data.dividend | roundOff | twoCommas  }}
-                      </td>
-                      <!-- end ngIf: overall.dividend != 'NA' -->
-                    </tr>
-                    <tr>
-                      <td class="pf-">Unrealized Gain/Loss</td>
-                      <!-- ngIf: overall.unrgain == 'NA' -->
-                      <!-- ngIf: overall.unrgain != 'NA' -->
-                      <td
-                      *ngIf="main_data.unrgain != 'NA'"
-
-                      [ngClass]="this.fun.getDirClrDefault(main_data.unrgaindir, 'orange')"
-                        class="ng-binding ng-scope "
-                      >
-                        Rs  {{main_data.unrgain | roundOff | twoCommas  }}
-                      </td>
-                      <!-- end ngIf: overall.unrgain != 'NA' -->
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="condi-p">
-                  <p>Tax has not been considered for this analysis</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- end ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 0 -->
-          </div>
-
-          <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseOverallBreakup"
-          >
-            <span class="card-title grey-text text-darken-4">
-              Card Title<i
-                class="material-icons right"
-                ng-click="isCollapseOverallBreakup = !isCollapseOverallBreakup"
-                >close</i
-              >
-            </span>
-            <div class="card-reveal-text">
-              <ul>
-                <li>Quick summary of the total money made by you</li>
-                <li>
-                  The card bifurcates the current value of your holdings and
-                  your total investments (You bought) and withdrawals (you sold)
-                  from portfolio
-                </li>
-                <li>
-                  Your total money made is bifurcated into
-                  <ul>
-                    <li>Realized gain/loss: Money made on shares sold</li>
-                    <li>
-                      Dividend Received: Dividend on your current and past
-                      holdings
-                    </li>
-                    <li>
-                      Unrealized gain/loss: Money that will be made if the
-                      current portfolio is liquidated at the latest prices. This
-                      is notional gain and there is no guarantee that when you
-                      go to sell in the market, the shares can be sold at the
-                      exact same prices to make the same gain.
-                    </li>
-                  </ul>
-                </li>
-                <li>Tax has not been considered for this analysis</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <app-breakup
+          [DATA]="main_data"
+          [HEAD]="'Portfolio Networth Break-Up'"
+        />
       </section>
-
 
       <!--  Overall Contributors -->
       <section
@@ -831,8 +689,7 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-      <app-card [DATA]="data_contri" [HEAD]="'Overall Contributors'" />
+        <app-card [DATA]="data_contri" [HEAD]="'Overall Contributors'" />
 
         <div class="porbottomlink">
           <div class="bottom-card-links">
@@ -865,7 +722,6 @@
           </div>
         </div>
       </section>
-
 
       <!--  Overall Drags -->
       <section
@@ -875,9 +731,7 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-      <app-card [DATA]="data_drags" [HEAD]="'Overall Drags'" />
-
+        <app-card [DATA]="data_drags" [HEAD]="'Overall Drags'" />
 
         <div class="porbottomlink">
           <div class="bottom-card-links">
@@ -910,7 +764,6 @@
           </div>
         </div>
       </section>
-
 
       <!-- Overall Gainers -->
       <section
@@ -920,9 +773,7 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-      <app-card [DATA]="data_gainers" [HEAD]="'Overall Gainers'" />
-
+        <app-card [DATA]="data_gainers" [HEAD]="'Overall Gainers'" />
 
         <div class="porbottomlink">
           <div class="bottom-card-links">
@@ -955,7 +806,6 @@
           </div>
         </div>
       </section>
-
 
       <!--  Overall Losers -->
       <section
@@ -965,8 +815,7 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-      <app-card [DATA]="data_losers" [HEAD]="'Overall Losers'" />
+        <app-card [DATA]="data_losers" [HEAD]="'Overall Losers'" />
 
         <div class="porbottomlink">
           <div class="bottom-card-links">
@@ -1000,14 +849,13 @@
         </div>
       </section>
 
-
       <!--//////section end//////////-->
     </div>
     <!-- <div class="swiper-scrollbar"></div> -->
     <div class="swiper-button-next" style="margin-top: 0px">
       <a class="btn-floating btn-large waves-effect waves-light black">
-        <i class="material-icons large">skip_next</i>
-      </a>`
+        <i class="material-icons large">skip_next</i> </a
+      >`
     </div>
     <div
       class="swiper-button-prev swiper-button-disabled"
