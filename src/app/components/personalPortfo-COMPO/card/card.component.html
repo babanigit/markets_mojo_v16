@@ -1,18 +1,19 @@
 <div class="card">
   <div class="card-content">
+
+    <!-- head -->
     <div class="card-head">
       <h2>
-        {{HEAD}}
+        {{ HEAD }}
         <span
           class="card-title activator info-act"
-          ng-click="isCollapseTodayContri = !isCollapseTodayContri"
+          (click)="isCollapseTodayContri = !isCollapseTodayContri"
+
         ></span>
       </h2>
     </div>
-    <!-- ngIf: loader[0].pf_today_contri == true -->
-    <!-- ngIf: loader[0].pf_today_contri == false && error_flag[0].actionToday_contri == 1 -->
 
-    <!-- ngIf: loader[0].pf_today_contri == false && error_flag[0].actionToday_contri == 0 -->
+  <!-- table -->
     <div
       class="contributors list-mojo ng-scope"
       ng-if="loader[0].pf_today_contri == false &amp;&amp; error_flag[0].actionToday_contri == 0"
@@ -82,21 +83,22 @@
             </td>
           </tr>
           <!-- end -->
+
         </tbody>
       </table>
     </div>
-    <!-- end ngIf: loader[0].pf_today_contri == false && error_flag[0].actionToday_contri == 0 -->
+
   </div>
 
   <!-- extend button -->
   <div
-    class="card-reveal animate-slide ng-hide"
-    ng-show="isCollapseTodayContri"
-  >
+  class="card-reveal animate-slide"
+  [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+>
     <span class="card-title grey-text text-darken-4">
       Card Title<i
         class="material-icons right"
-        ng-click="isCollapseTodayContri = !isCollapseTodayContri"
+        (click)="isCollapseTodayContri = !isCollapseTodayContri"
         >close</i
       >
     </span>
@@ -111,4 +113,5 @@
       </ul>
     </div>
   </div>
+
 </div>

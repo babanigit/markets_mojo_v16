@@ -28,6 +28,7 @@
     >
       <!--  -->
 
+      <!-- graph -->
       <section
         data-reveal="true"
         id="sectToday_movement"
@@ -1035,7 +1036,7 @@
         </div>
       </section>
 
-      <!-- ngIf: !block_clmm_content && showcardsData.next_webinar.show_banner == 'yes' && (showcardsData.next_webinar.webinar_card_img == '' || showcardsData.next_webinar.webinar_card_img == undefined) -->
+      <!-- web on -->
       <section
         class="swiper-slide small-card marginright webinarcard_black swiper-slide-visible swiper-slide-next"
         onclick=""
@@ -1097,9 +1098,6 @@
           <!-- ngIf: showcardsData.next_webinar.isyoutubelive == 'yes' --> </a
         ><!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
       </section>
-      <!-- end ngIf: !block_clmm_content && showcardsData.next_webinar.show_banner == 'yes' && (showcardsData.next_webinar.webinar_card_img == '' || showcardsData.next_webinar.webinar_card_img == undefined) -->
-
-      <!-- ngIf: !block_clmm_content && showcardsData.next_webinar.show_banner == 'yes' && showcardsData.next_webinar.webinar_card_img != '' -->
 
       <script type="text/ng-template" id="landingvideo">
         <!--************new video**********-->
@@ -1109,14 +1107,6 @@
             <!--<iframe class="iframevideonew" src="https://sandbox-st.marketsmojo.com/images/landing/marketsmojoFinalcut.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
         </div>
       </script>
-
-      <!--<section data-scrolled="0" data-visited="0" class="swiper-slide small-card marginright swiper-slide-visible" style="background-color:#efdbbf;padding: 0px !important;">
-       <div class="card" style="padding: 0px !important;background-color:#efdbbf;">
-        <div class="card-content happend" style="padding: 0px !important;">
-         <a href="/blog/investmentletters/how-to-find-a-multibagger-exclusive-webinar-by-ceo-founder-dr-mohit-batra-2629.html?utm_source=MM_Blog_SiteCard"><img style="width:100%;" src="https://i.marketsmojo.com/banner/site_cards_blog.png"></a>
-        </div>
-       </div>
-    </section>-->
 
       <section
         data-reveal="true"
@@ -1913,6 +1903,7 @@
         data-scrolled="0"
         data-visited="0"
       >
+
         <app-card [DATA]="data_contri" [HEAD]="'Today\'s Contributors'" />
 
         <!-- full details button -->
@@ -2153,6 +2144,8 @@
       >
         <div class="card">
           <div class="card-content breakupcard">
+
+            <!-- head -->
             <div class="card-head">
               <h2>
                 <div>
@@ -2164,6 +2157,8 @@
                 </div>
               </h2>
             </div>
+
+            <!--  -->
             <!-- ngIf: loader[0].pf_today_mcap == true -->
             <div class="pf-rtn-breakup">
               <div class="pf-by-m-cap-sec pf-by-margin">
@@ -2354,7 +2349,10 @@
               </ul>
             </div>
           </div>
+
         </div>
+
+        <!-- full details -->
         <div class="porbottomlink">
           <div class="bottom-card-links">
             <div class="bottom-card-links no-web">
@@ -2385,6 +2383,7 @@
             </div>
           </div>
         </div>
+
       </section>
 
       <!-- gainers -->

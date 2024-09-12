@@ -14,11 +14,11 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
   imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
 })
 export class CardComponent {
-
   @Input() DATA: any; //props
   @Input() HEAD!: string; //props
 
-
   constructor(public fun: PpFunctionsService) {}
+
+  isCollapseTodayContri:boolean=true
 
 }
