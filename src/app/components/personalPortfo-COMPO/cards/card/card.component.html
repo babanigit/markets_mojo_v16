@@ -1,12 +1,11 @@
 <div class="card">
   <div class="card-content">
-
     <!-- head -->
     <div class="card-head">
       <h2>
         {{ HEAD }}
         <span
-        *ngIf="SHOW_BUTTON"
+          *ngIf="SHOW_BUTTON"
           class="card-title activator info-act"
           (click)="isCollapseTodayContri = !isCollapseTodayContri"
         ></span>
@@ -14,14 +13,9 @@
     </div>
 
     <!-- body -->
-    <div
-      class="contributors list-mojo ng-scope"
-      ng-if="loader[0].pf_today_contri == false &amp;&amp; error_flag[0].actionToday_contri == 0"
-    >
-
-    <!-- table -->
+    <div class="contributors list-mojo ng-scope">
+      <!-- table -->
       <table class="table1">
-
         <thead>
           <tr>
             <th class="textcenter">
@@ -33,14 +27,14 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody
+        >
           <!-- ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
 
           <!-- start -->
           <tr
-            ng-repeat="value in actionToday.overall.contri| limitTo:limit"
             class="ng-scope"
-            *ngFor="let item of DATA ; trackBy: trackByFn"
+            *ngFor="let item of DATA; trackBy: trackByFn"
           >
             <td>
               <div>
@@ -53,15 +47,9 @@
                 </a>
                 <br />
                 <span
-                  ><span
-                    [ngClass]="getClassByColor(item.dotsum.q_clr)"
-                  ></span>
-                  <span
-                    [ngClass]="getClassByColor(item.dotsum.v_clr)"
-                  ></span>
-                  <span
-                    [ngClass]="getClassByColor(item.dotsum.f_clr)"
-                  ></span>
+                  ><span [ngClass]="getClassByColor(item.dotsum.q_clr)"></span>
+                  <span [ngClass]="getClassByColor(item.dotsum.v_clr)"></span>
+                  <span [ngClass]="getClassByColor(item.dotsum.f_clr)"></span>
                 </span>
               </div>
               <p class="ng-binding">
@@ -69,9 +57,7 @@
               </p>
             </td>
             <td
-              [ngClass]="
-                getDirClrDefault(item.dgaindir, 'orange') + ' txt-rt'
-              "
+              [ngClass]="getDirClrDefault(item.dgaindir, 'orange') + ' txt-rt'"
             >
               <p class="pf-tbl-txt1 ng-binding">
                 {{ item.dgain | roundOff | twoCommas }}%
@@ -88,13 +74,12 @@
           <!-- end -->
         </tbody>
       </table>
-
     </div>
   </div>
 
   <!-- extend button -->
   <div
-  *ngIf="SHOW_BUTTON"
+    *ngIf="SHOW_BUTTON"
     class="card-reveal animate-slide"
     [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
   >
@@ -116,5 +101,4 @@
       </ul>
     </div>
   </div>
-
 </div>

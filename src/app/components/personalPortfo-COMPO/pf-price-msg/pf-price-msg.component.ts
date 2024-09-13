@@ -28,9 +28,9 @@ export class PfPriceMsgComponent implements OnInit {
   fetch_nf() {
     this.serv.getNetworkFactor().subscribe((res) => {
       this.nf_data = res;
-      console.log('nf data is : ', this.nf_data);
+      // console.log('nf data is : ', this.nf_data);
       this.nf_data_list = res.data.list.Assets.list
-      console.log('nf_list data is : ', this.nf_data_list);
+      // console.log('nf_list data is : ', this.nf_data_list);s
 
     });
   }

@@ -31,20 +31,6 @@ export class GetPersonalPFService {
 
   private nf_path = 'assets/pp/networkFactor/getNetworkFactor.json';
 
-  private readonly paths2 = {
-
-    today: 'assets/pp/swiper/today.json',
-    overall: 'assets/pp/swiper/overall.json',
-    return: 'assets/pp/swiper/return.json',
-    // LIQUIDITY: 'assets/pp/table/getLiquidity.json',
-    // TAX: 'assets/pp/table/getTax.json',
-    // RATIOS: 'assets/pp/table/getRatio.json',
-    // FINANCIALS: 'assets/pp/table/getFinancials.json',
-    // RETURNS: 'assets/pp/table/getReturn.json',
-    // RESULTS: 'assets/pp/table/getResults.json',
-    // TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
-  };
-
   constructor(private http: HttpClient) {}
 
   getOverviewStocks(
@@ -61,7 +47,7 @@ export class GetPersonalPFService {
       | 'TOTAL_RETURNS'
   ) {
     const path = this.paths[type] || this.paths.HOLDING; // default is holding
-    console.log('the path in getOS : ', path);
+    // console.log('the path in getOS : ', path);
 
     return this.http.get<any>(path).pipe(
       catchError((err) => {
@@ -94,7 +80,7 @@ export class GetPersonalPFService {
   ) {
     const path = this.paths2[type] || this.paths2.today;
 
-    console.log('the path in getSwitcherDatas : ', path);
+    // console.log('the path in getSwitcherDatas : ', path);
 
     return this.http.get<any>(path).pipe(
       catchError((err) => {
@@ -104,6 +90,20 @@ export class GetPersonalPFService {
       })
     );
   }
+
+  private readonly paths2 = {
+
+    today: 'assets/pp/swiper/today.json',
+    overall: 'assets/pp/swiper/overall.json',
+    return: 'assets/pp/swiper/return.json',
+    // LIQUIDITY: 'assets/pp/table/getLiquidity.json',
+    // TAX: 'assets/pp/table/getTax.json',
+    // RATIOS: 'assets/pp/table/getRatio.json',
+    // FINANCIALS: 'assets/pp/table/getFinancials.json',
+    // RETURNS: 'assets/pp/table/getReturn.json',
+    // RESULTS: 'assets/pp/table/getResults.json',
+    // TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
+  };
 
 
   private loadingSubject = new BehaviorSubject<boolean>(false);
@@ -123,7 +123,7 @@ export class GetPersonalPFService {
       catchError((err) => {
         this.loadingSubject.next(false); // Set loading to false on error
         this.errorSubject.next('Error fetching graph data'); // Set error message
-        console.error('Error fetching graph data', err);
+        // console.error('Error fetching graph data', err);
         return throwError(err); // Return an observable error
       }),
       finalize(() => this.loadingSubject.next(false)) // Emit loading false after HTTP request

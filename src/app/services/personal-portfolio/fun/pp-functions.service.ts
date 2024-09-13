@@ -5,7 +5,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   providedIn: 'root',
 })
 export class PpFunctionsService {
-
   constructor(private sanitizer: DomSanitizer) {}
 
   // Method to sanitize and trust HTML content
@@ -14,8 +13,7 @@ export class PpFunctionsService {
   }
 
   getClassbyClr(str: string): string {
-
-    console.log(" yeee ")
+    // console.log(" yeee ")
 
     if (str == 'green') return 'green-mojo';
     if (str == 'red') return 'red-mojo';
@@ -24,7 +22,6 @@ export class PpFunctionsService {
   }
 
   getDirClrDefault(value: string | number, def: string): string {
-
     // Convert value to a number if it is a string
     const numericValue = typeof value === 'string' ? parseFloat(value) : value;
 
@@ -36,9 +33,5 @@ export class PpFunctionsService {
     } else {
       return 'green';
     }
-
-
   }
-
-
 }

@@ -20,8 +20,8 @@
     <!-- ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 0 -->
     <div
       class="card-body ng-scope"
-      ng-if="loader[0].pf_overall_breakup == false &amp;&amp; error_flag[0].overall_networth == 0"
 
+      *ngIf="DATA"
     >
       <div class="pf-net-breakup">
 
@@ -63,7 +63,6 @@
               <!-- ngIf: overall.rgain == 'NA' -->
               <!-- ngIf: overall.rgain != 'NA' -->
               <td
-              *ngIf="DATA.rgain != 'NA'"
               [ngClass]="this.fun.getDirClrDefault(DATA.rgaindir, 'orange')"
                 class="ng-binding ng-scope "
               >
@@ -76,7 +75,6 @@
               <!-- ngIf: overall.dividend == 'NA' -->
               <!-- ngIf: overall.dividend != 'NA' -->
               <td
-                *ngIf="DATA.dividend != 'NA'"
                 [ngClass]="this.fun.getDirClrDefault(DATA.divdir, 'orange')"
                 class="ng-binding ng-scope "
               >
@@ -89,7 +87,6 @@
               <!-- ngIf: overall.unrgain == 'NA' -->
               <!-- ngIf: overall.unrgain != 'NA' -->
               <td
-              *ngIf="DATA.unrgain != 'NA'"
 
               [ngClass]="this.fun.getDirClrDefault(DATA.unrgaindir, 'orange')"
                 class="ng-binding ng-scope "

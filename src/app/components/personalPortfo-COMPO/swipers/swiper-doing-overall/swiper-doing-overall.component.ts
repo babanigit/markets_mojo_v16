@@ -3,6 +3,8 @@ import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
   OnInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
@@ -14,6 +16,7 @@ import { GraphTodayComponent } from '../../graph/graph-today/graph-today.compone
 import { CardComponent } from '../../cards/card/card.component';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { OverallPortfolioAnalysisComponent } from '../../cards/overall-portfolio-analysis/overall-portfolio-analysis.component';
+import { IOverall_Data } from 'src/app/models/pp/overall';
 @Component({
   selector: 'app-swiper-doing-overall',
   templateUrl: './swiper-doing-overall.component.html',
@@ -26,17 +29,14 @@ import { OverallPortfolioAnalysisComponent } from '../../cards/overall-portfolio
     CardComponent,
     GraphTodayComponent,
     BreakupComponent,
-    OverallPortfolioAnalysisComponent
+    OverallPortfolioAnalysisComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
-  main_data: any = [];
 
-  // data
-  data_news: any = [];
-  data_corpact: any = [];
-  data_summary: any = [];
+  main_data: IOverall_Data | undefined;
 
   // data.overall
   data_contri: any = [];
@@ -44,10 +44,15 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
   data_gainers: any = [];
   data_losers: any = [];
 
+  // data
+  data_news: any = [];
+  data_corpact: any = [];
+  data_summary: any = [];
 
   constructor(
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
+    private cdr: ChangeDetectorRef
 
   ) {}
 
@@ -58,7 +63,7 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
   fetchData(): void {
     this.serv.getSwitcherDatas('overall').subscribe((res) => {
       this.main_data = res.data;
-      console.log('res : ', res.data);
+      console.log('main_data : ', res.data);
 
       this.data_contri = res.data.overall.contri;
       console.log('data_contri ', this.data_contri);
@@ -80,6 +85,9 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
 
       this.data_corpact = res.data.corpact;
       console.log('data_corpact ', this.data_corpact);
+
+      this.cdr.detectChanges(); // Trigger change detection
+
     });
   }
 
@@ -107,21 +115,20 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
     // console.log('Swiper instance:', swiper);
   }
 
+  // Method to get class by color
+  getClassByColor(color: string): string {
+    console.log('hello');
+    // return 'green';
+    return this.fun.getClassbyClr(color);
+  }
 
-    // Method to get class by color
-    getClassByColor(color: string): string {
-      console.log('hello');
-      // return 'green';
-      return this.fun.getClassbyClr(color);
-    }
+  // Method to get direction color default
+  getDirClrDefault(value: string | number, defaultColor: string): string {
+    // console.log('hello');
+    return this.fun.getDirClrDefault(value, defaultColor);
+  }
 
-    // Method to get direction color default
-    getDirClrDefault(value: string, defaultColor: string): string {
-      // console.log('hello');
-      return this.fun.getDirClrDefault(value, defaultColor);
-    }
-
-    trackByFn(index: number, item: any): any {
-      return item.dotsum.sid; // Use a unique identifier if possible
-    }
+  trackByFn(index: number, item: any): any {
+    return item.dotsum.sid; // Use a unique identifier if possible
+  }
 }

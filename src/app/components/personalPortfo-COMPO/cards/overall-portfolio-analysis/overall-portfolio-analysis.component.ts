@@ -1,5 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { IOverall_Data } from 'src/app/models/pp/overall';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
@@ -8,36 +17,46 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
   selector: 'app-overall-portfolio-analysis',
   templateUrl: './overall-portfolio-analysis.component.html',
   styleUrls: ['./overall-portfolio-analysis.component.css'],
-  standalone:true,
+  standalone: true,
   imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OverallPortfolioAnalysisComponent implements OnInit {
-  @Input() DATA: any; //props
-  @Input() HEAD!: string; //props
+export class OverallPortfolioAnalysisComponent  implements OnChanges {
+
+  @Input() DATA: IOverall_Data | undefined ; //props
+  @Input() HEAD: string | undefined; //props
   // show button
   @Input() SHOW_BUTTON: Boolean = true;
 
-  constructor(private fun: PpFunctionsService) {}
+  constructor(
+    private fun: PpFunctionsService,
+  ) {}
 
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    // console.log( "DATA is : ", this.DATA)
+//   ngOnChanges(changes: SimpleChanges): void {
+//     if (changes['DATA']) {
+//         console.log('DATA changed: ', this.DATA);
+//     }
+//     if (changes['HEAD']) {
+//         console.log('HEAD changed: ', this.HEAD);
+//     }
+// }
+
+ngOnChanges(changes: SimpleChanges): void {
+  if (changes['DATA']) {
+    console.log('DATA changed:', changes['DATA'].currentValue);
   }
+}
 
   isCollapseTodayContri: boolean = true;
 
   // Method to get class by color
   getClassByColor(color: string): string {
-    console.log('hello');
-    // return 'green';
+
     return this.fun.getClassbyClr(color);
   }
 
   // Method to get direction color default
   getDirClrDefault(value: string, defaultColor: string): string {
-    // console.log('hello');
     return this.fun.getDirClrDefault(value, defaultColor);
   }
 

@@ -1,3 +1,11 @@
+<!-- <div>
+  <div *ngIf="DATA">
+    <h1>{{ HEAD }}</h1>
+    <div> {{DATA.quality.color}} </div>
+    <pre>{{ DATA | json }}</pre>
+  </div>
+</div> -->
+
 <div id="returnsOverview" class="card">
   <div class="card-content">
     <div class="card-head">
@@ -13,14 +21,14 @@
     <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 1 -->
 
     <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
+
+
     <div
       class="card-body ng-scope"
-      ng-if="loader[0].pf_overall_analysis == false &amp;&amp; error_flag[0].overall_analysis == 0"
-
+      *ngIf="DATA"
     >
       <div class="pf-overall-boxs">
         <div class="pf-box-set">
-
           <div
             class="pf-box red-bx"
             ng-click="other_section_visible('MenusectReturn')"
@@ -92,13 +100,11 @@
               <div class="pf-box-txt2"></div>
             </a>
           </div>
-
         </div>
       </div>
 
       <div class="pf-overall-boxs2">
         <div class="pf-box-set">
-
           <div
             class="pf-box red-bx"
             ng-click="other_section_visible('MenusectQuality')"
@@ -158,7 +164,6 @@
               </div>
             </a>
           </div>
-
         </div>
       </div>
     </div>

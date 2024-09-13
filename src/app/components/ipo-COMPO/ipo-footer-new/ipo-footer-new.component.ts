@@ -35,6 +35,6 @@ export class IpoFooterNewComponent   implements AfterViewInit {
       },
     });
 
-    console.log('Swiper instance:', swiper);
+    // console.log('Swiper instance:', swiper);
   }
 }
