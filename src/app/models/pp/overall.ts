@@ -74,6 +74,7 @@ export interface IOverall {
  interface Diversified {
   color: string
   text: string
+  c_text?:string
 }
 
  interface Technical {

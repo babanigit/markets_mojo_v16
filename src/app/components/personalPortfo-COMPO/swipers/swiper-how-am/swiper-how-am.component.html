@@ -2164,255 +2164,111 @@
       </section>
 
       <!-- Total Gainers brakup  -->
-      <section
-        style=""
-        class="swiper-slide small-card marginright"
-        data-scrolled="0"
-        data-visited="0"
-      >
+      <section style="" class="swiper-slide small-card marginright swiper-slide-visible" data-scrolled="0" data-visited="0">
         <div class="card">
-          <div class="card-content breakupcard">
-
-            <!-- head -->
-            <div class="card-head">
-              <h2>
-                <div>
-                  Today's gain breakup by Market Cap
-                  <span
-                    class="card-title activator info-act"
-                    ng-click="isCollapseTodayBreak = !isCollapseTodayBreak"
-                  ></span>
+            <div class="card-content breakupcard">
+                <div class="card-head">
+                    <h2>
+                        <div>Today's gain breakup by Market Cap <span class="card-title activator info-act" ng-click="isCollapseTodayBreak = !isCollapseTodayBreak"></span></div>
+                    </h2>
                 </div>
-              </h2>
+                <!-- ngIf: loader[0].pf_today_mcap == true -->
+                <div class="pf-rtn-breakup">
+                    <div class="pf-by-m-cap-sec pf-by-margin">
+                        <div class="pf-undr-txt txt-cr pf-by-margin pf-by-margin02">
+                            <h6 ng-class="getDirClrDefault(actionToday.mcap.large.labeldir)" class="ng-binding red" style="">Underperformed</h6>
+                        </div>
+                        <table class="pftbl-lt">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="pf-txt-1"><span>Large Caps</span></div>
+                                        <div ng-class="'pf-txt-2 ' + getDirClrDefault(actionToday.mcap.large.gaindir)" class="ng-binding pf-txt-2 red" style=""> Rs.-689(-0.60%)</div>
+                                    </td>
+                                    <td>
+                                        <div class="pf-txt-3">V/S</div>
+                                    </td>
+                                    <td>
+                                        <div class="pf-txt-1">Sensex</div>
+                                        <div ng-class="'pf-txt-2 ' + getDirClrDefault(actionToday.mcap.large.idxpdir, 'orange')" class="ng-binding pf-txt-2 red" style="">(-0.09%)</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pf-by-m-cap-sec pf-by-margin">
+                        <div class="pf-undr-txt txt-cr pf-by-margin">
+                            <h6 ng-class="getDirClrDefault(actionToday.mcap.mid.labeldir)" class="ng-binding green" style="">Outperformed</h6>
+                        </div>
+                        <table class="pftbl-lt">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="pf-txt-1"><span>Mid Caps</span></div>
+                                        <div ng-class="'pf-txt-2 ' + getDirClrDefault(actionToday.mcap.mid.gaindir)" class="ng-binding pf-txt-2 green" style=""> Rs.556(2.10%)</div>
+                                    </td>
+                                    <td>
+                                        <div class="pf-txt-3">V/S</div>
+                                    </td>
+                                    <td>
+                                        <div class="pf-txt-1">BSE Midcap</div>
+                                        <div ng-class="'pf-txt-2 ' + getDirClrDefault(actionToday.mcap.mid.idxpdir, 'orange')" class="ng-binding pf-txt-2 green" style="">(0.48%)</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pf-by-m-cap-sec pf-by-margin">
+                        <div class="pf-undr-txt txt-cr pf-by-margin">
+                            <h6 ng-class="getDirClrDefault(actionToday.mcap.smallmicro.labeldir)" class="ng-binding red" style="">Underperformed</h6>
+                        </div>
+                        <table class="pftbl-lt">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="pf-txt-1"><span>Small / Micro Caps</span></div>
+                                         <div ng-class="'pf-txt-2 ' + getDirClrDefault(actionToday.mcap.smallmicro.gaindir)" class="ng-binding pf-txt-2 red" style=""> Rs.-3,173(-3.47%)</div>
+                                    </td>
+                                    <td>
+                                        <div class="pf-txt-3">V/S</div>
+                                    </td>
+                                    <td>
+                                        <div class="pf-txt-1">BSE Smallcap</div>
+                                        <div ng-class="'pf-txt-2 ' + getDirClrDefault(actionToday.mcap.smallmicro.idxpdir, 'orange')" class="ng-binding pf-txt-2 green" style="">(0.95%)</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-
-            <!--  -->
-            <!-- ngIf: loader[0].pf_today_mcap == true -->
-            <div class="pf-rtn-breakup">
-              <div class="pf-by-m-cap-sec pf-by-margin">
-                <div class="pf-undr-txt txt-cr pf-by-margin pf-by-margin02">
-                  <h6
-                    ng-class="getDirClrDefault(actionToday.mcap.large.labeldir)"
-                    class="ng-binding red"
-                    style=""
-                  >
-                    Underperformed
-                  </h6>
+            <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseTodayBreak">
+                <span class="card-title grey-text text-darken-4">
+                    Card Title<i class="material-icons right" ng-click="isCollapseTodayBreak = !isCollapseTodayBreak">close</i>
+                </span>
+                <div class="card-reveal-text">
+                    <ul>
+                        <li>Your portfolio stocks are grouped as per their market cap categories and the performance of the group is compared with its market index</li>
+                        <li>Returns include effect of buys/sell transactions during the day</li>
+                        <li>
+                            It helps to identify which part of your portfolio is pulling and dragging your portfolio today
+                        </li>
+                        <li>Click on All Stocks to see breakup of the information on the card</li>
+                    </ul>
                 </div>
-                <table class="pftbl-lt">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="pf-txt-1"><span>Large Caps</span></div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(actionToday.mcap.large.gaindir)
-                          "
-                          class="ng-binding pf-txt-2 red"
-                          style=""
-                        >
-                          Rs.-102(-0.09%)
-                        </div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-3">V/S</div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-1">Sensex</div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(
-                              actionToday.mcap.large.idxpdir,
-                              'orange'
-                            )
-                          "
-                          class="ng-binding pf-txt-2 green"
-                          style=""
-                        >
-                          (0.44%)
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="pf-by-m-cap-sec pf-by-margin">
-                <div class="pf-undr-txt txt-cr pf-by-margin">
-                  <h6
-                    ng-class="getDirClrDefault(actionToday.mcap.mid.labeldir)"
-                    class="ng-binding green"
-                    style=""
-                  >
-                    Outperformed
-                  </h6>
-                </div>
-                <table class="pftbl-lt">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="pf-txt-1"><span>Mid Caps</span></div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(actionToday.mcap.mid.gaindir)
-                          "
-                          class="ng-binding pf-txt-2 green"
-                          style=""
-                        >
-                          Rs.247(0.93%)
-                        </div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-3">V/S</div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-1">BSE Midcap</div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(
-                              actionToday.mcap.mid.idxpdir,
-                              'orange'
-                            )
-                          "
-                          class="ng-binding pf-txt-2 green"
-                          style=""
-                        >
-                          (0.53%)
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="pf-by-m-cap-sec pf-by-margin">
-                <div class="pf-undr-txt txt-cr pf-by-margin">
-                  <h6
-                    ng-class="
-                      getDirClrDefault(actionToday.mcap.smallmicro.labeldir)
-                    "
-                    class="ng-binding red"
-                    style=""
-                  >
-                    Underperformed
-                  </h6>
-                </div>
-                <table class="pftbl-lt">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="pf-txt-1">
-                          <span>Small / Micro Caps</span>
-                        </div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(
-                              actionToday.mcap.smallmicro.gaindir
-                            )
-                          "
-                          class="ng-binding pf-txt-2 red"
-                          style=""
-                        >
-                          Rs.-4,393(-4.62%)
-                        </div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-3">V/S</div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-1">BSE Smallcap</div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(
-                              actionToday.mcap.smallmicro.idxpdir,
-                              'orange'
-                            )
-                          "
-                          class="ng-binding pf-txt-2 green"
-                          style=""
-                        >
-                          (1.53%)
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
             </div>
-          </div>
-          <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseTodayBreak"
-          >
-            <span class="card-title grey-text text-darken-4">
-              Card Title<i
-                class="material-icons right"
-                ng-click="isCollapseTodayBreak = !isCollapseTodayBreak"
-                >close</i
-              >
-            </span>
-            <div class="card-reveal-text">
-              <ul>
-                <li>
-                  Your portfolio stocks are grouped as per their market cap
-                  categories and the performance of the group is compared with
-                  its market index
-                </li>
-                <li>
-                  Returns include effect of buys/sell transactions during the
-                  day
-                </li>
-                <li>
-                  It helps to identify which part of your portfolio is pulling
-                  and dragging your portfolio today
-                </li>
-                <li>
-                  Click on All Stocks to see breakup of the information on the
-                  card
-                </li>
-              </ul>
-            </div>
-          </div>
-
         </div>
-
-        <!-- full details -->
         <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                href="javascript:void(0)"
-                ng-click="getDiversMcap();modalOpen('divrse_sector_pop_today', 0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
+            <div class="bottom-card-links">
+               <div class="bottom-card-links no-web">
+                    <a class="seefull waves-light modal-trigger" href="javascript:void(0)" ng-click="getDiversMcap();modalOpen('divrse_sector_pop_today', 0)"><img src="https://i.marketsmojo.com/arrow_rt.png" alt="ArrowRight" height="16"> Full Details</a>
+                </div>
+                <div class="bottom-card-links no-mob">
+                    <a class="seefull waves-light" href="javascript:void(0)" ng-click="getDiversMcap();modalOpen('divrse_sector_pop_today', 0)"><img src="https://i.marketsmojo.com/arrow_rt.png" alt="ArrowRight" height="16"> Full Details</a>
+                </div>
             </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                href="javascript:void(0)"
-                ng-click="getDiversMcap();modalOpen('divrse_sector_pop_today', 0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
         </div>
-
-      </section>
+    </section>
 
       <!-- gainers -->
       <section

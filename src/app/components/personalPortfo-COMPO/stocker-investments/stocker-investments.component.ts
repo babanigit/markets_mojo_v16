@@ -73,6 +73,10 @@ export class StockerInvestmentsComponent implements AfterViewInit {
     }
   }
 
+  recievedDataEvent(str:string) {
+    this.scrollToElement(str)
+  }
+
   private getElementId(item: string): string {
     switch (item) {
       case 'Tracker':

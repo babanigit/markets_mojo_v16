@@ -3,9 +3,11 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 import { IOverall_Data } from 'src/app/models/pp/overall';
@@ -28,7 +30,14 @@ export class OverallPortfolioAnalysisComponent implements OnChanges {
   // show button
   @Input() SHOW_BUTTON: Boolean = true;
 
-  constructor(private fun: PpFunctionsService) {}
+  // emit
+  @Output() send_element = new EventEmitter<string>(); //for input value
+
+  constructor(public fun: PpFunctionsService) {}
+
+  jumpToElement(str:string) {
+    this.send_element.emit(str)
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['DATA']) {

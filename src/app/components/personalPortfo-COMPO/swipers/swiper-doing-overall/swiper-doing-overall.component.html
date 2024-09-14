@@ -190,6 +190,9 @@
         <app-overall-portfolio-analysis
           [DATA]="main_data"
           [HEAD]="'Overall portfolio analysis hello'"
+
+          (send_element)="recieveElemment($event)"
+
         />
 
       </section>
@@ -245,8 +248,8 @@
                 Portfolio Profile
                 <span
                   class="card-title activator info-act"
-                  ng-click="isCollapseOverallProfile = !isCollapseOverallProfile"
-                ></span>
+                  (click)="isCollapseTodayContri = !isCollapseTodayContri"
+                  ></span>
               </h2>
             </div>
 
@@ -360,14 +363,17 @@
             </div>
             <!-- end ngIf: loader[0].pf_overall_profile == false && error_flag[0].overall_profile == 0 -->
           </div>
+
+          <!-- expand -->
           <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseOverallProfile"
+          *ngIf="SHOW_BUTTON"
+          class="card-reveal animate-slide"
+          [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
           >
             <span class="card-title grey-text text-darken-4">
               Card Title<i
                 class="material-icons right"
-                ng-click="isCollapseOverallProfile = !isCollapseOverallProfile"
+                (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 >close</i
               >
             </span>

@@ -5,6 +5,9 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
+  EventEmitter,
+  Output,
+  Input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
@@ -48,11 +51,25 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
   data_corpact: any = [];
   data_summary: any = [];
 
+  @Output() send_element = new EventEmitter<string>(); //for input value
+
+  @Input() SHOW_BUTTON: Boolean = true;
+  isCollapseTodayContri: boolean = true;
+
+
   constructor(
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
   ) {}
+
+  recieveElemment(str: string) {
+    console.log("the str is : " , str)
+
+    this.send_element.emit(str)
+    // this.fetchGetVerdictReport();
+    // this.SNAME_INPUT_STRING = e;
+  }
 
   ngOnInit(): void {
     this.fetchData();

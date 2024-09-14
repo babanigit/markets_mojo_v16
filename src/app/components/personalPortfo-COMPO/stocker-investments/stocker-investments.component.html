@@ -47,7 +47,9 @@
   </div>
 
   <div>
-    <app-swiper-doing-overall />
+    <app-swiper-doing-overall
+    (send_element)="recievedDataEvent($event)"
+    />
   </div>
 
   <!-- new -->
