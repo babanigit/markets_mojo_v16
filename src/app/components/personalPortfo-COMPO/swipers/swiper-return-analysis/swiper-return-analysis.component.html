@@ -25,11 +25,16 @@
         ><span class="swiper-pagination-bullet"></span>
       </div>
     </div>
-    <div class="swiper-wrapper reco-slide" id="sectReturn" sect-reveal="true">
+    <div
+      class="swiper-wrapper reco-slide"
+      id="sectReturn"
+      sect-reveal="true"
+      style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
+    >
       <section
         data-reveal="true"
         id="sectReturn_scorecard"
-        class="swiper-slide small-card marginright swiper-slide-visible swiper-slide-active"
+        class="swiper-slide small-card marginright swiper-slide-active swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"
       >
@@ -49,8 +54,8 @@
             >
               <div class="head-7dot" style="">Return</div>
               <p class="sev-txt3 ng-binding">
-                Underperformed Composite Index by -13.77%<br />
-                Composite Index Returns 74.45%
+                Underperformed Composite Index by -15.41%<br />
+                Composite Index Returns 75.35%
               </p>
               <div
                 ng-class="returnData.scorecard.dotclr + '-7dot'"
@@ -60,7 +65,7 @@
                   <div class="sev-txt1 ng-binding">
                     <small> Since Inception</small>
                     <small><i class="ng-binding">(26 Dec 2016)</i> </small>
-                    60.68%
+                    59.94%
                   </div>
                 </div>
               </div>
@@ -91,7 +96,7 @@
         </div>
       </section>
       <section
-        class="swiper-slide small-card marginright swiper-slide-visible swiper-slide-next"
+        class="swiper-slide small-card marginright swiper-slide-next swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"
         id="stockresearchSC"
@@ -120,7 +125,7 @@
                 <div data="red" class="high-risk-head red">
                   Returns Since Inception
                   <br />
-                  <strong class="ng-binding">60.68%</strong>
+                  <strong class="ng-binding">59.94%</strong>
                   <span class="date-ince"
                     ><i class="ng-binding"
                       >(Returns include Dividends and Realized Gain since 26 Dec
@@ -143,11 +148,11 @@
                     <strong
                       ng-class="getDirClrDefault(returnData.scorecard.compodir)"
                       class="ng-binding green"
-                      >74.45%</strong
+                      >75.35%</strong
                     >
                   </p>
                   <div class="socre-head ng-binding">
-                    UNDERPERFORMED BY -13.77%
+                    UNDERPERFORMED BY -15.41%
                   </div>
                 </div>
                 <div
@@ -163,29 +168,29 @@
                     <strong
                       ng-class="getDirClrDefault(returnData.scorecard.sendir)"
                       class="ng-binding green"
-                      >217.44%</strong
+                      >221.19%</strong
                     >
                   </p>
                   <div class="socre-head ng-binding">
-                    UNDERPERFORMED BY -156.76%
+                    UNDERPERFORMED BY -161.25%
                   </div>
                 </div>
               </div>
               <div class="returns-txts">
                 <div class="qtr-none ng-binding">
                   <strong>Top Return:</strong> Jubilant Inds. has generated
-                  highest return in portfolio of Rs 70,093.00 (342%)
+                  highest return in portfolio of Rs 67,713.00 (330%)
                 </div>
                 <div class="qtr-none ng-binding">
-                  <strong>MCAP Contribution:</strong> 29.57% of your returns is
+                  <strong>MCAP Contribution:</strong> 29.47% of your returns is
                   contributed by Large Cap
                 </div>
                 <div class="qtr-none ng-binding">
-                  <strong>Sector Contribution:</strong> 21.09% of your returns
+                  <strong>Sector Contribution:</strong> 20.38% of your returns
                   is contributed by Pesticides &amp; Agrochemicals
                 </div>
                 <div class="qtr-none ng-binding">
-                  <strong>Top Holdings Contribution:</strong> 34.1% of your
+                  <strong>Top Holdings Contribution:</strong> 33.19% of your
                   returns is contributed by Top 3 Holdings
                 </div>
                 <div class="qtr-none ng-binding">
@@ -286,20 +291,20 @@
               <div class="current-trend">
                 <div
                   ng-class="getScoreClr(returnData.retcompo.W1.returndir)"
-                  class="score-green"
+                  class="score-red"
                 >
                   <h6 class="ng-binding">
                     1W<br />
-                    0.05%
+                    -2.58%
                   </h6>
                   <p
                     ng-class="
                       'alignp ' +
                       getDirClrDefault(returnData.retcompo.W1.compodir)
                     "
-                    class="ng-binding alignp red"
+                    class="ng-binding alignp green"
                   >
-                    -0.33%
+                    1.88%
                   </p>
                 </div>
                 <div
@@ -308,7 +313,7 @@
                 >
                   <h6 class="ng-binding">
                     1M<br />
-                    6.64%
+                    4.47%
                   </h6>
                   <p
                     ng-class="
@@ -317,7 +322,7 @@
                     "
                     class="ng-binding alignp green"
                   >
-                    3.60%
+                    6.24%
                   </p>
                 </div>
                 <div
@@ -326,7 +331,7 @@
                 >
                   <h6 class="ng-binding">
                     3M<br />
-                    17.71%
+                    9.53%
                   </h6>
                   <p
                     ng-class="
@@ -335,7 +340,7 @@
                     "
                     class="ng-binding alignp green"
                   >
-                    10.00%
+                    8.77%
                   </p>
                 </div>
               </div>
@@ -346,7 +351,7 @@
                 >
                   <h6 class="ng-binding">
                     6M<br />
-                    17.28%
+                    27.28%
                   </h6>
                   <p
                     ng-class="
@@ -355,7 +360,7 @@
                     "
                     class="ng-binding alignp green"
                   >
-                    21.12%
+                    25.92%
                   </p>
                 </div>
                 <div
@@ -364,7 +369,7 @@
                 >
                   <h6 class="ng-binding">
                     YTD<br />
-                    55.19%
+                    53.57%
                   </h6>
                   <p
                     ng-class="
@@ -373,7 +378,7 @@
                     "
                     class="ng-binding alignp green"
                   >
-                    25.19%
+                    26.70%
                   </p>
                 </div>
                 <div
@@ -382,7 +387,7 @@
                 >
                   <h6 class="ng-binding">
                     1Y<br />
-                    75.96%
+                    80.65%
                   </h6>
                   <p
                     ng-class="
@@ -391,7 +396,7 @@
                     "
                     class="ng-binding alignp green"
                   >
-                    36.69%
+                    39.85%
                   </p>
                 </div>
               </div>
@@ -402,7 +407,7 @@
                 >
                   <h6 class="ng-binding">
                     2Y<br />
-                    124.99%
+                    123.67%
                   </h6>
                   <p
                     ng-class="
@@ -411,7 +416,7 @@
                     "
                     class="ng-binding alignp green"
                   >
-                    56.08%
+                    57.34%
                   </p>
                 </div>
                 <div
@@ -420,7 +425,7 @@
                 >
                   <h6 class="ng-binding">
                     3Y<br />
-                    175.34%
+                    169.75%
                   </h6>
                   <p
                     ng-class="
@@ -429,7 +434,7 @@
                     "
                     class="ng-binding alignp green"
                   >
-                    56.76%
+                    57.55%
                   </p>
                 </div>
                 <div
@@ -438,13 +443,13 @@
                 >
                   <h6 class="ng-binding">
                     INCEPTION<br />
-                    60.68%
+                    59.94%
                   </h6>
                   <p
                     ng-class='"alignp " + getDirClrDefault(returnData.scorecard.compodir);'
                     class="ng-binding alignp green"
                   >
-                    74.45%
+                    75.35%
                   </p>
                 </div>
               </div>
@@ -598,7 +603,7 @@
 
                     <!-- ngIf: rowArr.discard == 1 -->
                     <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      33,025
+                      48,225
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -607,7 +612,7 @@
                       ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      17.28%
+                      27.28%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -616,7 +621,7 @@
                       ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      37.55%
+                      63.35%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                   </tr>
@@ -633,7 +638,7 @@
 
                     <!-- ngIf: rowArr.discard == 1 -->
                     <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      81,909
+                      79,449
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -642,7 +647,7 @@
                       ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      55.19%
+                      53.57%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -651,7 +656,7 @@
                       ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      91.11%
+                      86.76%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                   </tr>
@@ -668,7 +673,7 @@
 
                     <!-- ngIf: rowArr.discard == 1 -->
                     <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      99,765
+                      1,02,126
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -677,7 +682,7 @@
                       ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      75.96%
+                      80.65%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -686,7 +691,7 @@
                       ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      81.86%
+                      87.71%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                   </tr>
@@ -714,7 +719,7 @@
 
                     <!-- ngIf: rowArr.discard == 1 -->
                     <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      1,49,413
+                      1,46,080
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -723,7 +728,7 @@
                       ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      175.34%
+                      169.75%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -732,7 +737,7 @@
                       ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      40.08%
+                      39.17%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                   </tr>
@@ -771,7 +776,7 @@
 
                     <!-- ngIf: rowArr.discard == 1 -->
                     <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      2,01,629
+                      1,99,168
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -780,7 +785,7 @@
                       ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      60.68%
+                      59.94%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                     <!-- ngIf: rowArr.discard == 1 -->
@@ -789,7 +794,7 @@
                       ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
                       class="ng-binding ng-scope green"
                     >
-                      7.19%
+                      7.11%
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                   </tr>
@@ -894,7 +899,7 @@
                   <ul style="padding: 0">
                     <li>
                       Your Holding Value :
-                      <strong class="ng-binding">Rs 2,33,196</strong>
+                      <strong class="ng-binding">Rs 2,30,735</strong>
                     </li>
                     <li>
                       You bought :
@@ -953,7 +958,7 @@
                         "
                         class="ng-binding ng-scope green"
                       >
-                        Rs 1,28,694
+                        Rs 1,26,234
                       </td>
                       <!-- end ngIf: returnData.networth.unrgain != 'NA' -->
                     </tr>
@@ -967,7 +972,7 @@
                         "
                         class="ng-binding green"
                       >
-                        Rs 2,01,395
+                        Rs 1,98,935
                       </th>
                     </tr>
                   </thead>
@@ -1104,7 +1109,7 @@
                       data-highcharts-chart="8"
                     >
                       <div
-                        id="highcharts-5kxaxmx-27"
+                        id="highcharts-bb11egg-27"
                         dir="ltr"
                         class="highcharts-container"
                         style="
@@ -1133,7 +1138,7 @@
                         >
                           <desc>Created with Highstock 6.1.0</desc>
                           <defs>
-                            <clipPath id="highcharts-5kxaxmx-28">
+                            <clipPath id="highcharts-bb11egg-28">
                               <rect
                                 x="0"
                                 y="0"
@@ -1142,7 +1147,7 @@
                                 fill="none"
                               ></rect>
                             </clipPath>
-                            <clipPath id="highcharts-5kxaxmx-30">
+                            <clipPath id="highcharts-bb11egg-30">
                               <rect
                                 x="0"
                                 y="0"
@@ -1263,13 +1268,13 @@
                             <g
                               class="highcharts-series highcharts-series-0 highcharts-column-series highcharts-tracker"
                               transform="translate(0,10) scale(1 1)"
-                              clip-path="url(#highcharts-5kxaxmx-30)"
+                              clip-path="url(#highcharts-bb11egg-30)"
                             >
                               <rect
                                 x="12.5"
-                                y="20.5"
+                                y="27.5"
                                 width="50"
-                                height="230"
+                                height="223"
                                 fill="#eee"
                                 stroke="#ffffff"
                                 stroke-width="1"
@@ -1277,9 +1282,9 @@
                               ></rect>
                               <rect
                                 x="88.5"
-                                y="145.5"
+                                y="139.5"
                                 width="50"
-                                height="105"
+                                height="111"
                                 fill="#eee"
                                 stroke="#ffffff"
                                 stroke-width="1"
@@ -1287,9 +1292,9 @@
                               ></rect>
                               <rect
                                 x="164.5"
-                                y="194.5"
+                                y="189.5"
                                 width="50"
-                                height="56"
+                                height="61"
                                 fill="#eee"
                                 stroke="#ffffff"
                                 stroke-width="1"
@@ -1297,9 +1302,9 @@
                               ></rect>
                               <rect
                                 x="240.5"
-                                y="120.5"
+                                y="113.5"
                                 width="50"
-                                height="130"
+                                height="137"
                                 fill="#eee"
                                 stroke="#ffffff"
                                 stroke-width="1"
@@ -1307,9 +1312,9 @@
                               ></rect>
                               <rect
                                 x="316.5"
-                                y="119.5"
+                                y="113.5"
                                 width="50"
-                                height="131"
+                                height="137"
                                 fill="#eee"
                                 stroke="#ffffff"
                                 stroke-width="1"
@@ -1353,7 +1358,7 @@
                             <g
                               class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined"
                               style="text-shadow: false"
-                              transform="translate(15,-5)"
+                              transform="translate(15,2)"
                             >
                               <text
                                 x="5"
@@ -1375,15 +1380,15 @@
                                   stroke-linejoin="round"
                                   style=""
                                 >
-                                  55.19%
+                                  53.57%
                                 </tspan>
-                                <tspan x="5" y="15">55.19%</tspan>
+                                <tspan x="5" y="15">53.57%</tspan>
                               </text>
                             </g>
                             <g
                               class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined"
                               style="text-shadow: false"
-                              transform="translate(91,120)"
+                              transform="translate(91,114)"
                             >
                               <text
                                 x="5"
@@ -1404,15 +1409,15 @@
                                   stroke-width="2px"
                                   stroke-linejoin="round"
                                 >
-                                  25.19%
+                                  26.70%
                                 </tspan>
-                                <tspan x="5" y="15">25.19%</tspan>
+                                <tspan x="5" y="15">26.70%</tspan>
                               </text>
                             </g>
                             <g
                               class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined"
                               style="text-shadow: false"
-                              transform="translate(167,169)"
+                              transform="translate(167,164)"
                             >
                               <text
                                 x="5"
@@ -1433,15 +1438,15 @@
                                   stroke-width="2px"
                                   stroke-linejoin="round"
                                 >
-                                  13.35%
+                                  14.69%
                                 </tspan>
-                                <tspan x="5" y="15">13.35%</tspan>
+                                <tspan x="5" y="15">14.69%</tspan>
                               </text>
                             </g>
                             <g
                               class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined"
                               style="text-shadow: false"
-                              transform="translate(243,95)"
+                              transform="translate(243,88)"
                             >
                               <text
                                 x="5"
@@ -1462,15 +1467,15 @@
                                   stroke-width="2px"
                                   stroke-linejoin="round"
                                 >
-                                  31.29%
+                                  32.96%
                                 </tspan>
-                                <tspan x="5" y="15">31.29%</tspan>
+                                <tspan x="5" y="15">32.96%</tspan>
                               </text>
                             </g>
                             <g
                               class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined"
                               style="text-shadow: false"
-                              transform="translate(319,94)"
+                              transform="translate(319,88)"
                             >
                               <text
                                 x="5"
@@ -1491,9 +1496,9 @@
                                   stroke-width="2px"
                                   stroke-linejoin="round"
                                 >
-                                  31.36%
+                                  32.90%
                                 </tspan>
-                                <tspan x="5" y="15">31.36%</tspan>
+                                <tspan x="5" y="15">32.90%</tspan>
                               </text>
                             </g>
                           </g>
@@ -1605,10 +1610,10 @@
                     <div
                       id="container_calendar_return1"
                       class="graph-return"
-                      data-highcharts-chart="13"
+                      data-highcharts-chart="3"
                     >
                       <div
-                        id="highcharts-5kxaxmx-39"
+                        id="highcharts-bb11egg-10"
                         dir="ltr"
                         class="highcharts-container"
                         style="
@@ -1637,7 +1642,7 @@
                         >
                           <desc>Created with Highstock 6.1.0</desc>
                           <defs>
-                            <clipPath id="highcharts-5kxaxmx-40">
+                            <clipPath id="highcharts-bb11egg-11">
                               <rect
                                 x="0"
                                 y="0"
@@ -1646,7 +1651,7 @@
                                 fill="none"
                               ></rect>
                             </clipPath>
-                            <clipPath id="highcharts-5kxaxmx-45">
+                            <clipPath id="highcharts-bb11egg-19">
                               <rect
                                 x="0"
                                 y="0"
@@ -1773,7 +1778,7 @@
                             <g
                               class="highcharts-series highcharts-series-0 highcharts-column-series highcharts-tracker"
                               transform="translate(0,10) scale(1 1)"
-                              clip-path="url(#highcharts-5kxaxmx-45)"
+                              clip-path="url(#highcharts-bb11egg-19)"
                             >
                               <rect
                                 x="12.5"
@@ -2115,10 +2120,10 @@
                     <div
                       id="container_calendar_return2"
                       class="graph-return"
-                      data-highcharts-chart="17"
+                      data-highcharts-chart="4"
                     >
                       <div
-                        id="highcharts-5kxaxmx-52"
+                        id="highcharts-bb11egg-12"
                         dir="ltr"
                         class="highcharts-container"
                         style="
@@ -2147,7 +2152,7 @@
                         >
                           <desc>Created with Highstock 6.1.0</desc>
                           <defs>
-                            <clipPath id="highcharts-5kxaxmx-53">
+                            <clipPath id="highcharts-bb11egg-13">
                               <rect
                                 x="0"
                                 y="0"
@@ -2156,7 +2161,7 @@
                                 fill="none"
                               ></rect>
                             </clipPath>
-                            <clipPath id="highcharts-5kxaxmx-57">
+                            <clipPath id="highcharts-bb11egg-20">
                               <rect
                                 x="0"
                                 y="0"
@@ -2289,7 +2294,7 @@
                             <g
                               class="highcharts-series highcharts-series-0 highcharts-column-series highcharts-tracker"
                               transform="translate(0,10) scale(1 1)"
-                              clip-path="url(#highcharts-5kxaxmx-57)"
+                              clip-path="url(#highcharts-bb11egg-20)"
                             >
                               <rect
                                 x="12.5"
@@ -2764,7 +2769,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      16.50%
+                      26.42%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                     <!-- ngIf: rowArr.total != 'NA' -->
@@ -2772,7 +2777,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      17.28%
+                      27.28%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                   </tr>
@@ -2796,7 +2801,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      74.77%
+                      79.41%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                     <!-- ngIf: rowArr.total != 'NA' -->
@@ -2804,7 +2809,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      75.96%
+                      80.65%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                   </tr>
@@ -2828,7 +2833,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      123.42%
+                      122.09%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                     <!-- ngIf: rowArr.total != 'NA' -->
@@ -2836,7 +2841,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      124.99%
+                      123.67%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                   </tr>
@@ -2860,7 +2865,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      173.41%
+                      167.84%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                     <!-- ngIf: rowArr.total != 'NA' -->
@@ -2868,7 +2873,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      175.34%
+                      169.75%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                   </tr>
@@ -2892,7 +2897,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      60.18%
+                      59.44%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                     <!-- ngIf: rowArr.total != 'NA' -->
@@ -2900,7 +2905,7 @@
                       ng-if="rowArr.total != 'NA'"
                       class="ng-binding ng-scope"
                     >
-                      60.68%
+                      59.94%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                   </tr>
@@ -3051,7 +3056,7 @@
               style=""
             >
               <div class="txt-hed-1 priced ng-binding">
-                Pesticides &amp; Agrochemicals sector has contributed 21.09% to
+                Pesticides &amp; Agrochemicals sector has contributed 20.38% to
                 your returns
               </div>
               <table class="table1 divd-table">
@@ -3079,7 +3084,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      70,093
+                      67,713
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3087,7 +3092,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      21.09%
+                      20.38%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3107,7 +3112,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      35,309
+                      35,416
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3115,7 +3120,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      10.63%
+                      10.66%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3135,7 +3140,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      32,009
+                      32,223
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3143,7 +3148,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      9.63%
+                      9.70%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3163,7 +3168,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      26,490
+                      25,966
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3171,7 +3176,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      7.97%
+                      7.81%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3191,7 +3196,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      17,903
+                      17,871
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3199,7 +3204,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      5.39%
+                      5.38%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3290,7 +3295,7 @@
               style=""
             >
               <div class="txt-hed-1 priced ng-binding">
-                Large Cap has contributed 29.57% to your returns
+                Large Cap has contributed 29.47% to your returns
               </div>
               <table class="table1 divd-table">
                 <thead>
@@ -3321,7 +3326,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      98,260
+                      97,937
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3329,7 +3334,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      29.57%
+                      29.47%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3349,7 +3354,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      29,928
+                      30,128
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3357,7 +3362,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      9.01%
+                      9.07%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3377,7 +3382,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      71,877
+                      69,497
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3385,7 +3390,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      21.63%
+                      20.91%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3405,7 +3410,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      1,333
+                      1,378
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3413,7 +3418,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      0.40%
+                      0.41%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3507,7 +3512,7 @@
               style=""
             >
               <div class="txt-hed-1 priced ng-binding">
-                Top 3 Holdings has contributed 34.1% to your returns
+                Top 3 Holdings has contributed 33.19% to your returns
               </div>
               <table class="table1 divd-table">
                 <thead>
@@ -3534,7 +3539,7 @@
 
                     <!-- ngIf: rowArr.pwtflag == 1 -->
                     <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-                      70.04%
+                      69.49%
                     </td>
                     <!-- end ngIf: rowArr.pwtflag == 1 -->
                     <!-- ngIf: rowArr.tgain != '-' -->
@@ -3543,7 +3548,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      1,13,297
+                      1,10,302
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3551,7 +3556,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      34.10%
+                      33.19%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3567,7 +3572,7 @@
 
                     <!-- ngIf: rowArr.pwtflag == 1 -->
                     <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-                      1.52%
+                      1.55%
                     </td>
                     <!-- end ngIf: rowArr.pwtflag == 1 -->
                     <!-- ngIf: rowArr.tgain != '-' -->
@@ -3576,7 +3581,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      902
+                      955
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3584,7 +3589,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      0.27%
+                      0.29%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
@@ -3600,7 +3605,7 @@
 
                     <!-- ngIf: rowArr.pwtflag == 1 -->
                     <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-                      28.45%
+                      28.96%
                     </td>
                     <!-- end ngIf: rowArr.pwtflag == 1 -->
                     <!-- ngIf: rowArr.tgain != '-' -->
@@ -3609,7 +3614,7 @@
                       ng-class="getDirClrDefault(rowArr.tgaindir)"
                       class="ng-binding ng-scope green"
                     >
-                      87,195
+                      87,677
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
@@ -3617,7 +3622,7 @@
                       ng-if="rowArr.tgainp != '-'"
                       class="ng-binding ng-scope"
                     >
-                      26.24%
+                      26.39%
                     </td>
                     <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>

@@ -1,7 +1,7 @@
 <div>
   <!-- tracker  overall analysis etc...-->
-  <!-- new -->
 
+  <!--navbar-->
   <div class="tabcol">
     <div id="tabcol-modal" class="no-mob no-tab2">
       <ul class="nav nav-tabs">
@@ -46,13 +46,46 @@
     <app-swiper-how-am />
   </div>
 
-  <div>
-    <app-swiper-doing-overall
-    (send_element)="recievedDataEvent($event)"
-    />
+  <!-- element2 -->
+  <div id="element2">
+    <app-swiper-doing-overall (send_element)="recievedDataEvent($event)" />
   </div>
 
-  <!-- new -->
+  <!-- element3 -->
+  <div id="element3">
+    <app-swiper-return-analysis />
+  </div>
+
+  <!-- element4 -->
+  <div id="element4">
+    <app-swiper-risk-analysis />
+  </div>
+
+  <div id="element5">
+    <app-swiper-liquidity />
+  </div>
+
+  <div id="element6">
+    <app-swiper-diversification />
+  </div>
+
+  <div id="element7">
+    <app-swiper-quality />
+  </div>
+
+  <div id="element8">
+    <app-swiper-valuation />
+  </div>
+
+  <div id="element9">
+    <app-swiper-financial-trend />
+  </div>
+
+  <div id="element10">
+    <app-swiper-tax />
+  </div>
+
+  <!-- button to show extra -->
   <div
     *ngIf="!TO_SHOW"
     class="container-fluid hideInteraction ng-scope"
@@ -74,48 +107,8 @@
       </div>
     </div>
   </div>
+  <div *ngIf="TO_SHOW">hello extra</div>
 
-  <!-- remaining elements -->
-
-  <div *ngIf="TO_SHOW">
-    <div id="element3">
-      <app-swiper-return-analysis />
-    </div>
-
-    <div id="element4">
-      <app-swiper-risk-analysis />
-    </div>
-
-    <!-- <div id="element5">
-      <p class="heading">Liquidity Analysis</p>
-      <app-demo />
-    </div>
-
-    <div id="element6">
-      <p class="heading">Diversification Analysis</p>
-      <app-demo />
-    </div>
-
-    <div id="element7">
-      <p class="heading">Quality</p>
-      <app-demo />
-    </div>
-
-    <div id="element8">
-      <p class="heading">Valuation</p>
-      <app-demo />
-    </div>
-
-    <div id="element9">
-      <p class="heading">Financial Trend</p>
-      <app-demo />
-    </div>
-
-    <div id="element10">
-      <p class="heading">Tax Analysis</p>
-      <app-demo />
-    </div> -->
-  </div>
 </div>
 
 <!-- footer -->
