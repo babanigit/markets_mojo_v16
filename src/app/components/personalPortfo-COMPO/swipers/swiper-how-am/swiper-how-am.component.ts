@@ -3,6 +3,7 @@ import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
   OnInit,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
@@ -34,7 +35,9 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
 
   constructor(
     private serv: GetPersonalPFService,
-    public fun: PpFunctionsService
+    public fun: PpFunctionsService,
+    private cdr: ChangeDetectorRef
+
   ) {}
 
   ngOnInit(): void {
@@ -67,6 +70,8 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
 
       this.data_losers = res.data.overall.losers;
       // console.log('data_losers ', this.data_losers);
+
+      this.cdr.detectChanges(); // Trigger change detection
 
     });
   }

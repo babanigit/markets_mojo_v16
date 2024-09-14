@@ -35,7 +35,6 @@ import { IOverall_Data } from 'src/app/models/pp/overall';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
-
   main_data: IOverall_Data | undefined;
 
   // data.overall
@@ -53,7 +52,6 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
-
   ) {}
 
   ngOnInit(): void {
@@ -87,7 +85,6 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
       console.log('data_corpact ', this.data_corpact);
 
       this.cdr.detectChanges(); // Trigger change detection
-
     });
   }
 

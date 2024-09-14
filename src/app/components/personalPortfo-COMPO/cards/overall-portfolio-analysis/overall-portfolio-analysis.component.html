@@ -17,18 +17,15 @@
         ></span>
       </h2>
     </div>
-    <!-- ngIf: loader[0].pf_overall_analysis == true -->
-    <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 1 -->
-
-    <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
-
 
     <div
       class="card-body ng-scope"
       *ngIf="DATA"
     >
+
       <div class="pf-overall-boxs">
         <div class="pf-box-set">
+
           <div
             class="pf-box red-bx"
             ng-click="other_section_visible('MenusectReturn')"
@@ -42,12 +39,14 @@
               <small style="color: black"
                 ><i class="ng-binding"> {{ DATA.return.dt }} </i></small
               >
-              <div class="pf-box-txt1 red">60.94%</div>
+              <div
+              [ngClass]="getDirClrDefault(DATA.return.returndir , 'orange')"
+              class="pf-box-txt1 "> {{DATA.return.return}} </div>
               <div class="pf-box-txt2 ng-binding">
-                Underperformed Composite Index by -14.04%
+                {{DATA.return.txt1}}
               </div>
               <div class="pf-box-txt4 ng-binding">
-                Composite Index Returns 74.98%
+                {{DATA.return.txt2}}
               </div>
             </a>
           </div>
@@ -100,11 +99,13 @@
               <div class="pf-box-txt2"></div>
             </a>
           </div>
+
         </div>
       </div>
 
       <div class="pf-overall-boxs2">
         <div class="pf-box-set">
+
           <div
             class="pf-box red-bx"
             ng-click="other_section_visible('MenusectQuality')"
@@ -164,6 +165,7 @@
               </div>
             </a>
           </div>
+
         </div>
       </div>
     </div>

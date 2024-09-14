@@ -21,42 +21,30 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
   imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OverallPortfolioAnalysisComponent  implements OnChanges {
+export class OverallPortfolioAnalysisComponent implements OnChanges {
 
-  @Input() DATA: IOverall_Data | undefined ; //props
+  @Input() DATA: IOverall_Data | undefined; //props
   @Input() HEAD: string | undefined; //props
   // show button
   @Input() SHOW_BUTTON: Boolean = true;
 
-  constructor(
-    private fun: PpFunctionsService,
-  ) {}
+  constructor(private fun: PpFunctionsService) {}
 
-//   ngOnChanges(changes: SimpleChanges): void {
-//     if (changes['DATA']) {
-//         console.log('DATA changed: ', this.DATA);
-//     }
-//     if (changes['HEAD']) {
-//         console.log('HEAD changed: ', this.HEAD);
-//     }
-// }
-
-ngOnChanges(changes: SimpleChanges): void {
-  if (changes['DATA']) {
-    console.log('DATA changed:', changes['DATA'].currentValue);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['DATA']) {
+      console.log('DATA changed:', changes['DATA'].currentValue);
+    }
   }
-}
 
   isCollapseTodayContri: boolean = true;
 
   // Method to get class by color
   getClassByColor(color: string): string {
-
     return this.fun.getClassbyClr(color);
   }
 
   // Method to get direction color default
-  getDirClrDefault(value: string, defaultColor: string): string {
+  getDirClrDefault(value: string | number, defaultColor: string): string {
     return this.fun.getDirClrDefault(value, defaultColor);
   }
 

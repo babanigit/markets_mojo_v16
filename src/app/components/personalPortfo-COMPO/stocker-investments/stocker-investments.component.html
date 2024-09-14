@@ -46,31 +46,36 @@
     <app-swiper-how-am />
   </div>
 
-  <div >
+  <div>
     <app-swiper-doing-overall />
   </div>
 
   <!-- new -->
   <div
-  *ngIf="!TO_SHOW"
-  class="container-fluid hideInteraction ng-scope" style="padding-bottom:300px;" id="lnkAllCardsToggle">
-		<div class="row">
-			<div class="col-md-12">
-				<div style="text-align:center !important;" class="pf-info-txt">
-					<button
-          (click)="showMore()"
-          type="button" class="btn btn-info blu-but_new">Click here for a comprehensive - <b>7 Mojo parameter analysis</b> on your portfolio</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
+    *ngIf="!TO_SHOW"
+    class="container-fluid hideInteraction ng-scope"
+    style="padding-bottom: 300px"
+    id="lnkAllCardsToggle"
+  >
+    <div class="row">
+      <div class="col-md-12">
+        <div style="text-align: center !important" class="pf-info-txt">
+          <button
+            (click)="showMore()"
+            type="button"
+            class="btn btn-info blu-but_new"
+          >
+            Click here for a comprehensive - <b>7 Mojo parameter analysis</b> on
+            your portfolio
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- remaining elements -->
 
   <div *ngIf="TO_SHOW">
-
-
     <div id="element3">
       <app-swiper-return-analysis />
     </div>
@@ -108,8 +113,6 @@
       <p class="heading">Tax Analysis</p>
       <app-demo />
     </div> -->
-
-
   </div>
 </div>
 

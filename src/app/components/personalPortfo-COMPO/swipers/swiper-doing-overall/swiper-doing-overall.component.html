@@ -32,8 +32,7 @@
       style="transform: translate3d(-783px, 0px, 0px); transition-duration: 0ms"
     >
 
-    <!-- not this -->
-      <!-- overall porfolio analysis -->
+      <!-- not this -->
       <section
         data-reveal="true"
         id="sectOverall_analysis"
@@ -48,7 +47,6 @@
 
         <div class="card">
           <div class="card-content">
-
             <div class="card-head">
               <h2>Overall portfolio analysis hello</h2>
             </div>
@@ -175,10 +173,9 @@
             <!-- end ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
           </div>
         </div>
-
       </section>
 
-      <!-- heros of mm -->
+      <!-- Overall portfolio analysis-->
       <section
         data-reveal="true"
         id="sectOverall_analysis"
@@ -186,19 +183,18 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-      <!-- <div *ngIf="main_data">
+        <!-- <div *ngIf="main_data">
         <pre>{{ main_data | json }}</pre>
       </div> -->
 
-      <app-overall-portfolio-analysis
-      [DATA]="main_data"
-      [HEAD]="'Overall portfolio analysis hello'"
-    ></app-overall-portfolio-analysis>
+        <app-overall-portfolio-analysis
+          [DATA]="main_data"
+          [HEAD]="'Overall portfolio analysis hello'"
+        />
 
       </section>
 
-      <!-- -->
+      <!-- heros -->
       <section
         ng-if="!block_clmm_content"
         class="swiper-slide small-card marginright ng-scope swiper-slide-visible"
@@ -226,7 +222,6 @@
         </div>
       </section>
 
-      <!-- end ngIf: !block_clmm_content -->
       <script>
         function getStarted(url) {
           ga("send", "event", "Banners", "click", "Screener_Withrates");
