@@ -31,6 +31,7 @@
       sect-reveal="true"
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
+      <!-- Returns Scorecard -->
       <section
         data-reveal="true"
         id="sectReturn_scorecard"
@@ -38,65 +39,17 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <div class="card">
-          <div class="card-content">
-            <div class="card-head">
-              <h2>Returns Scorecard</h2>
-            </div>
-            <!-- ngIf: loader[0].pf_return_score == true -->
-            <!-- ngIf: loader[0].pf_return_score == false && error_flag[0].return_scorecard == 1 -->
 
-            <!-- ngIf: loader[0].pf_return_score == false && error_flag[0].return_scorecard == 0 -->
-            <div
-              class="sevn-dot-card ng-scope"
-              ng-if="loader[0].pf_return_score == false &amp;&amp; error_flag[0].return_scorecard == 0"
-              style=""
-            >
-              <div class="head-7dot" style="">Return</div>
-              <p class="sev-txt3 ng-binding">
-                Underperformed Composite Index by -15.41%<br />
-                Composite Index Returns 75.35%
-              </p>
-              <div
-                ng-class="returnData.scorecard.dotclr + '-7dot'"
-                class="red-7dot"
-              >
-                <div class="con-7dot">
-                  <div class="sev-txt1 ng-binding">
-                    <small> Since Inception</small>
-                    <small><i class="ng-binding">(26 Dec 2016)</i> </small>
-                    59.94%
-                  </div>
-                </div>
-              </div>
-              <div class="condi-p-7 red">
-                For detailed return analysis<br />
-                <span class="readon" style="color: black"
-                  >Swipe right..
-                  <img
-                    src="https://i.marketsmojo.com/arrow_rt.png"
-                    alt="ArrowRight"
-                    data-pin-nopin="true"
-                    height="16"
-                    width="23"
-                /></span>
-              </div>
-            </div>
-            <!-- end ngIf: loader[0].pf_return_score == false && error_flag[0].return_scorecard == 0 -->
-          </div>
-          <!-- ngIf: loader[0].pf_return_score == false && error_flag[0].return_scorecard == 0 -->
-          <div
-            class="condi-p ng-scope"
-            ng-if="loader[0].pf_return_score == false &amp;&amp; error_flag[0].return_scorecard == 0"
-            style=""
-          >
-            Absolute total returns
-          </div>
-          <!-- end ngIf: loader[0].pf_return_score == false && error_flag[0].return_scorecard == 0 -->
-        </div>
+        <app-scorecard
+          [DATA]="data_scorecard"
+          [HEAD]="'Returns Scorecarde '"
+          [SHOW_BUTTON]="false"
+        />
+
       </section>
+
       <section
-        class="swiper-slide small-card marginright swiper-slide-next swiper-slide-visible"
+        class="swiper-slid`e small-card marginright swiper-slide-next swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"
         id="stockresearchSC"

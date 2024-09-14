@@ -29,8 +29,6 @@ export class GetPersonalPFService {
     TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
   };
 
-  private nf_path = 'assets/pp/networkFactor/getNetworkFactor.json';
-
   constructor(private http: HttpClient) {}
 
   getOverviewStocks(
@@ -58,6 +56,8 @@ export class GetPersonalPFService {
     );
   }
 
+  private nf_path = 'assets/pp/networkFactor/getNetworkFactor.json';
+
   getNetworkFactor(jsonPath: string = this.nf_path) {
     return this.http.get<any>(jsonPath).pipe(
       // delay(1200),
@@ -67,6 +67,19 @@ export class GetPersonalPFService {
       })
     );
   }
+
+  private readonly paths2 = {
+    today: 'assets/pp/swiper/today.json',
+    overall: 'assets/pp/swiper/overall.json',
+    return: 'assets/pp/swiper/return.json',
+    // LIQUIDITY: 'assets/pp/table/getLiquidity.json',
+    // TAX: 'assets/pp/table/getTax.json',
+    // RATIOS: 'assets/pp/table/getRatio.json',
+    // FINANCIALS: 'assets/pp/table/getFinancials.json',
+    // RETURNS: 'assets/pp/table/getReturn.json',
+    // RESULTS: 'assets/pp/table/getResults.json',
+    // TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
+  };
 
   getSwitcherDatas(
     type: 'today' | 'overall' | 'return'
@@ -80,8 +93,6 @@ export class GetPersonalPFService {
   ) {
     const path = this.paths2[type] || this.paths2.today;
 
-    // console.log('the path in getSwitcherDatas : ', path);
-
     return this.http.get<any>(path).pipe(
       catchError((err) => {
         console.error('Error fetching data for type:', type);
@@ -91,34 +102,17 @@ export class GetPersonalPFService {
     );
   }
 
-  private readonly paths2 = {
-
-    today: 'assets/pp/swiper/today.json',
-    overall: 'assets/pp/swiper/overall.json',
-    return: 'assets/pp/swiper/return.json',
-    // LIQUIDITY: 'assets/pp/table/getLiquidity.json',
-    // TAX: 'assets/pp/table/getTax.json',
-    // RATIOS: 'assets/pp/table/getRatio.json',
-    // FINANCIALS: 'assets/pp/table/getFinancials.json',
-    // RETURNS: 'assets/pp/table/getReturn.json',
-    // RESULTS: 'assets/pp/table/getResults.json',
-    // TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
-  };
-
-
   private loadingSubject = new BehaviorSubject<boolean>(false);
   private errorSubject = new BehaviorSubject<string | null>(null);
 
   loading$ = this.loadingSubject.asObservable();
   error$ = this.errorSubject.asObservable();
 
-  getGraphToday(
-  ): Observable<IGraphData> {
-    const path = ' assets/pp/graph/getPortfolioGraph.json'
+  getGraphToday(): Observable<IGraphData> {
+    const path = ' assets/pp/graph/getPortfolioGraph.json';
     this.loadingSubject.next(true); // Set loading to true
 
     return this.http.get<IGraphData>(path).pipe(
-
       // delay(1000),
       catchError((err) => {
         this.loadingSubject.next(false); // Set loading to false on error

@@ -39,10 +39,6 @@ import { SwiperValuationComponent } from 'src/app/components/personalPortfo-COMP
     TablesComponent,
     IpoFooterNewComponent,
 
-    // PfPriceMsgComponent,
-    // DemoComponent,
-    // GraphDemoComponent,
-
     SwiperDemoComponent,
 
     SwiperHowAmComponent,
@@ -56,7 +52,7 @@ import { SwiperValuationComponent } from 'src/app/components/personalPortfo-COMP
     SwiperTaxComponent,
     SwiperLiquidityComponent,
 
-    // PfPriceMsgModule
+
   ],
 })
 export class PersonalPortfoliosModule {}
