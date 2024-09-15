@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { IOverall_Data } from 'src/app/models/pp/overall';
+import { IReturn_Data } from 'src/app/models/pp/return';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';

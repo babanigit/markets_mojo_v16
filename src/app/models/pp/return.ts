@@ -10,7 +10,7 @@ export interface IReturn_Data {
   holdings: Holdings;
   scorecard: IScorecard;
   networth: Networth;
-  retcompo: Retcompo;
+  retcompo: IRetcompo;
   divcontri: Divcontri;
   calendar: Calendar;
 }
@@ -900,7 +900,7 @@ interface Networth {
   tgaindir: number;
 }
 
-interface Retcompo {
+export interface IRetcompo {
   W1: W1;
   M1: M1;
   M3: M3;

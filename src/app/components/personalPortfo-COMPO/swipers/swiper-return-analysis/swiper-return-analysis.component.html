@@ -39,13 +39,11 @@
         data-scrolled="0"
         data-visited="0"
       >
-
         <app-scorecard
           [DATA]="data_scorecard"
           [HEAD]="'Returns Scorecarde '"
           [SHOW_BUTTON]="false"
         />
-
       </section>
 
       <section
@@ -55,6 +53,8 @@
         id="stockresearchSC"
         style="display: none"
       ></section>
+
+      <!-- return summ  -->
       <section
         class="swiper-slide padnno-sec marginright swiper-slide-visible"
         data-scrolled="0"
@@ -65,67 +65,95 @@
             <div class="card-head">
               <h2>Return Summary</h2>
             </div>
-            <!-- ngIf: loader[0].pf_return_summary == true -->
-            <!-- ngIf: loader[0].pf_return_summary == false && error_flag[0].return_summary == 1 -->
 
-            <!-- ngIf: loader[0].pf_return_summary == false && error_flag[0].return_summary == 0 -->
-            <div
-              class="returns-snap ng-scope"
-              ng-if="loader[0].pf_return_summary == false &amp;&amp; error_flag[0].return_summary == 0"
-              style=""
-            >
-              <div data="red" class="high-risk-head">
-                <div data="red" class="high-risk-head red">
+            <div class="returns-snap ng-scope" *ngIf="main_data!">
+              <div class="high-risk-head">
+                <div
+                  [ngClass]="
+                    this.fun.getDirClrDefault(
+                      main_data.scorecard.returndir,
+                      'orange'
+                    )
+                  "
+                  class="high-risk-head"
+                >
                   Returns Since Inception
                   <br />
-                  <strong class="ng-binding">59.94%</strong>
+                  <strong class="ng-binding">
+                    {{ main_data.scorecard.return | roundOff | twoCommas }}
+                    %</strong
+                  >
                   <span class="date-ince"
                     ><i class="ng-binding"
-                      >(Returns include Dividends and Realized Gain since 26 Dec
-                      2016)</i
+                      >(Returns include Dividends and Realized Gain since
+                      {{ main_data.scorecard.dt }} )</i
                     ></span
                   >
                 </div>
               </div>
               <div class="cf">
                 <div
-                  ng-class="
+                  [ngClass]="
                     'score-card ' +
-                    getDirClrDefault(returnData.scorecard.dir.comperformby) +
+                    this.fun.getDirClrDefault(
+                      main_data.scorecard.comperformby,
+                      'orange'
+                    ) +
                     '-score'
                   "
-                  class="score-card red-score"
                 >
                   <p>
                     Composite
                     <strong
-                      ng-class="getDirClrDefault(returnData.scorecard.compodir)"
-                      class="ng-binding green"
-                      >75.35%</strong
+                      [ngClass]="
+                        this.fun.getDirClrDefault(
+                          main_data.scorecard.compodir,
+                          'orange'
+                        )
+                      "
+                      class="ng-binding"
+                      >{{
+                        main_data.scorecard.compo | roundOff | twoCommas
+                      }}%</strong
                     >
                   </p>
                   <div class="socre-head ng-binding">
-                    UNDERPERFORMED BY -15.41%
+                    UNDERPERFORMED BY
+                    {{
+                      main_data.scorecard.comperformby | roundOff | twoCommas
+                    }}%
                   </div>
                 </div>
                 <div
-                  ng-class="
+                  [ngClass]="
                     'score-card ' +
-                    getDirClrDefault(returnData.scorecard.dir.senperfomby) +
+                    this.fun.getDirClrDefault(
+                      main_data.scorecard.senperfomby,
+                      'orange'
+                    ) +
                     '-score'
                   "
-                  class="score-card red-score"
                 >
                   <p>
                     Sensex
                     <strong
-                      ng-class="getDirClrDefault(returnData.scorecard.sendir)"
-                      class="ng-binding green"
-                      >221.19%</strong
+                      [ngClass]="
+                        this.fun.getDirClrDefault(
+                          main_data.scorecard.sendir,
+                          'orange'
+                        )
+                      "
+                      class="ng-binding"
+                      >{{
+                        main_data.scorecard.returnsen | roundOff | twoCommas
+                      }}%</strong
                     >
                   </p>
                   <div class="socre-head ng-binding">
-                    UNDERPERFORMED BY -161.25%
+                    UNDERPERFORMED BY
+                    {{
+                      main_data.scorecard.senperfomby | roundOff | twoCommas
+                    }}%
                   </div>
                 </div>
               </div>
@@ -135,20 +163,19 @@
                   highest return in portfolio of Rs 67,713.00 (330%)
                 </div>
                 <div class="qtr-none ng-binding">
-                  <strong>MCAP Contribution:</strong> 29.47% of your returns is
-                  contributed by Large Cap
+                  <strong>MCAP Contribution:</strong> {{ main_data.mcap.txt1 }}
                 </div>
                 <div class="qtr-none ng-binding">
-                  <strong>Sector Contribution:</strong> 20.38% of your returns
-                  is contributed by Pesticides &amp; Agrochemicals
+                  <strong>Sector Contribution:</strong>
+                  {{ main_data.sector.txt1 }}
                 </div>
                 <div class="qtr-none ng-binding">
-                  <strong>Top Holdings Contribution:</strong> 33.19% of your
-                  returns is contributed by Top 3 Holdings
+                  <strong>Top Holdings Contribution:</strong>
+                  {{ main_data.holdings.txt1 }}
                 </div>
                 <div class="qtr-none ng-binding">
-                  <strong>Dividend Component:</strong> Total Dividend
-                  Contribution (0.5%)
+                  <strong>Dividend Component:</strong>
+                  {{ main_data.divcontri.txt1 }}
                 </div>
                 <!--                                <div class="qtr-4 qty-lst" style="cursor:none!important;">
                                   <strong> Quartiles:</strong>  72.07% of your portfolio stocks fall in the 4th Quartile
@@ -177,16 +204,7 @@
         </div>
       </section>
 
-      <!--<section data-reveal="true" style="padding:0px !important;" class="swiper-slide small-card swiper-slide-next marginright" data-scrolled="0" data-visited="0">
-              <div class="card">
-                  <div class="card-content bannercard">
-                      <a href="/recommendation/reco-list?utm_source=BCPortfolio"><img src="brokercall-banner.jpg" class="promobanner-banner-new" /> </a>
-                  </div>
-              </div>
-          </section>-->
-
-      <!---->
-
+      <!-- What is Composite Index? -->
       <section
         class="swiper-slide small-card marginright swiper-slide-visible"
         data-scrolled="0"
@@ -216,6 +234,7 @@
         </div>
       </section>
 
+      <!-- return analysis -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
@@ -232,177 +251,247 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_return_composite == true -->
-            <!-- ngIf: loader[0].pf_return_composite == false && error_flag[0].return_compo == 1 -->
 
-            <!-- ngIf: loader[0].pf_return_composite == false && error_flag[0].return_compo == 0 -->
             <div
               class="score-card-cft red-score no-bor ng-scope"
-              ng-if="loader[0].pf_return_composite == false &amp;&amp; error_flag[0].return_compo == 0"
-              style=""
+              *ngIf="data_retcompo! && data_scorecard!"
             >
               <div class="current-trend">
                 <div
-                  ng-class="getScoreClr(returnData.retcompo.W1.returndir)"
-                  class="score-red"
+                  [ngClass]="
+                    'score-' +
+                    this.fun.getDirClrDefault(
+                      data_retcompo.W1.returndir,
+                      'orange'
+                    )
+                  "
                 >
                   <h6 class="ng-binding">
                     1W<br />
-                    -2.58%
+                    {{ data_retcompo.W1.return }}
                   </h6>
                   <p
-                    ng-class="
-                      'alignp ' +
-                      getDirClrDefault(returnData.retcompo.W1.compodir)
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_retcompo.W1.compodir,
+                        'orange'
+                      )
                     "
-                    class="ng-binding alignp green"
+                    class="ng-binding alignp"
                   >
-                    1.88%
+                    {{ data_retcompo.W1.compo }}
                   </p>
                 </div>
+
                 <div
-                  ng-class="getScoreClr(returnData.retcompo.M1.returndir)"
-                  class="score-green"
+                  [ngClass]="
+                    'score-' +
+                    this.fun.getDirClrDefault(
+                      data_retcompo.M1.returndir,
+                      'orange'
+                    )
+                  "
                 >
                   <h6 class="ng-binding">
                     1M<br />
-                    4.47%
+                    {{ data_retcompo.M1.return }}
                   </h6>
                   <p
-                    ng-class="
-                      'alignp ' +
-                      getDirClrDefault(returnData.retcompo.M1.compodir)
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_retcompo.M1.compodir,
+                        'orange'
+                      )
                     "
-                    class="ng-binding alignp green"
+                    class="ng-binding alignp"
                   >
-                    6.24%
+                    {{ data_retcompo.M1.compo }}
                   </p>
                 </div>
+
                 <div
-                  ng-class="getScoreClr(returnData.retcompo.M3.returndir)"
-                  class="score-green"
+                  [ngClass]="
+                    'score-' +
+                    this.fun.getDirClrDefault(
+                      data_retcompo.M3.returndir,
+                      'orange'
+                    )
+                  "
                 >
                   <h6 class="ng-binding">
                     3M<br />
-                    9.53%
+                    {{ data_retcompo.M3.return }}
                   </h6>
                   <p
-                    ng-class="
-                      'alignp ' +
-                      getDirClrDefault(returnData.retcompo.M3.compodir)
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_retcompo.M3.compodir,
+                        'orange'
+                      )
                     "
-                    class="ng-binding alignp green"
+                    class="ng-binding alignp"
                   >
-                    8.77%
+                    {{ data_retcompo.M3.compo }}
                   </p>
                 </div>
               </div>
+
               <div class="current-trend">
                 <div
-                  ng-class="getScoreClr(returnData.retcompo.M6.returndir)"
-                  class="score-green"
+                  [ngClass]="
+                    'score-' +
+                    this.fun.getDirClrDefault(
+                      data_retcompo.M6.returndir,
+                      'orange'
+                    )
+                  "
                 >
                   <h6 class="ng-binding">
                     6M<br />
-                    27.28%
+                    {{ data_retcompo.M6.return }}
                   </h6>
                   <p
-                    ng-class="
-                      'alignp ' +
-                      getDirClrDefault(returnData.retcompo.M6.compodir)
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_retcompo.M6.compodir,
+                        'orange'
+                      )
                     "
-                    class="ng-binding alignp green"
+                    class="ng-binding alignp"
                   >
-                    25.92%
+                    {{ data_retcompo.M6.compo }}
                   </p>
                 </div>
+
                 <div
-                  ng-class="getScoreClr(returnData.retcompo.YTD.returndir)"
-                  class="score-green"
+                  [ngClass]="
+                    'score-' +
+                    this.fun.getDirClrDefault(
+                      data_retcompo.YTD.returndir,
+                      'orange'
+                    )
+                  "
                 >
                   <h6 class="ng-binding">
                     YTD<br />
-                    53.57%
+                    {{ data_retcompo.YTD.return }}
                   </h6>
                   <p
-                    ng-class="
-                      'alignp ' +
-                      getDirClrDefault(returnData.retcompo.YTD.compodir)
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_retcompo.YTD.compodir,
+                        'orange'
+                      )
                     "
-                    class="ng-binding alignp green"
+                    class="ng-binding alignp"
                   >
-                    26.70%
+                    {{ data_retcompo.YTD.compo }}
                   </p>
                 </div>
+
                 <div
-                  ng-class="getScoreClr(returnData.retcompo.Y1.returndir)"
-                  class="score-green"
+                  [ngClass]="
+                    'score-' +
+                    this.fun.getDirClrDefault(
+                      data_retcompo.Y1.returndir,
+                      'orange'
+                    )
+                  "
                 >
                   <h6 class="ng-binding">
                     1Y<br />
-                    80.65%
+                    {{ data_retcompo.Y1.return }}
                   </h6>
                   <p
-                    ng-class="
-                      'alignp ' +
-                      getDirClrDefault(returnData.retcompo.Y1.compodir)
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_retcompo.Y1.compodir,
+                        'orange'
+                      )
                     "
-                    class="ng-binding alignp green"
+                    class="ng-binding alignp"
                   >
-                    39.85%
+                    {{ data_retcompo.Y1.compo }}
                   </p>
                 </div>
               </div>
+
               <div class="current-trend">
                 <div
-                  ng-class="getScoreClr(returnData.retcompo.Y2.returndir)"
-                  class="score-green"
+                  [ngClass]="
+                    'score-' +
+                    this.fun.getDirClrDefault(
+                      data_retcompo.Y2.returndir,
+                      'orange'
+                    )
+                  "
                 >
                   <h6 class="ng-binding">
                     2Y<br />
-                    123.67%
+                    {{ data_retcompo.Y2.return }}
                   </h6>
                   <p
-                    ng-class="
-                      'alignp ' +
-                      getDirClrDefault(returnData.retcompo.Y2.compodir)
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_retcompo.Y2.compodir,
+                        'orange'
+                      )
                     "
-                    class="ng-binding alignp green"
+                    class="ng-binding alignp"
                   >
-                    57.34%
+                    {{ data_retcompo.Y2.compo }}
                   </p>
                 </div>
+
                 <div
-                  ng-class="getScoreClr(returnData.retcompo.Y3.returndir)"
-                  class="score-green"
+                  [ngClass]="
+                    'score-' +
+                    this.fun.getDirClrDefault(
+                      data_retcompo.Y3.returndir,
+                      'orange'
+                    )
+                  "
                 >
                   <h6 class="ng-binding">
                     3Y<br />
-                    169.75%
+                    {{ data_retcompo.Y3.return }}
                   </h6>
                   <p
-                    ng-class="
-                      'alignp ' +
-                      getDirClrDefault(returnData.retcompo.Y3.compodir)
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_retcompo.Y3.compodir,
+                        'orange'
+                      )
                     "
-                    class="ng-binding alignp green"
+                    class="ng-binding alignp"
                   >
-                    57.55%
+                    {{ data_retcompo.Y3.compo }}
                   </p>
                 </div>
+
                 <div
-                  ng-class="getScoreClr(returnData.scorecard.returndir)"
-                  class="score-green"
+                  [ngClass]="
+                    'score-' +
+                    this.fun.getDirClrDefault(
+                      data_scorecard.returndir,
+                      'orange'
+                    )
+                  "
                 >
                   <h6 class="ng-binding">
                     INCEPTION<br />
-                    59.94%
+                    {{ data_scorecard.return }}
                   </h6>
                   <p
-                    ng-class='"alignp " + getDirClrDefault(returnData.scorecard.compodir);'
-                    class="ng-binding alignp green"
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_scorecard.compodir,
+                        'orange'
+                      )
+                    "
+                    class="ng-binding alignp"
                   >
-                    75.35%
+                    {{ data_scorecard.compo }}
                   </p>
                 </div>
               </div>
@@ -542,6 +631,8 @@
                     <th class="textcenter">IRR(%)</th>
                   </tr>
                 </thead>
+
+                <!-- tbody -->
                 <tbody>
                   <!-- ngRepeat: (key, rowArr) in xirrData.list -->
                   <tr
@@ -578,6 +669,8 @@
                     </td>
                     <!-- end ngIf: rowArr.discard == 1 -->
                   </tr>
+
+
                   <!-- end ngRepeat: (key, rowArr) in xirrData.list -->
                   <tr
                     ng-repeat="(key, rowArr) in xirrData.list"
@@ -822,11 +915,19 @@
       </section>
       <!-- End XIRR -->
 
+
+       <!-- break up 2 -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
         data-visited="0"
       >
+
+          <!-- <app-breakup
+      [DATA]="main_data"
+      [HEAD]="'Portfolio Networth Break-Up'"
+    /> -->
+
         <div class="card PortNet">
           <div class="card-content">
             <div class="card-head">
@@ -838,10 +939,8 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_return_networth == true -->
-            <!-- ngIf: loader[0].pf_return_networth == false && error_flag[0].return_networth == 1 -->
 
-            <!-- ngIf: loader[0].pf_return_networth == false && error_flag[0].return_networth == 0 -->
+
             <div
               class="card-body ng-scope"
               ng-if="loader[0].pf_return_networth == false &amp;&amp; error_flag[0].return_networth == 0"
@@ -980,6 +1079,7 @@
         </div>
       </section>
 
+      <!-- graph -->
       <section
         id="calendar_return_card"
         class="swiper-slide small-card marginright"
@@ -988,6 +1088,9 @@
         ng-show="returnData.calendar.caldisp == 1"
         style=""
       >
+
+
+
         <div class="card">
           <div class="card-content calendaryrs">
             <div class="card-head">
@@ -999,9 +1102,6 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_return_year == true -->
-
-            <!-- ngIf: loader[0].pf_return_year == false && error_flag[0].return_calendar == 1 -->
 
             <div
               class="quality"
@@ -2632,6 +2732,7 @@
             </div>
           </div>
         </div>
+
         <div class="porbottomlink">
           <div class="bottom-card-links">
             <div class="bottom-card-links">
