@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PopupComponent } from '../../others/popup/popup.component';
-import { columns, IColumns } from './Columns';
+import { columns } from './Columns';
 
 import {
   CdkVirtualScrollViewport,
@@ -22,6 +22,7 @@ import {
 import { DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
+import { IColumns } from 'src/app/models/pp/column';
 
 type TableType =
   | 'OVERVIEW'

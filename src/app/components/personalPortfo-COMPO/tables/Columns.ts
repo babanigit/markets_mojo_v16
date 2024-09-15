@@ -1,40 +1,12 @@
-interface BaseColumn {
-  title: string;
-  code: string;
-  short_header?:string,
-  hold: string;
-  defaultValue: string;
-  no_extend: boolean;
-  footer: boolean;
-  clr?: string;
-
-}
-
-interface Total_return {
-  title: string;
-  code: string;
-  short_header?:string,
-  hold: string;
-  defaultValue: string;
-  no_extend: boolean;
-  footer: boolean;
-  dir: string;
-}
-
-export interface IColumns {
-  solo: BaseColumn[];
-  returns: BaseColumn[];
-  total_returns: Total_return[];
-  mojo:BaseColumn[]
-}
+import { IColumns } from 'src/app/models/pp/column';
 
 export const columns: IColumns = {
-  mojo:[
-   {
+  mojo: [
+    {
       title: 'Quantity ',
       code: 'q_txt',
-      short_header:'dotsum.q_txt',
-      clr:'q_clr',
+      short_header: 'dotsum.q_txt',
+      clr: 'q_clr',
       hold: '',
       defaultValue: '-',
       no_extend: true,
@@ -43,8 +15,8 @@ export const columns: IColumns = {
     {
       title: 'Valuation ',
       code: 'v_txt',
-      short_header:'dotsum.v_txt',
-      clr:'v_clr',
+      short_header: 'dotsum.v_txt',
+      clr: 'v_clr',
 
       hold: '',
       defaultValue: '-',
@@ -54,8 +26,8 @@ export const columns: IColumns = {
     {
       title: ' Technical ',
       code: 'tech_txt',
-      short_header:'dotsum.tech_txt',
-      clr:'tech_clr',
+      short_header: 'dotsum.tech_txt',
+      clr: 'tech_clr',
 
       hold: '',
       defaultValue: '-',
@@ -411,7 +383,7 @@ export const columns: IColumns = {
     {
       title: 'Realised Gain ',
       code: 'rgain',
-      short_header:'',
+      short_header: '',
       hold: '',
       defaultValue: '-',
       no_extend: false,
@@ -421,7 +393,7 @@ export const columns: IColumns = {
     {
       title: 'Total Gain ',
       code: 'tgain',
-      short_header:'',
+      short_header: '',
       hold: '',
       defaultValue: '-',
       no_extend: false,
@@ -431,7 +403,7 @@ export const columns: IColumns = {
     {
       title: 'Total Gain (%)  ',
       code: 'tgainp',
-      short_header:'',
+      short_header: '',
       hold: '%',
       defaultValue: '-',
       no_extend: false,
@@ -439,5 +411,4 @@ export const columns: IColumns = {
       dir: 'tgainpdir',
     },
   ],
-
 };
