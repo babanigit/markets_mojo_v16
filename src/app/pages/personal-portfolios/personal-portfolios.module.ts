@@ -9,7 +9,6 @@ import { MutualFundsInvestmentsComponent } from '../../components/personalPortfo
 import { TablesComponent } from '../../components/personalPortfo-COMPO/tables/tables.component';
 import { IpoFooterNewComponent } from 'src/app/components/ipo-COMPO/ipo-footer-new/ipo-footer-new.component';
 
-
 import { SwiperHowAmComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-how-am/swiper-how-am.component';
 import { SwiperDoingOverallComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-doing-overall/swiper-doing-overall.component';
 import { SwiperReturnAnalysisComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-return-analysis/swiper-return-analysis.component';
@@ -21,6 +20,7 @@ import { SwiperLiquidityComponent } from 'src/app/components/personalPortfo-COMP
 import { SwiperQualityComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-quality/swiper-quality.component';
 import { SwiperTaxComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-tax/swiper-tax.component';
 import { SwiperValuationComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-valuation/swiper-valuation.component';
+import { PfPriceMsgComponent } from 'src/app/components/personalPortfo-COMPO/pf-price-msg/pf-price-msg.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -35,6 +35,7 @@ import { SwiperValuationComponent } from 'src/app/components/personalPortfo-COMP
   imports: [
     CommonModule,
     PersonalPortfoliosRoutingModule,
+    PfPriceMsgComponent,
 
     TablesComponent,
     IpoFooterNewComponent,
@@ -51,8 +52,6 @@ import { SwiperValuationComponent } from 'src/app/components/personalPortfo-COMP
     SwiperFinancialTrendComponent,
     SwiperTaxComponent,
     SwiperLiquidityComponent,
-
-
   ],
 })
 export class PersonalPortfoliosModule {}
