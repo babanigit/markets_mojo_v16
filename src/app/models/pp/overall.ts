@@ -5,6 +5,7 @@ export interface IOverall {
 }
 
  export interface IOverall_Data  {
+  pv?:string| number
   quality: Quality
   valuation: Valuation
   fin_trend: FinTrend

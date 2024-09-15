@@ -102,6 +102,16 @@ export class GetPersonalPFService {
     );
   }
 
+  private ixrrpath = 'assets/pp/swiper/getIXIRRData.json';
+  getIxrrData(){
+    return this.http.get<any>(this.ixrrpath).pipe(
+      catchError((err) => {
+        console.error('Error fetching ixrr :', err);
+        throw err;
+      })
+    );
+  }
+
   private loadingSubject = new BehaviorSubject<boolean>(false);
   private errorSubject = new BehaviorSubject<string | null>(null);
 

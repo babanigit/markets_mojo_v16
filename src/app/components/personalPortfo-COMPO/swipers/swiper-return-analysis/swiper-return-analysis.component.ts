@@ -19,6 +19,7 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
+import { I_Ixrr, I_Ixrr_Data } from 'src/app/models/pp/ixrr';
 
 @Component({
   selector: 'app-swiper-return-analysis',
@@ -41,8 +42,7 @@ export class SwiperReturnAnalysisComponent  implements AfterViewInit, OnInit {
   data_scorecard:IScorecard |undefined
   data_retcompo: IRetcompo | undefined;
 
-
-
+  ixrrData:I_Ixrr_Data | undefined;
 
   @Output() send_element = new EventEmitter<string>(); //for input value
 
@@ -79,6 +79,14 @@ export class SwiperReturnAnalysisComponent  implements AfterViewInit, OnInit {
 
       this.cdr.detectChanges(); // Trigger change detection
     });
+
+    this.serv.getIxrrData().subscribe((res:I_Ixrr) => {
+      this.ixrrData=res.data
+      console.log('ixrrData : ', res);
+
+      this.cdr.detectChanges(); // Trigger change detection
+
+    })
   }
 
 

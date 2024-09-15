@@ -599,23 +599,18 @@
           <div class="card-content dividend">
             <div class="card-head">
               <h2>
-                Returns - Absolute and IRR<span
+                Returns - Absolute and IRR
+                <span
                   class="card-title activator info-act"
                   ng-click="isCollapseRetStock = !isCollapseRetStock"
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_return_xirr == true -->
-            <!-- ngIf: loader[0].pf_return_xirr == false && error_flag[0].return_stocks_xirr == 1 -->
 
-            <!-- ngIf: loader[0].pf_return_xirr == false && error_flag[0].return_stocks == 0 -->
-            <div
-              class="price-mojo col-green ng-scope"
-              ng-if="loader[0].pf_return_xirr == false &amp;&amp; error_flag[0].return_stocks == 0"
-              style=""
-            >
+            <div class="price-mojo col-green ng-scope">
               <div style="margin-top: 10px"></div>
               <!-- <div class="txt-hed-1 priced">{{returnData.holdings.txt1}}</div> -->
+
               <table class="table1 divd-table">
                 <thead>
                   <tr>
@@ -633,220 +628,40 @@
                 </thead>
 
                 <!-- tbody -->
-                <tbody>
-                  <!-- ngRepeat: (key, rowArr) in xirrData.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in xirrData.list"
-                    class="ng-scope"
-                  >
-                    <!-- ngIf: rowArr.discard == 1  -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      6 Months
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1  -->
 
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      48,225
+                <tbody *ngIf="ixrrData!">
+                  <tr *ngFor="let item of ixrrData.list" class="ng-scope">
+                    <td class="ng-binding ng-scope">
+                      {{ item.period }}
                     </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
+                    <td class="ng-binding ng-scope">
+                      {{ item.absret | roundOff | twoCommas }}
+                    </td>
                     <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
-                      class="ng-binding ng-scope green"
+                      [ngClass]="
+                        this.fun.getDirClrDefault(item.abs_perc_dir, 'orange')
+                      "
+                      class="ng-binding ng-scope"
                     >
-                      27.28%
+                      {{ item.abs_perc | roundOff | twoCommas }}%
                     </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
                     <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
-                      class="ng-binding ng-scope green"
+                      [ngClass]="
+                        this.fun.getDirClrDefault(
+                          item.portxirr_perc_dir,
+                          'orange'
+                        )
+                      "
+                      class="ng-binding ng-scope"
                     >
-                      63.35%
+                      {{ item.portxirr_perc | roundOff | twoCommas }}%
                     </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
                   </tr>
-
-
-                  <!-- end ngRepeat: (key, rowArr) in xirrData.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in xirrData.list"
-                    class="ng-scope"
-                  >
-                    <!-- ngIf: rowArr.discard == 1  -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      YTD
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1  -->
-
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      79,449
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      53.57%
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      86.76%
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in xirrData.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in xirrData.list"
-                    class="ng-scope"
-                  >
-                    <!-- ngIf: rowArr.discard == 1  -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      1 Year
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1  -->
-
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      1,02,126
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      80.65%
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      87.71%
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in xirrData.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in xirrData.list"
-                    class="ng-scope"
-                  >
-                    <!-- ngIf: rowArr.discard == 1  -->
-
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in xirrData.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in xirrData.list"
-                    class="ng-scope"
-                  >
-                    <!-- ngIf: rowArr.discard == 1  -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      3 Year
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1  -->
-
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      1,46,080
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      169.75%
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      39.17%
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in xirrData.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in xirrData.list"
-                    class="ng-scope"
-                  >
-                    <!-- ngIf: rowArr.discard == 1  -->
-
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in xirrData.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in xirrData.list"
-                    class="ng-scope"
-                  >
-                    <!-- ngIf: rowArr.discard == 1  -->
-
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in xirrData.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in xirrData.list"
-                    class="ng-scope"
-                  >
-                    <!-- ngIf: rowArr.discard == 1  -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      Inception
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1  -->
-
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td ng-if="rowArr.discard == 1" class="ng-binding ng-scope">
-                      1,99,168
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.abs_perc_dir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      59.94%
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                    <!-- ngIf: rowArr.discard == 1 -->
-                    <td
-                      ng-if="rowArr.discard == 1"
-                      ng-class="getDirClrDefault(rowArr.portxirr_perc_dir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      7.11%
-                    </td>
-                    <!-- end ngIf: rowArr.discard == 1 -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in xirrData.list -->
                 </tbody>
+
+                `
               </table>
+
               <!-- ngIf: loader[0].pf_return_composite == false  && error_flag[0].return_compo == 0 -->
               <div
                 class="foot-note ng-binding ng-scope"
@@ -915,168 +730,18 @@
       </section>
       <!-- End XIRR -->
 
-
-       <!-- break up 2 -->
+      <!-- break up 2 -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
         data-visited="0"
       >
-
-          <!-- <app-breakup
-      [DATA]="main_data"
-      [HEAD]="'Portfolio Networth Break-Up'"
-    /> -->
-
-        <div class="card PortNet">
-          <div class="card-content">
-            <div class="card-head">
-              <h2>
-                Portfolio Networth Break-Up
-                <span
-                  class="card-title activator info-act"
-                  ng-click="isCollapseRetNet = !isCollapseRetNet"
-                ></span>
-              </h2>
-            </div>
-
-
-            <div
-              class="card-body ng-scope"
-              ng-if="loader[0].pf_return_networth == false &amp;&amp; error_flag[0].return_networth == 0"
-              style=""
-            >
-              <div class="pf-net-breakup">
-                <div class="companycv">
-                  <ul style="padding: 0">
-                    <li>
-                      Your Holding Value :
-                      <strong class="ng-binding">Rs 2,30,735</strong>
-                    </li>
-                    <li>
-                      You bought :
-                      <strong class="ng-binding">Rs 15,28,037</strong>
-                    </li>
-                    <!-- ngIf: returnData.networth.sellval == 0 -->
-                    <!-- ngIf: returnData.networth.sellval > 0 -->
-                    <li
-                      ng-if="returnData.networth.sellval > 0"
-                      class="ng-scope"
-                    >
-                      You sold :
-                      <strong class="ng-binding">Rs 14,94,811</strong>
-                    </li>
-                    <!-- end ngIf: returnData.networth.sellval > 0 -->
-                  </ul>
-                </div>
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td class="pf-">Realized Gain/Loss</td>
-                      <!-- ngIf: returnData.networth.rgain == '' || returnData.networth.rgain == 'NA' -->
-                      <!-- ngIf: returnData.networth.rgain != ''  && returnData.networth.rgain != 'NA' -->
-                      <td
-                        ng-if="returnData.networth.rgain != ''  &amp;&amp; returnData.networth.rgain != 'NA'"
-                        ng-class="
-                          getDirClrDefault(returnData.networth.rgaindir)
-                        "
-                        class="ng-binding ng-scope green"
-                      >
-                        Rs 71,276
-                      </td>
-                      <!-- end ngIf: returnData.networth.rgain != ''  && returnData.networth.rgain != 'NA' -->
-                    </tr>
-                    <tr>
-                      <td class="pf-">Dividend Received</td>
-                      <!-- ngIf: returnData.networth.dividend == 'NA' -->
-                      <!-- ngIf: returnData.networth.dividend != 'NA' -->
-                      <td
-                        ng-if="returnData.networth.dividend != 'NA'"
-                        ng-class="getDirClrDefault(returnData.networth.divdir)"
-                        class="ng-binding ng-scope green"
-                      >
-                        Rs 1,425
-                      </td>
-                      <!-- end ngIf: returnData.networth.dividend != 'NA' -->
-                    </tr>
-                    <tr>
-                      <td class="pf-">Unrealized Gain/Loss</td>
-                      <!-- ngIf: returnData.networth.unrgain == 'NA' -->
-                      <!-- ngIf: returnData.networth.unrgain != 'NA' -->
-                      <td
-                        ng-if="returnData.networth.unrgain != 'NA'"
-                        ng-class="
-                          getDirClrDefault(returnData.networth.unrgaindir)
-                        "
-                        class="ng-binding ng-scope green"
-                      >
-                        Rs 1,26,234
-                      </td>
-                      <!-- end ngIf: returnData.networth.unrgain != 'NA' -->
-                    </tr>
-                  </tbody>
-                  <thead>
-                    <tr>
-                      <th class="pf-">Total Gain/Loss</th>
-                      <th
-                        ng-class="
-                          getDirClrDefault(returnData.networth.tgaindir)
-                        "
-                        class="ng-binding green"
-                      >
-                        Rs 1,98,935
-                      </th>
-                    </tr>
-                  </thead>
-                </table>
-                <div class="condi-p">
-                  <p>Tax has not been considered for this analysis</p>
-                </div>
-              </div>
-            </div>
-            <!-- end ngIf: loader[0].pf_return_networth == false && error_flag[0].return_networth == 0 -->
-          </div>
-          <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseRetNet"
-          >
-            <span class="card-title grey-text text-darken-4"
-              >Card Title<i
-                class="material-icons right"
-                ng-click="isCollapseRetNet = !isCollapseRetNet"
-                >close</i
-              ></span
-            >
-            <div class="card-reveal-text">
-              <ul>
-                <li>Quick summary of the total money made by you</li>
-                <li>
-                  The card bifurcates the current value of your holdings and
-                  your total investments (You bought) and withdrawals (you sold)
-                  from portfolio
-                </li>
-                <li>
-                  Your total money made is bifurcated into
-                  <ul>
-                    <li>Realized gain/loss: Money made on shares sold</li>
-                    <li>
-                      Dividend Received: Dividend on your current and past
-                      holdings
-                    </li>
-                    <li>
-                      Unrealized gain/loss: Money that will be made if the
-                      current portfolio is liquidated at the latest prices. This
-                      is notional gain and there is no guarantee that when you
-                      go to sell in the market, the shares can be sold at the
-                      exact same prices to make the same gain.
-                    </li>
-                  </ul>
-                </li>
-                <li>Tax has not been considered for this analysis</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <ng-container *ngIf="main_data!">
+          <app-breakup
+            [DATA]="main_data.networth"
+            [HEAD]="'Portfolio Networth Break-Up'"
+          />
+        </ng-container>
       </section>
 
       <!-- graph -->
@@ -1088,9 +753,6 @@
         ng-show="returnData.calendar.caldisp == 1"
         style=""
       >
-
-
-
         <div class="card">
           <div class="card-content calendaryrs">
             <div class="card-head">

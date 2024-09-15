@@ -9,7 +9,7 @@ export interface IReturn_Data {
   mcap: Mcap;
   holdings: Holdings;
   scorecard: IScorecard;
-  networth: Networth;
+  networth: INetworth;
   retcompo: IRetcompo;
   divcontri: Divcontri;
   calendar: Calendar;
@@ -885,7 +885,8 @@ interface Dir {
   senperfomby: number;
 }
 
-interface Networth {
+export interface INetworth {
+  lval?:string |number
   buyval: number;
   sellval: number;
   pv: number;
