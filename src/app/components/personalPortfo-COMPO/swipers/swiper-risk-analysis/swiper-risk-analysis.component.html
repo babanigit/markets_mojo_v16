@@ -22,8 +22,7 @@
       </div>
     </div>
     <div class="swiper-wrapper reco-slide" id="sectRisk" sect-reveal="true">
-
-      <!-- scorecard -->
+      <!-- scorecard2 risk -->
       <section
         data-reveal="true"
         id="sectRisk_scorecard"
@@ -31,10 +30,9 @@
         data-scrolled="0"
         data-visited="0"
       >
-
         <app-scorecard2
           [DATA]="data_scorecard"
-          [HEAD]="'Risk Scorecarde '"
+          [HEAD]="'Risk Scorecard'"
           [SHOW_BUTTON]="false"
         />
       </section>
@@ -47,6 +45,7 @@
         }
       </script>
 
+      <!-- risk summary -->
       <section
         class="swiper-slide padnno-sec marginright swiper-slide-visible"
         data-scrolled="0"
@@ -57,20 +56,11 @@
             <div class="card-head">
               <h2>Risk Summary</h2>
             </div>
-            <!-- ngIf: loader[0].pf_risk_sum == true -->
 
-            <!-- ngIf: loader[0].pf_risk_sum == false && error_flag[0].risk_summary == 1 -->
-
-            <!-- ngIf: loader[0].pf_risk_sum == false && error_flag[0].risk_summary == 0 -->
-            <div
-              class="risk-scroll list-mojo ng-scope"
-              ng-if="loader[0].pf_risk_sum == false &amp;&amp; error_flag[0].risk_summary == 0"
-              style=""
-            >
-              <div class="risk-txt1 red">High Beta (adjusted) 1.45</div>
+            <div class="risk-scroll list-mojo ng-scope" *ngIf="main_data!">
+              <div class="risk-txt1 red">{{ main_data.beta.txt1 }}</div>
               <div class="risk-txt2 ng-binding">
-                High Beta portfolios generally rise and fall by a larger
-                proportion than market
+                {{ main_data.beta.txt3 }}
               </div>
               <div class="comp-peers2">
                 <div>
@@ -79,49 +69,38 @@
               </div>
               <!-- ngIf: (riskdata.error) !== "" && loader[0].pf_risk_sum == false -->
               <!-- ngIf: (riskdata.error) === '' && loader[0].pf_risk_sum == false  -->
-              <div
-                class="risk-summary-container ng-scope"
-                ng-if="(riskdata.error) === '' &amp;&amp; loader[0].pf_risk_sum == false "
-              >
+              <div class="risk-summary-container ng-scope">
                 <div class="rsk1">
                   <div class="risk-txt4 ng-binding">
-                    Medium Volatility of 25.38%
+                    {{ main_data.volatility.txt1 }}
                   </div>
                   <p class="ng-binding">
-                    Portfolio Volatility is in line with both Composite Index
-                    and Sensex
+                    {{ main_data.volatility.txt2 }}
                   </p>
                 </div>
-                <!--                                    <div class="rsk1">
-                                      <div class="risk-txt4"> {{riskdata.beta.txt1}} </div>
-                                      <p> {{riskdata.beta.txt3}}</p>
-                                  </div>-->
+
                 <div class="rsk2">
-                  <div class="risk-txt4 ng-binding">Low Risk Low Return</div>
-                  <p ng-bind-html="riskdata.return.txt2" class="ng-binding">
-                    Portfolio has generated
-                    <span class="green">Superior</span> risk adjusted returns vs
-                    composite index signifying that you have generated higher
-                    returns per unit of risk
-                  </p>
+                  <div class="risk-txt4 ng-binding">
+                    {{ main_data.return.txt1 }}
+                  </div>
+                  <p [innerHTML]="main_data.return.txt2" class="ng-binding"></p>
                 </div>
+
                 <div class="rsk3">
                   <div class="risk-txt4 ng-binding">
-                    39.53% of your portfolio is allocated to small or micro cap
-                    stocks
+                    {{ main_data.allocation.txt1 }}
                   </div>
                   <p class="ng-binding">
-                    These stocks are in general more volatile and are considered
-                    riskier
+                    {{ main_data.allocation.txt2 }}
                   </p>
                 </div>
+
                 <div class="rsk4">
                   <div class="risk-txt4 ng-binding">
-                    Your Portfolio VAR is Rs 19.1 K
+                    {{ main_data.var.txt1 }}
                   </div>
                   <p class="ng-binding">
-                    This means that there 1% chance that on any day your
-                    portfolio can lose more than Rs 19.1 K
+                    {{ main_data.var.txt3 }}
                   </p>
                 </div>
               </div>
@@ -129,18 +108,10 @@
             </div>
             <!-- end ngIf: loader[0].pf_risk_sum == false && error_flag[0].risk_summary == 0 -->
           </div>
-          <div class="card-reveal" style="display: none">
-            <span class="card-title grey-text text-darken-4">
-              Card Title<i class="material-icons right">close</i>
-            </span>
-            <p>
-              Here is some more information about this product that is only
-              revealed once clicked on.
-            </p>
-          </div>
         </div>
       </section>
 
+      <!-- graph -->
       <section
         class="swiper-slide small-card marginright swiper-slide-visible"
         data-scrolled="0"
@@ -1140,6 +1111,7 @@
         </div>
       </section>
 
+      <!-- volaility -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
@@ -1156,23 +1128,14 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_risk_volatility == true -->
-            <!-- ngIf: (riskdata.error) !== "" && loader[0].pf_risk_volatility == false -->
-            <!-- ngIf: loader[0].pf_risk_volatility == false && error_flag[0].risk_beta == 1 -->
 
-            <!-- ngIf: (riskdata.error) === '' && loader[0].pf_risk_volatility == false && error_flag[0].risk_beta == 0 -->
-            <div
-              class="quality ng-scope"
-              ng-if="(riskdata.error) === '' &amp;&amp; loader[0].pf_risk_volatility == false &amp;&amp; error_flag[0].risk_beta == 0"
-              style=""
-            >
+            <div class="quality ng-scope" *ngIf="main_data!">
               <div class="valuation-head" id="vd_valuationDtail">
                 <div class="txt-hed-1 txt-cr red ng-binding">
-                  Medium Volatility of 25.38%
+                  {{ main_data.volatility.txt1 }}
                 </div>
                 <p class="sales_txt txt-cr ng-binding">
-                  Portfolio Volatility is in line with both Composite Index and
-                  Sensex
+                  {{ main_data.volatility.txt2 }}
                 </p>
                 <div class="comp-peers2">
                   <div><span class="small-txt">Standard Deviation</span></div>
@@ -1180,30 +1143,35 @@
                 <div class="price-eps">
                   <div class="green-border">
                     <h6>Portfolio</h6>
-                    <p class="ng-binding">25.38%</p>
+                    <p class="ng-binding">
+                      {{ main_data.volatility.port | roundOff | twoCommas }}%
+                    </p>
                   </div>
                   <div class="green-border">
                     <h6>Comp Ind</h6>
-                    <p class="ng-binding">54.44%</p>
+                    <p class="ng-binding">
+                      {{ main_data.volatility.comp | roundOff | twoCommas }}%
+                    </p>
                   </div>
                   <div class="green-border">
                     <h6>Sensex</h6>
-                    <p class="ng-binding">16.22%</p>
+                    <p class="ng-binding">
+                      {{ main_data.volatility.sensex | roundOff | twoCommas }}%
+                    </p>
                   </div>
                 </div>
                 <div class="condi-cent"></div>
                 <br />
                 <div class="condi-p">
                   <p class="ng-binding">
-                    Standard Deviation is a measure of riskiness of your
-                    portfolio. Higher Standard Deviation signifies higher risk
-                    than market
+                    {{ main_data.volatility.txt3 }}
                   </p>
                 </div>
               </div>
             </div>
-            <!-- end ngIf: (riskdata.error) === '' && loader[0].pf_risk_volatility == false && error_flag[0].risk_beta == 0 -->
           </div>
+
+          <!-- extend -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseRiskVol"
@@ -1233,6 +1201,8 @@
             </div>
           </div>
         </div>
+
+        <!-- full details -->
         <div class="porbottomlink">
           <div class="bottom-card-links">
             <div class="bottom-card-links">
@@ -1252,6 +1222,7 @@
         </div>
       </section>
 
+      <!-- var -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
@@ -1268,33 +1239,25 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_risk_var == true -->
-            <!-- ngIf: (riskdata.error) !== "" && loader[0].pf_risk_var == false -->
-            <!-- ngIf: loader[0].pf_risk_var == false && error_flag[0].risk_var == 1 -->
 
-            <!-- ngIf: (riskdata.error) === '' && loader[0].pf_risk_var == false && error_flag[0].risk_var == 0 -->
-            <div
-              class="quality ng-scope"
-              ng-if="(riskdata.error) === '' &amp;&amp; loader[0].pf_risk_var == false &amp;&amp; error_flag[0].risk_var == 0"
-              style=""
-            >
+            <div class="quality ng-scope" *ngIf="main_data!">
               <div class="valuation-head" id="vd_valuationDtail">
                 <div class="high-risk-head ng-binding">
-                  Your Portfolio VAR is Rs 19.1 K
+                  {{ main_data.var.txt1 }}
                 </div>
                 <p class="sales_txt txt-cr ng-binding">
-                  VAR is calculated at 99% confidence interval
+                  {{ main_data.var.txt2 }}
                 </p>
                 <p class="sales_txt txt-cr ng-binding">
-                  This means that there 1% chance that on any day your portfolio
-                  can lose more than Rs 19.1 K
+                  {{ main_data.var.txt3 }}
                 </p>
               </div>
               <br />
               <br />
             </div>
-            <!-- end ngIf: (riskdata.error) === '' && loader[0].pf_risk_var == false && error_flag[0].risk_var == 0 -->
           </div>
+
+          <!-- extend -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseRiskVar"
@@ -1335,6 +1298,8 @@
             </div>
           </div>
         </div>
+
+        <!-- full details -->
         <div class="porbottomlink">
           <div class="bottom-card-links">
             <div class="bottom-card-links">
@@ -1354,6 +1319,7 @@
         </div>
       </section>
 
+      <!-- risk adju returns -->
       <section
         class="swiper-slide small-card table-card marginright"
         data-scrolled="0"
@@ -1370,11 +1336,7 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_risk_rar == true -->
-            <!-- ngIf: (riskdata.error) !== "" && loader[0].pf_risk_rar == false -->
-            <!-- ngIf: loader[0].pf_risk_rar == false && error_flag[0].risk_rar == 1 -->
 
-            <!-- ngIf: (riskdata.error) === '' && loader[0].pf_risk_rar == false && error_flag[0].risk_rar == 0 -->
             <div
               class="quality ng-scope"
               ng-if="(riskdata.error) === '' &amp;&amp; loader[0].pf_risk_rar == false &amp;&amp; error_flag[0].risk_rar == 0"
@@ -1392,6 +1354,7 @@
                   returns per unit of risk
                 </p>
                 <table class="table1">
+
                   <thead>
                     <tr>
                       <th></th>
@@ -1400,18 +1363,31 @@
                       <th class="textcenter">Volatility</th>
                     </tr>
                   </thead>
-                  <tbody>
+
+                  <tbody *ngIf="main_data!">
                     <tr>
                       <td>Portfolio</td>
-                      <td class="ng-binding">60.68%</td>
-                      <td class="ng-binding">2.39</td>
-                      <td class="ng-binding">25.38%</td>
+                      <td class="ng-binding">
+                        {{ main_data.return.port.return }}%
+                      </td>
+                      <td class="ng-binding">
+                        {{ main_data.return.port.riskAdj }}
+                      </td>
+                      <td class="ng-binding">
+                        {{ main_data.return.port.volatility }}%
+                      </td>
                     </tr>
                     <tr>
                       <td>Composite Index</td>
-                      <td class="ng-binding">74.45%</td>
-                      <td class="ng-binding">1.37</td>
-                      <td class="ng-binding">54.44%</td>
+                      <td class="ng-binding">
+                        {{ main_data.return.comp.return }}%
+                      </td>
+                      <td class="ng-binding">
+                        {{ main_data.return.comp.riskAdj }}
+                      </td>
+                      <td class="ng-binding">
+                        {{ main_data.return.comp.volatility }}%
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -1420,6 +1396,8 @@
             </div>
             <!-- end ngIf: (riskdata.error) === '' && loader[0].pf_risk_rar == false && error_flag[0].risk_rar == 0 -->
           </div>
+
+          <!-- extend -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseRiskRar"
@@ -1459,6 +1437,8 @@
             </div>
           </div>
         </div>
+
+        <!-- full details -->
         <div class="porbottomlink">
           <div class="bottom-card-links">
             <div class="bottom-card-links">
@@ -1476,8 +1456,10 @@
             </div>
           </div>
         </div>
+
       </section>
 
+      <!-- circle graph -->
       <section
         class="swiper-slide small-card table-card marginright"
         data-scrolled="0"
@@ -1915,6 +1897,7 @@
           </div>
         </div>
       </section>
+
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">

@@ -15,16 +15,7 @@ import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { I_Ixrr_Data, I_Ixrr } from 'src/app/models/pp/ixrr';
-import {
-  IReturn_Data,
-  IScorecard,
-  IRetcompo,
-  IDivcontri,
-  ISector,
-  IMcap,
-  IHoldings,
-  IReturn,
-} from 'src/app/models/pp/return';
+
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { IRisk, IRisk_Data, IScore_risk } from 'src/app/models/pp/risk';
