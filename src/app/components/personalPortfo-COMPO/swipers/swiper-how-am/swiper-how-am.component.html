@@ -182,7 +182,7 @@
                 </ul>
               </div>
 
-              <!-- button section  -->
+              <!-- button section for mobile view -->
               <div id="tabcol" class="no-web no-tab">
                 <div class="col-md-12">
                   <div class="tabdropdown pf-menu">
@@ -268,14 +268,13 @@
               </div>
 
               <div class="tab-content">
-                <!-- ngIf: loader[0].pf_today_graph == false && error_flag[0].actionToday_graph == 1 && actionToday.error != 1 -->
-                <!-- ngIf: loader[0].pf_today_graph == false && actionToday.error == 1 -->
-
                 <div
                   class="cardmiddle"
                   ng-show="loader[0].pf_today_graph == false &amp;&amp; error_flag[0].actionToday_graph == 0 &amp;&amp; actionToday.error != 1"
                   style=""
                 >
+
+                <!-- graph section -->
                   <div
                     class="cardgraph"
                     id="container_actiontoday"
@@ -284,6 +283,7 @@
 
                     <div
                       id="highcharts-1rl6spd-237"
+
                       style="
                         position: relative;
                         overflow: hidden;
@@ -298,517 +298,17 @@
                       class="highcharts-container"
                     >
 
-                    <!-- graph section -->
+                      <!-- graph -->
+                       <div
+                       style="padding: 0px 0px ;"
+                       >
+                        <app-graph-today />
 
-                    <app-graph-today />
-                      <!-- <svg
-                        version="1.1"
-                        class="highcharts-root"
-                        style="
-                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
-                            Arial, Helvetica, sans-serif;
-                          font-size: 12px;
-                        "
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="600"
-                        height="260"
-                        viewBox="0 0 600 260"
-                      >
-                        <desc>Created with Highstock 6.1.0</desc>
-                        <defs>
-                          <clipPath id="highcharts-1rl6spd-238">
-                            <rect
-                              x="0"
-                              y="0"
-                              width="550"
-                              height="210"
-                              fill="none"
-                            ></rect>
-                          </clipPath>
-                          <clipPath id="highcharts-1rl6spd-240">
-                            <rect
-                              x="0"
-                              y="0"
-                              width="550"
-                              height="210"
-                              fill="none"
-                            ></rect>
-                          </clipPath>
-                        </defs>
-                        <rect
-                          fill="#fff"
-                          class="highcharts-background"
-                          stroke="#fff"
-                          stroke-width="1"
-                          x="0.5"
-                          y="0.5"
-                          width="598"
-                          height="258"
-                          rx="0"
-                          ry="0"
-                        ></rect>
-                        <rect
-                          fill="none"
-                          class="highcharts-plot-background"
-                          x="40"
-                          y="25"
-                          width="550"
-                          height="210"
-                        ></rect>
-                        <g class="highcharts-pane-group"></g>
-                        <g class="highcharts-grid highcharts-xaxis-grid">
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 45.5 25 L 45.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 71.5 25 L 71.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 97.5 25 L 97.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 122.5 25 L 122.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 148.5 25 L 148.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 173.5 25 L 173.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 199.5 25 L 199.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 224.5 25 L 224.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 250.5 25 L 250.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 276.5 25 L 276.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 301.5 25 L 301.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 327.5 25 L 327.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 352.5 25 L 352.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 378.5 25 L 378.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 404.5 25 L 404.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 429.5 25 L 429.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 455.5 25 L 455.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 480.5 25 L 480.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 506.5 25 L 506.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 531.5 25 L 531.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 557.5 25 L 557.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 583.5 25 L 583.5 235"
-                            opacity="1"
-                          ></path>
-                        </g>
-                        <g class="highcharts-grid highcharts-yaxis-grid">
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 235.5 L 590 235.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 165.5 L 590 165.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 95.5 L 590 95.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 25.5 L 590 25.5"
-                            opacity="1"
-                          ></path>
-                        </g>
-                        <rect
-                          fill="none"
-                          class="highcharts-plot-border"
-                          x="40"
-                          y="25"
-                          width="550"
-                          height="210"
-                        ></rect>
-                        <g class="highcharts-axis highcharts-xaxis">
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 45.5 225 L 45.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 71.5 225 L 71.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 97.5 225 L 97.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 122.5 225 L 122.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 148.5 225 L 148.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 173.5 225 L 173.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 199.5 225 L 199.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 224.5 225 L 224.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 250.5 225 L 250.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 276.5 225 L 276.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 301.5 225 L 301.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 327.5 225 L 327.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 352.5 225 L 352.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 378.5 225 L 378.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 404.5 225 L 404.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 429.5 225 L 429.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 455.5 225 L 455.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 480.5 225 L 480.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 506.5 225 L 506.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 531.5 225 L 531.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 557.5 225 L 557.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 583.5 225 L 583.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-axis-line"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 40 225.5 L 590 225.5"
-                          ></path>
-                        </g>
-                        <g class="highcharts-axis highcharts-yaxis">
-                          <path
-                            fill="none"
-                            class="highcharts-axis-line"
-                            d="M 10 25 L 10 235"
-                          ></path>
-                        </g>
-                        <g class="highcharts-series-group">
-                          <g
-                            class="highcharts-series highcharts-series-0 highcharts-line-series highcharts-color-0"
-                            transform="translate(40,25) scale(1 1)"
-                            clip-path="url(#highcharts-1rl6spd-240)"
-                          >
-                            <path
-                              fill="#3FC499"
-                              d="M 6.3953488372093 70.54851999999991 L 19.186046511628 19.561079999999606 L 31.976744186047 19.20016000000004 L 44.767441860465 26.300399999999684 L 57.558139534884 44.839199999999835 L 70.348837209302 42.494760000000355 L 83.139534883721 47.03299999999999 L 95.93023255814 59.96816000000004 L 108.72093023256 57.80207999999959 L 121.51162790698 59.65092000000038 L 134.3023255814 46.8325199999999 L 147.09302325581 49.7319200000004 L 159.88372093023 76.64832000000007 L 159.88372093023 210 L 6.3953488372093 210"
-                              stroke="#3FC499"
-                              stroke-width="2"
-                              stroke-linejoin="round"
-                              stroke-linecap="round"
-                            ></path>
-                            <path
-                              fill="#DD7470"
-                              d="M 159.88372093023 76.64832000000007 L 172.67441860465 77.53116000000003 L 185.46511627907 89.24832000000006 L 198.25581395349 93.4914400000003 L 211.04651162791 97.85860000000032 L 223.83720930233 91.63532000000006 L 236.62790697674 75.37487999999976 L 249.41860465116 75.31271999999973 L 262.20930232558 109.5385199999999 L 275 118.14292000000039 L 287.79069767442 127.21323999999964 L 300.58139534884 117.11083999999997 L 313.37209302326 170.6434800000001 L 326.16279069767 135.7434400000003 L 338.95348837209 130.8599600000002 L 351.74418604651 126.19432000000006 L 364.53488372093 127.76680000000016 L 377.32558139535 126.82432000000006 L 390.11627906977 140.46283999999997 L 402.90697674419 176.76119999999983 L 415.6976744186 169.6690799999996 L 428.48837209302 182.5325599999997 L 441.27906976744 194.40567999999993 L 454.06976744186 198.29096000000018 L 466.86046511628 200.01576000000037 L 479.6511627907 185.4960799999996 L 492.44186046512 190.0525199999999 L 505.23255813953 180.95839999999967 L 518.02325581395 190.09480000000016 L 530.81395348837 191.22516000000002 L 543.60465116279 191.0935599999997 L 543.60465116279 210 L 159.88372093023 210"
-                              stroke="#DD7470"
-                              stroke-width="2"
-                              stroke-linejoin="round"
-                              stroke-linecap="round"
-                            ></path>
-                            <path
-                              fill="none"
-                              d="M -3.6046511627906996 70.54851999999991 L 6.3953488372093 70.54851999999991 L 19.186046511628 19.561079999999606 L 31.976744186047 19.20016000000004 L 44.767441860465 26.300399999999684 L 57.558139534884 44.839199999999835 L 70.348837209302 42.494760000000355 L 83.139534883721 47.03299999999999 L 95.93023255814 59.96816000000004 L 108.72093023256 57.80207999999959 L 121.51162790698 59.65092000000038 L 134.3023255814 46.8325199999999 L 147.09302325581 49.7319200000004 L 159.88372093023 76.64832000000007 L 159.88372093023 210 L 6.3953488372093 210 L 16.3953488372093 210 M 149.88372093023 76.64832000000007 L 159.88372093023 76.64832000000007 L 172.67441860465 77.53116000000003 L 185.46511627907 89.24832000000006 L 198.25581395349 93.4914400000003 L 211.04651162791 97.85860000000032 L 223.83720930233 91.63532000000006 L 236.62790697674 75.37487999999976 L 249.41860465116 75.31271999999973 L 262.20930232558 109.5385199999999 L 275 118.14292000000039 L 287.79069767442 127.21323999999964 L 300.58139534884 117.11083999999997 L 313.37209302326 170.6434800000001 L 326.16279069767 135.7434400000003 L 338.95348837209 130.8599600000002 L 351.74418604651 126.19432000000006 L 364.53488372093 127.76680000000016 L 377.32558139535 126.82432000000006 L 390.11627906977 140.46283999999997 L 402.90697674419 176.76119999999983 L 415.6976744186 169.6690799999996 L 428.48837209302 182.5325599999997 L 441.27906976744 194.40567999999993 L 454.06976744186 198.29096000000018 L 466.86046511628 200.01576000000037 L 479.6511627907 185.4960799999996 L 492.44186046512 190.0525199999999 L 505.23255813953 180.95839999999967 L 518.02325581395 190.09480000000016 L 530.81395348837 191.22516000000002 L 543.60465116279 191.0935599999997 L 543.60465116279 210 L 159.88372093023 210 L 169.88372093023 210"
-                              stroke-linejoin="round"
-                              visibility="visible"
-                              stroke="rgba(192,192,192,0.002)"
-                              stroke-width="22"
-                              class="highcharts-tracker"
-                            ></path>
-                          </g>
-                          <g
-                            class="highcharts-markers highcharts-series-0 highcharts-line-series highcharts-color-0 highcharts-tracker"
-                            transform="translate(40,25) scale(1 1)"
-                          ></g>
-                        </g>
-                        <text
-                          x="300"
-                          text-anchor="middle"
-                          class="highcharts-subtitle"
-                          style="color: #666666; fill: #666666"
-                          y="24"
-                        ></text>
-                        <g class="highcharts-plot-lines-5">
-                          <path
-                            fill="none"
-                            stroke="#3FC499"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 44.5 L 590 44.5"
-                          ></path>
-                          <path
-                            fill="none"
-                            stroke="#DD7470"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 225.5 L 590 225.5"
-                          ></path>
-                          <path
-                            fill="none"
-                            stroke="#c0c1c2"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 96.5 L 590 96.5"
-                          ></path>
-                        </g>
-                        <g
-                          class="highcharts-axis-labels highcharts-xaxis-labels"
-                        ></g>
-                        <g
-                          class="highcharts-axis-labels highcharts-yaxis-labels"
-                        ></g></svg
-                      ><span
-                        class="highcharts-title"
-                        style="
-                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
-                            Arial, Helvetica, sans-serif;
-                          font-size: 1em;
-                          position: absolute;
-                          white-space: nowrap;
-                          margin-left: 0px;
-                          margin-top: 0px;
-                          left: 293px;
-                          top: 3px;
-                          color: rgb(51, 51, 51);
-                        "
-                      ></span> -->
+                       </div>
 
                     </div>
 
                   </div>
-
 
                   <!-- portfolio, composite index  -->
                   <div class="cardgraphright">
@@ -855,8 +355,7 @@
                     </div>
                   </div>
 
-
-                  <!-- ngIf: act_today_graph_tab =='1D' -->
+                  <!-- top contri, top drag -->
                   <div
                     class="cardgraphbottom ng-scope"
                     ng-if="act_today_graph_tab == '1D'"
@@ -938,6 +437,7 @@
                   <!-- ngIf: act_today_graph_tab !='1D' -->
                 </div>
               </div>
+
             </div>
           </div>
 

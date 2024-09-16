@@ -149,36 +149,43 @@ export class IpoChartComponent implements OnInit {
           },
         ],
       },
-      series: [{
-        type: 'area',
-        name: 'Stock Data',
-        data: dataPoints,
-        color: {
-          linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
-          stops: [
-            [0, '#4CAF50'],
-            [1, '#FF6666']
-          ]
+      plotOptions: {
+        area: {
+          fillColor: {
+            linearGradient: {
+              x1: 0,
+              y1: 0,
+              x2: 0,
+              y2: 1
+            },
+            stops: [
+              [0, '#4CAF50'],
+              [1, '#FF6666']
+            ]
+          },
+          threshold: null
+        }
+      },
+      series: [
+        {
+          type: 'area',
+          name: 'Stock Data',
+          data: dataPoints,
+          color: '#000000', // Set a default line color
+          lineWidth: 1,
+          marker: { enabled: false, radius: 2 },
+          tooltip: { valueDecimals: 2 },
+          zones: [
+            {
+              value: previousClose,
+              color: '#FF6666',
+            },
+            {
+              color: '#4CAF50',
+            },
+          ],
         },
-        fillColor: {
-          linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
-          stops: [
-            [0, Highcharts.color('#4CAF50').setOpacity(0.6).get('rgba')],
-            [0.5, Highcharts.color('#FFFFFF').setOpacity(0.2).get('rgba')],
-            [1, Highcharts.color('#FF6666').setOpacity(0.6).get('rgba')]
-          ]
-        },
-        lineWidth: 1,
-        marker: { enabled: false, radius: 2 },
-        tooltip: { valueDecimals: 2 },
-        threshold: previousClose,
-        zones: [{
-          value: previousClose,
-          color: '#FF6666'
-        }, {
-          color: '#4CAF50'
-        }]
-      }] as Highcharts.SeriesOptionsType[],
+      ] as Highcharts.SeriesOptionsType[],
     });
   }
 

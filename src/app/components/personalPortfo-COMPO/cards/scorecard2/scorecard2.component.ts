@@ -4,23 +4,22 @@ import {
   Input,
 
 } from '@angular/core';
-import { IContri } from 'src/app/models/pp/overall';
-import { IScorecard } from 'src/app/models/pp/return';
+
 import {  IScore_risk } from 'src/app/models/pp/risk';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 
 @Component({
-  selector: 'app-scorecard',
-  templateUrl: './scorecard.component.html',
-  styleUrls: ['./scorecard.component.css'],
+  selector: 'app-scorecard2',
+  templateUrl: './scorecard2.component.html',
+  styleUrls: ['./scorecard2.component.css'],
   standalone: true,
   imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
 })
-export class ScorecardComponent {
+export class Scorecard2Component {
 
-  @Input() DATA?: IScorecard  | undefined; //props
+  @Input() DATA?: IScore_risk  | undefined; //props
   @Input() HEAD!: string; //props
   // show button
   @Input() SHOW_BUTTON: Boolean = true;

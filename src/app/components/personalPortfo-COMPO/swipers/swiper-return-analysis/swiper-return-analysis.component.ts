@@ -67,7 +67,7 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
   ) {}
 
   recieveElemment(str: string) {
-    console.log('the str is : ', str);
+    // console.log('the str is : ', str);
 
     this.send_element.emit(str);
     // this.fetchGetVerdictReport();
@@ -81,7 +81,7 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
   fetchData(): void {
     this.serv.getSwitcherDatas('return').subscribe((res: IReturn) => {
       this.main_data = res.data;
-      console.log('main_data : ', res.data);
+      // console.log('main_data : ', res.data);
 
       this.data_scorecard = res.data.scorecard;
       this.data_retcompo = res.data.retcompo;
@@ -95,7 +95,7 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
 
     this.serv.getIxrrData().subscribe((res: I_Ixrr) => {
       this.ixrrData = res.data;
-      console.log('ixrrData : ', res);
+      // console.log('ixrrData : ', res);
 
       this.cdr.detectChanges(); // Trigger change detection
     });
