@@ -601,8 +601,9 @@
               <h2>
                 Returns - Absolute and IRR
                 <span
+                  *ngIf="SHOW_BUTTON"
                   class="card-title activator info-act"
-                  ng-click="isCollapseRetStock = !isCollapseRetStock"
+                  (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 ></span>
               </h2>
             </div>
@@ -676,13 +677,14 @@
             <!-- end ngIf: loader[0].pf_return_xirr == false && error_flag[0].return_stocks == 0 -->
           </div>
           <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseRetStock"
+            *ngIf="SHOW_BUTTON"
+            class="card-reveal animate-slide"
+            [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
           >
             <span class="card-title grey-text text-darken-4"
               >Card Title<i
                 class="material-icons right"
-                ng-click="isCollapseRetStock = !isCollapseRetStock"
+                (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 >close</i
               ></span
             >
@@ -2414,6 +2416,7 @@
         </div>
       </section>
 
+      <!-- Dividend Contribution to Returns -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
@@ -2424,24 +2427,18 @@
             <div class="card-head">
               <h2>
                 Dividend Contribution to Returns<span
+                  *ngIf="SHOW_BUTTON"
                   class="card-title activator info-act"
-                  ng-click="isCollapseRetContri = !isCollapseRetContri"
+                  (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_return_div == true -->
-            <!-- ngIf: loader[0].pf_return_div == false && error_flag[0].return_dividend == 1 -->
 
-            <!-- ngIf: loader[0].pf_return_div == false && error_flag[0].return_dividend == 0 -->
-            <div
-              class="price-mojo col-green ng-scope"
-              ng-if="loader[0].pf_return_div == false &amp;&amp; error_flag[0].return_dividend == 0"
-              style=""
-            >
+            <div class="price-mojo col-green ng-scope" *ngIf="data_divcontri!">
               <div class="txt-hed-1 priced ng-binding">
-                Total Dividend Contribution (0.50%)
+                {{ data_divcontri.txt1 }}
               </div>
-              <p class="ng-binding">Dividend Received till date: Rs 1.66 k</p>
+              <p class="ng-binding">{{ data_divcontri.txt2 }}</p>
               <table class="table1 divd-table">
                 <thead>
                   <tr>
@@ -2465,183 +2462,41 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- ngRepeat: (key, rowArr) in returnData.divcontri.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.divcontri.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">6 Month</td>
-                    <!-- ngIf: rowArr.total == 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      1,556
+                  <tr *ngFor="let item of data_divcontri.list" class="ng-scope">
+                    <td class="ng-binding">{{ item.period }}</td>
+
+                    <td class="ng-binding ng-scope">
+                      {{ item.divrec | roundOff | twoCommas }}
+                    </td>
+
+                    <td class="ng-binding ng-scope">
+                      {{ item.price | roundOff | twoCommas }}%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                     <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      26.42%
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      27.28%
+                    <td class="ng-binding ng-scope">
+                      {{ item.total | roundOff | twoCommas }}%
                     </td>
                     <!-- end ngIf: rowArr.total != 'NA' -->
                   </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.divcontri.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.divcontri.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">1 Year</td>
-                    <!-- ngIf: rowArr.total == 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      1,592
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      79.41%
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      80.65%
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.divcontri.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.divcontri.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">2 Year</td>
-                    <!-- ngIf: rowArr.total == 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      1,659
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      122.09%
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      123.67%
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.divcontri.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.divcontri.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">3 Year</td>
-                    <!-- ngIf: rowArr.total == 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      1,659
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      167.84%
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      169.75%
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.divcontri.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.divcontri.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">*All</td>
-                    <!-- ngIf: rowArr.total == 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      1,659
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      59.44%
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                    <!-- ngIf: rowArr.total != 'NA' -->
-                    <td
-                      ng-if="rowArr.total != 'NA'"
-                      class="ng-binding ng-scope"
-                    >
-                      59.94%
-                    </td>
-                    <!-- end ngIf: rowArr.total != 'NA' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.divcontri.list -->
                 </tbody>
               </table>
               <div class="foot-note ng-binding">
                 *Absolute Returns from 26 Dec 2016
               </div>
             </div>
-            <!-- end ngIf: loader[0].pf_return_div == false && error_flag[0].return_dividend == 0 -->
           </div>
+
+          <!-- extend -->
           <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseRetContri"
+            *ngIf="SHOW_BUTTON"
+            class="card-reveal animate-slide"
+            [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
           >
             <span class="card-title grey-text text-darken-4"
               >Card Title<i
                 class="material-icons right"
-                ng-click="isCollapseRetContri = !isCollapseRetContri"
+                (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 >close</i
               ></span
             >
@@ -2683,70 +2538,7 @@
         </div>
       </section>
 
-      <!--       <section data-reveal="true" class="swiper-slide small-card swiper-slide-next marginright" data-scrolled="0" data-visited="0">
-              <div class="card">
-                  <div class="card-content returnquartiles">
-                      <div class="card-head">
-                          <h2>Return Quartile - Market Cap<span class="card-title activator info-act"  ng-click="isCollapseRetContri = !isCollapseRetContri"></span></h2>
-                      </div>
-                      <div id="loading" ng-if="loader[0].pf_return_scorecard == true">
-                          <img id="loading-image" src="https://i.marketsmojo.com/loading.gif" alt="Loading..." />
-                      </div>
-                      <div class="intraday col-green">
-                          <div class="txt-hed-1 priced">72.07% of your portfolio stocks fall in the 4th Quartile</div>
-                          <div>Based on 1 year return among market cap category stocks</div>
-                          <div class="quartiles pf-quart">
-                              <div class="portfolio-return-area">
-                                  <div class="portfolio-col01">
-                                      <a style="width:128px; height:128px;" class="qr1 tooltipped modal-trigger" data-position="right" data-delay="50" data-toggle="tooltip" data-tooltip="Click to see all companies returns in this period" onclick="populateReturnQuartileMCapSeeAll(1);" data-tooltip-id="9502c08b-ff92-e99a-3cbc-8f8652671dc5">
-                                          <p><span>1<sup>st</sup></span>Quartile</p>
-                                          <div class="mnts"> 1 Stock </div>
-                                      </a>
-                                  </div>
-                                  <div class="portfolio-col01">
-
-                                      <a style="width:128px; height:128px;" class="qr2 tooltipped modal-trigger" data-position="right" data-delay="50" data-toggle="tooltip" data-tooltip="Click to see all companies returns in this period" onclick="populateReturnQuartileMCapSeeAll(2);" data-tooltip-id="edd603cf-3caa-08a7-0de3-c94560f890b2">
-                                          <p><span>2<sup>nd</sup></span>Quartile</p>
-                                          <div class="mnts"> 4 Stocks </div>
-                                      </a>
-                                  </div>
-                                  <div class="portfolio-col01">
-                                      <a style="width:128px; height:128px;" class="qr3 tooltipped modal-trigger" data-position="right" data-delay="50" data-toggle="tooltip" data-tooltip="Click to see all companies returns in this period" onclick="populateReturnQuartileMCapSeeAll(3);" data-tooltip-id="bd4a8ecd-dc15-4be7-1d3f-8bf16a1c4333">
-                                          <p><span>3<sup>rd</sup></span>Quartile</p>
-                                          <div class="mnts"> 5 Stocks </div>
-                                      </a>
-                                  </div>
-                                  <div class="portfolio-col01">
-                                      <a style="width:128px; height:128px;" class="qr4 tooltipped modal-trigger" data-position="right" data-delay="50" data-toggle="tooltip" data-tooltip="Click to see all companies returns in this period" onclick="populateReturnQuartileMCapSeeAll(4);" data-tooltip-id="05625cf8-14d1-dd09-4919-eb8430aa443a">
-                                          <p><span>4<sup>th</sup></span>Quartile</p>
-                                          <div class="mnts"> 4 Stocks </div>
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
-                          <a href="#SeeAllModal" class="seefull waves-effect waves-light modal-trigger" id="ReturnQuartileMCapSeeAllLink" style="visibility:hidden"></a>
-                      </div>
-                  </div>
-                    <div class="card-reveal animate-slide" ng-show="isCollapseRetScorec" ng-cloak>
-                          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right" ng-click="isCollapseRetScorec = !isCollapseRetScorec">close</i></span>
-                          <div class="card-reveal-text">
-                          <ul>
-                              <li>Quartile Analysis by market cap gives information that basis 1 year return of your portfolio stocks, basis their market cap category at that time, the quartile in which they would belong</li>
-                              <li>Returns being compared are price returns given by the stock and is not necessary that you have made the equivalent return from your investment</li>
-                              <li>Each doughnut can be clicked to see 1 year return of stocks and the quartiles in which they belonged as per their market cap and range of returns of stocks in the quartile</li>
-                              <li>All returns are absolute</li>
-                              <li>What is quartile analysis?
-                                  <ul>
-                                      <li>Companies are bucketed in 4 Quartiles as per returns generated; with each quartile consisting of 25% of the companies in the Category </li>
-                                      <li>For example: If there are 20 companies in an industry, the top 5 return giving companies would be bucketed in 1st quartile, next 5 companies in 2nd quartile and so on</li>
-                                  </ul>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </section>-->
-
+      <!-- Returns Contribution - Sectors -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
@@ -2757,23 +2549,15 @@
             <div class="card-head">
               <h2>
                 Returns Contribution - Sectors<span
+                  *ngIf="SHOW_BUTTON"
                   class="card-title activator info-act"
-                  ng-click="isCollapseRetSect = !isCollapseRetSect"
+                  (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_return_sector == true -->
-            <!-- ngIf: loader[0].pf_return_sector == false && error_flag[0].return_sector == 1 -->
-
-            <!-- ngIf: loader[0].pf_return_sector == false && error_flag[0].return_sector == 0 -->
-            <div
-              class="price-mojo col-green ng-scope"
-              ng-if="loader[0].pf_return_sector == false &amp;&amp; error_flag[0].return_sector == 0"
-              style=""
-            >
+            <div *ngIf="data_sector!" class="price-mojo col-green ng-scope">
               <div class="txt-hed-1 priced ng-binding">
-                Pesticides &amp; Agrochemicals sector has contributed 20.38% to
-                your returns
+                {{ data_sector.txt1 }}
               </div>
               <table class="table1 divd-table">
                 <thead>
@@ -2784,161 +2568,49 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- ngRepeat: (key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5 -->
                   <tr
-                    ng-repeat="(key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5"
+                    *ngFor="let sector of data_sector.list | keyvalue"
                     class="ng-scope"
                   >
-                    <td class="ng-binding">Pesticides &amp; Agrochemicals</td>
+                    <td class="ng-binding">{{ sector.value.txt }}</td>
 
                     <!-- ngIf: rowArr.tgain == '-' -->
                     <!-- ngIf: rowArr.tgainp == '-' -->
 
                     <!-- ngIf: rowArr.tgain != '-' -->
                     <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
+                      [ngClass]="
+                        this.fun.getDirClrDefault(
+                          sector.value.tgaindir,
+                          'orange'
+                        )
+                      "
+                      class="ng-binding ng-scope"
                     >
-                      67,713
+                      {{ sector.value.tgain | roundOff | twoCommas }}
                     </td>
                     <!-- end ngIf: rowArr.tgain != '-' -->
                     <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      20.38%
+                    <td class="ng-binding ng-scope">
+                      {{ sector.value.tgainp | roundOff | twoCommas }}%
                     </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
-                  <!-- end ngRepeat: (key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5 -->
-                  <tr
-                    ng-repeat="(key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">Capital Goods</td>
-
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
-
-                    <!-- ngIf: rowArr.tgain != '-' -->
-                    <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      35,416
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      10.66%
-                    </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5 -->
-                  <tr
-                    ng-repeat="(key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">Bank - Private</td>
-
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
-
-                    <!-- ngIf: rowArr.tgain != '-' -->
-                    <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      32,223
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      9.70%
-                    </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5 -->
-                  <tr
-                    ng-repeat="(key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">Finance/NBFC</td>
-
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
-
-                    <!-- ngIf: rowArr.tgain != '-' -->
-                    <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      25,966
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      7.81%
-                    </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5 -->
-                  <tr
-                    ng-repeat="(key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">Mining &amp; Minerals</td>
-
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
-
-                    <!-- ngIf: rowArr.tgain != '-' -->
-                    <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      17,871
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      5.38%
-                    </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in sectorlist|orderObjectBy:'tgainp':true| limitTo:5 -->
                 </tbody>
               </table>
               <div class="foot-note ng-binding"></div>
             </div>
-            <!-- end ngIf: loader[0].pf_return_sector == false && error_flag[0].return_sector == 0 -->
           </div>
+
+          <!-- extend -->
           <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseRetSect"
+            *ngIf="SHOW_BUTTON"
+            class="card-reveal animate-slide"
+            [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
           >
             <span class="card-title grey-text text-darken-4"
               >Card Title<i
                 class="material-icons right"
-                ng-click="isCollapseRetSect = !isCollapseRetSect"
+                (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 >close</i
               ></span
             >
@@ -2967,6 +2639,8 @@
             </div>
           </div>
         </div>
+
+        <!-- full details -->
         <div class="porbottomlink">
           <div class="bottom-card-links">
             <div class="bottom-card-links">
@@ -2986,6 +2660,7 @@
         </div>
       </section>
 
+      <!-- Returns Contribution - Market Cap -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
@@ -3001,17 +2676,9 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_return_mcap == true -->
-            <!-- ngIf: loader[0].pf_return_mcap == false && error_flag[0].return_mcap == 1 -->
-
-            <!-- ngIf: loader[0].pf_return_mcap == false && error_flag[0].return_mcap == 0 -->
-            <div
-              class="price-mojo col-green ng-scope"
-              ng-if="loader[0].pf_return_mcap == false &amp;&amp; error_flag[0].return_mcap == 0"
-              style=""
-            >
+            <div class="price-mojo col-green ng-scope" *ngIf="data_Mcap!">
               <div class="txt-hed-1 priced ng-binding">
-                Large Cap has contributed 29.47% to your returns
+                {{ data_Mcap.txt1 }}
               </div>
               <table class="table1 divd-table">
                 <thead>
@@ -3026,119 +2693,26 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- ngRepeat: (key, rowArr) in returnData.mcap.list -->
                   <tr
+                    *ngFor="let mcap of data_Mcap.list | keyvalue"
                     ng-repeat="(key, rowArr) in returnData.mcap.list"
                     class="ng-scope"
                   >
-                    <td class="ng-binding">Large Cap</td>
+                    <td class="ng-binding">{{ mcap.value.txt }}</td>
 
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
-
-                    <!-- ngIf: rowArr.tgain != '-' -->
                     <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      97,937
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
+                      [ngClass]="
+                        this.fun.getDirClrDefault(mcap.value.tgaindir, 'orange')
+                      "
                       class="ng-binding ng-scope"
                     >
-                      29.47%
+                      {{ mcap.value.tgain | roundOff | twoCommas }}
                     </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
+
+                    <td class="ng-binding ng-scope">
+                      {{ mcap.value.tgainp | roundOff | twoCommas }}%
+                    </td>
                   </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.mcap.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.mcap.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">Mid Cap</td>
-
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
-
-                    <!-- ngIf: rowArr.tgain != '-' -->
-                    <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      30,128
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      9.07%
-                    </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.mcap.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.mcap.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">Small Cap</td>
-
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
-
-                    <!-- ngIf: rowArr.tgain != '-' -->
-                    <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      69,497
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      20.91%
-                    </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.mcap.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.mcap.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">Micro Cap</td>
-
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
-
-                    <!-- ngIf: rowArr.tgain != '-' -->
-                    <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      1,378
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      0.41%
-                    </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.mcap.list -->
                 </tbody>
               </table>
               <div class="foot-note ng-binding"></div>
@@ -3146,6 +2720,7 @@
             <!-- end ngIf: loader[0].pf_return_mcap == false && error_flag[0].return_mcap == 0 -->
           </div>
 
+          <!-- extend -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseRetMcap"
@@ -3182,6 +2757,8 @@
             </div>
           </div>
         </div>
+
+        <!-- full details -->
         <div class="porbottomlink">
           <div class="bottom-card-links">
             <div class="bottom-card-links">
@@ -3218,17 +2795,10 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_return_stock == true -->
-            <!-- ngIf: loader[0].pf_return_stock == false && error_flag[0].return_stocks == 1 -->
 
-            <!-- ngIf: loader[0].pf_return_stock == false && error_flag[0].return_stocks == 0 -->
-            <div
-              class="price-mojo col-green ng-scope"
-              ng-if="loader[0].pf_return_stock == false &amp;&amp; error_flag[0].return_stocks == 0"
-              style=""
-            >
+            <div class="price-mojo col-green ng-scope" *ngIf="data_holding!">
               <div class="txt-hed-1 priced ng-binding">
-                Top 3 Holdings has contributed 33.19% to your returns
+                {{ data_holding.txt1 }}
               </div>
               <table class="table1 divd-table">
                 <thead>
@@ -3243,106 +2813,31 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- ngRepeat: (key, rowArr) in returnData.holdings.list -->
+
                   <tr
-                    ng-repeat="(key, rowArr) in returnData.holdings.list"
+                    *ngFor="let hold of data_holding.list | keyvalue"
                     class="ng-scope"
                   >
-                    <td class="ng-binding">Top 3 Holdings</td>
-                    <!-- ngIf: rowArr.pwtflag == 0 -->
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
+                    <td class="ng-binding">{{ hold.value.txt }}</td>
 
-                    <!-- ngIf: rowArr.pwtflag == 1 -->
                     <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-                      69.49%
+                      {{ hold.value.pwt | roundOff | twoCommas }}%
                     </td>
-                    <!-- end ngIf: rowArr.pwtflag == 1 -->
-                    <!-- ngIf: rowArr.tgain != '-' -->
+
                     <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      1,10,302
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
+                      [ngClass]="
+                        this.fun.getDirClrDefault(hold.value.tgaindir, 'orange')
+                      "
                       class="ng-binding ng-scope"
                     >
-                      33.19%
+                      {{ hold.value.tgain | roundOff | twoCommas }}
                     </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.holdings.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.holdings.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">Tail Stocks</td>
-                    <!-- ngIf: rowArr.pwtflag == 0 -->
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
 
-                    <!-- ngIf: rowArr.pwtflag == 1 -->
-                    <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-                      1.55%
+                    <td class="ng-binding ng-scope">
+                      {{ hold.value.tgainp | roundOff | twoCommas }}%
                     </td>
-                    <!-- end ngIf: rowArr.pwtflag == 1 -->
-                    <!-- ngIf: rowArr.tgain != '-' -->
-                    <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      955
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      0.29%
-                    </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
                   </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.holdings.list -->
-                  <tr
-                    ng-repeat="(key, rowArr) in returnData.holdings.list"
-                    class="ng-scope"
-                  >
-                    <td class="ng-binding">Remaining</td>
-                    <!-- ngIf: rowArr.pwtflag == 0 -->
-                    <!-- ngIf: rowArr.tgain == '-' -->
-                    <!-- ngIf: rowArr.tgainp == '-' -->
 
-                    <!-- ngIf: rowArr.pwtflag == 1 -->
-                    <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-                      28.96%
-                    </td>
-                    <!-- end ngIf: rowArr.pwtflag == 1 -->
-                    <!-- ngIf: rowArr.tgain != '-' -->
-                    <td
-                      ng-if="rowArr.tgain != '-'"
-                      ng-class="getDirClrDefault(rowArr.tgaindir)"
-                      class="ng-binding ng-scope green"
-                    >
-                      87,677
-                    </td>
-                    <!-- end ngIf: rowArr.tgain != '-' -->
-                    <!-- ngIf: rowArr.tgainp != '-' -->
-                    <td
-                      ng-if="rowArr.tgainp != '-'"
-                      class="ng-binding ng-scope"
-                    >
-                      26.39%
-                    </td>
-                    <!-- end ngIf: rowArr.tgainp != '-' -->
-                  </tr>
-                  <!-- end ngRepeat: (key, rowArr) in returnData.holdings.list -->
                 </tbody>
               </table>
               <div class="foot-note ng-binding"></div>

@@ -5,55 +5,24 @@ export interface IReturn {
 }
 
 export interface IReturn_Data {
-  sector: Sector;
-  mcap: Mcap;
-  holdings: Holdings;
+  sector: ISector;
+  mcap: IMcap;
+  holdings: IHoldings;
   scorecard: IScorecard;
   networth: INetworth;
   retcompo: IRetcompo;
-  divcontri: Divcontri;
+  divcontri: IDivcontri;
   calendar: Calendar;
 }
 
-interface Sector {
+export interface ISector {
   list: List;
   summtxt: string;
   txt1: string;
 }
 
 interface List {
-  'Bank - Private': BankPrivate;
-  'Telecommunication - Service  Provider': TelecommunicationServiceProvider;
-  'Cigarettes/Tobacco': CigarettesTobacco;
-  'IT - Software': ItSoftware;
-  'Diamond  & Gold  Jewellery': DiamondGoldJewellery;
-  Paints: Paints;
-  'Consumer durables': ConsumerDurables;
-  FMCG: Fmcg;
-  'Pharmaceuticals & Drugs': PharmaceuticalsDrugs;
-  'Aluminium & Aluminium Products': AluminiumAluminiumProducts;
-  'Mining & Minerals': MiningMinerals;
-  'Public Banks': PublicBanks;
-  Airlines: Airlines;
-  Lifestyle: Lifestyle;
-  'Paper & Paper Products': PaperPaperProducts;
-  'Pesticides & Agrochemicals': PesticidesAgrochemicals;
-  'Finance/NBFC': FinanceNbfc;
-  'Oil Exploration/Refineries': OilExplorationRefineries;
-  'Metal - Non Ferrous': MetalNonFerrous;
-  'Air Conditioners': AirConditioners;
-  Textile: Textile;
-  'TV Broadcasting & Software': TvBroadcastingSoftware;
-  'Power Generation/Distribution': PowerGenerationDistribution;
-  'Auto - Tractor': AutoTractor;
-  'Finance - Housing': FinanceHousing;
-  Cable: Cable;
-  'Capital Goods': CapitalGoods;
-  Batteries: Batteries;
-  'Gas Transmission/Marketing': GasTransmissionMarketing;
-  'Tyres & Allied': TyresAllied;
-  'Textile - Machinery': TextileMachinery;
-  Chemicals: Chemicals;
+  [key: string]: Remaining | AirConditioners | TailStocks;
 }
 
 interface BankPrivate {
@@ -696,17 +665,14 @@ interface List33 {
   lval: number;
 }
 
-interface Mcap {
+export interface IMcap {
   list: List34;
   summtxt: string;
   txt1: string;
 }
 
 interface List34 {
-  'Large Cap': LargeCap;
-  'Mid Cap': MidCap;
-  'Small Cap': SmallCap;
-  'Micro Cap': MicroCap;
+  [key: string]: LargeCap | MidCap | SmallCap | MicroCap;
 }
 
 interface LargeCap {
@@ -789,16 +755,14 @@ interface List38 {
   lval: number;
 }
 
-interface Holdings {
+export interface IHoldings {
   list: List39;
   summtxt: string;
   txt1: string;
 }
 
 interface List39 {
-  'Top 3 Holdings': Top3Holdings;
-  'Tail Stocks': TailStocks;
-  Remaining: Remaining;
+  [key: string]: Remaining | Top3Holdings | TailStocks;
 }
 
 interface Top3Holdings {
@@ -886,7 +850,7 @@ interface Dir {
 }
 
 export interface INetworth {
-  lval?:string |number
+  lval?: string | number;
   buyval: number;
   sellval: number;
   pv: number;
@@ -968,7 +932,7 @@ interface Y3 {
   compodir: number;
 }
 
-interface Divcontri {
+export interface IDivcontri {
   list: List43[];
   txtbottom: string;
   txt1: string;
