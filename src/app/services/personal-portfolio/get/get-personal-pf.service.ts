@@ -10,14 +10,15 @@ import {
   throwError,
 } from 'rxjs';
 import { IGraphData } from 'src/app/models/graphData';
+import { TableType } from 'src/app/components/personalPortfo-COMPO/tables/tables.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetPersonalPFService {
-  private readonly paths = {
+
+  private readonly paths: { [key in TableType]: string } = {
     OVERVIEW: 'assets/pp/table/getOverview.json',
-    // HOLDING: 'https://frapi.marketsmojo.com/portfolioapi_portfolio/getHoldings' || 'assets/pp/table/getHolding.json' ,
     HOLDING: 'assets/pp/table/getHolding.json',
     RISK: 'assets/pp/table/getRisk.json',
     LIQUIDITY: 'assets/pp/table/getLiquidity.json',
@@ -27,31 +28,26 @@ export class GetPersonalPFService {
     RETURNS: 'assets/pp/table/getReturn.json',
     RESULTS: 'assets/pp/table/getResults.json',
     TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
+    PRICE: '',
+    CONTRIBUTION: '',
+    DIVIDEND: '',
+    MOJO: ''
   };
-
   constructor(private http: HttpClient) {}
 
   getOverviewStocks(
-    type:
-      | 'OVERVIEW'
-      | 'HOLDING'
-      | 'RISK'
-      | 'LIQUIDITY'
-      | 'TAX'
-      | 'RATIOS'
-      | 'FINANCIALS'
-      | 'RETURNS'
-      | 'RESULTS'
-      | 'TOTAL_RETURNS'
-  ) {
-    const path = this.paths[type] || this.paths.HOLDING; // default is holding
-    // console.log('the path in getOS : ', path);
+    type: TableType,
 
-    return this.http.get<any>(path).pipe(
+  ): Observable<any> {
+    const path = this.paths[type] || this.paths.HOLDING; // Default to HOLDING path
+    const url = `${path}?start=${0}&limit=${10}`;
+    console.log('Fetching data from:', url);
+
+    return this.http.get<any>(url).pipe(
       catchError((err) => {
         console.error('Error fetching data for type:', type);
         console.error('Error details:', err);
-        throw err;
+        return throwError(err);
       })
     );
   }

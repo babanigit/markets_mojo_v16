@@ -44,7 +44,7 @@ export class CardComponent implements OnInit  ,OnChanges{
 
   // Method to get class by color
   getClassByColor(color: string): string {
-    console.log('hello');
+    // console.log('hello');
     // return 'green';
     return this.fun.getClassbyClr(color);
   }

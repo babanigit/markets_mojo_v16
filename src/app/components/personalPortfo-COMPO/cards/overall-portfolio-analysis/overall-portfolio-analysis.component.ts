@@ -41,7 +41,7 @@ export class OverallPortfolioAnalysisComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['DATA']) {
-      console.log('DATA changed:', changes['DATA'].currentValue);
+      // console.log('DATA changed:', changes['DATA'].currentValue);
     }
   }
 

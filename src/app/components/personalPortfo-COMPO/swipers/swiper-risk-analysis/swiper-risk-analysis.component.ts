@@ -53,7 +53,7 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
   ) {}
 
   recieveElemment(str: string) {
-    console.log('the str is : ', str);
+    // console.log('the str is : ', str);
 
     this.send_element.emit(str);
     // this.fetchGetVerdictReport();
@@ -67,10 +67,10 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
   fetchData(): void {
     this.serv.getSwitcherDatas('risk').subscribe((res: IRisk) => {
       this.main_data = res.data;
-      console.log('main_data riks : ', res.data);
+      // console.log('main_data riks : ', res.data);
 
       this.data_scorecard = res.data.score;
-       console.log('scorecard riks : ', res.data);
+      //  console.log('scorecard riks : ', res.data);
 
       // this.data_retcompo = res.data.retcompo;
       // this.data_divcontri = res.data.divcontri;
@@ -83,7 +83,7 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
 
     this.serv.getIxrrData().subscribe((res: I_Ixrr) => {
       this.ixrrData = res.data;
-      console.log('ixrrData : ', res);
+      // console.log('ixrrData : ', res);
 
       this.cdr.detectChanges(); // Trigger change detection
     });
