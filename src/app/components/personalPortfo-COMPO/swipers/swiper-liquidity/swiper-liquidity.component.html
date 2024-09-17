@@ -19,6 +19,7 @@
         ><span class="swiper-pagination-bullet"></span>
       </div>
     </div>
+
     <div
       class="swiper-wrapper reco-slide"
       id="sectLiq"
@@ -397,10 +398,7 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_liq_dtls == true -->
-            <!-- ngIf: loader[0].pf_liq_dtls == false && error_flag[0].liq_details == 1 -->
 
-            <!-- ngIf: loader[0].pf_liq_dtls != true && error_flag[0].liq_details == 0 -->
             <div
               class="list-mojo ng-scope"
               ng-if="loader[0].pf_liq_dtls != true &amp;&amp; error_flag[0].liq_details == 0"
@@ -424,398 +422,75 @@
                     <th class="no-mob textcenter">Latest Value</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="Liquidity_List!">
                   <!-- ngRepeat: (key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7 -->
-                  <tr
-                    ng-repeat="(key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7"
-                    class="ng-scope"
-                  >
+                  <tr *ngFor="let item of Liquidity_List" class="ng-scope">
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=454045&amp;Exchange=0"
+                          [href]="'/Stocks?StockId=' + item.sid + '&Exchange=0'"
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=454045&amp;Exchange=0"
-                          >Jubilant Inds.</a
-                        >
+                          >{{ item.sname }}
+                        </a>
                         <br />
                         <span class="mojo-hover">
                           <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="red-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.dotsum.q_clr)
+                            "
                           ></span>
                           <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.dotsum.v_clr)
+                            "
                           ></span>
                           <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.dotsum.v_clr)
+                            "
                           ></span>
                         </span>
                       </div>
                     </td>
-                    <td class="ng-binding">50</td>
+                    <td class="ng-binding">{{ item.dotsum.score }}</td>
                     <td class="no-mob ng-binding">
-                      21.32 k
-                      <p class="scr-txt-2 ng-binding">0.23%</p>
+                      {{ item.d5avgvol | numberFormat }}
+                      <p class="scr-txt-2 ng-binding">
+                        {{ item.qtyvol | roundOff | twoCommas }}%
+                      </p>
                     </td>
                     <td class="no-mob ng-binding">
-                      12.97 k
-                      <p class="scr-txt-2 ng-binding">0.39%</p>
+                      {{ item.d5delivol | numberFormat }}
+                      <p class="scr-txt-2 ng-binding">
+                        {{ item.qtydeli | roundOff | twoCommas }}%
+                      </p>
                     </td>
-                    <!--									<td class="no-mob">{{value.days| INR : 2}}</td>-->
                     <td
                       class="no-web ng-binding green"
                       ng-class="getDirClrDefault(value.riskdir);"
                     >
-                      0.12
+                      {{ item.days | roundOff | twoCommas }}
                     </td>
                     <td
-                      class="no-mob ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
+                      [ngClass]="
+                        this.fun.getDirClrDefault(item.riskdir, 'orange')
+                      "
+                      class="no-mob ng-binding"
                     >
-                      No
+                      {{ item.risk }}
                     </td>
-                    <td class="no-mob ng-binding">88,228</td>
+                    <td class="no-mob ng-binding">
+                      {{ item.lval | roundOff | twoCommas }}
+                    </td>
                   </tr>
-                  <!-- end ngRepeat: (key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7 -->
-                  <tr
-                    ng-repeat="(key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=151046&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=151046&amp;Exchange=0"
-                          >Innovassynth Inv</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="grey-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="ng-binding">9</td>
-                    <td class="no-mob ng-binding">
-                      30.12 k
-                      <p class="scr-txt-2 ng-binding">0.03%</p>
-                    </td>
-                    <td class="no-mob ng-binding">
-                      84.76 k
-                      <p class="scr-txt-2 ng-binding">0.01%</p>
-                    </td>
-                    <!--									<td class="no-mob">{{value.days| INR : 2}}</td>-->
-                    <td
-                      class="no-web ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      0.01
-                    </td>
-                    <td
-                      class="no-mob ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      No
-                    </td>
-                    <td class="no-mob ng-binding">771</td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7 -->
-                  <tr
-                    ng-repeat="(key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=10039196&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=10039196&amp;Exchange=0"
-                          >Shree Karni</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="grey-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="ng-binding">1</td>
-                    <td class="no-mob ng-binding">
-                      6.90 k
-                      <p class="scr-txt-2 ng-binding">0.01%</p>
-                    </td>
-                    <td class="no-mob ng-binding">
-                      8.51 k
-                      <p class="scr-txt-2 ng-binding">0.01%</p>
-                    </td>
-                    <!--									<td class="no-mob">{{value.days| INR : 2}}</td>-->
-                    <td
-                      class="no-web ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      0.01
-                    </td>
-                    <td
-                      class="no-mob ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      No
-                    </td>
-                    <td class="no-mob ng-binding">807</td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7 -->
-                  <tr
-                    ng-repeat="(key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=161419&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=161419&amp;Exchange=0"
-                          >Syschem (India)</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="ng-binding">1</td>
-                    <td class="no-mob ng-binding">
-                      39.17 k
-                      <p class="scr-txt-2 ng-binding">0.00%</p>
-                    </td>
-                    <td class="no-mob ng-binding">
-                      39.65 k
-                      <p class="scr-txt-2 ng-binding">0.00%</p>
-                    </td>
-                    <!--									<td class="no-mob">{{value.days| INR : 2}}</td>-->
-                    <td
-                      class="no-web ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      0.00
-                    </td>
-                    <td
-                      class="no-mob ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      No
-                    </td>
-                    <td class="no-mob ng-binding">47</td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7 -->
-                  <tr
-                    ng-repeat="(key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=1003511&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=1003511&amp;Exchange=0"
-                          >Zomato Ltd</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="ng-binding">1</td>
-                    <td class="no-mob ng-binding">
-                      6.64 cr
-                      <p class="scr-txt-2 ng-binding">0.00%</p>
-                    </td>
-                    <td class="no-mob ng-binding">
-                      2.53 cr
-                      <p class="scr-txt-2 ng-binding">0.00%</p>
-                    </td>
-                    <!--									<td class="no-mob">{{value.days| INR : 2}}</td>-->
-                    <td
-                      class="no-web ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      0.00
-                    </td>
-                    <td
-                      class="no-mob ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      No
-                    </td>
-                    <td class="no-mob ng-binding">273</td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7 -->
-                  <tr
-                    ng-repeat="(key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=1003566&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=1003566&amp;Exchange=0"
-                          >One 97</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="red-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="ng-binding">1</td>
-                    <td class="no-mob ng-binding">
-                      1.33 cr
-                      <p class="scr-txt-2 ng-binding">0.00%</p>
-                    </td>
-                    <td class="no-mob ng-binding">
-                      34.31 lacs
-                      <p class="scr-txt-2 ng-binding">0.00%</p>
-                    </td>
-                    <!--									<td class="no-mob">{{value.days| INR : 2}}</td>-->
-                    <td
-                      class="no-web ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      0.00
-                    </td>
-                    <td
-                      class="no-mob ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      No
-                    </td>
-                    <td class="no-mob ng-binding">655</td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7 -->
-                  <tr
-                    ng-repeat="(key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=1003648&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=1003648&amp;Exchange=0"
-                          >Life Insurance</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="ng-binding">1</td>
-                    <td class="no-mob ng-binding">
-                      11.57 lacs
-                      <p class="scr-txt-2 ng-binding">0.00%</p>
-                    </td>
-                    <td class="no-mob ng-binding">
-                      5.13 lacs
-                      <p class="scr-txt-2 ng-binding">0.00%</p>
-                    </td>
-                    <!--									<td class="no-mob">{{value.days| INR : 2}}</td>-->
-                    <td
-                      class="no-web ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      0.00
-                    </td>
-                    <td
-                      class="no-mob ng-binding green"
-                      ng-class="getDirClrDefault(value.riskdir);"
-                    >
-                      No
-                    </td>
-                    <td class="no-mob ng-binding">1,034</td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7 -->
                 </tbody>
               </table>
             </div>
             <!-- end ngIf: loader[0].pf_liq_dtls != true && error_flag[0].liq_details == 0 -->
           </div>
+
+          <!-- extend -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseLiqAnalysis"
@@ -841,6 +516,7 @@
             </div>
           </div>
         </div>
+
         <div class="porbottomlink">
           <div class="bottom-card-links">
             <div class="bottom-card-links">
@@ -858,6 +534,7 @@
             </div>
           </div>
         </div>
+
       </section>
     </div>
     <div class="swiper-scrollbar"></div>

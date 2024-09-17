@@ -66,14 +66,6 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
     private cdr: ChangeDetectorRef
   ) {}
 
-  recieveElemment(str: string) {
-    // console.log('the str is : ', str);
-
-    this.send_element.emit(str);
-    // this.fetchGetVerdictReport();
-    // this.SNAME_INPUT_STRING = e;
-  }
-
   ngOnInit(): void {
     this.fetchData();
   }

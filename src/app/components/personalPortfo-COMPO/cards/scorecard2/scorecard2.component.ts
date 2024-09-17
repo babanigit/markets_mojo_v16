@@ -21,6 +21,8 @@ export class Scorecard2Component {
 
   @Input() DATA?: IScore_risk  | undefined; //props
   @Input() HEAD!: string; //props
+  @Input() NAME!: string; //props
+
   // show button
   @Input() SHOW_BUTTON: Boolean = true;
 

@@ -306,6 +306,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
       ? 'HOLDING'
       : type;
 
+      // if dataChache type
     this.dataCache[fetchType]
       ? this.updateStocks(fetchType)
       : this.fetchStocks(fetchType);

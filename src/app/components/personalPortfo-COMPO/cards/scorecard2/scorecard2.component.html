@@ -5,21 +5,20 @@
     </div>
 
     <!-- body -->
-    <div
-      class="sevn-dot-card ng-scope"
-    *ngIf="DATA!"
-    >
-      <div class="head-7dot"  >Risk</div>
+    <div class="sevn-dot-card ng-scope" *ngIf="DATA!">
+      <div class="head-7dot">Risk</div>
       <p class="sev-txt3 ng-binding">
-        {{ DATA.text  }}
+        {{ DATA.text }}
       </p>
       <div [ngClass]="DATA.color + '-7dot'">
         <div class="con-7dot">
-          <div class="sev-txt1 ng-binding"> {{DATA.c_text}} </div>
+          <div class="sev-txt1 ng-binding">{{ DATA.c_text }}</div>
         </div>
       </div>
-      <div class="condi-p-7 red">
-        For detailed risk analysis<br />
+      <div
+      [ngClass]="DATA.color"
+      class="condi-p-7">
+        For detailed {{ NAME }} analysis<br />
         <span class="readon" style="color: black"
           >Swipe right..
           <img
