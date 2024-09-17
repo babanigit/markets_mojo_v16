@@ -98,6 +98,16 @@ export class GetPersonalPFService {
     );
   }
 
+  private qvflpath = 'assets/pp/swiper/getQVFLData.json';
+  getQVFLData(){
+    return this.http.get<any>(this.qvflpath).pipe(
+      catchError((err) => {
+        console.error('Error fetching qvfl :', err);
+        throw err;
+      })
+    );
+  }
+
   private loadingSubject = new BehaviorSubject<boolean>(false);
   private errorSubject = new BehaviorSubject<string | null>(null);
 

@@ -1,0 +1,102 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+    "quality": {
+      "summary": {
+        "avg": ["Jubilant Inds. 37.74%", "Reliance Infra. 2%"],
+        "excel": ["Coal India 17.26%", "Persistent Sys 2.36%"]
+      },
+      "summary_txt": "Quality signifies long term financial performance of a company vis-\u00e0- vis its competitors in the industry. We believe high quality companies with consistent record of financial performance will reward investors in the long run.",
+      "graph": {
+        "Below Average": 39.74,
+        "Good": 20.82,
+        "Excellent": 19.62,
+        "Average": 19.49,
+        "Does not qualify": 0.34
+      },
+      "score": {
+        "color": "red",
+        "text": "59.0% of your portfolio has Average or Below Average Quality"
+      }
+    },
+    "valuation": {
+      "summary": {
+        "expen": [
+          "Persistent Sys 2.36%",
+          "Shree Karni 0.35%",
+          "Innovassynth Inv 0.34%",
+          "One 97 0.29%",
+          "Zomato Ltd 0.12%"
+        ],
+        "attr": [
+          "Coal India 17.26%",
+          "Larsen & Toubro 11.3%",
+          "City Union Bank 5.56%",
+          "JP Power Ven. 3.04%",
+          "Punjab Natl.Bank 2.39%",
+          "3 more stocks (3.76%)"
+        ]
+      },
+      "summary_txt": "Valuation refers to attractiveness of the company at its current stock price by looking at its past financial performance and valuation matrices. We believe valuation helps the investor to estimate the timing of entry and exit in stocks.",
+      "graph": {
+        "Expensive": 39.29,
+        "Attractive": 37.43,
+        "Fair": 13.95,
+        "Very Attractive": 5.88,
+        "Very Expensive": 2.71,
+        "Risky": 0.75,
+        "Does not qualify": 0,
+        "Very Risky": 0,
+        "Ignore": 0
+      },
+      "score": {
+        "color": "red",
+        "text": "Only 43.0% of your portfolio has Very Attractive or Attractive Valuation"
+      }
+    },
+    "fin_trend": {
+      "summary": {
+        "negative": ["One 97 0.29%"],
+        "positive": [
+          "JP Power Ven. 3.04%",
+          "Punjab Natl.Bank 2.39%",
+          "Zomato Ltd 0.12%"
+        ]
+      },
+      "summary_txt": "Financial trend analyses result of the company in the recent quarters. We believe companies which have been trending higher on financial trend in the latest periods have potential to generate returns in the short term.",
+      "graph": {
+        "Positive": 57.58,
+        "Flat": 36.24,
+        "Very Positive": 5.43,
+        "Does not qualify": 0.35,
+        "Negative": 0.29,
+        "Outstanding": 0.12,
+        "Very Negative": 0
+      },
+      "score": {
+        "color": "yellow",
+        "text": "63.0% of your portfolio has Positive or better Financial Trend"
+      }
+    },
+    "liquidity": {
+      "summary": {
+        "lissue": ["No Stocks"]
+      },
+      "summary_txt": "While selling stocks with liquidity issues, you may face longer time or you may not get exit at your desired price.",
+      "graph": {
+        "No Liquidity Issue": 100,
+        "Liquidity Issue": 0
+      },
+      "score": {
+        "color": "green",
+        "c_text": "No Liquidity Issues",
+        "text": "None of your portfolio stocks seem to have liquidity issues"
+      },
+      "issue_due_txt": [
+        "Quantity held is more than 10% of the stock\u2019s 1 month average volume or",
+        "Stock did not trade on any day in the last 1 month"
+      ]
+    }
+  }
+}

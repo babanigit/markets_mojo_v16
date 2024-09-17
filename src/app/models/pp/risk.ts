@@ -11,7 +11,7 @@ export interface IRisk_Data {
   beta: Beta;
   var: Var;
   return: Return;
-  allocation: Allocation;
+  allocation: IAllocation;
 }
 
 export interface IScore_risk {
@@ -77,7 +77,7 @@ interface Comp {
   volatility: number;
 }
 
-interface Allocation {
+ export interface IAllocation {
   graph: Graph2;
   txt1: string;
   txt2: string;
@@ -85,7 +85,7 @@ interface Allocation {
 
 interface Graph2 {
   details: Details;
-  data: Data2;
+  data: graph_Data2;
 }
 
 interface Details {
@@ -250,6 +250,6 @@ interface Total4 {
   dgainpdir: number;
 }
 
-interface Data2 {
+ export interface graph_Data2 {
   [key: string]: number
 }

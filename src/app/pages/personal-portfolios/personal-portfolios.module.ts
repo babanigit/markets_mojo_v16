@@ -22,6 +22,7 @@ import { SwiperTaxComponent } from 'src/app/components/personalPortfo-COMPO/swip
 import { SwiperValuationComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-valuation/swiper-valuation.component';
 import { PfPriceMsgComponent } from 'src/app/components/personalPortfo-COMPO/pf-price-msg/pf-price-msg.component';
 import { Scorecard2Component } from 'src/app/components/personalPortfo-COMPO/cards/scorecard2/scorecard2.component';
+import { RadiusChartComponent } from 'src/app/components/personalPortfo-COMPO/cards/radius-chart/radius-chart.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
