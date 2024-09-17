@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-
-// highcharts.component.ts
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ChartModule } from 'angular-highcharts';
 import * as Highcharts from 'highcharts';
 import VariablePie from 'highcharts/modules/variable-pie';
@@ -16,8 +14,10 @@ VariablePie(Highcharts);
   standalone: true,
   imports: [CommonModule, ChartModule],
 })
-export class RadiusChartComponent {
+export class RadiusChartComponent implements OnInit {
   @Input() PIE: series_Data_pie[] | undefined; //props
+
+  @ViewChild('container', { static: true }) container!: ElementRef;
 
   private chart: Highcharts.Chart | undefined;
 
@@ -25,19 +25,12 @@ export class RadiusChartComponent {
     this.createChart();
   }
 
-
-  // data format
-  // private data = {
-  //   'Large Cap': 50.02,
-  //   'Mid Cap': 11.85,
-  //   'Small Cap': 37.41,
-  //   'Micro Cap': 0.71,
-  // };
-
   private createChart() {
     const options: Highcharts.Options = {
       chart: {
         type: 'variablepie',
+        height: 150, // Explicitly set the height if needed
+        width: 350,  // Explicitly set the width if needed
       },
       title: undefined,
       tooltip: {
@@ -50,37 +43,18 @@ export class RadiusChartComponent {
         {
           type: 'variablepie',
           minPointSize: 10,
-          innerSize: '50%',
+          innerSize: '30%',
           zMin: 0,
           name: 'Performance',
           data: this.PIE,
-          // data: [
-          //   {
-          //     name: 'Below Average',
-          //     y: 39.74,
-          //   },
-          //   {
-          //     name: 'Good',
-          //     y: 20.82,
-          //   },
-          //   {
-          //     name: 'Excellent',
-          //     y: 19.62,
-          //   },
-          //   {
-          //     name: 'Average',
-          //     y: 19.49,
-          //   },
-          //   {
-          //     name: 'Does not qualify',
-          //     y: 0.34,
-          //   },
-          // ],
           colors: ['#4caefe', '#3dc3e8', '#2dd9db', '#1feeaf', '#0ff3a0'],
         } as any,
       ],
     };
 
-    this.chart = Highcharts.chart('container', options);
+    if (this.container) {
+      this.chart = Highcharts.chart(this.container.nativeElement, options);
+    }
+
   }
 }

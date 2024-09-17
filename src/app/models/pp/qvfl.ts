@@ -5,13 +5,13 @@
 }
 
 export interface IQvfl_Data {
-  quality: Quality;
-  valuation: Valuation;
-  fin_trend: FinTrend;
-  liquidity: Liquidity;
+  quality: IQuality_qvfl;
+  valuation: IValuation_qvfl;
+  fin_trend: IFinTrend_qvfl;
+  liquidity: ILiquidity_qvfl;
 }
 
- interface Quality {
+export interface IQuality_qvfl {
   summary: Summary;
   summary_txt: string;
   graph: Graph;
@@ -32,7 +32,7 @@ export interface IQvfl_Data {
   text: string;
 }
 
- interface Valuation {
+export interface IValuation_qvfl {
   summary: Summary2;
   summary_txt: string;
   graph: Graph2;
@@ -53,7 +53,7 @@ export interface IQvfl_Data {
   text: string;
 }
 
- interface FinTrend {
+export interface IFinTrend_qvfl {
   summary: Summary3;
   summary_txt: string;
   graph: Graph3;
@@ -74,7 +74,7 @@ export interface IQvfl_Data {
   text: string;
 }
 
- interface Liquidity {
+export interface ILiquidity_qvfl {
   summary: Summary4;
   summary_txt: string;
   graph: Graph4;

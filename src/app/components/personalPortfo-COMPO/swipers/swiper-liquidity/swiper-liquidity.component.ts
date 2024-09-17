@@ -31,7 +31,8 @@ import {
   ILiquidityData,
 } from 'src/app/models/pp/liquidity';
 import { NumberFormatPipe } from 'src/app/pipes/pp/number-format.pipe';
-import { IQvfl, IQvfl_Data } from 'src/app/models/pp/qvfl';
+import { ILiquidity_qvfl, IQvfl, IQvfl_Data } from 'src/app/models/pp/qvfl';
+import { SummaryComponent } from '../../cards/summary/summary.component';
 
 @Component({
   selector: 'app-swiper-liquidity',
@@ -45,14 +46,15 @@ import { IQvfl, IQvfl_Data } from 'src/app/models/pp/qvfl';
     TwoCommasPipe,
     BreakupComponent,
     NumberFormatPipe,
+    SummaryComponent,
   ],
 })
-
 export class SwiperLiquidityComponent implements OnInit {
   main_data: ILiquidityData | undefined;
   Liquidity_List: ILiqui_list[] | undefined;
 
   qvflData: IQvfl_Data | undefined;
+  // qvfl_liqui: ILiquidity_qvfl | undefined;
 
   @Output() send_element = new EventEmitter<string>(); //for input value
 
@@ -70,7 +72,6 @@ export class SwiperLiquidityComponent implements OnInit {
   }
 
   fetchData(): void {
-
     this.serv.getSwitcherDatas('liquidity').subscribe((res: ILiquidity) => {
       this.main_data = res.data;
       console.log('main_data : ', res.data);
@@ -82,7 +83,10 @@ export class SwiperLiquidityComponent implements OnInit {
 
     this.serv.getQVFLData().subscribe((res: IQvfl) => {
       this.qvflData = res.data;
-      console.log( 'the qvfl : ', this.qvflData);
+      console.log('the qvfl : ', this.qvflData);
+
+      // this.qvfl_liqui = res.data.liquidity;
+      // console.log("liqui : ", this.qvfl_liqui);
     });
 
   }

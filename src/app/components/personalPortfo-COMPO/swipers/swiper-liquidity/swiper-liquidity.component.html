@@ -26,6 +26,7 @@
       sect-reveal="true"
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
+
       <section
         data-reveal="true"
         id="sectLiq_scorecard"
@@ -81,304 +82,19 @@
         </div>
       </section>
 
+      <!-- section -->
       <section
         id="sectLiq_summary"
         class="swiper-slide padnno-sec marginright swiper-slide-visible swiper-slide-next"
         data-scrolled="0"
         data-visited="0"
       >
-        <div class="card">
-          <div class="card-content liquidity">
-            <div class="card-head">
-              <h2>
-                Liquidity Summary
-                <span
-                  class="card-title activator info-act"
-                  ng-click="isCollapseLiqSum = !isCollapseLiqSum"
-                ></span>
-              </h2>
-            </div>
-            <!-- ngIf: loader[0].pf_liq_summary == true -->
-            <!-- ngIf: loader[0].pf_liq_summary == false && error_flag[0].liq_summary == 1 -->
 
-            <div
-              class="ql-sec"
-              ng-show="loader[0].pf_liq_summary != true &amp;&amp; error_flag[0].liq_summary == 0"
-              style=""
-            >
-              <div class="sec1">
-                <div class="priced">
-                  <span
-                    ng-class="
-                      qvf.liquidity.score.color == 'yellow'
-                        ? 'orange'
-                        : qvf.liquidity.score.color
-                    "
-                    ng-bind-html="qvf.liquidity.score.text"
-                    class="ng-binding green"
-                    style=""
-                    >None of your portfolio stocks seem to have liquidity
-                    issues</span
-                  >
-                </div>
-                <div
-                  class="smallgraph"
-                  id="container_liq_summary"
-                  data-highcharts-chart="9"
-                >
-                  <div
-                    id="highcharts-bb11egg-31"
-                    dir="ltr"
-                    class="highcharts-container"
-                    style="
-                      position: relative;
-                      overflow: hidden;
-                      width: 368px;
-                      height: 200px;
-                      text-align: left;
-                      line-height: normal;
-                      z-index: 0;
-                      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-                    "
-                  >
-                    <svg
-                      version="1.1"
-                      class="highcharts-root"
-                      style="
-                        font-family: 'Lucida Grande', 'Lucida Sans Unicode',
-                          Arial, Helvetica, sans-serif;
-                        font-size: 12px;
-                      "
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="368"
-                      height="200"
-                      viewBox="0 0 368 200"
-                    >
-                      <desc>Created with Highstock 6.1.0</desc>
-                      <defs>
-                        <clipPath id="highcharts-bb11egg-32">
-                          <rect
-                            x="0"
-                            y="0"
-                            width="348"
-                            height="175"
-                            fill="none"
-                          ></rect>
-                        </clipPath>
-                      </defs>
-                      <rect
-                        fill="#ffffff"
-                        class="highcharts-background"
-                        x="0"
-                        y="0"
-                        width="368"
-                        height="200"
-                        rx="0"
-                        ry="0"
-                      ></rect>
-                      <rect
-                        fill="none"
-                        class="highcharts-plot-background"
-                        x="10"
-                        y="10"
-                        width="348"
-                        height="175"
-                      ></rect>
-                      <g class="highcharts-pane-group"></g>
-                      <rect
-                        fill="none"
-                        class="highcharts-plot-border"
-                        x="10"
-                        y="10"
-                        width="348"
-                        height="175"
-                      ></rect>
-                      <g class="highcharts-series-group">
-                        <g
-                          class="highcharts-series highcharts-series-0 highcharts-pie-series highcharts-tracker"
-                          transform="translate(10,10) scale(1 1)"
-                          style="cursor: pointer"
-                        >
-                          <path
-                            fill="#7cb5ec"
-                            visibility="hidden"
-                            d="M 173.98833970908845 30.25000118744442 A 57.25 57.25 0 1 1 173.9204808985454 30.250055225244942 M 173.92186987848348 31.25005426061184 A 56.25 56.25 0 1 0 173.98854338229214 31.25000116670303 "
-                            class="highcharts-halo highcharts-color-0"
-                            fill-opacity="0.25"
-                          ></path>
-                          <path
-                            fill="rgb(124,181,236)"
-                            d="M 173.98833970908845 30.25000118744442 A 57.25 57.25 0 1 1 173.9204808985454 30.250055225244942 M 173.95626449419996 56.012530373884715 A 31.4875 31.4875 0 1 0 173.99358683999864 56.01250065309443 "
-                            transform="translate(0,0)"
-                            stroke="#ffffff"
-                            stroke-width="1"
-                            stroke-linejoin="round"
-                            class="highcharts-point highcharts-color-0"
-                          ></path>
-                        </g>
-                        <g
-                          class="highcharts-markers highcharts-series-0 highcharts-pie-series"
-                          transform="translate(10,10) scale(1 1)"
-                        ></g>
-                      </g>
-                      <text
-                        x="184"
-                        text-anchor="middle"
-                        class="highcharts-title"
-                        style="color: #333333; font-size: 18px; fill: #333333"
-                        y="24"
-                      ></text>
-                      <text
-                        x="184"
-                        text-anchor="middle"
-                        class="highcharts-subtitle"
-                        style="color: #666666; fill: #666666"
-                        y="24"
-                      ></text>
-                      <g
-                        class="highcharts-data-labels highcharts-series-0 highcharts-pie-series highcharts-tracker"
-                        transform="translate(10,10) scale(1 1)"
-                        opacity="1"
-                        style="cursor: pointer"
-                      >
-                        <path
-                          fill="none"
-                          class="highcharts-data-label-connector highcharts-color-0"
-                          stroke="#7cb5ec"
-                          stroke-width="1"
-                          d="M 179 159.75 C 174 159.75 174 150.75 174 147.75 L 174 144.75"
-                        ></path>
-                        <g
-                          class="highcharts-label highcharts-data-label highcharts-data-label-color-0"
-                          style="cursor: pointer"
-                          transform="translate(184,150)"
-                        >
-                          <text
-                            x="5"
-                            style="
-                              font-size: 11px;
-                              font-weight: bold;
-                              color: black;
-                              fill: black;
-                            "
-                            y="16"
-                          >
-                            <tspan
-                              x="5"
-                              y="16"
-                              class="highcharts-text-outline"
-                              fill="#FFFFFF"
-                              stroke="#FFFFFF"
-                              stroke-width="2px"
-                              stroke-linejoin="round"
-                            >
-                              No Liquidity Issue
-                            </tspan>
-                            <tspan
-                              x="5"
-                              dy="14"
-                              class="highcharts-text-outline"
-                              fill="#FFFFFF"
-                              stroke="#FFFFFF"
-                              stroke-width="2px"
-                              stroke-linejoin="round"
-                            >
-                              100.00 %
-                            </tspan>
-                            <tspan x="5" y="16">No Liquidity Issue</tspan>
-                            <tspan x="5" dy="14">100.00 %</tspan>
-                          </text>
-                        </g>
-                      </g>
-                      <g class="highcharts-legend">
-                        <rect
-                          fill="none"
-                          class="highcharts-legend-box"
-                          rx="0"
-                          ry="0"
-                          x="0"
-                          y="0"
-                          width="8"
-                          height="8"
-                          visibility="hidden"
-                        ></rect>
-                        <g><g></g></g>
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="sec2">
-                <strong> Stocks where you may face liquidity issues </strong>
-                <ul class="ullist">
-                  <!-- ngRepeat: value in qvf.liquidity.summary.lissue -->
-                  <li
-                    ng-repeat="value in qvf.liquidity.summary.lissue"
-                    class="ng-binding ng-scope"
-                    style=""
-                  >
-                    No Stocks
-                  </li>
-                  <!-- end ngRepeat: value in qvf.liquidity.summary.lissue -->
-                </ul>
-              </div>
-              <div class="sec2">
-                <strong> Liquidity Issue is due to </strong>
-                <ul class="ullist">
-                  <!-- ngRepeat: value in qvf.liquidity.issue_due_txt -->
-                  <li
-                    ng-repeat="value in qvf.liquidity.issue_due_txt"
-                    class="ng-binding ng-scope"
-                    style=""
-                  >
-                    Quantity held is more than 10% of the stock’s 1 month
-                    average volume or
-                  </li>
-                  <!-- end ngRepeat: value in qvf.liquidity.issue_due_txt -->
-                  <li
-                    ng-repeat="value in qvf.liquidity.issue_due_txt"
-                    class="ng-binding ng-scope"
-                  >
-                    Stock did not trade on any day in the last 1 month
-                  </li>
-                  <!-- end ngRepeat: value in qvf.liquidity.issue_due_txt -->
-                </ul>
-              </div>
-            </div>
-            <p class="condi-p pad010 ng-binding">
-              While selling stocks with liquidity issues, you may face longer
-              time or you may not get exit at your desired price.
-            </p>
-          </div>
-          <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseLiqSum"
-          >
-            <span class="card-title grey-text text-darken-4"
-              >Card Title<i
-                class="material-icons right"
-                ng-click="isCollapseLiqSum = !isCollapseLiqSum"
-                >close</i
-              ></span
-            >
-            <div class="card-reveal-text">
-              <ul>
-                <li>
-                  The card displays the proportion of portfolio and the stocks
-                  which may have liquidity issues
-                </li>
-                <li>
-                  Liquidity issues are assessed basis the quantity held by you
-                  and the trading pattern of the stock
-                </li>
-                <li>
-                  Combined (BSE + NSE) Volumes and Delivery volumes considered
-                  for analysis
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <app-summary
+      [DATA]="qvflData"
+      [HEAD]=" 'Liquidity'"
+      />
+
       </section>
 
       <!-- table -->
@@ -538,6 +254,7 @@
         </div>
 
       </section>
+
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">
