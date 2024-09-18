@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="swiper-wrapper reco-slide" id="sectRisk" sect-reveal="true">
-      <!-- scorecard2 risk -->
+      <!-- scorecard risk -->
       <section
         data-reveal="true"
         id="sectRisk_scorecard"
@@ -1468,6 +1468,7 @@
         data-scrolled="0"
         data-visited="0"
       >
+      <!-- body ,head -->
         <div class="card allocation">
           <div class="card-content">
             <div class="card-head">
@@ -1534,13 +1535,18 @@
             </div>
           </div>
         </div>
+
+        <!-- full data -->
         <div class="porbottomlink">
           <div class="bottom-card-links">
             <div class="bottom-card-links">
               <a
+
+              (click)="modelOpen()"
+
                 class="seefull waves-light"
-                href="#SeeAllModal"
                 ng-click='modalOpen("risk_allocation")'
+
                 ><img
                   src="https://i.marketsmojo.com/arrow_rt.png"
                   alt="ArrowRight"

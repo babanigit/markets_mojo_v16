@@ -138,4 +138,8 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
 
     // console.log('Swiper instance:', swiper);
   }
+
+  modelOpen(){
+console.log("model clicked")
+  }
 }

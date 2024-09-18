@@ -1,0 +1,351 @@
+<div
+  uib-modal-window="modal-window"
+  class="modal fade ng-scope ng-isolate-scope in"
+  role="dialog"
+  index="0"
+  animate="animate"
+  ng-style="{'z-index': 1050 + $$topModalIndex*10, display: 'block'}"
+  tabindex="-1"
+  uib-modal-animation-class="fade"
+  modal-in-class="in"
+  modal-animation="true"
+  style="z-index: 1050; display: block"
+>
+  <div>
+    <div uib-modal-transclude="">
+      <div
+        class="modal ng-scope"
+        style="
+          z-index: 1003;
+          display: block !important;
+          opacity: 1;
+          transform: scaleX(1);
+          top: 10%;
+        "
+        ng-controller="common"
+      >
+        <a
+          class="modal-action modal-close close-blk no-mob"
+          ng-click="modalClose('actionToday_popup')"
+          href="javascript:void(0)"
+          ><i class="fa fa-times"></i
+        ></a>
+        <div class="close-mob">
+          <a
+            href="javascript:void(0)"
+            ng-click="modalClose('actionToday_popup')"
+            class="modal-action modal-close"
+            ><i class="fa fa-times"></i
+          ></a>
+        </div>
+        <div class="mod-cont cf">
+          <div class="modal-secnd">
+            <div class="model-head cf">
+              <div class="comp-name ng-binding">Today's Contributors</div>
+            </div>
+            <!-- ngIf: loader[0].pf_today_popup == true -->
+            <!-- ngIf: loader[0].pf_today_popup == false -->
+            <div
+              class="modal-content contentbg ng-scope"
+              ng-if="loader[0].pf_today_popup == false"
+            >
+              <div id="" class="list-mojo">
+                <table class="table1">
+                  <thead>
+                    <tr>
+                      <th class="txt-lt">Stock</th>
+                      <th class="txt-rt ng-binding">Day's Gain<br />in %</th>
+                      <th class="txt-rt">Latest<br />Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- ngRepeat: value in actionTodaypop -->
+                    <tr ng-repeat="value in actionTodaypop" class="ng-scope">
+                      <td>
+                        <div>
+                          <a
+                            ng-href="/Stocks?StockId=400868&amp;Exchange=0"
+                            target="_blank"
+                            class="ng-binding"
+                            href="/Stocks?StockId=400868&amp;Exchange=0"
+                            >Reliance Infra.</a
+                          >
+                          <br />
+                          <span
+                            ><span
+                              ng-class="getClassbyClr(value.dotsum.q_clr)"
+                              class="red-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.v_clr)"
+                              class="green-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.f_clr)"
+                              class="green-mojo"
+                            ></span>
+                          </span>
+                        </div>
+                        <p class="ng-binding">282.75</p>
+                      </td>
+                      <td
+                        ng-class="getDirClrDefault(value.dgaindir,'orange') + ' txt-rt'"
+                        class="green txt-rt"
+                      >
+                        <p class="pf-tbl-txt1 ng-binding">942</p>
+                        <p class="pf-tbl-txt2 ng-binding">19.99%</p>
+                      </td>
+                      <td class="txt-rt pf-tbl-txt3 ng-binding">5,655</td>
+                    </tr>
+                    <!-- end ngRepeat: value in actionTodaypop -->
+                    <tr ng-repeat="value in actionTodaypop" class="ng-scope">
+                      <td>
+                        <div>
+                          <a
+                            ng-href="/Stocks?StockId=837957&amp;Exchange=0"
+                            target="_blank"
+                            class="ng-binding"
+                            href="/Stocks?StockId=837957&amp;Exchange=0"
+                            >Larsen &amp; Toubro</a
+                          >
+                          <br />
+                          <span
+                            ><span
+                              ng-class="getClassbyClr(value.dotsum.q_clr)"
+                              class="orange-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.v_clr)"
+                              class="green-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.f_clr)"
+                              class="orange-mojo"
+                            ></span>
+                          </span>
+                        </div>
+                        <p class="ng-binding">3,729.65</p>
+                      </td>
+                      <td
+                        ng-class="getDirClrDefault(value.dgaindir,'orange') + ' txt-rt'"
+                        class="green txt-rt"
+                      >
+                        <p class="pf-tbl-txt1 ng-binding">257</p>
+                        <p class="pf-tbl-txt2 ng-binding">0.99%</p>
+                      </td>
+                      <td class="txt-rt pf-tbl-txt3 ng-binding">26,108</td>
+                    </tr>
+                    <!-- end ngRepeat: value in actionTodaypop -->
+                    <tr ng-repeat="value in actionTodaypop" class="ng-scope">
+                      <td>
+                        <div>
+                          <a
+                            ng-href="/Stocks?StockId=431628&amp;Exchange=0"
+                            target="_blank"
+                            class="ng-binding"
+                            href="/Stocks?StockId=431628&amp;Exchange=0"
+                            >REC Ltd</a
+                          >
+                          <br />
+                          <span
+                            ><span
+                              ng-class="getClassbyClr(value.dotsum.q_clr)"
+                              class="green-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.v_clr)"
+                              class="orange-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.f_clr)"
+                              class="green-mojo"
+                            ></span>
+                          </span>
+                        </div>
+                        <p class="ng-binding">545.65</p>
+                      </td>
+                      <td
+                        ng-class="getDirClrDefault(value.dgaindir,'orange') + ' txt-rt'"
+                        class="green txt-rt"
+                      >
+                        <p class="pf-tbl-txt1 ng-binding">58</p>
+                        <p class="pf-tbl-txt2 ng-binding">0.18%</p>
+                      </td>
+                      <td class="txt-rt pf-tbl-txt3 ng-binding">31,648</td>
+                    </tr>
+                    <!-- end ngRepeat: value in actionTodaypop -->
+                    <tr ng-repeat="value in actionTodaypop" class="ng-scope">
+                      <td>
+                        <div>
+                          <a
+                            ng-href="/Stocks?StockId=616556&amp;Exchange=0"
+                            target="_blank"
+                            class="ng-binding"
+                            href="/Stocks?StockId=616556&amp;Exchange=0"
+                            >Punjab Natl.Bank</a
+                          >
+                          <br />
+                          <span
+                            ><span
+                              ng-class="getClassbyClr(value.dotsum.q_clr)"
+                              class="orange-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.v_clr)"
+                              class="green-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.f_clr)"
+                              class="green-mojo"
+                            ></span>
+                          </span>
+                        </div>
+                        <p class="ng-binding">108.70</p>
+                      </td>
+                      <td
+                        ng-class="getDirClrDefault(value.dgaindir,'orange') + ' txt-rt'"
+                        class="green txt-rt"
+                      >
+                        <p class="pf-tbl-txt1 ng-binding">33</p>
+                        <p class="pf-tbl-txt2 ng-binding">0.60%</p>
+                      </td>
+                      <td class="txt-rt pf-tbl-txt3 ng-binding">5,435</td>
+                    </tr>
+                    <!-- end ngRepeat: value in actionTodaypop -->
+                    <tr ng-repeat="value in actionTodaypop" class="ng-scope">
+                      <td>
+                        <div>
+                          <a
+                            ng-href="/Stocks?StockId=1003566&amp;Exchange=0"
+                            target="_blank"
+                            class="ng-binding"
+                            href="/Stocks?StockId=1003566&amp;Exchange=0"
+                            >One 97</a
+                          >
+                          <br />
+                          <span
+                            ><span
+                              ng-class="getClassbyClr(value.dotsum.q_clr)"
+                              class="orange-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.v_clr)"
+                              class="red-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.f_clr)"
+                              class="red-mojo"
+                            ></span>
+                          </span>
+                        </div>
+                        <p class="ng-binding">671.25</p>
+                      </td>
+                      <td
+                        ng-class="getDirClrDefault(value.dgaindir,'orange') + ' txt-rt'"
+                        class="green txt-rt"
+                      >
+                        <p class="pf-tbl-txt1 ng-binding">7</p>
+                        <p class="pf-tbl-txt2 ng-binding">1.02%</p>
+                      </td>
+                      <td class="txt-rt pf-tbl-txt3 ng-binding">671</td>
+                    </tr>
+                    <!-- end ngRepeat: value in actionTodaypop -->
+                    <tr ng-repeat="value in actionTodaypop" class="ng-scope">
+                      <td>
+                        <div>
+                          <a
+                            ng-href="/Stocks?StockId=10039196&amp;Exchange=0"
+                            target="_blank"
+                            class="ng-binding"
+                            href="/Stocks?StockId=10039196&amp;Exchange=0"
+                            >Shree Karni</a
+                          >
+                          <br />
+                          <span
+                            ><span
+                              ng-class="getClassbyClr(value.dotsum.q_clr)"
+                              class="orange-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.v_clr)"
+                              class="red-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.f_clr)"
+                              class="grey-mojo"
+                            ></span>
+                          </span>
+                        </div>
+                        <p class="ng-binding">804.00</p>
+                      </td>
+                      <td
+                        ng-class="getDirClrDefault(value.dgaindir,'orange') + ' txt-rt'"
+                        class="green txt-rt"
+                      >
+                        <p class="pf-tbl-txt1 ng-binding">6</p>
+                        <p class="pf-tbl-txt2 ng-binding">0.76%</p>
+                      </td>
+                      <td class="txt-rt pf-tbl-txt3 ng-binding">804</td>
+                    </tr>
+                    <!-- end ngRepeat: value in actionTodaypop -->
+                    <tr ng-repeat="value in actionTodaypop" class="ng-scope">
+                      <td>
+                        <div>
+                          <a
+                            ng-href="/Stocks?StockId=1003511&amp;Exchange=0"
+                            target="_blank"
+                            class="ng-binding"
+                            href="/Stocks?StockId=1003511&amp;Exchange=0"
+                            >Zomato Ltd</a
+                          >
+                          <br />
+                          <span
+                            ><span
+                              ng-class="getClassbyClr(value.dotsum.q_clr)"
+                              class="orange-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.v_clr)"
+                              class="red-mojo"
+                            ></span>
+                            <span
+                              ng-class="getClassbyClr(value.dotsum.f_clr)"
+                              class="green-mojo"
+                            ></span>
+                          </span>
+                        </div>
+                        <p class="ng-binding">275.75</p>
+                      </td>
+                      <td
+                        ng-class="getDirClrDefault(value.dgaindir,'orange') + ' txt-rt'"
+                        class="green txt-rt"
+                      >
+                        <p class="pf-tbl-txt1 ng-binding">5</p>
+                        <p class="pf-tbl-txt2 ng-binding">1.83%</p>
+                      </td>
+                      <td class="txt-rt pf-tbl-txt3 ng-binding">276</td>
+                    </tr>
+                    <!-- end ngRepeat: value in actionTodaypop -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- end ngIf: loader[0].pf_today_popup == false -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  uib-modal-backdrop="modal-backdrop"
+  class="modal-backdrop fade ng-scope in"
+  ng-style="{'z-index': 1040 + (index &amp;&amp; 1 || 0) + index*10}"
+  uib-modal-animation-class="fade"
+  modal-in-class="in"
+  modal-animation="true"
+  data-bootstrap-modal-aria-hidden-count="1"
+  aria-hidden="true"
+  style="z-index: 1040"
+></div>

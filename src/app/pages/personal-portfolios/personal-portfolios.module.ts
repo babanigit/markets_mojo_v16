@@ -21,6 +21,8 @@ import { SwiperQualityComponent } from 'src/app/components/personalPortfo-COMPO/
 import { SwiperTaxComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-tax/swiper-tax.component';
 import { SwiperValuationComponent } from 'src/app/components/personalPortfo-COMPO/swipers/swiper-valuation/swiper-valuation.component';
 import { PfPriceMsgComponent } from 'src/app/components/personalPortfo-COMPO/pf-price-msg/pf-price-msg.component';
+import { ModelOpenComponent } from 'src/app/components/personalPortfo-COMPO/model-open/model-open.component';
+import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -53,7 +55,8 @@ import { PfPriceMsgComponent } from 'src/app/components/personalPortfo-COMPO/pf-
     SwiperTaxComponent,
     SwiperLiquidityComponent,
 
-
+ModelOpenComponent,
+DemoComponent
   ],
 })
 export class PersonalPortfoliosModule {}

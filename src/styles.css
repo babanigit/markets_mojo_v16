@@ -6,7 +6,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 
 /* markets mojo style urls */
-
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Solway:wght@400;500&family=Bebas+Neue&family=Quicksand:wght@300;400;600;700&family=Roboto+Condensed&family=Roboto:wght@300;400;600;700&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;600;700&family=Crimson+Text&family=Galada:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700,900|Material+Icons");
@@ -20,9 +19,10 @@
 @import url('https://c.marketsmojo.com/pfplus_style.css?v=20240906145500');
 @import url("https://c.marketsmojo.com/angular-swiper/swiper.css?v=20230418110518");
 @import url("https://c.marketsmojo.com/header_nav.css?v=20240906145500");
-@import url("https://c.marketsmojo.com/mojoprofessional/verdict.css?v=20240906145500");
 @import url("https://c.marketsmojo.com/mm-header/header.css?v=20240906145500");
 @import url('https://c.marketsmojo.com/networth_style1.css?v=20240906145500');
+/* @import url("https://c.marketsmojo.com/mojoprofessional/verdict.css?v=20240906145500"); */
+
 
 
 /* to remove that div which is generating below app-root div */

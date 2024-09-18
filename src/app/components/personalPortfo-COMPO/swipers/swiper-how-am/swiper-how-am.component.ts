@@ -98,4 +98,7 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
 
     // console.log('Swiper instance:', swiper);
   }
+  modelopen(){
+    console.log('Modelopen');
+  }
 }

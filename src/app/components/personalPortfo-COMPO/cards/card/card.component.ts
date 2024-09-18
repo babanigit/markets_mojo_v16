@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { IContri, IOverall_sub } from 'src/app/models/pp/overall';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { ModelOpenComponent } from '../../model-open/model-open.component';
+import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
   standalone: true,
-  imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
+  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, ModelOpenComponent, DemoComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent implements OnInit  ,OnChanges{
@@ -20,6 +22,9 @@ export class CardComponent implements OnInit  ,OnChanges{
   @Input() HEAD!: string; //props
   // show button
   @Input() SHOW_BUTTON: Boolean = true;
+
+  @ViewChild('myDiv') myDiv!: ElementRef; // Reference to the div
+
 
   constructor(private fun: PpFunctionsService) {}
 
@@ -58,4 +63,10 @@ export class CardComponent implements OnInit  ,OnChanges{
   trackByFn(index: number, item: any): any {
     return item.dotsum.sid; // Use a unique identifier if possible
   }
+
+  storeDiv() {
+    const storedDiv = this.myDiv.nativeElement; // Access the div element
+    console.log(storedDiv); // This will log the div element to the console
+  }
+
 }
