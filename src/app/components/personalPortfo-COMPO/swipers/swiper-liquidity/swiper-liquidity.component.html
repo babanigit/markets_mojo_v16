@@ -26,7 +26,6 @@
       sect-reveal="true"
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
-
       <section
         data-reveal="true"
         id="sectLiq_scorecard"
@@ -90,10 +89,9 @@
         data-visited="0"
       >
 
-      <app-summary
-      [DATA]="qvflData"
-      [HEAD]=" 'Liquidity'"
-      />
+        <ng-container *ngIf="qvflData!">
+          <app-summary [DATA]="qvflData" [HEAD]="'Liquidity'" />
+        </ng-container>
 
       </section>
 
@@ -104,7 +102,6 @@
         data-scrolled="0"
         data-visited="0"
       >
-
         <div class="card">
           <div class="card-content LiquidityAnalysis">
             <div class="card-head">
@@ -252,9 +249,7 @@
             </div>
           </div>
         </div>
-
       </section>
-
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">

@@ -29,8 +29,8 @@ export class RadiusChartComponent implements OnInit {
     const options: Highcharts.Options = {
       chart: {
         type: 'variablepie',
-        height: 150, // Explicitly set the height if needed
-        width: 350,  // Explicitly set the width if needed
+        height: 190,
+        width: 380,
       },
       title: undefined,
       tooltip: {
@@ -42,8 +42,8 @@ export class RadiusChartComponent implements OnInit {
       series: [
         {
           type: 'variablepie',
-          minPointSize: 10,
-          innerSize: '30%',
+          minPointSize: 30,
+          innerSize: '50%',
           zMin: 0,
           name: 'Performance',
           data: this.PIE,
@@ -55,6 +55,5 @@ export class RadiusChartComponent implements OnInit {
     if (this.container) {
       this.chart = Highcharts.chart(this.container.nativeElement, options);
     }
-
   }
 }

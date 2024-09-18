@@ -28,14 +28,11 @@
             data-highcharts-chart="11"
             *ngIf="pieFromat!"
           >
-
             <app-radius-chart [PIE]="pieFromat" />
-
-
           </div>
         </div>
 
-        <!-- if liquidity -->
+        <!-- if Liquidity -->
         <ng-container *ngIf="this.HEAD == 'Liquidity'">
           <div class="sec2">
             <strong> Stocks where you may face liquidity issues </strong>
@@ -61,13 +58,39 @@
           </div>
         </ng-container>
 
-        <!-- if liquidity -->
-        <!-- <ng-container *ngIf="this.HEAD == 'Liquidity'">
+        <!-- if Quality -->
+        <ng-container *ngIf="this.HEAD == 'Quality'">
           <div class="sec2">
-            <strong> Stocks where you may face liquidity issues </strong>
+            <strong> Stocks with Below Average Quality </strong>
             <ul class="ullist">
               <li
-                *ngFor="let item of MAIN.summary['lissue']"
+                *ngFor="let item of MAIN.summary['avg']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+          <div class="sec2">
+            <strong> Stocks with Excellent Quality </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['excel']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <!-- if Valuation -->
+        <ng-container *ngIf="this.HEAD == 'Valuation'">
+          <div class="sec2">
+            <strong> Stocks with Expensive or worse Valuation </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['expen']"
                 class="ng-binding ng-scope"
               >
                 {{ item }}
@@ -78,14 +101,42 @@
             <strong> Stocks with Attractive or better Valuation </strong>
             <ul class="ullist">
               <li
-                *ngFor="let item of MAIN.issue_due_txt"
+                *ngFor="let item of MAIN.summary['attr']"
                 class="ng-binding ng-scope"
               >
                 {{ item }}
               </li>
             </ul>
           </div>
-        </ng-container> -->
+        </ng-container>
+
+        <!-- if Financial -->
+        <ng-container *ngIf="this.HEAD == 'Financial'">
+          <div class="sec2">
+            <strong> Stocks with Negative or worse Financial Trend </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['negative']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+          <div class="sec2">
+            <strong>
+              Stocks with Very Positive or better Financial Trend
+            </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['positive']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </ng-container>
       </div>
 
       <p class="condi-p pad010 ng-binding">
