@@ -1,0 +1,80 @@
+<div class="card">
+  <div class="card-content diversified">
+
+    <!-- head -->
+    <div class="card-head">
+      <h2>
+        Diversification - {{ HEAD }}
+        <span
+          class="card-title activator info-act"
+          ng-click="isCollapseDiversSector = !isCollapseDiversSector"
+        ></span>
+      </h2>
+    </div>
+
+    <!-- body -->
+    <div class="card-body" *ngIf="DATA!">
+      <div class="pbt-mojo">
+        <div class="mojo-txt-pf">
+          <div [ngClass]="DATA.clr" class="header">
+            {{ DATA.toptxt }}
+          </div>
+          <p
+            [innerHTML]="DATA.secondtxt"
+            ng-bind-html="divers.sector.secondtxt"
+            class="ng-binding"
+          ></p>
+        </div>
+      </div>
+      <div class="comp-peers2 comp-margin">
+        <div>
+          <span class="small-txt">
+            <ng-container *ngIf="TEXT; else head">
+              {{ TEXT }}
+            </ng-container>
+            <ng-template #head>
+              {{ HEAD }}
+            </ng-template>
+          </span>
+        </div>
+      </div>
+      <div
+        class="diversi-graph"
+        id="container_divers_sector"
+        style="height: 150px"
+        data-highcharts-chart="14"
+      >
+
+      <!-- graph -->
+        <ng-container *ngIf="pieFromat!">
+          <app-radius-chart [PIE]="this.pieFromat" />
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+  <div
+    class="card-reveal animate-slide ng-hide"
+    ng-show="isCollapseDiversSector"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        ng-click="isCollapseDiversSector = !isCollapseDiversSector"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          This card evaluates how well your investments are spread out across
+          different sectors
+        </li>
+        <li>
+          High exposures to single sector exposes your portfolio to sudden macro
+          events related to the sector
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

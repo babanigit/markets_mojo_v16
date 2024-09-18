@@ -8,10 +8,10 @@
     },
     "summary": {
       "remain": 13,
-      "top3hp": 62.12,
-      "hihold": 33.9,
-      "hisect": "33.9",
-      "lcap": 49.18,
+      "top3hp": 61.99,
+      "hihold": 33.84,
+      "hisect": "33.84",
+      "lcap": 49.190000000000005,
       "txt": "A Highly Concentrated portfolio carries high risk of an adverse effect on value of portfolio due to adverse movement in any one holding. However, concentration will positively benefit the value of portfolio in case of favourable movement in one stock as well."
     },
     "color": {
@@ -22,37 +22,37 @@
       "lcap": "red"
     },
     "sector": {
-      "toptxt": "Pesticides & Agrochemicals stocks form 33.9% of your portfolio",
+      "toptxt": "Pesticides & Agrochemicals stocks form 33.84% of your portfolio",
       "secondtxt": "<strong>Inadequate allocation in top sector:</strong> Your allocation in top sector is high. Allocation in top sector for a well-diversified portfolio is suggested below 20%",
       "clr": "yellow",
       "graph": {
-        "Pesticides & Agrochemicals": 33.9,
-        "Mining & Minerals": 15.54,
-        "Finance/NBFC": 15.05,
-        "Capital Goods": 10.3,
-        "Tea/Coffee": 5.38,
-        "Others": 19.83
+        "Pesticides & Agrochemicals": 33.84,
+        "Mining & Minerals": 15.53,
+        "Finance/NBFC": 14.98,
+        "Capital Goods": 10.34,
+        "Tea/Coffee": 5.37,
+        "Others": 19.95
       }
     },
     "mcap": {
-      "toptxt": "Large Cap stocks form 49.18% of your portfolio",
+      "toptxt": "Large Cap stocks form 49.19% of your portfolio",
       "secondtxt": "<strong>Low allocation to Large cap stocks-</strong> Large cap stocks form a small part of your portfolio. While it is believed that mid and small cap stocks have a higher potential for better returns they also are considered riskier than most Large cap stocks. Allocation to Large cap stocks for a well-diversified portfolio is suggested above 70%",
       "clr": "red",
       "graph": {
-        "Large Cap": 49.18,
-        "Small Cap": 33.9,
-        "Mid Cap": 10.9,
-        "Micro Cap": 6.02
+        "Large Cap": 49.19,
+        "Small Cap": 33.84,
+        "Mid Cap": 10.98,
+        "Micro Cap": 6
       }
     },
     "holding": {
-      "toptxt": "Top 3 stocks form 62.12% of your portfolio",
+      "toptxt": "Top 3 stocks form 61.99% of your portfolio",
       "secondtxt": "<strong>High Concentration in top 3 holdings:</strong> A large part of your holdings are concentrated in a few stocks. This exposes your portfolio to adverse news or development related to your larger bets. Weight in top 3 holdings for a well-diversified portfolio is suggested below 30%",
       "clr": "red",
       "graph": {
-        "Top 3 Holdings": 62.12,
-        "Tail Stocks": 1.43,
-        "Remaining": 36.45
+        "Top 3 Holdings": 61.99,
+        "Tail Stocks": 1.41,
+        "Remaining": 36.6
       }
     },
     "stocks": [
@@ -67,7 +67,7 @@
         "clr": "red"
       },
       {
-        "main": "Highest Holding: 33.9%",
+        "main": "Highest Holding: 33.84%",
         "sub": "<strong>High Concentration in Top Holding:</strong> Very large part of your portfolio is invested in a single stock. Any adverse news or movement in that stock, will have a significant impact on your portfolio. Weight in top holding for a well-diversified portfolio is suggested below 10%",
         "clr": "red"
       }

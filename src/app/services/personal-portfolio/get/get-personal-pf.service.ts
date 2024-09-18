@@ -69,12 +69,13 @@ export class GetPersonalPFService {
     overall: 'assets/pp/swiper/overall.json',
     return: 'assets/pp/swiper/return.json',
     risk:'assets/pp/swiper/risk.json',
-    liquidity: 'assets/pp/swiper/liquidity.json'
+    liquidity: 'assets/pp/swiper/liquidity.json',
+    diversification: 'assets/pp/swiper/diversification.json',
 
   };
 
   getSwitcherDatas(
-    type: 'today' | 'overall' | 'return' |'risk' | 'liquidity'
+    type: 'today' | 'overall' | 'return' |'risk' | 'liquidity' | 'diversification'
 
   ) {
     const path = this.paths2[type] || this.paths2.today;
