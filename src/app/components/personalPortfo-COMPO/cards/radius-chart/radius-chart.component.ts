@@ -22,29 +22,31 @@ export class RadiusChartComponent implements OnInit {
   private chart: Highcharts.Chart | undefined;
 
   private colorMap: { [key: string]: string } = {
+
     'Mid Cap': 'rgb(144, 237, 125)', //green
     'Small Cap': 'rgb(67, 67, 72)', //black
     'Micro Cap': 'rgb(247, 163, 92)', //orange
-    Others: 'rgb(241, 92, 128)', //red
+    'Others': 'rgb(241, 92, 128)', //red
     'Tea/Coffee': 'rgb(128, 133, 233)', //purple
     'Capital Goods': 'rgb(247, 163, 92)',
     'Finance/NBFC': 'rgb(144, 237, 125)',
-    'Mining & Minerals': 'rgb(67, 67, 72)',
-    Remaining: 'rgb(144, 237, 125)',
+    'Mining & Minerals' : 'rgb(67, 67, 72)',
+    'Remaining': 'rgb(144, 237, 125)',
     'Tail Stocks': 'rgb(67, 67, 72)',
     'Below Average': 'rgb(241, 92, 128)',
-    Good: 'rgb(144, 237, 125)',
-    Excellent: 'rgb(144, 237, 125)',
-    Average: 'rgb(247, 163, 92)',
-    Expensive: 'rgb(241, 92, 128)',
-    'Very Expensive': 'rgb(241, 92, 128)',
-    Attractive: 'rgb(144, 237, 125)',
-    'Very Attractive': 'rgb(144, 237, 125)',
-    'Very Risky': 'rgb(247, 163, 92)',
-    Positive: 'rgb(144, 237, 125)',
-    'Very Positive': 'rgb(144, 237, 125)',
-    Negative: 'rgb(241, 92, 128)',
-    Flat: 'rgb(247, 163, 92)',
+    'Good': 'rgb(144, 237, 125)',
+    'Excellent': 'rgb(144, 237, 125)',
+    'Average':'rgb(247, 163, 92)',
+    'Expensive': 'rgb(241, 92, 128)',
+    "Very Expensive": 'rgb(241, 92, 128)',
+    "Attractive": 'rgb(144, 237, 125)',
+    "Very Attractive": 'rgb(144, 237, 125)',
+    "Very Risky": 'rgb(247, 163, 92)',
+    "Positive": 'rgb(144, 237, 125)',
+    "Very Positive": 'rgb(144, 237, 125)',
+    "Negative": 'rgb(241, 92, 128)',
+    "Flat": 'rgb(247, 163, 92)'
+
   };
 
   // default
