@@ -48,37 +48,40 @@
 
   <!-- element2 done -->
   <div id="element2">
-    <app-swiper-doing-overall (send_element)="recievedDataEvent($event)" />
+    <app-swiper-doing-overall
+      (send_element)="recievedDataEvent($event)"
+      (send_data)="recieveData($event)"
+    />
   </div>
 
   <!-- element3  -->
   <div id="element3">
-    <app-swiper-return-analysis />
+    <app-swiper-return-analysis [score]="overallData?.return" />
   </div>
 
   <!-- element4 -->
   <div id="element4">
-    <app-swiper-risk-analysis />
+    <app-swiper-risk-analysis [score]="overallData?.risk" />
   </div>
 
   <div id="element5">
-    <app-swiper-liquidity />
+    <app-swiper-liquidity [score]="overallData?.liquidity" />
   </div>
 
   <div id="element6">
-    <app-swiper-diversification />
+    <app-swiper-diversification [score]="overallData?.diversified" />
   </div>
 
   <div id="element7">
-    <app-swiper-quality />
+    <app-swiper-quality [score]="overallData?.quality" />
   </div>
 
   <div id="element8">
-    <app-swiper-valuation />
+    <app-swiper-valuation [score]="overallData?.valuation" />
   </div>
 
   <div id="element9">
-    <app-swiper-financial-trend />
+    <app-swiper-financial-trend [score]="overallData?.fin_trend" />
   </div>
 
   <div id="element10">
@@ -108,7 +111,6 @@
     </div>
   </div>
   <div *ngIf="TO_SHOW">hello extra</div>
-
 </div>
 
 <!-- footer -->

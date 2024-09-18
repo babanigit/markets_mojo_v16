@@ -11,7 +11,6 @@ import {
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
-import { Scorecard2Component } from '../../cards/scorecard2/scorecard2.component';
 import { I_Ixrr_Data, I_Ixrr } from 'src/app/models/pp/ixrr';
 import {
   IReturn_Data,
@@ -33,6 +32,7 @@ import {
 import { NumberFormatPipe } from 'src/app/pipes/pp/number-format.pipe';
 import { ILiquidity_qvfl, IQvfl, IQvfl_Data } from 'src/app/models/pp/qvfl';
 import { SummaryComponent } from '../../cards/summary/summary.component';
+import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
 
 @Component({
   selector: 'app-swiper-liquidity',
@@ -41,13 +41,13 @@ import { SummaryComponent } from '../../cards/summary/summary.component';
   standalone: true,
   imports: [
     CommonModule,
-    Scorecard2Component,
     RoundOffPipe,
     TwoCommasPipe,
     BreakupComponent,
     NumberFormatPipe,
     SummaryComponent,
-  ],
+    ScorecardComponent
+],
 })
 export class SwiperLiquidityComponent implements OnInit {
   main_data: ILiquidityData | undefined;
@@ -59,6 +59,9 @@ export class SwiperLiquidityComponent implements OnInit {
 
   @Input() SHOW_BUTTON: Boolean = true;
   isCollapseTodayContri: boolean = true;
+
+  @Input() score: any;
+
 
   constructor(
     private serv: GetPersonalPFService,

@@ -51,7 +51,10 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
   data_corpact: any = [];
   data_summary: any = [];
 
+  // emit
   @Output() send_element = new EventEmitter<string>(); //for input value
+  @Output() send_data = new EventEmitter<IOverall_Data>(); //for input value
+
 
   @Input() SHOW_BUTTON: Boolean = true;
   isCollapseTodayContri: boolean = true;
@@ -67,8 +70,6 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
     console.log("the str is : " , str)
 
     this.send_element.emit(str)
-    // this.fetchGetVerdictReport();
-    // this.SNAME_INPUT_STRING = e;
   }
 
   ngOnInit(): void {
@@ -102,6 +103,7 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
       // console.log('data_corpact ', this.data_corpact);
 
       this.cdr.detectChanges(); // Trigger change detection
+      this.send_data.emit(this.main_data)
     });
   }
 

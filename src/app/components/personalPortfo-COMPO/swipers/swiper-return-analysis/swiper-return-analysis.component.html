@@ -39,12 +39,16 @@
         data-scrolled="0"
         data-visited="0"
       >
+      <ng-container
+      *ngIf="score!"
+      >
         <app-scorecard
-        [NAME]="'Return'"
-          [DATA]="data_scorecard"
-          [HEAD]="'Returns Scorecarde '"
+          [DATA]="score"
+          [HEAD]="'Return'"
           [SHOW_BUTTON]="false"
         />
+
+      </ng-container>
       </section>
 
       <section
@@ -2814,7 +2818,6 @@
                   </tr>
                 </thead>
                 <tbody>
-
                   <tr
                     *ngFor="let hold of data_holding.list | keyvalue"
                     class="ng-scope"
@@ -2838,7 +2841,6 @@
                       {{ hold.value.tgainp | roundOff | twoCommas }}%
                     </td>
                   </tr>
-
                 </tbody>
               </table>
               <div class="foot-note ng-binding"></div>

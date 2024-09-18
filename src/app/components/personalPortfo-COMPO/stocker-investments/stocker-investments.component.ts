@@ -7,6 +7,9 @@ import {
 } from '@angular/core';
 
 import { ChangeDetectorRef } from '@angular/core';
+import { IOverall_Data } from 'src/app/models/pp/overall';
+import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 
 @Component({
   selector: 'app-stocker-investments',
@@ -14,7 +17,14 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./stocker-investments.component.css'],
 })
 export class StockerInvestmentsComponent implements AfterViewInit {
-  constructor(private cdr: ChangeDetectorRef) {}
+
+  overallData: IOverall_Data | undefined;
+
+  constructor(
+    private serv: GetPersonalPFService,
+    public fun: PpFunctionsService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   @ViewChild('element1') element1!: ElementRef;
   @ViewChild('element2') element2!: ElementRef;
@@ -73,8 +83,8 @@ export class StockerInvestmentsComponent implements AfterViewInit {
     }
   }
 
-  recievedDataEvent(str:string) {
-    this.scrollToElement(str)
+  recievedDataEvent(str: string) {
+    this.scrollToElement(str);
   }
 
   private getElementId(item: string): string {
@@ -102,5 +112,9 @@ export class StockerInvestmentsComponent implements AfterViewInit {
       default:
         return '';
     }
+  }
+
+  recieveData(data: IOverall_Data) {
+    this.overallData = data;
   }
 }

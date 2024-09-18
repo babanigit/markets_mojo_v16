@@ -25,6 +25,7 @@
       sect-reveal="true"
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
+      <!-- scorecard -->
       <section
         data-reveal="true"
         id="sectFintrend_scorecard"
@@ -32,53 +33,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <div class="card">
-          <div class="card-content">
-            <div class="card-head">
-              <h2>Financial Trend Scorecard</h2>
-            </div>
-            <!-- ngIf: loader[0].pf_fintrend_score == true -->
-            <!-- ngIf: loader[0].pf_fintrend_score == false && error_flag[0].fin_scorecard == 1 -->
-
-            <!-- ngIf: loader[0].pf_fintrend_score == false && error_flag[0].fin_scorecard == 0 -->
-            <div
-              class="sevn-dot-card ng-scope"
-              ng-if="loader[0].pf_fintrend_score == false &amp;&amp; error_flag[0].fin_scorecard == 0"
-              style=""
-            >
-              <div class="head-7dot">Financial Trend</div>
-              <p
-                class="sev-txt3 ng-binding"
-                ng-bind-html="qvf.fin_trend.score.text"
-              >
-                <b>64.0%</b> of your portfolio has Positive or better Financial
-                Trend
-              </p>
-              <div
-                ng-class="qvf.fin_trend.score.color + '-7dot'"
-                class="yellow-7dot"
-              >
-                <div class="con-7dot">
-                  <div class="sev-txt1"></div>
-                  <!--div class="sev-txt2">Underperformed</div-->
-                </div>
-              </div>
-              <div class="condi-p-7 orange">
-                For detailed financial trend analysis<br />
-                <span class="readon" style="color: black"
-                  >Swipe right..
-                  <img
-                    src="https://i.marketsmojo.com/arrow_rt.png"
-                    alt="ArrowRight"
-                    data-pin-nopin="true"
-                    height="16"
-                    width="23"
-                /></span>
-              </div>
-            </div>
-            <!-- end ngIf: loader[0].pf_fintrend_score == false && error_flag[0].fin_scorecard == 0 -->
-          </div>
-        </div>
+        <ng-container *ngIf="score!">
+          <app-scorecard
+            [DATA]="score"
+            [HEAD]="'Financial'"
+            [SHOW_BUTTON]="false"
+          />
+        </ng-container>
       </section>
 
       <!-- summary -->
@@ -88,10 +49,9 @@
         data-scrolled="0"
         data-visited="0"
       >
-      <ng-container *ngIf="qvflData!">
-        <app-summary [DATA]="qvflData" [HEAD]="'Financial'" />
-      </ng-container>
-
+        <ng-container *ngIf="qvflData!">
+          <app-summary [DATA]="qvflData" [HEAD]="'Financial'" />
+        </ng-container>
       </section>
 
       <section
@@ -484,6 +444,7 @@
           </div>
         </div>
       </section>
+
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">

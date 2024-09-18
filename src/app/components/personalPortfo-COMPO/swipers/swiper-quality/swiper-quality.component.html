@@ -25,6 +25,8 @@
       sect-reveal="true"
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
+
+    <!-- scorecard -->
       <section
         data-reveal="true"
         id="sectQuality_scorecard"
@@ -32,53 +34,17 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <div class="card">
-          <div class="card-content">
-            <div class="card-head">
-              <h2>Quality Scorecard</h2>
-            </div>
-            <!-- ngIf: loader[0].pf_qual_score == true -->
-            <!-- ngIf: loader[0].pf_qual_score == false && error_flag[0].qual_scorecard == 1 -->
 
-            <!-- ngIf: loader[0].pf_qual_score == false && error_flag[0].qual_scorecard == 0 -->
-            <div
-              class="sevn-dot-card ng-scope"
-              ng-if="loader[0].pf_qual_score == false &amp;&amp; error_flag[0].qual_scorecard == 0"
-              style=""
-            >
-              <div class="head-7dot">Quality</div>
-              <p
-                class="sev-txt3 ng-binding"
-                ng-bind-html="qvf.quality.score.text"
-              >
-                <b>59.0%</b> of your portfolio has Average or Below Average
-                Quality
-              </p>
-              <div
-                ng-class="qvf.quality.score.color + '-7dot'"
-                class="red-7dot"
-              >
-                <div class="con-7dot">
-                  <div class="sev-txt1"></div>
-                  <!--div class="sev-txt2">Underperformed</div-->
-                </div>
-              </div>
-              <div class="condi-p-7 red">
-                For detailed Quality analysis<br />
-                <span class="readon" style="color: black"
-                  >Swipe right..
-                  <img
-                    src="https://i.marketsmojo.com/arrow_rt.png"
-                    alt="ArrowRight"
-                    data-pin-nopin="true"
-                    height="16"
-                    width="23"
-                /></span>
-              </div>
-            </div>
-            <!-- end ngIf: loader[0].pf_qual_score == false && error_flag[0].qual_scorecard == 0 -->
-          </div>
-        </div>
+      <ng-container
+      *ngIf="score!"
+      >
+        <app-scorecard
+          [DATA]="score"
+          [HEAD]="'Quality'"
+          [SHOW_BUTTON]="false"
+        />
+      </ng-container>
+
       </section>
 
       <!-- summary -->

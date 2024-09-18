@@ -1,32 +1,60 @@
 <div class="card">
   <div class="card-content">
     <div class="card-head">
-      <h2>Returns Scorecard</h2>
+      <h2>
+        {{ HEAD }}
+        <ng-container *ngIf="HEAD == 'Return'"> s </ng-container>
+        Scorecard
+      </h2>
     </div>
 
     <!-- body -->
     <div class="sevn-dot-card ng-scope" *ngIf="DATA!">
-      <div class="head-7dot" style="">Return</div>
-      <p class="sev-txt3 ng-binding">
-        {{ DATA.txt1 }}
-        <br />
-        {{ DATA.txt2 }}
-      </p>
-      <div [ngClass]="DATA.dotclr + '-7dot'">
+      <div class="head-7dot" >{{ HEAD }}</div>
+
+      <ng-container *ngIf="DATA.text!">
+        <p class="sev-txt3 ng-binding">
+          {{ DATA.text }}
+        </p>
+      </ng-container>
+
+      <ng-container *ngIf="DATA.txt1!">
+        <p class="sev-txt3 ng-binding">
+          {{ DATA.txt1 }}
+          <ng-container *ngIf="DATA.txt2!">
+            <br />
+            {{ DATA.txt2 }}
+          </ng-container>
+        </p>
+      </ng-container>
+
+      <div [ngClass]="(DATA.dotclr! || DATA.color!) + '-7dot'">
         <div class="con-7dot">
-          <div class="sev-txt1 ng-binding">
-            <small> Since Inception</small>
-            <small
-              ><i class="ng-binding">({{ DATA.dt }})</i>
-            </small>
-            {{ DATA.return | roundOff | twoCommas }} %
-          </div>
+
+          <ng-container >
+            <div class="sev-txt1 ng-binding"
+            *ngIf="DATA.c_text!"
+            >{{ DATA.c_text }}</div>
+
+            <div class="sev-txt1 ng-binding"
+            *ngIf="DATA.text! && HEAD=='Diversification' "
+            >{{ DATA.text }}</div>
+
+          </ng-container>
+
+          <ng-container *ngIf="DATA.dt!">
+            <div class="sev-txt1 ng-binding">
+              <small> Since Inception</small>
+              <small
+                ><i class="ng-binding">({{ DATA.dt }})</i>
+              </small>
+              {{ DATA.return | roundOff | twoCommas }} %
+            </div>
+          </ng-container>
         </div>
       </div>
-      <div
-      [ngClass]="DATA.dotclr"
-      class="condi-p-7 ">
-        For detailed {{ NAME }} analysis<br />
+      <div [ngClass]="DATA.dotclr! || DATA.color!" class="condi-p-7">
+        For detailed {{ HEAD }} analysis<br />
         <span class="readon" style="color: black"
           >Swipe right..
           <img
@@ -41,11 +69,7 @@
     <!-- end ngIf: loader[0].pf_return_score == false && error_flag[0].return_scorecard == 0 -->
   </div>
   <!-- ngIf: loader[0].pf_return_score == false && error_flag[0].return_scorecard == 0 -->
-  <div
-    class="condi-p ng-scope"
-    ng-if="loader[0].pf_return_score == false &amp;&amp; error_flag[0].return_scorecard == 0"
-    style=""
-  >
+  <div class="condi-p ng-scope" *ngIf="HEAD == 'Return'">
     Absolute total returns
   </div>
   <!-- end ngIf: loader[0].pf_return_score == false && error_flag[0].return_scorecard == 0 -->

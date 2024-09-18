@@ -30,12 +30,16 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <app-scorecard2
-          [NAME]="'Risk'"
-          [DATA]="data_scorecard"
-          [HEAD]="'Risk Scorecard'"
-          [SHOW_BUTTON]="false"
-        />
+      <ng-container
+      *ngIf="score!"
+      >
+        <app-scorecard
+        [DATA]="score"
+        [HEAD]="'Risk'"
+        [SHOW_BUTTON]="false"
+      />
+      </ng-container>
+
       </section>
 
       <script>

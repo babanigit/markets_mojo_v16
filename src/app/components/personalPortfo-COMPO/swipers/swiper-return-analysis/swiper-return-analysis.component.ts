@@ -55,6 +55,8 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
 
   ixrrData: I_Ixrr_Data | undefined;
 
+  @Input() score: any;
+
   @Output() send_element = new EventEmitter<string>(); //for input value
 
   @Input() SHOW_BUTTON: Boolean = true;
@@ -80,7 +82,7 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
       this.data_divcontri = res.data.divcontri;
       this.data_sector = res.data.sector;
       this.data_Mcap = res.data.mcap;
-      this.data_holding =res.data.holdings;
+      this.data_holding = res.data.holdings;
 
       this.cdr.detectChanges(); // Trigger change detection
     });

@@ -24,9 +24,9 @@ import {
   IRisk_Data,
   IScore_risk,
 } from 'src/app/models/pp/risk';
-import { Scorecard2Component } from '../../cards/scorecard2/scorecard2.component';
 import { RadiusChartComponent } from '../../cards/radius-chart/radius-chart.component';
 import { series_Data_pie } from 'src/app/models/pp/pie';
+import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
 
 @Component({
   selector: 'app-swiper-risk-analysis',
@@ -35,11 +35,11 @@ import { series_Data_pie } from 'src/app/models/pp/pie';
   standalone: true,
   imports: [
     CommonModule,
-    Scorecard2Component,
     RoundOffPipe,
     TwoCommasPipe,
     RadiusChartComponent,
-  ],
+    ScorecardComponent
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
@@ -55,6 +55,9 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
 
   @Input() SHOW_BUTTON: Boolean = true;
   isCollapseTodayContri: boolean = true;
+
+  @Input() score: any;
+
 
   constructor(
     private serv: GetPersonalPFService,

@@ -1,0 +1,76 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+    "score": {
+      "color": "red",
+      "text": "Highly Concentrated"
+    },
+    "summary": {
+      "remain": 13,
+      "top3hp": 62.12,
+      "hihold": 33.9,
+      "hisect": "33.9",
+      "lcap": 49.18,
+      "txt": "A Highly Concentrated portfolio carries high risk of an adverse effect on value of portfolio due to adverse movement in any one holding. However, concentration will positively benefit the value of portfolio in case of favourable movement in one stock as well."
+    },
+    "color": {
+      "remain": "yellow",
+      "top3hp": "red",
+      "hihold": "red",
+      "hisect": "yellow",
+      "lcap": "red"
+    },
+    "sector": {
+      "toptxt": "Pesticides & Agrochemicals stocks form 33.9% of your portfolio",
+      "secondtxt": "<strong>Inadequate allocation in top sector:</strong> Your allocation in top sector is high. Allocation in top sector for a well-diversified portfolio is suggested below 20%",
+      "clr": "yellow",
+      "graph": {
+        "Pesticides & Agrochemicals": 33.9,
+        "Mining & Minerals": 15.54,
+        "Finance/NBFC": 15.05,
+        "Capital Goods": 10.3,
+        "Tea/Coffee": 5.38,
+        "Others": 19.83
+      }
+    },
+    "mcap": {
+      "toptxt": "Large Cap stocks form 49.18% of your portfolio",
+      "secondtxt": "<strong>Low allocation to Large cap stocks-</strong> Large cap stocks form a small part of your portfolio. While it is believed that mid and small cap stocks have a higher potential for better returns they also are considered riskier than most Large cap stocks. Allocation to Large cap stocks for a well-diversified portfolio is suggested above 70%",
+      "clr": "red",
+      "graph": {
+        "Large Cap": 49.18,
+        "Small Cap": 33.9,
+        "Mid Cap": 10.9,
+        "Micro Cap": 6.02
+      }
+    },
+    "holding": {
+      "toptxt": "Top 3 stocks form 62.12% of your portfolio",
+      "secondtxt": "<strong>High Concentration in top 3 holdings:</strong> A large part of your holdings are concentrated in a few stocks. This exposes your portfolio to adverse news or development related to your larger bets. Weight in top 3 holdings for a well-diversified portfolio is suggested below 30%",
+      "clr": "red",
+      "graph": {
+        "Top 3 Holdings": 62.12,
+        "Tail Stocks": 1.43,
+        "Remaining": 36.45
+      }
+    },
+    "stocks": [
+      {
+        "main": "Number of stocks except tail stocks 13",
+        "sub": "<strong>Inadequate number of holdings -</strong> Your number of stock holdings are low. Range of stock holdings for a well-diversified portfolio is in the range of 21-25 stocks with at least 1% allocation in each.",
+        "clr": "yellow"
+      },
+      {
+        "main": "Tail Stocks in Portfolio: 6",
+        "sub": "Stock in which your holding is below 1% of your portfolio value are categorized as tail stocks. Neither these stocks add to your diversification nor they affect your overall portfolio returns.",
+        "clr": "red"
+      },
+      {
+        "main": "Highest Holding: 33.9%",
+        "sub": "<strong>High Concentration in Top Holding:</strong> Very large part of your portfolio is invested in a single stock. Any adverse news or movement in that stock, will have a significant impact on your portfolio. Weight in top holding for a well-diversified portfolio is suggested below 10%",
+        "clr": "red"
+      }
+    ]
+  }
+}

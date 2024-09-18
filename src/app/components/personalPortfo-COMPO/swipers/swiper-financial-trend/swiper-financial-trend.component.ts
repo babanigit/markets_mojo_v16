@@ -7,8 +7,8 @@ import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
-import { Scorecard2Component } from '../../cards/scorecard2/scorecard2.component';
 import { SummaryComponent } from '../../cards/summary/summary.component';
+import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
 
 @Component({
   selector: 'app-swiper-financial-trend',
@@ -17,13 +17,13 @@ import { SummaryComponent } from '../../cards/summary/summary.component';
   standalone:true,
   imports: [
     CommonModule,
-    Scorecard2Component,
     RoundOffPipe,
     TwoCommasPipe,
     BreakupComponent,
     NumberFormatPipe,
     SummaryComponent,
-  ]
+    ScorecardComponent
+]
 })
 export class SwiperFinancialTrendComponent implements OnInit {
   // main_data: ILiquidityData | undefined;
@@ -35,6 +35,8 @@ export class SwiperFinancialTrendComponent implements OnInit {
 
   @Input() SHOW_BUTTON: Boolean = true;
   isCollapseTodayContri: boolean = true;
+  @Input() score: any;
+
 
   constructor(
     private serv: GetPersonalPFService,
