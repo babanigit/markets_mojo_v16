@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { IQvfl_Data, IQvfl } from 'src/app/models/pp/qvfl';
 import { NumberFormatPipe } from 'src/app/pipes/pp/number-format.pipe';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
@@ -8,13 +15,14 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { SummaryComponent } from '../../cards/summary/summary.component';
-import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
+import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
+import { IHoldingsData } from 'src/app/models/table/holding';
 
 @Component({
   selector: 'app-swiper-financial-trend',
   templateUrl: './swiper-financial-trend.component.html',
   styleUrls: ['./swiper-financial-trend.component.css'],
-  standalone:true,
+  standalone: true,
   imports: [
     CommonModule,
     RoundOffPipe,
@@ -22,44 +30,20 @@ import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
     BreakupComponent,
     NumberFormatPipe,
     SummaryComponent,
-    ScorecardComponent
-]
+    ScorecardComponent,
+  ],
 })
-export class SwiperFinancialTrendComponent implements OnInit {
-  // main_data: ILiquidityData | undefined;
-  // Liquidity_List: ILiqui_list[] | undefined;
-
-  qvflData: IQvfl_Data | undefined;
-
-  @Output() send_element = new EventEmitter<string>(); //for input value
+export class SwiperFinancialTrendComponent {
 
   @Input() SHOW_BUTTON: Boolean = true;
-  isCollapseTodayContri: boolean = true;
   @Input() score: any;
 
+  @Input() DATA_holding: IHoldingsData | undefined;
+  @Input() DATA_qvfl: IQvfl_Data | undefined;
 
   constructor(
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
   ) {}
-
-  ngOnInit(): void {
-    this.fetchData();
-  }
-
-  fetchData(): void {
-    // this.serv.getSwitcherDatas('liquidity').subscribe((res: ILiquidity) => {
-    //   this.main_data = res.data;
-    //   console.log('main_data : ', res.data);
-
-    //   this.Liquidity_List = res.data.list;
-
-    // });
-
-    this.serv.getQVFLData().subscribe((res: IQvfl) => {
-      this.qvflData = res.data;
-      this.cdr.detectChanges(); // Trigger change detection
-    });
-  }
 }

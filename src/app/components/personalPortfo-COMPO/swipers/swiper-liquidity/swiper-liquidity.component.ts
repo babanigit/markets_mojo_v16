@@ -32,7 +32,7 @@ import {
 import { NumberFormatPipe } from 'src/app/pipes/pp/number-format.pipe';
 import { ILiquidity_qvfl, IQvfl, IQvfl_Data } from 'src/app/models/pp/qvfl';
 import { SummaryComponent } from '../../cards/summary/summary.component';
-import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
+import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
 
 @Component({
   selector: 'app-swiper-liquidity',
@@ -46,22 +46,20 @@ import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
     BreakupComponent,
     NumberFormatPipe,
     SummaryComponent,
-    ScorecardComponent
-],
+    ScorecardComponent,
+  ],
 })
 export class SwiperLiquidityComponent implements OnInit {
+
   main_data: ILiquidityData | undefined;
   Liquidity_List: ILiqui_list[] | undefined;
-
   qvflData: IQvfl_Data | undefined;
-
-  @Output() send_element = new EventEmitter<string>(); //for input value
 
   @Input() SHOW_BUTTON: Boolean = true;
   isCollapseTodayContri: boolean = true;
 
   @Input() score: any;
-
+  @Output() send_QVFLData = new EventEmitter<IQvfl_Data>();
 
   constructor(
     private serv: GetPersonalPFService,
@@ -77,16 +75,13 @@ export class SwiperLiquidityComponent implements OnInit {
     this.serv.getSwitcherDatas('liquidity').subscribe((res: ILiquidity) => {
       this.main_data = res.data;
       this.Liquidity_List = res.data.list;
-
       this.cdr.detectChanges(); // Trigger change detection
     });
 
     this.serv.getQVFLData().subscribe((res: IQvfl) => {
       this.qvflData = res.data;
-
+      this.send_QVFLData.emit(this.qvflData);
       this.cdr.detectChanges(); // Trigger change detection
-
     });
-
   }
 }

@@ -25,7 +25,7 @@
       sect-reveal="true"
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
-    <!-- scorecard -->
+      <!-- scorecard -->
       <section
         data-reveal="true"
         id="sectValuation_scorecard"
@@ -33,17 +33,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-      <ng-container
-      *ngIf="score!"
-      >
-        <app-scorecard
-          [DATA]="score"
-          [HEAD]="'Valuation'"
-          [SHOW_BUTTON]="false"
-        />
-      </ng-container>
-
+        <ng-container *ngIf="score!">
+          <app-scorecard
+            [DATA]="score"
+            [HEAD]="'Valuation'"
+            [SHOW_BUTTON]="false"
+          />
+        </ng-container>
       </section>
 
       <!-- summary -->
@@ -53,13 +49,12 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-      <ng-container *ngIf="qvflData!">
-        <app-summary [DATA]="qvflData" [HEAD]="'Valuation'" />
-      </ng-container>
-
+        <ng-container *ngIf="DATA_qvfl!">
+          <app-summary [DATA]="DATA_qvfl" [HEAD]="'Valuation'" />
+        </ng-container>
       </section>
 
+      <!-- table -->
       <section
         data-reveal="true"
         id="sectValuation_details"
@@ -78,10 +73,6 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_val_dtls == true -->
-            <!-- ngIf: loader[0].pf_val_dtls == false && error_flag[0].valuation_details == 1 -->
-
-            <!-- ngIf: loader[0].pf_val_dtls == false && error_flag[0].valuation_details == 0 -->
             <div
               class="liquidityDetails list-mojo ng-scope"
               ng-if="loader[0].pf_val_dtls == false &amp;&amp; error_flag[0].valuation_details == 0"
@@ -99,297 +90,63 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <!-- ngRepeat: (key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit -->
+                <tbody *ngIf="DATA_holding!">
                   <tr
-                    ng-repeat="(key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit"
+                    *ngFor="let item of DATA_holding.list | keyvalue"
                     class="ng-scope"
-                    style=""
                   >
                     <td>
                       <div>
                         <a
-                          ng-href="/Stocks?StockId=454045&amp;Exchange=0"
+                          [href]="
+                            '/Stocks?StockId=' + item.value.sid + '&Exchange=0'
+                          "
                           target="_blank"
                           class="ng-binding"
-                          href="/Stocks?StockId=454045&amp;Exchange=0"
-                          >Jubilant Inds.</a
-                        >
+                          >{{ item.value.sname }}
+                        </a>
                         <br />
                         <span class="mojo-hover">
                           <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="red-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.value.dotsum.q_clr)
+                            "
                           ></span>
                           <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="red-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.value.dotsum.v_clr)
+                            "
                           ></span>
                           <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
+                            [ngClass]="
+                              this.fun.getClassbyClr(item.value.dotsum.v_clr)
+                            "
                           ></span>
                         </span>
                       </div>
                     </td>
+
                     <td
-                      class="txt-lt selected-td ng-binding red"
-                      ng-class="value.dotsum.v_clr"
+                      class="txt-lt selected-td ng-binding"
+                      [ngClass]="item.value.dotsum.v_clr"
                     >
                       Expensive
                     </td>
-                    <td class="no-mob ng-binding">38.23%</td>
-                    <td class="no-mob ng-binding">88,228</td>
+                    <td class="no-mob ng-binding">
+                      {{ item.value.pwt | roundOff | twoCommas }}%
+                    </td>
+                    <td class="no-mob ng-binding">
+                      {{ item.value.lval | roundOff | twoCommas }}
+                    </td>
                     <td class="no-web ng-binding">
                       <!---Value-->
-                      88,228
+                      {{ item.value.lval | roundOff | twoCommas }}
                       <p class="scr-txt-2 no-web ng-binding">
                         <!---Weight-->
-                        38.23%
+                        {{ item.value.pwt | roundOff | twoCommas }}%
                       </p>
                     </td>
                   </tr>
-                  <!-- end ngRepeat: (key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit -->
-                  <tr
-                    ng-repeat="(key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=421555&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=421555&amp;Exchange=0"
-                          >Coal India</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="txt-lt selected-td ng-binding green"
-                      ng-class="value.dotsum.v_clr"
-                    >
-                      Attractive
-                    </td>
-                    <td class="no-mob ng-binding">17.00%</td>
-                    <td class="no-mob ng-binding">39,220</td>
-                    <td class="no-web ng-binding">
-                      <!---Value-->
-                      39,220
-                      <p class="scr-txt-2 no-web ng-binding">
-                        <!---Weight-->
-                        17.00%
-                      </p>
-                    </td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit -->
-                  <tr
-                    ng-repeat="(key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=431628&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=431628&amp;Exchange=0"
-                          >REC Ltd</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="txt-lt selected-td ng-binding orange"
-                      ng-class="value.dotsum.v_clr"
-                    >
-                      Fair
-                    </td>
-                    <td class="no-mob ng-binding">14.27%</td>
-                    <td class="no-mob ng-binding">32,927</td>
-                    <td class="no-web ng-binding">
-                      <!---Value-->
-                      32,927
-                      <p class="scr-txt-2 no-web ng-binding">
-                        <!---Weight-->
-                        14.27%
-                      </p>
-                    </td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit -->
-                  <tr
-                    ng-repeat="(key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=837957&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=837957&amp;Exchange=0"
-                          >Larsen &amp; Toubro</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="txt-lt selected-td ng-binding green"
-                      ng-class="value.dotsum.v_clr"
-                    >
-                      Attractive
-                    </td>
-                    <td class="no-mob ng-binding">10.96%</td>
-                    <td class="no-mob ng-binding">25,291</td>
-                    <td class="no-web ng-binding">
-                      <!---Value-->
-                      25,291
-                      <p class="scr-txt-2 no-web ng-binding">
-                        <!---Weight-->
-                        10.96%
-                      </p>
-                    </td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit -->
-                  <tr
-                    ng-repeat="(key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=119922&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=119922&amp;Exchange=0"
-                          >City Union Bank</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="orange-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="txt-lt selected-td ng-binding orange"
-                      ng-class="value.dotsum.v_clr"
-                    >
-                      Fair
-                    </td>
-                    <td class="no-mob ng-binding">5.57%</td>
-                    <td class="no-mob ng-binding">12,844</td>
-                    <td class="no-web ng-binding">
-                      <!---Value-->
-                      12,844
-                      <p class="scr-txt-2 no-web ng-binding">
-                        <!---Weight-->
-                        5.57%
-                      </p>
-                    </td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit -->
-                  <tr
-                    ng-repeat="(key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit"
-                    class="ng-scope"
-                  >
-                    <td>
-                      <div>
-                        <a
-                          ng-href="/Stocks?StockId=302744&amp;Exchange=0"
-                          target="_blank"
-                          class="ng-binding"
-                          href="/Stocks?StockId=302744&amp;Exchange=0"
-                          >JP Power Ven.</a
-                        >
-                        <br />
-                        <span class="mojo-hover">
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.q_clr)"
-                            class="orange-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.v_clr)"
-                            class="green-mojo"
-                          ></span>
-                          <span
-                            ng-class="getClassbyClr(value.dotsum.f_clr)"
-                            class="green-mojo"
-                          ></span>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="txt-lt selected-td ng-binding green"
-                      ng-class="value.dotsum.v_clr"
-                    >
-                      Very Attractive
-                    </td>
-                    <td class="no-mob ng-binding">3.02%</td>
-                    <td class="no-mob ng-binding">6,980</td>
-                    <td class="no-web ng-binding">
-                      <!---Value-->
-                      6,980
-                      <p class="scr-txt-2 no-web ng-binding">
-                        <!---Weight-->
-                        3.02%
-                      </p>
-                    </td>
-                  </tr>
-                  <!-- end ngRepeat: (key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit -->
                 </tbody>
               </table>
             </div>

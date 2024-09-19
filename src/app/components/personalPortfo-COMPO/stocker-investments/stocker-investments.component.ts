@@ -8,6 +8,8 @@ import {
 
 import { ChangeDetectorRef } from '@angular/core';
 import { IOverall_Data } from 'src/app/models/pp/overall';
+import { IQvfl_Data } from 'src/app/models/pp/qvfl';
+import { IHoldingsData } from 'src/app/models/table/holding';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 
@@ -17,8 +19,9 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
   styleUrls: ['./stocker-investments.component.css'],
 })
 export class StockerInvestmentsComponent implements AfterViewInit {
-
   overallData: IOverall_Data | undefined;
+  holdingData: IHoldingsData | undefined;
+  qvflData: IQvfl_Data | undefined;
 
   constructor(
     private serv: GetPersonalPFService,
@@ -83,10 +86,6 @@ export class StockerInvestmentsComponent implements AfterViewInit {
     }
   }
 
-  recievedDataEvent(str: string) {
-    this.scrollToElement(str);
-  }
-
   private getElementId(item: string): string {
     switch (item) {
       case 'Tracker':
@@ -114,7 +113,20 @@ export class StockerInvestmentsComponent implements AfterViewInit {
     }
   }
 
+
+  recievedDataEvent(str: string) {
+    this.scrollToElement(str);
+  }
+
   recieveData(data: IOverall_Data) {
     this.overallData = data;
+  }
+
+  recieve_HoldingData(data: IHoldingsData) {
+    this.holdingData = data;
+  }
+
+  recieve_QvflData(data: IQvfl_Data) {
+    this.qvflData = data;
   }
 }

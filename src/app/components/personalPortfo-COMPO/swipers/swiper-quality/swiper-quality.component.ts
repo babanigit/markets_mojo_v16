@@ -15,7 +15,12 @@ import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { IQvfl_Data, IQvfl } from 'src/app/models/pp/qvfl';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
-import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
+import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
+import {
+  I_List_Holding,
+  IHoldings,
+  IHoldingsData,
+} from 'src/app/models/table/holding';
 
 @Component({
   selector: 'app-swiper-quality',
@@ -29,22 +34,20 @@ import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
     BreakupComponent,
     NumberFormatPipe,
     SummaryComponent,
-    ScorecardComponent
-],
+    ScorecardComponent,
+  ],
 })
 export class SwiperQualityComponent implements OnInit {
-  // main_data: ILiquidityData | undefined;
-  // Liquidity_List: ILiqui_list[] | undefined;
+  main_data: IHoldingsData | undefined;
 
-  qvflData: IQvfl_Data | undefined;
-
-  @Output() send_element = new EventEmitter<string>(); //for input value
+  @Output() send_holdingsData = new EventEmitter<IHoldingsData>(); //sending data for those two swipers
 
   @Input() SHOW_BUTTON: Boolean = true;
   isCollapseTodayContri: boolean = true;
 
   @Input() score: any;
 
+  @Input() DATA_qvfl: IQvfl_Data | undefined;
 
   constructor(
     private serv: GetPersonalPFService,
@@ -57,18 +60,11 @@ export class SwiperQualityComponent implements OnInit {
   }
 
   fetchData(): void {
-
-    // this.serv.getSwitcherDatas('liquidity').subscribe((res: ILiquidity) => {
-    //   this.main_data = res.data;
-    //   console.log('main_data : ', res.data);
-
-    //   this.Liquidity_List = res.data.list;
-
-    // });
-
-    this.serv.getQVFLData().subscribe((res: IQvfl) => {
-      this.qvflData = res.data;
+    this.serv.getOverviewStocks('HOLDING').subscribe((res: IHoldings) => {
+      this.main_data = res.data;
+      this.send_holdingsData.emit(this.main_data);
       this.cdr.detectChanges(); // Trigger change detection
     });
   }
+
 }

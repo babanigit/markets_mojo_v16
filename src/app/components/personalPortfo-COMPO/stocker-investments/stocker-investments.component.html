@@ -29,6 +29,7 @@
             "
             ><strong>Download Report</strong>
             <img
+              alt=""
               src="https://i.marketsmojo.com/pdf-file-download.png"
               style="height: 16px; width: 16px"
           /></a>
@@ -65,7 +66,10 @@
   </div>
 
   <div id="element5">
-    <app-swiper-liquidity [score]="overallData?.liquidity" />
+    <app-swiper-liquidity
+      [score]="overallData?.liquidity"
+      (send_QVFLData)="recieve_QvflData($event)"
+    />
   </div>
 
   <div id="element6">
@@ -73,15 +77,27 @@
   </div>
 
   <div id="element7">
-    <app-swiper-quality [score]="overallData?.quality" />
+    <app-swiper-quality
+      [score]="overallData?.quality"
+      (send_holdingsData)="recieve_HoldingData($event)"
+      [DATA_qvfl]="qvflData"
+    />
   </div>
 
   <div id="element8">
-    <app-swiper-valuation [score]="overallData?.valuation" />
+    <app-swiper-valuation
+      [score]="overallData?.valuation"
+      [DATA_holding]="holdingData"
+      [DATA_qvfl]="qvflData"
+    />
   </div>
 
   <div id="element9">
-    <app-swiper-financial-trend [score]="overallData?.fin_trend" />
+    <app-swiper-financial-trend
+      [score]="overallData?.fin_trend"
+      [DATA_holding]="holdingData"
+      [DATA_qvfl]="qvflData"
+    />
   </div>
 
   <div id="element10">
