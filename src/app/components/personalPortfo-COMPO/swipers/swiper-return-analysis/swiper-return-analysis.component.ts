@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
 import {
+  ICalendar_data,
   IDivcontri,
   IHoldings,
   IMcap,
@@ -28,6 +29,7 @@ import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { I_Ixrr, I_Ixrr_Data } from 'src/app/models/pp/ixrr';
+import { BarGraphComponent } from '../../cards/bar-graph/bar-graph.component';
 
 @Component({
   selector: 'app-swiper-return-analysis',
@@ -40,6 +42,7 @@ import { I_Ixrr, I_Ixrr_Data } from 'src/app/models/pp/ixrr';
     RoundOffPipe,
     TwoCommasPipe,
     BreakupComponent,
+    BarGraphComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -52,6 +55,7 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
   data_sector: ISector | undefined;
   data_Mcap: IMcap | undefined;
   data_holding: IHoldings | undefined;
+  data_calender: ICalendar_data | undefined
 
   ixrrData: I_Ixrr_Data | undefined;
 
@@ -83,6 +87,7 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
       this.data_sector = res.data.sector;
       this.data_Mcap = res.data.mcap;
       this.data_holding = res.data.holdings;
+      this.data_calender =res.data.calendar;
 
       this.cdr.detectChanges(); // Trigger change detection
     });

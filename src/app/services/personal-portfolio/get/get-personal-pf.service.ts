@@ -19,7 +19,7 @@ export class GetPersonalPFService {
 
   private readonly paths: { [key in TableType]: string } = {
     OVERVIEW: 'assets/pp/table/getOverview.json',
-    HOLDING: 'assets/pp/table/getHolding.json',
+    HOLDING: 'http://localhost:3000/holding',
     RISK: 'assets/pp/table/getRisk.json',
     LIQUIDITY: 'assets/pp/table/getLiquidity.json',
     TAX: 'assets/pp/table/getTax.json',
@@ -27,7 +27,7 @@ export class GetPersonalPFService {
     FINANCIALS: 'assets/pp/table/getFinancials.json',
     RETURNS: 'assets/pp/table/getReturn.json',
     RESULTS: 'assets/pp/table/getResults.json',
-    TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
+    TOTAL_RETURNS: 'http://localhost:3000/totalReturn',
     PRICE: '',
     CONTRIBUTION: '',
     DIVIDEND: '',

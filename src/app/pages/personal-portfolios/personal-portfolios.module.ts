@@ -24,6 +24,7 @@ import { PfPriceMsgComponent } from 'src/app/components/personalPortfo-COMPO/pf-
 import { ModelOpenComponent } from 'src/app/components/personalPortfo-COMPO/model-open/model-open.component';
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 import { LineGraphComponent } from 'src/app/components/personalPortfo-COMPO/cards/line-graph/line-graph.component';
+import { BarGraphComponent } from 'src/app/components/personalPortfo-COMPO/cards/bar-graph/bar-graph.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -58,7 +59,8 @@ import { LineGraphComponent } from 'src/app/components/personalPortfo-COMPO/card
 
 ModelOpenComponent,
 DemoComponent,
-LineGraphComponent
+LineGraphComponent,
+BarGraphComponent
   ],
 })
 export class PersonalPortfoliosModule {}

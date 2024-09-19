@@ -57,7 +57,7 @@ export class LineGraphComponent implements OnInit {
       series: [
         {
           type: 'spline',
-          name: 'Port',
+          name: 'Portfolio',
           data: this.chartData.map((item: { port: any }) => item.port),
         },
         {

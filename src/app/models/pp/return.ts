@@ -12,7 +12,7 @@ export interface IReturn_Data {
   networth: INetworth;
   retcompo: IRetcompo;
   divcontri: IDivcontri;
-  calendar: Calendar;
+  calendar: ICalendar_data;
 }
 
 export interface ISector {
@@ -947,7 +947,7 @@ interface List43 {
   total: number;
 }
 
-interface Calendar {
+export interface ICalendar_data {
   caldisp: number;
   years: string[];
   absret: Absret;

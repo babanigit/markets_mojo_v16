@@ -124,6 +124,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
 
     this.serv.getOverviewStocks(type).subscribe({
       next: (response) => {
+        console.log('Fetched data from API response is : ', response.data);
         const elements = ['RISK', 'RATIOS', 'FINANCIALS', 'RETURNS'].includes(
           type
         )
