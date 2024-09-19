@@ -61,6 +61,7 @@
 
       </section>
 
+      <!-- table -->
       <section
         id="sectQuality_details"
         class="swiper-slide padnno-sec marginright swiper-slide-visible"
@@ -78,13 +79,10 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_qual_dtls == true -->
-            <!-- ngIf: loader[0].pf_qual_dtls == false && error_flag[0].quality_details == 1 -->
 
-            <!-- ngIf: loader[0].pf_qual_dtls == false && error_flag[0].quality_details == 0 -->
             <div
               class="liquidityDetails list-mojo ng-scope"
-              ng-if="loader[0].pf_qual_dtls == false &amp;&amp; error_flag[0].quality_details == 0"
+
             >
               <table class="table25">
                 <thead>
@@ -99,7 +97,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- ngRepeat: (key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit -->
                   <tr
                     ng-repeat="(key,value) in transaction_list|orderBy:orderByFieldQuality:reverseSortQuality| limitTo:limit"
                     class="ng-scope"
@@ -443,6 +440,7 @@
           </div>
         </div>
       </section>
+
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">

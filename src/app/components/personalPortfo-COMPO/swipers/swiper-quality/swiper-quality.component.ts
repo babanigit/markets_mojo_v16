@@ -57,6 +57,7 @@ export class SwiperQualityComponent implements OnInit {
   }
 
   fetchData(): void {
+
     // this.serv.getSwitcherDatas('liquidity').subscribe((res: ILiquidity) => {
     //   this.main_data = res.data;
     //   console.log('main_data : ', res.data);

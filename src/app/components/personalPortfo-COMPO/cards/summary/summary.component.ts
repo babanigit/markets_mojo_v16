@@ -14,13 +14,14 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
 import { RadiusChartComponent } from '../radius-chart/radius-chart.component';
 import { graph_Data2 } from 'src/app/models/pp/risk';
 import { series_Data_pie } from 'src/app/models/pp/pie';
+import { ModelOpenComponent } from "../../model-open/model-open.component";
 
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.css'],
   standalone: true,
-  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, RadiusChartComponent],
+  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, RadiusChartComponent, ModelOpenComponent],
 })
 export class SummaryComponent {
   @Input() DATA: IQvfl_Data | undefined;
