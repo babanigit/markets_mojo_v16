@@ -27,6 +27,7 @@ import {
 import { RadiusChartComponent } from '../../cards/radius-chart/radius-chart.component';
 import { series_Data_pie } from 'src/app/models/pp/pie';
 import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
+import { LineGraphComponent } from '../../cards/line-graph/line-graph.component';
 
 @Component({
   selector: 'app-swiper-risk-analysis',
@@ -38,7 +39,8 @@ import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
     RoundOffPipe,
     TwoCommasPipe,
     RadiusChartComponent,
-    ScorecardComponent
+    ScorecardComponent,
+    LineGraphComponent
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

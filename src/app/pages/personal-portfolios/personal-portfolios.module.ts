@@ -23,6 +23,7 @@ import { SwiperValuationComponent } from 'src/app/components/personalPortfo-COMP
 import { PfPriceMsgComponent } from 'src/app/components/personalPortfo-COMPO/pf-price-msg/pf-price-msg.component';
 import { ModelOpenComponent } from 'src/app/components/personalPortfo-COMPO/model-open/model-open.component';
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
+import { LineGraphComponent } from 'src/app/components/personalPortfo-COMPO/cards/line-graph/line-graph.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -56,7 +57,8 @@ import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
     SwiperLiquidityComponent,
 
 ModelOpenComponent,
-DemoComponent
+DemoComponent,
+LineGraphComponent
   ],
 })
 export class PersonalPortfoliosModule {}
