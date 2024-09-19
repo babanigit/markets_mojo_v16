@@ -9,21 +9,27 @@ import {
 } from 'src/app/models/pp/diversification';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
+import { RoundOffPipe } from '../../../../pipes/pp/roundOff/round-off.pipe';
+import { TwoCommasPipe } from '../../../../pipes/pp/twoCommas/two-commas.pipe';
 
 @Component({
   selector: 'app-swiper-diversification',
   templateUrl: './swiper-diversification.component.html',
   styleUrls: ['./swiper-diversification.component.css'],
   standalone: true,
-  imports: [ScorecardComponent, CommonModule, DiversificationComponent],
+  imports: [
+    ScorecardComponent,
+    CommonModule,
+    DiversificationComponent,
+    RoundOffPipe,
+    TwoCommasPipe,
+  ],
 })
 export class SwiperDiversificationComponent implements OnInit {
-
   main_data: IDiversification_Data | undefined;
-  data_sector:I_diversi_sector |undefined;
-  data_mcap:I_diversi_sector |undefined;
-  data_holding:I_diversi_sector |undefined;
-
+  data_sector: I_diversi_sector | undefined;
+  data_mcap: I_diversi_sector | undefined;
+  data_holding: I_diversi_sector | undefined;
 
   @Input() SHOW_BUTTON: Boolean = true;
   isCollapseTodayContri: boolean = true;
@@ -45,12 +51,9 @@ export class SwiperDiversificationComponent implements OnInit {
       .getSwitcherDatas('diversification')
       .subscribe((res: IDiversification) => {
         this.main_data = res.data;
-        console.log("the diversification is : " , this.main_data)
-
-        this.data_sector=res.data.sector
-        console.log("the data sector is : " , this.data_sector);
-        this.data_mcap=res.data.mcap
-        this.data_holding=res.data.holding
+        this.data_sector = res.data.sector;
+        this.data_mcap = res.data.mcap;
+        this.data_holding = res.data.holding;
 
         this.cdr.detectChanges(); // Trigger change detection
       });

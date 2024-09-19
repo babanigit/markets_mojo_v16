@@ -26,6 +26,7 @@
       sect-reveal="true"
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
+
       <!-- scorecard -->
       <section
         data-reveal="true"
@@ -43,6 +44,7 @@
         </ng-container>
       </section>
 
+      <!--  Is my portfolio diversified? - Summary -->
       <section
         class="swiper-slide small-card marginright swiper-slide-visible swiper-slide-next"
         data-scrolled="0"
@@ -58,78 +60,73 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_divers_summary == true -->
-            <!-- ngIf: loader[0].pf_divers_summary == false && error_flag[0].diverse_summary == 1 -->
 
-            <!-- ngIf: loader[0].pf_divers_summary == false  && error_flag[0].diverse_summary == 0 -->
-            <div
-              class="mojo-txt3 ng-scope"
-              ng-if="loader[0].pf_divers_summary == false  &amp;&amp; error_flag[0].diverse_summary == 0"
-              style=""
-            >
+            <div class="mojo-txt3 ng-scope" *ngIf="main_data!">
               <div class="mt-head txt-cr">
                 Portfolio Construct
-                <span class="red">Highly Concentrated</span>
+                <span [ngClass]="main_data.score.color">
+                  {{ main_data.score.text }}
+                </span>
               </div>
             </div>
-            <!-- end ngIf: loader[0].pf_divers_summary == false  && error_flag[0].diverse_summary == 0 -->
-            <!-- ngIf: loader[0].pf_divers_summary == false  && error_flag[0].diverse_summary == 0 -->
-            <div
-              class="alpha-col ng-scope"
-              ng-if="loader[0].pf_divers_summary == false  &amp;&amp; error_flag[0].diverse_summary == 0"
-              style=""
-            >
+
+            <div class="alpha-col ng-scope">
               <table class="table05">
-                <tbody>
+                <tbody *ngIf="main_data!">
                   <tr class="yellow-table">
                     <td class="table-col05">
                       Number of stocks except Tail Stocks:
                     </td>
                     <td class="table-col06">
-                      <span class="pull-right new-badge ng-binding">11</span>
+                      <span class="pull-right new-badge ng-binding">
+                        {{ main_data.summary.remain | roundOff | twoCommas }}
+                      </span>
                     </td>
                   </tr>
                   <tr class="red-table">
                     <td class="table-col05">Top 3 Holdings Percentage:</td>
                     <td class="table-col06">
-                      <span class="pull-right new-badge ng-binding"
-                        >69.49%</span
-                      >
+                      <span class="pull-right new-badge ng-binding">
+                        {{ main_data.summary.top3hp | roundOff | twoCommas }}%
+                      </span>
                     </td>
                   </tr>
                   <tr class="red-table">
                     <td class="table-col05">Highest Holding</td>
                     <td class="table-col06">
                       <span class="pull-right new-badge ng-binding"
-                        >38.24%</span
+                        >{{
+                          main_data.summary.hihold | roundOff | twoCommas
+                        }}%</span
                       >
                     </td>
                   </tr>
                   <tr class="yellow-table">
                     <td class="table-col05">Highest Sector</td>
                     <td class="table-col06">
-                      <span class="pull-right new-badge ng-binding"
-                        >38.24%</span
+                      <span class="pull-right new-badge ng-binding">
+                        {{
+                          main_data.summary.hisect | roundOff | twoCommas
+                        }}%</span
                       >
                     </td>
                   </tr>
                   <tr class="red-table">
                     <td class="table-col05">Allocation Large Cap</td>
                     <td class="table-col06">
-                      <span class="pull-right new-badge ng-binding"
-                        >49.32%</span
+                      <span class="pull-right new-badge ng-binding">
+                        {{
+                          main_data.summary.lcap | roundOff | twoCommas
+                        }}%</span
                       >
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <!-- end ngIf: loader[0].pf_divers_summary == false  && error_flag[0].diverse_summary == 0 -->
-            <p class="condi-p ng-binding">
-              A Highly Concentrated portfolio carries high risk of an adverse
-              effect on value of portfolio due to adverse movement in any one
-              holding. However, concentration will positively benefit the value
-              of portfolio in case of favourable movement in one stock as well.
+
+            <p *ngIf="main_data!" class="condi-p ng-binding">
+              {{ main_data.summary.txt }}
             </p>
           </div>
           <div
@@ -164,14 +161,14 @@
         </div>
       </section>
 
+      <!-- graph 1 -->
       <section
         class="swiper-slide small-card marginright swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"
       >
-
         <ng-container *ngIf="data_sector!">
-          <app-diversification [DATA]="data_sector" [HEAD]=" 'Sectors' " />
+          <app-diversification [DATA]="data_sector" [HEAD]="'Sectors'" />
         </ng-container>
 
         <div class="porbottomlink">
@@ -206,15 +203,15 @@
         </div>
       </section>
 
+      <!-- 2 -->
       <section
         class="swiper-slide small-card marginright swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"
       >
-
-      <ng-container *ngIf="data_mcap!">
-        <app-diversification [DATA]="data_mcap" [HEAD]=" 'Market Cap' " />
-      </ng-container>
+        <ng-container *ngIf="data_mcap!">
+          <app-diversification [DATA]="data_mcap" [HEAD]="'Market Cap'" />
+        </ng-container>
 
         <div class="porbottomlink">
           <div class="bottom-card-links">
@@ -248,16 +245,19 @@
         </div>
       </section>
 
+      <!-- 3 -->
       <section
         class="swiper-slide small-card marginright"
         data-scrolled="0"
         data-visited="0"
       >
-
-
-      <ng-container *ngIf="data_holding!">
-        <app-diversification [DATA]="data_holding" [HEAD]=" 'Top Holdings'" [TEXT]=" 'STOCKS'"  />
-      </ng-container>
+        <ng-container *ngIf="data_holding!">
+          <app-diversification
+            [DATA]="data_holding"
+            [HEAD]="'Top Holdings'"
+            [TEXT]="'STOCKS'"
+          />
+        </ng-container>
 
         <div class="porbottomlink">
           <div class="bottom-card-links">
@@ -291,6 +291,7 @@
         </div>
       </section>
 
+      <!-- stocks -->
       <section
         data-reveal="true"
         id="sectDiverse_stock"
@@ -309,61 +310,13 @@
                 ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_divers_stock == true -->
-            <!-- ngIf: loader[0].pf_divers_stock == false && error_flag[0].diverse_stocks == 1 -->
 
-            <div
-              class="diversifiedstock"
-              ng-show="loader[0].pf_divers_stock == false &amp;&amp; error_flag[0].diverse_stocks == 0"
-              style=""
-            >
+            <div class="diversifiedstock" *ngIf="main_data!">
               <ul class="ullist pfulist list-mojo">
-                <!-- ngRepeat: value in divers.stocks -->
-                <li
-                  ng-repeat="value in divers.stocks"
-                  class="ng-scope"
-                  style=""
-                >
-                  <strong class="yellow"
-                    >Number of stocks except tail stocks 11</strong
-                  >
-                  <p ng-bind-html="value.sub" class="ng-binding">
-                    <strong>Inadequate number of holdings -</strong> Your number
-                    of stock holdings are low. Range of stock holdings for a
-                    well-diversified portfolio is in the range of 21-25 stocks
-                    with at least 1% allocation in each.
-                  </p>
+                <li *ngFor="let item of main_data.stocks" class="ng-scope">
+                  <strong [ngClass]="item.clr"> {{ item.main }} </strong>
+                  <p [innerHTML]="item.sub" class="ng-binding"></p>
                 </li>
-                <!-- end ngRepeat: value in divers.stocks -->
-                <li ng-repeat="value in divers.stocks" class="ng-scope">
-                  <strong class="red">Tail Stocks in Portfolio: 6</strong>
-                  <p ng-bind-html="value.sub" class="ng-binding">
-                    Stock in which your holding is below 1% of your portfolio
-                    value are categorized as tail stocks. Neither these stocks
-                    add to your diversification nor they affect your overall
-                    portfolio returns.
-                  </p>
-                </li>
-                <!-- end ngRepeat: value in divers.stocks -->
-                <li ng-repeat="value in divers.stocks" class="ng-scope">
-                  <strong class="red">Highest Holding: 38.24%</strong>
-                  <p ng-bind-html="value.sub" class="ng-binding">
-                    <strong>High Concentration in Top Holding:</strong> Very
-                    large part of your portfolio is invested in a single stock.
-                    Any adverse news or movement in that stock, will have a
-                    significant impact on your portfolio. Weight in top holding
-                    for a well-diversified portfolio is suggested below 10%
-                  </p>
-                </li>
-                <!-- end ngRepeat: value in divers.stocks -->
-                <!--									<li>
-                                                                                                              <strong>Tail Stocks in Portfolio: 6</strong>
-                                                                                                              <p>Stock in which your holding is below 1% of your portfolio value are categorized as tail stocks. Neither these stocks add to your diversification nor they affect your overall portfolio returns.</p>
-                                                                                                      </li>
-                                                                                                      <li>
-                                                                                                              <strong class="red">Highest Holding: 41.45%</strong>
-                                                                                                              <p><strong>High Concentration in Top Holding : </strong> Very large part of your portfolio is invested in a single stock. Any adverse news or movement in that stock, will have a significant impact on your portfolio. Ideal weight in top holding for a well-diversified portfolio is suggested below 10%</p>
-                                                                                                      </li>-->
               </ul>
             </div>
           </div>
@@ -398,6 +351,7 @@
           </div>
         </div>
       </section>
+
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">
