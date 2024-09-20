@@ -154,7 +154,8 @@ this.areaChart = new Chart({
   series: [
     {
       type: 'area',
-      name: 'Stock Data',
+      name: '',
+      showInLegend: false,
       data: dataPoints,
       color: '#000000', // Set a default line color
       fillColor: {

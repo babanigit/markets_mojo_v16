@@ -47,6 +47,7 @@ export class GraphTodayComponent implements OnInit {
   fetchGraphData(
     type: 'day' | 'week' | 'month' | 'YTD' | 'year' | 'threeYears'
   ) {
+
     this.serv.getGraphData(type).subscribe({
       next: (res: IGraphData) => {
         this.graphData = res;
@@ -108,7 +109,9 @@ export class GraphTodayComponent implements OnInit {
 
     this.areaChart = new Chart({
       accessibility: { enabled: false },
-      chart: { type: 'area' },
+      chart: { type: 'area',
+        height:260
+       },
       title: { text: '' },
       credits: { enabled: false },
       xAxis: {
@@ -178,7 +181,8 @@ export class GraphTodayComponent implements OnInit {
       series: [
         {
           type: 'area',
-          name: 'Stock Data',
+          showInLegend: false,
+          name: '',
           data: dataPoints,
           color: '#000000', // Set a default line color
           lineWidth: 1,

@@ -48,31 +48,16 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   fetchData(): void {
     this.serv.getSwitcherDatas('today').subscribe((res: IToday) => {
 
-
       this.data_summary = res.data.summary;
-      // console.log('data_summary ', this.data_summary);
-
       this.data_contri = res.data.overall.contri;
-      // console.log('data_contri ', this.data_contri);
-
       this.data_drags = res.data.overall.drags;
-      // console.log('data_drags ', this.data_drags);
-
       this.data_news = res.data.news;
-      // console.log('data_news ', this.data_news);
-
       this.data_corpact = res.data.corpact;
-      // console.log('data_corpact ', this.data_corpact);
-
       this.data_gainers = res.data.overall.gainers;
-      // console.log('data_gainers ', this.data_gainers);
-
       this.data_losers = res.data.overall.losers;
-      // console.log('data_losers ', this.data_losers);
       this.data_mcap =res.data.mcap
 
       this.cdr.detectChanges(); // Trigger change detection
-
     });
   }
   ngAfterViewInit() {

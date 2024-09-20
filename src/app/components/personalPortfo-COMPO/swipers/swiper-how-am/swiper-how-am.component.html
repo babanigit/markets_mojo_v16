@@ -38,15 +38,19 @@
       >
         <div class="card">
           <div class="card-content movementcard">
+
             <!-- head -->
             <div id="pricemovement" class="card-head">
               <h2>
+
                 <span class="no-mob no-tab2"
                   >Your Portfolio Movement Today</span
                 >
                 <span class="no-web no-tab"
                   >Portfolio Movement (Cash Adjusted)</span
                 >
+
+                <!-- refresh button -->
                 <!--<span class="card-title activator info-act" ng-click="isCollapseTodayMov = !isCollapseTodayMov"></span>-->
                 <span class="pull-right" style="display: block">
                   <a
@@ -64,6 +68,7 @@
             <!-- ngIf: loader[0].pf_today_graph == true -->
 
             <div class="tabcol" ng-show="loader[0].pf_today_graph == false">
+
               <!-- button section -->
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
@@ -269,8 +274,8 @@
                 <div
                   class="cardmiddle"
                   ng-show="loader[0].pf_today_graph == false &amp;&amp; error_flag[0].actionToday_graph == 0 &amp;&amp; actionToday.error != 1"
-                  style=""
                 >
+
                   <!-- graph section -->
                   <div
                     class="cardgraph"
@@ -292,10 +297,12 @@
                       dir="ltr"
                       class="highcharts-container"
                     >
+
                       <!-- graph -->
                       <div style="padding: 0px 0px">
                         <app-graph-today />
                       </div>
+
                     </div>
                   </div>
 
@@ -420,14 +427,13 @@
                     </div>
                   </div>
 
-                  <!-- end ngIf: act_today_graph_tab =='1D' -->
-                  <!-- ngIf: act_today_graph_tab !='1D' -->
                 </div>
               </div>
             </div>
+
           </div>
 
-          <!-- slider -->
+          <!-- extend -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseTodayMov"
