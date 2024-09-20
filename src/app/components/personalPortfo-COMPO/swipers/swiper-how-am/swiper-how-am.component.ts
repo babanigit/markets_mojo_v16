@@ -13,6 +13,7 @@ import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { GraphTodayComponent } from '../../graph/graph-today/graph-today.component';
 import { CardComponent } from '../../cards/card/card.component';
+import { IMcapClass_Data, IToday, IToday_data } from 'src/app/models/pp/today';
 
 @Component({
   selector: 'app-swiper-how-am',
@@ -23,7 +24,6 @@ import { CardComponent } from '../../cards/card/card.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {
-  main_data: any = [];
   data_summary: any = [];
   data_contri: any = [];
   data_drags: any = [];
@@ -31,6 +31,7 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   data_corpact: any = [];
   data_gainers:any = [];
   data_losers:any = [];
+  data_mcap:IMcapClass_Data |undefined
 
 
   constructor(
@@ -45,10 +46,8 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   }
 
   fetchData(): void {
-    this.serv.getSwitcherDatas('today').subscribe((res) => {
+    this.serv.getSwitcherDatas('today').subscribe((res: IToday) => {
 
-      this.main_data = res;
-      // console.log('res : ', res);
 
       this.data_summary = res.data.summary;
       // console.log('data_summary ', this.data_summary);
@@ -70,6 +69,7 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
 
       this.data_losers = res.data.overall.losers;
       // console.log('data_losers ', this.data_losers);
+      this.data_mcap =res.data.mcap
 
       this.cdr.detectChanges(); // Trigger change detection
 

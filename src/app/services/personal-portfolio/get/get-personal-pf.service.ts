@@ -27,7 +27,7 @@ export class GetPersonalPFService {
     FINANCIALS: 'assets/pp/table/getFinancials.json',
     RETURNS: 'assets/pp/table/getReturn.json',
     RESULTS: 'assets/pp/table/getResults.json',
-    TOTAL_RETURNS: 'http://localhost:3000/totalReturn',
+    TOTAL_RETURNS: 'http://localhost:3000/totalReturn' ,
     PRICE: '',
     CONTRIBUTION: '',
     DIVIDEND: '',

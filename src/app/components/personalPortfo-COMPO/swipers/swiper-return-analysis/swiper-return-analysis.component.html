@@ -774,97 +774,14 @@
             >
               <div class="graphtabarea">
                 <div class="tabcol" data="0">
-                  <!-- button -->
-                  <div id="tabcol_new">
-                    <ul class="nav nav-tabs">
-                      <!-- ngRepeat: (key, year) in returnData.calendar.tab_year | limitTo:calendarLimit -->
-                      <li
-                        class="tab ng-scope"
-                        ng-repeat="(key, year) in returnData.calendar.tab_year | limitTo:calendarLimit"
-                        style=""
-                      >
-                        <a
-                          href="javascript:void(0)"
-                          ng-click="calendar_tab(key);"
-                          ng-class="key == caltab ? 'active' : ''"
-                          class="ng-binding active"
-                          >2024</a
-                        >
-                      </li>
-                      <!-- end ngRepeat: (key, year) in returnData.calendar.tab_year | limitTo:calendarLimit -->
-                      <li
-                        class="tab ng-scope"
-                        ng-repeat="(key, year) in returnData.calendar.tab_year | limitTo:calendarLimit"
-                      >
-                        <a
-                          href="javascript:void(0)"
-                          ng-click="calendar_tab(key);"
-                          ng-class="key == caltab ? 'active' : ''"
-                          class="ng-binding"
-                          >2023</a
-                        >
-                      </li>
-                      <!-- end ngRepeat: (key, year) in returnData.calendar.tab_year | limitTo:calendarLimit -->
-                      <li
-                        class="tab ng-scope"
-                        ng-repeat="(key, year) in returnData.calendar.tab_year | limitTo:calendarLimit"
-                      >
-                        <a
-                          href="javascript:void(0)"
-                          ng-click="calendar_tab(key);"
-                          ng-class="key == caltab ? 'active' : ''"
-                          class="ng-binding"
-                          >2022</a
-                        >
-                      </li>
-                      <!-- end ngRepeat: (key, year) in returnData.calendar.tab_year | limitTo:calendarLimit -->
-                    </ul>
-                  </div>
 
-                  <!-- graph1-->
-                  <div *ngIf="true" class="tab-content" ng-show="caltab == 0">
-                    <div
-                      id="container_calendar_return0"
-                      class="graph-return"
-                      data-highcharts-chart="8"
-                    >
+                  <!-- buttons and graph -->
+                  <ng-container *ngIf="data_calender!">
 
-                      <ng-container *ngIf="data_calender!">
-                        <app-bar-graph [chartData]="data_calender" />
-                      </ng-container>
+                    <app-bar-graph [chartData]="data_calender" />
 
-                    </div>
-                  </div>
+                  </ng-container>
 
-                  <!-- graph2 -->
-                  <div
-                    *ngIf="false"
-                    class="tab-content ng-hide"
-                    ng-show="caltab == 1"
-                  >
-                    <div
-                      id="container_calendar_return1"
-                      class="graph-return"
-                      data-highcharts-chart="3"
-                    >
-                      graph2
-                    </div>
-                  </div>
-
-                  <!-- graph3 -->
-                  <div
-                    *ngIf="false"
-                    class="tab-content ng-hide"
-                    ng-show="caltab == 2"
-                  >
-                    <div
-                      id="container_calendar_return2"
-                      class="graph-return"
-                      data-highcharts-chart="4"
-                    >
-                      graph3
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

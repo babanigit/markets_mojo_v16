@@ -1,63 +1,53 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { TopNPipePipe } from 'src/app/pipes/pp/top-npipe.pipe';
 
-type YearData = {
-  data: number;
-  color: number;
-  year: string;
-};
-
-type CategoryData = {
-  [key: string]: YearData;
-};
-
-type ChartData = {
-  [key: string]: CategoryData;
-  // sensex: CategoryData;
-  // midcap: CategoryData;
-  // smallcap: CategoryData;
-};
+type YearData = { data: number; color: number; year: string; };
+type CategoryData = { [key: string]: YearData; };
+type ChartData = { [key: string]: CategoryData; };
 
 @Component({
   selector: 'app-bar-graph',
   templateUrl: './bar-graph.component.html',
   styleUrls: ['./bar-graph.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TopNPipePipe],
 })
 export class BarGraphComponent implements OnInit {
   @ViewChild('container', { static: true }) container: ElementRef | undefined;
-
   @Input() chartData: any | undefined;
-
   chart: Highcharts.Chart | undefined;
-  currentYear: '2022' | '2023' | '2024' = '2024';
+  currentYear: string = '';
 
   ngOnInit() {
+    this.setInitialYear();
     this.createChart();
+  }
+
+  setInitialYear() {
+    if (this.chartData && this.chartData.years) {
+      this.currentYear = this.getHighestYear(this.chartData.years);
+    }
+  }
+
+  getHighestYear(years: string[]): string {
+    return years.reduce((a, b) => a > b ? a : b);
   }
 
   createChart() {
     const options: Highcharts.Options = {
       chart: {
         type: 'column',
-        height: 280
+        height: 280,
       },
-      title: {
-        text: 'Market Performance',
-        align: 'left',
-      },
+      title: undefined,
       xAxis: {
-        categories: ['Sensex', 'Midcap', 'Smallcap'],
-        title: {
-          text: null,
-        },
+        categories: ['Portfolio', 'Comp Ind', 'Sensex', 'Midcap', 'Smallcap'],
+        title: undefined,
       },
       yAxis: {
-        title: {
-          text: 'Performance (%)',
-        },
+        title: undefined,
       },
       plotOptions: {
         column: {
@@ -69,9 +59,10 @@ export class BarGraphComponent implements OnInit {
       },
       series: [
         {
-          name: this.currentYear,
+          name: '',
           type: 'column',
           data: this.getYearData(this.currentYear),
+          showInLegend: false,
         },
       ],
     };
@@ -79,19 +70,21 @@ export class BarGraphComponent implements OnInit {
     this.chart = Highcharts.chart(this.container!.nativeElement, options);
   }
 
-  getYearData(year: '2022' | '2023' | '2024'): number[] {
-    return [
-      this.chartData!['sensex'][year].data,
-      this.chartData!['midcap'][year].data,
-      this.chartData!['smallcap'][year].data,
-    ];
+  getYearData(year: string): Highcharts.PointOptionsObject[] {
+    const categories = ['port', 'comp', 'sensex', 'midcap', 'smallcap'];
+    return categories.map(category => {
+      const value = this.chartData![category][year].data;
+      return {
+        y: value,
+        color: value < 0 ? 'red' : undefined // Use default color for positive values
+      };
+    });
   }
 
-  updateChart(year: '2022' | '2023' | '2024') {
+  updateChart(year: string) {
     this.currentYear = year;
     if (this.chart) {
       this.chart.series[0].setData(this.getYearData(year));
-      this.chart.setTitle({ text: `Market Performance - ${year}` });
     }
   }
 }
