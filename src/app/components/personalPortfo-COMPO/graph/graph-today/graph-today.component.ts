@@ -40,8 +40,19 @@ export class GraphTodayComponent implements OnInit {
     private serv2 :GetPersonalPFService
   ) {}
 
+  graphToday_Data:any
+
+
   ngOnInit(): void {
     this.fetchGraphData('day');
+    this.fetch()
+  }
+
+  fetch() {
+this.serv2.getGraphToday().subscribe(res => {
+  this.graphToday_Data = res.data
+  console.log("graphToday data is : ",  this.graphToday_Data)
+})
   }
 
   fetchGraphData(

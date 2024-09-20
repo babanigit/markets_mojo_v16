@@ -28,8 +28,7 @@ import { ModelOpenComponent } from 'src/app/components/personalPortfo-COMPO/mode
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 import { LineGraphComponent } from 'src/app/components/personalPortfo-COMPO/cards/line-graph/line-graph.component';
 import { BarGraphComponent } from 'src/app/components/personalPortfo-COMPO/cards/bar-graph/bar-graph.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -43,7 +42,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
 
-// ModalModule.forRoot(),
+ModalModule.forRoot(),
 
     CommonModule,
     PersonalPortfoliosRoutingModule,

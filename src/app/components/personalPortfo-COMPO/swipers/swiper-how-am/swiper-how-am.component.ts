@@ -4,6 +4,9 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   OnInit,
   ChangeDetectorRef,
+  ViewChild,
+  ViewContainerRef,
+  ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
@@ -84,7 +87,7 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
 
     // console.log('Swiper instance:', swiper);
   }
-  modelopen(){
-    console.log('Modelopen');
-  }
+
+
+
 }

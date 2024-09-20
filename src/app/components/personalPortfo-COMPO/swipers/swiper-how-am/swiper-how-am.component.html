@@ -1,10 +1,7 @@
-
-        <!-- model -->
-        <app-model-open *ngIf="false">
-
-          hello
-
-        </app-model-open>
+<!-- model -->
+<app-model-open *ngIf="false">
+  <div #trail>hello</div>
+</app-model-open>
 
 <div class="slide-card cf" id="MenusectToday">
   <div class="swiper-container swiper-1 swiper-container-horizontal">
@@ -46,11 +43,9 @@
       >
         <div class="card">
           <div class="card-content movementcard">
-
             <!-- head -->
             <div id="pricemovement" class="card-head">
               <h2>
-
                 <span class="no-mob no-tab2"
                   >Your Portfolio Movement Today</span
                 >
@@ -76,7 +71,6 @@
             <!-- ngIf: loader[0].pf_today_graph == true -->
 
             <div class="tabcol" ng-show="loader[0].pf_today_graph == false">
-
               <!-- button section -->
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
@@ -283,7 +277,6 @@
                   class="cardmiddle"
                   ng-show="loader[0].pf_today_graph == false &amp;&amp; error_flag[0].actionToday_graph == 0 &amp;&amp; actionToday.error != 1"
                 >
-
                   <!-- graph section -->
                   <div
                     class="cardgraph"
@@ -305,12 +298,10 @@
                       dir="ltr"
                       class="highcharts-container"
                     >
-
                       <!-- graph -->
                       <div style="padding: 0px 0px">
                         <app-graph-today />
                       </div>
-
                     </div>
                   </div>
 
@@ -434,11 +425,9 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
-
           </div>
 
           <!-- extend -->
@@ -1430,30 +1419,6 @@
         data-visited="0"
       >
         <app-card [DATA]="data_contri" [HEAD]="'Today\'s Contributors'" />
-
-
-
-        <!-- full details button -->
-        <div class="porbottomlink">
-          <div
-            class="bottom-card-links ng-scope"
-            ng-controller="ModalDemoCtrl as $ctrl"
-          >
-            <div class="bottom-card-links">
-              <a
-                ng-click="setActionTodayPopup('contri'); modalOpen('actionToday_popup', 1)"
-                class="seefull waves-effect waves-light modal-trigger"
-              >
-                <img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details
-              </a>
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- today's drags -->
