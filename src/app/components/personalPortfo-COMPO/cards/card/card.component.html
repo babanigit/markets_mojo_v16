@@ -1,3 +1,10 @@
+<!-- model -->
+<app-model-open *ngIf="HEAD == 'Today\'s Contributors' && false">
+
+  hello
+
+</app-model-open>
+
 <div class="card">
 
   <div class="card-content">
@@ -101,67 +108,7 @@
 
 </div>
 
-<!-- model -->
-<app-model-open *ngIf="HEAD == 'Today\'s Contributors' && false">
 
-  <div class="contributors list-mojo ng-scope">
-    <!-- table -->
-    <table class="table1">
-      <thead>
-        <tr>
-          <th class="textcenter">
-            Company <br />
-            Price
-          </th>
-          <th class="textcenter">Day's Gain<br />in %</th>
-          <th class="textcenter">Latest<br />Value</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <!-- ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
-
-        <!-- start -->
-        <tr class="ng-scope" *ngFor="let item of DATA; trackBy: trackByFn">
-          <td>
-            <div>
-              <a
-                [href]="'/Stocks?StockId=' + item.dotsum.sid + '&Exchange=0'"
-                target="_blank"
-                class="ng-binding"
-              >
-                {{ item.short }}
-              </a>
-              <br />
-              <span
-                ><span [ngClass]="getClassByColor(item.dotsum.q_clr)"></span>
-                <span [ngClass]="getClassByColor(item.dotsum.v_clr)"></span>
-                <span [ngClass]="getClassByColor(item.dotsum.f_clr)"></span>
-              </span>
-            </div>
-            <p class="ng-binding">
-              {{ item.cmp | roundOff | twoCommas }}
-            </p>
-          </td>
-          <td [ngClass]="getDirClrDefault(item.dgaindir, 'orange') + ' txt-rt'">
-            <p class="pf-tbl-txt1 ng-binding">
-              {{ item.dgain | roundOff | twoCommas }}%
-            </p>
-            <p class="pf-tbl-txt2 ng-binding">
-              {{ item.dgainp | roundOff | twoCommas }}%
-            </p>
-          </td>
-
-          <td class="txt-rt pf-tbl-txt3 ng-binding">
-            {{ item.lval | roundOff | twoCommas }}
-          </td>
-        </tr>
-        <!-- end -->
-      </tbody>
-    </table>
-  </div>
-
-</app-model-open>
 
 
 

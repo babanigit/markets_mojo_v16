@@ -11,6 +11,7 @@ import {
 } from 'rxjs';
 import { IGraphData } from 'src/app/models/graphData';
 import { TableType } from 'src/app/components/personalPortfo-COMPO/tables/tables.component';
+import { ITodayGraph } from 'src/app/models/pp/todayGraph';
 
 @Injectable({
   providedIn: 'root',
@@ -116,11 +117,11 @@ export class GetPersonalPFService {
   loading$ = this.loadingSubject.asObservable();
   error$ = this.errorSubject.asObservable();
 
-  getGraphToday(): Observable<IGraphData> {
+  getGraphToday(): Observable<ITodayGraph> {
     const path = ' assets/pp/graph/getPortfolioGraph.json';
     this.loadingSubject.next(true); // Set loading to true
 
-    return this.http.get<IGraphData>(path).pipe(
+    return this.http.get<ITodayGraph>(path).pipe(
       // delay(1000),
       catchError((err) => {
         this.loadingSubject.next(false); // Set loading to false on error

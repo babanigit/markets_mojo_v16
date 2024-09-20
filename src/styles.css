@@ -1,6 +1,7 @@
 /* In styles.css or angular.json */
 /* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
 /* @import "../node_modules/swiper/swiper-bundle.min.css"; */
+@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css";
 
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");

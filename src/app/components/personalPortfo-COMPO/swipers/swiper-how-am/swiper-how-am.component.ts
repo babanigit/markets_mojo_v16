@@ -14,13 +14,14 @@ import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { GraphTodayComponent } from '../../graph/graph-today/graph-today.component';
 import { CardComponent } from '../../cards/card/card.component';
 import { IMcapClass_Data, IToday, IToday_data } from 'src/app/models/pp/today';
+import { ModelOpenComponent } from '../../model-open/model-open.component';
 
 @Component({
   selector: 'app-swiper-how-am',
   templateUrl: './swiper-how-am.component.html',
   styleUrls: ['./swiper-how-am.component.css'],
   standalone: true,
-  imports: [CommonModule, TwoCommasPipe, RoundOffPipe, CardComponent,GraphTodayComponent],
+  imports: [CommonModule, TwoCommasPipe, RoundOffPipe, CardComponent,GraphTodayComponent, ModelOpenComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {

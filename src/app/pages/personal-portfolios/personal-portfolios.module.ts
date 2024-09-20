@@ -1,3 +1,6 @@
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -25,6 +28,8 @@ import { ModelOpenComponent } from 'src/app/components/personalPortfo-COMPO/mode
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 import { LineGraphComponent } from 'src/app/components/personalPortfo-COMPO/cards/line-graph/line-graph.component';
 import { BarGraphComponent } from 'src/app/components/personalPortfo-COMPO/cards/bar-graph/bar-graph.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -37,6 +42,9 @@ import { BarGraphComponent } from 'src/app/components/personalPortfo-COMPO/cards
     MutualFundsInvestmentsComponent,
   ],
   imports: [
+
+// ModalModule.forRoot(),
+
     CommonModule,
     PersonalPortfoliosRoutingModule,
     PfPriceMsgComponent,
@@ -57,10 +65,13 @@ import { BarGraphComponent } from 'src/app/components/personalPortfo-COMPO/cards
     SwiperTaxComponent,
     SwiperLiquidityComponent,
 
-ModelOpenComponent,
-DemoComponent,
-LineGraphComponent,
-BarGraphComponent
+    ModelOpenComponent,
+    DemoComponent,
+    LineGraphComponent,
+    BarGraphComponent,
+
+
+
   ],
 })
 export class PersonalPortfoliosModule {}
