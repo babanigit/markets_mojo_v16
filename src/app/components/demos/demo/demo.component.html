@@ -1,16 +1,2 @@
-<button class="btn btn-primary" (click)="openModal(modalTemplate)">Open Modal</button>
-
-<ng-template #modalTemplate>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal title</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    This is modal content
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
-  </div>
-</ng-template>
+<app-demo-child> </app-demo-child>
+<app-popup *ngIf="showPopup"></app-popup>
