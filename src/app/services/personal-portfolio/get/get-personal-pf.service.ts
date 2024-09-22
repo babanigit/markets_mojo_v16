@@ -17,30 +17,48 @@ import { ITodayGraph } from 'src/app/models/pp/todayGraph';
   providedIn: 'root',
 })
 export class GetPersonalPFService {
+  private readonly FROM_EXPRESS_API: boolean = true;
+  private readonly Table_paths: { [key in TableType]: string };
 
-  private readonly paths: { [key in TableType]: string } = {
-    OVERVIEW: 'assets/pp/table/getOverview.json',
-    HOLDING: 'http://localhost:3000/holding',
-    RISK: 'assets/pp/table/getRisk.json',
-    LIQUIDITY: 'assets/pp/table/getLiquidity.json',
-    TAX: 'assets/pp/table/getTax.json',
-    RATIOS: 'assets/pp/table/getRatio.json',
-    FINANCIALS: 'assets/pp/table/getFinancials.json',
-    RETURNS: 'assets/pp/table/getReturn.json',
-    RESULTS: 'assets/pp/table/getResults.json',
-    TOTAL_RETURNS: 'http://localhost:3000/totalReturn' ,
-    PRICE: '',
-    CONTRIBUTION: '',
-    DIVIDEND: '',
-    MOJO: ''
-  };
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
 
-  getOverviewStocks(
-    type: TableType,
+    this.Table_paths = this.FROM_EXPRESS_API
+      ? {
+          OVERVIEW: 'http://localhost:3000/api/personalportfolio/overview',
+          HOLDING: 'http://localhost:3000/api/personalportfolio/holding',
+          RISK: 'http://localhost:3000/api/personalportfolio/risk',
+          LIQUIDITY: 'http://localhost:3000/api/personalportfolio/liquidity',
+          TAX: 'http://localhost:3000/api/personalportfolio/tax',
+          RATIOS: 'http://localhost:3000/api/personalportfolio/ratios',
+          FINANCIALS: 'http://localhost:3000/api/personalportfolio/financials',
+          RETURNS: 'http://localhost:3000/api/personalportfolio/returns',
+          RESULTS: 'http://localhost:3000/api/personalportfolio/rsults',
+          TOTAL_RETURNS: 'http://localhost:3000/api/personalportfolio/totalReturns',
+          PRICE: '',
+          CONTRIBUTION: '',
+          DIVIDEND: '',
+          MOJO: '',
+        }
+      : {
+          OVERVIEW: 'assets/pp/table/getOverview.json',
+          HOLDING: 'assets/pp/table/getHolding.json',
+          RISK: 'assets/pp/table/getRisk.json',
+          LIQUIDITY: 'assets/pp/table/getLiquidity.json',
+          TAX: 'assets/pp/table/getTax.json',
+          RATIOS: 'assets/pp/table/getRatio.json',
+          FINANCIALS: 'assets/pp/table/getFinancials.json',
+          RETURNS: 'assets/pp/table/getReturn.json',
+          RESULTS: 'assets/pp/table/getResults.json',
+          TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
+          PRICE: '',
+          CONTRIBUTION: '',
+          DIVIDEND: '',
+          MOJO: '',
+        };
+  }
 
-  ): Observable<any> {
-    const path = this.paths[type] || this.paths.HOLDING; // Default to HOLDING path
+  getOverviewStocks(type: TableType): Observable<any> {
+    const path = this.Table_paths[type] || this.Table_paths.HOLDING; // Default to HOLDING path
     const url = `${path}?start=${0}&limit=${10}`;
     console.log('Fetching data from:', url);
 
@@ -69,7 +87,7 @@ export class GetPersonalPFService {
     today: 'assets/pp/swiper/today.json',
     overall: 'assets/pp/swiper/overall.json',
     return: 'assets/pp/swiper/return.json',
-    risk:'assets/pp/swiper/risk.json',
+    risk: 'assets/pp/swiper/risk.json',
     liquidity: 'assets/pp/swiper/liquidity.json',
     diversification: 'assets/pp/swiper/diversification.json',
     taxAnalysis: 'assets/pp/swiper/taxAnalysis.json',
@@ -77,8 +95,15 @@ export class GetPersonalPFService {
   };
 
   getSwitcherDatas(
-    type: 'today' | 'overall' | 'return' |'risk' | 'liquidity' | 'diversification' | 'taxAnalysis' | 'taxHistory'
-
+    type:
+      | 'today'
+      | 'overall'
+      | 'return'
+      | 'risk'
+      | 'liquidity'
+      | 'diversification'
+      | 'taxAnalysis'
+      | 'taxHistory'
   ) {
     const path = this.paths2[type] || this.paths2.today;
 
@@ -92,7 +117,7 @@ export class GetPersonalPFService {
   }
 
   private ixrrpath = 'assets/pp/swiper/getIXIRRData.json';
-  getIxrrData(){
+  getIxrrData() {
     return this.http.get<any>(this.ixrrpath).pipe(
       catchError((err) => {
         console.error('Error fetching ixrr :', err);
@@ -102,7 +127,7 @@ export class GetPersonalPFService {
   }
 
   private qvflpath = 'assets/pp/swiper/getQVFLData.json';
-  getQVFLData(){
+  getQVFLData() {
     return this.http.get<any>(this.qvflpath).pipe(
       catchError((err) => {
         console.error('Error fetching qvfl :', err);
