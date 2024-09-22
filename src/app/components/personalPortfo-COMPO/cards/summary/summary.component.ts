@@ -14,14 +14,20 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
 import { RadiusChartComponent } from '../radius-chart/radius-chart.component';
 import { graph_Data2 } from 'src/app/models/pp/risk';
 import { series_Data_pie } from 'src/app/models/pp/pie';
-import { ModelOpenComponent } from "../../model-open/model-open.component";
+import { ModelOpenComponent } from '../../model-open/model-open.component';
 
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.css'],
   standalone: true,
-  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, RadiusChartComponent, ModelOpenComponent],
+  imports: [
+    CommonModule,
+    RoundOffPipe,
+    TwoCommasPipe,
+    RadiusChartComponent,
+    ModelOpenComponent,
+  ],
 })
 export class SummaryComponent {
   @Input() DATA: IQvfl_Data | undefined;
@@ -42,29 +48,27 @@ export class SummaryComponent {
   constructor(public fun: PpFunctionsService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-
     if (changes['DATA']) {
-      console.log('DATA changed card: ', this.DATA);
+      // console.log('DATA changed card: ', this.DATA);
 
       if (this.HEAD === 'Liquidity' && this.DATA!) {
         this.MAIN = this.DATA.liquidity;
-        console.log('the main is  ', this.HEAD, '  ::::', this.MAIN);
+        // console.log('the main is  ', this.HEAD, '  ::::', this.MAIN);
         this.getPieFromat(this.MAIN.graph);
       } else if (this.HEAD === 'Quality' && this.DATA!) {
         this.MAIN = this.DATA.quality;
-        console.log('the main is  ', this.HEAD, '  ::::', this.MAIN);
+        // console.log('the main is  ', this.HEAD, '  ::::', this.MAIN);
         this.getPieFromat(this.MAIN.graph);
       } else if (this.HEAD === 'Valuation' && this.DATA!) {
         this.MAIN = this.DATA.valuation;
-        console.log('the main is  ', this.HEAD, '  ::::', this.MAIN);
+        // console.log('the main is  ', this.HEAD, '  ::::', this.MAIN);
         this.getPieFromat(this.MAIN.graph);
       } else if (this.HEAD === 'Financial' && this.DATA!) {
         this.MAIN = this.DATA.fin_trend;
-        console.log('the main is  ', this.HEAD, '  ::::', this.MAIN);
+        // console.log('the main is  ', this.HEAD, '  ::::', this.MAIN);
         this.getPieFromat(this.MAIN.graph);
       }
     }
-
   }
 
   // to format
@@ -73,7 +77,7 @@ export class SummaryComponent {
       name,
       y,
     }));
-    console.log('hey bro summary : ', seriesData_pie);
+    // console.log('hey bro summary : ', seriesData_pie);
     this.pieFromat = seriesData_pie;
   }
 }

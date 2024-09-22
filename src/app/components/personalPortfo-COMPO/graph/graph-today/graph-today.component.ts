@@ -16,7 +16,6 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
   standalone: true,
   imports: [ChartModule, CommonModule],
 })
-
 export class GraphTodayComponent implements OnInit {
   Highcharts: typeof Highcharts = Highcharts;
 
@@ -37,28 +36,26 @@ export class GraphTodayComponent implements OnInit {
   constructor(
     private serv: GraphDataService,
     private dot: GetDotFunctionsService,
-    private serv2 :GetPersonalPFService
+    private serv2: GetPersonalPFService
   ) {}
 
-  graphToday_Data:any
-
+  graphToday_Data: any;
 
   ngOnInit(): void {
     this.fetchGraphData('day');
-    this.fetch()
+    this.fetch();
   }
 
   fetch() {
-this.serv2.getGraphToday().subscribe(res => {
-  this.graphToday_Data = res.data
-  console.log("graphToday data is : ",  this.graphToday_Data)
-})
+    this.serv2.getGraphToday().subscribe((res) => {
+      this.graphToday_Data = res.data;
+      console.log('graphToday data is : ', this.graphToday_Data);
+    });
   }
 
   fetchGraphData(
     type: 'day' | 'week' | 'month' | 'YTD' | 'year' | 'threeYears'
   ) {
-
     this.serv.getGraphData(type).subscribe({
       next: (res: IGraphData) => {
         this.graphData = res;
@@ -66,7 +63,8 @@ this.serv2.getGraphToday().subscribe(res => {
         this.errorMessage = null; // Clear previous errors
       },
       error: (err) => {
-        this.errorMessage = 'Failed to load graph data. Please try again later.';
+        this.errorMessage =
+          'Failed to load graph data. Please try again later.';
         console.error('Error:', err);
       },
     });
@@ -97,10 +95,7 @@ this.serv2.getGraphToday().subscribe(res => {
   //start
 
   updateChart() {
-
-    if (
-      !this.graphData
-    ) {
+    if (!this.graphData) {
       console.error('Invalid graph data');
       return;
     }
@@ -114,15 +109,12 @@ this.serv2.getGraphToday().subscribe(res => {
     const minY = Math.min(...dataPoints.map(([_, y]) => y));
     const maxY = Math.max(...dataPoints.map(([_, y]) => y));
 
-    console.log("minY: " + minY);
-    console.log("maxY: " + maxY);
-
+    console.log('minY: ' + minY);
+    console.log('maxY: ' + maxY);
 
     this.areaChart = new Chart({
       accessibility: { enabled: false },
-      chart: { type: 'area',
-        height:260
-       },
+      chart: { type: 'area', height: 260 },
       title: { text: '' },
       credits: { enabled: false },
       xAxis: {
@@ -179,15 +171,15 @@ this.serv2.getGraphToday().subscribe(res => {
               x1: 0,
               y1: 0,
               x2: 0,
-              y2: 1
+              y2: 1,
             },
             stops: [
               [0, '#4CAF50'],
-              [1, '#FF6666']
-            ]
+              [1, '#FF6666'],
+            ],
           },
-          threshold: null
-        }
+          threshold: null,
+        },
       },
       series: [
         {
@@ -211,8 +203,6 @@ this.serv2.getGraphToday().subscribe(res => {
         },
       ] as Highcharts.SeriesOptionsType[],
     });
-
-
   }
 
   // end

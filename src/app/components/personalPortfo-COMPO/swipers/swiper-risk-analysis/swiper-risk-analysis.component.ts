@@ -85,25 +85,26 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
       name,
       y,
     }));
-    console.log('hey bro : ', seriesData_pie);
+    // console.log('hey bro : ', seriesData_pie);
     this.pieFromat = seriesData_pie;
   }
 
   fetchData(): void {
     this.serv.getSwitcherDatas('risk').subscribe((res: IRisk) => {
       this.main_data = res.data;
-      console.log('main_data riks : ', res.data);
+      // console.log('main_data riks : ', res.data);
 
       this.data_scorecard = res.data.score;
-      console.log('scorecard riks : ', res.data);
+      // console.log('scorecard riks : ', res.data);
 
       this.data_allocation = res.data.allocation;
-      console.log('data_allocation riks : ', res.data.allocation);
+      // console.log('data_allocation riks : ', res.data.allocation);
 
-      console.log(
-        'res.data.allocation.graph.data ',
-        res.data.allocation.graph.data
-      );
+      // console.log(
+      //   'res.data.allocation.graph.data ',
+      //   res.data.allocation.graph.data
+      // );
+
       this.getPieFromat(res.data.allocation.graph.data);
 
       this.cdr.detectChanges(); // Trigger change detection

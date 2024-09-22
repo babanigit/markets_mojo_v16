@@ -21,7 +21,6 @@ export class GetPersonalPFService {
   private readonly Table_paths: { [key in TableType]: string };
 
   constructor(private http: HttpClient) {
-
     this.Table_paths = this.FROM_EXPRESS_API
       ? {
           OVERVIEW: 'http://localhost:3000/api/personalportfolio/overview',
@@ -33,7 +32,8 @@ export class GetPersonalPFService {
           FINANCIALS: 'http://localhost:3000/api/personalportfolio/financials',
           RETURNS: 'http://localhost:3000/api/personalportfolio/returns',
           RESULTS: 'http://localhost:3000/api/personalportfolio/rsults',
-          TOTAL_RETURNS: 'http://localhost:3000/api/personalportfolio/totalReturns',
+          TOTAL_RETURNS:
+            'http://localhost:3000/api/personalportfolio/totalReturns',
           PRICE: '',
           CONTRIBUTION: '',
           DIVIDEND: '',
@@ -60,7 +60,7 @@ export class GetPersonalPFService {
   getOverviewStocks(type: TableType): Observable<any> {
     const path = this.Table_paths[type] || this.Table_paths.HOLDING; // Default to HOLDING path
     const url = `${path}?start=${0}&limit=${10}`;
-    console.log('Fetching data from:', url);
+    // console.log('Fetching data from:', url);
 
     return this.http.get<any>(url).pipe(
       catchError((err) => {

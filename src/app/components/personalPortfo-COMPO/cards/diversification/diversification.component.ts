@@ -42,7 +42,7 @@ export class DiversificationComponent implements OnInit {
       name,
       y,
     }));
-    console.log('hey bro summary : ', seriesData_pie);
+    // console.log('hey bro summary : ', seriesData_pie);
     this.pieFromat = seriesData_pie;
   }
 }
