@@ -1,2 +1,19 @@
-<app-demo-child> </app-demo-child>
-<app-popup *ngIf="showPopup"></app-popup>
+<app-demo-child
+  (sendElement)="receiveElement($event)"
+  (sendClick_State)="receiveClickState($event)"
+>
+</app-demo-child>
+
+<div *ngIf="click_state" style="background-color: gray; height: 200px">
+
+  <button (click)="click_state = !click_state">x</button>
+  <div #parentContainer></div>
+
+</div>
+
+<!--
+<div #sourceDiv>This is the source div.</div>
+
+<div #targetDiv>This is the target div.</div>
+
+<button (click)="moveElement()">Move Element</button> -->

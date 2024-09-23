@@ -37,7 +37,6 @@ import { NgbModal, NgbModalRef, NgbModule } from '@ng-bootstrap/ng-bootstrap';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent implements OnInit, OnChanges {
-
   @Input() DATA?: IContri[] | undefined; //props
   @Input() HEAD!: string; //props
   @Input() SHOW_BUTTON: Boolean = true;
@@ -48,6 +47,28 @@ export class CardComponent implements OnInit, OnChanges {
     private fun: PpFunctionsService,
     private modalService: NgbModal
   ) {}
+
+  @ViewChild('childDiv') childDiv: ElementRef<HTMLDivElement> | undefined;
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
+
+  sendToParent() {
+    if (this.childDiv) {
+      // Clone the element to avoid moving it
+      const clonedElement = this.childDiv.nativeElement.cloneNode(
+        true
+      ) as HTMLDivElement;
+      console.log('Sending cloned element:', clonedElement);
+
+      // in this the element get disapper
+      // this.sendElement.emit(this.childDiv.nativeElement);
+
+      this.sendElement.emit(clonedElement);
+      this.sendClick_State.emit(true);
+      this.send_head.emit(this.HEAD);
+    }
+  }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -94,5 +115,4 @@ export class CardComponent implements OnInit, OnChanges {
     // You can pass data via the component instance
     // this.modalRef.componentInstance.product_icon_list = this.product_icon_list;
   }
-
 }

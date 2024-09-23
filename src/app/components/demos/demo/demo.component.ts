@@ -6,6 +6,8 @@ import {
   OnDestroy,
   OnInit,
   ElementRef,
+  ViewChild,
+  SimpleChanges,
 } from '@angular/core';
 
 import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
@@ -22,29 +24,48 @@ import { PopupComponent } from '../popup/popup.component';
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css'],
   standalone: true,
-  imports: [CommonModule,
-    DemoChildComponent,
-    PopupComponent
-  ],
+  imports: [CommonModule, DemoChildComponent, PopupComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class DemoComponent  implements OnInit, OnDestroy {
-  showPopup = false;
-  private subscription: Subscription | undefined;
+export class DemoComponent {
+  @ViewChild('sourceDiv') sourceDiv: ElementRef<HTMLDivElement> | undefined;
+  @ViewChild('targetDiv') targetDiv: ElementRef<HTMLDivElement> | undefined;
 
-  constructor(private popupService: PopupService) {}
+  click_state: boolean = false;
 
+  @ViewChild('parentContainer', { static: false })
+  parentContainer!: ElementRef<HTMLDivElement>;
 
-  ngOnInit() {
-    this.subscription = this.popupService.showPopup$.subscribe(
-      show => this.showPopup = show
-    );
+  receiveElement(element: HTMLDivElement) {
+    console.log('Received element', element);
+
+    // Use the ViewChild reference to append the element
+    setTimeout(() => {
+      if (this.parentContainer) {
+        console.log('append');
+        this.parentContainer.nativeElement.appendChild(element);
+      }
+    }, 0);
+  }
+  receiveClickState(state: boolean) {
+    this.click_state = state;
   }
 
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
+  moveElement() {
+    if (this.sourceDiv && this.targetDiv) {
+      // Get the source div element
+      const sourceElement = this.sourceDiv.nativeElement;
+
+      // Check if the source element has a parent node before removing it
+      if (sourceElement.parentNode) {
+        // Remove the source div element from its current location
+        sourceElement.parentNode.removeChild(sourceElement);
+
+        // Append the source div element to the target div
+        this.targetDiv.nativeElement.appendChild(sourceElement);
+      } else {
+        console.log('Source element has no parent node.');
+      }
     }
   }
-
 }
