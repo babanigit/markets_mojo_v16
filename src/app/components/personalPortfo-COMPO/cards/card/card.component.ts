@@ -18,8 +18,8 @@ import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { ModelOpenComponent } from '../../model-open/model-open.component';
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { NgbModal, NgbModalRef, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { ModalModule } from 'ngx-bootstrap/modal';
+// import { NgbModal, NgbModalRef, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-card',
@@ -32,7 +32,7 @@ import { NgbModal, NgbModalRef, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TwoCommasPipe,
     ModelOpenComponent,
     DemoComponent,
-    NgbModule,
+    // NgbModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -41,11 +41,11 @@ export class CardComponent implements OnInit, OnChanges {
   @Input() HEAD!: string; //props
   @Input() SHOW_BUTTON: Boolean = true;
 
-  modalRef!: NgbModalRef;
+  // modalRef!: NgbModalRef;
 
   constructor(
     private fun: PpFunctionsService,
-    private modalService: NgbModal
+    // private modalService: NgbModal
   ) {}
 
   @ViewChild('childDiv') childDiv: ElementRef<HTMLDivElement> | undefined;

@@ -10,7 +10,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 
-import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+// import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';

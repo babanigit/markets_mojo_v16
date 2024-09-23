@@ -1,4 +1,4 @@
-import { ModalModule } from 'ngx-bootstrap/modal';
+// import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
@@ -43,7 +43,7 @@ import { LineGraphComponent } from 'src/app/components/personalPortfo-COMPO/grap
   ],
   imports: [
 
-ModalModule.forRoot(),
+// ModalModule.forRoot(),
 
     CommonModule,
     PersonalPortfoliosRoutingModule,
