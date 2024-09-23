@@ -29,7 +29,7 @@ import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { I_Ixrr, I_Ixrr_Data } from 'src/app/models/pp/ixrr';
-import { BarGraphComponent } from '../../cards/bar-graph/bar-graph.component';
+import { BarGraphComponent } from '../../graph/bar-graph/bar-graph.component';
 
 @Component({
   selector: 'app-swiper-return-analysis',

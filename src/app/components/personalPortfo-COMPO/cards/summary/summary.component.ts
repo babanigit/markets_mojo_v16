@@ -11,10 +11,10 @@ import {
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
-import { RadiusChartComponent } from '../radius-chart/radius-chart.component';
 import { graph_Data2 } from 'src/app/models/pp/risk';
 import { series_Data_pie } from 'src/app/models/pp/pie';
 import { ModelOpenComponent } from '../../model-open/model-open.component';
+import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.component';
 
 @Component({
   selector: 'app-summary',

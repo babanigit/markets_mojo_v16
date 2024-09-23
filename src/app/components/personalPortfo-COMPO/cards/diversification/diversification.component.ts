@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { I_diversi_sector } from 'src/app/models/pp/diversification';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
-import { RadiusChartComponent } from '../radius-chart/radius-chart.component';
 import { graph_Data2 } from 'src/app/models/pp/risk';
 import { series_Data_pie } from 'src/app/models/pp/pie';
+import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.component';
 
 @Component({
   selector: 'app-diversification',
