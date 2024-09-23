@@ -70,7 +70,11 @@
 
             <!-- ngIf: loader[0].pf_today_graph == true -->
 
-            <div class="tabcol" ng-show="loader[0].pf_today_graph == false">
+            <div
+              *ngIf="graphToday_Data!"
+              class="tabcol"
+              ng-show="loader[0].pf_today_graph == false"
+            >
               <!-- button section -->
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
@@ -79,111 +83,61 @@
                       href="javascript:void(0)"
                       id=""
                       ng-class="act_tab_class['1D']"
-                      class="active red"
+                      class="red"
                       ng-click=" getToday(0,1);"
                       style=""
                       >1D</a
                     >
                   </li>
+
                   <!-- ngRepeat: value in act_tab_name -->
                   <li
+                    *ngFor="let item of graphToday_Data | keyvalue"
                     class="tab ng-scope"
                     ng-repeat="value in act_tab_name"
+                  >
+                    <a
+                      id=""
+                      class="green"
+                      [ngClass]="{ active: item.key === send_button }"
+                      (click)="buttonClicked(item.key)"
+                    >
+                      {{ item.key }}
+                    </a>
+                  </li>
+
+                  <li
+                    class="tab no-mob no-tab2 ng-scope"
+                    ng-if="act_today_graph_tab != '1D'"
                     style=""
                   >
                     <a
                       href="javascript:void(0)"
                       id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >1M</a
+                      (click)="switchFun('flow')"
+                      [ngClass]="
+                        switch_button === 'flow' ? 'active' : 'buttonactive'
+                      "
+                      >Cash Flow</a
                     >
                   </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
+
+                  <li
+                    class="tab no-mob no-tab2 ng-scope"
+                    ng-if="act_today_graph_tab != '1D'"
+                  >
                     <a
                       href="javascript:void(0)"
                       id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >3M</a
+                      (click)="switchFun('adj')"
+                      [ngClass]="
+                        switch_button === 'adj' ? 'active' : 'buttonactive'
+                      "
+                      >Cash Adjusted</a
                     >
                   </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
-                    <a
-                      href="javascript:void(0)"
-                      id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >6M</a
-                    >
-                  </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
-                    <a
-                      href="javascript:void(0)"
-                      id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >YTD</a
-                    >
-                  </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
-                    <a
-                      href="javascript:void(0)"
-                      id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >1Y</a
-                    >
-                  </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
-                    <a
-                      href="javascript:void(0)"
-                      id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >3Y</a
-                    >
-                  </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
-                    <a
-                      href="javascript:void(0)"
-                      id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >INCEPTION</a
-                    >
-                  </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <!--									<li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['3M']}}"  ng-class="{active:act_today_graph_tab == '3M'}"  ng-click="act_today_graph_tab = '3M'; getActGraph('3M',act_today_graph_type)">3M</a>
-                </li>
-                                                                      <li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['YTD']}}"  ng-class="{active:act_today_graph_tab == 'YTD'}"  ng-click="act_today_graph_tab = 'YTD'; getActGraph('YTD',act_today_graph_type)">YTD </a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['1Y']}}" ng-class="{active:act_today_graph_tab == '1Y'}"  ng-click="act_today_graph_tab = '1Y'; getActGraph('1Y',act_today_graph_type)">1Y</a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['3Y']}}" ng-class="{active:act_today_graph_tab == '3Y'}"  ng-click="act_today_graph_tab = '3Y'; getActGraph('3Y',act_today_graph_type)">3Y</a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['inception']}}" ng-class="{active:act_today_graph_tab == 'inception'}"  ng-click="act_today_graph_tab = 'inception'; getActGraph('inception',act_today_graph_type)">Inception</a>
-                </li>-->
-                  <!-- ngIf: act_today_graph_tab !='1D' -->
-                  <!-- ngIf: act_today_graph_tab !='1D' -->
+
+
                 </ul>
               </div>
 
@@ -197,6 +151,7 @@
                       class="ng-pristine ng-untouched ng-valid ng-not-empty"
                     >
                       <option value="1D" selected="selected">1D</option>
+
                       <!-- ngRepeat: value in act_tab_name -->
                       <option
                         ng-repeat="value in act_tab_name"
@@ -300,7 +255,11 @@
                     >
                       <!-- graph -->
                       <div style="padding: 0px 0px">
-                        <app-graph-today />
+                        <app-graph-today
+                          [send_button]="send_button"
+                          [graphToday_Data]="graphToday_Data"
+                          [switch_button]="switch_button"
+                        />
                       </div>
                     </div>
                   </div>
@@ -311,40 +270,64 @@
                       <div class="stockmargin">
                         <div
                           class="sector-per red-border"
-                          ng-class="
-                            getDirClrDefault(actionTodayGraphweb.portdir) +
-                            '-border'
+                          [ngClass]="
+                            this.fun.getDirClrDefault(
+                              graphToday_Data[send_button].portdir,
+                              'orange'
+                            ) + '-border'
                           "
                           style="display: block"
                         >
                           <h6 class="stockName">PORTFOLIO</h6>
-                          <p class="Dcolor ng-binding">-1.78%</p>
+                          <p class="Dcolor ng-binding">
+                            {{
+                              graphToday_Data[send_button].portret
+                                | roundOff
+                                | twoCommas
+                            }}%
+                          </p>
                         </div>
                       </div>
                       <div class="stockmargin">
                         <div
                           class="sector-per green-border"
-                          ng-class="
-                            getDirClrDefault(actionTodayGraphweb.compdir) +
-                            '-border'
+                          [ngClass]="
+                            this.fun.getDirClrDefault(
+                              graphToday_Data[send_button].compdir,
+                              'orange'
+                            ) + '-border'
                           "
                           style="display: block"
                         >
                           <h6>COMPOSITE INDEX</h6>
-                          <p class="Dcolor ng-binding">0.87%</p>
+                          <p class="Dcolor ng-binding">
+                            {{
+                              graphToday_Data[send_button].compret
+                                | roundOff
+                                | twoCommas
+                            }}%
+                          </p>
                         </div>
                       </div>
                       <div class="stockmargin">
                         <div
                           class="sector-per green-border"
-                          ng-class="
-                            getDirClrDefault(actionTodayGraphweb.sensexdir) +
-                            '-border'
+                          [ngClass]="
+                            this.fun.getDirClrDefault(
+                              graphToday_Data[send_button].sensexdir,
+                              'orange'
+                            ) + '-border'
                           "
                           style="display: block"
                         >
                           <h6>SENSEX</h6>
-                          <p class="Dcolor ng-binding">0.44%</p>
+                          <p class="Dcolor ng-binding">
+                            {{
+                              graphToday_Data[send_button].sensex
+                                | roundOff
+                                | twoCommas
+                            }}%
+                          </p>
                         </div>
                       </div>
                     </div>

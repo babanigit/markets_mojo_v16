@@ -7,6 +7,8 @@ import {
   ViewChild,
   ViewContainerRef,
   ElementRef,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
@@ -18,13 +20,27 @@ import { GraphTodayComponent } from '../../graph/graph-today/graph-today.compone
 import { CardComponent } from '../../cards/card/card.component';
 import { IMcapClass_Data, IToday, IToday_data } from 'src/app/models/pp/today';
 import { ModelOpenComponent } from '../../model-open/model-open.component';
+import {
+  IPortfolioGraph,
+  IPortfolioGraph_Data,
+} from 'src/app/models/pp/PortfolioGraph';
+import { IGraphData } from 'src/app/models/graphData';
+
+type PortfolioKeys = keyof IPortfolioGraph_Data;
 
 @Component({
   selector: 'app-swiper-how-am',
   templateUrl: './swiper-how-am.component.html',
   styleUrls: ['./swiper-how-am.component.css'],
   standalone: true,
-  imports: [CommonModule, TwoCommasPipe, RoundOffPipe, CardComponent,GraphTodayComponent, ModelOpenComponent],
+  imports: [
+    CommonModule,
+    TwoCommasPipe,
+    RoundOffPipe,
+    CardComponent,
+    GraphTodayComponent,
+    ModelOpenComponent,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {
@@ -33,25 +49,39 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   data_drags: any = [];
   data_news: any = [];
   data_corpact: any = [];
-  data_gainers:any = [];
-  data_losers:any = [];
-  data_mcap:IMcapClass_Data |undefined
+  data_gainers: any = [];
+  data_losers: any = [];
+  data_mcap: IMcapClass_Data | undefined;
 
+  graphToday_Data: IPortfolioGraph_Data | undefined;
+
+  // @Output() send_graphToday = new EventEmitter<IPortfolioGraph_Data>(); //for input value
+  // @Output() send_button = new EventEmitter<string>(); //for input value
+
+  send_graphToday: IPortfolioGraph_Data | undefined;
+  send_button: PortfolioKeys = '1M'; // Ensure send_button is one of the valid keys
+  switch_button: string = 'adj';
 
   constructor(
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
-
   ) {}
 
   ngOnInit(): void {
     this.fetchData();
   }
 
+  buttonClicked(str: PortfolioKeys) {
+    this.send_button = str;
+  }
+
+  switchFun(str: string) {
+    this.switch_button = str;
+  }
+
   fetchData(): void {
     this.serv.getSwitcherDatas('today').subscribe((res: IToday) => {
-
       this.data_summary = res.data.summary;
       this.data_contri = res.data.overall.contri;
       this.data_drags = res.data.overall.drags;
@@ -59,11 +89,19 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
       this.data_corpact = res.data.corpact;
       this.data_gainers = res.data.overall.gainers;
       this.data_losers = res.data.overall.losers;
-      this.data_mcap =res.data.mcap
+      this.data_mcap = res.data.mcap;
+
+      this.cdr.detectChanges(); // Trigger change detection
+    });
+
+    this.serv.getGraphToday().subscribe((res: IPortfolioGraph) => {
+      this.graphToday_Data = res.data;
+      console.log('graphToday data is : ', this.graphToday_Data);
 
       this.cdr.detectChanges(); // Trigger change detection
     });
   }
+
   ngAfterViewInit() {
     Swiper.use([Navigation, Pagination, Scrollbar, Autoplay]);
     const swiper = new Swiper('.swiper-1', {
@@ -87,7 +125,4 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
 
     // console.log('Swiper instance:', swiper);
   }
-
-
-
 }

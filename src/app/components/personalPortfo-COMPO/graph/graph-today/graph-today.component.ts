@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Chart, ChartModule } from 'angular-highcharts';
 import * as Highcharts from 'highcharts';
 
-import { Observable } from 'rxjs';
-import { IGraphData } from 'src/app/models/graphData';
-import { GetDotFunctionsService } from 'src/app/services/ipo/get-dot-functions.service';
-import { GraphDataService } from 'src/app/services/ipo/graph-data.service';
-import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
+import { IPortfolioGraph_Data } from 'src/app/models/pp/PortfolioGraph';
+import { ITodayGraph_Data } from 'src/app/models/pp/todayGraph';
+
+type GraphKeys = keyof ITodayGraph_Data;
 
 @Component({
   selector: 'app-graph-today',
@@ -16,110 +15,57 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
   standalone: true,
   imports: [ChartModule, CommonModule],
 })
-export class GraphTodayComponent implements OnInit {
-  Highcharts: typeof Highcharts = Highcharts;
+export class GraphTodayComponent implements OnChanges {
+  @Input() graphToday_Data: IPortfolioGraph_Data | undefined;
+  @Input() send_button: string | undefined;
+  @Input() switch_button: string | undefined;
 
-  graphData: IGraphData | undefined; // Initialize with an empty object
+  areaChart: Chart = new Chart({});
 
-  strr: string = 'day'; // Default value
-  areaChart: Chart = new Chart({}); // Initialize with an empty chart
-  maxYY!: number;
-
-  maxValue = 100;
-  dotPositions: Map<any, string> = new Map();
-  dotColors: Map<any, string> = new Map();
-
-  loading$: Observable<boolean> = this.serv.loading$;
-  error$: Observable<string | null> = this.serv.error$;
-  errorMessage: string | null = null;
-
-  constructor(
-    private serv: GraphDataService,
-    private dot: GetDotFunctionsService,
-    private serv2: GetPersonalPFService
-  ) {}
-
-  graphToday_Data: any;
-
-  ngOnInit(): void {
-    this.fetchGraphData('day');
-    this.fetch();
-  }
-
-  fetch() {
-    this.serv2.getGraphToday().subscribe((res) => {
-      this.graphToday_Data = res.data;
-      console.log('graphToday data is : ', this.graphToday_Data);
-    });
-  }
-
-  fetchGraphData(
-    type: 'day' | 'week' | 'month' | 'YTD' | 'year' | 'threeYears'
-  ) {
-    this.serv.getGraphData(type).subscribe({
-      next: (res: IGraphData) => {
-        this.graphData = res;
-        this.updateChart(); // Initialize the chart based on default value
-        this.errorMessage = null; // Clear previous errors
-      },
-      error: (err) => {
-        this.errorMessage =
-          'Failed to load graph data. Please try again later.';
-        console.error('Error:', err);
-      },
-    });
-  }
-
-  onGraphButtonClick(
-    type: 'day' | 'week' | 'month' | 'YTD' | 'year' | 'threeYears'
-  ) {
-    console.log('clicked ', type);
-    this.strr = type;
-    this.fetchGraphData(type);
-  }
-
-  // get the data points
-  extractDataPoints(g: IGraphData) {
-    if (g && 'data' in g) {
-      return (g as IGraphData).data.graph_indices[0].graph.IndiceArray.map(
-        (point) => {
-          const timestamp = new Date(point.time).getTime();
-          // console.log( "extracted data is : ", [timestamp, point.y] )
-          return [timestamp, point.y];
-        }
-      );
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['graphToday_Data'] || changes['send_button'] || changes['switch_button']) {
+      this.updateChart();
     }
-    return []; // Return empty array if no valid data
   }
 
-  //start
+  private extractDataPoints(data: ITodayGraph_Data | undefined, key: GraphKeys): [number, number][] {
+    if (!data || !data[key]?.plotgraph) {
+      return [];
+    }
 
-  updateChart() {
-    if (!this.graphData) {
-      console.error('Invalid graph data');
+    return data[key].plotgraph.map((point) => {
+      const timestamp = new Date(point.dt).getTime();
+      const value = this.switch_button === 'flow' ? point.port : point.portidx;
+      return [timestamp, value];
+    });
+  }
+
+  private updateChart(): void {
+    if (!this.graphToday_Data || !this.send_button) {
+      console.error('Invalid graph data or send_button');
       return;
     }
 
-    const dataPoints = this.extractDataPoints(this.graphData);
-    const previousClose = this.graphData.data.graph_indices[0].PreviousClose;
+    const key = this.send_button as GraphKeys;
+    const dataPoints = this.extractDataPoints(this.graphToday_Data, key);
+
+    if (dataPoints.length === 0) {
+      console.warn('No data points available');
+      return;
+    }
 
     dataPoints.sort((a, b) => a[0] - b[0]);
 
-    // to get the min and max of the y axix
-    const minY = Math.min(...dataPoints.map(([_, y]) => y));
-    const maxY = Math.max(...dataPoints.map(([_, y]) => y));
-
-    console.log('minY: ' + minY);
-    console.log('maxY: ' + maxY);
+    const minY = Math.min(...dataPoints.map(([, y]) => y));
+    const maxY = Math.max(...dataPoints.map(([, y]) => y));
+    const previousClose = dataPoints[0][1]; // Assuming the first point is the previous close
 
     this.areaChart = new Chart({
-      accessibility: { enabled: false },
       chart: { type: 'area', height: 260 },
       title: { text: '' },
       credits: { enabled: false },
       xAxis: {
         type: 'datetime',
-        tickLength: 0,
         labels: { enabled: false },
         gridLineWidth: 0,
         title: { text: null },
@@ -131,85 +77,68 @@ export class GraphTodayComponent implements OnInit {
         tickAmount: 6,
         labels: { enabled: false },
         gridLineWidth: 0,
-        plotLines: [
-          {
-            color: '#C0C0C0',
-            width: 2,
-            value: previousClose,
-            label: {
-              text: `Previous Close: ${previousClose.toFixed(2)}`,
-              align: 'right',
-              style: { color: '#404040' },
-            },
-          },
-          {
-            color: '#66FF66',
-            width: 2,
-            value: maxY,
-            label: {
-              text: `High: ${maxY.toFixed(2)}`,
-              align: 'left',
-              style: { color: '#404040' },
-            },
-          },
-          {
-            color: '#FF6666',
-            width: 2,
-            value: minY,
-            label: {
-              text: `Low: ${minY.toFixed(2)}`,
-              align: 'left',
-              style: { color: '#404040' },
-            },
-          },
-        ],
+        plotLines: this.createPlotLines(previousClose, minY, maxY),
       },
       plotOptions: {
         area: {
           fillColor: {
-            linearGradient: {
-              x1: 0,
-              y1: 0,
-              x2: 0,
-              y2: 1,
-            },
+            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
             stops: [
-              [0, '#4CAF50'],
-              [1, '#FF6666'],
+              [0, Highcharts.color('#4CAF50').setOpacity(0.5).get('rgba') as string],
+              [1, Highcharts.color('#FF6666').setOpacity(0.5).get('rgba') as string],
             ],
           },
           threshold: null,
         },
       },
-      series: [
-        {
-          type: 'area',
-          showInLegend: false,
-          name: '',
-          data: dataPoints,
-          color: '#000000', // Set a default line color
-          lineWidth: 1,
-          marker: { enabled: false, radius: 2 },
-          tooltip: { valueDecimals: 2 },
-          zones: [
-            {
-              value: previousClose,
-              color: '#FF6666',
-            },
-            {
-              color: '#4CAF50',
-            },
-          ],
-        },
-      ] as Highcharts.SeriesOptionsType[],
+      series: [{
+        type: 'area',
+        name: '',
+        data: dataPoints,
+        color: '#000000',
+        lineWidth: 1,
+        marker: { enabled: false, radius: 2 },
+        tooltip: { valueDecimals: 2 },
+        zones: [
+          { value: previousClose, color: '#FF6666' },
+          { color: '#4CAF50' },
+        ],
+      } as Highcharts.SeriesAreaOptions],
     });
   }
 
-  // end
-  getDotProperties(hero: IGraphData) {
-    return this.dot.getDotPropertiesService(
-      hero.data.graph_indices[0].WEEK_POINTER_52,
-      this.maxValue
-    );
+  private createPlotLines(previousClose: number, minY: number, maxY: number): Highcharts.YAxisPlotLinesOptions[] {
+    return [
+      {
+        color: '#C0C0C0',
+        width: 2,
+        value: previousClose,
+        label: {
+          text: `Previous Close: ${previousClose.toFixed(2)}`,
+          align: 'right',
+          style: { color: '#404040' },
+        },
+      },
+      {
+        color: '#66FF66',
+        width: 2,
+        value: maxY,
+        label: {
+          text: `High: ${maxY.toFixed(2)}`,
+          align: 'left',
+          style: { color: '#404040' },
+        },
+      },
+      {
+        color: '#FF6666',
+        width: 2,
+        value: minY,
+        label: {
+          text: `Low: ${minY.toFixed(2)}`,
+          align: 'left',
+          style: { color: '#404040' },
+        },
+      },
+    ];
   }
 }
