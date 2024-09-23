@@ -1,0 +1,106 @@
+<div class="card" id="newspupup">
+  <div class="card-content">
+    <div class="card-head">
+      <h2>
+        {{HEAD}}
+        <span
+          class="card-title activator info-act"
+          ng-click="isCollapseTodayNews = !isCollapseTodayNews"
+        ></span>
+      </h2>
+    </div>
+    <!-- ngIf: loader[0].pf_today_news == true -->
+    <!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 1 -->
+
+    <div
+    #childDiv
+    *ngIf="data_news!" class="news list-mojo">
+      <!-- ngRepeat: value in actionToday.news|orderBy:'-rawdate' --><!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 -->
+      <div
+        *ngFor="let item of data_news"
+        ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_news == 0"
+        class="ng-scope"
+      >
+        <!-- ngIf: value.imgurl=='' -->
+        <div class="news-item ng-scope" ng-if="value.imgurl == ''">
+          <div class="news-cont-noimg">
+            <div class="newshead">
+              <a
+                [href]="'/Stocks?StockId=' + item.sid + '&Exchange=0'"
+                target="_blank"
+                ><strong class="ng-binding"> {{ item.sname }} : </strong></a
+              >
+
+              <a [href]="item.siteurl" target="_blank" class="ng-binding">
+                {{ item.title }}
+              </a>
+            </div>
+            <div class="news-date ng-binding">
+              {{ item.date }}
+              <span class="ng-binding"> {{ item.domain }} </span>
+            </div>
+          </div>
+        </div>
+        <!-- end ngIf: value.imgurl=='' -->
+        <!-- ngIf: value.imgurl!='' -->
+      </div>
+
+      <!-- end ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 --><!-- end ngRepeat: value in actionToday.news|orderBy:'-rawdate' -->
+    </div>
+  </div>
+
+  <!-- extend -->
+  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseTodayNews">
+    <span class="card-title grey-text text-darken-4">
+      Card Title<i
+        class="material-icons right"
+        ng-click="isCollapseTodayNews = !isCollapseTodayNews"
+        >close</i
+      >
+    </span>
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          The card lists the latest news from across the web on your portfolio
+          stocks
+        </li>
+        <li>Click on See More News for more news items</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- more news button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links no-web">
+      <a
+      (click)="sendToParent()"
+        class="seefull waves-light modal-trigger"
+        ng-click="modalOpen('actionToday_news', 0)"
+        href="javascript:void(0)"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        See More News</a
+      >
+    </div>
+    <div class="bottom-card-links no-mob">
+      <a
+      (click)="sendToParent()"
+        class="seefull waves-light"
+        ng-click="modalOpen('actionToday_news', 0)"
+        href="javascript:void(0)"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        See More News</a
+      >
+    </div>
+  </div>
+</div>

@@ -9,7 +9,7 @@ export interface IToday_data {
   overall: Overall;
   corpact: Corpact[];
   mcap:    IMcapClass_Data;
-  news:    News[];
+  news:    I_News[];
   summary: Summary[];
   graph:   Graph;
 }
@@ -82,7 +82,7 @@ export interface Smallmicro {
   flag:     number;
 }
 
-export interface News {
+export interface I_News {
   sid:     number;
   sname:   string;
   date:    string;
