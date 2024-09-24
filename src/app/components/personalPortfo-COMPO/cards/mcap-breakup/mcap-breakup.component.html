@@ -1,0 +1,628 @@
+<div class="card">
+  <div class="card-content breakupcard">
+    <!-- head -->
+    <div class="card-head">
+      <h2>
+        <div>
+          {{ HEAD }}
+          <span
+            class="card-title activator info-act"
+            ng-click="isCollapseTodayBreak = !isCollapseTodayBreak"
+          ></span>
+        </div>
+      </h2>
+    </div>
+
+    <!-- body -->
+    <div>
+      <div *ngIf="data_mcap!" class="pf-rtn-breakup">
+        <div class="pf-by-m-cap-sec pf-by-margin">
+          <div class="pf-undr-txt txt-cr pf-by-margin pf-by-margin02">
+            <h6
+              class="ng-binding"
+              [ngClass]="
+                this.fun.getDirClrDefault(data_mcap.large.labeldir, 'orange')
+              "
+            >
+              {{ data_mcap.large.label }}
+            </h6>
+          </div>
+          <table class="pftbl-lt">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="pf-txt-1"><span>Large Caps</span></div>
+                  <div
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_mcap.large.gaindir,
+                        'orange'
+                      )
+                    "
+                    class="ng-binding pf-txt-2"
+                  >
+                    Rs.{{ data_mcap.large.gain | roundOff | twoCommas }} ({{
+                      data_mcap.large.gainp | roundOff | twoCommas
+                    }}%)
+                  </div>
+                </td>
+                <td>
+                  <div class="pf-txt-3">V/S</div>
+                </td>
+                <td>
+                  <div class="pf-txt-1">Sensex</div>
+                  <div
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_mcap.large.idxpdir,
+                        'orange'
+                      )
+                    "
+                    class="ng-binding pf-txt-2"
+                  >
+                    ({{ data_mcap.large.idxp | roundOff | twoCommas }}%)
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pf-by-m-cap-sec pf-by-margin">
+          <div class="pf-undr-txt txt-cr pf-by-margin">
+            <h6
+              [ngClass]="
+                this.fun.getDirClrDefault(data_mcap.mid.labeldir, 'orange')
+              "
+              class="ng-binding"
+            >
+              {{ data_mcap.mid.label }}
+            </h6>
+          </div>
+          <table class="pftbl-lt">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="pf-txt-1"><span>Mid Caps</span></div>
+                  <div
+                    [ngClass]="
+                      this.fun.getDirClrDefault(data_mcap.mid.gaindir, 'orange')
+                    "
+                    class="ng-binding pf-txt-2"
+                  >
+                    Rs.{{ data_mcap.mid.gain | roundOff | twoCommas }} ({{
+                      data_mcap.mid.gainp | roundOff | twoCommas
+                    }}%)
+                  </div>
+                </td>
+                <td>
+                  <div class="pf-txt-3">V/S</div>
+                </td>
+                <td>
+                  <div class="pf-txt-1">BSE Midcap</div>
+                  <div
+                    [ngClass]="
+                      this.fun.getDirClrDefault(data_mcap.mid.idxpdir, 'orange')
+                    "
+                    class="ng-binding pf-txt-2"
+                  >
+                    ({{ data_mcap.mid.idxp | roundOff | twoCommas }}%)
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pf-by-m-cap-sec pf-by-margin">
+          <div class="pf-undr-txt txt-cr pf-by-margin">
+            <h6
+              class="ng-binding"
+              [ngClass]="
+                this.fun.getDirClrDefault(
+                  data_mcap.smallmicro.labeldir,
+                  'orange'
+                )
+              "
+            >
+              {{ data_mcap.smallmicro.label }}
+            </h6>
+          </div>
+          <table class="pftbl-lt">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="pf-txt-1">
+                    <span>Small / Micro Caps</span>
+                  </div>
+                  <div
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_mcap.smallmicro.gaindir,
+                        'orange'
+                      )
+                    "
+                    class="ng-binding pf-txt-2"
+                  >
+                    Rs.{{
+                      data_mcap.smallmicro.gain | roundOff | twoCommas
+                    }}
+                    ({{ data_mcap.smallmicro.gainp | roundOff | twoCommas }}%)
+                  </div>
+                </td>
+                <td>
+                  <div class="pf-txt-3">V/S</div>
+                </td>
+                <td>
+                  <div class="pf-txt-1">BSE Smallcap</div>
+                  <div
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        data_mcap.smallmicro.idxpdir,
+                        'orange'
+                      )
+                    "
+                    class="ng-binding pf-txt-2"
+                  >
+                    ({{ data_mcap.smallmicro.idxp | roundOff | twoCommas }}%)
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- extend -->
+  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseTodayBreak">
+    <span class="card-title grey-text text-darken-4">
+      Card Title<i
+        class="material-icons right"
+        ng-click="isCollapseTodayBreak = !isCollapseTodayBreak"
+        >close</i
+      >
+    </span>
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          Your portfolio stocks are grouped as per their market cap categories
+          and the performance of the group is compared with its market index
+        </li>
+        <li>Returns include effect of buys/sell transactions during the day</li>
+        <li>
+          It helps to identify which part of your portfolio is pulling and
+          dragging your portfolio today
+        </li>
+        <li>
+          Click on All Stocks to see breakup of the information on the card
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- full details button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links no-web">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light modal-trigger"
+        href="javascript:void(0)"
+        ng-click="getDiversMcap();modalOpen('divrse_sector_pop_today', 0)"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Full Details</a
+      >
+    </div>
+    <div class="bottom-card-links no-mob">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0)"
+        ng-click="getDiversMcap();modalOpen('divrse_sector_pop_today', 0)"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Full Details</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- detailed data -->
+<div #childDiv>
+  <div
+    class="modal-content contentbg ng-scope"
+    ng-if="loader[0].pf_divers_popup == false"
+    style=""
+  >
+    <div>
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th class="ng-binding">Market Cap<br /></th>
+            <th>
+              Portfolio<br />
+              Weight
+            </th>
+            <th>Day's<br />Gain/Loss</th>
+            <th>Day's<br />Gain/Loss in%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ngRepeat: (key,value) in diverse_popup -->
+          <tr
+            class="mod-hed-td ng-scope"
+            ng-repeat-start="(key,value) in diverse_popup"
+          >
+            <td class="ng-binding">Large Cap</td>
+            <td class="ng-binding">48.98%</td>
+            <td
+              ng-class="getDirClrDefault(value.total.dgaipdir)"
+              class="ng-binding grey"
+            >
+              398
+            </td>
+            <td class="ng-binding">0.32%</td>
+          </tr>
+          <!-- ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Coal India</td>
+            <td class="ng-binding">15.63%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              100
+            </td>
+            <td class="ng-binding">0.25%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">REC Ltd</td>
+            <td class="ng-binding">12.31%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              154
+            </td>
+            <td class="ng-binding">0.49%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Larsen &amp; Toubro</td>
+            <td class="ng-binding">10.42%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              250
+            </td>
+            <td class="ng-binding">0.93%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">LIC Housing Fin.</td>
+            <td class="ng-binding">4.27%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              70
+            </td>
+            <td class="ng-binding">0.64%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Punjab Natl.Bank</td>
+            <td class="ng-binding">2.12%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding red"
+            >
+              -123
+            </td>
+            <td class="ng-binding">-2.20%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Persistent Sys</td>
+            <td class="ng-binding">2.06%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding red"
+            >
+              -31
+            </td>
+            <td class="ng-binding">-0.59%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">HDFC Life Insur.</td>
+            <td class="ng-binding">1.4%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding red"
+            >
+              -32
+            </td>
+            <td class="ng-binding">-0.89%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Life Insurance</td>
+            <td class="ng-binding">0.4%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              4
+            </td>
+            <td class="ng-binding">0.38%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">One 97</td>
+            <td class="ng-binding">0.26%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              10
+            </td>
+            <td class="ng-binding">1.55%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Zomato Ltd</td>
+            <td class="ng-binding">0.11%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding red"
+            >
+              -2
+            </td>
+            <td class="ng-binding">-0.81%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' --><!-- end ngRepeat: (key,value) in diverse_popup -->
+          <tr
+            class="mod-hed-td ng-scope"
+            ng-repeat-start="(key,value) in diverse_popup"
+          >
+            <td class="ng-binding">Mid Cap</td>
+            <td class="ng-binding">11.42%</td>
+            <td
+              ng-class="getDirClrDefault(value.total.dgaipdir)"
+              class="ng-binding grey"
+            >
+              -86
+            </td>
+            <td class="ng-binding">-0.29%</td>
+          </tr>
+          <!-- ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">City Union Bank</td>
+            <td class="ng-binding">4.9%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding red"
+            >
+              -154
+            </td>
+            <td class="ng-binding">-1.22%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">JP Power Ven.</td>
+            <td class="ng-binding">2.81%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              60
+            </td>
+            <td class="ng-binding">0.84%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Reliance Infra.</td>
+            <td class="ng-binding">2.56%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding red"
+            >
+              -15
+            </td>
+            <td class="ng-binding">-0.23%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">CEAT</td>
+            <td class="ng-binding">1.15%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              23
+            </td>
+            <td class="ng-binding">0.78%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' --><!-- end ngRepeat: (key,value) in diverse_popup -->
+          <tr
+            class="mod-hed-td ng-scope"
+            ng-repeat-start="(key,value) in diverse_popup"
+          >
+            <td class="ng-binding">Small Cap</td>
+            <td class="ng-binding">33.75%</td>
+            <td
+              ng-class="getDirClrDefault(value.total.dgaipdir)"
+              class="ng-binding grey"
+            >
+              360
+            </td>
+            <td class="ng-binding">0.42%</td>
+          </tr>
+          <!-- ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Jubilant Inds.</td>
+            <td class="ng-binding">33.75%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              360
+            </td>
+            <td class="ng-binding">0.42%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' --><!-- end ngRepeat: (key,value) in diverse_popup -->
+          <tr
+            class="mod-hed-td ng-scope"
+            ng-repeat-start="(key,value) in diverse_popup"
+          >
+            <td class="ng-binding">Micro Cap</td>
+            <td class="ng-binding">5.85%</td>
+            <td
+              ng-class="getDirClrDefault(value.total.dgaipdir)"
+              class="ng-binding grey"
+            >
+              -73
+            </td>
+            <td class="ng-binding">-0.48%</td>
+          </tr>
+          <!-- ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Mcleod Russel</td>
+            <td class="ng-binding">5.25%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding red"
+            >
+              -48
+            </td>
+            <td class="ng-binding">-0.36%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Shree Karni</td>
+            <td class="ng-binding">0.31%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding red"
+            >
+              -11
+            </td>
+            <td class="ng-binding">-1.38%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Innovassynth Inv</td>
+            <td class="ng-binding">0.27%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding red"
+            >
+              -14
+            </td>
+            <td class="ng-binding">-2.00%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="details in value.details|orderObjectBy:'pwt':'true'"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Syschem (India)</td>
+            <td class="ng-binding">0.02%</td>
+            <td
+              ng-class="getDirClrDefault(details.dgainpdir, 'orange')"
+              class="ng-binding green"
+            >
+              1
+            </td>
+            <td class="ng-binding">1.33%</td>
+          </tr>
+          <!-- end ngRepeat: details in value.details|orderObjectBy:'pwt':'true' --><!-- end ngRepeat: (key,value) in diverse_popup -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -18,14 +18,20 @@ import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { GraphTodayComponent } from '../../graph/graph-today/graph-today.component';
 import { CardComponent } from '../../cards/card/card.component';
-import { I_News, IMcapClass_Data, IToday, IToday_data } from 'src/app/models/pp/today';
+import {
+  I_News,
+  IMcapClass_Data,
+  IToday,
+  IToday_data,
+} from 'src/app/models/pp/today';
 import { ModelOpenComponent } from '../../model-open/model-open.component';
 import {
   IPortfolioGraph,
   IPortfolioGraph_Data,
 } from 'src/app/models/pp/PortfolioGraph';
 import { IGraphData } from 'src/app/models/graphData';
-import { NewsComponent } from "../../cards/news/news.component";
+import { NewsComponent } from '../../cards/news/news.component';
+import { McapBreakupComponent } from "../../cards/mcap-breakup/mcap-breakup.component";
 
 type PortfolioKeys = keyof IPortfolioGraph_Data;
 
@@ -41,7 +47,8 @@ type PortfolioKeys = keyof IPortfolioGraph_Data;
     CardComponent,
     GraphTodayComponent,
     ModelOpenComponent,
-    NewsComponent
+    NewsComponent,
+    McapBreakupComponent
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
@@ -49,7 +56,7 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   data_summary: any = [];
   data_contri: any = [];
   data_drags: any = [];
-  data_news: I_News[] | undefined
+  data_news: I_News[] | undefined;
   data_corpact: any = [];
   data_gainers: any = [];
   data_losers: any = [];
