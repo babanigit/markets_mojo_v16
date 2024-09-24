@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   OnInit,
@@ -17,6 +18,7 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
   selector: 'app-stocker-investments',
   templateUrl: './stocker-investments.component.html',
   styleUrls: ['./stocker-investments.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StockerInvestmentsComponent implements AfterViewInit {
   overallData: IOverall_Data | undefined;

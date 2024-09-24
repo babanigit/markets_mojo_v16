@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   EventEmitter,
@@ -48,6 +49,7 @@ import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
     SummaryComponent,
     ScorecardComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperLiquidityComponent implements OnInit {
 

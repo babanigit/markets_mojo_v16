@@ -1,5 +1,6 @@
 import { CommonModule, NgIf } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -26,6 +27,7 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
   styleUrls: ['./mcap-breakup.component.css'],
   standalone: true,
   imports: [CommonModule, RoundOffPipe, TwoCommasPipe, OrderObjectByPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class McapBreakupComponent implements OnInit {
   @Input() data_mcap: IMcapClass_Data | undefined; //props

@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   EventEmitter,
@@ -36,6 +37,7 @@ import {
     SummaryComponent,
     ScorecardComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperQualityComponent implements OnInit {
   main_data: IHoldingsData | undefined;

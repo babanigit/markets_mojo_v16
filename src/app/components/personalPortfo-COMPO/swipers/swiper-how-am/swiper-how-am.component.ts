@@ -9,6 +9,7 @@ import {
   ElementRef,
   Output,
   EventEmitter,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
@@ -51,6 +52,7 @@ type PortfolioKeys = keyof IPortfolioGraph_Data;
     McapBreakupComponent
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   data_summary: any = [];

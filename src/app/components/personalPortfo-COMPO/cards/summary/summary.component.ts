@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, SimpleChanges } from '@angular/core';
 import {
   IFinTrend_qvfl,
   ILiquidity_qvfl,
@@ -28,6 +28,7 @@ import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.comp
     RadiusChartComponent,
     ModelOpenComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SummaryComponent {
   @Input() DATA: IQvfl_Data | undefined;

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -25,6 +26,7 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
   styleUrls: ['./return-vs-composite.component.css'],
   standalone: true,
   imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReturnVsCompositeComponent implements OnInit {
   constructor(

@@ -22,6 +22,7 @@ export class PpFunctionsService {
   }
 
   getDirClrDefault(value: string | number, def: string): string {
+    console.log(" getdirclr default called ")
     // Convert value to a number if it is a string
     const numericValue = typeof value === 'string' ? parseFloat(value) : value;
 

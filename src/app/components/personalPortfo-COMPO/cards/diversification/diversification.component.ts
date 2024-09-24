@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { I_diversi_sector } from 'src/app/models/pp/diversification';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { graph_Data2 } from 'src/app/models/pp/risk';
@@ -12,6 +12,7 @@ import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.comp
   styleUrls: ['./diversification.component.css'],
   standalone: true,
   imports: [CommonModule, RadiusChartComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DiversificationComponent implements OnInit {
   @Input() DATA: I_diversi_sector | undefined; //props

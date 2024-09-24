@@ -7,6 +7,7 @@ import {
   Input,
   OnInit,
   Output,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
@@ -43,6 +44,7 @@ import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.comp
     LineGraphComponent
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
   main_data: IRisk_Data | undefined;

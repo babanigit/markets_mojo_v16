@@ -1,0 +1,266 @@
+<div class="card">
+
+  <!-- card -->
+  <div class="card-content calendaryrs">
+    <div class="card-head">
+      <h2>
+        {{ HEAD }}
+        <span
+          class="card-title activator info-act"
+          ng-click="isCollapseRetYear = !isCollapseRetYear"
+        ></span>
+      </h2>
+    </div>
+
+    <div
+      class="quality"
+      ng-show="loader[0].pf_return_year == false &amp;&amp; error_flag[0].return_calendar == 0"
+    >
+      <div class="graphtabarea">
+        <div class="tabcol" data="0">
+          <!-- buttons and graph -->
+
+          <ng-container *ngIf="data_calender!">
+            <app-bar-graph [chartData]="data_calender" />
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div
+      class="foot-note"
+      ng-show="loader[0].pf_return_year == false &amp;&amp; error_flag[0].return_calendar == 0"
+    >
+      Absolute Total Returns
+    </div>
+  </div>
+
+  <!-- slider -->
+  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseRetYear">
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        ng-click="isCollapseRetYear = !isCollapseRetYear"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          The card gives the returns given by your portfolio and other indices
+          including your customized Composite Benchmark Index over different
+          calendar years when your portfolio was active.
+        </li>
+        <li>
+          Portfolio returns consider not just returns made on our current
+          investments but also on your past investments as well as the dividends
+          received.
+        </li>
+        <li>
+          The returns do not include the tax impact on securities sold or the
+          notional tax that you may pay if you liquidate your holdings today
+        </li>
+        <li>Click on tabs of different years to see comparative graphs</li>
+        <li>
+          Click on Compare Returns to see returns of different broad market
+          indices during the past calendar years
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- detail button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light modal-trigger"
+        ng-click="compareReturnPopup()"
+        href="javascript:void(0);"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Compare Returns</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- detail section -->
+<div [hidden]="true">
+  <div #childDiv class="modal-content contentbg">
+    <div class="list-mojo">
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <!-- ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+            <th
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope"
+            >
+              2024
+            </th>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+            <th
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope"
+            >
+              2023
+            </th>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+            <th
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              2022
+            </th>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+            <th
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              2021
+            </th>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+            <th
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              2020
+            </th>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+            <th
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              2019
+            </th>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+            <th
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              2018
+            </th>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+            <th
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              2017
+            </th>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+            <th
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              2016
+            </th>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Absolute Return (Rs.)</td>
+            <!-- ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+            <td
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope"
+            >
+              <!--                                    (key, val) in returnData.calendar.absret-->
+              75,758
+            </td>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+            <td
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope"
+            >
+              <!--                                    (key, val) in returnData.calendar.absret-->
+              54,917
+            </td>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+            <td
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              <!--                                    (key, val) in returnData.calendar.absret-->
+              1,517
+            </td>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+            <td
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              <!--                                    (key, val) in returnData.calendar.absret-->
+              32,275
+            </td>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+            <td
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              <!--                                    (key, val) in returnData.calendar.absret-->
+              -7,288
+            </td>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+            <td
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              <!--                                    (key, val) in returnData.calendar.absret-->
+              15,362
+            </td>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+            <td
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              <!--                                    (key, val) in returnData.calendar.absret-->
+              419
+            </td>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+            <td
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              <!--                                    (key, val) in returnData.calendar.absret-->
+              32,738
+            </td>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+            <td
+              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
+              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              class="ng-binding ng-scope no-mob no-tab2"
+            >
+              <!--                                    (key, val) in returnData.calendar.absret-->
+              -26,024
+            </td>
+            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

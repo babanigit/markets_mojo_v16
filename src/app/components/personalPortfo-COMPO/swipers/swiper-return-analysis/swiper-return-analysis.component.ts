@@ -31,6 +31,8 @@ import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { I_Ixrr, I_Ixrr_Data } from 'src/app/models/pp/ixrr';
 import { BarGraphComponent } from '../../graph/bar-graph/bar-graph.component';
 import { ReturnVsCompositeComponent } from "../../cards/return-vs-composite/return-vs-composite.component";
+import { ReturnAbsoluteAndIrrComponent } from '../../cards/return-absolute-and-irr/return-absolute-and-irr.component';
+import { CalenderYearsReturnComponent } from '../../cards/calender-years-return/calender-years-return.component';
 
 @Component({
   selector: 'app-swiper-return-analysis',
@@ -45,7 +47,9 @@ import { ReturnVsCompositeComponent } from "../../cards/return-vs-composite/retu
     BreakupComponent,
     BarGraphComponent,
     SwiperReturnAnalysisComponent,
-    ReturnVsCompositeComponent
+    ReturnVsCompositeComponent,
+    ReturnAbsoluteAndIrrComponent,
+    CalenderYearsReturnComponent
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -88,9 +92,7 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
   }
   receiveClickState(state: boolean) {
     this.sendClick_State.emit(state)
-    // this.click_state = state;
   }
-
   receiveHead(str: string) {
     this.send_head.emit(str);
   }
@@ -98,7 +100,6 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
   fetchData(): void {
     this.serv.getSwitcherDatas('return').subscribe((res: IReturn) => {
       this.main_data = res.data;
-      // console.log('main_data : ', res.data);
 
       this.data_scorecard = res.data.scorecard;
       this.data_retcompo = res.data.retcompo;
@@ -113,8 +114,6 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
 
     this.serv.getIxrrData().subscribe((res: I_Ixrr) => {
       this.ixrrData = res.data;
-      // console.log('ixrrData : ', res);
-
       this.cdr.detectChanges(); // Trigger change detection
     });
   }

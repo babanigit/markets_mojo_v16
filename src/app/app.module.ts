@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent,],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

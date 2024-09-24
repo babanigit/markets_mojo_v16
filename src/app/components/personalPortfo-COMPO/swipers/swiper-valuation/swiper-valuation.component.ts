@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   EventEmitter,
@@ -32,6 +33,7 @@ import { IHoldingsData } from 'src/app/models/table/holding';
     SummaryComponent,
     ScorecardComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperValuationComponent {
   // qvflData: IQvfl_Data | undefined;

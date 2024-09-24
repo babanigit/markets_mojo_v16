@@ -7,19 +7,27 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { I_News } from 'src/app/models/pp/today';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
+import { NewsComponent } from '../news/news.component';
+import { ICalendar_data } from 'src/app/models/pp/return';
+import { BarGraphComponent } from '../../graph/bar-graph/bar-graph.component';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css'],
+  selector: 'app-calender-years-return',
+  templateUrl: './calender-years-return.component.html',
+  styleUrls: ['./calender-years-return.component.css'],
   standalone: true,
-  imports: [CommonModule, TwoCommasPipe, RoundOffPipe, NewsComponent],
+  imports: [
+    CommonModule,
+    TwoCommasPipe,
+    RoundOffPipe,
+    NewsComponent,
+    BarGraphComponent,
+  ],
 })
-export class NewsComponent {
-  @Input() data_news: I_News[] | undefined; //props
+export class CalenderYearsReturnComponent {
+  @Input() data_calender: ICalendar_data | undefined; //props
   @Input() HEAD: string | undefined; //props
   @Input() SHOW_BUTTON: Boolean = true;
 

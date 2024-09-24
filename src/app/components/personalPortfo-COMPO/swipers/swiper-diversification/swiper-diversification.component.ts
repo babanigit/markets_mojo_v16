@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
 import { CommonModule } from '@angular/common';
 import { DiversificationComponent } from '../../cards/diversification/diversification.component';
@@ -24,6 +24,7 @@ import { TwoCommasPipe } from '../../../../pipes/pp/twoCommas/two-commas.pipe';
     RoundOffPipe,
     TwoCommasPipe,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperDiversificationComponent implements OnInit {
   main_data: IDiversification_Data | undefined;

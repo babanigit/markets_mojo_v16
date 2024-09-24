@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
 
@@ -17,6 +18,7 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
   styleUrls: ['./scorecard.component.css'],
   standalone: true,
   imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScorecardComponent {
 
