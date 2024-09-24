@@ -1,38 +1,3 @@
-<!-- model -->
-<app-model-open *ngIf="click_state">
-  <a
-    (click)="click_state = !click_state"
-    class="modal-action modal-close close-blk no-mob"
-    ng-click="modalClose('actionToday_popup')"
-    href="javascript:void(0)"
-    ><i class="fa fa-times"></i
-  ></a>
-  <div class="close-mob">
-    <a
-      (click)="click_state = !click_state"
-      href="javascript:void(0)"
-      ng-click="modalClose('actionToday_popup')"
-      class="modal-action modal-close"
-      ><i class="fa fa-times"></i
-    ></a>
-  </div>
-  <div class="mod-cont cf">
-    <div class="modal-secnd">
-      <div class="model-head cf">
-        <div class="comp-name ng-binding">{{ getHead }}</div>
-      </div>
-      <!-- ngIf: loader[0].pf_today_popup == true -->
-      <!-- ngIf: loader[0].pf_today_popup == false -->
-      <div
-        class="modal-content contentbg ng-scope"
-        ng-if="loader[0].pf_today_popup == false"
-      >
-        <div #parentContainer></div>
-      </div>
-      <!-- end ngIf: loader[0].pf_today_popup == false -->
-    </div>
-  </div>
-</app-model-open>
 
 <div class="slide-card cf" id="MenusectToday">
   <div class="swiper-container swiper-1 swiper-container-horizontal">
@@ -1536,7 +1501,6 @@
         data-scrolled="0"
         data-visited="0"
       >
-
         <app-mcap-breakup
           (sendElement)="receiveElement($event)"
           (sendClick_State)="receiveClickState($event)"
@@ -1544,7 +1508,6 @@
           [HEAD]="'Today\'s gain breakup by Market Cap '"
           [data_mcap]="data_mcap"
         />
-
       </section>
 
       <!-- gainers -->

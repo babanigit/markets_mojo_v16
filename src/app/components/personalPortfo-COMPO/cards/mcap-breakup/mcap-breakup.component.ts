@@ -1,5 +1,6 @@
 import { CommonModule, NgIf } from '@angular/common';
 import {
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -41,7 +42,9 @@ export class McapBreakupComponent implements OnInit {
 
   constructor(
     private serv: GetPersonalPFService,
-    public fun: PpFunctionsService
+    public fun: PpFunctionsService,
+    private cdr: ChangeDetectorRef
+
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +55,7 @@ export class McapBreakupComponent implements OnInit {
     this.serv.getDiversifyStocks().subscribe((res: IDiversifyStocks) => {
       this.diversify_Data = res.data;
       console.log('the data is : , ', this.diversify_Data);
+      this.cdr.detectChanges(); // Trigger change detection
     });
   }
 

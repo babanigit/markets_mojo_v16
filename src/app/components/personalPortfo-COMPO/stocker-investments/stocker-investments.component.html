@@ -1,3 +1,39 @@
+<!-- model -->
+<app-model-open *ngIf="click_state">
+  <a
+    (click)="click_state = !click_state"
+    class="modal-action modal-close close-blk no-mob"
+    ng-click="modalClose('actionToday_popup')"
+    href="javascript:void(0)"
+    ><i class="fa fa-times"></i
+  ></a>
+  <div class="close-mob">
+    <a
+      (click)="click_state = !click_state"
+      href="javascript:void(0)"
+      ng-click="modalClose('actionToday_popup')"
+      class="modal-action modal-close"
+      ><i class="fa fa-times"></i
+    ></a>
+  </div>
+  <div class="mod-cont cf">
+    <div class="modal-secnd">
+      <div class="model-head cf">
+        <div class="comp-name ng-binding">{{ getHead }}</div>
+      </div>
+      <!-- ngIf: loader[0].pf_today_popup == true -->
+      <!-- ngIf: loader[0].pf_today_popup == false -->
+      <div
+        class="modal-content contentbg ng-scope"
+        ng-if="loader[0].pf_today_popup == false"
+      >
+        <div #parentContainer></div>
+      </div>
+      <!-- end ngIf: loader[0].pf_today_popup == false -->
+    </div>
+  </div>
+</app-model-open>
+
 <div>
   <!-- tracker  overall analysis etc...-->
 
@@ -44,12 +80,21 @@
   </div>
 
   <div>
-    <app-swiper-how-am />
+    <app-swiper-how-am
+      (sendElement)="receiveElement($event)"
+      (sendClick_State)="receiveClickState($event)"
+      (send_head)="receiveHead($event)"
+    />
   </div>
 
   <!-- element2 done -->
   <div id="element2">
     <app-swiper-doing-overall
+
+      (sendElement)="receiveElement($event)"
+      (sendClick_State)="receiveClickState($event)"
+      (send_head)="receiveHead($event)"
+
       (send_element)="recievedDataEvent($event)"
       (send_data)="recieveData($event)"
     />
@@ -57,7 +102,12 @@
 
   <!-- element3  -->
   <div id="element3">
-    <app-swiper-return-analysis [score]="overallData?.return" />
+    <app-swiper-return-analysis
+    (sendElement)="receiveElement($event)"
+      (sendClick_State)="receiveClickState($event)"
+      (send_head)="receiveHead($event)"
+
+    [score]="overallData?.return" />
   </div>
 
   <!-- element4 -->

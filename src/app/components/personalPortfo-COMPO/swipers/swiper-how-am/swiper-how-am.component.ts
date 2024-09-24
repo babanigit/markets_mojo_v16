@@ -81,29 +81,22 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
     this.fetchData();
   }
 
-  click_state: boolean = false;
 
-  @ViewChild('parentContainer', { static: false })
-  parentContainer!: ElementRef<HTMLDivElement>;
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
 
   receiveElement(element: HTMLDivElement) {
-    console.log('Received element', element);
-
-    // Use the ViewChild reference to append the element
-    setTimeout(() => {
-      if (this.parentContainer) {
-        console.log('append');
-        this.parentContainer.nativeElement.appendChild(element);
-      }
-    }, 0);
+    this.sendElement.emit(element)
   }
   receiveClickState(state: boolean) {
-    this.click_state = state;
+    this.sendClick_State.emit(state)
+    // this.click_state = state;
   }
 
   getHead: string | undefined;
   receiveHead(str: string) {
-    this.getHead = str;
+    this.send_head.emit(str);
   }
 
   buttonClicked(str: PortfolioKeys) {

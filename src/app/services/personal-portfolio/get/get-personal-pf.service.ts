@@ -72,7 +72,6 @@ export class GetPersonalPFService {
   }
 
   private diversifyPath = 'assets/pp/swiper/diversifyStocks.json';
-
   getDiversifyStocks(jsonPath: string = this.diversifyPath){
     return this.http.get<any>(jsonPath).pipe(
       catchError((err) => {
@@ -80,11 +79,19 @@ export class GetPersonalPFService {
         throw err;
       })
     );
+  }
 
+  private cr = 'assets/pp/swiper/compareReturnPopup.json';
+  getCompareReturn(jsonPath: string = this.cr){
+    return this.http.get<any>(jsonPath).pipe(
+      catchError((err) => {
+        console.error('Error fetching diversifyStocks data', err);
+        throw err;
+      })
+    );
   }
 
   private nf_path = 'assets/pp/networkFactor/getNetworkFactor.json';
-
   getNetworkFactor(jsonPath: string = this.nf_path) {
     return this.http.get<any>(jsonPath).pipe(
       // delay(1200),

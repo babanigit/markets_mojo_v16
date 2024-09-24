@@ -30,6 +30,7 @@ import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { I_Ixrr, I_Ixrr_Data } from 'src/app/models/pp/ixrr';
 import { BarGraphComponent } from '../../graph/bar-graph/bar-graph.component';
+import { ReturnVsCompositeComponent } from "../../cards/return-vs-composite/return-vs-composite.component";
 
 @Component({
   selector: 'app-swiper-return-analysis',
@@ -42,8 +43,10 @@ import { BarGraphComponent } from '../../graph/bar-graph/bar-graph.component';
     RoundOffPipe,
     TwoCommasPipe,
     BreakupComponent,
-    BarGraphComponent
-  ],
+    BarGraphComponent,
+    SwiperReturnAnalysisComponent,
+    ReturnVsCompositeComponent
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -74,6 +77,22 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.fetchData();
+  }
+
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
+
+  receiveElement(element: HTMLDivElement) {
+    this.sendElement.emit(element)
+  }
+  receiveClickState(state: boolean) {
+    this.sendClick_State.emit(state)
+    // this.click_state = state;
+  }
+
+  receiveHead(str: string) {
+    this.send_head.emit(str);
   }
 
   fetchData(): void {

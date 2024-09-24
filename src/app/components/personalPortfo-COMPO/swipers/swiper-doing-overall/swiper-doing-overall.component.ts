@@ -8,6 +8,8 @@ import {
   EventEmitter,
   Output,
   Input,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
@@ -65,6 +67,23 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
   ) {}
+
+
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
+
+  receiveElement(element: HTMLDivElement) {
+    this.sendElement.emit(element)
+  }
+  receiveClickState(state: boolean) {
+    this.sendClick_State.emit(state)
+    // this.click_state = state;
+  }
+
+  receiveHead(str: string) {
+    this.send_head.emit(str);
+  }
 
   recieveElemment(str: string) {
     console.log("the str is : " , str)

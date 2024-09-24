@@ -236,8 +236,9 @@
 </div>
 
 <!-- detailed data -->
-<div #childDiv>
+<div [hidden]="true">
   <div
+    #childDiv
     class="modal-content contentbg ng-scope"
     ng-if="loader[0].pf_divers_popup == false"
   >

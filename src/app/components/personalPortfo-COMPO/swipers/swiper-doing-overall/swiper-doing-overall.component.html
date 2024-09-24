@@ -31,7 +31,6 @@
       sect-reveal="true"
       style="transform: translate3d(-783px, 0px, 0px); transition-duration: 0ms"
     >
-
       <!-- not this -->
       <section
         data-reveal="true"
@@ -190,11 +189,8 @@
         <app-overall-portfolio-analysis
           [DATA]="main_data"
           [HEAD]="'Overall portfolio analysis hello'"
-
           (send_element)="recieveElemment($event)"
-
         />
-
       </section>
 
       <!-- heros -->
@@ -249,7 +245,7 @@
                 <span
                   class="card-title activator info-act"
                   (click)="isCollapseTodayContri = !isCollapseTodayContri"
-                  ></span>
+                ></span>
               </h2>
             </div>
 
@@ -366,9 +362,9 @@
 
           <!-- expand -->
           <div
-          *ngIf="SHOW_BUTTON"
-          class="card-reveal animate-slide"
-          [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+            *ngIf="SHOW_BUTTON"
+            class="card-reveal animate-slide"
+            [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
           >
             <span class="card-title grey-text text-darken-4">
               Card Title<i
@@ -407,44 +403,18 @@
 
       <!--  Overall Contributors -->
       <section
-        data-reveal="true"
-        id="sectOverall_contri"
         class="swiper-slide small-card marginright"
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_contri" [HEAD]="'Overall Contributors'" />
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'Overall Contributors'"
 
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                ng-click="setOverallPopup('contri');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                ng-click="setOverallPopup('contri');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+          [DATA]="data_contri"
+        />
       </section>
 
       <!--  Overall Drags -->
@@ -455,38 +425,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_drags" [HEAD]="'Overall Drags'" />
-
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                ng-click="setOverallPopup('drags');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                ng-click="setOverallPopup('drags');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [DATA]="data_drags"
+          [HEAD]="'Overall Drags'"
+        />
       </section>
 
       <!-- Overall Gainers -->
@@ -497,38 +442,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_gainers" [HEAD]="'Overall Gainers'" />
-
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                ng-click="setOverallPopup('gainers');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                ng-click="setOverallPopup('gainers');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [DATA]="data_gainers"
+          [HEAD]="'Overall Gainers'"
+        />
       </section>
 
       <!--  Overall Losers -->
@@ -539,38 +459,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_losers" [HEAD]="'Overall Losers'" />
-
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                ng-click="setOverallPopup('losers');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                ng-click="setOverallPopup('losers');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [DATA]="data_losers"
+          [HEAD]="'Overall Losers'"
+        />
       </section>
 
       <!--//////section end//////////-->

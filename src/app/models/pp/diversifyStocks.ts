@@ -11,13 +11,13 @@ export interface IDiversifyStocks_Data {
   'Micro Cap': MicroCap;
 }
 
-export interface LargeCap {
+ interface LargeCap {
   name: Name;
   details: { [key: string]: LargeCapDetail };
   total: { [key: string]: number };
 }
 
-export interface LargeCapDetail {
+ interface LargeCapDetail {
   short: string;
   indcode: number;
   indname: string;
@@ -36,20 +36,20 @@ export interface LargeCapDetail {
   contri: number;
 }
 
-export enum Name {
+ enum Name {
   LargeCap = 'Large Cap',
   MicroCap = 'Micro Cap',
   MidCap = 'Mid Cap',
   SmallCap = 'Small Cap',
 }
 
-export interface MicroCap {
+ interface MicroCap {
   name: Name;
   details: { [key: string]: MicroCapDetail };
   total: { [key: string]: number };
 }
 
-export interface MicroCapDetail {
+ interface MicroCapDetail {
   short: string;
   indcode: number;
   indname: string;
@@ -68,13 +68,13 @@ export interface MicroCapDetail {
   contri: number;
 }
 
-export interface MidCap {
+ interface MidCap {
   name: Name;
   details: { [key: string]: The454045_Value };
   total: { [key: string]: number };
 }
 
-export interface The454045_Value {
+ interface The454045_Value {
   short: string;
   indcode: number;
   indname: string;
@@ -93,12 +93,12 @@ export interface The454045_Value {
   contri: number;
 }
 
-export interface SmallCap {
+ interface SmallCap {
   name: Name;
   details: Details;
   total: { [key: string]: number };
 }
 
-export interface Details {
+ interface Details {
   '454045': The454045_Value;
 }
