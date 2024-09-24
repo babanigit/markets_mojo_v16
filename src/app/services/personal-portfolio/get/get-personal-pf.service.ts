@@ -71,6 +71,18 @@ export class GetPersonalPFService {
     );
   }
 
+  private diversifyPath = 'assets/pp/swiper/diversifyStocks.json';
+
+  getDiversifyStocks(jsonPath: string = this.diversifyPath){
+    return this.http.get<any>(jsonPath).pipe(
+      catchError((err) => {
+        console.error('Error fetching diversifyStocks data', err);
+        throw err;
+      })
+    );
+
+  }
+
   private nf_path = 'assets/pp/networkFactor/getNetworkFactor.json';
 
   getNetworkFactor(jsonPath: string = this.nf_path) {
