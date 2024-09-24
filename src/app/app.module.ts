@@ -15,11 +15,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserAnimationsModule,
     NavbarComponent,
     HttpClientModule,
-
   ],
-  providers: [
-
-  ],
-  bootstrap: [AppComponent,],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

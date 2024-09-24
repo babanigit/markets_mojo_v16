@@ -2,65 +2,71 @@
   <div class="card-content dividend">
     <div class="card-head">
       <h2>
-        {{HEAD}} <span
-          *ngIf="SHOW_BUTTON"
+        {{ HEAD }}
+        <span
           class="card-title activator info-act"
+          ng-click="isCollapseRetMcap = !isCollapseRetMcap"
         ></span>
       </h2>
     </div>
-    <div *ngIf="data_sector!" class="price-mojo col-green ng-scope">
+    <div class="price-mojo col-green ng-scope" *ngIf="data_Mcap!">
       <div class="txt-hed-1 priced ng-binding">
-        {{ data_sector.txt1 }}
+        {{ data_Mcap.txt1 }}
       </div>
       <table class="table1 divd-table">
         <thead>
           <tr>
-            <th class="textcenter">Sector <br /></th>
+            <th class="textcenter">
+              MCap <br />
+              Category
+            </th>
+
             <th class="textcenter">Total<br />Return</th>
             <th class="textcenter">Return<br />Contribution</th>
           </tr>
         </thead>
         <tbody>
           <tr
-            *ngFor="let sector of data_sector.list | keyvalue"
+            *ngFor="let mcap of data_Mcap.list | keyvalue"
+            ng-repeat="(key, rowArr) in returnData.mcap.list"
             class="ng-scope"
           >
-            <td class="ng-binding">{{ sector.value.txt }}</td>
+            <td class="ng-binding">{{ mcap.value.txt }}</td>
 
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.tgain != '-' -->
             <td
               [ngClass]="
-                this.fun.getDirClrDefault(sector.value.tgaindir, 'orange')
+                this.fun.getDirClrDefault(mcap.value.tgaindir, 'orange')
               "
               class="ng-binding ng-scope"
             >
-              {{ sector.value.tgain | roundOff | twoCommas }}
+              {{ mcap.value.tgain | roundOff | twoCommas }}
             </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
+
             <td class="ng-binding ng-scope">
-              {{ sector.value.tgainp | roundOff | twoCommas }}%
+              {{ mcap.value.tgainp | roundOff | twoCommas }}%
             </td>
           </tr>
         </tbody>
       </table>
       <div class="foot-note ng-binding"></div>
     </div>
+    <!-- end ngIf: loader[0].pf_return_mcap == false && error_flag[0].return_mcap == 0 -->
   </div>
 
-  <!-- slider -->
-  <div *ngIf="SHOW_BUTTON" class="card-reveal animate-slide ng-hide">
+  <!-- extend -->
+  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseRetMcap">
     <span class="card-title grey-text text-darken-4"
-      >Card Title<i class="material-icons right">close</i></span
+      >Card Title<i
+        class="material-icons right"
+        ng-click="isCollapseRetMcap = !isCollapseRetMcap"
+        >close</i
+      ></span
     >
     <div class="card-reveal-text">
       <ul>
         <li>
-          Contribution of sectors in the portfolio to the Unrealized Gain/Loss
-          of your current portfolio
+          Contribution of Market Cap categories in the portfolio to the
+          Unrealized Gain/Loss of your current portfolio
         </li>
         <li>
           The sum of contribution would add up to the total percentage
@@ -73,8 +79,8 @@
           shares can be sold at the exact same prices to make the same gain.
         </li>
         <li>
-          Click on Full Details to see bifurcation of sector return contribution
-          basis your portfolio stocks
+          Click on Full Details to see bifurcation of market cap return
+          contribution basis your portfolio stocks
         </li>
       </ul>
     </div>
@@ -88,7 +94,7 @@
       <a
         (click)="sendToParent()"
         class="seefull waves-light"
-        ng-click="returnContriPopup('sector')"
+        ng-click="returnContriPopup('mcap')"
         href="javascript:void(0);"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"
@@ -101,14 +107,14 @@
   </div>
 </div>
 
-<!-- details -->
+<!-- full details -->
 <div [hidden]="true">
   <div #childDiv class="modal-content contentbg">
     <div class="list-mojo">
       <table class="table1 mod-table">
         <thead>
           <tr>
-            <th class="ng-binding">Sector <br /></th>
+            <th class="ng-binding">MCap Category <br /></th>
             <th>
               Portfolio<br />
               Weight
@@ -123,7 +129,7 @@
             class="mod-hed-td ng-scope"
             ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
           >
-            <td class="ng-binding">Pesticides &amp; Agrochemicals</td>
+            <td class="ng-binding">Large Cap</td>
 
             <!-- ngIf: rowArr.pwtflag == 0 -->
             <!-- ngIf: rowArr.tgain == '-' -->
@@ -131,7 +137,7 @@
 
             <!-- ngIf: rowArr.pwtflag == 1 -->
             <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              33.48%
+              49.16%
             </td>
             <!-- end ngIf: rowArr.pwtflag == 1 -->
             <!-- ngIf: rowArr.tgain != '-' -->
@@ -140,134 +146,12 @@
               ng-class="getDirClrDefault(rowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              65,295
+              97,613
             </td>
             <!-- end ngIf: rowArr.tgain != '-' -->
             <!-- ngIf: rowArr.tgainp != '-' -->
             <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              19.65%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Jubilant Inds.</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              33.48%
-            </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              65,295
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              19.65%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Capital Goods</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              10.36%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              36,660
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              11.03%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Larsen &amp; Toubro</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              10.36%
-            </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              36,660
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              11.03%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Bank - Private</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              4.91%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              31,960
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              9.62%
+              29.38%
             </td>
             <!-- end ngIf: rowArr.tgainp != '-' -->
           </tr>
@@ -307,7 +191,7 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">RBL Bank</td>
+            <td class="ng-binding">Bharti Airtel</td>
             <!-- ngIf: subRowArr.lval == 0 -->
             <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
               Not held currently
@@ -321,150 +205,29 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              1,841
+              933
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.55%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">City Union Bank</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              4.91%
-            </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              28,966
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              8.72%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Finance/NBFC</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              14.76%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              24,920
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              7.5%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Edelweiss.Fin.</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              388
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.12%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">REC Ltd</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              12.41%
-            </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              23,635
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              7.11%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Innovassynth Inv</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
               0.28%
             </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">ITC</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
             <!-- ngIf: subRowArr.tgain == '-' -->
             <!-- ngIf: subRowArr.tgain != '-' -->
             <td
@@ -472,13 +235,13 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              653
+              934
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.20%
+              0.28%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -488,13 +251,13 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">Life Insurance</td>
+            <td class="ng-binding">Titan Company</td>
             <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              0.40%
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
             </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
             <!-- ngIf: subRowArr.tgain == '-' -->
             <!-- ngIf: subRowArr.tgain != '-' -->
             <td
@@ -502,13 +265,13 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              123
+              744
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.04%
+              0.22%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -518,27 +281,27 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">One 97</td>
+            <td class="ng-binding">Asian Paints</td>
             <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              0.27%
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
             </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
             <!-- ngIf: subRowArr.tgain == '-' -->
             <!-- ngIf: subRowArr.tgain != '-' -->
             <td
               ng-if="subRowArr.tgain != '-'"
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope red"
+              class="ng-binding ng-scope green"
             >
-              -78
+              1,724
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              -0.02%
+              0.52%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -548,13 +311,13 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">HDFC Life Insur.</td>
+            <td class="ng-binding">Hind. Unilever</td>
             <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              1.40%
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
             </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
             <!-- ngIf: subRowArr.tgain == '-' -->
             <!-- ngIf: subRowArr.tgain != '-' -->
             <td
@@ -562,109 +325,17 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              199
+              1,020
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.06%
+              0.31%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Mining &amp; Minerals</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              15.74%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              18,999
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              5.72%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Coal India</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              15.74%
-            </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              18,999
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              5.72%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Pharmaceuticals &amp; Drugs</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              7,268
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              2.19%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
           <tr
             ng-repeat-end=""
             ng-repeat="(key, subRowArr) in rowArr.list"
@@ -730,6 +401,36 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
+            <td class="ng-binding">Dabur India</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              267
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.08%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
             <td class="ng-binding">Cipla</td>
             <!-- ngIf: subRowArr.lval == 0 -->
             <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
@@ -760,7 +461,7 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">Wockhardt</td>
+            <td class="ng-binding">Hindalco Inds.</td>
             <!-- ngIf: subRowArr.lval == 0 -->
             <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
               Not held currently
@@ -774,13 +475,43 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              635
+              3,140
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.19%
+              0.94%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Infosys</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              888
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.27%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -820,6 +551,96 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
+            <td class="ng-binding">Coal India</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              15.74%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              18,999
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              5.72%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">St Bk of India</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              726
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.22%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Jubilant Food.</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              913
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.27%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
             <td class="ng-binding">Divi's Lab.</td>
             <!-- ngIf: subRowArr.lval == 0 -->
             <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
@@ -841,36 +662,6 @@
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
               0.02%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Amrutanjan Healt</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              1,784
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.54%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -940,7 +731,7 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">Biocon</td>
+            <td class="ng-binding">ONGC</td>
             <!-- ngIf: subRowArr.lval == 0 -->
             <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
               Not held currently
@@ -954,135 +745,13 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              527
+              183
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.16%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Aluminium &amp; Aluminium Products</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              3,140
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.94%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Hindalco Inds.</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              3,140
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.94%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">IT - Software</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              2.21%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              2,898
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.87%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Just Dial</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              453
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.14%
+              0.05%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -1092,7 +761,37 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">Infosys</td>
+            <td class="ng-binding">Vedanta</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope red"
+            >
+              -13
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.00%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Voltas</td>
             <!-- ngIf: subRowArr.lval == 0 -->
             <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
               Not held currently
@@ -1106,13 +805,13 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              888
+              78
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.27%
+              0.02%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -1152,7 +851,7 @@
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">Rolta India</td>
+            <td class="ng-binding">Sun TV Network</td>
             <!-- ngIf: subRowArr.lval == 0 -->
             <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
               Not held currently
@@ -1166,13 +865,133 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              165
+              394
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.05%
+              0.12%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Escorts Kubota</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              102
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.03%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">REC Ltd</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              12.41%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              23,635
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              7.11%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Biocon</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              527
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.16%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Havells India</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              63
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.02%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -1197,6 +1016,96 @@
               class="ng-binding ng-scope green"
             >
               355
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.11%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Larsen &amp; Toubro</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              10.36%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              36,660
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              11.03%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Exide Inds.</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              319
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.10%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">GAIL (India)</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              380
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
@@ -1266,505 +1175,17 @@
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Paints</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              1,724
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.52%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Asian Paints</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              1,724
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.52%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">FMCG</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              1,287
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.39%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Hind. Unilever</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              1,020
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.31%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
           <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
           <tr
             ng-repeat-end=""
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">Dabur India</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              267
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.08%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Cigarettes/Tobacco</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              934
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.28%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">ITC</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              934
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.28%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Telecommunication - Service Provider</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              933
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.28%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Bharti Airtel</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              933
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.28%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Lifestyle</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              913
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.27%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Jubilant Food.</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              913
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.27%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Diamond &amp; Gold Jewellery</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              744
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.22%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Titan Company</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              744
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.22%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Consumer durables</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              692
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.21%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Bata India</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              692
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.21%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Tyres &amp; Allied</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              1.18%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              527
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.16%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">CEAT</td>
+            <td class="ng-binding">Life Insurance</td>
             <!-- ngIf: subRowArr.lval == 0 -->
             <!-- ngIf: subRowArr.lval != 0 -->
             <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              1.18%
+              0.40%
             </td>
             <!-- end ngIf: subRowArr.lval != 0 -->
             <!-- ngIf: subRowArr.tgain == '-' -->
@@ -1774,440 +1195,43 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              527
+              123
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.16%
+              0.04%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Airlines</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              421
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.13%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
           <tr
             ng-repeat-end=""
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">Jet Airways</td>
+            <td class="ng-binding">One 97</td>
             <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
             <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              0.27%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
             <!-- ngIf: subRowArr.tgain == '-' -->
             <!-- ngIf: subRowArr.tgain != '-' -->
             <td
               ng-if="subRowArr.tgain != '-'"
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
+              class="ng-binding ng-scope red"
             >
-              421
+              -78
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.13%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">TV Broadcasting &amp; Software</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              394
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.12%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Sun TV Network</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              394
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.12%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Gas Transmission/Marketing</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              380
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.11%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">GAIL (India)</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              380
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.11%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Batteries</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              319
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.1%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Exide Inds.</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              319
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.10%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Textile</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              335
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.1%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Arvind Ltd</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              335
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.10%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Oil Exploration/Refineries</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              183
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.06%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">ONGC</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              183
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.05%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Public Banks</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              2.10%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              193
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.06%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">St Bk of India</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              726
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.22%
+              -0.02%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -2241,109 +1265,17 @@
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Auto - Tractor</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              102
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.03%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
           <tr
             ng-repeat-end=""
             ng-repeat="(key, subRowArr) in rowArr.list"
             class="ng-scope"
           >
-            <td class="ng-binding">Escorts Kubota</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              102
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.03%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Textile - Machinery</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.31%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              63
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.02%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Shree Karni</td>
+            <td class="ng-binding">HDFC Life Insur.</td>
             <!-- ngIf: subRowArr.lval == 0 -->
             <!-- ngIf: subRowArr.lval != 0 -->
             <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              0.31%
+              1.40%
             </td>
             <!-- end ngIf: subRowArr.lval != 0 -->
             <!-- ngIf: subRowArr.tgain == '-' -->
@@ -2353,369 +1285,7 @@
               ng-class="getDirClrDefault(subRowArr.tgaindir)"
               class="ng-binding ng-scope green"
             >
-              63
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.02%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Cable</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              63
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.02%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Havells India</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              63
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.02%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Air Conditioners</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              78
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.02%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Voltas</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              78
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.02%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Paper &amp; Paper Products</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              30
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.01%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">JK Paper</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              30
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.01%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Chemicals</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.02%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              4
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">0%</td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Syschem (India)</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
-              0.02%
-            </td>
-            <!-- end ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              4
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Metal - Non Ferrous</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope red"
-            >
-              -13
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">0%</td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Vedanta</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope red"
-            >
-              -13
-            </td>
-            <!-- end ngIf: subRowArr.tgain != '-' -->
-            <!-- ngIf: subRowArr.tgainp == '-' -->
-            <!-- ngIf: subRowArr.tgainp != '-' -->
-            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
-              0.00%
-            </td>
-            <!-- end ngIf: subRowArr.tgainp != '-' -->
-          </tr>
-          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
-          <tr
-            class="mod-hed-td ng-scope"
-            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
-          >
-            <td class="ng-binding">Finance - Housing</td>
-
-            <!-- ngIf: rowArr.pwtflag == 0 -->
-            <!-- ngIf: rowArr.tgain == '-' -->
-            <!-- ngIf: rowArr.tgainp == '-' -->
-
-            <!-- ngIf: rowArr.pwtflag == 1 -->
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              4.27%
-            </td>
-            <!-- end ngIf: rowArr.pwtflag == 1 -->
-            <!-- ngIf: rowArr.tgain != '-' -->
-            <td
-              ng-if="rowArr.tgain != '-'"
-              ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope red"
-            >
-              -1,386
-            </td>
-            <!-- end ngIf: rowArr.tgain != '-' -->
-            <!-- ngIf: rowArr.tgainp != '-' -->
-            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              -0.42%
-            </td>
-            <!-- end ngIf: rowArr.tgainp != '-' -->
-          </tr>
-          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
-          <tr
-            ng-repeat-end=""
-            ng-repeat="(key, subRowArr) in rowArr.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">Sammaan Capital</td>
-            <!-- ngIf: subRowArr.lval == 0 -->
-            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
-              Not held currently
-            </td>
-            <!-- end ngIf: subRowArr.lval == 0 -->
-            <!-- ngIf: subRowArr.lval != 0 -->
-            <!-- ngIf: subRowArr.tgain == '-' -->
-            <!-- ngIf: subRowArr.tgain != '-' -->
-            <td
-              ng-if="subRowArr.tgain != '-'"
-              ng-class="getDirClrDefault(subRowArr.tgaindir)"
-              class="ng-binding ng-scope green"
-            >
-              195
+              199
             </td>
             <!-- end ngIf: subRowArr.tgain != '-' -->
             <!-- ngIf: subRowArr.tgainp == '-' -->
@@ -2760,7 +1330,7 @@
             class="mod-hed-td ng-scope"
             ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
           >
-            <td class="ng-binding">Power Generation/Distribution</td>
+            <td class="ng-binding">Small Cap</td>
 
             <!-- ngIf: rowArr.pwtflag == 0 -->
             <!-- ngIf: rowArr.tgain == '-' -->
@@ -2768,25 +1338,356 @@
 
             <!-- ngIf: rowArr.pwtflag == 1 -->
             <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              5.44%
+              33.48%
             </td>
             <!-- end ngIf: rowArr.pwtflag == 1 -->
             <!-- ngIf: rowArr.tgain != '-' -->
             <td
               ng-if="rowArr.tgain != '-'"
               ng-class="getDirClrDefault(rowArr.tgaindir)"
-              class="ng-binding ng-scope red"
+              class="ng-binding ng-scope green"
             >
-              -1,482
+              67,079
             </td>
             <!-- end ngIf: rowArr.tgain != '-' -->
             <!-- ngIf: rowArr.tgainp != '-' -->
             <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              -0.45%
+              20.19%
             </td>
             <!-- end ngIf: rowArr.tgainp != '-' -->
           </tr>
           <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Amrutanjan Healt</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              1,784
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.54%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Jubilant Inds.</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              33.48%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              65,295
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              19.65%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list --><!-- end ngRepeat: (key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true -->
+          <tr
+            class="mod-hed-td ng-scope"
+            ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
+          >
+            <td class="ng-binding">Mid Cap</td>
+
+            <!-- ngIf: rowArr.pwtflag == 0 -->
+            <!-- ngIf: rowArr.tgain == '-' -->
+            <!-- ngIf: rowArr.tgainp == '-' -->
+
+            <!-- ngIf: rowArr.pwtflag == 1 -->
+            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
+              11.53%
+            </td>
+            <!-- end ngIf: rowArr.pwtflag == 1 -->
+            <!-- ngIf: rowArr.tgain != '-' -->
+            <td
+              ng-if="rowArr.tgain != '-'"
+              ng-class="getDirClrDefault(rowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              32,580
+            </td>
+            <!-- end ngIf: rowArr.tgain != '-' -->
+            <!-- ngIf: rowArr.tgainp != '-' -->
+            <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
+              9.8%
+            </td>
+            <!-- end ngIf: rowArr.tgainp != '-' -->
+          </tr>
+          <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Just Dial</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              453
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.14%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Bata India</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              692
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.21%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Wockhardt</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              635
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.19%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">JK Paper</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              30
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.01%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">RBL Bank</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              1,841
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.55%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Edelweiss.Fin.</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              388
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.12%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">City Union Bank</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              4.91%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              28,966
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              8.72%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Arvind Ltd</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              335
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.10%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
           <tr
             ng-repeat-end=""
             ng-repeat="(key, subRowArr) in rowArr.list"
@@ -2813,6 +1714,66 @@
             <!-- ngIf: subRowArr.tgainp != '-' -->
             <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
               -0.82%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Sammaan Capital</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              195
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.06%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">CEAT</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              1.18%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              527
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.16%
             </td>
             <!-- end ngIf: subRowArr.tgainp != '-' -->
           </tr>
@@ -2851,7 +1812,7 @@
             class="mod-hed-td ng-scope"
             ng-repeat-start="(key, rowArr) in returnPopupData | orderObjectBy:'tgainp':true"
           >
-            <td class="ng-binding">Tea/Coffee</td>
+            <td class="ng-binding">Micro Cap</td>
 
             <!-- ngIf: rowArr.pwtflag == 0 -->
             <!-- ngIf: rowArr.tgain == '-' -->
@@ -2859,7 +1820,7 @@
 
             <!-- ngIf: rowArr.pwtflag == 1 -->
             <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              5.22%
+              5.83%
             </td>
             <!-- end ngIf: rowArr.pwtflag == 1 -->
             <!-- ngIf: rowArr.tgain != '-' -->
@@ -2868,16 +1829,166 @@
               ng-class="getDirClrDefault(rowArr.tgaindir)"
               class="ng-binding ng-scope red"
             >
-              -3,341
+              -2,035
             </td>
             <!-- end ngIf: rowArr.tgain != '-' -->
             <!-- ngIf: rowArr.tgainp != '-' -->
             <td ng-if="rowArr.tgainp != '-'" class="ng-binding ng-scope">
-              -1.01%
+              -0.61%
             </td>
             <!-- end ngIf: rowArr.tgainp != '-' -->
           </tr>
           <!-- ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Jet Airways</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              421
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.13%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Rolta India</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <td ng-if="subRowArr.lval == 0" class="ng-binding ng-scope">
+              Not held currently
+            </td>
+            <!-- end ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              165
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.05%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Innovassynth Inv</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              0.28%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              653
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.20%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Shree Karni</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              0.31%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              63
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.02%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
+          <tr
+            ng-repeat-end=""
+            ng-repeat="(key, subRowArr) in rowArr.list"
+            class="ng-scope"
+          >
+            <td class="ng-binding">Syschem (India)</td>
+            <!-- ngIf: subRowArr.lval == 0 -->
+            <!-- ngIf: subRowArr.lval != 0 -->
+            <td ng-if="subRowArr.lval != 0" class="ng-binding ng-scope">
+              0.02%
+            </td>
+            <!-- end ngIf: subRowArr.lval != 0 -->
+            <!-- ngIf: subRowArr.tgain == '-' -->
+            <!-- ngIf: subRowArr.tgain != '-' -->
+            <td
+              ng-if="subRowArr.tgain != '-'"
+              ng-class="getDirClrDefault(subRowArr.tgaindir)"
+              class="ng-binding ng-scope green"
+            >
+              4
+            </td>
+            <!-- end ngIf: subRowArr.tgain != '-' -->
+            <!-- ngIf: subRowArr.tgainp == '-' -->
+            <!-- ngIf: subRowArr.tgainp != '-' -->
+            <td ng-if="subRowArr.tgainp != '-'" class="ng-binding ng-scope">
+              0.00%
+            </td>
+            <!-- end ngIf: subRowArr.tgainp != '-' -->
+          </tr>
+          <!-- end ngRepeat: (key, subRowArr) in rowArr.list -->
           <tr
             ng-repeat-end=""
             ng-repeat="(key, subRowArr) in rowArr.list"
