@@ -33,6 +33,8 @@ import { BarGraphComponent } from '../../graph/bar-graph/bar-graph.component';
 import { ReturnVsCompositeComponent } from "../../cards/return-vs-composite/return-vs-composite.component";
 import { ReturnAbsoluteAndIrrComponent } from '../../cards/return-absolute-and-irr/return-absolute-and-irr.component';
 import { CalenderYearsReturnComponent } from '../../cards/calender-years-return/calender-years-return.component';
+import { DividendContriReturnComponent } from '../../cards/dividend-contri-return/dividend-contri-return.component';
+import { SectorsContriReturnComponent } from '../../cards/sectors-contri-return/sectors-contri-return.component';
 
 @Component({
   selector: 'app-swiper-return-analysis',
@@ -49,7 +51,9 @@ import { CalenderYearsReturnComponent } from '../../cards/calender-years-return/
     SwiperReturnAnalysisComponent,
     ReturnVsCompositeComponent,
     ReturnAbsoluteAndIrrComponent,
-    CalenderYearsReturnComponent
+    CalenderYearsReturnComponent,
+    DividendContriReturnComponent,
+    SectorsContriReturnComponent
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,

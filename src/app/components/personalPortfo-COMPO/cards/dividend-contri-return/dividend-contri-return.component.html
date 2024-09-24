@@ -1,0 +1,243 @@
+<div class="card">
+
+  <div class="card-content dividend">
+    <div class="card-head">
+      <h2>
+        Dividend Contribution to Returns<span
+          *ngIf="SHOW_BUTTON"
+          class="card-title activator info-act"
+        ></span>
+      </h2>
+    </div>
+
+    <div class="price-mojo col-green ng-scope" *ngIf="data_divcontri!">
+      <div class="txt-hed-1 priced ng-binding">
+        {{ data_divcontri.txt1 }}
+      </div>
+      <p class="ng-binding">{{ data_divcontri.txt2 }}</p>
+      <table class="table1 divd-table">
+        <thead>
+          <tr>
+            <th class="textcenter">
+              Time<br />
+              Period
+            </th>
+            <th class="textcenter">
+              Dividend<br />
+              Received (Abs)
+            </th>
+            <th class="textcenter">
+              Price<br />
+              Return (%)
+            </th>
+
+            <th class="textcenter">
+              Total<br />
+              Return (%)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data_divcontri.list" class="ng-scope">
+            <td class="ng-binding">{{ item.period }}</td>
+
+            <td class="ng-binding ng-scope">
+              {{ item.divrec | roundOff | twoCommas }}
+            </td>
+
+            <td class="ng-binding ng-scope">
+              {{ item.price | roundOff | twoCommas }}%
+            </td>
+            <!-- end ngIf: rowArr.total != 'NA' -->
+            <!-- ngIf: rowArr.total != 'NA' -->
+            <td class="ng-binding ng-scope">
+              {{ item.total | roundOff | twoCommas }}%
+            </td>
+            <!-- end ngIf: rowArr.total != 'NA' -->
+          </tr>
+        </tbody>
+      </table>
+      <div class="foot-note ng-binding">*Absolute Returns from 26 Dec 2016</div>
+    </div>
+  </div>
+
+  <!-- slider -->
+  <div *ngIf="SHOW_BUTTON" class="card-reveal animate-slide ng-hide">
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i class="material-icons right">close</i></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          The card gives the total return made by the portfolio in different
+          time periods and the contribution of dividend received to your total
+          returns
+        </li>
+        <li>Total returns also include returns made on shares sold by you</li>
+        <li>
+          Click on Dividend History to see dividend received by you from
+          different stocks in chronological order
+        </li>
+        <li>All returns are absolute</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- extend details -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+      (click)=" sendToParent()"
+        class="seefull waves-light modal-trigger"
+        ng-click="dividendReturnPopup()"
+        href="javascript:void(0);"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Dividend History</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- extend details -->
+<div [hidden]="true">
+  <div #childDiv class="modal-content contentbg">
+    <div class="list-mojo">
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Company</th>
+            <th>Dividend Received</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">16 Aug 2024</td>
+            <td class="ng-binding">Coal India</td>
+            <td class="ng-binding">Rs. 500</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">19 Jul 2024</td>
+            <td class="ng-binding">Life Insurance</td>
+            <td class="ng-binding">Rs. 6</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">09 Jul 2024</td>
+            <td class="ng-binding">Persistent Sys</td>
+            <td class="ng-binding">Rs. 10</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">28 Jun 2024</td>
+            <td class="ng-binding">REC Ltd</td>
+            <td class="ng-binding">Rs. 415</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">21 Jun 2024</td>
+            <td class="ng-binding">Punjab Natl.Bank</td>
+            <td class="ng-binding">Rs. 75</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">20 Jun 2024</td>
+            <td class="ng-binding">Larsen &amp; Toubro</td>
+            <td class="ng-binding">Rs. 196</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">04 Jun 2024</td>
+            <td class="ng-binding">ITC</td>
+            <td class="ng-binding">Rs. 150</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">22 May 2024</td>
+            <td class="ng-binding">St Bk of India</td>
+            <td class="ng-binding">Rs. 27</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">16 May 2024</td>
+            <td class="ng-binding">TCS</td>
+            <td class="ng-binding">Rs. 28</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">03 Apr 2024</td>
+            <td class="ng-binding">Ashok Leyland</td>
+            <td class="ng-binding">Rs. 139</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">21 Feb 2024</td>
+            <td class="ng-binding">Life Insurance</td>
+            <td class="ng-binding">Rs. 4</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">30 Jan 2024</td>
+            <td class="ng-binding">Persistent Sys</td>
+            <td class="ng-binding">Rs. 32</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+          <tr
+            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
+            class="ng-scope"
+          >
+            <td class="ng-binding">16 Jan 2023</td>
+            <td class="ng-binding">TCS</td>
+            <td class="ng-binding">Rs. 67</td>
+          </tr>
+          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
