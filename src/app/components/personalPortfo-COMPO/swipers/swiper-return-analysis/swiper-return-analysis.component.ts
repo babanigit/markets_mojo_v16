@@ -57,7 +57,7 @@ import { StocksContriReturnComponent } from '../../cards/stocks-contri-return/st
     DividendContriReturnComponent,
     SectorsContriReturnComponent,
     McapContriReturnComponent,
-    StocksContriReturnComponent
+    StocksContriReturnComponent,
 
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

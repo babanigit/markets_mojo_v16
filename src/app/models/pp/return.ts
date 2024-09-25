@@ -949,14 +949,14 @@ interface List43 {
 
 export interface ICalendar_data {
   caldisp: number;
-  years: string[];
-  absret: Absret;
-  divrec: Divrec;
-  port: Port;
-  comp: Comp;
-  sensex: Sensex;
-  midcap: Midcap;
-  smallcap: Smallcap;
+  years: string[]  ;
+  absret: Absret |any ;
+  divrec: Divrec | any ;
+  port: Port| any ;
+  comp: Comp| any ;
+  sensex: Sensex | any ;
+  midcap: Midcap | any ;
+  smallcap: Smallcap | any ;
 }
 
 interface Absret {

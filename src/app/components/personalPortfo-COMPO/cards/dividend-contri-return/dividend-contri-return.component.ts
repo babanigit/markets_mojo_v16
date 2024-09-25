@@ -1,9 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import {
+  IDivContriPopup,
+  IDivContriPopup_data,
+} from 'src/app/models/pp/divContriPopup';
 import { IDivcontri } from 'src/app/models/pp/return';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 
 @Component({
   selector: 'app-dividend-contri-return',
@@ -14,8 +28,13 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DividendContriReturnComponent {
+  constructor(
+    public fun: PpFunctionsService,
+    private serv: GetPersonalPFService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
-  constructor(public fun: PpFunctionsService) {}
+  divContriPopup_data: IDivContriPopup_data[] | undefined;
 
   @Input() data_divcontri: IDivcontri | undefined; //props
   @Input() HEAD: string | undefined; //props
@@ -25,6 +44,18 @@ export class DividendContriReturnComponent {
   @Output() sendElement = new EventEmitter<HTMLDivElement>();
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
+
+  ngOnInit(): void {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.serv.getDivContri().subscribe((res: IDivContriPopup) => {
+      this.divContriPopup_data = res.data;
+      console.log('the divcontripopup is : ', this.divContriPopup_data);
+      this.cdr.detectChanges(); // Trigger change detection
+    });
+  }
 
   sendToParent() {
     if (this.childDiv) {
@@ -39,12 +70,12 @@ export class DividendContriReturnComponent {
       // in this the element get disapper
       // this.sendElement.emit(this.childDiv.nativeElement);
 
-      this.sendElement.emit(clonedElement);
-      this.sendClick_State.emit(true);
-      this.send_head.emit(this.HEAD);
-      console.log('the head is : ', this.HEAD);
+      if (this.divContriPopup_data!) {
+        this.sendElement.emit(clonedElement);
+        this.sendClick_State.emit(true);
+        this.send_head.emit(this.HEAD);
+        console.log('the head is : ', this.HEAD);
+      }
     }
   }
-
-
 }

@@ -60,14 +60,14 @@ export class StockerInvestmentsComponent implements AfterViewInit {
   ngAfterViewInit() {}
 
 
-  click_state: boolean = false;
-
   @ViewChild('parentContainer', { static: false })
   parentContainer!: ElementRef<HTMLDivElement>;
 
+  click_state: boolean = false;
+  getHead: string | undefined;
+
   receiveElement(element: HTMLDivElement) {
     console.log('Received element', element);
-
     // Use the ViewChild reference to append the element
     setTimeout(() => {
       if (this.parentContainer) {
@@ -80,7 +80,6 @@ export class StockerInvestmentsComponent implements AfterViewInit {
     this.click_state = state;
   }
 
-  getHead: string | undefined;
   receiveHead(str: string) {
     this.getHead = str;
   }

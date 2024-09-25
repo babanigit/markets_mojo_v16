@@ -1,5 +1,4 @@
 <div class="card">
-
   <div class="card-content dividend">
     <div class="card-head">
       <h2>
@@ -82,7 +81,6 @@
       </ul>
     </div>
   </div>
-
 </div>
 
 <!-- extend details -->
@@ -90,7 +88,7 @@
   <div class="bottom-card-links">
     <div class="bottom-card-links">
       <a
-      (click)=" sendToParent()"
+        (click)="sendToParent()"
         class="seefull waves-light modal-trigger"
         ng-click="dividendReturnPopup()"
         href="javascript:void(0);"
@@ -117,125 +115,14 @@
             <th>Dividend Received</th>
           </tr>
         </thead>
-        <tbody>
-          <!-- ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">16 Aug 2024</td>
-            <td class="ng-binding">Coal India</td>
-            <td class="ng-binding">Rs. 500</td>
+        <tbody *ngIf="divContriPopup_data!">
+          <tr *ngFor="let item of divContriPopup_data" class="ng-scope">
+            <td class="ng-binding">{{ item.date }}</td>
+            <td class="ng-binding">{{ item.sname }}</td>
+            <td class="ng-binding">
+              Rs. {{ item.dividend | roundOff | twoCommas }}
+            </td>
           </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">19 Jul 2024</td>
-            <td class="ng-binding">Life Insurance</td>
-            <td class="ng-binding">Rs. 6</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">09 Jul 2024</td>
-            <td class="ng-binding">Persistent Sys</td>
-            <td class="ng-binding">Rs. 10</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">28 Jun 2024</td>
-            <td class="ng-binding">REC Ltd</td>
-            <td class="ng-binding">Rs. 415</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">21 Jun 2024</td>
-            <td class="ng-binding">Punjab Natl.Bank</td>
-            <td class="ng-binding">Rs. 75</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">20 Jun 2024</td>
-            <td class="ng-binding">Larsen &amp; Toubro</td>
-            <td class="ng-binding">Rs. 196</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">04 Jun 2024</td>
-            <td class="ng-binding">ITC</td>
-            <td class="ng-binding">Rs. 150</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">22 May 2024</td>
-            <td class="ng-binding">St Bk of India</td>
-            <td class="ng-binding">Rs. 27</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">16 May 2024</td>
-            <td class="ng-binding">TCS</td>
-            <td class="ng-binding">Rs. 28</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">03 Apr 2024</td>
-            <td class="ng-binding">Ashok Leyland</td>
-            <td class="ng-binding">Rs. 139</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">21 Feb 2024</td>
-            <td class="ng-binding">Life Insurance</td>
-            <td class="ng-binding">Rs. 4</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">30 Jan 2024</td>
-            <td class="ng-binding">Persistent Sys</td>
-            <td class="ng-binding">Rs. 32</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
-          <tr
-            ng-repeat="rowArr in dividendReturnData|orderBy:'rawdt':true"
-            class="ng-scope"
-          >
-            <td class="ng-binding">16 Jan 2023</td>
-            <td class="ng-binding">TCS</td>
-            <td class="ng-binding">Rs. 67</td>
-          </tr>
-          <!-- end ngRepeat: rowArr in dividendReturnData|orderBy:'rawdt':true -->
         </tbody>
       </table>
     </div>

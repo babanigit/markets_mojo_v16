@@ -12,6 +12,7 @@ import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { NewsComponent } from '../news/news.component';
 import { ICalendar_data } from 'src/app/models/pp/return';
 import { BarGraphComponent } from '../../graph/bar-graph/bar-graph.component';
+import { OrderObjectByPipe } from 'src/app/pipes/pp/orderObjectBy/order-object-by.pipe';
 
 @Component({
   selector: 'app-calender-years-return',
@@ -24,6 +25,7 @@ import { BarGraphComponent } from '../../graph/bar-graph/bar-graph.component';
     RoundOffPipe,
     NewsComponent,
     BarGraphComponent,
+    OrderObjectByPipe
   ],
 })
 export class CalenderYearsReturnComponent {

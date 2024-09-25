@@ -71,6 +71,16 @@ export class GetPersonalPFService {
     );
   }
 
+  private divcontripath = 'assets/pp/swiper/divContriPopup.json';
+
+  getDivContri(jsonPath: string = this.divcontripath){
+    return this.http.get<any>(jsonPath).pipe(
+      catchError((err) => {
+        console.error('Error fetching diversifyStocks data', err);
+        throw err;
+      })
+    );
+  }
   private diversifyPath = 'assets/pp/swiper/diversifyStocks.json';
   getDiversifyStocks(jsonPath: string = this.diversifyPath){
     return this.http.get<any>(jsonPath).pipe(

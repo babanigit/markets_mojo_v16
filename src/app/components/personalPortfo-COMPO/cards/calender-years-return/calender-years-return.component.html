@@ -90,175 +90,104 @@
 
 <!-- detail section -->
 <div [hidden]="true">
+  <!-- #childDiv -->
+
   <div #childDiv class="modal-content contentbg">
     <div class="list-mojo">
-      <table class="table1 mod-table">
+      <table *ngIf="data_calender!" class="table1 mod-table">
         <thead>
           <tr>
             <th>Name</th>
-            <!-- ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
+
             <th
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
+              *ngFor="let item of data_calender.years"
               class="ng-binding ng-scope"
             >
-              2024
+              {{ item }}
             </th>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
-            <th
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope"
-            >
-              2023
-            </th>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
-            <th
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              2022
-            </th>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
-            <th
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              2021
-            </th>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
-            <th
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              2020
-            </th>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
-            <th
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              2019
-            </th>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
-            <th
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              2018
-            </th>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
-            <th
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              2017
-            </th>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
-            <th
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true"
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              2016
-            </th>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true -->
           </tr>
         </thead>
         <tbody>
-
           <tr>
             <td>Absolute Return (Rs.)</td>
-            <!-- ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-            <td
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope"
-            >
-              <!--                                    (key, val) in returnData.calendar.absret-->
-              75,758
-            </td>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-            <td
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope"
-            >
-              <!--                                    (key, val) in returnData.calendar.absret-->
-              54,917
-            </td>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-            <td
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              <!--                                    (key, val) in returnData.calendar.absret-->
-              1,517
-            </td>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-            <td
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              <!--                                    (key, val) in returnData.calendar.absret-->
-              32,275
-            </td>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-            <td
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              <!--                                    (key, val) in returnData.calendar.absret-->
-              -7,288
-            </td>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-            <td
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              <!--                                    (key, val) in returnData.calendar.absret-->
-              15,362
-            </td>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-            <td
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              <!--                                    (key, val) in returnData.calendar.absret-->
-              419
-            </td>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-            <td
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              <!--                                    (key, val) in returnData.calendar.absret-->
-              32,738
-            </td>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-            <td
-              ng-repeat="(key,year) in returnData.calendar.years|orderBy:'year':true "
-              ng-class='(key!=0 &amp;&amp;  key!=1)?"no-mob no-tab2":""'
-              class="ng-binding ng-scope no-mob no-tab2"
-            >
-              <!--                                    (key, val) in returnData.calendar.absret-->
-              -26,024
-            </td>
-            <!-- end ngRepeat: (key,year) in returnData.calendar.years|orderBy:'year':true  -->
-          </tr>
 
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{ (data_calender.absret[item] | roundOff | twoCommas) || "NA" }}%
+            </td>
+          </tr>
+          <tr>
+            <td>Dividend Received (Rs.)</td>
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{ (data_calender.divrec[item] | roundOff | twoCommas) || "NA" }}%
+            </td>
+          </tr>
+          <tr>
+            <td>Return (%)</td>
+
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.port[item].data | roundOff | twoCommas) || "NA"
+              }}%
+            </td>
+          </tr>
+          <tr>
+            <td>Composite Index (%)</td>
+
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.comp[item].data | roundOff | twoCommas) || "NA"
+              }}%
+            </td>
+          </tr>
+          <tr>
+            <td>Sensex (%)</td>
+
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.sensex[item].data | roundOff | twoCommas) ||
+                  "NA"
+              }}%
+            </td>
+          </tr>
+          <tr>
+            <td>BSE Mid Cap (%)</td>
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.midcap[item].data | roundOff | twoCommas) ||
+                  "NA"
+              }}%
+            </td>
+          </tr>
+          <tr>
+            <td>BSE Small Cap (%)</td>
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.smallcap[item].data | roundOff | twoCommas) ||
+                  "NA"
+              }}%
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
