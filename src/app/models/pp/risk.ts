@@ -10,7 +10,7 @@ export interface IRisk_Data {
   volatility: IVolatility;
   beta: IBeta;
   var: IVar;
-  return: Return;
+  return: IReturn_risk;
   allocation: IAllocation;
 }
 
@@ -57,7 +57,7 @@ export interface IVar {
   var_val: string;
 }
 
-interface Return {
+export interface IReturn_risk {
   txt1: string;
   txt2: string;
   port: Port;
@@ -84,12 +84,12 @@ interface Comp {
 }
 
 interface Graph2 {
-  details: Details;
+  details: map_Details;
   data: graph_Data2;
 }
 
-interface Details {
-  [key: string]: LargeCap | MidCap | SmallCap | MicroCap;
+ export interface map_Details {
+  [key: string]: LargeCap
 }
 
 interface LargeCap {
@@ -122,7 +122,7 @@ interface Details3 {
   [key: string]: N400868;
 }
 
-interface N400868 {
+export interface N400868 {
   short: string;
   indcode: number;
   indname: string;

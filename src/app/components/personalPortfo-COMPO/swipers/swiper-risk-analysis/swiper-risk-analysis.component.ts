@@ -22,6 +22,7 @@ import {
   graph_Data2,
   IAllocation,
   IBeta,
+  IReturn_risk,
   IRisk,
   IRisk_Data,
   IScore_risk,
@@ -34,6 +35,9 @@ import { LineGraphComponent } from '../../graph/line-graph/line-graph.component'
 import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.component';
 import { BetaComponent } from '../../cards/beta/beta.component';
 import { VolatilityComponent } from '../../cards/volatility/volatility.component';
+import { ReturnVarComponent } from '../../cards/return-var/return-var.component';
+import { RiskAdjReturnsComponent } from '../../cards/risk-adj-returns/risk-adj-returns.component';
+import { AllocRiskComponent } from "../../cards/alloc-risk/alloc-risk.component";
 
 @Component({
   selector: 'app-swiper-risk-analysis',
@@ -47,11 +51,12 @@ import { VolatilityComponent } from '../../cards/volatility/volatility.component
     RadiusChartComponent,
     ScorecardComponent,
     LineGraphComponent,
-
     BetaComponent,
     VolatilityComponent,
-
-  ],
+    ReturnVarComponent,
+    RiskAdjReturnsComponent,
+    AllocRiskComponent
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -62,7 +67,8 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
 
   beta: IBeta | undefined;
   volatility: IVolatility | undefined;
-  var: IVar | undefined;
+  var_data: IVar | undefined;
+  return_risk_data : IReturn_risk | undefined;
 
   pieFromat: series_Data_pie[] | undefined;
 
@@ -129,7 +135,8 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
       // console.log('data_allocation riks : ', res.data.allocation);
       this.beta = res.data.beta;
       this.volatility = res.data.volatility;
-      this.var = res.data.var;
+      this.var_data = res.data.var;
+      this.return_risk_data=res.data.return;
 
       // console.log(
       //   'res.data.allocation.graph.data ',

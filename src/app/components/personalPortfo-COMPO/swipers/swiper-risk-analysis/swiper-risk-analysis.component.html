@@ -145,100 +145,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-
-
-      <div class="card">
-        <div class="card-content valuerisk">
-          <div class="card-head">
-            <h2>
-              Value at risk (VAR)
-              <span
-                class="card-title activator info-act"
-                ng-click="isCollapseRiskVar = !isCollapseRiskVar"
-              ></span>
-            </h2>
-          </div>
-
-          <div class="quality ng-scope" *ngIf="main_data!">
-            <div class="valuation-head" id="vd_valuationDtail">
-              <div class="high-risk-head ng-binding">
-                {{ main_data.var.txt1 }}
-              </div>
-              <p class="sales_txt txt-cr ng-binding">
-                {{ main_data.var.txt2 }}
-              </p>
-              <p class="sales_txt txt-cr ng-binding">
-                {{ main_data.var.txt3 }}
-              </p>
-            </div>
-            <br />
-            <br />
-          </div>
-        </div>
-
-        <!-- extend -->
-        <div
-          class="card-reveal animate-slide ng-hide"
-          ng-show="isCollapseRiskVar"
-        >
-          <span class="card-title grey-text text-darken-4"
-            >Card Title<i
-              class="material-icons right"
-              ng-click="isCollapseRiskVar = !isCollapseRiskVar"
-              >close</i
-            ></span
-          >
-          <div class="card-reveal-text">
-            <ul>
-              <li>
-                Value at Risk (VAR) measures the extent of loss at a given
-                probability
-              </li>
-              <li>
-                We have used 99% confidence interval to measure the extent of
-                loss on any given day
-              </li>
-              <li>
-                This means that there is a very low probability (1%) that on
-                any day your loss can be higher than the amount mentioned
-              </li>
-              <li>
-                Please note VAR signifies the minimum loss and not the maximum
-                loss
-              </li>
-              <li>
-                Click on Full Details to see VAR of your portfolio stocks
-              </li>
-              <li>
-                Beta is a measure of sensitivity of the portfolio with broader
-                market (Sensex)
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- full details -->
-      <div class="porbottomlink">
-        <div class="bottom-card-links">
-          <div class="bottom-card-links">
-            <a
-              class="seefull waves-light"
-              href="#SeeAllModal"
-              ng-click='modalOpen("risk_var")'
-              ><img
-                src="https://i.marketsmojo.com/arrow_rt.png"
-                alt="ArrowRight"
-                height="16"
-              />
-              Full Details</a
-            >
-          </div>
-        </div>
-      </div>
-
-
+        <app-return-var
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="' Value at risk (VAR) '"
+          [var_data]="var_data"
+        />
       </section>
 
       <!-- risk adju returns -->
@@ -247,137 +160,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <div class="card">
-          <div class="card-content riskAdjusted">
-            <div class="card-head">
-              <h2>
-                Risk Adjusted Returns
-                <span
-                  class="card-title activator info-act"
-                  ng-click="isCollapseRiskRar = !isCollapseRiskRar"
-                ></span>
-              </h2>
-            </div>
-
-            <div
-              class="quality ng-scope"
-              ng-if="(riskdata.error) === '' &amp;&amp; loader[0].pf_risk_rar == false &amp;&amp; error_flag[0].risk_rar == 0"
-              style=""
-            >
-              <div class="valuation-head">
-                <div class="high-risk-head ng-binding">Low Risk Low Return</div>
-                <p
-                  class="sales_txt txt-cr ng-binding"
-                  ng-bind-html="riskdata.return.txt2"
-                >
-                  Portfolio has generated
-                  <span class="green">Superior</span> risk adjusted returns vs
-                  composite index signifying that you have generated higher
-                  returns per unit of risk
-                </p>
-                <table class="table1">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th class="textcenter">Return</th>
-                      <th class="textcenter">Risk <br />Adjusted</th>
-                      <th class="textcenter">Volatility</th>
-                    </tr>
-                  </thead>
-
-                  <tbody
-                  *ngIf="main_data!">
-                    <tr>
-                      <td>Portfolio</td>
-                      <td class="ng-binding">
-                        {{ main_data.return.port.return }}%
-                      </td>
-                      <td class="ng-binding">
-                        {{ main_data.return.port.riskAdj }}
-                      </td>
-                      <td class="ng-binding">
-                        {{ main_data.return.port.volatility }}%
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Composite Index</td>
-                      <td class="ng-binding">
-                        {{ main_data.return.comp.return }}%
-                      </td>
-                      <td class="ng-binding">
-                        {{ main_data.return.comp.riskAdj }}
-                      </td>
-                      <td class="ng-binding">
-                        {{ main_data.return.comp.volatility }}%
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="foot-note ng-binding">Absolute Total Returns</div>
-            </div>
-            <!-- end ngIf: (riskdata.error) === '' && loader[0].pf_risk_rar == false && error_flag[0].risk_rar == 0 -->
-          </div>
-
-          <!-- extend -->
-          <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseRiskRar"
-          >
-            <span class="card-title grey-text text-darken-4"
-              >Card Title<i
-                class="material-icons right"
-                ng-click="isCollapseRiskRar = !isCollapseRiskRar"
-                >close</i
-              ></span
-            >
-            <div class="card-reveal-text">
-              <ul>
-                <li>
-                  Risk Adjusted Returns analyse if a portfolio is justifying its
-                  risk by delivering adequate returns
-                </li>
-                <li>
-                  Analysis is based on the risk and return matrix of the
-                  portfolio against your composite index since you created your
-                  portfolio
-                </li>
-                <li>
-                  If a highly volatile portfolio is delivering low risk adjusted
-                  returns, investors may look to alter the portfolio construct
-                </li>
-                <li>
-                  Click on Full details to see 1-year risk adjusted return of
-                  your portfolio stocks
-                </li>
-                <li>
-                  Risk is measured using volatility of the daily returns of the
-                  portfolio and returns are basis absolute return during the
-                  period
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- full details -->
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links">
-              <a
-                class="seefull waves-light"
-                href="#SeeAllModal"
-                ng-click='getRisk();modalOpen("risk_return")'
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+        <app-risk-adj-returns
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="' Risk Adjusted Returns '"
+          [return_risk]="return_risk_data"
+        />
       </section>
 
       <!-- circle graph -->
@@ -386,91 +175,16 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <!-- body ,head -->
-        <div class="card allocation">
-          <div class="card-content">
-            <div class="card-head">
-              <h2>
-                Allocation Risk
-                <span
-                  class="card-title activator info-act"
-                  ng-click="isCollapseRiskAlloc = !isCollapseRiskAlloc"
-                ></span>
-              </h2>
-            </div>
 
-            <div class="card-body" *ngIf="data_allocation!">
-              <div class="pbt-mojo col-grey">
-                <div class="mojo-txt">
-                  <div class="Dcolor ng-binding">
-                    {{ data_allocation.txt1 }}
-                  </div>
-                </div>
-              </div>
-              <div class="condi-p">
-                <p class="ng-binding">
-                  {{ data_allocation.txt2 }}
-                </p>
-              </div>
-              <div class="comp-peers2">
-                <div><span class="small-txt">Allocation Risk</span></div>
-              </div>
-              <div
-                class="diversi-graph"
-                id="container_risk_allocation"
-                data-highcharts-chart="6"
-              >
-                <!-- graph -->
-                <ng-container *ngIf="pieFromat!">
-                  <app-radius-chart [PIE]="pieFromat" />
-                </ng-container>
-              </div>
-            </div>
-          </div>
-          <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseRiskAlloc"
-          >
-            <span class="card-title grey-text text-darken-4"
-              >Card Title<i
-                class="material-icons right"
-                ng-click="isCollapseRiskAlloc = !isCollapseRiskAlloc"
-                >close</i
-              ></span
-            >
-            <div class="card-reveal-text">
-              <ul>
-                <li>
-                  Allocation risk measures the proportion of portfolio allocated
-                  to small and micro-cap stocks
-                </li>
-                <li>
-                  These stocks are in general more volatile and are considered
-                  riskier
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <app-alloc-risk
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'Allocation Risk'"
+          [data_allocation]="data_allocation"
+          [pieFromat]="pieFromat"
+        />
 
-        <!-- full data -->
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links">
-              <a
-                (click)="modelOpen()"
-                class="seefull waves-light"
-                ng-click='modalOpen("risk_allocation")'
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
       </section>
     </div>
     <div class="swiper-scrollbar"></div>

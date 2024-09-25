@@ -10,7 +10,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { IVar } from 'src/app/models/pp/risk';
+import { IReturn_risk } from 'src/app/models/pp/risk';
 import { IRisk_Data_Datum, IRiskPopup } from 'src/app/models/pp/RiskPopup';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
@@ -19,14 +19,14 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import { LineGraphComponent } from '../../graph/line-graph/line-graph.component';
 
 @Component({
-  selector: 'app-return-var',
-  templateUrl: './return-var.component.html',
-  styleUrls: ['./return-var.component.css'],
+  selector: 'app-risk-adj-returns',
+  templateUrl: './risk-adj-returns.component.html',
+  styleUrls: ['./risk-adj-returns.component.css'],
   standalone: true,
   imports: [CommonModule, RoundOffPipe, TwoCommasPipe, LineGraphComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ReturnVarComponent implements OnInit {
+export class RiskAdjReturnsComponent implements OnInit {
   riskPopup_data: { [key: string]: IRisk_Data_Datum } | undefined;
 
   constructor(
@@ -49,7 +49,7 @@ export class ReturnVarComponent implements OnInit {
     });
   }
 
-  @Input() var_data: IVar | undefined; //props
+  @Input() return_risk: IReturn_risk | undefined; //props
   @Input() HEAD: string | undefined; //props
   @Input() SHOW_BUTTON: Boolean = true;
 

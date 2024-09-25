@@ -1,0 +1,146 @@
+<!-- body ,head -->
+<div class="card allocation">
+  <div class="card-content">
+    <div class="card-head">
+      <h2>
+        {{ HEAD }}
+        <span
+          class="card-title activator info-act"
+          ng-click="isCollapseRiskAlloc = !isCollapseRiskAlloc"
+        ></span>
+      </h2>
+    </div>
+
+    <div class="card-body" *ngIf="data_allocation!">
+      <div class="pbt-mojo col-grey">
+        <div class="mojo-txt">
+          <div class="Dcolor ng-binding">
+            {{ data_allocation.txt1 }}
+          </div>
+        </div>
+      </div>
+      <div class="condi-p">
+        <p class="ng-binding">
+          {{ data_allocation.txt2 }}
+        </p>
+      </div>
+      <div class="comp-peers2">
+        <div><span class="small-txt">Allocation Risk</span></div>
+      </div>
+      <div
+        class="diversi-graph"
+        id="container_risk_allocation"
+        data-highcharts-chart="6"
+      >
+        <!-- graph -->
+        <ng-container *ngIf="pieFromat!">
+          <app-radius-chart [PIE]="pieFromat" />
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseRiskAlloc">
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        ng-click="isCollapseRiskAlloc = !isCollapseRiskAlloc"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          Allocation risk measures the proportion of portfolio allocated to
+          small and micro-cap stocks
+        </li>
+        <li>
+          These stocks are in general more volatile and are considered riskier
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- full data -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        ng-click='modalOpen("risk_allocation")'
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Full Details</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- details  -->
+<div [hidden]="true">
+  <div #childDiv class="modal-content contentbg">
+    <div class="list-mojo">
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th class="ng-binding">MCAP Category <br /></th>
+            <th>
+              Portfolio<br />
+              Weight
+            </th>
+            <th>Unrealized <br />Gain/Loss</th>
+            <th>Gain<br />Contribution</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="detail_data!">
+          <!-- hello this is detail data -->
+
+          <ng-container *ngFor="let sector of detail_data | keyvalue">
+            <tr class="mod-hed-td ng-scope">
+              <td class="ng-binding">{{ sector.value.name }}</td>
+              <td class="ng-binding ng-scope">
+                {{ sector.value.total.pwt | roundOff | twoCommas }}%
+              </td>
+              <td
+                [ngClass]="
+                  this.fun.getDirClrDefault(
+                    sector.value.total.unrgaindir,
+                    'gray'
+                  )
+                "
+                class="ng-binding ng-scope"
+              >
+                {{ sector.value.total.unrgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding ng-scope">
+                {{ sector.value.total.contri | roundOff | twoCommas }}%
+              </td>
+            </tr>
+
+            <tr *ngFor="let stock of sector.value.details | keyvalue">
+              <td class="ng-binding">{{ stock.value.short }}</td>
+              <td class="ng-binding ng-scope">
+                {{ (stock.value.pwt | roundOff | twoCommas) || "0.00" }}%
+              </td>
+              <td
+                [ngClass]="
+                  this.fun.getDirClrDefault(stock.value.unrgaindir, 'gray')
+                "
+                class="ng-binding ng-scope"
+              >
+                {{ stock.value.unrgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding ng-scope">
+                {{ stock.value.contri | roundOff | twoCommas }}%
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
