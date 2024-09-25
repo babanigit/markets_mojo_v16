@@ -112,7 +112,12 @@
 
   <!-- element4 -->
   <div id="element4">
-    <app-swiper-risk-analysis [score]="overallData?.risk" />
+    <app-swiper-risk-analysis
+    (sendElement)="receiveElement($event)"
+    (sendClick_State)="receiveClickState($event)"
+    (send_head)="receiveHead($event)"
+
+    [score]="overallData?.risk" />
   </div>
 
   <div id="element5">

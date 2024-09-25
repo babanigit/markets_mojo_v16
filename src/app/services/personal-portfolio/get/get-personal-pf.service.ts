@@ -71,12 +71,23 @@ export class GetPersonalPFService {
     );
   }
 
+  private riskpopuppath = 'assets/pp/swiper/getRiskPopup.json';
+
+  getRiskPopup(jsonPath: string = this.riskpopuppath){
+    return this.http.get<any>(jsonPath).pipe(
+      catchError((err) => {
+        console.error('Error riskpopup data', err);
+        throw err;
+      })
+    );
+  }
+
   private divcontripath = 'assets/pp/swiper/divContriPopup.json';
 
   getDivContri(jsonPath: string = this.divcontripath){
     return this.http.get<any>(jsonPath).pipe(
       catchError((err) => {
-        console.error('Error fetching diversifyStocks data', err);
+        console.error('Error fetching divcontripath data', err);
         throw err;
       })
     );

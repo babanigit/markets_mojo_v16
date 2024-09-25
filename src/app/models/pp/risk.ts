@@ -7,9 +7,9 @@ export interface IRisk {
 export interface IRisk_Data {
   error: string;
   score: IScore_risk;
-  volatility: Volatility;
-  beta: Beta;
-  var: Var;
+  volatility: IVolatility;
+  beta: IBeta;
+  var: IVar;
   return: Return;
   allocation: IAllocation;
 }
@@ -21,7 +21,7 @@ export interface IScore_risk {
   beta: string;
 }
 
-interface Volatility {
+export interface IVolatility {
   port: number;
   comp: number;
   sensex: number;
@@ -31,7 +31,7 @@ interface Volatility {
   txt3: string;
 }
 
-interface Beta {
+export interface IBeta {
   txt1: string;
   txt1dir: number;
   txt2: string;
@@ -50,7 +50,7 @@ interface Graph {
   senidx: number;
 }
 
-interface Var {
+export interface IVar {
   txt1: string;
   txt2: string;
   txt3: string;

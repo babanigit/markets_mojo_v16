@@ -21,14 +21,19 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import {
   graph_Data2,
   IAllocation,
+  IBeta,
   IRisk,
   IRisk_Data,
   IScore_risk,
+  IVar,
+  IVolatility,
 } from 'src/app/models/pp/risk';
 import { series_Data_pie } from 'src/app/models/pp/pie';
-import { ScorecardComponent } from "../../cards/scorecard/scorecard.component";
+import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
 import { LineGraphComponent } from '../../graph/line-graph/line-graph.component';
 import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.component';
+import { BetaComponent } from '../../cards/beta/beta.component';
+import { VolatilityComponent } from '../../cards/volatility/volatility.component';
 
 @Component({
   selector: 'app-swiper-risk-analysis',
@@ -41,8 +46,12 @@ import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.comp
     TwoCommasPipe,
     RadiusChartComponent,
     ScorecardComponent,
-    LineGraphComponent
-],
+    LineGraphComponent,
+
+    BetaComponent,
+    VolatilityComponent,
+
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -50,6 +59,10 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
   main_data: IRisk_Data | undefined;
   data_scorecard: IScore_risk | undefined;
   data_allocation: IAllocation | undefined;
+
+  beta: IBeta | undefined;
+  volatility: IVolatility | undefined;
+  var: IVar | undefined;
 
   pieFromat: series_Data_pie[] | undefined;
 
@@ -61,7 +74,6 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
   isCollapseTodayContri: boolean = true;
 
   @Input() score: any;
-
 
   constructor(
     private serv: GetPersonalPFService,
@@ -79,6 +91,20 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.fetchData();
+  }
+
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
+
+  receiveElement(element: HTMLDivElement) {
+    this.sendElement.emit(element);
+  }
+  receiveClickState(state: boolean) {
+    this.sendClick_State.emit(state);
+  }
+  receiveHead(str: string) {
+    this.send_head.emit(str);
   }
 
   // to format
@@ -101,6 +127,9 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
 
       this.data_allocation = res.data.allocation;
       // console.log('data_allocation riks : ', res.data.allocation);
+      this.beta = res.data.beta;
+      this.volatility = res.data.volatility;
+      this.var = res.data.var;
 
       // console.log(
       //   'res.data.allocation.graph.data ',
@@ -144,7 +173,7 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
     // console.log('Swiper instance:', swiper);
   }
 
-  modelOpen(){
-console.log("model clicked")
+  modelOpen() {
+    console.log('model clicked');
   }
 }
