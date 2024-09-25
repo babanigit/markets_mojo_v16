@@ -90,11 +90,9 @@
   <!-- element2 done -->
   <div id="element2">
     <app-swiper-doing-overall
-
       (sendElement)="receiveElement($event)"
       (sendClick_State)="receiveClickState($event)"
       (send_head)="receiveHead($event)"
-
       (send_element)="recievedDataEvent($event)"
       (send_data)="recieveData($event)"
     />
@@ -103,25 +101,29 @@
   <!-- element3  -->
   <div id="element3">
     <app-swiper-return-analysis
-    (sendElement)="receiveElement($event)"
+      (sendElement)="receiveElement($event)"
       (sendClick_State)="receiveClickState($event)"
       (send_head)="receiveHead($event)"
-
-    [score]="overallData?.return" />
+      [score]="overallData?.return"
+    />
   </div>
 
   <!-- element4 -->
   <div id="element4">
     <app-swiper-risk-analysis
-    (sendElement)="receiveElement($event)"
-    (sendClick_State)="receiveClickState($event)"
-    (send_head)="receiveHead($event)"
-
-    [score]="overallData?.risk" />
+      (sendElement)="receiveElement($event)"
+      (sendClick_State)="receiveClickState($event)"
+      (send_head)="receiveHead($event)"
+      [score]="overallData?.risk"
+    />
   </div>
 
   <div id="element5">
     <app-swiper-liquidity
+    (sendElement)="receiveElement($event)"
+    (sendClick_State)="receiveClickState($event)"
+    (send_head)="receiveHead($event)"
+
       [score]="overallData?.liquidity"
       (send_QVFLData)="recieve_QvflData($event)"
     />

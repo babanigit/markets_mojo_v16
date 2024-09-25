@@ -34,6 +34,7 @@ import { NumberFormatPipe } from 'src/app/pipes/pp/number-format.pipe';
 import { ILiquidity_qvfl, IQvfl, IQvfl_Data } from 'src/app/models/pp/qvfl';
 import { SummaryComponent } from '../../cards/summary/summary.component';
 import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
+import { DetailsLiquiComponent } from '../../details-liqui/details-liqui.component';
 
 @Component({
   selector: 'app-swiper-liquidity',
@@ -48,12 +49,12 @@ import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
     NumberFormatPipe,
     SummaryComponent,
     ScorecardComponent,
+    DetailsLiquiComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperLiquidityComponent implements OnInit {
 
-  main_data: ILiquidityData | undefined;
   Liquidity_List: ILiqui_list[] | undefined;
   qvflData: IQvfl_Data | undefined;
 
@@ -73,9 +74,22 @@ export class SwiperLiquidityComponent implements OnInit {
     this.fetchData();
   }
 
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
+
+  receiveElement(element: HTMLDivElement) {
+    this.sendElement.emit(element)
+  }
+  receiveClickState(state: boolean) {
+    this.sendClick_State.emit(state)
+  }
+  receiveHead(str: string) {
+    this.send_head.emit(str);
+  }
+
   fetchData(): void {
     this.serv.getSwitcherDatas('liquidity').subscribe((res: ILiquidity) => {
-      this.main_data = res.data;
       this.Liquidity_List = res.data.list;
       this.cdr.detectChanges(); // Trigger change detection
     });

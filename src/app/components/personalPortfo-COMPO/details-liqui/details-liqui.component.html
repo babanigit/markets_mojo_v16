@@ -1,0 +1,135 @@
+<div class="card">
+  <div class="card-content LiquidityAnalysis">
+    <div class="card-head">
+      <h2>
+        {{HEAD}}
+        <span
+          class="card-title activator info-act"
+          ng-click="isCollapseLiqAnalysis = !isCollapseLiqAnalysis"
+        ></span>
+      </h2>
+    </div>
+
+    <div #childDiv class="list-mojo ng-scope">
+      <table class="table1">
+        <thead>
+          <tr>
+            <th class="textcenter">Company</th>
+            <th class="textcenter">Qnty</th>
+            <th class="no-mob textcenter">
+              Vol 20d avg
+              <p class="scr-txt-2">(Qnty/Vol)</p>
+            </th>
+            <th class="textcenter">
+              Del 20d avg
+              <p class="scr-txt-2">(Qnty/Vol)</p>
+            </th>
+            <!--									<th class="textcenter">Days to Liq</th>-->
+            <th class="no-mob textcenter">Liq Risk</th>
+            <th class="no-mob textcenter">Latest Value</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="Liquidity_List!">
+          <!-- ngRepeat: (key,value) in liquidity_list|orderBy:orderByFieldLiq:reverseSortLiq | limitTo:7 -->
+          <tr *ngFor="let item of Liquidity_List" class="ng-scope">
+            <td>
+              <div>
+                <a
+                  [href]="'/Stocks?StockId=' + item.sid + '&Exchange=0'"
+                  target="_blank"
+                  class="ng-binding"
+                  >{{ item.sname }}
+                </a>
+                <br />
+                <span class="mojo-hover">
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(item.dotsum.q_clr)"
+                  ></span>
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(item.dotsum.v_clr)"
+                  ></span>
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(item.dotsum.v_clr)"
+                  ></span>
+                </span>
+              </div>
+            </td>
+            <td class="ng-binding">{{ item.dotsum.score }}</td>
+            <td class="no-mob ng-binding">
+              {{ item.d5avgvol | numberFormat }}
+              <p class="scr-txt-2 ng-binding">
+                {{ item.qtyvol | roundOff | twoCommas }}%
+              </p>
+            </td>
+            <td class="no-mob ng-binding">
+              {{ item.d5delivol | numberFormat }}
+              <p class="scr-txt-2 ng-binding">
+                {{ item.qtydeli | roundOff | twoCommas }}%
+              </p>
+            </td>
+            <td
+              class="no-web ng-binding green"
+              ng-class="getDirClrDefault(value.riskdir);"
+            >
+              {{ item.days | roundOff | twoCommas }}
+            </td>
+            <td
+              [ngClass]="this.fun.getDirClrDefault(item.riskdir, 'orange')"
+              class="no-mob ng-binding"
+            >
+              {{ item.risk }}
+            </td>
+            <td class="no-mob ng-binding">
+              {{ item.lval | roundOff | twoCommas }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end ngIf: loader[0].pf_liq_dtls != true && error_flag[0].liq_details == 0 -->
+  </div>
+
+  <!-- extend slider -->
+  <div
+    class="card-reveal animate-slide ng-hide"
+    ng-show="isCollapseLiqAnalysis"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        ng-click="isCollapseLiqAnalysis = !isCollapseLiqAnalysis"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>Holding and trading details of stocks in portfolio</li>
+        <li>
+          Stocks which may have liquidity issues are categorized as Yes under
+          Liq Risk (Liquidity Risk)
+        </li>
+        <li>Click on Full details to see details of all portfolio stocks</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- full detail button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+    (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0)"
+        ng-click="modalOpen('liq_analysis')"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Full Details</a
+      >
+    </div>
+  </div>
+</div>
