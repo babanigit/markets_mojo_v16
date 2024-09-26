@@ -23,38 +23,38 @@ export class GetPersonalPFService {
   constructor(private http: HttpClient) {
     this.Table_paths = this.FROM_EXPRESS_API
       ? {
-          OVERVIEW: 'http://localhost:3000/api/personalportfolio/overview',
-          HOLDING: 'http://localhost:3000/api/personalportfolio/holding',
-          RISK: 'http://localhost:3000/api/personalportfolio/risk',
-          LIQUIDITY: 'http://localhost:3000/api/personalportfolio/liquidity',
-          TAX: 'http://localhost:3000/api/personalportfolio/tax',
-          RATIOS: 'http://localhost:3000/api/personalportfolio/ratios',
-          FINANCIALS: 'http://localhost:3000/api/personalportfolio/financials',
-          RETURNS: 'http://localhost:3000/api/personalportfolio/returns',
-          RESULTS: 'http://localhost:3000/api/personalportfolio/rsults',
-          TOTAL_RETURNS:
-            'http://localhost:3000/api/personalportfolio/totalReturns',
-          PRICE: '',
-          CONTRIBUTION: '',
-          DIVIDEND: '',
-          MOJO: '',
-        }
+        OVERVIEW: 'http://localhost:3000/api/personalportfolio/overview',
+        HOLDING: 'http://localhost:3000/api/personalportfolio/holding',
+        RISK: 'http://localhost:3000/api/personalportfolio/risk',
+        LIQUIDITY: 'http://localhost:3000/api/personalportfolio/liquidity',
+        TAX: 'http://localhost:3000/api/personalportfolio/tax',
+        RATIOS: 'http://localhost:3000/api/personalportfolio/ratios',
+        FINANCIALS: 'http://localhost:3000/api/personalportfolio/financials',
+        RETURNS: 'http://localhost:3000/api/personalportfolio/returns',
+        RESULTS: 'http://localhost:3000/api/personalportfolio/rsults',
+        TOTAL_RETURNS:
+          'http://localhost:3000/api/personalportfolio/totalReturns',
+        PRICE: '',
+        CONTRIBUTION: '',
+        DIVIDEND: '',
+        MOJO: '',
+      }
       : {
-          OVERVIEW: 'assets/pp/table/getOverview.json',
-          HOLDING: 'assets/pp/table/getHolding.json',
-          RISK: 'assets/pp/table/getRisk.json',
-          LIQUIDITY: 'assets/pp/table/getLiquidity.json',
-          TAX: 'assets/pp/table/getTax.json',
-          RATIOS: 'assets/pp/table/getRatio.json',
-          FINANCIALS: 'assets/pp/table/getFinancials.json',
-          RETURNS: 'assets/pp/table/getReturn.json',
-          RESULTS: 'assets/pp/table/getResults.json',
-          TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
-          PRICE: '',
-          CONTRIBUTION: '',
-          DIVIDEND: '',
-          MOJO: '',
-        };
+        OVERVIEW: 'assets/pp/table/getOverview.json',
+        HOLDING: 'assets/pp/table/getHolding.json',
+        RISK: 'assets/pp/table/getRisk.json',
+        LIQUIDITY: 'assets/pp/table/getLiquidity.json',
+        TAX: 'assets/pp/table/getTax.json',
+        RATIOS: 'assets/pp/table/getRatio.json',
+        FINANCIALS: 'assets/pp/table/getFinancials.json',
+        RETURNS: 'assets/pp/table/getReturn.json',
+        RESULTS: 'assets/pp/table/getResults.json',
+        TOTAL_RETURNS: 'assets/pp/table/getTotalReturns.json',
+        PRICE: '',
+        CONTRIBUTION: '',
+        DIVIDEND: '',
+        MOJO: '',
+      };
   }
 
   getOverviewStocks(type: TableType): Observable<any> {
@@ -71,10 +71,31 @@ export class GetPersonalPFService {
     );
   }
 
+  private readonly diversifyPaths = {
+    Sector: 'assets/pp/swiper/diversifySector.json',
+    Mcap: 'assets/pp/swiper/diversifyMcap.json',
+    Holdings: 'assets/pp/swiper/diversifyHoldings.json',
+  };
+
+  getDiversifyPopupData(type: 'Sector' | 'Mcap' | 'Holdings') {
+    const path = this.diversifyPaths[type] || this.diversifyPaths.Sector;
+
+    return this.http.get<any>(path).pipe(
+      delay(1200),
+      catchError((err) => {
+        console.error('Error fetching data for type:', type);
+        console.error('Error details:', err);
+        throw err;
+      })
+    );
+  }
+
   private riskpopuppath = 'assets/pp/swiper/getRiskPopup.json';
 
-  getRiskPopup(jsonPath: string = this.riskpopuppath){
+  getRiskPopup(jsonPath: string = this.riskpopuppath) {
     return this.http.get<any>(jsonPath).pipe(
+      delay(1200),
+
       catchError((err) => {
         console.error('Error riskpopup data', err);
         throw err;
@@ -84,7 +105,7 @@ export class GetPersonalPFService {
 
   private divcontripath = 'assets/pp/swiper/divContriPopup.json';
 
-  getDivContri(jsonPath: string = this.divcontripath){
+  getDivContri(jsonPath: string = this.divcontripath) {
     return this.http.get<any>(jsonPath).pipe(
       catchError((err) => {
         console.error('Error fetching divcontripath data', err);
@@ -93,7 +114,7 @@ export class GetPersonalPFService {
     );
   }
   private diversifyPath = 'assets/pp/swiper/diversifyStocks.json';
-  getDiversifyStocks(jsonPath: string = this.diversifyPath){
+  getDiversifyStocks(jsonPath: string = this.diversifyPath) {
     return this.http.get<any>(jsonPath).pipe(
       catchError((err) => {
         console.error('Error fetching diversifyStocks data', err);
@@ -103,7 +124,7 @@ export class GetPersonalPFService {
   }
 
   private cr = 'assets/pp/swiper/compareReturnPopup.json';
-  getCompareReturn(jsonPath: string = this.cr){
+  getCompareReturn(jsonPath: string = this.cr) {
     return this.http.get<any>(jsonPath).pipe(
       catchError((err) => {
         console.error('Error fetching diversifyStocks data', err);

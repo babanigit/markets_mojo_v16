@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
 import { CommonModule } from '@angular/common';
 import { DiversificationComponent } from '../../cards/diversification/diversification.component';
@@ -46,6 +46,21 @@ export class SwiperDiversificationComponent implements OnInit {
   ngOnInit(): void {
     this.fetchData();
   }
+
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
+
+  receiveElement(element: HTMLDivElement) {
+    this.sendElement.emit(element)
+  }
+  receiveClickState(state: boolean) {
+    this.sendClick_State.emit(state)
+  }
+  receiveHead(str: string) {
+    this.send_head.emit(str);
+  }
+
 
   fetchData(): void {
     this.serv

@@ -91,7 +91,13 @@
           alt="ArrowRight"
           height="16"
         />
-        All stocks</a
+        <span *ngIf="isLoading">
+          Loading...
+        </span>
+        <span *ngIf="!isLoading  "> All Stocks </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+        
+        </a
       >
     </div>
   </div>

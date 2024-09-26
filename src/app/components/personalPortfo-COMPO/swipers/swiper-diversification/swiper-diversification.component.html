@@ -26,7 +26,6 @@
       sect-reveal="true"
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
-
       <!-- scorecard -->
       <section
         data-reveal="true"
@@ -168,39 +167,15 @@
         data-visited="0"
       >
         <ng-container *ngIf="data_sector!">
-          <app-diversification [DATA]="data_sector" [HEAD]="'Sectors'" />
-        </ng-container>
+          <app-diversification
 
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                href="javascript:void(0)"
-                ng-click="getDiversSector();modalOpen('divrse_sector_pop', 1)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                href="javascript:void(0)"
-                ng-click="getDiversSector();modalOpen('divrse_sector_pop', 1)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+
+          [fetch_text]="'Sector'"
+          [DATA]="data_sector" [HEAD]="'Sectors'" />
+        </ng-container>
       </section>
 
       <!-- 2 -->
@@ -210,39 +185,10 @@
         data-visited="0"
       >
         <ng-container *ngIf="data_mcap!">
-          <app-diversification [DATA]="data_mcap" [HEAD]="'Market Cap'" />
+          <app-diversification
+          [fetch_text]="'Mcap'"
+          [DATA]="data_mcap" [HEAD]="'Market Cap'" />
         </ng-container>
-
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                href="javascript:void(0)"
-                ng-click="getDiversMcap();modalOpen('divrse_sector_pop', 1)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                href="javascript:void(0)"
-                ng-click="getDiversMcap();modalOpen('divrse_sector_pop', 1)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- 3 -->
@@ -253,42 +199,12 @@
       >
         <ng-container *ngIf="data_holding!">
           <app-diversification
+          [fetch_text]="'Holdings'"
             [DATA]="data_holding"
             [HEAD]="'Top Holdings'"
             [TEXT]="'STOCKS'"
           />
         </ng-container>
-
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                href="javascript:void(0)"
-                ng-click="getDiversHold();modalOpen('divrse_sector_pop', 1)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                href="javascript:void(0)"
-                ng-click="getDiversHold();modalOpen('divrse_sector_pop', 1)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- stocks -->

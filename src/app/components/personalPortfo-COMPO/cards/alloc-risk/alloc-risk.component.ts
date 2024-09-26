@@ -20,6 +20,7 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import { LineGraphComponent } from '../../graph/line-graph/line-graph.component';
 import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.component';
 import { series_Data_pie } from 'src/app/models/pp/pie';
+import { retry, tap, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-alloc-risk',
@@ -37,33 +38,6 @@ import { series_Data_pie } from 'src/app/models/pp/pie';
 })
 export class AllocRiskComponent implements OnInit {
 
-  riskPopup_data: { [key: string]: IRisk_Data_Datum } | undefined;
-  detail_data: map_Details | undefined;
-
-  constructor(
-    public fun: PpFunctionsService,
-    private serv: GetPersonalPFService,
-    private cdr: ChangeDetectorRef
-  ) {}
-
-  ngOnInit(): void {
-    this.fetch();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['data_allocation']) {
-      this.detail_data = this.data_allocation?.graph.details;
-      console.log('DATA changed detail_data : ', this.detail_data);
-    }
-  }
-
-  fetch() {
-    this.serv.getRiskPopup().subscribe((res: IRiskPopup) => {
-      this.riskPopup_data = res.data;
-      console.log('the riskPopup vol is : ', this.riskPopup_data);
-      this.cdr.detectChanges(); // Trigger change detection
-    });
-  }
 
   @Input() data_allocation: IAllocation | undefined; //props
   @Input() pieFromat: series_Data_pie[] | undefined;
@@ -75,26 +49,106 @@ export class AllocRiskComponent implements OnInit {
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
 
+  riskPopup_data: { [key: string]: IRisk_Data_Datum } | undefined;
+  detail_data: map_Details | undefined;
+
+  isLoading: boolean = false;
+  clickedOnce: boolean = false;
+  error: string | null = null;
+  isFetched: boolean = false; // Flag to track fetch status
+
+  constructor(
+    public fun: PpFunctionsService,
+    private serv: GetPersonalPFService,
+    private cdr: ChangeDetectorRef
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['data_allocation']) {
+      this.detail_data = this.data_allocation?.graph.details;
+      console.log('DATA changed detail_data : ', this.detail_data);
+    }
+  }
+
   sendToParent() {
-    if (this.childDiv) {
-      console.log('clicked');
+    this.clickedOnce = true;
 
-      // Clone the element to avoid moving it
-      const clonedElement = this.childDiv.nativeElement.cloneNode(
-        true
-      ) as HTMLDivElement;
-      console.log('Sending cloned element:', clonedElement);
+    // Check if data has already been fetched
+    if (this.isFetched) {
+      this.emitData();
+      console.log('Data has already been fetched. Skipping fetch.');
+      return;
+    }
 
-      // in this the element get disapper
-      // this.sendElement.emit(this.childDiv.nativeElement);
+    if (this.isLoading) {
+      console.log('Data is still loading. Please wait.');
+      return;
+    }
 
-      if (this.riskPopup_data!) {
-        this.sendElement.emit(clonedElement);
-        this.sendClick_State.emit(true);
-        this.send_head.emit(this.HEAD);
-        console.log('hehehheheh');
-        // console.log('the head is : ', this.HEAD);
-      }
+    if (true) {
+      this.fetch();
+    } else {
+      this.error = 'fetch_text is not defined';
+      console.error(this.error);
+      this.cdr.markForCheck();
+    }
+  }
+
+  private fetch() {
+    this.isFetched = true
+    this.isLoading = true;
+    this.error = null;
+    this.cdr.markForCheck();
+
+    this.serv.getRiskPopup()
+      .pipe(
+        retry(3), // Retry up to 3 times
+        tap(res => {
+          console.log('Raw response:', res); // Log the raw response
+        }),
+        catchError(err => {
+          console.error('Error in fetch:', err);
+          this.error = 'Failed to load data. Please try again.';
+          return of(null); // Return an observable with null to continue the stream
+        })
+      )
+      .subscribe({
+        next: (res: any) => {
+          if (res && res.data) {
+            // this.detail_data = res.data;
+            this.riskPopup_data = res.data;
+            // console.log('The details data is:', this.fetch_text, this.detail_data);
+            setTimeout(() => {
+              this.emitData();
+            }, 0);
+          } else {
+            this.error = 'No data received from the server.';
+            console.error(this.error);
+          }
+        },
+        complete: () => {
+          this.isLoading = false;
+          this.cdr.markForCheck();
+        }
+      });
+  }
+
+  private emitData() {
+    if (this.childDiv && this.riskPopup_data) {
+      console.log('Emitting data:', this.riskPopup_data); // Log the data being emitted
+      const clonedElement = this.childDiv.nativeElement.cloneNode(true) as HTMLDivElement;
+      this.sendElement.emit(clonedElement);
+      this.sendClick_State.emit(true);
+      this.send_head.emit(this.HEAD);
+      console.log('Data emitted');
+    } else {
+      this.error = 'Unable to emit data: ' +
+        (this.childDiv ? '' : 'childDiv is undefined. ') +
+        (this.detail_data ? '' : 'detail_data is not loaded.');
+      console.error(this.error);
     }
   }
 }

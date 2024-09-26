@@ -27,7 +27,12 @@
         class="modal-content contentbg ng-scope"
         ng-if="loader[0].pf_today_popup == false"
       >
+
+       <!-- <img
+          src="https://i.marketsmojo.com/loading.gif" alt="Loading..." /> -->
+
         <div #parentContainer></div>
+
       </div>
       <!-- end ngIf: loader[0].pf_today_popup == false -->
     </div>
@@ -130,7 +135,13 @@
   </div>
 
   <div id="element6">
-    <app-swiper-diversification [score]="overallData?.diversified" />
+    <app-swiper-diversification
+
+    (sendElement)="receiveElement($event)"
+    (sendClick_State)="receiveClickState($event)"
+    (send_head)="receiveHead($event)"
+
+    [score]="overallData?.diversified" />
   </div>
 
   <div id="element7">
