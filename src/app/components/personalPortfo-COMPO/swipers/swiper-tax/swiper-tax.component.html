@@ -25,6 +25,7 @@
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
 
+
       <!-- post tax value -->
       <section
         data-reveal="true"
@@ -33,126 +34,16 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <div class="card">
-          <div class="card-content">
-            <div class="card-head">
-              <h2>Post Tax Value (Rs)</h2>
-            </div>
+      
+      <app-post-tax-value
+      (sendElement)="receiveElement($event)"
+      (sendClick_State)="receiveClickState($event)"
+      (send_head)="receiveHead($event)"
 
-            <div
-              class="pf-profile taxAnalysis ng-scope"
-              *ngIf="data_taxAnalysis!"
-            >
-              <div class="pf-profile-sec1">
-                <div>
-                  <div class="pf-profile-txt1">Portfolio Value</div>
-                  <div class="pf-profile-txt2 ng-binding">
-                    {{ data_taxAnalysis.lval | roundOff | twoCommas }}
-                  </div>
-                </div>
-                <div>
-                  <div class="pf-profile-txt1">Post Tax Value</div>
-                  <div class="pf-profile-txt2 ng-binding">
-                    {{ data_taxAnalysis.ptv | roundOff | twoCommas }}
-                  </div>
-                </div>
-              </div>
-              <div class="pf-net-breakup">
-                <table style="width: 100%">
-                  <tbody>
-                    <tr>
-                      <td class="pf-">Short Term Capital Gains Tax</td>
-                      <td
-                        [ngClass]="
-                          this.fun.getDirClrDefault(
-                            data_taxAnalysis.dir.sttax,
-                            'orange'
-                          )
-                        "
-                        class="ng-binding"
-                      >
-                        {{ data_taxAnalysis.sttax | roundOff | twoCommas }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="pf-">Long Term Capital Gains Tax</td>
-                      <td
-                        [ngClass]="
-                          this.fun.getDirClrDefault(
-                            data_taxAnalysis.dir.lttax,
-                            'orange'
-                          )
-                        "
-                        class="ng-binding"
-                      >
-                        {{ data_taxAnalysis.lttax | roundOff | twoCommas }}
-                      </td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <th class="pf-">Total Tax:</th>
-                      <th style="text-align: right" class="ng-binding">
-                        {{ data_taxAnalysis.totaltax | roundOff | twoCommas }}
-                      </th>
-                    </tr>
-                  </tfoot>
-                </table>
-                <div class="condi-p">
-                  <div class="condi-p">
-                    <p class="ng-binding">
-                      {{ data_taxAnalysis.ptvtxt }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- extend -->
-            <div class="card-reveal" style="display: none">
-              <span class="card-title grey-text text-darken-4"
-                >Card Title<i class="material-icons right">close</i></span
-              >
-              <div class="card-reveal-text">
-                <ul>
-                  <li>
-                    The card depicts the derivation of post-tax value of the
-                    current portfolio assuming all stocks are sold at the latest
-                    price
-                  </li>
-                  <li>
-                    This is notional value and there is no guarantee that when
-                    you go to sell in the market, the shares can be sold at the
-                    exact same prices and realize the same value
-                  </li>
-                  <li>
-                    Click on Past Tax history to see tax on stocks sold in the
-                    past financial years
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- full detials -->
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links">
-              <a
-                class="seefull waves-light"
-                href="javascript:void(0)"
-                ng-click="getTaxAnalysisPop();modalOpen('tax_cap_gain_popup',1)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Past Tax History</a
-              >
-            </div>
-          </div>
-        </div>
+      [HEAD]="'Post Tax Value (Rs)'"
+      [data_taxAnalysis]="data_taxAnalysis"
+      />
+      
       </section>
 
       <!-- history tax -->
@@ -302,7 +193,6 @@
             <div
               class="price-mojo col-green ng-scope"
               ng-if="loader[0].pf_tax_hist == false  &amp;&amp; error_flag[0].tax_hist == 0"
-              style=""
             >
               <!-- ngIf: advanceTax.length==0 -->
               <!-- ngIf: advanceTax.length>0 -->

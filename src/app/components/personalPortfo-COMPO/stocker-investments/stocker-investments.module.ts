@@ -6,6 +6,7 @@ import { TablesComponent } from '../tables/tables.component';
 import { DemoComponent } from '../../demos/demo/demo.component';
 import { SwiperDemoComponent } from '../../demos/swiper-demo/swiper-demo.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { SwiperDemoComponent } from '../../demos/swiper-demo/swiper-demo.compone
     StockerInvestmentsRoutingModule,
     TablesComponent,
     SwiperDemoComponent,
-    DemoComponent
+    DemoComponent,
+    ReactiveFormsModule,
+    FormsModule
 
 
   ],

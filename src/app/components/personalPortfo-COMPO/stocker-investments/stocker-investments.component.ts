@@ -14,22 +14,77 @@ import { IHoldingsData } from 'src/app/models/table/holding';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+interface TaxYear {
+  fy: string;
+  label: string;
+}
+
 @Component({
   selector: 'app-stocker-investments',
   templateUrl: './stocker-investments.component.html',
   styleUrls: ['./stocker-investments.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StockerInvestmentsComponent implements AfterViewInit {
+export class StockerInvestmentsComponent implements OnInit, AfterViewInit {
   overallData: IOverall_Data | undefined;
   holdingData: IHoldingsData | undefined;
   qvflData: IQvfl_Data | undefined;
 
+  // taxHistory = [
+  //   { fy: '2024-25' },
+  //   { fy: '2023-24' },
+  //   { fy: '2022-23' },
+  //   { fy: '2021-22' },
+  //   { fy: '2019-20' },
+  //   { fy: '2018-19' },
+  //   { fy: '2017-18' },
+  //   { fy: '2016-17' }
+  // ];
+  
+  // taxForm: FormGroup;
+
+
   constructor(
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
-    private cdr: ChangeDetectorRef
-  ) {}
+    private cdr: ChangeDetectorRef,
+    private fb: FormBuilder
+  ) {
+    // this.taxForm = this.fb.group({
+    //   hist_year: ['2024-25'] // Default selected value
+    // });
+  }
+
+  taxHistory: TaxYear[] = [
+    { fy: '2024-25', label: 'FY 2024-25' },
+    { fy: '2023-24', label: 'FY 2023-24' },
+    { fy: '2022-23', label: 'FY 2022-23' },
+    { fy: '2021-22', label: 'FY 2021-22' },
+    { fy: '2019-20', label: 'FY 2019-20' },
+    { fy: '2018-19', label: 'FY 2018-19' },
+    { fy: '2017-18', label: 'FY 2017-18' },
+    { fy: '2016-17', label: 'FY 2016-17' },
+  ];
+
+  selectedYear: string = '2024-25';
+  isLoading: boolean = false;
+
+  ngOnInit(): void {
+    // You can initialize any data here if needed
+  }
+
+  onYearChange(): void {
+    console.log('Selected year:', this.selectedYear);
+    // You can add more logic here if needed
+  }
+
+  // ngOnInit(): void {
+    // this.taxForm.get('hist_year')?.valueChanges.subscribe(value => {
+    //   console.log('Selected year:', value);
+    // });
+  // }
 
   @ViewChild('element1') element1!: ElementRef;
   @ViewChild('element2') element2!: ElementRef;
