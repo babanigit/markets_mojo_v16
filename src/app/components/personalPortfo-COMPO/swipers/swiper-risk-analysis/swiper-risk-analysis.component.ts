@@ -102,6 +102,8 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
   @Output() sendElement = new EventEmitter<HTMLDivElement>();
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
+  @Output() loading_state = new EventEmitter<boolean>(false); //for
+
 
   receiveElement(element: HTMLDivElement) {
     this.sendElement.emit(element);
@@ -111,6 +113,9 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
   }
   receiveHead(str: string) {
     this.send_head.emit(str);
+  }
+  receiveLoadingState(state:boolean) {
+    this.loading_state.emit(state)
   }
 
   // to format

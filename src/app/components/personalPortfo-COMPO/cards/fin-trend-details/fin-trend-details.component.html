@@ -1,0 +1,215 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-head">
+      <h2>
+        Financial Trend Details
+        <span
+          class="card-title activator info-act"
+          ng-click="isCollapseFinTrendDtls = !isCollapseFinTrendDtls"
+        ></span>
+      </h2>
+    </div>
+
+    <div
+      class="liquidityDetails list-mojo ng-scope"
+      ng-if="loader[0].pf_fintrend_dtls == false &amp;&amp; error_flag[0].fin_details == 0"
+    >
+      <table class="table25">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <!--										<th class="textcenter no-mob">Quarter</th>-->
+            <th class="textcenter">
+              Financial Trend
+              <p class="scr-txt-2 no-web">(Score)</p>
+            </th>
+            <th class="no-mob textcenter">Score</th>
+            <th class="no-mob textcenter">Portfolio<br />Weight</th>
+            <th class="no-mob textcenter">Latest<br />Value</th>
+            <th class="no-web textcenter">
+              Value
+              <p class="scr-txt-2">Weight</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="DATA_holding!">
+          <tr
+            *ngFor="let item of DATA_holding.list | keyvalue"
+            class="ng-scope"
+          >
+            <td>
+              <div>
+                <a
+                  [href]="'/Stocks?StockId=' + item.value.sid + '&Exchange=0'"
+                  target="_blank"
+                  class="ng-binding"
+                  >{{ item.value.sname }}
+                </a>
+                <br />
+                <span class="mojo-hover">
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(item.value.dotsum.q_clr)"
+                  ></span>
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(item.value.dotsum.v_clr)"
+                  ></span>
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(item.value.dotsum.v_clr)"
+                  ></span>
+                </span>
+              </div>
+            </td>
+
+            <td
+              class="selected-td txt-lt ng-binding green"
+              [ngClass]="item.value.dotsum.f_clr"
+            >
+              {{ item.value.dotsum.f_txt || "NA" }}
+            </td>
+
+            <td class="no-mob ng-binding">
+              {{ item.value.dotsum.f_pts || 0 }}
+            </td>
+            <td class="no-mob ng-binding">
+              {{ item.value.pwt | roundOff | twoCommas }}%
+            </td>
+            <td class="no-mob ng-binding">
+              {{ item.value.lval | roundOff | twoCommas }}
+            </td>
+            <td class="no-web ng-binding">
+              <!---Value-->
+              {{ item.value.lval | roundOff | twoCommas }}
+              <p class="scr-txt-2 no-web ng-binding">
+                <!---Weight-->
+                {{ item.value.pwt | roundOff | twoCommas }}%
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- sliders -->
+  <div
+    class="card-reveal animate-slide ng-hide"
+    ng-show="isCollapseFinTrendDtls"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        ng-click="isCollapseFinTrendDtls = !isCollapseFinTrendDtls"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>Details of Valuation of your portfolio stocks</li>
+        <li>Click on Full details to see the information for all stocks</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- detail button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0)"
+        ng-click="modalOpen('quality_details',3)"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Full Details</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- details -->
+<div [hidden]="true">
+  <div
+    #childDiv
+    class="modal-content contentbg ng-scope"
+    ng-if="loader[0].pf_holding != true"
+  >
+    <div class="list-mojo">
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th class="textcenter">Company</th>
+            <!-- <th class="textcenter no-mob">Industry</th> -->
+            <!--                                        <th class="textcenter no-mob">Quarter</th>-->
+            <th class="textcenter">Quality</th>
+            <th class="textcenter">Valuation</th>
+            <th class="textcenter">Fin Trend</th>
+            <th class="no-mob textcenter">Portfolio<br />Weight</th>
+            <th class="no-mob textcenter">Latest Value</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="DATA_holding!">
+          <tr
+            *ngFor="let item of DATA_holding.list | keyvalue"
+            class="ng-scope"
+          >
+            <td>
+              <div>
+                <a
+                  [href]="'/Stocks?StockId=' + item.value.sid + '&Exchange=0'"
+                  target="_blank"
+                  class="ng-binding"
+                  >{{ item.value.sname }}
+                </a>
+                <br />
+                <span class="mojo-hover">
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(item.value.dotsum.q_clr)"
+                  ></span>
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(item.value.dotsum.v_clr)"
+                  ></span>
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(item.value.dotsum.v_clr)"
+                  ></span>
+                </span>
+              </div>
+            </td>
+
+            <td
+              class="txt-lt selected-td ng-binding ng-scope"
+            >
+              {{ item.value.dotsum.q_txt }}
+            </td>
+
+            <td
+              class="txt-lt ng-binding"
+            >
+              {{ item.value.dotsum.v_txt }}
+            </td>
+
+            <td
+              class="txt-lt ng-binding change-compare-bg"
+            >
+              {{ item.value.dotsum.f_txt }}
+              <p class="ng-binding">
+                (Score {{ item.value.dotsum.mfin_score }} )
+              </p>
+            </td>
+
+            <td class="no-mob ng-binding">
+              {{ item.value.pwt | roundOff | twoCommas }}%
+            </td>
+            <td class="no-mob ng-binding">
+              {{ item.value.lval | roundOff | twoCommas }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

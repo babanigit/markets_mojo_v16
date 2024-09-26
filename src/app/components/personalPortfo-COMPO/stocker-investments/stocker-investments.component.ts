@@ -83,6 +83,11 @@ export class StockerInvestmentsComponent implements AfterViewInit {
   receiveHead(str: string) {
     this.getHead = str;
   }
+  
+  loadingState:boolean = false;
+  receiveLoadingState(state:boolean){
+this.loadingState = state;
+  }
 
 
   TO_SHOW: Boolean = false;

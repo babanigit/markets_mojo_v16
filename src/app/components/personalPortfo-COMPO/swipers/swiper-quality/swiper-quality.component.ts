@@ -22,6 +22,7 @@ import {
   IHoldings,
   IHoldingsData,
 } from 'src/app/models/table/holding';
+import { QualityDetailsComponent } from '../../cards/quality-details/quality-details.component';
 
 @Component({
   selector: 'app-swiper-quality',
@@ -36,11 +37,14 @@ import {
     NumberFormatPipe,
     SummaryComponent,
     ScorecardComponent,
+    QualityDetailsComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperQualityComponent implements OnInit {
+
   main_data: IHoldingsData | undefined;
+  holding_list: { [key: string]: I_List_Holding } | undefined;
 
   @Output() send_holdingsData = new EventEmitter<IHoldingsData>(); //sending data for those two swipers
 
@@ -55,15 +59,30 @@ export class SwiperQualityComponent implements OnInit {
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.fetchData();
   }
 
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
+
+  receiveElement(element: HTMLDivElement) {
+    this.sendElement.emit(element)
+  }
+  receiveClickState(state: boolean) {
+    this.sendClick_State.emit(state)
+  }
+  receiveHead(str: string) {
+    this.send_head.emit(str);
+  }
+
   fetchData(): void {
     this.serv.getOverviewStocks('HOLDING').subscribe((res: IHoldings) => {
       this.main_data = res.data;
+      this.holding_list = res.data.list;
       this.send_holdingsData.emit(this.main_data);
       this.cdr.detectChanges(); // Trigger change detection
     });

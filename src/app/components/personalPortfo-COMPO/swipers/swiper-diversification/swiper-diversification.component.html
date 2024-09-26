@@ -168,13 +168,13 @@
       >
         <ng-container *ngIf="data_sector!">
           <app-diversification
-
-          (sendElement)="receiveElement($event)"
-          (sendClick_State)="receiveClickState($event)"
-          (send_head)="receiveHead($event)"
-
-          [fetch_text]="'Sector'"
-          [DATA]="data_sector" [HEAD]="'Sectors'" />
+            (sendElement)="receiveElement($event)"
+            (sendClick_State)="receiveClickState($event)"
+            (send_head)="receiveHead($event)"
+            [fetch_text]="'Sector'"
+            [DATA]="data_sector"
+            [HEAD]="'Sectors'"
+          />
         </ng-container>
       </section>
 
@@ -186,8 +186,13 @@
       >
         <ng-container *ngIf="data_mcap!">
           <app-diversification
-          [fetch_text]="'Mcap'"
-          [DATA]="data_mcap" [HEAD]="'Market Cap'" />
+            (sendElement)="receiveElement($event)"
+            (sendClick_State)="receiveClickState($event)"
+            (send_head)="receiveHead($event)"
+            [fetch_text]="'Mcap'"
+            [DATA]="data_mcap"
+            [HEAD]="'Market Cap'"
+          />
         </ng-container>
       </section>
 
@@ -199,7 +204,10 @@
       >
         <ng-container *ngIf="data_holding!">
           <app-diversification
-          [fetch_text]="'Holdings'"
+            (sendElement)="receiveElement($event)"
+            (sendClick_State)="receiveClickState($event)"
+            (send_head)="receiveHead($event)"
+            [fetch_text]="'Holdings'"
             [DATA]="data_holding"
             [HEAD]="'Top Holdings'"
             [TEXT]="'STOCKS'"
@@ -267,7 +275,6 @@
           </div>
         </div>
       </section>
-
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">

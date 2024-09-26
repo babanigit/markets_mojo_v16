@@ -39,7 +39,7 @@ export class BetaComponent implements OnInit {
   @Output() send_head = new EventEmitter<string>(); //for
   riskPopup_data: { [key: string]: IRisk_Data_Datum } | undefined;
 
-  // @Output() loading_state = new EventEmitter<string>(); //for
+  @Output() loading_state = new EventEmitter<boolean>(false); //for
 
 
   isLoading: boolean = false;
@@ -82,8 +82,13 @@ export class BetaComponent implements OnInit {
   }
 
   private fetch() {
+    
     this.isFetched = true
+
     this.isLoading = true;
+    this.loading_state.emit(true)
+
+
     this.error = null;
     this.cdr.markForCheck();
 
@@ -115,6 +120,8 @@ export class BetaComponent implements OnInit {
         },
         complete: () => {
           this.isLoading = false;
+          this.loading_state.emit(false)
+
           this.cdr.markForCheck();
         }
       });

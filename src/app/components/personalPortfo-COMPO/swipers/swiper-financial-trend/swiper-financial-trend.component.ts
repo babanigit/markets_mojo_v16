@@ -18,6 +18,7 @@ import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { SummaryComponent } from '../../cards/summary/summary.component';
 import { ScorecardComponent } from '../../cards/scorecard/scorecard.component';
 import { IHoldingsData } from 'src/app/models/table/holding';
+import { FinTrendDetailsComponent } from '../../cards/fin-trend-details/fin-trend-details.component';
 
 @Component({
   selector: 'app-swiper-financial-trend',
@@ -32,6 +33,7 @@ import { IHoldingsData } from 'src/app/models/table/holding';
     NumberFormatPipe,
     SummaryComponent,
     ScorecardComponent,
+    FinTrendDetailsComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -48,4 +50,18 @@ export class SwiperFinancialTrendComponent {
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
   ) {}
+
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
+
+  receiveElement(element: HTMLDivElement) {
+    this.sendElement.emit(element)
+  }
+  receiveClickState(state: boolean) {
+    this.sendClick_State.emit(state)
+  }
+  receiveHead(str: string) {
+    this.send_head.emit(str);
+  }
 }
