@@ -22,6 +22,7 @@ import { AverageAgeComponent } from '../../cards/average-age/average-age.compone
 import { HistoryTaxComponent } from '../../cards/history-tax/history-tax.component';
 import { PostTaxValueComponent } from '../../cards/post-tax-value/post-tax-value.component';
 import { ShortTermCapitalComponent } from '../../cards/short-term-capital/short-term-capital.component';
+import { ItaxHistroyPopup_data } from 'src/app/models/pp/taxHistoryPopup';
 
 @Component({
   selector: 'app-swiper-tax',
@@ -60,6 +61,11 @@ export class SwiperTaxComponent implements OnInit {
   @Output() sendElement = new EventEmitter<HTMLDivElement>();
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
+  @Output() taxPopup_data = new EventEmitter<ItaxHistroyPopup_data>()
+
+  receiveTaxPopupData(hello: ItaxHistroyPopup_data ){
+    this.taxPopup_data.emit(hello);
+  }
 
   receiveElement(element: HTMLDivElement) {
     this.sendElement.emit(element);

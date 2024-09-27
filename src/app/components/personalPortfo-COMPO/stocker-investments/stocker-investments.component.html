@@ -21,129 +21,137 @@
       <div class="model-head cf">
         <div class="comp-name ng-binding">{{ getHead }}</div>
         <ng-container *ngIf="getHead == 'Tax History'">
-
-          <!-- <form [formGroup]="form">
-            <select
-              formControlName="year"
-              class="select ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"
-              (change)="onYearChange()"
-            >
-              <option
-                *ngFor="let value of taxHistory"
-                [value]="value.fy"
-                class="optionbg ng-binding ng-scope"
-              >
-                {{ value.label }}
-              </option>
-            </select>
-          </form> -->
-
           <select
             class="select ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"
             ng-model="hist_year"
             ng-show="loader[0].pf_tax_hist_pop == false"
           >
-            <option
-              class="optionbg ng-binding ng-scope"
-              ng-repeat="value in taxHistory"
-              ng-value="value.fy"
-              value="string:2024-25"
-              selected="selected"
-            >
-              FY 2024-25
-            </option>
-
-            <option
-              class="optionbg ng-binding ng-scope"
-              ng-repeat="value in taxHistory"
-              ng-value="value.fy"
-              value="string:2023-24"
-            >
-              FY 2023-24
-            </option>
-
-            <option
-              class="optionbg ng-binding ng-scope"
-              ng-repeat="value in taxHistory"
-              ng-value="value.fy"
-              value="string:2022-23"
-            >
-              FY 2022-23
-            </option>
-
-            <option
-              class="optionbg ng-binding ng-scope"
-              ng-repeat="value in taxHistory"
-              ng-value="value.fy"
-              value="string:2021-22"
-            >
-              FY 2021-22
-            </option>
-
-            <option
-              class="optionbg ng-binding ng-scope"
-              ng-repeat="value in taxHistory"
-              ng-value="value.fy"
-              value="string:2019-20"
-            >
-              FY 2019-20
-            </option>
-
-            <option
-              class="optionbg ng-binding ng-scope"
-              ng-repeat="value in taxHistory"
-              ng-value="value.fy"
-              value="string:2018-19"
-            >
-              FY 2018-19
-            </option>
-
-            <option
-              class="optionbg ng-binding ng-scope"
-              ng-repeat="value in taxHistory"
-              ng-value="value.fy"
-              value="string:2017-18"
-            >
-              FY 2017-18
-            </option>
-
-            <option
-              class="optionbg ng-binding ng-scope"
-              ng-repeat="value in taxHistory"
-              ng-value="value.fy"
-              value="string:2016-17"
-            >
-              FY 2016-17
-            </option>
+            <ng-container *ngIf="taxHistory_data">
+              <option
+                *ngFor="
+                  let item of taxHistory_data.list
+                    | keyvalue
+                    | orderObjectBy : ' '
+                "
+                class="optionbg ng-binding ng-scope"
+                (click)="sendClick(item.key)"
+              >
+                FY {{ item.key }}
+              </option>
+            </ng-container>
           </select>
-        
         </ng-container>
-
-        <!-- tax-history.component.html -->
-        <!-- <select
-        [(ngModel)]="selectedYear"
-        (ngModelChange)="onYearChange()"
-        [disabled]="isLoading"
-        class="select"
-      >
-        <option *ngFor="let year of taxHistory" [ngValue]="year.fy">
-          {{ year.label }}
-        </option>
-      </select> -->
       </div>
-      <!-- ngIf: loader[0].pf_today_popup == true -->
-      <!-- ngIf: loader[0].pf_today_popup == false -->
+
       <div
         class="modal-content contentbg ng-scope"
         ng-if="loader[0].pf_today_popup == false"
       >
-        <div *ngIf="this.loadingState">
-          <img src="https://i.marketsmojo.com/loading.gif" alt="Loading..." />
-        </div>
+        <ng-container *ngIf="getHead == 'Tax History'">
+          <div
+            class="modal-content contentbg list-mojo ng-scope"
+            ng-if="loader[0].pf_tax_hist_pop == false"
+          >
+            <table
+              class="table1 ng-scope"
+              ng-if="taxHistory1[hist_year].status == 1"
+            >
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Date</th>
+                  <th class="no-mob no-tab no-tab2">Quantity sold</th>
+                  <th class="no-mob no-tab no-tab2">Realized Gain/Loss</th>
+                  <th>Short Term Tax</th>
+                  <th>LT Tax</th>
+                  <!--<th class="no-mob no-tab no-tab2">Total Tax</th>-->
+                </tr>
+              </thead>
+              <tbody *ngIf="taxHistory_data">
+                <tr
+                  *ngFor="
+                    let sector of taxHistory_data.list[year] | unique : 'sid'
+                  "
+                  ng-repeat="(key,value) in taxHistoryPop.list[hist_year]"
+                  class="ng-scope"
+                >
+                  <td>
+                    <div>
+                      <a
+                        target="_blank"
+                        class="ng-binding"
+                        [href]="
+                          'https://www.marketsmojo.com/Stocks?StockId=' +
+                          sector.dotsum.sid +
+                          '&Exchange=0'
+                        "
+                        >{{ sector.short }}</a
+                      >
+                      <span class="mojo-hover">
+                        <span
+                          [ngClass]="
+                            this.fun.getClassbyClr(sector.dotsum.q_clr)
+                          "
+                        ></span>
+                        <span
+                          [ngClass]="
+                            this.fun.getClassbyClr(sector.dotsum.v_clr)
+                          "
+                        ></span>
+                        <span
+                          [ngClass]="
+                            this.fun.getClassbyClr(sector.dotsum.q_clr)
+                          "
+                        ></span>
+                      </span>
+                    </div>
+                  </td>
+                  <td class="ng-binding">{{ sector.date }}</td>
+                  <td class="no-mob no-tab no-tab2 ng-binding">
+                    {{ sector.qty }}
+                  </td>
+                  <td
+                    [ngClass]="
+                      this.fun.getDirClrDefault(sector.rgaindir, 'gray')
+                    "
+                    class="no-mob no-tab no-tab2"
+                  >
+                    <span class="1">
+                      {{ sector.rgain | roundOff | twoCommas }}
+                    </span>
+                  </td>
+                  <td class="ng-binding">
+                    {{ sector.sttax | roundOff | twoCommas }}
+                  </td>
+                  <td class="ng-binding">
+                    {{ sector.lttax | roundOff | twoCommas }}
+                  </td>
+                </tr>
+
+            
+                  <tr >
+                    <td>Total</td>
+                    <td></td>
+                    <td class="no-mob no-tab no-tab2"></td>
+                    <td class="no-mob no-tab no-tab2 ng-binding">
+                        <!-- <div *ngIf="taxHistory_data!">
+                          <div *ngFor="let item of taxHistory_data.total[year]">
+                            <p>FY: {{ item.fy }}</p>
+                          </div>
+                        </div> -->
+                        0
+                    </td>
+                    <td class="ng-binding">0</td>
+                    <td class="ng-binding">0</td>
+                  </tr>
+              </tbody>
+            </table>
+            <!-- end ngIf: taxHistory1[hist_year].status==1 -->
+          </div>
+        </ng-container>
 
         <div *ngIf="!this.loadingState" #parentContainer></div>
       </div>
-      <!-- end ngIf: loader[0].pf_today_popup == false -->
     </div>
   </div>
 </app-model-open>
@@ -289,6 +297,7 @@
       (sendElement)="receiveElement($event)"
       (sendClick_State)="receiveClickState($event)"
       (send_head)="receiveHead($event)"
+      (taxPopup_data)="receiveTaxPopupData($event)"
     />
   </div>
 

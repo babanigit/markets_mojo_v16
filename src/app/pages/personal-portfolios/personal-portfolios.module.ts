@@ -28,6 +28,10 @@ import { ModelOpenComponent } from 'src/app/components/personalPortfo-COMPO/mode
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 import { BarGraphComponent } from 'src/app/components/personalPortfo-COMPO/graph/bar-graph/bar-graph.component';
 import { LineGraphComponent } from 'src/app/components/personalPortfo-COMPO/graph/line-graph/line-graph.component';
+import { OrderObjectByPipe } from "../../pipes/pp/orderObjectBy/order-object-by.pipe";
+import { UniquePipe } from 'src/app/pipes/pp/unique.pipe';
+import { RoundOffPipe } from "../../pipes/pp/roundOff/round-off.pipe";
+import { TwoCommasPipe } from "../../pipes/pp/twoCommas/two-commas.pipe";
 
 
 
@@ -42,18 +46,13 @@ import { LineGraphComponent } from 'src/app/components/personalPortfo-COMPO/grap
     MutualFundsInvestmentsComponent,
   ],
   imports: [
-
-// ModalModule.forRoot(),
-
+    // ModalModule.forRoot(),
     CommonModule,
     PersonalPortfoliosRoutingModule,
     PfPriceMsgComponent,
-
     TablesComponent,
     IpoFooterNewComponent,
-
     SwiperDemoComponent,
-
     SwiperHowAmComponent,
     SwiperDoingOverallComponent,
     SwiperReturnAnalysisComponent,
@@ -64,14 +63,14 @@ import { LineGraphComponent } from 'src/app/components/personalPortfo-COMPO/grap
     SwiperFinancialTrendComponent,
     SwiperTaxComponent,
     SwiperLiquidityComponent,
-
     ModelOpenComponent,
     DemoComponent,
     LineGraphComponent,
     BarGraphComponent,
-
-
-
-  ],
+    OrderObjectByPipe,
+    UniquePipe,
+    RoundOffPipe,
+    TwoCommasPipe
+],
 })
 export class PersonalPortfoliosModule {}

@@ -43,9 +43,11 @@ export class HistoryTaxComponent implements OnInit {
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
   // riskPopup_data: { [key: string]: IRisk_Data_Datum } | undefined;
-  taxHistoryPopup_data: ItaxHistroyPopup_data | undefined;
 
   @Output() loading_state = new EventEmitter<boolean>(false); //for
+
+  taxHistoryPopup_data: ItaxHistroyPopup_data | undefined;
+  @Output() taxPopup_data = new EventEmitter<ItaxHistroyPopup_data>()
 
   isLoading: boolean = false;
   clickedOnce: boolean = false;
@@ -138,6 +140,8 @@ export class HistoryTaxComponent implements OnInit {
       this.sendElement.emit(clonedElement);
       this.sendClick_State.emit(true);
       this.send_head.emit(this.HEAD);
+      this.taxPopup_data.emit(this.taxHistoryPopup_data);
+      
       console.log('Data emitted');
     } else {
       this.error =

@@ -3,7 +3,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  EventEmitter,
   OnInit,
+  Output,
   ViewChild,
 } from '@angular/core';
 
@@ -15,6 +17,7 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ItaxHistroyPopup_data } from 'src/app/models/pp/taxHistoryPopup';
 
 interface TaxHistory {
   fy: string;
@@ -28,40 +31,31 @@ interface TaxHistory {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StockerInvestmentsComponent {
+  taxHistory_data: ItaxHistroyPopup_data | undefined;
+  // recive tax data
+  receiveTaxPopupData(hello: ItaxHistroyPopup_data) {
+    console.log('hello Tax histroy data : ', hello);
+    this.taxHistory_data = hello;
+  }
+
+  year = '2016-17';
+  sendClick(str: string) {
+    console.log('sendClick ', str);
+    this.year = str;
+  }
+
   overallData: IOverall_Data | undefined;
   holdingData: IHoldingsData | undefined;
   qvflData: IQvfl_Data | undefined;
 
-  form: FormGroup;
-
-  taxHistory: TaxHistory[] = [
-    { fy: '2024-25', label: 'FY 2024-25' },
-    { fy: '2023-24', label: 'FY 2023-24' },
-    { fy: '2022-23', label: 'FY 2022-23' },
-    { fy: '2021-22', label: 'FY 2021-22' },
-    { fy: '2019-20', label: 'FY 2019-20' },
-    { fy: '2018-19', label: 'FY 2018-19' },
-    { fy: '2017-18', label: 'FY 2017-18' },
-    { fy: '2016-17', label: 'FY 2016-17' },
-  ];
-
-  ngOnInit() {
-  }
-
-  onYearChange() {
-    console.log('Selected value:', this.form.get('year')?.value);
-  }
+  ngOnInit() {}
 
   constructor(
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef,
     private fb: FormBuilder
-  ) {
-    this.form = this.fb.group({
-      year: ['2024-25'],
-    });
-  }
+  ) {}
 
   @ViewChild('element1') element1!: ElementRef;
   @ViewChild('element2') element2!: ElementRef;

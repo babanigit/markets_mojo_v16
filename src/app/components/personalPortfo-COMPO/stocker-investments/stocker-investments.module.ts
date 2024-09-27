@@ -7,6 +7,7 @@ import { DemoComponent } from '../../demos/demo/demo.component';
 import { SwiperDemoComponent } from '../../demos/swiper-demo/swiper-demo.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderObjectByPipe } from 'src/app/pipes/pp/orderObjectBy/order-object-by.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TablesComponent,
     SwiperDemoComponent,
     DemoComponent,
+    OrderObjectByPipe
 
 
 

@@ -5,11 +5,11 @@ export interface ItaxHistroyPopup {
 }
 
 export interface ItaxHistroyPopup_data {
-    list: List;
+    list: ItaxHistroyPopup_data_List;
     total: Total;
 }
 
-export interface List {
+export interface ItaxHistroyPopup_data_List {
     [key: string]: The201617_Element[];
 
 }
@@ -300,14 +300,17 @@ export interface The201819_Dotsum {
 }
 
 export interface Total {
-    '2024-25': The201718_Class;
-    '2023-24': The202324;
-    '2022-23': The201718_Class;
-    '2021-22': The201718_Class;
-    '2019-20': The201718_Class;
-    '2018-19': The201718_Class;
-    '2017-18': The201718_Class;
-    '2016-17': The201718_Class;
+
+    [key: string]: The201718_Class[] ;
+
+    // '2024-25': The201718_Class;
+    // '2023-24': The202324;
+    // '2022-23': The201718_Class;
+    // '2021-22': The201718_Class;
+    // '2019-20': The201718_Class;
+    // '2018-19': The201718_Class;
+    // '2017-18': The201718_Class;
+    // '2016-17': The201718_Class;
 }
 
 export interface The201718_Class {
