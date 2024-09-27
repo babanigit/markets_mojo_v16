@@ -21,6 +21,7 @@ import { GraphTodayComponent } from '../../graph/graph-today/graph-today.compone
 import { CardComponent } from '../../cards/card/card.component';
 import {
   I_News,
+  IGraphToday_Data,
   IMcapClass_Data,
   IToday,
   IToday_data,
@@ -35,6 +36,7 @@ import { NewsComponent } from '../../cards/news/news.component';
 import { McapBreakupComponent } from "../../cards/mcap-breakup/mcap-breakup.component";
 
 type PortfolioKeys = keyof IPortfolioGraph_Data;
+
 
 @Component({
   selector: 'app-swiper-how-am',
@@ -64,7 +66,8 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   data_losers: any = [];
   data_mcap: IMcapClass_Data | undefined;
 
-  graphToday_Data: IPortfolioGraph_Data | undefined;
+  graphToday_data: IGraphToday_Data | undefined;
+  PortfolioGraph_data: IPortfolioGraph_Data | undefined;
 
   // @Output() send_graphToday = new EventEmitter<IPortfolioGraph_Data>(); //for input value
   // @Output() send_button = new EventEmitter<string>(); //for input value
@@ -93,7 +96,6 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   }
   receiveClickState(state: boolean) {
     this.sendClick_State.emit(state)
-    // this.click_state = state;
   }
 
   getHead: string | undefined;
@@ -119,13 +121,14 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
       this.data_gainers = res.data.overall.gainers;
       this.data_losers = res.data.overall.losers;
       this.data_mcap = res.data.mcap;
+      this.graphToday_data=res.data.graph;
 
       this.cdr.detectChanges(); // Trigger change detection
     });
 
     this.serv.getGraphToday().subscribe((res: IPortfolioGraph) => {
-      this.graphToday_Data = res.data;
-      console.log('graphToday data is : ', this.graphToday_Data);
+      this.PortfolioGraph_data = res.data;
+      console.log('graphToday data is : ', this.PortfolioGraph_data);
 
       this.cdr.detectChanges(); // Trigger change detection
     });

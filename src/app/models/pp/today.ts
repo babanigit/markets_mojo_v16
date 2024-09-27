@@ -11,7 +11,7 @@ export interface IToday_data {
   mcap:    IMcapClass_Data;
   news:    I_News[];
   summary: Summary[];
-  graph:   Graph;
+  graph:   IGraphToday_Data;
 }
 
 export interface Corpact {
@@ -22,7 +22,7 @@ export interface Corpact {
   dt:     Date;
 }
 
-export interface Graph {
+export interface IGraphToday_Data {
   plotpts:    Plotpt[];
   rawdt:      Date;
   datetime:   string;

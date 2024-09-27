@@ -1,4 +1,3 @@
-
 <div class="slide-card cf" id="MenusectToday">
   <div class="swiper-container swiper-1 swiper-container-horizontal">
     <div class="section-head cf">
@@ -67,13 +66,14 @@
             <!-- ngIf: loader[0].pf_today_graph == true -->
 
             <div
-              *ngIf="graphToday_Data!"
+              *ngIf="PortfolioGraph_data!"
               class="tabcol"
               ng-show="loader[0].pf_today_graph == false"
             >
               <!-- button section -->
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
+
                   <li class="tab">
                     <a
                       href="javascript:void(0)"
@@ -81,20 +81,20 @@
                       ng-class="act_tab_class['1D']"
                       class="red"
                       ng-click=" getToday(0,1);"
-                      style=""
                       >1D</a
                     >
                   </li>
 
                   <!-- ngRepeat: value in act_tab_name -->
                   <li
-                    *ngFor="let item of graphToday_Data | keyvalue"
+                    *ngFor="let item of PortfolioGraph_data | keyvalue"
                     class="tab ng-scope"
                     ng-repeat="value in act_tab_name"
                   >
                     <a
                       id=""
                       class="green"
+                      [ngClass]=" this.fun.getDirClrDefault(item.value.portdir, 'gray') "
                       [ngClass]="{ active: item.key === send_button }"
                       (click)="buttonClicked(item.key)"
                     >
@@ -105,7 +105,6 @@
                   <li
                     class="tab no-mob no-tab2 ng-scope"
                     ng-if="act_today_graph_tab != '1D'"
-                    style=""
                   >
                     <a
                       href="javascript:void(0)"
@@ -152,7 +151,6 @@
                         ng-value="value"
                         class="ng-binding ng-scope"
                         value="string:1M"
-                        style=""
                       >
                         1M
                       </option>
@@ -247,14 +245,17 @@
                       dir="ltr"
                       class="highcharts-container"
                     >
+
                       <!-- graph -->
                       <div style="padding: 0px 0px">
                         <app-graph-today
+                        (graphToday_data)="graphToday_data"
                           [send_button]="send_button"
-                          [graphToday_Data]="graphToday_Data"
+                          [PortfolioGraph_data]="PortfolioGraph_data"
                           [switch_button]="switch_button"
                         />
                       </div>
+
                     </div>
                   </div>
 
@@ -263,10 +264,10 @@
                     <div class="valuation-new">
                       <div class="stockmargin">
                         <div
-                          class="sector-per red-border"
+                          class="sector-per "
                           [ngClass]="
                             this.fun.getDirClrDefault(
-                              graphToday_Data[send_button].portdir,
+                              PortfolioGraph_data[send_button].portdir,
                               'orange'
                             ) + '-border'
                           "
@@ -275,7 +276,7 @@
                           <h6 class="stockName">PORTFOLIO</h6>
                           <p class="Dcolor ng-binding">
                             {{
-                              graphToday_Data[send_button].portret
+                              PortfolioGraph_data[send_button].portret
                                 | roundOff
                                 | twoCommas
                             }}%
@@ -284,10 +285,10 @@
                       </div>
                       <div class="stockmargin">
                         <div
-                          class="sector-per green-border"
+                          class="sector-per"
                           [ngClass]="
                             this.fun.getDirClrDefault(
-                              graphToday_Data[send_button].compdir,
+                              PortfolioGraph_data[send_button].compdir,
                               'orange'
                             ) + '-border'
                           "
@@ -296,7 +297,7 @@
                           <h6>COMPOSITE INDEX</h6>
                           <p class="Dcolor ng-binding">
                             {{
-                              graphToday_Data[send_button].compret
+                              PortfolioGraph_data[send_button].compret
                                 | roundOff
                                 | twoCommas
                             }}%
@@ -308,7 +309,7 @@
                           class="sector-per green-border"
                           [ngClass]="
                             this.fun.getDirClrDefault(
-                              graphToday_Data[send_button].sensexdir,
+                              PortfolioGraph_data[send_button].sensexdir,
                               'orange'
                             ) + '-border'
                           "
@@ -317,7 +318,7 @@
                           <h6>SENSEX</h6>
                           <p class="Dcolor ng-binding">
                             {{
-                              graphToday_Data[send_button].sensex
+                              PortfolioGraph_data[send_button].sensex
                                 | roundOff
                                 | twoCommas
                             }}%
@@ -343,7 +344,6 @@
                               : 'decliens'
                           "
                           class="advance"
-                          style=""
                         >
                           <h6>TOP CONTRIBUTOR</h6>
                           <!-- ngIf: error_flag[0].actionToday_contri == 1 -->
@@ -606,7 +606,6 @@
         class="swiper-slide padnno-sec marginright no-web no-tab swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"
-        style=""
       >
         <div class="card">
           <div class="card-content movementcard">
@@ -634,7 +633,6 @@
                   <li
                     class="tab ng-scope"
                     ng-repeat="value in act_tab_name"
-                    style=""
                   >
                     <a
                       href="javascript:void(0)"
@@ -711,22 +709,6 @@
                       >INCEPTION</a
                     >
                   </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <!--									<li class="tab">
-                  <a href="javascript:void(0)" id="" class="green"  ng-class="{active:act_today_graph_tab_mob == '3M'}"  ng-click="act_today_graph_tab_mob = '3M'; getActGraph('3M','adj','container_actiontoday_mob',1)">3M</a>
-                </li>
-                                                                      <li class="tab">
-                  <a href="javascript:void(0)" id="" class="red"  ng-class="{active:act_today_graph_tab_mob == 'YTD'}"  ng-click="act_today_graph_tab_mob = 'YTD'; getActGraph('YTD','adj','container_actiontoday_mob',1)">YTD </a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="green" ng-class="{active:act_today_graph_tab_mob == '1Y'}"  ng-click="act_today_graph_tab_mob = '1Y'; getActGraph('1Y','adj','container_actiontoday_mob',1)">1Y</a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="green" ng-class="{active:act_today_graph_tab_mob == '3Y'}"  ng-click="act_today_graph_tab_mob = '3Y'; getActGraph('3Y','adj','container_actiontoday_mob',1)">3Y</a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="green" ng-class="{active:act_today_graph_tab_mob == 'inception'}"  ng-click="act_today_graph_tab_mob = 'inception'; getActGraph('inception','adj','container_actiontoday_mob',1)">Inception</a>
-                </li>                                                                        -->
                 </ul>
               </div>
 
@@ -745,7 +727,6 @@
                         class="ng-binding ng-scope"
                         value="string:1M"
                         selected="selected"
-                        style=""
                       >
                         1M
                       </option>
@@ -821,7 +802,6 @@
                 <div
                   class="cardmiddle"
                   ng-show="loader[0].pf_today_graph_mob == false &amp;&amp; error_flag[0].actionToday_graph_mob == 0 &amp;&amp; actionToday.error != 1"
-                  style=""
                 >
                   <div
                     class="cardgraph"
@@ -1314,7 +1294,6 @@
                   id="dtSummary"
                   class="pricesummrytext02 ng-binding ng-scope"
                   ng-if="loader[0].pf_today_summary == false &amp;&amp; actionToday.graph!=''"
-                  style=""
                 ></span
                 ><!-- end ngIf: loader[0].pf_today_summary == false && actionToday.graph!='' -->
                 <!--<a href="javascript:void(0)" onclick="GetSummary();" class="ref-text"> <i class="fa fa-refresh refresh-text"></i> Refresh </a>-->
@@ -1496,7 +1475,6 @@
 
       <!-- Today gain brakup mcap  -->
       <section
-        style=""
         class="swiper-slide small-card marginright swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"

@@ -4,6 +4,7 @@ import { Chart, ChartModule } from 'angular-highcharts';
 import * as Highcharts from 'highcharts';
 
 import { IPortfolioGraph_Data } from 'src/app/models/pp/PortfolioGraph';
+import { IGraphToday_Data } from 'src/app/models/pp/today';
 import { ITodayGraph_Data } from 'src/app/models/pp/todayGraph';
 
 type GraphKeys = keyof ITodayGraph_Data;
@@ -16,14 +17,16 @@ type GraphKeys = keyof ITodayGraph_Data;
   imports: [ChartModule, CommonModule],
 })
 export class GraphTodayComponent implements OnChanges {
-  @Input() graphToday_Data: IPortfolioGraph_Data | undefined;
+  @Input() PortfolioGraph_data: IPortfolioGraph_Data | undefined;
   @Input() send_button: string | undefined;
   @Input() switch_button: string | undefined;
+
+  @Input() graphToday_data : IGraphToday_Data | undefined;
 
   areaChart: Chart = new Chart({});
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['graphToday_Data'] || changes['send_button'] || changes['switch_button']) {
+    if (changes['PortfolioGraph_data'] || changes['send_button'] || changes['switch_button']) {
       this.updateChart();
     }
   }
@@ -41,13 +44,13 @@ export class GraphTodayComponent implements OnChanges {
   }
 
   private updateChart(): void {
-    if (!this.graphToday_Data || !this.send_button) {
+    if (!this.PortfolioGraph_data || !this.send_button) {
       console.error('Invalid graph data or send_button');
       return;
     }
 
     const key = this.send_button as GraphKeys;
-    const dataPoints = this.extractDataPoints(this.graphToday_Data, key);
+    const dataPoints = this.extractDataPoints(this.PortfolioGraph_data, key);
 
     if (dataPoints.length === 0) {
       console.warn('No data points available');

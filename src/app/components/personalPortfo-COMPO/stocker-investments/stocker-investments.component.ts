@@ -31,11 +31,13 @@ interface TaxHistory {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StockerInvestmentsComponent {
-  taxHistory_data: ItaxHistroyPopup_data | undefined;
+  taxHistory_data: any | undefined;
   // recive tax data
   receiveTaxPopupData(hello: ItaxHistroyPopup_data) {
     console.log('hello Tax histroy data : ', hello);
     this.taxHistory_data = hello;
+    console.log(this.taxHistory_data.total[this.year]);
+
   }
 
   year = '2016-17';
