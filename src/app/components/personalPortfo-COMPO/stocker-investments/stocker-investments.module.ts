@@ -6,7 +6,7 @@ import { TablesComponent } from '../tables/tables.component';
 import { DemoComponent } from '../../demos/demo/demo.component';
 import { SwiperDemoComponent } from '../../demos/swiper-demo/swiper-demo.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TablesComponent,
     SwiperDemoComponent,
     DemoComponent,
-    ReactiveFormsModule,
-    FormsModule
+
+
 
 
   ],

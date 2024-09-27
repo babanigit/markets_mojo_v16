@@ -1,1 +1,109 @@
-<p>history-tax works!</p>
+<div class="card">
+  <div class="card-content">
+    <div class="card-head">
+      <h2>
+        Tax History<span
+          class="card-title activator info-act"
+          ng-click="isCollapseTaxHist = !isCollapseTaxHist"
+        ></span>
+      </h2>
+    </div>
+
+    <div class="price-mojo col-green ng-scope">
+      <table class="table1 ng-scope">
+        <thead>
+          <tr>
+            <th class="textcenter">
+              Financial<br />
+              Year
+            </th>
+            <th class="textcenter">
+              Short<br />
+              Term Tax
+            </th>
+            <th class="textcenter">
+              Long<br />
+              Term Tax
+            </th>
+            <!--<th class="textcenter">Total Tax</th>-->
+          </tr>
+        </thead>
+        <tbody *ngIf="data_taxHistory!">
+          <!-- end ngRepeat: value in taxHistory|limitTo:10 -->
+          <tr
+            *ngFor="let item of data_taxHistory.total | keyvalue"
+            class="ng-scope"
+          >
+            <td class="ng-binding">{{ item.value.fy }}</td>
+
+            <td *ngIf="item.value.status == 1" class="ng-binding ng-scope">
+              {{ item.value.sttax | roundOff | twoCommas }}
+            </td>
+
+            <td *ngIf="item.value.status == 1" class="ng-binding ng-scope">
+              {{ item.value.lttax | roundOff | twoCommas }}
+            </td>
+
+            <td *ngIf="item.value.status == 0" colspan="2" class="ng-scope">
+              <div class="alerttax alert-warningtax mar-empty">
+                No Stocks sold during this year
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- extend -->
+  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseTaxHist">
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        ng-click="isCollapseTaxHist = !isCollapseTaxHist"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          The card displays average age of your portfolio and portfolio stocks
+        </li>
+        <li>
+          Average age refers to the average holding period of your current
+          investments
+        </li>
+        <li>Click on full details to see information on all stocks</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- full details button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0)"
+        ng-click="getTaxHistoryPopup();modalOpen('tax_history_popup',1)"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Full Details </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+        </a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- detail -->
+<div [hidden]="true">
+  <div #childDiv>hello history</div>
+</div>

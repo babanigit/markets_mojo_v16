@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { retry, tap, catchError, of } from 'rxjs';
 import { IRisk_Data_Datum } from 'src/app/models/pp/RiskPopup';
 import { ITax_Analysis_Data } from 'src/app/models/pp/taxAnalysis';
@@ -7,17 +7,20 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { TwoCommasPipe } from "../../../../pipes/pp/twoCommas/two-commas.pipe";
 import { RoundOffPipe } from "../../../../pipes/pp/roundOff/round-off.pipe";
+import { ITaxAnalysisPopup, ITaxAnalysisPopup_data } from 'src/app/models/pp/taxAnalysisPopup';
 
 @Component({
   selector: 'app-post-tax-value',
   templateUrl: './post-tax-value.component.html',
   styleUrls: ['./post-tax-value.component.css'],
-  standalone:true,
+  standalone: true,
   imports: [
     CommonModule,
     TwoCommasPipe,
     RoundOffPipe
-]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class PostTaxValueComponent implements OnInit {
   @Input() data_taxAnalysis: ITax_Analysis_Data | undefined;
@@ -28,7 +31,8 @@ export class PostTaxValueComponent implements OnInit {
   @Output() sendElement = new EventEmitter<HTMLDivElement>();
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
-  riskPopup_data: { [key: string]: IRisk_Data_Datum } | undefined;
+  // riskPopup_data: { [key: string]: IRisk_Data_Datum } | undefined;
+  taxAnalysisPopup_data: ITaxAnalysisPopup_data | undefined;
 
   @Output() loading_state = new EventEmitter<boolean>(false); //for
 
@@ -73,7 +77,7 @@ export class PostTaxValueComponent implements OnInit {
   }
 
   private fetch() {
-    
+
     this.isFetched = true
 
     this.isLoading = true;
@@ -83,7 +87,7 @@ export class PostTaxValueComponent implements OnInit {
     this.error = null;
     this.cdr.markForCheck();
 
-    this.serv.getRiskPopup()
+    this.serv.getTaxPopup('detail')
       .pipe(
         retry(3), // Retry up to 3 times
         tap(res => {
@@ -96,11 +100,11 @@ export class PostTaxValueComponent implements OnInit {
         })
       )
       .subscribe({
-        next: (res: any) => {
+        next: (res: ITaxAnalysisPopup) => {
           if (res && res.data) {
             // this.detail_data = res.data;
-            this.riskPopup_data = res.data;
-            // console.log('The details data is:', this.fetch_text, this.detail_data);
+            this.taxAnalysisPopup_data = res.data;
+            console.log('The popup data is :  ', this.taxAnalysisPopup_data);
             setTimeout(() => {
               this.emitData();
             }, 0);
@@ -119,8 +123,8 @@ export class PostTaxValueComponent implements OnInit {
   }
 
   private emitData() {
-    if (this.childDiv && this.riskPopup_data) {
-      console.log('Emitting data:', this.riskPopup_data); // Log the data being emitted
+    if (this.childDiv && this.taxAnalysisPopup_data) {
+      console.log('Emitting data:', this.taxAnalysisPopup_data); // Log the data being emitted
       const clonedElement = this.childDiv.nativeElement.cloneNode(true) as HTMLDivElement;
       this.sendElement.emit(clonedElement);
       this.sendClick_State.emit(true);

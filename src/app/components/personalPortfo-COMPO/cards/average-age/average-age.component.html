@@ -1,1 +1,178 @@
-<p>average-age works!</p>
+<div class="card">
+  <div class="card-content">
+    <div class="card-head">
+      <h2>Average age<span class="card-title activator info-act"></span></h2>
+    </div>
+
+    <div
+      class="price-mojo col-green list-mojo ng-scope"
+      *ngIf="data_taxAnalysis!"
+    >
+      <div class=" ">
+        <div class="txt-hed-1 priced ng-binding">
+          {{ data_taxAnalysis.agetxt }}
+        </div>
+        <p>is the average age of your portfolio</p>
+        <table class="table1">
+          <thead>
+            <tr>
+              <th class="textcenter">Stock Name</th>
+              <th class="textcenter">
+                Quantity
+                <p class="scr-txt-2">Latest Value</p>
+              </th>
+              <th class="textcenter">
+                Holdings <span class="scr-txt-2">(Yrs)</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let item of data_taxAnalysis.list"
+              ng-repeat="value in taxAnalysis.list"
+              class="ng-scope"
+            >
+              <td>
+                <div>
+                  <a
+                    [href]="'/Stocks?StockId=' + item.sid + '&Exchange=0'"
+                    target="_blank"
+                    class="ng-binding"
+                    >{{ item.sname }}
+                  </a>
+                  <br />
+                  <span class="mojo-hover">
+                    <span
+                      [ngClass]="this.fun.getClassbyClr(item.dotsum.q_clr)"
+                    ></span>
+                    <span
+                      [ngClass]="this.fun.getClassbyClr(item.dotsum.v_clr)"
+                    ></span>
+                    <span
+                      [ngClass]="this.fun.getClassbyClr(item.dotsum.v_clr)"
+                    ></span>
+                  </span>
+                </div>
+              </td>
+
+              <td class="ng-binding">
+                {{ item.iqty | roundOff | twoCommas }}
+                <br />
+                <p class="scr-txt-2 ng-binding">
+                  {{ item.lval | roundOff | twoCommas }}
+                </p>
+              </td>
+              <td class="ng-binding">
+                {{ item.yearhold | roundOff | twoCommas }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="card-reveal" style="display: none">
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i class="material-icons right">close</i></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          The card displays average age of your portfolio and portfolio stocks
+        </li>
+        <li>
+          Average age refers to the average holding period of your current
+          investments
+        </li>
+        <li>Click on full details to see information on all stocks</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0)"
+        ng-click="getTaxAnalysisPop();modalOpen('tax_avg_gain_popup',1)"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Full Details </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- details -->
+<div [hidden]="true">
+  <div
+    #childDiv
+    class="modal-content contentbg ng-scope"
+    ng-if="loader[0].pf_tax_pst_pop == false"
+  >
+    <div class="list-mojo">
+      <table class="table1">
+        <thead>
+          <tr>
+            <th>Stock Name</th>
+            <th>Quantity</th>
+            <th>Latest Value</th>
+            <th>Avg Holding (Yrs)</th>
+          </tr>
+        </thead>
+
+        <tbody *ngIf="data_taxAnalysis!">
+          <tr></tr>
+          <tr
+            *ngFor="let sector of data_taxAnalysis.list"
+            class="ng-scope"
+          >
+            <td>
+              <div>
+                <a
+                  target="_blank"
+                  class="ng-binding"
+                  [href]="
+                    '/Stocks?StockId=' + sector.dotsum.sid + '&Exchange=0'
+                  "
+                  >{{ sector.short }}</a
+                >
+                <span class="mojo-hover">
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(sector.dotsum.q_clr)"
+                  ></span>
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(sector.dotsum.v_clr)"
+                  ></span>
+                  <span
+                    [ngClass]="this.fun.getClassbyClr(sector.dotsum.q_clr)"
+                  ></span>
+                </span>
+              </div>
+            </td>
+
+            <td class="ng-binding">
+              {{ sector.iqty | roundOff | twoCommas }}
+            </td>
+
+            <td class="ng-binding">
+              {{ sector.lval | roundOff | twoCommas }}
+            </td>
+
+            <td class="ng-binding">
+              {{ sector.yearhold | roundOff | twoCommas }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

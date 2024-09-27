@@ -23,17 +23,17 @@ export class GetPersonalPFService {
   constructor(private http: HttpClient) {
     this.Table_paths = this.FROM_EXPRESS_API
       ? {
-        OVERVIEW: 'http://localhost:3000/api/personalportfolio/overview',
-        HOLDING: 'http://localhost:3000/api/personalportfolio/holding',
-        RISK: 'http://localhost:3000/api/personalportfolio/risk',
-        LIQUIDITY: 'http://localhost:3000/api/personalportfolio/liquidity',
-        TAX: 'http://localhost:3000/api/personalportfolio/tax',
-        RATIOS: 'http://localhost:3000/api/personalportfolio/ratios',
-        FINANCIALS: 'http://localhost:3000/api/personalportfolio/financials',
-        RETURNS: 'http://localhost:3000/api/personalportfolio/returns',
-        RESULTS: 'http://localhost:3000/api/personalportfolio/rsults',
+        OVERVIEW: 'https://api-marketsmojo-express.onrender.com/api/personalportfolio/overview',
+        HOLDING: 'https://api-marketsmojo-express.onrender.com/api/personalportfolio/holding',
+        RISK: 'https://api-marketsmojo-express.onrender.com/api/personalportfolio/risk',
+        LIQUIDITY: 'https://api-marketsmojo-express.onrender.com/api/personalportfolio/liquidity',
+        TAX: 'https://api-marketsmojo-express.onrender.com/api/personalportfolio/tax',
+        RATIOS: 'https://api-marketsmojo-express.onrender.com/api/personalportfolio/ratios',
+        FINANCIALS: 'https://api-marketsmojo-express.onrender.com/api/personalportfolio/financials',
+        RETURNS: 'https://api-marketsmojo-express.onrender.com/api/personalportfolio/returns',
+        RESULTS: 'https://api-marketsmojo-express.onrender.com/api/personalportfolio/rsults',
         TOTAL_RETURNS:
-          'http://localhost:3000/api/personalportfolio/totalReturns',
+          'https://api-marketsmojo-express.onrender.com/api/personalportfolio/totalReturns',
         PRICE: '',
         CONTRIBUTION: '',
         DIVIDEND: '',
@@ -67,6 +67,25 @@ export class GetPersonalPFService {
         console.error('Error fetching data for type:', type);
         console.error('Error details:', err);
         return throwError(err);
+      })
+    );
+  }
+
+  private readonly taxPopupPath = {
+    detail: 'assets/pp/swiper/taxAnalysisdetailPopup.json',
+    history: 'assets/pp/swiper/taxHistoryPopup.json',
+    // Holdings: 'assets/pp/swiper/diversifyHoldings.json',
+  };
+
+  getTaxPopup(type: 'detail' | 'history') {
+    const path = this.taxPopupPath[type] || this.taxPopupPath.detail;
+
+    return this.http.get<any>(path).pipe(
+      delay(1200),
+      catchError((err) => {
+        console.error('Error fetching data for type:', type);
+        console.error('Error details:', err);
+        throw err;
       })
     );
   }
