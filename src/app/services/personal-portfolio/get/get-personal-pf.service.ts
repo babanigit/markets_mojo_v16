@@ -57,6 +57,18 @@ export class GetPersonalPFService {
       };
   }
 
+  private userMesagePath = 'assets/pp/swiper/userMessaging.json';
+  getUserMessage(jsonPath: string = this.userMesagePath) {
+    return this.http.get<any>(jsonPath).pipe(
+      delay(1200),
+
+      catchError((err) => {
+        console.error('Error riskpopup data', err);
+        throw err;
+      })
+    );
+  }
+
   getOverviewStocks(type: TableType): Observable<any> {
     const path = this.Table_paths[type] || this.Table_paths.HOLDING; // Default to HOLDING path
     const url = `${path}?start=${0}&limit=${10}`;
@@ -135,6 +147,7 @@ export class GetPersonalPFService {
   private diversifyPath = 'assets/pp/swiper/diversifyStocks.json';
   getDiversifyStocks(jsonPath: string = this.diversifyPath) {
     return this.http.get<any>(jsonPath).pipe(
+           delay(10000),
       catchError((err) => {
         console.error('Error fetching diversifyStocks data', err);
         throw err;
@@ -188,6 +201,7 @@ export class GetPersonalPFService {
     const path = this.paths2[type] || this.paths2.today;
 
     return this.http.get<any>(path).pipe(
+       delay(10000),
       catchError((err) => {
         console.error('Error fetching data for type:', type);
         console.error('Error details:', err);

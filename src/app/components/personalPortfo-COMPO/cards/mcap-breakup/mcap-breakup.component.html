@@ -8,14 +8,15 @@
           <span
             class="card-title activator info-act"
             (click)="isCollapseTodayContri = !isCollapseTodayContri"
-            ></span>
+          ></span>
         </div>
       </h2>
     </div>
 
-    <!-- body -->
-    <div>
-      <div *ngIf="data_mcap!" class="pf-rtn-breakup">
+    <ng-container *ngIf="data_mcap!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+
+      <div class="pf-rtn-breakup">
         <div class="pf-by-m-cap-sec pf-by-margin">
           <div class="pf-undr-txt txt-cr pf-by-margin pf-by-margin02">
             <h6
@@ -170,13 +171,28 @@
           </table>
         </div>
       </div>
-    </div>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
   </div>
 
   <!-- extend -->
-  <div class="card-reveal animate-slide ng-hide"
-  [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
-  ng-show="isCollapseTodayBreak">
+  <div
+    class="card-reveal animate-slide ng-hide"
+    [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+    ng-show="isCollapseTodayBreak"
+  >
     <span class="card-title grey-text text-darken-4">
       Card Title<i
         class="material-icons right"
@@ -218,8 +234,7 @@
           height="16"
         />
         Full Details
-        </a
-      >
+      </a>
     </div>
     <div class="bottom-card-links no-mob">
       <a
@@ -233,8 +248,7 @@
           height="16"
         />
         Full Details
-        </a
-      >
+      </a>
     </div>
   </div>
 </div>
@@ -244,7 +258,6 @@
   <div
     #childDiv
     class="modal-content contentbg ng-scope"
-    ng-if="loader[0].pf_divers_popup == false"
   >
     <div>
       <table class="table1 mod-table">

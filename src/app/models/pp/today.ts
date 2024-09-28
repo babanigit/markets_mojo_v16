@@ -10,7 +10,7 @@ export interface IToday_data {
   corpact: ICorpact_data[];
   mcap:    IMcapClass_Data;
   news:    I_News[];
-  summary: Summary[];
+  summary: ISummaryToday_data[];
   graph:   IGraphToday_Data;
 }
 
@@ -95,13 +95,13 @@ export interface I_News {
 
 export interface Overall {
   dgaindir: number;
-  contri:   Contri[];
-  drags:    Drag[];
-  gainers:  Contri[];
-  losers:   Drag[];
+  contri:   IContri_overall_today[];
+  drags:    IDrags_overall_today[];
+  gainers:  IContri_overall_today[];
+  losers:   IDrags_overall_today[];
 }
 
-export interface Contri {
+export interface IContri_overall_today {
   sid:               number;
   sname:             string;
   short:             string;
@@ -247,7 +247,7 @@ export enum ShowStock {
   Yes = "yes",
 }
 
-export interface Drag {
+export interface IDrags_overall_today {
   sid:               number;
   sname:             string;
   short:             string;
@@ -341,7 +341,7 @@ export interface ProductIconList {
   product_class: string;
 }
 
-export interface Summary {
+export interface ISummaryToday_data {
   header: string;
   color:  Color;
   text:   string;

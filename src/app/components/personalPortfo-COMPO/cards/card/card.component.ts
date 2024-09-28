@@ -11,13 +11,13 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { IContri, IOverall_sub } from 'src/app/models/pp/overall';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { ModelOpenComponent } from '../../model-open/model-open.component';
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
+import { IContri_overall_today, IDrags_overall_today } from 'src/app/models/pp/today';
 // import { ModalModule } from 'ngx-bootstrap/modal';
 // import { NgbModal, NgbModalRef, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -37,7 +37,7 @@ import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent implements OnInit, OnChanges {
-  @Input() DATA?: IContri[] | undefined; //props
+  @Input() DATA: IContri_overall_today[] | IDrags_overall_today[] | any; //props
   @Input() HEAD!: string; //props
   @Input() SHOW_BUTTON: Boolean = true;
 

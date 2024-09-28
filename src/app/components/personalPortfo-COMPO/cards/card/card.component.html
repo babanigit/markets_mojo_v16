@@ -18,68 +18,104 @@
     </div>
 
     <!-- body -->
-    <div #childDiv class="contributors list-mojo ng-scope">
-      <!-- table -->
-      <table class="table1">
-        <thead>
-          <tr>
-            <th class="textcenter">
-              Company <br />
-              Price
-            </th>
-            <th class="textcenter">Day's Gain<br />in %</th>
-            <th class="textcenter">Latest<br />Value</th>
-          </tr>
-        </thead>
+    <ng-container *ngIf="DATA!; else loadingTemplate">
+      <ng-container *ngIf="DATA.length > 0; else noDataTemplate">
+        <!-- Content to show if data exists -->
 
-        <tbody>
-          <!-- ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
+        <div #childDiv class="contributors list-mojo ng-scope">
+          <!-- table -->
+          <table class="table1">
+            <thead>
+              <tr>
+                <th class="textcenter">
+                  Company <br />
+                  Price
+                </th>
+                <th class="textcenter">Day's Gain<br />in %</th>
+                <th class="textcenter">Latest<br />Value</th>
+              </tr>
+            </thead>
 
-          <!-- start -->
-          <tr class="ng-scope" *ngFor="let item of DATA; trackBy: trackByFn">
-            <td>
-              <div>
-                <a
-                  [href]="'https://www.marketsmojo.com/Stocks?StockId=' + item.dotsum.sid + '&Exchange=0'"
-                  target="_blank"
-                  class="ng-binding"
+            <tbody>
+              <!-- start -->
+              <tr
+                class="ng-scope"
+                *ngFor="let item of DATA; trackBy: trackByFn"
+              >
+                <td>
+                  <div>
+                    <a
+                      [href]="
+                        'https://www.marketsmojo.com/Stocks?StockId=' +
+                        item.dotsum.sid +
+                        '&Exchange=0'
+                      "
+                      target="_blank"
+                      class="ng-binding"
+                    >
+                      {{ item.short }}
+                    </a>
+                    <br />
+                    <span
+                      ><span
+                        [ngClass]="getClassByColor(item.dotsum.q_clr)"
+                      ></span>
+                      <span
+                        [ngClass]="getClassByColor(item.dotsum.v_clr)"
+                      ></span>
+                      <span
+                        [ngClass]="getClassByColor(item.dotsum.f_clr)"
+                      ></span>
+                    </span>
+                  </div>
+                  <p class="ng-binding">
+                    {{ item.cmp | roundOff | twoCommas }}
+                  </p>
+                </td>
+                <td
+                  [ngClass]="
+                    getDirClrDefault(item.dgaindir, 'orange') + ' txt-rt'
+                  "
                 >
-                  {{ item.short }}
-                </a>
-                <br />
-                <span
-                  ><span [ngClass]="getClassByColor(item.dotsum.q_clr)"></span>
-                  <span [ngClass]="getClassByColor(item.dotsum.v_clr)"></span>
-                  <span [ngClass]="getClassByColor(item.dotsum.f_clr)"></span>
-                </span>
-              </div>
-              <p class="ng-binding">
-                {{ item.cmp | roundOff | twoCommas }}
-              </p>
-            </td>
-            <td
-              [ngClass]="getDirClrDefault(item.dgaindir, 'orange') + ' txt-rt'"
-            >
-              <p class="pf-tbl-txt1 ng-binding">
-                {{ item.dgain | roundOff | twoCommas }}%
-              </p>
-              <p class="pf-tbl-txt2 ng-binding">
-                {{ item.dgainp | roundOff | twoCommas }}%
-              </p>
-            </td>
+                  <p class="pf-tbl-txt1 ng-binding">
+                    {{ item.dgain | roundOff | twoCommas }}%
+                  </p>
+                  <p class="pf-tbl-txt2 ng-binding">
+                    {{ item.dgainp | roundOff | twoCommas }}%
+                  </p>
+                </td>
 
-            <td class="txt-rt pf-tbl-txt3 ng-binding">
-              {{ item.lval | roundOff | twoCommas }}
-            </td>
-          </tr>
-          <!-- end -->
-        </tbody>
-      </table>
-    </div>
+                <td class="txt-rt pf-tbl-txt3 ng-binding">
+                  {{ item.lval | roundOff | twoCommas }}
+                </td>
+              </tr>
+              <!-- end -->
+            </tbody>
+          </table>
+        </div>
+      </ng-container>
+    </ng-container>
 
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
 
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div class="alert alert-warning mar-empty ng-scope">
+        <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
+      </div>
+    </ng-template>
   </div>
-
 
   <!-- extend button -->
   <div
@@ -105,14 +141,12 @@
       </ul>
     </div>
   </div>
-
-
 </div>
 
 <!-- full details button -->
 <div class="porbottomlink">
   <div
-  (click)="sendToParent()"
+    (click)="sendToParent()"
     class="bottom-card-links ng-scope"
     ng-controller="ModalDemoCtrl as $ctrl"
   >

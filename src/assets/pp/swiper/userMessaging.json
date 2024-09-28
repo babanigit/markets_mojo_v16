@@ -1,0 +1,652 @@
+{
+    "code": "200",
+    "message": "Success",
+    "data": {
+        "noti_cnt": {
+            "web_push": 0,
+            "web_show": 1
+        },
+        "noti_show": 1,
+        "show": 1,
+        "new_bucket_id": 15,
+        "new_bucket_name": "",
+        "new_bucket_shortcode": "AP_UNPAID_ALL",
+        "bucket": 15,
+        "new_bucket_all": {
+            "1": {
+                "shortcode": "AP_UNPAID_ALL",
+                "segmentid": 15
+            }
+        },
+        "package_details": {
+            "p1": {
+                "plan_name": "0 YEAR PLAN",
+                "pkg_id": "aXJWjoY1xWusTgrgXw==",
+                "month": "0 Year & 7 Months",
+                "amount": "7,999",
+                "orgamt": "14,999",
+                "perc": "47%",
+                "monthval": "7 Months",
+                "monthly_billed": "Rs INF/month billed annually",
+                "toptext": "47% Discount + 7 Months FREE!",
+                "stickyhead": null,
+                "stickylink": "https://www.marketsmojo.com/mojo/professionalpack?s=buy&utm_source=MM_Unpaid_MenuButton_Fisc"
+            },
+            "p2": {
+                "plan_name": "1 YEAR PLAN",
+                "pkg_id": "aXJWjoY1xWusTgrgXQ==",
+                "month": "1 Year",
+                "amount": "11,999",
+                "orgamt": "49,999",
+                "perc": "76%",
+                "monthval": " ",
+                "monthly_billed": "Rs 1000/month billed annually",
+                "toptext": "76% Discount",
+                "stickyhead": null,
+                "stickylink": "https://www.marketsmojo.com/mojo/professionalpack?s=buy&utm_source=MM_Unpaid_MenuButton_Fisc"
+            },
+            "heading1": null,
+            "heading2": "Start with the <br> <b>Lowest Rates in last-8 years!</b>",
+            "note": "*Note: Offer ending in the next few hours! Book now before prices increase! ",
+            "anniversary": 0,
+            "complimentary": 0,
+            "complimentary_days": "",
+            "toptxt": "76% Discount"
+        },
+        "package_details_1": {
+            "women": {
+                "p1": {
+                    "plan_name": "1 YEAR PLAN",
+                    "pkg_id": "aXJWjoY1xWusTgTgUw==",
+                    "month": "1 Year",
+                    "monthly_billed": "Rs 667/month billed annually",
+                    "amount": "7,999",
+                    "orgamt": "15,000",
+                    "perc": "47%",
+                    "monthval": " ",
+                    "toptext": "47% Discount"
+                },
+                "p2": {
+                    "plan_name": "2 YEARS PLAN",
+                    "pkg_id": "aXJWjoY1xWusTgThWg==",
+                    "month": "2 Years",
+                    "monthly_billed": "Rs 625/month billed annually",
+                    "amount": "14,999",
+                    "orgamt": "30,000",
+                    "perc": "50%",
+                    "monthval": " ",
+                    "toptext": "50% Discount"
+                },
+                "p3": {
+                    "pkg_id": "aXJWjoY1xWusTgThWQ==",
+                    "plan_name": "MONTHLY SUBSCRIPITON PLAN",
+                    "month": "Charged Every Month",
+                    "month1": "(Cancel Anytime)",
+                    "amount": "750",
+                    "orgamt": "2,500",
+                    "perc": "0%",
+                    "monthval": " ",
+                    "toptext": "Monthly Subscription"
+                },
+                "heading2": "Exclusive Pricing for <Br> <b>Senior Citizen and Women</b>"
+            },
+            "senior_citizen": {
+                "p1": {
+                    "plan_name": "1 YEAR PLAN",
+                    "pkg_id": "aXJWjoY1xWusTgThWA==",
+                    "month": "1 Year",
+                    "monthly_billed": "Rs 667/month billed annually",
+                    "amount": "7,999",
+                    "orgamt": "15,000",
+                    "perc": "47%",
+                    "monthval": " ",
+                    "toptext": "47% Discount"
+                },
+                "p2": {
+                    "plan_name": "2 YEARS PLAN",
+                    "pkg_id": "aXJWjoY1xWusTgThWw==",
+                    "month": "2 Years",
+                    "monthly_billed": "Rs 625/month billed annually",
+                    "amount": "14,999",
+                    "orgamt": "30,000",
+                    "perc": "50%",
+                    "monthval": " ",
+                    "toptext": "50% Discount"
+                },
+                "p3": {
+                    "pkg_id": "aXJWjoY1xWusTgThXg==",
+                    "plan_name": "MONTHLY SUBSCRIPITON PLAN",
+                    "month": "Charged Every Month",
+                    "month1": "(Cancel Anytime)",
+                    "amount": "750",
+                    "orgamt": "2,500",
+                    "perc": "0%",
+                    "monthval": " ",
+                    "toptext": "Monthly Subscription"
+                },
+                "heading2": "Exclusive Pricing for <Br> <b>Senior Citizen and Women</b>"
+            }
+        },
+        "siteblock": {
+            "mf": 1,
+            "paid": 1
+        },
+        "profile": "Avail Now",
+        "menu": {
+            "menu_head": "Avail Now",
+            "menu_sum": "Lowest Offer",
+            "menu_img": ""
+        },
+        "bann_head": null,
+        "bann_short": null,
+        "bann_url": "",
+        "bannerlist": [
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            },
+            {
+                "url": "",
+                "link": ""
+            }
+        ],
+        "bann_link": "https://www.marketsmojo.com/mojo/professionalpack?s=buy&utm_source=MM_Unpaid_MenuButton_Fisc",
+        "banner_hash": "",
+        "next_webinar": {
+            "_id": {
+                "$oid": "66ed124e07083521671b71f5"
+            },
+            "id": 1412,
+            "topic": "Week 5 - September: New Stock of the Week",
+            "date": "2024-09-30",
+            "day": "Monday",
+            "time": "9:07 AM",
+            "link": "https://www.marketsmojo.com/mojo/live_webinar?id=1412&utm_source=MM_Webinar_BackendLink",
+            "subject": "You have been invited for the Marketsmojo webinar: Week 5 - September: New Stock of the Week",
+            "agenda": "",
+            "text": "<p style=\"font-size:26px;line-height:32px;color:#231f20;text-align:left;\"><strong><i>\u201cJoin us for an exclusive webinar where we reveal the New Stock of the Week for September - Week 5, including target price insights\u201d</i></strong></p>\r\n\r\n <p style=\"font-size:20px;line-height:24px;color:#231f20;text-align:left;\">- Dr. Mohit Batra, Founder</p> <br>\r\n\r\n<p style=\"font-size:16px;line-height:24px;color:#231f20;text-align:left;\"><b>What will I cover in this event?</b></p>  <ol><li>1. Which Stock We Selected for Week 5 - September</li> <li>2. Investment Rationale Behind the Stock Selection</li> <li>3. Target Price and Upside Potential of the Stock</li> </ol>\r\n\r\n<p style=\"font-size:11px;line-height:18px;color:#231f20;text-align:left;\"><strong>Note: </strong>Investment in securities is subject to market risks. Read all the related documents carefully before investing. Past performance should not be construed as a guarantee for future returns. The securities quoted are for illustration only and are not recommendatory.<br>\r\nInfinHub Market Technologies FZ-LLC   \r\n<br>\r\nAddress: InfinHub Market Technologies FZ-LLC, DMC-BLD05-VD-G00-105, Ground Floor, DMC5, Dubai Media City, Dubai, United Arab Emirates (support@marketsmojo.com)\r\n<br></p>",
+            "text2": "",
+            "page_title": "Week 5 - September: New Stock of the Week",
+            "insert_date": "2024-09-20",
+            "userid": 1351087,
+            "social_img": null,
+            "facilitator": "Mohit Batra",
+            "facilitator_title": "Founder",
+            "facilitator_title_sender": "Founder",
+            "facilitator_title_end": "Founder",
+            "facilitator_img": "banner/mohitb.png",
+            "webinar_logo": "mailer/webinar-logo.png",
+            "utm_key": "SOTWSEPTWeek5",
+            "webinar_medium": "YouTube",
+            "webinar_type": null,
+            "banner_text": null,
+            "date_time": "2024-09-30 09:07:00",
+            "usertype": "17",
+            "designation": "Founder",
+            "landing_image": "landing/mohit.png",
+            "menu_card": "",
+            "webinar_section": "",
+            "webinar_topic": "",
+            "small_banner_img": "stock/mohitb.png",
+            "web_head": "",
+            "big_banner_img": "banner/mohitbnew.png",
+            "special_text": "Presented by Dr. Mohit Batra",
+            "menucard_txt": "Presented by Dr. Mohit Batra",
+            "speakers": "",
+            "demo_webinar": "",
+            "speaker_img": "",
+            "livebanner_img": "",
+            "livebanner_header": "",
+            "livebanner_desc": "",
+            "popup_text": "",
+            "pms_banner": "",
+            "pms_banner_img": "",
+            "pms_banner_subtext": "",
+            "diwali_banner": "",
+            "is_event": "",
+            "event_link": "",
+            "event_desc": "",
+            "highlightslink": "",
+            "fullvideolink": "",
+            "sunday_webinar": "no",
+            "show_offer": "no",
+            "offer_text1": "",
+            "offer_text2": "",
+            "offer_url": "",
+            "lastmodified": {
+                "$date": {
+                    "$numberLong": "1727438732999"
+                }
+            },
+            "ispaid": 1,
+            "ga": {
+                "type": "send",
+                "hitType": "event",
+                "eventCategory": "banner",
+                "eventAction": "click",
+                "eventLabel": "portfolioplusStock_webinarsmallbanner_click"
+            },
+            "webinar_page_link": "https://www.marketsmojo.com/mojo/webinar?wid=1412&utm_source=MM_SiteUsers_WebinarBanner_portfolioplusStock&fp=1",
+            "findout_text": "Find out in upcoming webinar",
+            "web_diwali_img": "no",
+            "web_dt": "30th Sep",
+            "registered": "No",
+            "reserve_text_small": "<span class=\"wbbt22 blinknew22\">Reserve your seat</span>",
+            "portfolio_reg_text": "<span class=\"wbbt22 blinknew22\">Register Now! Limited Seats Available</span>",
+            "sitecard_reg_text": "<span class=\"wbbt22 blinknew22\">Reserve your seat</span>",
+            "reserve_text": "<span class=\"wbbt22 blinknew22\">Reserve your seat now</span>",
+            "sitecard_link": "https://www.marketsmojo.com/mojo/webinar?wid=1412&utm_source=MM_AllUsers_SiteCard_WebinarInvite_0_0&fp=1",
+            "isyoutubelive": "no",
+            "show_banner": "yes",
+            "webinar_class": "webinarcard_blue",
+            "webinar_dt": "30 Sep '24",
+            "webinar_card_img": "",
+            "stockwebinaroption": "no"
+        },
+        "show_verdict_banner": "no",
+        "header_webinar": {
+            "_id": {
+                "$oid": "66ed124e07083521671b71f5"
+            },
+            "id": 1412,
+            "topic": "Week 5 - September: New Stock of the Week",
+            "date": "2024-09-30",
+            "day": "Monday",
+            "time": "9:07 AM",
+            "link": "https://www.marketsmojo.com/mojo/live_webinar?id=1412&utm_source=MM_Webinar_BackendLink",
+            "subject": "You have been invited for the Marketsmojo webinar: Week 5 - September: New Stock of the Week",
+            "agenda": "",
+            "text": "<p style=\"font-size:26px;line-height:32px;color:#231f20;text-align:left;\"><strong><i>\u201cJoin us for an exclusive webinar where we reveal the New Stock of the Week for September - Week 5, including target price insights\u201d</i></strong></p>\r\n\r\n <p style=\"font-size:20px;line-height:24px;color:#231f20;text-align:left;\">- Dr. Mohit Batra, Founder</p> <br>\r\n\r\n<p style=\"font-size:16px;line-height:24px;color:#231f20;text-align:left;\"><b>What will I cover in this event?</b></p>  <ol><li>1. Which Stock We Selected for Week 5 - September</li> <li>2. Investment Rationale Behind the Stock Selection</li> <li>3. Target Price and Upside Potential of the Stock</li> </ol>\r\n\r\n<p style=\"font-size:11px;line-height:18px;color:#231f20;text-align:left;\"><strong>Note: </strong>Investment in securities is subject to market risks. Read all the related documents carefully before investing. Past performance should not be construed as a guarantee for future returns. The securities quoted are for illustration only and are not recommendatory.<br>\r\nInfinHub Market Technologies FZ-LLC   \r\n<br>\r\nAddress: InfinHub Market Technologies FZ-LLC, DMC-BLD05-VD-G00-105, Ground Floor, DMC5, Dubai Media City, Dubai, United Arab Emirates (support@marketsmojo.com)\r\n<br></p>",
+            "text2": "",
+            "page_title": "Week 5 - September: New Stock of the Week",
+            "insert_date": "2024-09-20",
+            "userid": 1351087,
+            "social_img": null,
+            "facilitator": "Mohit Batra",
+            "facilitator_title": "Founder",
+            "facilitator_title_sender": "Founder",
+            "facilitator_title_end": "Founder",
+            "facilitator_img": "banner/mohitb.png",
+            "webinar_logo": "mailer/webinar-logo.png",
+            "utm_key": "SOTWSEPTWeek5",
+            "webinar_medium": "YouTube",
+            "webinar_type": null,
+            "banner_text": null,
+            "date_time": "2024-09-30 09:07:00",
+            "usertype": "17",
+            "designation": "Founder",
+            "landing_image": "landing/mohit.png",
+            "menu_card": "",
+            "webinar_section": "",
+            "webinar_topic": "",
+            "small_banner_img": "stock/mohitb.png",
+            "web_head": "",
+            "big_banner_img": "banner/mohitbnew.png",
+            "special_text": "Presented by Dr. Mohit Batra",
+            "menucard_txt": "Presented by Dr. Mohit Batra",
+            "speakers": "",
+            "demo_webinar": "",
+            "speaker_img": "",
+            "livebanner_img": "",
+            "livebanner_header": "",
+            "livebanner_desc": "",
+            "popup_text": "",
+            "pms_banner": "",
+            "pms_banner_img": "",
+            "pms_banner_subtext": "",
+            "diwali_banner": "",
+            "is_event": "",
+            "event_link": "",
+            "event_desc": "",
+            "highlightslink": "",
+            "fullvideolink": "",
+            "sunday_webinar": "no",
+            "show_offer": "no",
+            "offer_text1": "",
+            "offer_text2": "",
+            "offer_url": "",
+            "lastmodified": {
+                "$date": {
+                    "$numberLong": "1727438732999"
+                }
+            },
+            "ispaid": 1,
+            "ga": {
+                "type": "send",
+                "hitType": "event",
+                "eventCategory": "banner",
+                "eventAction": "click",
+                "eventLabel": "portfolioplusStock_webinarsmallbanner_click"
+            },
+            "webinar_page_link": "https://www.marketsmojo.com/mojo/webinar?wid=1412&utm_source=MM_SiteUsers_WebinarBanner_portfolioplusStock&fp=1",
+            "findout_text": "Find out in upcoming webinar",
+            "web_diwali_img": "no",
+            "web_dt": "30th Sep",
+            "registered": "No",
+            "reserve_text_small": "<span class=\"wbbt22 blinknew22\">Reserve your seat</span>",
+            "portfolio_reg_text": "<span class=\"wbbt22 blinknew22\">Register Now! Limited Seats Available</span>",
+            "sitecard_reg_text": "<span class=\"wbbt22 blinknew22\">Reserve your seat</span>",
+            "reserve_text": "<span class=\"wbbt22 blinknew22\">Reserve your seat now</span>",
+            "sitecard_link": "https://www.marketsmojo.com/mojo/webinar?wid=1412&utm_source=MM_AllUsers_SiteCard_WebinarInvite_0_0&fp=1",
+            "isyoutubelive": "no",
+            "show_banner": "yes"
+        },
+        "data": {
+            "cards": {
+                "overall": {
+                    "img": "https://i.marketsmojo.com/blog/blog-cards-072020-06.jpg",
+                    "link": "/blog/investmentletters/which-is-that-1-best-stock-to-buy-every-month-1716.html"
+                }
+            },
+            "banner": {
+                "show": 0
+            },
+            "headbanner": {
+                "show": 0
+            },
+            "booster": {
+                "show": 0
+            }
+        },
+        "mojo_stocks": [
+            {
+                "sname": "Mastek",
+                "return": "246%",
+                "duration": "9 months"
+            },
+            {
+                "sname": "Laurus Labs",
+                "return": "202%",
+                "duration": "8.9 months"
+            },
+            {
+                "sname": "Saregama India",
+                "return": "180%",
+                "duration": "6 months"
+            }
+        ],
+        "featured_model_portfolio": [
+            {
+                "type": "Aggressive",
+                "return": "154%",
+                "no_of_stocks": "10"
+            },
+            {
+                "type": "Moderate",
+                "return": "202%",
+                "no_of_stocks": "12"
+            },
+            {
+                "type": "Conservative",
+                "return": "122%",
+                "no_of_stocks": "15"
+            }
+        ],
+        "premium": 1,
+        "premiumurl": "",
+        "epochtime": 1727519423,
+        "canAccessProduct": 1,
+        "show_featured_banner": 1,
+        "featuredBanner": [
+            {
+                "type": "image",
+                "image": "https://i.marketsmojo.com/",
+                "url": "/mojo/webinar?wid=1412&utm_source=MM_SiteUsers_MenuCard_WebinarInvite&banner_hash=c36bf99a75ff006b6efbecc2d5a51212&fp=1",
+                "header": "webinar_card"
+            },
+            {
+                "type": "image",
+                "image": "https://i.marketsmojo.com/banner/invest2_1810.png",
+                "header": "invest_20211001",
+                "url": "/mojostocks?utm_source=MM_HoverMenu_3StockStories&banner_hash=63b0066f8d935ff061195ba702e3af61",
+                "content": "static",
+                "banner_hash": "63b0066f8d935ff061195ba702e3af61"
+            },
+            {
+                "type": "image",
+                "image": "https://i.marketsmojo.com/banner/paid_02122021.png",
+                "header": "paid_monitor_20211202",
+                "url": "/mojo/proceed?uid=185&utm_source=MM_HoverMenu_PaidUsers_MojoProfessionalCombo&banner_hash=042c89938c44d6e4fc906390021faff1",
+                "banner_hash": "042c89938c44d6e4fc906390021faff1"
+            }
+        ],
+        "sitecard": {
+            "image": "https://i.marketsmojo.com/banner/paid_02122021.png",
+            "url": "/mojo/mpcombo?utm_source=MM_SiteCards_PaidUsers_BestValueOffer&banner_hash=ee960cd641c528a8786df46b95d3ea79",
+            "header": "sitecard_paid_20211202",
+            "banner_hash": "ee960cd641c528a8786df46b95d3ea79"
+        },
+        "web_popupshow": "no",
+        "web_popup": [],
+        "offershow": 0,
+        "offerwebinar_txt": {
+            "txt1": "",
+            "txt2": "",
+            "txt3": ""
+        },
+        "sub_popupshow": "no",
+        "country_list": [
+            {
+                "country_id": 6,
+                "class_name": "be",
+                "country_name": "Belgium"
+            },
+            {
+                "country_id": 1,
+                "class_name": "ca",
+                "country_name": "Canada"
+            },
+            {
+                "country_id": 12,
+                "class_name": "cn",
+                "country_name": "China"
+            },
+            {
+                "country_id": 55,
+                "class_name": "dk",
+                "country_name": "Denmark"
+            },
+            {
+                "country_id": 30,
+                "class_name": "fi",
+                "country_name": "Finland"
+            },
+            {
+                "country_id": 5,
+                "class_name": "fr",
+                "country_name": "France"
+            },
+            {
+                "country_id": 8,
+                "class_name": "de",
+                "country_name": "Germany"
+            },
+            {
+                "country_id": 13,
+                "class_name": "gr",
+                "country_name": "Greece"
+            },
+            {
+                "country_id": 14,
+                "class_name": "hk",
+                "country_name": "Hong Kong"
+            },
+            {
+                "country_id": 51,
+                "class_name": "il",
+                "country_name": "Israel"
+            },
+            {
+                "country_id": 15,
+                "class_name": "it",
+                "country_name": "Italy"
+            },
+            {
+                "country_id": 23,
+                "class_name": "jp",
+                "country_name": "Japan"
+            },
+            {
+                "country_id": 52,
+                "class_name": "jo",
+                "country_name": "Jordan"
+            },
+            {
+                "country_id": 45,
+                "class_name": "mx",
+                "country_name": "Mexico"
+            },
+            {
+                "country_id": 22,
+                "class_name": "nl",
+                "country_name": "Netherlands"
+            },
+            {
+                "country_id": 35,
+                "class_name": "pk",
+                "country_name": "Pakistan"
+            },
+            {
+                "country_id": 20,
+                "class_name": "pe",
+                "country_name": "Peru"
+            },
+            {
+                "country_id": 44,
+                "class_name": "pl",
+                "country_name": "Poland"
+            },
+            {
+                "country_id": 65,
+                "class_name": "pt",
+                "country_name": "Portugal"
+            },
+            {
+                "country_id": 77,
+                "class_name": "sa",
+                "country_name": "Saudi Arabia"
+            },
+            {
+                "country_id": 4,
+                "class_name": "za",
+                "country_name": "South Africa"
+            },
+            {
+                "country_id": 21,
+                "class_name": "es",
+                "country_name": "Spain"
+            },
+            {
+                "country_id": 38,
+                "class_name": "lk",
+                "country_name": "Sri Lanka"
+            },
+            {
+                "country_id": 29,
+                "class_name": "se",
+                "country_name": "Sweden"
+            },
+            {
+                "country_id": 10,
+                "class_name": "ch",
+                "country_name": "Switzerland"
+            },
+            {
+                "country_id": 76,
+                "class_name": "ae",
+                "country_name": "United Arab Emirates"
+            },
+            {
+                "country_id": 7,
+                "class_name": "gb",
+                "country_name": "United Kingdom"
+            },
+            {
+                "country_id": 2,
+                "class_name": "us",
+                "country_name": "United States"
+            },
+            {
+                "country_id": 89,
+                "class_name": "vn",
+                "country_name": "Vietnam"
+            }
+        ],
+        "pmsg": "Your subscription is valid till 21-Jul-2026",
+        "subscounter": "2024-10-01 08:59:59",
+        "subscountertext": "Open",
+        "device_type": "desktop",
+        "show_rec": "no",
+        "is_rec": "no",
+        "puser": "yes",
+        "uname": "User",
+        "trial": "freeuser",
+        "utrial": 1,
+        "trial_isemail_confirmed": 1,
+        "isdisclaimer": 1,
+        "isnewfreetrial": "",
+        "modelportfoliourl": "/mojo/modelportfolio_summary",
+        "usages": {
+            "allvisited": 1
+        },
+        "isInfinityNewUser": 0,
+        "isdisclaimerifh": 1,
+        "screener_paid": [
+            12,
+            13,
+            14
+        ]
+    }
+}

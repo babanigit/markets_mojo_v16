@@ -2,58 +2,78 @@
   <div class="card-content">
     <div class="card-head">
       <h2>
-        {{HEAD}}
+        {{ HEAD }}
         <span
           class="card-title activator info-act"
           (click)="isCollapseTodayContri = !isCollapseTodayContri"
         ></span>
       </h2>
     </div>
-    <!-- ngIf: loader[0].pf_today_news == true -->
-    <!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 1 -->
 
-    <div
-    #childDiv
-    *ngIf="data_news!" class="news list-mojo">
-      <!-- ngRepeat: value in actionToday.news|orderBy:'-rawdate' --><!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 -->
-      <div
-        *ngFor="let item of data_news"
-        ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_news == 0"
-        class="ng-scope"
-      >
-        <!-- ngIf: value.imgurl=='' -->
-        <div class="news-item ng-scope" ng-if="value.imgurl == ''">
-          <div class="news-cont-noimg">
-            <div class="newshead">
-              <a
-                [href]="'https://www.marketsmojo.com/Stocks?StockId=' + item.sid + '&Exchange=0'"
-                target="_blank"
-                ><strong class="ng-binding"> {{ item.sname }} : </strong></a
-              >
+    <ng-container *ngIf="data_news; else loadingTemplate">
+      <ng-container *ngIf="data_news.length > 0; else noDataTemplate">
+        <!-- Content to show if data exists -->
+        <div #childDiv class="news list-mojo">
+          <div
+            *ngFor="let item of data_news"
+            ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_news == 0"
+            class="ng-scope"
+          >
+            <div class="news-item ng-scope" ng-if="value.imgurl == ''">
+              <div class="news-cont-noimg">
+                <div class="newshead">
+                  <a
+                    [href]="
+                      'https://www.marketsmojo.com/Stocks?StockId=' +
+                      item.sid +
+                      '&Exchange=0'
+                    "
+                    target="_blank"
+                    ><strong class="ng-binding"> {{ item.sname }} : </strong></a
+                  >
 
-              <a [href]="item.siteurl" target="_blank" class="ng-binding">
-                {{ item.title }}
-              </a>
-            </div>
-            <div class="news-date ng-binding">
-              {{ item.date }}
-              <span class="ng-binding"> {{ item.domain }} </span>
+                  <a [href]="item.siteurl" target="_blank" class="ng-binding">
+                    {{ item.title }}
+                  </a>
+                </div>
+                <div class="news-date ng-binding">
+                  {{ item.date }}
+                  <span class="ng-binding"> {{ item.domain }} </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <!-- end ngIf: value.imgurl=='' -->
-        <!-- ngIf: value.imgurl!='' -->
-      </div>
+      </ng-container>
+    </ng-container>
 
-      <!-- end ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 --><!-- end ngRepeat: value in actionToday.news|orderBy:'-rawdate' -->
-    </div>
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div class="alert alert-warning mar-empty ng-scope">
+        <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
+      </div>
+    </ng-template>
   </div>
 
   <!-- extend -->
-  <div class="card-reveal animate-slide "
-  [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
-
-   ng-show="isCollapseTodayNews">
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+    ng-show="isCollapseTodayNews"
+  >
     <span class="card-title grey-text text-darken-4">
       Card Title<i
         class="material-icons right"
@@ -71,7 +91,6 @@
       </ul>
     </div>
   </div>
-
 </div>
 
 <!-- more news button -->
@@ -79,9 +98,8 @@
   <div class="bottom-card-links">
     <div class="bottom-card-links no-web">
       <a
-      (click)="sendToParent()"
+        (click)="sendToParent()"
         class="seefull waves-light modal-trigger"
-        ng-click="modalOpen('actionToday_news', 0)"
         href="javascript:void(0)"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"
@@ -93,9 +111,8 @@
     </div>
     <div class="bottom-card-links no-mob">
       <a
-      (click)="sendToParent()"
+        (click)="sendToParent()"
         class="seefull waves-light"
-        ng-click="modalOpen('actionToday_news', 0)"
         href="javascript:void(0)"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"

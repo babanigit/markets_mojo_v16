@@ -21,9 +21,12 @@ import { GraphTodayComponent } from '../../graph/graph-today/graph-today.compone
 import { CardComponent } from '../../cards/card/card.component';
 import {
   I_News,
+  IContri_overall_today,
   ICorpact_data,
+  IDrags_overall_today,
   IGraphToday_Data,
   IMcapClass_Data,
+  ISummaryToday_data,
   IToday,
   IToday_data,
 } from 'src/app/models/pp/today';
@@ -35,6 +38,7 @@ import {
 import { IGraphData } from 'src/app/models/graphData';
 import { NewsComponent } from '../../cards/news/news.component';
 import { McapBreakupComponent } from '../../cards/mcap-breakup/mcap-breakup.component';
+import { INext_webinar_data, IUserMessaging, IUserMessaging_data } from 'src/app/models/pp/userMessagin';
 
 type PortfolioKeys = keyof IPortfolioGraph_Data;
 
@@ -57,9 +61,10 @@ type PortfolioKeys = keyof IPortfolioGraph_Data;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {
-  data_summary: any = [];
-  data_contri: any = [];
-  data_drags: any = [];
+  nextWeb_userMessage: INext_webinar_data | undefined
+  data_summary: ISummaryToday_data[] |undefined
+  data_contri: IContri_overall_today[] |undefined
+  data_drags: IDrags_overall_today[] |undefined
   data_news: I_News[] | undefined;
   data_corpact: ICorpact_data[] | undefined;
   data_gainers: any = [];
@@ -114,6 +119,11 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   }
 
   fetchData(): void {
+    this.serv.getUserMessage().subscribe( (res:IUserMessaging)=> {
+      this.nextWeb_userMessage = res.data.next_webinar;
+      this.cdr.detectChanges(); // Trigger change detection
+    }  )
+
     this.serv.getSwitcherDatas('today').subscribe((res: IToday) => {
       this.data_summary = res.data.summary;
       this.data_contri = res.data.overall.contri;

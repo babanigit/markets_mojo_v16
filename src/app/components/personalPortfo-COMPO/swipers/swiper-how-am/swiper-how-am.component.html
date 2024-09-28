@@ -535,60 +535,72 @@
         style="padding: 0px !important"
         data-scrolled="0"
         data-visited="0"
-        ng-if="!block_clmm_content &amp;&amp; showcardsData.next_webinar.show_banner == 'yes' &amp;&amp; (showcardsData.next_webinar.webinar_card_img == '' || showcardsData.next_webinar.webinar_card_img == undefined)"
       >
-        <!-- ngIf: showcardsData.next_webinar.isyoutubelive == 'yes' -->
-        <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' --><a
-          ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
-          href="https://www.marketsmojo.com/mojo/webinar?wid=1398&amp;utm_source=MM_AllUsers_SiteCard_WebinarInvite_0_0&amp;fp=1"
-          class="ng-scope"
-        >
-          <div class="card webinarconetnt">
-            <div class="card-content">
-              <p class="webinar2">Webinar on</p>
-              <p class="webinar3 ng-binding">
-                Revealing the MojoOne Stock of the Month
-              </p>
-              <!--<p class="webbutton">{{showcardsData.next_webinar.sitecard_reg_text}}</p>-->
-              <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p
-                ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
-                class="webbutton ng-scope"
-                dynamic="showcardsData.next_webinar.sitecard_reg_text"
-              >
-                <span class="wbbt22 blinknew22 ng-scope"
-                  >Reserve your seat</span
+        <ng-container *ngIf="nextWeb_userMessage!; else loadingTemplatewebinar">
+          <!-- Content to show if data exists -->
+          <a [href]="nextWeb_userMessage.sitecard_link" class="ng-scope">
+            <div class="card webinarconetnt">
+              <div class="card-content">
+                <p class="webinar2">Webinar on</p>
+
+                <p class="webinar3 ng-binding">
+                  {{ nextWeb_userMessage.topic }}
+                </p>
+
+                <p
+                  *ngIf="nextWeb_userMessage.isyoutubelive != 'yes'"
+                  class="webbutton ng-scope"
+                  dynamic="showcardsData.next_webinar.sitecard_reg_text"
                 >
-              </p>
-              <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p
-                ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
-                class="webinar4 ng-scope"
-              >
-                Join me on
-              </p>
-              <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p class="webinar4_1 ng-binding">10 Sep '24</p>
-              <p class="webinar4_2 ng-binding">7:00 PM on YouTube</p>
-              <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p
-                ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
-                class="webinar5 ng-scope"
-              >
-                <img src="https://i.marketsmojo.com/pdf/bottom-logo_new.png" />
-              </p>
-              <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p class="webinar6">
-                <img
-                  ng-src="https://i.marketsmojo.com/webinar/amit-golia.png"
-                  src="https://i.marketsmojo.com/webinar/amit-golia.png"
-                />
-              </p>
+                  <span class="wbbt22 blinknew22 ng-scope">
+                    Reserve your seat
+                  </span>
+                </p>
+                <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <p
+                  ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
+                  class="webinar4 ng-scope"
+                >
+                  Join me on
+                </p>
+                <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <p class="webinar4_1 ng-binding">10 Sep '24</p>
+                <p class="webinar4_2 ng-binding">7:00 PM on YouTube</p>
+                <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <p
+                  ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
+                  class="webinar5 ng-scope"
+                >
+                  <img
+                    src="https://i.marketsmojo.com/pdf/bottom-logo_new.png"
+                  />
+                </p>
+                <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <p class="webinar6">
+                  <img
+                    ng-src="https://i.marketsmojo.com/webinar/amit-golia.png"
+                    src="https://i.marketsmojo.com/webinar/amit-golia.png"
+                  />
+                </p>
+              </div>
+            </div>
+            <!-- ngIf: showcardsData.next_webinar.isyoutubelive == 'yes' -->
+          </a>
+        </ng-container>
+
+        <ng-template #loadingTemplatewebinar>
+          <!-- Content to show while loading -->
+          <div>
+            <div id="loading" class="ng-scope">
+              <img
+                id="loading-image"
+                src="https://i.marketsmojo.com/loading.gif"
+                alt="Loading..."
+              />
             </div>
           </div>
-          <!-- ngIf: showcardsData.next_webinar.isyoutubelive == 'yes' --> </a
-        ><!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+        </ng-template>
       </section>
 
       <script type="text/ng-template" id="landingvideo">
@@ -1003,56 +1015,64 @@
                   class="card-title activator info-act"
                   (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 ></span>
-                <!-- ngIf: loader[0].pf_today_summary == false && actionToday.graph!='' --><span
+                <span
                   id="dtSummary"
                   class="pricesummrytext02 ng-binding ng-scope"
                   ng-if="loader[0].pf_today_summary == false &amp;&amp; actionToday.graph!=''"
-                ></span
-                ><!-- end ngIf: loader[0].pf_today_summary == false && actionToday.graph!='' -->
-                <!--<a href="javascript:void(0)" onclick="GetSummary();" class="ref-text"> <i class="fa fa-refresh refresh-text"></i> Refresh </a>-->
+                ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_today_summary == true -->
-            <!-- ngIf: loader[0].pf_today_summary == false && error_flag[0].actionToday_summary == 1  && actionToday.error != 1 -->
-            <!-- ngIf: loader[0].pf_today_summary == false && actionToday.error == 1 -->
 
-            <!-- ngIf: loader[0].pf_today_summary == false  && error_flag[0].actionToday_summary == 0 && actionToday.error == 0 -->
-            <div
-              class="qtrl-details list-mojo ng-scope"
-              ng-if="loader[0].pf_today_summary == false  &amp;&amp; error_flag[0].actionToday_summary == 0 &amp;&amp; actionToday.error == 0"
-            >
-              <!-- ngRepeat: news in todaySummary -->
-
-              <div
-                *ngFor="let item of data_summary"
-                [ngClass]="{
-                  'qtr-green': item.color === 'green',
-                  'qtr-red': item.color === 'red',
-                  'qtr-gray': item.color === 'gray'
-                }"
+            <ng-container *ngIf="data_summary; else loadingTemplateSummary">
+              <ng-container
+                *ngIf="data_summary.length > 0; else noDataTemplateSummary"
               >
-                >
-                <span
-                  [ngClass]="{
-                    green: item.color === 'green',
-                    red: item.color === 'red',
-                    gray: item.color === 'gray'
-                  }"
-                >
-                  ><b class="ng-binding">{{ item.header }} </b></span
-                >
-                :
+                <!-- Content to show if data exists -->
+                <div class="qtrl-details list-mojo ng-scope">
+                  <div
+                    *ngFor="let item of data_summary"
+                    [ngClass]="{
+                        'qtr-green': item.color === 'green',
+                        'qtr-red': item.color === 'red',
+                      }"
+                  >
+                    <span
+                      [ngClass]="{
+                          green: item.color === 'green',
+                          red: item.color === 'red',
+                        }"
+                    >
+                      <b class="ng-binding">{{ item.header }} </b></span
+                    >
+                    :
+                    <span
+                      class="ng-binding"
+                      [innerHTML]="this.fun.getSanitizedHtml(item.text)"
+                    ></span>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
 
-                <span
-                  class="ng-binding"
-                  [innerHTML]="this.fun.getSanitizedHtml(item.text)"
-                ></span>
-                >
+            <ng-template #loadingTemplateSummary>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
+                </div>
               </div>
+            </ng-template>
 
-              <!-- end ngRepeat: news in todaySummary -->
-            </div>
-            <!-- end ngIf: loader[0].pf_today_summary == false  && error_flag[0].actionToday_summary == 0 && actionToday.error == 0 -->
+            <ng-template #noDataTemplateSummary>
+              <!-- Content to show if no data found -->
+              <div class="alert alert-warning mar-empty ng-scope">
+                <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
+              </div>
+            </ng-template>
           </div>
 
           <!-- extend button -->
@@ -1135,47 +1155,72 @@
         <div class="card">
           <!-- main -->
           <div class="card-content">
-
             <div class="card-head">
               <h2>
                 Corporate Action
                 <span
                   class="card-title activator info-act"
                   (click)="isCollapseCorpAction = !isCollapseCorpAction"
-                  ></span>
+                ></span>
               </h2>
             </div>
 
-            <ng-container *ngIf="data_corpact! && data_corpact.length > 0; else elseCorp">
-              <div class="news list-mojo">
-                <div
-                  id="tabsCorporate"
-                  ng-if="loader[0].pf_today_corp == false &amp;&amp; error_flag[0].actionToday_corp == 0"
-                  class="ng-scope"
-                >
+            <ng-container
+              *ngIf="data_corpact!; else loadingTemplateDataCorpact"
+            >
+              <ng-container
+                *ngIf="data_corpact.length > 0; else noDataTemplateDataCorpact"
+              >
+                <!-- Content to show if data exists -->
+                <div class="news list-mojo">
                   <div
-                    class="news news-scroll-new ng-scope"
-                    *ngFor="let item of data_corpact"
+                    id="tabsCorporate"
+                    ng-if="loader[0].pf_today_corp == false &amp;&amp; error_flag[0].actionToday_corp == 0"
+                    class="ng-scope"
+                  >
+                    <div
+                      class="news news-scroll-new ng-scope"
+                      *ngFor="let item of data_corpact"
                     >
-                    <div class="news-item">
-                      <div>
-                        <a
-                        [href]="'https://www.marketsmojo.com/Stocks?StockId=' + item.sid + '&Exchange=0'"
-                          target="_blank"
-                          ><strong class="ng-binding"
-                            > {{item.sname}} -
-                          </strong></a
-                        >
-                        <span class="ng-binding">
-                          Upcoming {{item.txt}}
-                        </span>
+                      <div class="news-item">
+                        <div>
+                          <a
+                            [href]="
+                              'https://www.marketsmojo.com/Stocks?StockId=' +
+                              item.sid +
+                              '&Exchange=0'
+                            "
+                            target="_blank"
+                            ><strong class="ng-binding">
+                              {{ item.sname }} -
+                            </strong></a
+                          >
+                          <span class="ng-binding">
+                            Upcoming {{ item.txt }}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </ng-container>
             </ng-container>
-            <ng-template #elseCorp>
+
+            <ng-template #loadingTemplateDataCorpact>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
+                </div>
+              </div>
+            </ng-template>
+
+            <ng-template #noDataTemplateDataCorpact>
+              <!-- Content to show if no data found -->
               <div class="alert alert-warning mar-empty ng-scope">
                 <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
               </div>
@@ -1184,10 +1229,12 @@
 
           <!-- vertical slider -->
           <div
-            class="card-reveal animate-slide "
-            [ngClass]="{ 'ng-hide ng-animate ng-hide-animate ng-hide-add ': isCollapseCorpAction }"
-
-            >
+            class="card-reveal animate-slide"
+            [ngClass]="{
+              'ng-hide ng-animate ng-hide-animate ng-hide-add ':
+                isCollapseCorpAction
+            }"
+          >
             <span class="card-title grey-text text-darken-4">
               Card Title<i
                 class="material-icons right"
@@ -1205,7 +1252,6 @@
               </ul>
             </div>
           </div>
-
         </div>
       </section>
 
