@@ -7,8 +7,8 @@
           {{ HEAD }}
           <span
             class="card-title activator info-act"
-            ng-click="isCollapseTodayBreak = !isCollapseTodayBreak"
-          ></span>
+            (click)="isCollapseTodayContri = !isCollapseTodayContri"
+            ></span>
         </div>
       </h2>
     </div>
@@ -174,11 +174,13 @@
   </div>
 
   <!-- extend -->
-  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseTodayBreak">
+  <div class="card-reveal animate-slide ng-hide"
+  [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+  ng-show="isCollapseTodayBreak">
     <span class="card-title grey-text text-darken-4">
       Card Title<i
         class="material-icons right"
-        ng-click="isCollapseTodayBreak = !isCollapseTodayBreak"
+        (click)="isCollapseTodayContri = !isCollapseTodayContri"
         >close</i
       >
     </span>
@@ -215,7 +217,8 @@
           alt="ArrowRight"
           height="16"
         />
-        Full Details</a
+        Full Details
+        </a
       >
     </div>
     <div class="bottom-card-links no-mob">
@@ -229,7 +232,8 @@
           alt="ArrowRight"
           height="16"
         />
-        Full Details</a
+        Full Details
+        </a
       >
     </div>
   </div>

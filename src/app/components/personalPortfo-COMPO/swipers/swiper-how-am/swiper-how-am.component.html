@@ -20,6 +20,7 @@
         ><span class="swiper-pagination-bullet"></span>
       </div>
     </div>
+
     <div
       class="swiper-wrapper reco-slide"
       id="sectToday"
@@ -73,7 +74,6 @@
               <!-- button section -->
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
-
                   <li class="tab">
                     <a
                       href="javascript:void(0)"
@@ -94,7 +94,9 @@
                     <a
                       id=""
                       class="green"
-                      [ngClass]=" this.fun.getDirClrDefault(item.value.portdir, 'gray') "
+                      [ngClass]="
+                        this.fun.getDirClrDefault(item.value.portdir, 'gray')
+                      "
                       [ngClass]="{ active: item.key === send_button }"
                       (click)="buttonClicked(item.key)"
                     >
@@ -245,17 +247,15 @@
                       dir="ltr"
                       class="highcharts-container"
                     >
-
                       <!-- graph -->
                       <div style="padding: 0px 0px">
                         <app-graph-today
-                        (graphToday_data)="graphToday_data"
+                          (graphToday_data)="(graphToday_data)"
                           [send_button]="send_button"
                           [PortfolioGraph_data]="PortfolioGraph_data"
                           [switch_button]="switch_button"
                         />
                       </div>
-
                     </div>
                   </div>
 
@@ -264,7 +264,7 @@
                     <div class="valuation-new">
                       <div class="stockmargin">
                         <div
-                          class="sector-per "
+                          class="sector-per"
                           [ngClass]="
                             this.fun.getDirClrDefault(
                               PortfolioGraph_data[send_button].portdir,
@@ -630,10 +630,7 @@
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
                   <!-- ngRepeat: value in act_tab_name -->
-                  <li
-                    class="tab ng-scope"
-                    ng-repeat="value in act_tab_name"
-                  >
+                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
                     <a
                       href="javascript:void(0)"
                       id=""
@@ -823,291 +820,7 @@
                         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
                       "
                     >
-                      <svg
-                        version="1.1"
-                        class="highcharts-root"
-                        style="
-                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
-                            Arial, Helvetica, sans-serif;
-                          font-size: 12px;
-                        "
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="600"
-                        height="260"
-                        viewBox="0 0 600 260"
-                      >
-                        <desc>Created with Highstock 6.1.0</desc>
-                        <defs>
-                          <clipPath id="highcharts-1rl6spd-234">
-                            <rect
-                              x="0"
-                              y="0"
-                              width="550"
-                              height="210"
-                              fill="none"
-                            ></rect>
-                          </clipPath>
-                          <clipPath id="highcharts-1rl6spd-236">
-                            <rect
-                              x="0"
-                              y="0"
-                              width="550"
-                              height="210"
-                              fill="none"
-                            ></rect>
-                          </clipPath>
-                        </defs>
-                        <rect
-                          fill="#fff"
-                          class="highcharts-background"
-                          stroke="#fff"
-                          stroke-width="1"
-                          x="0.5"
-                          y="0.5"
-                          width="598"
-                          height="258"
-                          rx="0"
-                          ry="0"
-                        ></rect>
-                        <rect
-                          fill="none"
-                          class="highcharts-plot-background"
-                          x="40"
-                          y="25"
-                          width="550"
-                          height="210"
-                        ></rect>
-                        <g class="highcharts-pane-group"></g>
-                        <g class="highcharts-grid highcharts-xaxis-grid">
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 131.5 25 L 131.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 222.5 25 L 222.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 314.5 25 L 314.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 406.5 25 L 406.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 497.5 25 L 497.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 589.5 25 L 589.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 39.5 25 L 39.5 235"
-                            opacity="1"
-                          ></path>
-                        </g>
-                        <g class="highcharts-grid highcharts-yaxis-grid">
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 235.5 L 590 235.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 165.5 L 590 165.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 95.5 L 590 95.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 25.5 L 590 25.5"
-                            opacity="1"
-                          ></path>
-                        </g>
-                        <rect
-                          fill="none"
-                          class="highcharts-plot-border"
-                          x="40"
-                          y="25"
-                          width="550"
-                          height="210"
-                        ></rect>
-                        <g class="highcharts-axis highcharts-xaxis">
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 131.5 225 L 131.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 222.5 225 L 222.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 314.5 225 L 314.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 406.5 225 L 406.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 497.5 225 L 497.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 590.5 225 L 590.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 39.5 225 L 39.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-axis-line"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 40 225.5 L 590 225.5"
-                          ></path>
-                        </g>
-                        <g class="highcharts-axis highcharts-yaxis">
-                          <path
-                            fill="none"
-                            class="highcharts-axis-line"
-                            d="M 10 25 L 10 235"
-                          ></path>
-                        </g>
-                        <g class="highcharts-series-group">
-                          <g
-                            class="highcharts-series highcharts-series-0 highcharts-line-series highcharts-color-0"
-                            transform="translate(40,25) scale(1 1)"
-                            clip-path="url(#highcharts-1rl6spd-236)"
-                          >
-                            <path
-                              fill="#3FC499"
-                              d="M 45.833333333333 138.11987000000002 L 137.5 93.83640000000008 L 229.16666666667 17.176740000000052 L 320.83333333333 20.90333000000001 L 412.5 10.506860000000074 L 504.16666666667 47.77338999999992 L 504.16666666667 210 L 45.833333333333 210"
-                              stroke="#3FC499"
-                              stroke-width="2"
-                              stroke-linejoin="round"
-                              stroke-linecap="round"
-                            ></path>
-                            <path
-                              fill="none"
-                              d="M 35.833333333333 138.11987000000002 L 45.833333333333 138.11987000000002 L 137.5 93.83640000000008 L 229.16666666667 17.176740000000052 L 320.83333333333 20.90333000000001 L 412.5 10.506860000000074 L 504.16666666667 47.77338999999992 L 504.16666666667 210 L 45.833333333333 210 L 55.833333333333 210"
-                              stroke-linejoin="round"
-                              visibility="visible"
-                              stroke="rgba(192,192,192,0.002)"
-                              stroke-width="22"
-                              class="highcharts-tracker"
-                            ></path>
-                          </g>
-                          <g
-                            class="highcharts-markers highcharts-series-0 highcharts-line-series highcharts-color-0 highcharts-tracker"
-                            transform="translate(40,25) scale(1 1)"
-                          ></g>
-                        </g>
-                        <text
-                          x="300"
-                          text-anchor="middle"
-                          class="highcharts-subtitle"
-                          style="color: #666666; fill: #666666"
-                          y="24"
-                        ></text>
-                        <g class="highcharts-plot-lines-5">
-                          <path
-                            fill="none"
-                            stroke="#3FC499"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 36.5 L 590 36.5"
-                          ></path>
-                          <path
-                            fill="none"
-                            stroke="#DD7470"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 163.5 L 590 163.5"
-                          ></path>
-                          <path
-                            fill="none"
-                            stroke="#c0c1c2"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 163.5 L 590 163.5"
-                          ></path>
-                        </g>
-                        <g
-                          class="highcharts-axis-labels highcharts-xaxis-labels"
-                        ></g>
-                        <g
-                          class="highcharts-axis-labels highcharts-yaxis-labels"
-                        ></g></svg
-                      ><span
-                        class="highcharts-title"
-                        style="
-                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
-                            Arial, Helvetica, sans-serif;
-                          font-size: 1em;
-                          position: absolute;
-                          white-space: nowrap;
-                          margin-left: 0px;
-                          margin-top: 0px;
-                          left: 293px;
-                          top: 3px;
-                          color: rgb(51, 51, 51);
-                        "
-                      ></span>
+                      graph
                     </div>
                   </div>
                   <div class="cardgraphright">
@@ -1288,7 +1001,7 @@
                 Today's Portfolio Summary
                 <span
                   class="card-title activator info-act"
-                  ng-click="isCollapseTodayHappen = !isCollapseTodayHappen"
+                  (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 ></span>
                 <!-- ngIf: loader[0].pf_today_summary == false && actionToday.graph!='' --><span
                   id="dtSummary"
@@ -1344,13 +1057,13 @@
 
           <!-- extend button -->
           <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseTodayHappen"
+            class="card-reveal animate-slide"
+            [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
           >
             <span class="card-title grey-text text-darken-4">
               Card Title<i
                 class="material-icons right"
-                ng-click="isCollapseTodayHappen = !isCollapseTodayHappen"
+                (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 >close</i
               >
             </span>
@@ -1422,41 +1135,63 @@
         <div class="card">
           <!-- main -->
           <div class="card-content">
+
             <div class="card-head">
               <h2>
                 Corporate Action
                 <span
                   class="card-title activator info-act"
-                  ng-click="isCollapseTodayCorp = !isCollapseTodayCorp"
-                ></span>
+                  (click)="isCollapseCorpAction = !isCollapseCorpAction"
+                  ></span>
               </h2>
             </div>
 
-            <!-- ngIf: loader[0].pf_today_corp == true -->
-            <!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_corp == 1 -->
-            <div
-              *ngIf="data_contri && data_contri.length > 0"
-              class="alert alert-warning mar-empty ng-scope"
-              ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_corp == 1"
-            >
-              <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
-            </div>
-            <!-- end ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_corp == 1 -->
-
-            <div class="news list-mojo">
-              <!-- ngIf: loader[0].pf_today_corp == false && error_flag[0].actionToday_corp == 0 -->
-            </div>
+            <ng-container *ngIf="data_corpact! && data_corpact.length > 0; else elseCorp">
+              <div class="news list-mojo">
+                <div
+                  id="tabsCorporate"
+                  ng-if="loader[0].pf_today_corp == false &amp;&amp; error_flag[0].actionToday_corp == 0"
+                  class="ng-scope"
+                >
+                  <div
+                    class="news news-scroll-new ng-scope"
+                    *ngFor="let item of data_corpact"
+                    >
+                    <div class="news-item">
+                      <div>
+                        <a
+                        [href]="'https://www.marketsmojo.com/Stocks?StockId=' + item.sid + '&Exchange=0'"
+                          target="_blank"
+                          ><strong class="ng-binding"
+                            > {{item.sname}} -
+                          </strong></a
+                        >
+                        <span class="ng-binding">
+                          Upcoming {{item.txt}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <ng-template #elseCorp>
+              <div class="alert alert-warning mar-empty ng-scope">
+                <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
+              </div>
+            </ng-template>
           </div>
 
           <!-- vertical slider -->
           <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseTodayCorp"
-          >
+            class="card-reveal animate-slide "
+            [ngClass]="{ 'ng-hide ng-animate ng-hide-animate ng-hide-add ': isCollapseCorpAction }"
+
+            >
             <span class="card-title grey-text text-darken-4">
               Card Title<i
                 class="material-icons right"
-                ng-click="isCollapseTodayCorp = !isCollapseTodayCorp"
+                (click)="isCollapseCorpAction = !isCollapseCorpAction"
                 >close</i
               >
             </span>
@@ -1470,6 +1205,7 @@
               </ul>
             </div>
           </div>
+
         </div>
       </section>
 

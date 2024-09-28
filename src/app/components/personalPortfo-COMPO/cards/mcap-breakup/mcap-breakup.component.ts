@@ -40,13 +40,14 @@ export class McapBreakupComponent implements OnInit {
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
 
+  isCollapseTodayContri: boolean = true;
   diversify_Data: IDiversifyStocks_Data | undefined;
 
   constructor(
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
-
+    
   ) {}
 
   ngOnInit(): void {

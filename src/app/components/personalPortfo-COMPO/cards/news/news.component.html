@@ -5,7 +5,7 @@
         {{HEAD}}
         <span
           class="card-title activator info-act"
-          ng-click="isCollapseTodayNews = !isCollapseTodayNews"
+          (click)="isCollapseTodayContri = !isCollapseTodayContri"
         ></span>
       </h2>
     </div>
@@ -50,11 +50,14 @@
   </div>
 
   <!-- extend -->
-  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseTodayNews">
+  <div class="card-reveal animate-slide "
+  [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+
+   ng-show="isCollapseTodayNews">
     <span class="card-title grey-text text-darken-4">
       Card Title<i
         class="material-icons right"
-        ng-click="isCollapseTodayNews = !isCollapseTodayNews"
+        (click)="isCollapseTodayContri = !isCollapseTodayContri"
         >close</i
       >
     </span>

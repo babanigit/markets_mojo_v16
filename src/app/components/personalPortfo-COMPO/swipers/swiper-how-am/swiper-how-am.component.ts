@@ -21,6 +21,7 @@ import { GraphTodayComponent } from '../../graph/graph-today/graph-today.compone
 import { CardComponent } from '../../cards/card/card.component';
 import {
   I_News,
+  ICorpact_data,
   IGraphToday_Data,
   IMcapClass_Data,
   IToday,
@@ -33,10 +34,9 @@ import {
 } from 'src/app/models/pp/PortfolioGraph';
 import { IGraphData } from 'src/app/models/graphData';
 import { NewsComponent } from '../../cards/news/news.component';
-import { McapBreakupComponent } from "../../cards/mcap-breakup/mcap-breakup.component";
+import { McapBreakupComponent } from '../../cards/mcap-breakup/mcap-breakup.component';
 
 type PortfolioKeys = keyof IPortfolioGraph_Data;
-
 
 @Component({
   selector: 'app-swiper-how-am',
@@ -51,8 +51,8 @@ type PortfolioKeys = keyof IPortfolioGraph_Data;
     GraphTodayComponent,
     ModelOpenComponent,
     NewsComponent,
-    McapBreakupComponent
-],
+    McapBreakupComponent,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -61,13 +61,16 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   data_contri: any = [];
   data_drags: any = [];
   data_news: I_News[] | undefined;
-  data_corpact: any = [];
+  data_corpact: ICorpact_data[] | undefined;
   data_gainers: any = [];
   data_losers: any = [];
   data_mcap: IMcapClass_Data | undefined;
 
   graphToday_data: IGraphToday_Data | undefined;
   PortfolioGraph_data: IPortfolioGraph_Data | undefined;
+
+  isCollapseTodayContri: boolean = true;
+  isCollapseCorpAction: boolean = true;
 
   // @Output() send_graphToday = new EventEmitter<IPortfolioGraph_Data>(); //for input value
   // @Output() send_button = new EventEmitter<string>(); //for input value
@@ -86,16 +89,15 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
     this.fetchData();
   }
 
-
   @Output() sendElement = new EventEmitter<HTMLDivElement>();
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
 
   receiveElement(element: HTMLDivElement) {
-    this.sendElement.emit(element)
+    this.sendElement.emit(element);
   }
   receiveClickState(state: boolean) {
-    this.sendClick_State.emit(state)
+    this.sendClick_State.emit(state);
   }
 
   getHead: string | undefined;
@@ -121,7 +123,7 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
       this.data_gainers = res.data.overall.gainers;
       this.data_losers = res.data.overall.losers;
       this.data_mcap = res.data.mcap;
-      this.graphToday_data=res.data.graph;
+      this.graphToday_data = res.data.graph;
 
       this.cdr.detectChanges(); // Trigger change detection
     });

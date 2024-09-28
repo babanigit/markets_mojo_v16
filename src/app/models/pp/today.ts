@@ -7,14 +7,14 @@ export interface IToday {
 export interface IToday_data {
   error:   number;
   overall: Overall;
-  corpact: Corpact[];
+  corpact: ICorpact_data[];
   mcap:    IMcapClass_Data;
   news:    I_News[];
   summary: Summary[];
   graph:   IGraphToday_Data;
 }
 
-export interface Corpact {
+export interface ICorpact_data {
   sname:  string;
   sid:    number;
   txt:    string;
