@@ -1,74 +1,78 @@
 <div class="card">
-
   <div class="card-content dividend">
     <div class="card-head">
       <h2>
-        {{HEAD}}
+        {{ HEAD }}
         <span *ngIf="SHOW_BUTTON" class="card-title activator info-act"></span>
       </h2>
     </div>
 
-    <div class="price-mojo col-green ng-scope">
-      <div style="margin-top: 10px"></div>
-      <!-- <div class="txt-hed-1 priced">{{returnData.holdings.txt1}}</div> -->
+    <ng-container *ngIf="ixrrData!">
+      <ng-container *ngIf="ixrrData.list.length > 0; else noDataTemplate">
+        <!-- Content to show if data exists -->
 
-      <table class="table1 divd-table">
-        <thead>
-          <tr>
-            <th class="textcenter">Periods</th>
-            <th class="textcenter">
-              Absolute<br />
-              Return(Rs)
-            </th>
-            <th class="textcenter">
-              Absolute<br />
-              Return(%)
-            </th>
-            <th class="textcenter">IRR(%)</th>
-          </tr>
-        </thead>
+        <div class="price-mojo col-green ng-scope">
+          <div style="margin-top: 10px"></div>
 
-        <!-- tbody -->
+          <table class="table1 divd-table">
+            <thead>
+              <tr>
+                <th class="textcenter">Periods</th>
+                <th class="textcenter">
+                  Absolute<br />
+                  Return(Rs)
+                </th>
+                <th class="textcenter">
+                  Absolute<br />
+                  Return(%)
+                </th>
+                <th class="textcenter">IRR(%)</th>
+              </tr>
+            </thead>
 
-        <tbody *ngIf="ixrrData!">
-          <tr *ngFor="let item of ixrrData.list" class="ng-scope">
-            <td class="ng-binding ng-scope">
-              {{ item.period }}
-            </td>
-            <td class="ng-binding ng-scope">
-              {{ item.absret | roundOff | twoCommas }}
-            </td>
-            <td
-              [ngClass]="this.fun.getDirClrDefault(item.abs_perc_dir, 'orange')"
-              class="ng-binding ng-scope"
-            >
-              {{ item.abs_perc | roundOff | twoCommas }}%
-            </td>
-            <td
-              [ngClass]="
-                this.fun.getDirClrDefault(item.portxirr_perc_dir, 'orange')
-              "
-              class="ng-binding ng-scope"
-            >
-              {{ item.portxirr_perc | roundOff | twoCommas }}%
-            </td>
-          </tr>
-        </tbody>
+            <!-- tbody -->
+            <tbody>
+              <tr *ngFor="let item of ixrrData.list" class="ng-scope">
+                <td class="ng-binding ng-scope">
+                  {{ item.period }}
+                </td>
+                <td class="ng-binding ng-scope">
+                  {{ item.absret | roundOff | twoCommas }}
+                </td>
+                <td
+                  [ngClass]="
+                    this.fun.getDirClrDefault(item.abs_perc_dir, 'orange')
+                  "
+                  class="ng-binding ng-scope"
+                >
+                  {{ item.abs_perc | roundOff | twoCommas }}%
+                </td>
+                <td
+                  [ngClass]="
+                    this.fun.getDirClrDefault(item.portxirr_perc_dir, 'orange')
+                  "
+                  class="ng-binding ng-scope"
+                >
+                  {{ item.portxirr_perc | roundOff | twoCommas }}%
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-        `
-      </table>
+          <div class="foot-note ng-binding ng-scope">
+            Returns include Dividends and Realized Gain; Inception from 26 Dec
+            2016
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
 
-      <!-- ngIf: loader[0].pf_return_composite == false  && error_flag[0].return_compo == 0 -->
-      <div
-        class="foot-note ng-binding ng-scope"
-        ng-if="loader[0].pf_return_composite == false  &amp;&amp; error_flag[0].return_compo == 0"
-        style=""
-      >
-        Returns include Dividends and Realized Gain; Inception from 26 Dec 2016
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
       </div>
-      <!-- end ngIf: loader[0].pf_return_composite == false  && error_flag[0].return_compo == 0 -->
-    </div>
-    <!-- end ngIf: loader[0].pf_return_xirr == false && error_flag[0].return_stocks == 0 -->
+    </ng-template>
   </div>
 
   <div *ngIf="SHOW_BUTTON" class="card-reveal animate-slide ng-hide">
@@ -97,7 +101,6 @@
       </ul>
     </div>
   </div>
-
 </div>
 
 <!-- full detail button -->
@@ -105,7 +108,7 @@
   <div class="bottom-card-links">
     <div class="bottom-card-links">
       <a
-      (click)=" sendToParent()"
+        (click)="sendToParent()"
         class="seefull waves-light"
         ng-click="return_xirr_popup()"
         href="javascript:void(0);"
@@ -123,7 +126,7 @@
 <!-- full detail content -->
 <div [hidden]="true">
   <div
-  #childDiv
+    #childDiv
     class="modal-content contentbg ng-scope"
     ng-if="loader[0].pf_holding != true"
   >
@@ -148,45 +151,40 @@
             <th>Composite index IRR(%) <br /></th>
           </tr>
         </thead>
-        <tbody
-        *ngIf="ixrrData!"
-        >
 
-          <!-- ngRepeat: (key,rowArr) in xirrData.list -->
-          <tr
-          *ngFor="let item of ixrrData.list"
-            class="mod-hed-td ng-scope"
-            ng-repeat="(key,rowArr) in xirrData.list"
-            style=""
-          >
-            <td class="ng-binding">{{item.period}} </td>
-            <td class="ng-binding"> {{item.absret | roundOff | twoCommas  }} </td>
+        <tbody *ngIf="ixrrData!">
+          <tr *ngFor="let item of ixrrData.list" class="mod-hed-td ng-scope">
+            <td class="ng-binding">{{ item.period }}</td>
+            <td class="ng-binding">{{ item.absret | roundOff | twoCommas }}</td>
             <td
-              [ngClass]="this.fun.getDirClrDefault( item.abs_perc_dir, 'white')"
-              class="ng-binding "
+              [ngClass]="this.fun.getDirClrDefault(item.abs_perc_dir, 'white')"
+              class="ng-binding"
             >
-              {{item.abs_perc | roundOff | twoCommas }}%
+              {{ item.abs_perc | roundOff | twoCommas }}%
             </td>
             <td
-            [ngClass]="this.fun.getDirClrDefault( item.comp_perc_dir, 'white')"
-            class="ng-binding "
+              [ngClass]="this.fun.getDirClrDefault(item.comp_perc_dir, 'white')"
+              class="ng-binding"
             >
-            {{item.comp_perc | roundOff | twoCommas }}%
+              {{ item.comp_perc | roundOff | twoCommas }}%
             </td>
             <td
-            [ngClass]="this.fun.getDirClrDefault( item.portxirr_perc_dir, 'white')"
-            class="ng-binding "
+              [ngClass]="
+                this.fun.getDirClrDefault(item.portxirr_perc_dir, 'white')
+              "
+              class="ng-binding"
             >
-            {{item.portxirr_perc | roundOff | twoCommas }}%
+              {{ item.portxirr_perc | roundOff | twoCommas }}%
             </td>
             <td
-            [ngClass]="this.fun.getDirClrDefault( item.compxirr_perc_dir, 'white')"
-            class="ng-binding "
+              [ngClass]="
+                this.fun.getDirClrDefault(item.compxirr_perc_dir, 'white')
+              "
+              class="ng-binding"
             >
-            {{item.compxirr_perc | roundOff | twoCommas }}%
+              {{ item.compxirr_perc | roundOff | twoCommas }}%
             </td>
           </tr>
-
         </tbody>
       </table>
     </div>

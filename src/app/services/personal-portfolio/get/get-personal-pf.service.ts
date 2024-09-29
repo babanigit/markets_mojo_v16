@@ -61,7 +61,6 @@ export class GetPersonalPFService {
   getUserMessage(jsonPath: string = this.userMesagePath) {
     return this.http.get<any>(jsonPath).pipe(
       delay(1200),
-
       catchError((err) => {
         console.error('Error riskpopup data', err);
         throw err;
@@ -75,6 +74,7 @@ export class GetPersonalPFService {
     // console.log('Fetching data from:', url);
 
     return this.http.get<any>(url).pipe(
+      delay(1200),
       catchError((err) => {
         console.error('Error fetching data for type:', type);
         console.error('Error details:', err);
@@ -126,7 +126,6 @@ export class GetPersonalPFService {
   getRiskPopup(jsonPath: string = this.riskpopuppath) {
     return this.http.get<any>(jsonPath).pipe(
       delay(1200),
-
       catchError((err) => {
         console.error('Error riskpopup data', err);
         throw err;
@@ -138,6 +137,7 @@ export class GetPersonalPFService {
 
   getDivContri(jsonPath: string = this.divcontripath) {
     return this.http.get<any>(jsonPath).pipe(
+      delay(1200),
       catchError((err) => {
         console.error('Error fetching divcontripath data', err);
         throw err;
@@ -147,7 +147,7 @@ export class GetPersonalPFService {
   private diversifyPath = 'assets/pp/swiper/diversifyStocks.json';
   getDiversifyStocks(jsonPath: string = this.diversifyPath) {
     return this.http.get<any>(jsonPath).pipe(
-      delay(1000),
+      delay(1200),
       catchError((err) => {
         console.error('Error fetching diversifyStocks data', err);
         throw err;
@@ -158,6 +158,7 @@ export class GetPersonalPFService {
   private cr = 'assets/pp/swiper/compareReturnPopup.json';
   getCompareReturn(jsonPath: string = this.cr) {
     return this.http.get<any>(jsonPath).pipe(
+      delay(1200),
       catchError((err) => {
         console.error('Error fetching diversifyStocks data', err);
         throw err;
@@ -168,7 +169,7 @@ export class GetPersonalPFService {
   private nf_path = 'assets/pp/networkFactor/getNetworkFactor.json';
   getNetworkFactor(jsonPath: string = this.nf_path) {
     return this.http.get<any>(jsonPath).pipe(
-      // delay(1200),
+      delay(1200),
       catchError((err) => {
         console.error('Error fetching nf data', err);
         throw err;
@@ -201,7 +202,7 @@ export class GetPersonalPFService {
     const path = this.paths2[type] || this.paths2.today;
 
     return this.http.get<any>(path).pipe(
-      delay(1000),
+      delay(1200),
       catchError((err) => {
         console.error('Error fetching data for type:', type);
         console.error('Error details:', err);
@@ -213,6 +214,7 @@ export class GetPersonalPFService {
   private ixrrpath = 'assets/pp/swiper/getIXIRRData.json';
   getIxrrData() {
     return this.http.get<any>(this.ixrrpath).pipe(
+      delay(1200),
       catchError((err) => {
         console.error('Error fetching ixrr :', err);
         throw err;
@@ -223,6 +225,7 @@ export class GetPersonalPFService {
   private qvflpath = 'assets/pp/swiper/getQVFLData.json';
   getQVFLData() {
     return this.http.get<any>(this.qvflpath).pipe(
+      delay(1200),
       catchError((err) => {
         console.error('Error fetching qvfl :', err);
         throw err;
@@ -241,7 +244,7 @@ export class GetPersonalPFService {
     this.loadingSubject.next(true); // Set loading to true
 
     return this.http.get<ITodayGraph>(path).pipe(
-      // delay(1000),
+      delay(1200),
       catchError((err) => {
         this.loadingSubject.next(false); // Set loading to false on error
         this.errorSubject.next('Error fetching graph data'); // Set error message

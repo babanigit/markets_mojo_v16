@@ -31,6 +31,7 @@ export class McapContriReturnComponent {
   @Output() sendElement = new EventEmitter<HTMLDivElement>();
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
+  isCollapseRetMcap=true
 
   sendToParent() {
     if (this.childDiv) {
@@ -51,4 +52,9 @@ export class McapContriReturnComponent {
       console.log('the head is : ', this.HEAD);
     }
   }
+
+  getObjectKeys(obj: Record<string, any>): string[] {
+    return Object.keys(obj);
+  }
+  
 }

@@ -1,65 +1,94 @@
 <div class="card">
-
   <div class="card-content dividend">
     <div class="card-head">
       <h2>
         {{ HEAD }}
         <span
           class="card-title activator info-act"
-          ng-click="isCollapseRetMcap = !isCollapseRetMcap"
+          (click)="isCollapseRetMcap = !isCollapseRetMcap"
         ></span>
       </h2>
     </div>
-    <div class="price-mojo col-green ng-scope" *ngIf="data_Mcap!">
-      <div class="txt-hed-1 priced ng-binding">
-        {{ data_Mcap.txt1 }}
+
+    <ng-container *ngIf="data_Mcap!; else loadingTemplate">
+      <ng-container
+        *ngIf="getObjectKeys(data_Mcap.list).length > 0; else noDataTemplate"
+      >
+        <!-- Content to show if data exists -->
+        <div class="price-mojo col-green ng-scope">
+          <div class="txt-hed-1 priced ng-binding">
+            {{ data_Mcap.txt1 }}
+          </div>
+          <table class="table1 divd-table">
+            <thead>
+              <tr>
+                <th class="textcenter">
+                  MCap <br />
+                  Category
+                </th>
+
+                <th class="textcenter">Total<br />Return</th>
+                <th class="textcenter">Return<br />Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let mcap of data_Mcap.list | keyvalue"
+                ng-repeat="(key, rowArr) in returnData.mcap.list"
+                class="ng-scope"
+              >
+                <td class="ng-binding">{{ mcap.value.txt }}</td>
+
+                <td
+                  [ngClass]="
+                    this.fun.getDirClrDefault(mcap.value.tgaindir, 'orange')
+                  "
+                  class="ng-binding ng-scope"
+                >
+                  {{ mcap.value.tgain | roundOff | twoCommas }}
+                </td>
+
+                <td class="ng-binding ng-scope">
+                  {{ mcap.value.tgainp | roundOff | twoCommas }}%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="foot-note ng-binding"></div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
       </div>
-      <table class="table1 divd-table">
-        <thead>
-          <tr>
-            <th class="textcenter">
-              MCap <br />
-              Category
-            </th>
+    </ng-template>
 
-            <th class="textcenter">Total<br />Return</th>
-            <th class="textcenter">Return<br />Contribution</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="let mcap of data_Mcap.list | keyvalue"
-            ng-repeat="(key, rowArr) in returnData.mcap.list"
-            class="ng-scope"
-          >
-            <td class="ng-binding">{{ mcap.value.txt }}</td>
-
-            <td
-              [ngClass]="
-                this.fun.getDirClrDefault(mcap.value.tgaindir, 'orange')
-              "
-              class="ng-binding ng-scope"
-            >
-              {{ mcap.value.tgain | roundOff | twoCommas }}
-            </td>
-
-            <td class="ng-binding ng-scope">
-              {{ mcap.value.tgainp | roundOff | twoCommas }}%
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="foot-note ng-binding"></div>
-    </div>
-    <!-- end ngIf: loader[0].pf_return_mcap == false && error_flag[0].return_mcap == 0 -->
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
   </div>
 
   <!-- slider -->
-  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseRetMcap">
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseRetMcap }"
+  >
     <span class="card-title grey-text text-darken-4"
       >Card Title<i
         class="material-icons right"
-        ng-click="isCollapseRetMcap = !isCollapseRetMcap"
+        (click)="isCollapseRetMcap = !isCollapseRetMcap"
         >close</i
       ></span
     >
@@ -95,7 +124,6 @@
       <a
         (click)="sendToParent()"
         class="seefull waves-light"
-        ng-click="returnContriPopup('mcap')"
         href="javascript:void(0);"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"
@@ -124,30 +152,42 @@
             <th>Return<br />Contribution</th>
           </tr>
         </thead>
-        <tbody
-        *ngIf="data_Mcap!"
-        >
-
+        <tbody *ngIf="data_Mcap!">
           <ng-container *ngFor="let sector of data_Mcap.list | keyvalue">
             <tr class="mod-hed-td ng-scope">
               <td class="ng-binding">{{ sector.value.txt }}</td>
-              <td class="ng-binding ng-scope">{{ sector.value.pwt | roundOff | twoCommas  }}%</td>
+              <td class="ng-binding ng-scope">
+                {{ sector.value.pwt | roundOff | twoCommas }}%
+              </td>
               <td
-              [ngClass]=" this.fun.getDirClrDefault(sector.value.tgaindir , 'gray' ) "
-              class="ng-binding ng-scope">{{ sector.value.tgain | roundOff | twoCommas  }}</td>
-              <td class="ng-binding ng-scope">{{ sector.value.tgainp | roundOff | twoCommas  }}%</td>
+                [ngClass]="
+                  this.fun.getDirClrDefault(sector.value.tgaindir, 'gray')
+                "
+                class="ng-binding ng-scope"
+              >
+                {{ sector.value.tgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding ng-scope">
+                {{ sector.value.tgainp | roundOff | twoCommas }}%
+              </td>
             </tr>
 
             <tr *ngFor="let stock of sector.value.list">
               <td class="ng-binding">{{ stock.sname }}</td>
-              <td class="ng-binding ng-scope">{{ (stock.pwt | roundOff | twoCommas) || '0.00'  }}%</td>
+              <td class="ng-binding ng-scope">
+                {{ (stock.pwt | roundOff | twoCommas) || "0.00" }}%
+              </td>
               <td
-              [ngClass]=" this.fun.getDirClrDefault( stock.tgaindir , 'gray' ) "
-              class="ng-binding ng-scope">{{ stock.tgain | roundOff | twoCommas  }}</td>
-              <td class="ng-binding ng-scope">{{ stock.tgainp | roundOff | twoCommas  }}%</td>
+                [ngClass]="this.fun.getDirClrDefault(stock.tgaindir, 'gray')"
+                class="ng-binding ng-scope"
+              >
+                {{ stock.tgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding ng-scope">
+                {{ stock.tgainp | roundOff | twoCommas }}%
+              </td>
             </tr>
           </ng-container>
-
         </tbody>
       </table>
     </div>

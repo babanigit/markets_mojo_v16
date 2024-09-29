@@ -6,39 +6,57 @@
         {{ HEAD }}
         <span
           class="card-title activator info-act"
-          ng-click="isCollapseRetYear = !isCollapseRetYear"
+          (click)="isCollapseRetYear = !isCollapseRetYear"
         ></span>
       </h2>
     </div>
 
-    <div
-      class="quality"
-      ng-show="loader[0].pf_return_year == false &amp;&amp; error_flag[0].return_calendar == 0"
-    >
-      <div class="graphtabarea">
-        <div class="tabcol" data="0">
-          <!-- buttons and graph -->
+    <!-- body -->
+    <ng-container *ngIf="data_calender!; else loadingTemplate">
+      <!-- Content to show if data exists -->
 
-          <ng-container *ngIf="data_calender!">
+      <div
+        class="quality"
+        ng-show="loader[0].pf_return_year == false &amp;&amp; error_flag[0].return_calendar == 0"
+      >
+        <div class="graphtabarea">
+          <div class="tabcol" data="0">
+            <!-- buttons and graph -->
             <app-bar-graph [chartData]="data_calender" />
-          </ng-container>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="foot-note"
-      ng-show="loader[0].pf_return_year == false &amp;&amp; error_flag[0].return_calendar == 0"
-    >
-      Absolute Total Returns
-    </div>
+      <div
+        class="foot-note"
+        ng-show="loader[0].pf_return_year == false &amp;&amp; error_flag[0].return_calendar == 0"
+      >
+        Absolute Total Returns
+      </div>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
   </div>
 
   <!-- slider -->
-  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseRetYear">
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseRetYear }"
+  >
     <span class="card-title grey-text text-darken-4"
       >Card Title<i
         class="material-icons right"
-        ng-click="isCollapseRetYear = !isCollapseRetYear"
+        (click)="isCollapseRetYear = !isCollapseRetYear"
         >close</i
       ></span
     >
@@ -75,7 +93,6 @@
       <a
         (click)="sendToParent()"
         class="seefull waves-light modal-trigger"
-        ng-click="compareReturnPopup()"
         href="javascript:void(0);"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"

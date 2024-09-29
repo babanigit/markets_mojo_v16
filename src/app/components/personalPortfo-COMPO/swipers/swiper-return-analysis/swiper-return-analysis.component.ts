@@ -17,6 +17,7 @@ import {
   IDivcontri,
   IHoldings,
   IMcap,
+  INetworth,
   IRetcompo,
   IReturn,
   IReturn_Data,
@@ -59,7 +60,7 @@ import { StocksContriReturnComponent } from '../../cards/stocks-contri-return/st
     McapContriReturnComponent,
     StocksContriReturnComponent,
 
-],
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -73,6 +74,8 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
   data_holding: IHoldings | undefined;
   data_calender: ICalendar_data | undefined
 
+  data_networth: INetworth |undefined
+
   ixrrData: I_Ixrr_Data | undefined;
 
   @Input() score: any;
@@ -82,11 +85,14 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
   @Input() SHOW_BUTTON: Boolean = true;
   isCollapseTodayContri: boolean = true;
 
+  isCollapseRetSum: boolean = true;
+
+
   constructor(
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.fetchData();
@@ -116,7 +122,8 @@ export class SwiperReturnAnalysisComponent implements AfterViewInit, OnInit {
       this.data_sector = res.data.sector;
       this.data_Mcap = res.data.mcap;
       this.data_holding = res.data.holdings;
-      this.data_calender =res.data.calendar;
+      this.data_calender = res.data.calendar;
+      this.data_networth = res.data.networth; // for network data
 
       this.cdr.detectChanges(); // Trigger change detection
     });

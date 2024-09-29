@@ -22,7 +22,7 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReturnAbsoluteAndIrrComponent {
-  constructor(public fun: PpFunctionsService) {}
+  constructor(public fun: PpFunctionsService) { }
 
   @Input() ixrrData: I_Ixrr_Data | undefined;
   @Input() HEAD: string | undefined;
@@ -34,7 +34,7 @@ export class ReturnAbsoluteAndIrrComponent {
   @Output() send_head = new EventEmitter<string>(); //for
 
   sendToParent() {
-    if (this.childDiv) {
+    if (this.childDiv && this.ixrrData) {
       console.log('clicked');
 
       // Clone the element to avoid moving it

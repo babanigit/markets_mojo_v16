@@ -4,66 +4,103 @@
       <h2>
         Dividend Contribution to Returns<span
           *ngIf="SHOW_BUTTON"
+          (click)="isCollapse = !isCollapse"
           class="card-title activator info-act"
         ></span>
       </h2>
     </div>
 
-    <div class="price-mojo col-green ng-scope" *ngIf="data_divcontri!">
-      <div class="txt-hed-1 priced ng-binding">
-        {{ data_divcontri.txt1 }}
+    <ng-container *ngIf="data_divcontri!; else loadingTemplate">
+      <ng-container *ngIf="data_divcontri.list.length > 0; else noDataTemplate">
+        <!-- Content to show if data exists -->
+
+        <div class="price-mojo col-green ng-scope">
+          <div class="txt-hed-1 priced ng-binding">
+            {{ data_divcontri.txt1 }}
+          </div>
+          <p class="ng-binding">{{ data_divcontri.txt2 }}</p>
+          <table class="table1 divd-table">
+            <thead>
+              <tr>
+                <th class="textcenter">
+                  Time<br />
+                  Period
+                </th>
+                <th class="textcenter">
+                  Dividend<br />
+                  Received (Abs)
+                </th>
+                <th class="textcenter">
+                  Price<br />
+                  Return (%)
+                </th>
+
+                <th class="textcenter">
+                  Total<br />
+                  Return (%)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data_divcontri.list" class="ng-scope">
+                <td class="ng-binding">{{ item.period }}</td>
+
+                <td class="ng-binding ng-scope">
+                  {{ item.divrec | roundOff | twoCommas }}
+                </td>
+
+                <td class="ng-binding ng-scope">
+                  {{ item.price | roundOff | twoCommas }}%
+                </td>
+                <!-- end ngIf: rowArr.total != 'NA' -->
+                <!-- ngIf: rowArr.total != 'NA' -->
+                <td class="ng-binding ng-scope">
+                  {{ item.total | roundOff | twoCommas }}%
+                </td>
+                <!-- end ngIf: rowArr.total != 'NA' -->
+              </tr>
+            </tbody>
+          </table>
+          <div class="foot-note ng-binding">
+            *Absolute Returns from 26 Dec 2016
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
       </div>
-      <p class="ng-binding">{{ data_divcontri.txt2 }}</p>
-      <table class="table1 divd-table">
-        <thead>
-          <tr>
-            <th class="textcenter">
-              Time<br />
-              Period
-            </th>
-            <th class="textcenter">
-              Dividend<br />
-              Received (Abs)
-            </th>
-            <th class="textcenter">
-              Price<br />
-              Return (%)
-            </th>
+    </ng-template>
 
-            <th class="textcenter">
-              Total<br />
-              Return (%)
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of data_divcontri.list" class="ng-scope">
-            <td class="ng-binding">{{ item.period }}</td>
-
-            <td class="ng-binding ng-scope">
-              {{ item.divrec | roundOff | twoCommas }}
-            </td>
-
-            <td class="ng-binding ng-scope">
-              {{ item.price | roundOff | twoCommas }}%
-            </td>
-            <!-- end ngIf: rowArr.total != 'NA' -->
-            <!-- ngIf: rowArr.total != 'NA' -->
-            <td class="ng-binding ng-scope">
-              {{ item.total | roundOff | twoCommas }}%
-            </td>
-            <!-- end ngIf: rowArr.total != 'NA' -->
-          </tr>
-        </tbody>
-      </table>
-      <div class="foot-note ng-binding">*Absolute Returns from 26 Dec 2016</div>
-    </div>
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
   </div>
 
   <!-- slider -->
-  <div *ngIf="SHOW_BUTTON" class="card-reveal animate-slide ng-hide">
+  <div
+    *ngIf="SHOW_BUTTON"
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapse }"
+  >
     <span class="card-title grey-text text-darken-4"
-      >Card Title<i class="material-icons right">close</i></span
+      >Card Title<i
+        (click)="isCollapse = !isCollapse"
+        class="material-icons right"
+        >close</i
+      ></span
     >
     <div class="card-reveal-text">
       <ul>
@@ -97,8 +134,11 @@
           alt="ArrowRight"
           height="16"
         />
-        Dividend History</a
-      >
+
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Dividend History </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+      </a>
     </div>
   </div>
 </div>

@@ -38,6 +38,8 @@ export class CalenderYearsReturnComponent {
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
 
+  isCollapseRetYear =true
+
   sendToParent() {
     if (this.childDiv) {
       console.log('clicked');

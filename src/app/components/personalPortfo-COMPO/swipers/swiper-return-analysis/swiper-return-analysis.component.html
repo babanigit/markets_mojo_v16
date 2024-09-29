@@ -39,13 +39,7 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <ng-container *ngIf="score!">
-          <app-scorecard
-            [DATA]="score"
-            [HEAD]="'Return'"
-            [SHOW_BUTTON]="false"
-          />
-        </ng-container>
+        <app-scorecard [DATA]="score" [HEAD]="'Return'" [SHOW_BUTTON]="false" />
       </section>
 
       <section
@@ -68,140 +62,149 @@
               <h2>Return Summary</h2>
             </div>
 
-            <div class="returns-snap ng-scope" *ngIf="main_data!">
-              <div class="high-risk-head">
-                <div
-                  [ngClass]="
-                    this.fun.getDirClrDefault(
-                      main_data.scorecard.returndir,
-                      'orange'
-                    )
-                  "
-                  class="high-risk-head"
-                >
-                  Returns Since Inception
-                  <br />
-                  <strong class="ng-binding">
-                    {{ main_data.scorecard.return | roundOff | twoCommas }}
-                    %</strong
+            <ng-container *ngIf="main_data!; else loadingTemplateRetrunSun">
+              <!-- Content to show if data exists -->
+
+              <div class="returns-snap ng-scope">
+                <div class="high-risk-head">
+                  <div
+                    [ngClass]="
+                      this.fun.getDirClrDefault(
+                        main_data.scorecard.returndir,
+                        'orange'
+                      )
+                    "
+                    class="high-risk-head"
                   >
-                  <span class="date-ince"
-                    ><i class="ng-binding"
-                      >(Returns include Dividends and Realized Gain since
-                      {{ main_data.scorecard.dt }} )</i
-                    ></span
-                  >
-                </div>
-              </div>
-              <div class="cf">
-                <div
-                  [ngClass]="
-                    'score-card ' +
-                    this.fun.getDirClrDefault(
-                      main_data.scorecard.comperformby,
-                      'orange'
-                    ) +
-                    '-score'
-                  "
-                >
-                  <p>
-                    Composite
-                    <strong
-                      [ngClass]="
-                        this.fun.getDirClrDefault(
-                          main_data.scorecard.compodir,
-                          'orange'
-                        )
-                      "
-                      class="ng-binding"
-                      >{{
-                        main_data.scorecard.compo | roundOff | twoCommas
-                      }}%</strong
+                    Returns Since Inception
+                    <br />
+                    <strong class="ng-binding">
+                      {{ main_data.scorecard.return | roundOff | twoCommas }}
+                      %</strong
                     >
-                  </p>
-                  <div class="socre-head ng-binding">
-                    UNDERPERFORMED BY
-                    {{
-                      main_data.scorecard.comperformby | roundOff | twoCommas
-                    }}%
+                    <span class="date-ince"
+                      ><i class="ng-binding"
+                        >(Returns include Dividends and Realized Gain since
+                        {{ main_data.scorecard.dt }} )</i
+                      ></span
+                    >
                   </div>
                 </div>
-                <div
-                  [ngClass]="
-                    'score-card ' +
-                    this.fun.getDirClrDefault(
-                      main_data.scorecard.senperfomby,
-                      'orange'
-                    ) +
-                    '-score'
-                  "
-                >
-                  <p>
-                    Sensex
-                    <strong
-                      [ngClass]="
-                        this.fun.getDirClrDefault(
-                          main_data.scorecard.sendir,
-                          'orange'
-                        )
-                      "
-                      class="ng-binding"
-                      >{{
-                        main_data.scorecard.returnsen | roundOff | twoCommas
-                      }}%</strong
-                    >
-                  </p>
-                  <div class="socre-head ng-binding">
-                    UNDERPERFORMED BY
-                    {{
-                      main_data.scorecard.senperfomby | roundOff | twoCommas
-                    }}%
+                <div class="cf">
+                  <div
+                    [ngClass]="
+                      'score-card ' +
+                      this.fun.getDirClrDefault(
+                        main_data.scorecard.comperformby,
+                        'orange'
+                      ) +
+                      '-score'
+                    "
+                  >
+                    <p>
+                      Composite
+                      <strong
+                        [ngClass]="
+                          this.fun.getDirClrDefault(
+                            main_data.scorecard.compodir,
+                            'orange'
+                          )
+                        "
+                        class="ng-binding"
+                        >{{
+                          main_data.scorecard.compo | roundOff | twoCommas
+                        }}%</strong
+                      >
+                    </p>
+                    <div class="socre-head ng-binding">
+                      UNDERPERFORMED BY
+                      {{
+                        main_data.scorecard.comperformby | roundOff | twoCommas
+                      }}%
+                    </div>
+                  </div>
+                  <div
+                    [ngClass]="
+                      'score-card ' +
+                      this.fun.getDirClrDefault(
+                        main_data.scorecard.senperfomby,
+                        'orange'
+                      ) +
+                      '-score'
+                    "
+                  >
+                    <p>
+                      Sensex
+                      <strong
+                        [ngClass]="
+                          this.fun.getDirClrDefault(
+                            main_data.scorecard.sendir,
+                            'orange'
+                          )
+                        "
+                        class="ng-binding"
+                        >{{
+                          main_data.scorecard.returnsen | roundOff | twoCommas
+                        }}%</strong
+                      >
+                    </p>
+                    <div class="socre-head ng-binding">
+                      UNDERPERFORMED BY
+                      {{
+                        main_data.scorecard.senperfomby | roundOff | twoCommas
+                      }}%
+                    </div>
                   </div>
                 </div>
+                <div class="returns-txts">
+                  <div class="qtr-none ng-binding">
+                    <strong>Top Return:</strong> Jubilant Inds. has generated
+                    highest return in portfolio of Rs 67,713.00 (330%)
+                  </div>
+                  <div class="qtr-none ng-binding">
+                    <strong>MCAP Contribution:</strong>
+                    {{ main_data.mcap.txt1 }}
+                  </div>
+                  <div class="qtr-none ng-binding">
+                    <strong>Sector Contribution:</strong>
+                    {{ main_data.sector.txt1 }}
+                  </div>
+                  <div class="qtr-none ng-binding">
+                    <strong>Top Holdings Contribution:</strong>
+                    {{ main_data.holdings.txt1 }}
+                  </div>
+                  <div class="qtr-none ng-binding">
+                    <strong>Dividend Component:</strong>
+                    {{ main_data.divcontri.txt1 }}
+                  </div>
+                  <!--                                <div class="qtr-4 qty-lst" style="cursor:none!important;">
+                                        <strong> Quartiles:</strong>  72.07% of your portfolio stocks fall in the 4th Quartile
+                                    </div>-->
+                </div>
+                <!-- ngIf: loader[0].pf_return_summary == false && error_flag[0].return_summary == 0 -->
+                <div
+                  class="foot-note ng-scope"
+                  ng-if="loader[0].pf_return_summary == false &amp;&amp; error_flag[0].return_summary == 0"
+                >
+                  Absolute Total Returns
+                </div>
+                <!-- end ngIf: loader[0].pf_return_summary == false && error_flag[0].return_summary == 0 -->
               </div>
-              <div class="returns-txts">
-                <div class="qtr-none ng-binding">
-                  <strong>Top Return:</strong> Jubilant Inds. has generated
-                  highest return in portfolio of Rs 67,713.00 (330%)
+            </ng-container>
+
+            <ng-template #loadingTemplateRetrunSun>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
                 </div>
-                <div class="qtr-none ng-binding">
-                  <strong>MCAP Contribution:</strong> {{ main_data.mcap.txt1 }}
-                </div>
-                <div class="qtr-none ng-binding">
-                  <strong>Sector Contribution:</strong>
-                  {{ main_data.sector.txt1 }}
-                </div>
-                <div class="qtr-none ng-binding">
-                  <strong>Top Holdings Contribution:</strong>
-                  {{ main_data.holdings.txt1 }}
-                </div>
-                <div class="qtr-none ng-binding">
-                  <strong>Dividend Component:</strong>
-                  {{ main_data.divcontri.txt1 }}
-                </div>
-                <!--                                <div class="qtr-4 qty-lst" style="cursor:none!important;">
-                                  <strong> Quartiles:</strong>  72.07% of your portfolio stocks fall in the 4th Quartile
-                              </div>-->
               </div>
-              <!-- ngIf: loader[0].pf_return_summary == false && error_flag[0].return_summary == 0 -->
-              <div
-                class="foot-note ng-scope"
-                ng-if="loader[0].pf_return_summary == false &amp;&amp; error_flag[0].return_summary == 0"
-              >
-                Absolute Total Returns
-              </div>
-              <!-- end ngIf: loader[0].pf_return_summary == false && error_flag[0].return_summary == 0 -->
-            </div>
-            <!-- end ngIf: loader[0].pf_return_summary == false && error_flag[0].return_summary == 0 -->
-          </div>
-          <div class="card-reveal" style="display: none">
-            <span class="card-title grey-text text-darken-4"
-              >Card Title<i class="material-icons right">close</i></span
-            >
-            <p>
-              Here is some more information about this product that is only
-              revealed once clicked on.
-            </p>
+            </ng-template>
+
           </div>
         </div>
       </section>
@@ -274,12 +277,10 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <ng-container *ngIf="main_data!">
           <app-breakup
-            [DATA]="main_data.networth"
+            [DATA]="data_networth"
             [HEAD]="'Portfolio Networth Break-Up'"
           />
-        </ng-container>
       </section>
 
       <!-- calendar year return graph -->
@@ -359,10 +360,8 @@
           [HEAD]="'Returns Contribution - Stocks'"
           [data_holding]="data_holding"
         />
-
-
       </section>
-
+      
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">

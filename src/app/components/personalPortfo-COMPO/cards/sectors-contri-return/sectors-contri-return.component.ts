@@ -26,6 +26,9 @@ export class SectorsContriReturnComponent {
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
 
+  isCollapse: boolean = true;
+
+
   sendToParent() {
     if (this.childDiv) {
       console.log('clicked');
@@ -46,5 +49,8 @@ export class SectorsContriReturnComponent {
     }
   }
 
+  getObjectKeys(obj: Record<string, any>): string[] {
+    return Object.keys(obj);
+  }
 
 }

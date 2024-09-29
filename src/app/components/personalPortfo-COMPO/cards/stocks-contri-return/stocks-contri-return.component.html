@@ -4,90 +4,103 @@
       <h2>
         Returns Contribution - Stocks<span
           class="card-title activator info-act"
-          ng-click="isCollapseRetStock = !isCollapseRetStock"
+          (click)="isCollapseRetStock = !isCollapseRetStock"
         ></span>
       </h2>
     </div>
 
-    <div class="price-mojo col-green ng-scope" *ngIf="data_holding!">
-      <div class="txt-hed-1 priced ng-binding">
-        {{ data_holding.txt1 }}
+    <ng-container *ngIf="data_holding!; else loadingTemplate">
+      <ng-container
+        *ngIf="getObjectKeys(data_holding.list).length > 0; else noDataTemplate"
+      >
+        <!-- Content to show if data exists -->
+        <div class="price-mojo col-green ng-scope">
+          <div class="txt-hed-1 priced ng-binding">
+            {{ data_holding.txt1 }}
+          </div>
+          <table class="table1 divd-table">
+            <thead>
+              <tr>
+                <th class="textcenter">Holdings</th>
+                <th class="textcenter">
+                  Portfolio<br />
+                  Weight
+                </th>
+                <th class="textcenter">Total<br />Return</th>
+                <th class="textcenter">Return<br />Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let hold of data_holding.list | keyvalue"
+                class="ng-scope"
+              >
+                <td class="ng-binding">{{ hold.value.txt }}</td>
+
+                <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
+                  {{ hold.value.pwt | roundOff | twoCommas }}%
+                </td>
+
+                <td
+                  [ngClass]="
+                    this.fun.getDirClrDefault(hold.value.tgaindir, 'orange')
+                  "
+                  class="ng-binding ng-scope"
+                >
+                  {{ hold.value.tgain | roundOff | twoCommas }}
+                </td>
+
+                <td class="ng-binding ng-scope">
+                  {{ hold.value.tgainp | roundOff | twoCommas }}%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="foot-note ng-binding"></div>
+        </div>
+
+      </ng-container>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
       </div>
-      <table class="table1 divd-table">
-        <thead>
-          <tr>
-            <th class="textcenter">Holdings</th>
-            <th class="textcenter">
-              Portfolio<br />
-              Weight
-            </th>
-            <th class="textcenter">Total<br />Return</th>
-            <th class="textcenter">Return<br />Contribution</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="let hold of data_holding.list | keyvalue"
-            class="ng-scope"
-          >
-            <td class="ng-binding">{{ hold.value.txt }}</td>
+    </ng-template>
 
-            <td ng-if="rowArr.pwtflag == 1" class="ng-binding ng-scope">
-              {{ hold.value.pwt | roundOff | twoCommas }}%
-            </td>
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
 
-            <td
-              [ngClass]="
-                this.fun.getDirClrDefault(hold.value.tgaindir, 'orange')
-              "
-              class="ng-binding ng-scope"
-            >
-              {{ hold.value.tgain | roundOff | twoCommas }}
-            </td>
-
-            <td class="ng-binding ng-scope">
-              {{ hold.value.tgainp | roundOff | twoCommas }}%
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="foot-note ng-binding"></div>
-    </div>
-    <!-- end ngIf: loader[0].pf_return_stock == false && error_flag[0].return_stocks == 0 -->
   </div>
   <div
-    class="card-reveal animate-slide ng-hide"
-    ng-show="isCollapseRetStock"
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseRetStock }"
   >
     <span class="card-title grey-text text-darken-4"
       >Card Title<i
         class="material-icons right"
-        ng-click="isCollapseRetStock = !isCollapseRetStock"
+        (click)="isCollapseRetStock = !isCollapseRetStock"
         >close</i
       ></span
     >
     <div class="card-reveal-text">
       <ul>
-        <li>
-          Contribution of Market Cap categories in the portfolio to the
-          Unrealized Gain/Loss of your current portfolio
-        </li>
-        <li>
-          The sum of contribution would add up to the total percentage
-          Unrealized Gain/Loss of your portfolio
-        </li>
-        <li>
-          Unrealized gain/loss is the money that will be made if the
-          current portfolio is liquidated at the latest prices. This is
-          notional gain and there is no guarantee that when you go to
-          sell in the market, the shares can be sold at the exact same
-          prices to make the same gain.
-        </li>
-        <li>
-          Click on Full Details to see bifurcation of market cap return
-          contribution basis your portfolio stocks
-        </li>
-      </ul>
+        <li>Contribution of Market Cap categories in the portfolio to the Unrealized Gain/Loss of your current portfolio</li>
+        <li>The sum of contribution would add up to the total percentage Unrealized Gain/Loss of your portfolio</li>
+        <li>Unrealized gain/loss is the money that will be made if the current portfolio is liquidated at the latest prices. This is notional gain and there is no guarantee that when you go to sell in the market, the shares can be sold at the exact same prices to make the same gain.</li>
+        <li>Click on Full Details to see bifurcation of market cap return contribution basis your portfolio stocks</li>								   
+    </ul>
     </div>
   </div>
 </div>
@@ -97,9 +110,8 @@
   <div class="bottom-card-links">
     <div class="bottom-card-links">
       <a
-      (click)=" sendToParent()"
+        (click)="sendToParent()"
         class="seefull waves-light"
-        ng-click="returnContriPopup('holdings')"
         href="javascript:void(0);"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"
@@ -113,57 +125,59 @@
 </div>
 
 <!-- details  -->
-
-<div [hidden]="true" >
-
-  <div #childDiv  class="modal-content contentbg">
+<div [hidden]="true">
+  <div #childDiv class="modal-content contentbg">
     <div class="list-mojo">
-        <table class="table1 mod-table">
-            <thead>
-                <tr>
-                    <th class="ng-binding">
-                        Holdings                                                      <br>
-                    </th>
-                    <th>
-                        Portfolio<br>
-                        Weight
-                    </th>
-                    <th>
-                    Total<br>Return
-                    </th>
-                    <th>
-                    Return<br>Contribution
-                    </th>
-                </tr>
-            </thead>
-            <tbody
-            *ngIf="data_holding!"
-            >
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th class="ng-binding">Holdings <br /></th>
+            <th>
+              Portfolio<br />
+              Weight
+            </th>
+            <th>Total<br />Return</th>
+            <th>Return<br />Contribution</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="data_holding!">
+          <ng-container *ngFor="let sector of data_holding.list | keyvalue">
+            <tr class="mod-hed-td ng-scope">
+              <td class="ng-binding">{{ sector.value.txt }}</td>
+              <td class="ng-binding ng-scope">
+                {{ sector.value.pwt | roundOff | twoCommas }}%
+              </td>
+              <td
+                [ngClass]="
+                  this.fun.getDirClrDefault(sector.value.tgaindir, 'gray')
+                "
+                class="ng-binding ng-scope"
+              >
+                {{ sector.value.tgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding ng-scope">
+                {{ sector.value.tgainp | roundOff | twoCommas }}%
+              </td>
+            </tr>
 
-
-              <ng-container *ngFor="let sector of data_holding.list | keyvalue">
-                <tr class="mod-hed-td ng-scope">
-                  <td class="ng-binding">{{ sector.value.txt }}</td>
-                  <td class="ng-binding ng-scope">{{ sector.value.pwt | roundOff | twoCommas  }}%</td>
-                  <td
-                  [ngClass]=" this.fun.getDirClrDefault(sector.value.tgaindir , 'gray' ) "
-                  class="ng-binding ng-scope">{{ sector.value.tgain | roundOff | twoCommas  }}</td>
-                  <td class="ng-binding ng-scope">{{ sector.value.tgainp | roundOff | twoCommas  }}%</td>
-                </tr>
-
-                <tr *ngFor="let stock of sector.value.list">
-                  <td class="ng-binding">{{ stock.sname }}</td>
-                  <td class="ng-binding ng-scope">{{ (stock.pwt | roundOff | twoCommas) || '0.00'  }}%</td>
-                  <td
-                  [ngClass]=" this.fun.getDirClrDefault( stock.tgaindir , 'gray' ) "
-                  class="ng-binding ng-scope">{{ stock.tgain | roundOff | twoCommas  }}</td>
-                  <td class="ng-binding ng-scope">{{ stock.tgainp | roundOff | twoCommas  }}%</td>
-                </tr>
-              </ng-container>
-
-            </tbody>
-        </table>
+            <tr *ngFor="let stock of sector.value.list">
+              <td class="ng-binding">{{ stock.sname }}</td>
+              <td class="ng-binding ng-scope">
+                {{ (stock.pwt | roundOff | twoCommas) || "0.00" }}%
+              </td>
+              <td
+                [ngClass]="this.fun.getDirClrDefault(stock.tgaindir, 'gray')"
+                class="ng-binding ng-scope"
+              >
+                {{ stock.tgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding ng-scope">
+                {{ stock.tgainp | roundOff | twoCommas }}%
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
     </div>
-</div>
-
+  </div>
 </div>

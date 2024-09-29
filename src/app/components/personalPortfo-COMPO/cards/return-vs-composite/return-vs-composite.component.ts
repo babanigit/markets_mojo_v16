@@ -10,6 +10,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { retry, tap, catchError, of } from 'rxjs';
 import {
   ICompareReturnPopup,
   ICompareReturnPopup_data,
@@ -33,7 +34,7 @@ export class ReturnVsCompositeComponent implements OnInit {
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) { }
 
   @Input() data_retcompo: IRetcompo | undefined;
   @Input() data_scorecard: IScorecard | undefined;
@@ -48,45 +49,102 @@ export class ReturnVsCompositeComponent implements OnInit {
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
 
+  isCollapseRetCompo: boolean = true;
+
+
   clonedElement: HTMLDivElement | undefined;
 
-  ngOnInit(): void {
-    this.fetchData();
-  }
+  isLoading: boolean = false;
+  clickedOnce: boolean = false;
+  error: string | null = null;
+  isFetched: boolean = false; // Flag to track fetch status
 
-  fetchData() {
-    this.serv.getCompareReturn().subscribe((res: ICompareReturnPopup) => {
-      this.compare_return_data = res.data;
-      console.log('the compare return is : , ', this.compare_return_data);
-      this.cdr.detectChanges(); // Trigger change detection
-    });
+
+  ngOnInit(): void {
+    // this.fetchData();
   }
 
   sendToParent() {
-    // if(!this.compare_return_data){
-    // this.fetchData();
-    // }
+    this.clickedOnce = true;
 
-    if (this.childDiv) {
-      console.log('clicked');
-
-      // Clone the element to avoid moving it
-      this.clonedElement = this.childDiv.nativeElement.cloneNode(
-        true
-      ) as HTMLDivElement;
-      console.log('Sending cloned element:', this.clonedElement);
-
-      if (this.compare_return_data!) {
-        this.sendElement.emit(this.clonedElement);
-        this.sendClick_State.emit(true);
-        this.send_head.emit(this.HEAD);
-      }
-
-      console.log('the head is : ', this.HEAD);
+    // Check if data has already been fetched
+    if (this.isFetched) {
+      this.emitData();
+      console.log('Data has already been fetched. Skipping fetch.');
+      return;
     }
 
-    // this.cdr.detectChanges(); // Trigger change detection
+    if (this.isLoading) {
+      console.log('Data is still loading. Please wait.');
+      return;
+    }
+
+    if (true) {
+      this.fetch();
+    } else {
+      this.error = 'fetch_text is not defined';
+      console.error(this.error);
+      this.cdr.markForCheck();
+    }
   }
+
+  private fetch() {
+    this.isFetched = true
+    this.isLoading = true;
+    this.error = null;
+    this.cdr.markForCheck();
+
+    this.serv.getCompareReturn()
+      .pipe(
+        retry(3), // Retry up to 3 times
+        tap(res => {
+          console.log('Raw response:', res); // Log the raw response
+        }),
+        catchError(err => {
+          console.error('Error in fetch:', err);
+          this.error = 'Failed to load data. Please try again.';
+          return of(null); // Return an observable with null to continue the stream
+        })
+      )
+      .subscribe({
+        next: (res: ICompareReturnPopup) => {
+          if (res && res.data) {
+            this.compare_return_data = res.data;
+
+            console.log(" the hehe is : ", this.compare_return_data)
+
+            // console.log('The details data is:', this.fetch_text, this.detail_data);
+            setTimeout(() => {
+              this.emitData();
+            }, 0);
+          } else {
+            this.error = 'No data received from the server.';
+            console.error(this.error);
+          }
+        },
+        complete: () => {
+          this.isLoading = false;
+          this.cdr.markForCheck();
+        }
+      });
+  }
+
+  private emitData() {
+    if (this.childDiv && this.compare_return_data) {
+      console.log('Emitting data:', this.compare_return_data); // Log the data being emitted
+      const clonedElement = this.childDiv.nativeElement.cloneNode(true) as HTMLDivElement;
+      this.sendElement.emit(clonedElement);
+      this.sendClick_State.emit(true);
+      this.send_head.emit(this.HEAD);
+      console.log('Data emitted');
+    } else {
+      this.error = 'Unable to emit data: ' +
+        (this.childDiv ? '' : 'childDiv is undefined. ')
+      console.error(this.error);
+    }
+  }
+
+
 
   getPeriods(categoryData: { [period: string]: any }): string[] {
     return Object.keys(categoryData);

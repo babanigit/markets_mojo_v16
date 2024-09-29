@@ -18,9 +18,7 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
 })
 export class StocksContriReturnComponent {
 
-
   constructor(public fun: PpFunctionsService) {}
-
   @Input()   data_holding: IHoldings | undefined;
   @Input() HEAD: string | undefined; //props
   @Input() SHOW_BUTTON: Boolean = true;
@@ -29,6 +27,8 @@ export class StocksContriReturnComponent {
   @Output() sendElement = new EventEmitter<HTMLDivElement>();
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
+
+  isCollapseRetStock=true
 
   sendToParent() {
     if (this.childDiv) {
@@ -50,5 +50,9 @@ export class StocksContriReturnComponent {
     }
   }
 
+  getObjectKeys(obj: Record<string, any>): string[] {
+    return Object.keys(obj);
+  }
+  
 
 }

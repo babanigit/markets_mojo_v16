@@ -6,235 +6,249 @@
         Return v/s Composite Index
         <span
           class="card-title activator info-act"
-          ng-click="isCollapseRetCompo = !isCollapseRetCompo"
+          (click)="isCollapseRetCompo = !isCollapseRetCompo"
         ></span>
       </h2>
     </div>
 
     <!-- body -->
-    <div
-      class="score-card-cft red-score no-bor ng-scope"
-      *ngIf="data_retcompo! && data_scorecard!"
+
+    <ng-container
+      *ngIf="data_retcompo! && data_scorecard!; else loadingTemplate"
     >
-      <div class="current-trend">
-        <div
-          [ngClass]="
-            'score-' +
-            this.fun.getDirClrDefault(data_retcompo.W1.returndir, 'orange')
-          "
-        >
-          <h6 class="ng-binding">
-            1W<br />
-            {{ data_retcompo.W1.return }}
-          </h6>
-          <p
+      <!-- Content to show if data exists -->
+      <div class="score-card-cft red-score no-bor ng-scope">
+        <div class="current-trend">
+          <div
             [ngClass]="
-              this.fun.getDirClrDefault(data_retcompo.W1.compodir, 'orange')
+              'score-' +
+              this.fun.getDirClrDefault(data_retcompo.W1.returndir, 'orange')
             "
-            class="ng-binding alignp"
           >
-            {{ data_retcompo.W1.compo }}
-          </p>
+            <h6 class="ng-binding">
+              1W<br />
+              {{ data_retcompo.W1.return }}
+            </h6>
+            <p
+              [ngClass]="
+                this.fun.getDirClrDefault(data_retcompo.W1.compodir, 'orange')
+              "
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.W1.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' +
+              this.fun.getDirClrDefault(data_retcompo.M1.returndir, 'orange')
+            "
+          >
+            <h6 class="ng-binding">
+              1M<br />
+              {{ data_retcompo.M1.return }}
+            </h6>
+            <p
+              [ngClass]="
+                this.fun.getDirClrDefault(data_retcompo.M1.compodir, 'orange')
+              "
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.M1.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' +
+              this.fun.getDirClrDefault(data_retcompo.M3.returndir, 'orange')
+            "
+          >
+            <h6 class="ng-binding">
+              3M<br />
+              {{ data_retcompo.M3.return }}
+            </h6>
+            <p
+              [ngClass]="
+                this.fun.getDirClrDefault(data_retcompo.M3.compodir, 'orange')
+              "
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.M3.compo }}
+            </p>
+          </div>
         </div>
 
-        <div
-          [ngClass]="
-            'score-' +
-            this.fun.getDirClrDefault(data_retcompo.M1.returndir, 'orange')
-          "
-        >
-          <h6 class="ng-binding">
-            1M<br />
-            {{ data_retcompo.M1.return }}
-          </h6>
-          <p
+        <div class="current-trend">
+          <div
             [ngClass]="
-              this.fun.getDirClrDefault(data_retcompo.M1.compodir, 'orange')
+              'score-' +
+              this.fun.getDirClrDefault(data_retcompo.M6.returndir, 'orange')
             "
-            class="ng-binding alignp"
           >
-            {{ data_retcompo.M1.compo }}
-          </p>
+            <h6 class="ng-binding">
+              6M<br />
+              {{ data_retcompo.M6.return }}
+            </h6>
+            <p
+              [ngClass]="
+                this.fun.getDirClrDefault(data_retcompo.M6.compodir, 'orange')
+              "
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.M6.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' +
+              this.fun.getDirClrDefault(data_retcompo.YTD.returndir, 'orange')
+            "
+          >
+            <h6 class="ng-binding">
+              YTD<br />
+              {{ data_retcompo.YTD.return }}
+            </h6>
+            <p
+              [ngClass]="
+                this.fun.getDirClrDefault(data_retcompo.YTD.compodir, 'orange')
+              "
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.YTD.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' +
+              this.fun.getDirClrDefault(data_retcompo.Y1.returndir, 'orange')
+            "
+          >
+            <h6 class="ng-binding">
+              1Y<br />
+              {{ data_retcompo.Y1.return }}
+            </h6>
+            <p
+              [ngClass]="
+                this.fun.getDirClrDefault(data_retcompo.Y1.compodir, 'orange')
+              "
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.Y1.compo }}
+            </p>
+          </div>
         </div>
 
-        <div
-          [ngClass]="
-            'score-' +
-            this.fun.getDirClrDefault(data_retcompo.M3.returndir, 'orange')
-          "
-        >
-          <h6 class="ng-binding">
-            3M<br />
-            {{ data_retcompo.M3.return }}
-          </h6>
-          <p
+        <div class="current-trend">
+          <div
             [ngClass]="
-              this.fun.getDirClrDefault(data_retcompo.M3.compodir, 'orange')
+              'score-' +
+              this.fun.getDirClrDefault(data_retcompo.Y2.returndir, 'orange')
             "
-            class="ng-binding alignp"
           >
-            {{ data_retcompo.M3.compo }}
-          </p>
+            <h6 class="ng-binding">
+              2Y<br />
+              {{ data_retcompo.Y2.return }}
+            </h6>
+            <p
+              [ngClass]="
+                this.fun.getDirClrDefault(data_retcompo.Y2.compodir, 'orange')
+              "
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.Y2.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' +
+              this.fun.getDirClrDefault(data_retcompo.Y3.returndir, 'orange')
+            "
+          >
+            <h6 class="ng-binding">
+              3Y<br />
+              {{ data_retcompo.Y3.return }}
+            </h6>
+            <p
+              [ngClass]="
+                this.fun.getDirClrDefault(data_retcompo.Y3.compodir, 'orange')
+              "
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.Y3.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' +
+              this.fun.getDirClrDefault(data_scorecard.returndir, 'orange')
+            "
+          >
+            <h6 class="ng-binding">
+              INCEPTION<br />
+              {{ data_scorecard.return }}
+            </h6>
+            <p
+              [ngClass]="
+                this.fun.getDirClrDefault(data_scorecard.compodir, 'orange')
+              "
+              class="ng-binding alignp"
+            >
+              {{ data_scorecard.compo }}
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="current-trend">
-        <div
-          [ngClass]="
-            'score-' +
-            this.fun.getDirClrDefault(data_retcompo.M6.returndir, 'orange')
-          "
-        >
-          <h6 class="ng-binding">
-            6M<br />
-            {{ data_retcompo.M6.return }}
-          </h6>
-          <p
-            [ngClass]="
-              this.fun.getDirClrDefault(data_retcompo.M6.compodir, 'orange')
-            "
-            class="ng-binding alignp"
-          >
-            {{ data_retcompo.M6.compo }}
-          </p>
-        </div>
-
-        <div
-          [ngClass]="
-            'score-' +
-            this.fun.getDirClrDefault(data_retcompo.YTD.returndir, 'orange')
-          "
-        >
-          <h6 class="ng-binding">
-            YTD<br />
-            {{ data_retcompo.YTD.return }}
-          </h6>
-          <p
-            [ngClass]="
-              this.fun.getDirClrDefault(data_retcompo.YTD.compodir, 'orange')
-            "
-            class="ng-binding alignp"
-          >
-            {{ data_retcompo.YTD.compo }}
-          </p>
-        </div>
-
-        <div
-          [ngClass]="
-            'score-' +
-            this.fun.getDirClrDefault(data_retcompo.Y1.returndir, 'orange')
-          "
-        >
-          <h6 class="ng-binding">
-            1Y<br />
-            {{ data_retcompo.Y1.return }}
-          </h6>
-          <p
-            [ngClass]="
-              this.fun.getDirClrDefault(data_retcompo.Y1.compodir, 'orange')
-            "
-            class="ng-binding alignp"
-          >
-            {{ data_retcompo.Y1.compo }}
-          </p>
-        </div>
+      <div
+        class="indics-new ng-scope"
+        ng-if="loader[0].pf_return_composite == false  &amp;&amp; error_flag[0].return_compo == 0"
+        style=""
+      >
+        <span class="green"><i class="fa fa-stop"></i></span>
+        <span class="red"><i class="fa fa-stop"></i></span>
+        <span>Portfolio Returns</span>
+        <span class="greybox"><i class="fa fa-stop"></i></span>
+        <span>CI Returns</span>
       </div>
 
-      <div class="current-trend">
-        <div
-          [ngClass]="
-            'score-' +
-            this.fun.getDirClrDefault(data_retcompo.Y2.returndir, 'orange')
-          "
-        >
-          <h6 class="ng-binding">
-            2Y<br />
-            {{ data_retcompo.Y2.return }}
-          </h6>
-          <p
-            [ngClass]="
-              this.fun.getDirClrDefault(data_retcompo.Y2.compodir, 'orange')
-            "
-            class="ng-binding alignp"
-          >
-            {{ data_retcompo.Y2.compo }}
-          </p>
-        </div>
+      <div
+        class="foot-note ng-binding ng-scope"
+        ng-if="loader[0].pf_return_composite == false  &amp;&amp; error_flag[0].return_compo == 0"
+        style=""
+      >
+        Returns include Dividends and Realized Gain; Inception from 26 Dec 2016
+      </div>
+    </ng-container>
 
-        <div
-          [ngClass]="
-            'score-' +
-            this.fun.getDirClrDefault(data_retcompo.Y3.returndir, 'orange')
-          "
-        >
-          <h6 class="ng-binding">
-            3Y<br />
-            {{ data_retcompo.Y3.return }}
-          </h6>
-          <p
-            [ngClass]="
-              this.fun.getDirClrDefault(data_retcompo.Y3.compodir, 'orange')
-            "
-            class="ng-binding alignp"
-          >
-            {{ data_retcompo.Y3.compo }}
-          </p>
-        </div>
-
-        <div
-          [ngClass]="
-            'score-' +
-            this.fun.getDirClrDefault(data_scorecard.returndir, 'orange')
-          "
-        >
-          <h6 class="ng-binding">
-            INCEPTION<br />
-            {{ data_scorecard.return }}
-          </h6>
-          <p
-            [ngClass]="
-              this.fun.getDirClrDefault(data_scorecard.compodir, 'orange')
-            "
-            class="ng-binding alignp"
-          >
-            {{ data_scorecard.compo }}
-          </p>
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
         </div>
       </div>
-    </div>
-
-    <!-- end ngIf: loader[0].pf_return_composite == false && error_flag[0].return_compo == 0 -->
-    <!-- ngIf: loader[0].pf_return_composite == false  && error_flag[0].return_compo == 0 -->
-    <div
-      class="indics-new ng-scope"
-      ng-if="loader[0].pf_return_composite == false  &amp;&amp; error_flag[0].return_compo == 0"
-      style=""
-    >
-      <span class="green"><i class="fa fa-stop"></i></span>
-      <span class="red"><i class="fa fa-stop"></i></span>
-      <span>Portfolio Returns</span>
-      <span class="greybox"><i class="fa fa-stop"></i></span>
-      <span>CI Returns</span>
-    </div>
-
-    <!-- end ngIf: loader[0].pf_return_composite == false  && error_flag[0].return_compo == 0 -->
-    <!-- ngIf: loader[0].pf_return_composite == false  && error_flag[0].return_compo == 0 -->
-    <div
-      class="foot-note ng-binding ng-scope"
-      ng-if="loader[0].pf_return_composite == false  &amp;&amp; error_flag[0].return_compo == 0"
-      style=""
-    >
-      Returns include Dividends and Realized Gain; Inception from 26 Dec 2016
-    </div>
-    <!-- end ngIf: loader[0].pf_return_composite == false  && error_flag[0].return_compo == 0 -->
+    </ng-template>
   </div>
 
   <!-- slider -->
-  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseRetCompo">
+  <div
+    class="card-reveal animate-slide ng-hide"
+    [ngClass]="{ 'ng-hide': isCollapseRetCompo }"
+  >
     <span class="card-title grey-text text-darken-4"
       >Card Title<i
         class="material-icons right"
-        ng-click="isCollapseRetCompo = !isCollapseRetCompo"
+        (click)="isCollapseRetCompo = !isCollapseRetCompo"
         >close</i
       ></span
     >
@@ -280,15 +294,17 @@
       <a
         (click)="sendToParent()"
         class="seefull waves-light modal-trigger"
-        ng-click="return_composite_popup()"
         href="javascript:void(0);"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"
           alt="ArrowRight"
           height="16"
         />
-        Compare Returns</a
-      >
+
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Compare Returns </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+      </a>
     </div>
   </div>
 </div>
@@ -297,13 +313,7 @@
 <div [hidden]="true">
   <div #childDiv>
     <ng-container class="modal-content contentbg">
-      <!-- ngIf: loader[0].pf_return_compo_popup == true -->
-      <!-- ngIf: loader[0].pf_return_compo_popup == false -->
-      <div
-        id=""
-        class="list-mojo ng-scope"
-        ng-if="loader[0].pf_return_compo_popup == false"
-      >
+      <div id="" class="list-mojo ng-scope">
         <table class="table1">
           <thead>
             <tr>
@@ -384,8 +394,7 @@
             </tr>
           </thead>
 
-          <tbody>
-            <!-- ngRepeat: (key,value) in returnpopup_heading -->
+          <tbody *ngIf="compare_return_data!">
             <tr
               *ngFor="let item of compare_return_data | keyvalue"
               class="ng-scope"
@@ -419,125 +428,108 @@
                   BSE Small Cap (%)
                 </ng-container>
               </td>
-              <!-- ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
               <td
                 [ngClass]="
                   this.fun.getDirClrDefault(item.value.W1.dir, 'white')
                 "
                 class="txt-rt no-mob no-tab2"
               >
-                <!-- ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><span
-                  ng-if="return_compo_popup[value][period_value]['val'] !='NA' &amp;&amp; return_compo_popup[value][period_value]['val'] !==''"
-                  class="ng-binding ng-scope"
-                  >{{ item.value.W1.val | roundOff | twoCommas }} </span
-                ><!-- end ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><!-- ngIf: return_compo_popup[value][period_value]['val'] =='NA' || return_compo_popup[value][period_value]['val'] ==='' -->
+                <span class="ng-binding ng-scope"
+                  >{{ item.value.W1.val | roundOff | twoCommas }}
+                </span>
               </td>
-              <!-- end ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
+
               <td
                 [ngClass]="
                   this.fun.getDirClrDefault(item.value.M1.dir, 'white')
                 "
                 class="txt-rt no-mob no-tab2"
               >
-                <!-- ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><span
-                  class="ng-binding ng-scope"
-                  >{{ item.value.M1.val | roundOff | twoCommas }}</span
-                ><!-- end ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><!-- ngIf: return_compo_popup[value][period_value]['val'] =='NA' || return_compo_popup[value][period_value]['val'] ==='' -->
+                <span class="ng-binding ng-scope">{{
+                  item.value.M1.val | roundOff | twoCommas
+                }}</span>
               </td>
-              <!-- end ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
+
               <td
                 [ngClass]="
                   this.fun.getDirClrDefault(item.value.M3.dir, 'white')
                 "
                 class="txt-rt no-mob no-tab2"
               >
-                <!-- ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><span
-                  ng-if="return_compo_popup[value][period_value]['val'] !='NA' &amp;&amp; return_compo_popup[value][period_value]['val'] !==''"
-                  class="ng-binding ng-scope"
-                  >{{ item.value.M3.val | roundOff | twoCommas }}</span
-                ><!-- end ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><!-- ngIf: return_compo_popup[value][period_value]['val'] =='NA' || return_compo_popup[value][period_value]['val'] ==='' -->
+                <span class="ng-binding ng-scope">{{
+                  item.value.M3.val | roundOff | twoCommas
+                }}</span>
               </td>
-              <!-- end ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
+
               <td
                 [ngClass]="
                   this.fun.getDirClrDefault(item.value.M6.dir, 'white')
                 "
                 class="txt-rt no-mob no-tab2"
               >
-                <!-- ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><span
-                  class="ng-binding ng-scope"
-                  >{{ item.value.M6.val | roundOff | twoCommas }}</span
-                ><!-- end ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><!-- ngIf: return_compo_popup[value][period_value]['val'] =='NA' || return_compo_popup[value][period_value]['val'] ==='' -->
+                <span class="ng-binding ng-scope">{{
+                  item.value.M6.val | roundOff | twoCommas
+                }}</span>
               </td>
-              <!-- end ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
+
               <td
                 [ngClass]="
                   this.fun.getDirClrDefault(item.value.YTD.dir, 'white')
                 "
                 class="txt-rt"
               >
-                <!-- ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><span
-                  ng-if="return_compo_popup[value][period_value]['val'] !='NA' &amp;&amp; return_compo_popup[value][period_value]['val'] !==''"
-                  class="ng-binding ng-scope"
-                  >{{ item.value.YTD.val | roundOff | twoCommas }}</span
-                ><!-- end ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><!-- ngIf: return_compo_popup[value][period_value]['val'] =='NA' || return_compo_popup[value][period_value]['val'] ==='' -->
+                <span class="ng-binding ng-scope">{{
+                  item.value.YTD.val | roundOff | twoCommas
+                }}</span>
               </td>
-              <!-- end ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
+
               <td
                 [ngClass]="
                   this.fun.getDirClrDefault(item.value.Y1.dir, 'white')
                 "
                 class="txt-rt no-mob no-tab2"
               >
-                <!-- ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><span
-                  class="ng-binding ng-scope"
-                  >{{ item.value.Y1.val | roundOff | twoCommas }}</span
-                ><!-- end ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><!-- ngIf: return_compo_popup[value][period_value]['val'] =='NA' || return_compo_popup[value][period_value]['val'] ==='' -->
+                <span class="ng-binding ng-scope">{{
+                  item.value.Y1.val | roundOff | twoCommas
+                }}</span>
               </td>
-              <!-- end ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
+
               <td
                 [ngClass]="
                   this.fun.getDirClrDefault(item.value.Y2.dir, 'white')
                 "
                 class="txt-rt no-mob no-tab2"
               >
-                <!-- ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><span
-                  ng-if="return_compo_popup[value][period_value]['val'] !='NA' &amp;&amp; return_compo_popup[value][period_value]['val'] !==''"
-                  class="ng-binding ng-scope"
-                  >{{ item.value.Y2.val | roundOff | twoCommas }}</span
-                ><!-- end ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><!-- ngIf: return_compo_popup[value][period_value]['val'] =='NA' || return_compo_popup[value][period_value]['val'] ==='' -->
+                <span class="ng-binding ng-scope">{{
+                  item.value.Y2.val | roundOff | twoCommas
+                }}</span>
               </td>
-              <!-- end ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
+
               <td
                 [ngClass]="
                   this.fun.getDirClrDefault(item.value.Y3.dir, 'white')
                 "
                 class="txt-rt no-mob no-tab2"
               >
-                <!-- ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><span
-                  class="ng-binding ng-scope"
-                  >{{ item.value.Y3.val | roundOff | twoCommas }}</span
-                ><!-- end ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><!-- ngIf: return_compo_popup[value][period_value]['val'] =='NA' || return_compo_popup[value][period_value]['val'] ==='' -->
+                <span class="ng-binding ng-scope">{{
+                  item.value.Y3.val | roundOff | twoCommas
+                }}</span>
               </td>
-              <!-- end ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
+
               <td
                 [ngClass]="
                   this.fun.getDirClrDefault(item.value.incept.dir, 'white')
                 "
                 class="txt-rt"
               >
-                <!-- ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><span
-                  ng-if="return_compo_popup[value][period_value]['val'] !='NA' &amp;&amp; return_compo_popup[value][period_value]['val'] !==''"
-                  class="ng-binding ng-scope"
-                  >{{ item.value.incept.val | roundOff | twoCommas }}</span
-                ><!-- end ngIf: return_compo_popup[value][period_value]['val'] !='NA' && return_compo_popup[value][period_value]['val'] !=='' --><!-- ngIf: return_compo_popup[value][period_value]['val'] =='NA' || return_compo_popup[value][period_value]['val'] ==='' -->
+                <span class="ng-binding ng-scope">{{
+                  item.value.incept.val | roundOff | twoCommas
+                }}</span>
               </td>
-              <!-- end ngRepeat: (period_key,period_value) in returnpopup_data_heading -->
             </tr>
           </tbody>
         </table>
       </div>
-      <!-- end ngIf: loader[0].pf_return_compo_popup == false -->
     </ng-container>
   </div>
 </div>
