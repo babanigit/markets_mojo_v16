@@ -45,7 +45,7 @@ export class OverallPortfolioAnalysisComponent implements OnChanges {
     }
   }
 
-  isCollapseTodayContri: boolean = true;
+  isCollapse: boolean = true;
 
   // Method to get class by color
   getClassByColor(color: string): string {

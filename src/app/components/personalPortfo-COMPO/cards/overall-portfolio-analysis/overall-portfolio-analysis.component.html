@@ -1,11 +1,3 @@
-<!-- <div>
-  <div *ngIf="DATA">
-    <h1>{{ HEAD }}</h1>
-    <div> {{DATA.quality.color}} </div>
-    <pre>{{ DATA | json }}</pre>
-  </div>
-</div> -->
-
 <div id="returnsOverview" class="card">
   <div class="card-content">
     <div class="card-head">
@@ -13,187 +5,181 @@
         {{ HEAD }}
         <span
           class="card-title activator info-act"
-          (click)="isCollapseTodayContri = !isCollapseTodayContri"
+          (click)="isCollapse = !isCollapse"
         ></span>
       </h2>
     </div>
 
-    <div class="card-body ng-scope" *ngIf="DATA">
-      <div class="pf-overall-boxs">
-        <div class="pf-box-set">
-          <!-- returns -->
-          <div
-            class="pf-box red-bx"
-            ng-click="other_section_visible('MenusectReturn')"
-          >
-            <a
-              class="pf-bx-a"
-              href="javascript:void(0)"
-              (click)="jumpToElement('Returns')"
-            >
-              <div class="pf-box-hed">RETURNS</div>
-              <small style="color: black"
-                ><i class="ng-binding"> {{ DATA.return.dt }} </i></small
+    <ng-container *ngIf="DATA!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+
+      <div class="card-body ng-scope">
+        <div class="pf-overall-boxs">
+          <div class="pf-box-set">
+            <!-- returns -->
+            <div class="pf-box red-bx">
+              <a
+                class="pf-bx-a"
+                href="javascript:void(0)"
+                (click)="jumpToElement('Returns')"
               >
-              <div
-                [ngClass]="getDirClrDefault(DATA.return.returndir, 'orange')"
-                class="pf-box-txt1"
+                <div class="pf-box-hed">RETURNS</div>
+                <small style="color: black"
+                  ><i class="ng-binding"> {{ DATA.return.dt }} </i></small
+                >
+                <div
+                  [ngClass]="getDirClrDefault(DATA.return.returndir, 'orange')"
+                  class="pf-box-txt1"
+                >
+                  {{ DATA.return.return }}
+                </div>
+                <div class="pf-box-txt2 ng-binding">
+                  {{ DATA.return.txt1! }}
+                </div>
+                <div class="pf-box-txt4 ng-binding">
+                  {{ DATA.return.txt2! }}
+                </div>
+              </a>
+            </div>
+
+            <!-- risk -->
+            <div class="pf-box red-bx">
+              <a
+                class="pf-bx-a"
+                href="javascript:void(0)"
+                (click)="jumpToElement('Risk')"
               >
-                {{ DATA.return.return }}
-              </div>
-              <div class="pf-box-txt2 ng-binding">
-                {{ DATA.return.txt1! }}
-              </div>
-              <div class="pf-box-txt4 ng-binding">
-                {{ DATA.return.txt2! }}
-              </div>
-            </a>
-          </div>
+                <div class="pf-box-hed">RISK</div>
+                <div class="pf-box-txt1" [ngClass]="DATA.risk.color">
+                  {{ DATA.risk.c_text }}
+                </div>
+                <div
+                  [innerHTML]="DATA.risk.text"
+                  class="pf-box-txt2 ng-binding"
+                ></div>
+              </a>
+            </div>
 
-          <!-- risk -->
-          <div
-            class="pf-box red-bx"
-            ng-click="other_section_visible('MenusectRisk')"
-          >
-            <a
-              class="pf-bx-a"
-              href="javascript:void(0)"
-              (click)="jumpToElement('Risk')"
-            >
-              <div class="pf-box-hed">RISK</div>
-              <div class="pf-box-txt1" [ngClass]="DATA.risk.color">
-                {{ DATA.risk.c_text }}
-              </div>
-              <div class="pf-box-txt2 ng-binding">
-                {{ DATA.risk.text }}
-              </div>
-            </a>
-          </div>
+            <!-- liaquidity -->
+            <div class="pf-box green-bx">
+              <a
+                class="pf-bx-a"
+                href="javascript:void(0)"
+                (click)="jumpToElement('Liquidity')"
+              >
+                <div class="pf-box-hed">LIQUIDITY</div>
+                <div class="pf-box-txt1" [ngClass]="DATA.liquidity.color">
+                  {{ DATA.liquidity.c_text }}
+                </div>
+                <div
+                  [innerHTML]="DATA.liquidity.text"
+                  class="pf-box-txt2 ng-binding"
+                ></div>
+              </a>
+            </div>
 
-          <!-- liaquidity -->
-          <div
-            class="pf-box green-bx"
-            ng-click="other_section_visible('MenusectLiq')"
-          >
-            <a
-              class="pf-bx-a"
-              href="javascript:void(0)"
-              (click)="jumpToElement('Liquidity')"
-            >
-              <div class="pf-box-hed">LIQUIDITY</div>
-              <div class="pf-box-txt1" [ngClass]="DATA.liquidity.color">
-                {{ DATA.liquidity.c_text }}
-              </div>
-              <div class="pf-box-txt2 ng-binding">
-                {{ DATA.liquidity.text }}
-              </div>
-            </a>
+            <div class="pf-box red-bx">
+              <a
+                class="pf-bx-a"
+                href="javascript:void(0)"
+                (click)="jumpToElement('Diversification')"
+              >
+                <div class="pf-box-hed">DIVERSIFICATION</div>
+                <div
+                  class="pf-box-txt1"
+                  [innerHTML]="DATA.diversified.text"
+                  [ngClass]="DATA.diversified.color"
+                >
+                  <!-- <div class="pf-box-txt2 ng-binding">
+                      {{ DATA.diversified.text }}
+                    </div> -->
+                </div>
+              </a>
+            </div>
           </div>
+        </div>
 
-          <div
-            class="pf-box red-bx"
-            ng-click="other_section_visible('MenusectDiverse')"
-          >
-            <a
-              class="pf-bx-a"
-              href="javascript:void(0)"
-              (click)="jumpToElement('Diversification')"
-            >
-              <div class="pf-box-hed">DIVERSIFICATION</div>
-              <div class="pf-box-txt1" [ngClass]="DATA.diversified.color">
-                {{ DATA.diversified.text }}
-              </div>
-              <!-- <div class="pf-box-txt2 ng-binding">
-                {{ DATA.diversified.text }}
-              </div> -->
-            </a>
+        <div class="pf-overall-boxs2">
+          <div class="pf-box-set">
+            <div class="pf-box red-bx">
+              <a
+                class="pf-bx-a"
+                href="javascript:void(0)"
+                (click)="jumpToElement('Quality')"
+              >
+                <div class="pf-box-hed">QUALITY</div>
+                <div
+                  class="pf-box-txt2 ng-binding"
+                  [innerHTML]="DATA.quality.text"
+                >
+                  <!-- <strong
+                      >60.0%</strong> of your portfolio has Average
+                      or Below Average Quality -->
+                </div>
+              </a>
+            </div>
+
+            <div class="pf-box red-bx">
+              <a
+                class="pf-bx-a"
+                href="javascript:void(0)"
+                (click)="jumpToElement('Valuation')"
+              >
+                <div class="pf-box-hed">VALUATION</div>
+                <div
+                  class="pf-box-txt2 ng-binding"
+                  [innerHTML]="DATA.valuation.text"
+                >
+                  <!-- <strong
+                  >60.0%</strong> of your portfolio has Average
+                  or Below Average valuation -->
+                  {{ DATA.valuation.text }}
+                </div>
+              </a>
+            </div>
+
+            <div class="pf-box yellow-bx">
+              <a
+                class="pf-bx-a"
+                href="javascript:void(0)"
+                (click)="jumpToElement('Financial Trend')"
+              >
+                <div class="pf-box-hed">FINANCIAL TREND</div>
+                <div
+                  class="pf-box-txt2 ng-binding"
+                  [innerHTML]="DATA.fin_trend.text"
+                ></div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
+    </ng-container>
 
-      <div class="pf-overall-boxs2">
-        <div class="pf-box-set">
-          <div
-            class="pf-box red-bx"
-            ng-click="other_section_visible('MenusectQuality')"
-          >
-            <a
-              class="pf-bx-a"
-              href="javascript:void(0)"
-              (click)="jumpToElement('Quality')"
-            >
-              <div class="pf-box-hed">QUALITY</div>
-              <div
-                class="pf-box-txt2 ng-binding"
-                ng-bind-html="overall.quality.text"
-              >
-                <!-- <strong
-                >60.0%</strong> of your portfolio has Average
-                or Below Average Quality -->
-                {{ DATA.quality.text }}
-              </div>
-            </a>
-          </div>
-
-          <div
-            class="pf-box red-bx"
-            ng-click="other_section_visible('MenusectValuation')"
-          >
-            <a
-              class="pf-bx-a"
-              href="javascript:void(0)"
-              onclick="javascript:jumpToSectionV2('#navValuation')"
-            >
-              <div class="pf-box-hed">VALUATION</div>
-              <div
-                class="pf-box-txt2 ng-binding"
-                ng-bind-html="overall.quality.text"
-              >
-                <!-- <strong
-            >60.0%</strong> of your portfolio has Average
-            or Below Average valuation -->
-                {{ DATA.valuation.text }}
-              </div>
-            </a>
-          </div>
-
-          <div
-            class="pf-box yellow-bx"
-            ng-click="other_section_visible('MenusectFintrend')"
-          >
-            <a
-              class="pf-bx-a"
-              href="javascript:void(0)"
-              onclick="javascript:jumpToSectionV2('#navFinancialTrend')"
-            >
-              <div class="pf-box-hed">FINANCIAL TREND</div>
-              <div
-                class="pf-box-txt2 ng-binding"
-                ng-bind-html="overall.quality.text"
-              >
-                <!-- <strong
-              >60.0%</strong> of your portfolio has Average
-              or Below Average fin_trend -->
-                {{ DATA.fin_trend.text }}
-              </div>
-            </a>
-          </div>
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
         </div>
       </div>
-    </div>
-    <!-- end ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
+    </ng-template>
   </div>
 
   <!-- after expand -->
   <div
     *ngIf="SHOW_BUTTON"
     class="card-reveal animate-slide"
-    [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+    [ngClass]="{ 'ng-hide': isCollapse }"
   >
     <span class="card-title grey-text text-darken-4">
       Card Title<i
         class="material-icons right"
-        (click)="isCollapseTodayContri = !isCollapseTodayContri"
+        (click)="isCollapse = !isCollapse"
         >close</i
       >
     </span>

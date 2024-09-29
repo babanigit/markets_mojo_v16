@@ -40,6 +40,7 @@ export class CardComponent implements OnInit, OnChanges {
   @Input() DATA: IContri_overall_today[] | IDrags_overall_today[] | any; //props
   @Input() HEAD!: string; //props
   @Input() SHOW_BUTTON: Boolean = true;
+  isCollapse: boolean = true;
 
   // modalRef!: NgbModalRef;
 
@@ -85,7 +86,6 @@ export class CardComponent implements OnInit, OnChanges {
     // }
   }
 
-  isCollapseTodayContri: boolean = true;
 
   // Method to get class by color
   getClassByColor(color: string): string {

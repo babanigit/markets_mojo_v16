@@ -12,7 +12,7 @@
         <span
           *ngIf="SHOW_BUTTON"
           class="card-title activator info-act"
-          (click)="isCollapseTodayContri = !isCollapseTodayContri"
+          (click)="isCollapse = !isCollapse"
         ></span>
       </h2>
     </div>
@@ -121,12 +121,12 @@
   <div
     *ngIf="SHOW_BUTTON"
     class="card-reveal animate-slide"
-    [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+    [ngClass]="{ 'ng-hide': isCollapse }"
   >
     <span class="card-title grey-text text-darken-4">
       Card Title<i
         class="material-icons right"
-        (click)="isCollapseTodayContri = !isCollapseTodayContri"
+        (click)="isCollapse = !isCollapse"
         >close</i
       >
     </span>

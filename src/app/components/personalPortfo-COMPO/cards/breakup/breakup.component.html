@@ -12,92 +12,109 @@
       </h2>
     </div>
 
-    <div class="card-body ng-scope" *ngIf="DATA">
-      <div class="pf-net-breakup">
-        <div class="companycv">
-          <ul style="padding: 0">
-            <li>
-              Your Holding Value :
-              <strong class="ng-binding">
-                Rs {{ DATA.lval || DATA.pv | roundOff | twoCommas }}
-              </strong>
-            </li>
-            <li>
-              You bought :
-              <strong class="ng-binding">
-                Rs {{ DATA.buyval | roundOff | twoCommas }}
-              </strong>
-            </li>
-            <!-- ngIf: overall.sellval != 0 -->
-            <li ng-if="overall.sellval != 0" class="ng-scope">
-              You sold :
-              <strong class="ng-binding"
-                >Rs {{ DATA.sellval | roundOff | twoCommas }}
-              </strong>
-            </li>
-            <!-- end ngIf: overall.sellval != 0 -->
-            <!-- ngIf: overall.sellval == 0 -->
-          </ul>
-        </div>
+    <ng-container *ngIf="DATA!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+      <div class="card-body ng-scope">
+        <div class="pf-net-breakup">
+          <div class="companycv">
+            <ul style="padding: 0">
+              <li>
+                Your Holding Value :
+                <strong class="ng-binding">
+                  Rs {{ DATA.lval || DATA.pv | roundOff | twoCommas }}
+                </strong>
+              </li>
+              <li>
+                You bought :
+                <strong class="ng-binding">
+                  Rs {{ DATA.buyval | roundOff | twoCommas }}
+                </strong>
+              </li>
+              <!-- ngIf: overall.sellval != 0 -->
+              <li ng-if="overall.sellval != 0" class="ng-scope">
+                You sold :
+                <strong class="ng-binding"
+                  >Rs {{ DATA.sellval | roundOff | twoCommas }}
+                </strong>
+              </li>
+              <!-- end ngIf: overall.sellval != 0 -->
+              <!-- ngIf: overall.sellval == 0 -->
+            </ul>
+          </div>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th class="pf-">Total Gain/Loss</th>
-              <th
-                [ngClass]="this.fun.getDirClrDefault(DATA.tgaindir, 'orange')"
-                class="ng-binding"
-              >
-                Rs {{ DATA.tgain | roundOff | twoCommas }}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="pf-">Realized Gain/Loss</td>
-              <!-- ngIf: overall.rgain == 'NA' -->
-              <!-- ngIf: overall.rgain != 'NA' -->
-              <td
-                [ngClass]="this.fun.getDirClrDefault(DATA.rgaindir, 'orange')"
-                class="ng-binding ng-scope"
-              >
-                Rs {{ DATA.rgain | roundOff | twoCommas }}
-              </td>
-              <!-- end ngIf: overall.rgain != 'NA' -->
-            </tr>
-            <tr>
-              <td class="pf-">Dividend Received</td>
-              <!-- ngIf: overall.dividend == 'NA' -->
-              <!-- ngIf: overall.dividend != 'NA' -->
-              <td
-                [ngClass]="this.fun.getDirClrDefault(DATA.divdir, 'orange')"
-                class="ng-binding ng-scope"
-              >
-                Rs {{ DATA.dividend | roundOff | twoCommas }}
-              </td>
-              <!-- end ngIf: overall.dividend != 'NA' -->
-            </tr>
-            <tr>
-              <td class="pf-">Unrealized Gain/Loss</td>
-              <!-- ngIf: overall.unrgain == 'NA' -->
-              <!-- ngIf: overall.unrgain != 'NA' -->
-              <td
-                [ngClass]="this.fun.getDirClrDefault(DATA.unrgaindir, 'orange')"
-                class="ng-binding ng-scope"
-              >
-                Rs {{ DATA.unrgain | roundOff | twoCommas }}
-              </td>
-              <!-- end ngIf: overall.unrgain != 'NA' -->
-            </tr>
-          </tbody>
-        </table>
-        <div class="condi-p">
-          <p>Tax has not been considered for this analysis</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="pf-">Total Gain/Loss</th>
+                <th
+                  [ngClass]="this.fun.getDirClrDefault(DATA.tgaindir, 'orange')"
+                  class="ng-binding"
+                >
+                  Rs {{ DATA.tgain | roundOff | twoCommas }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pf-">Realized Gain/Loss</td>
+                <!-- ngIf: overall.rgain == 'NA' -->
+                <!-- ngIf: overall.rgain != 'NA' -->
+                <td
+                  [ngClass]="this.fun.getDirClrDefault(DATA.rgaindir, 'orange')"
+                  class="ng-binding ng-scope"
+                >
+                  Rs {{ DATA.rgain | roundOff | twoCommas }}
+                </td>
+                <!-- end ngIf: overall.rgain != 'NA' -->
+              </tr>
+              <tr>
+                <td class="pf-">Dividend Received</td>
+                <!-- ngIf: overall.dividend == 'NA' -->
+                <!-- ngIf: overall.dividend != 'NA' -->
+                <td
+                  [ngClass]="this.fun.getDirClrDefault(DATA.divdir, 'orange')"
+                  class="ng-binding ng-scope"
+                >
+                  Rs {{ DATA.dividend | roundOff | twoCommas }}
+                </td>
+                <!-- end ngIf: overall.dividend != 'NA' -->
+              </tr>
+              <tr>
+                <td class="pf-">Unrealized Gain/Loss</td>
+                <!-- ngIf: overall.unrgain == 'NA' -->
+                <!-- ngIf: overall.unrgain != 'NA' -->
+                <td
+                  [ngClass]="
+                    this.fun.getDirClrDefault(DATA.unrgaindir, 'orange')
+                  "
+                  class="ng-binding ng-scope"
+                >
+                  Rs {{ DATA.unrgain | roundOff | twoCommas }}
+                </td>
+                <!-- end ngIf: overall.unrgain != 'NA' -->
+              </tr>
+            </tbody>
+          </table>
+          <div class="condi-p">
+            <p>Tax has not been considered for this analysis</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- end ngIf: loader[0].pf_overall_breakup == false && error_flag[0].overall_networth == 0 -->
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
   </div>
 
   <!-- slider -->

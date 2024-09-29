@@ -61,14 +61,15 @@ type PortfolioKeys = keyof IPortfolioGraph_Data;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperHowAmComponent implements AfterViewInit, OnInit {
+
   nextWeb_userMessage: INext_webinar_data | undefined
-  data_summary: ISummaryToday_data[] |undefined
-  data_contri: IContri_overall_today[] |undefined
-  data_drags: IDrags_overall_today[] |undefined
+  data_summary: ISummaryToday_data[] | undefined
+  data_contri: IContri_overall_today[] | undefined
+  data_drags: IDrags_overall_today[] | undefined
   data_news: I_News[] | undefined;
   data_corpact: ICorpact_data[] | undefined;
-  data_gainers: any = [];
-  data_losers: any = [];
+  data_gainers: IContri_overall_today[] | undefined
+  data_losers: IDrags_overall_today[] | undefined
   data_mcap: IMcapClass_Data | undefined;
 
   graphToday_data: IGraphToday_Data | undefined;
@@ -88,7 +89,7 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.fetchData();
@@ -119,20 +120,26 @@ export class SwiperHowAmComponent implements AfterViewInit, OnInit {
   }
 
   fetchData(): void {
-    this.serv.getUserMessage().subscribe( (res:IUserMessaging)=> {
+    this.serv.getUserMessage().subscribe((res: IUserMessaging) => {
       this.nextWeb_userMessage = res.data.next_webinar;
       this.cdr.detectChanges(); // Trigger change detection
-    }  )
+    })
 
     this.serv.getSwitcherDatas('today').subscribe((res: IToday) => {
+
+      // this.today_data =res.data
+
       this.data_summary = res.data.summary;
-      this.data_contri = res.data.overall.contri;
-      this.data_drags = res.data.overall.drags;
       this.data_news = res.data.news;
       this.data_corpact = res.data.corpact;
+      this.data_mcap = res.data.mcap;
+
+
+      this.data_contri = res.data.overall.contri;
+      this.data_drags = res.data.overall.drags;
       this.data_gainers = res.data.overall.gainers;
       this.data_losers = res.data.overall.losers;
-      this.data_mcap = res.data.mcap;
+
       this.graphToday_data = res.data.graph;
 
       this.cdr.detectChanges(); // Trigger change detection

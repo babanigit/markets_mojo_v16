@@ -17,7 +17,7 @@ import { ITodayGraph } from 'src/app/models/pp/todayGraph';
   providedIn: 'root',
 })
 export class GetPersonalPFService {
-  private readonly FROM_EXPRESS_API: boolean = true;
+  private readonly FROM_EXPRESS_API: boolean = false;
   private readonly Table_paths: { [key in TableType]: string };
 
   constructor(private http: HttpClient) {
@@ -147,7 +147,7 @@ export class GetPersonalPFService {
   private diversifyPath = 'assets/pp/swiper/diversifyStocks.json';
   getDiversifyStocks(jsonPath: string = this.diversifyPath) {
     return this.http.get<any>(jsonPath).pipe(
-           delay(10000),
+      delay(1000),
       catchError((err) => {
         console.error('Error fetching diversifyStocks data', err);
         throw err;
@@ -201,7 +201,7 @@ export class GetPersonalPFService {
     const path = this.paths2[type] || this.paths2.today;
 
     return this.http.get<any>(path).pipe(
-       delay(10000),
+      delay(1000),
       catchError((err) => {
         console.error('Error fetching data for type:', type);
         console.error('Error details:', err);

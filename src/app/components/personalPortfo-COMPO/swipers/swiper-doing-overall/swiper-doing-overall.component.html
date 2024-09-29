@@ -182,10 +182,6 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <!-- <div *ngIf="main_data">
-        <pre>{{ main_data | json }}</pre>
-      </div> -->
-
         <app-overall-portfolio-analysis
           [DATA]="main_data"
           [HEAD]="'Overall portfolio analysis hello'"
@@ -244,132 +240,155 @@
                 Portfolio Profile
                 <span
                   class="card-title activator info-act"
-                  (click)="isCollapseTodayContri = !isCollapseTodayContri"
+                  (click)="isCollapsePP = !isCollapsePP"
                 ></span>
               </h2>
             </div>
 
             <!-- body -->
-            <div class="card-body" *ngIf="main_data">
-              <div class="pf-profile-sec1">
-                <div>
-                  <div class="pf-profile-txt1">Portfolio Value</div>
-                  <div class="pf-profile-txt2 ng-binding">
-                    {{ main_data.lval | roundOff | twoCommas }}
+            <ng-container *ngIf="main_data!; else loadingTemplate">
+              <!-- Content to show if data exists -->
+
+              <div class="card-body">
+                <div class="pf-profile-sec1">
+                  <div>
+                    <div class="pf-profile-txt1">Portfolio Value</div>
+                    <div class="pf-profile-txt2 ng-binding">
+                      {{ main_data.lval | roundOff | twoCommas }}
+                    </div>
+                  </div>
+                  <div>
+                    <div class="pf-profile-txt1">Total Returns(%)</div>
+                    <div
+                      [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
+                      class="ng-binding pf-profile-txt2"
+                    >
+                      {{ main_data.tret | roundOff | twoCommas }}
+                    </div>
+                    <!-- ngIf: overall.tretp != "" -->
+                    <div
+                      [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
+                      class="ng-binding ng-scope pf-profile-txt3"
+                    >
+                      ({{ main_data.tretp | roundOff | twoCommas }}%)
+                    </div>
+                    <!-- end ngIf: overall.tretp != "" -->
                   </div>
                 </div>
-                <div>
-                  <div class="pf-profile-txt1">Total Returns(%)</div>
-                  <div
-                    [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
-                    class="ng-binding pf-profile-txt2"
-                  >
-                    {{ main_data.tret | roundOff | twoCommas }}
+
+                <div class="pf-profile-sec2">
+                  <div>
+                    <div class="pf-profile-txt2 ng-binding">
+                      {{ main_data.tstock | roundOff | twoCommas }}
+                    </div>
+                    <div class="pf-profile-txt3C">Stocks</div>
                   </div>
-                  <!-- ngIf: overall.tretp != "" -->
-                  <div
-                    [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
-                    class="ng-binding ng-scope pf-profile-txt3"
-                  >
-                    ({{ main_data.tretp | roundOff | twoCommas }}%)
+                  <div>
+                    <div class="pf-profile-txt2 ng-binding">
+                      {{ main_data.tsector | roundOff | twoCommas }}
+                    </div>
+                    <div class="pf-profile-txt3C">Sectors</div>
                   </div>
-                  <!-- end ngIf: overall.tretp != "" -->
+                  <div>
+                    <div class="pf-profile-txt2 ng-binding">
+                      {{ main_data.tailcnt | roundOff | twoCommas }}
+                      <small class="ng-binding"
+                        >({{
+                          main_data.tailpwt | roundOff | twoCommas
+                        }}%)</small
+                      >
+                    </div>
+                    <div class="pf-profile-txt3C">Tail Stock</div>
+                  </div>
+                </div>
+                <div class="pf-profile-sec3">
+                  <div>
+                    <div class="pf-profile-txt4">Highest Stock Holding</div>
+                    <div class="pf-profile-txt2">
+                      <a
+                        target="_blank"
+                        class="ng-binding"
+                        [href]="
+                          'https://www.marketsmojo.com/Stocks?StockId=' +
+                          main_data.histock.sid +
+                          '&Exchange=0'
+                        "
+                        >{{ main_data.histock.name }}</a
+                      >
+                      <!-- ngIf: overall.histock.pwt != "" --><span
+                        class="ng-binding ng-scope"
+                        >(
+                        {{
+                          main_data.histock.pwt | roundOff | twoCommas
+                        }}%)</span
+                      ><!-- end ngIf: overall.histock.pwt != "" -->
+                    </div>
+                  </div>
+                </div>
+                <div class="pf-profile-sec3">
+                  <div class="pf-profile-txt4">Highest Sector Allocation</div>
+                  <div class="pf-profile-txt2 ng-binding">
+                    {{ main_data.hisect }} ({{
+                      main_data.hisectpwt | roundOff | twoCommas
+                    }}%)
+                  </div>
+                </div>
+
+                <div class="pf-profile-sec3">
+                  <div class="pf-profile-txt4">
+                    Highest Market Cap Allocation
+                  </div>
+                  <div class="pf-profile-txt2 ng-binding">
+                    {{ main_data.himcap }} ({{
+                      main_data.himcappwt | roundOff | twoCommas
+                    }}%)
+                  </div>
+                </div>
+                <div class="pf-profile-sec4">
+                  <div>
+                    <div class="pf-profile-txt1">Portfolio Construct</div>
+                    <div
+                      [ngClass]="main_data.diversified.color"
+                      class="pf-profile-txt2"
+                    >
+                      {{ main_data.diversified.text }}
+                    </div>
+                  </div>
+                  <div>
+                    <div class="pf-profile-txt1">Inception Date</div>
+                    <div class="pf-profile-txt2">
+                      <i class="ng-binding">{{ main_data.incepdt }}</i>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="pf-profile-sec2">
-                <div>
-                  <div class="pf-profile-txt2 ng-binding">
-                    {{ main_data.tstock | roundOff | twoCommas }}
-                  </div>
-                  <div class="pf-profile-txt3C">Stocks</div>
-                </div>
-                <div>
-                  <div class="pf-profile-txt2 ng-binding">
-                    {{ main_data.tsector | roundOff | twoCommas }}
-                  </div>
-                  <div class="pf-profile-txt3C">Sectors</div>
-                </div>
-                <div>
-                  <div class="pf-profile-txt2 ng-binding">
-                    {{ main_data.tailcnt | roundOff | twoCommas }}
-                    <small class="ng-binding"
-                      >({{ main_data.tailpwt | roundOff | twoCommas }}%)</small
-                    >
-                  </div>
-                  <div class="pf-profile-txt3C">Tail Stock</div>
-                </div>
-              </div>
-              <div class="pf-profile-sec3">
-                <div>
-                  <div class="pf-profile-txt4">Highest Stock Holding</div>
-                  <div class="pf-profile-txt2">
-                    <a
-                      target="_blank"
-                      class="ng-binding"
-                      [href]="
-                        'https://www.marketsmojo.com/Stocks?StockId=' +
-                        main_data.histock.sid +
-                        '&Exchange=0'
-                      "
-                      >{{ main_data.histock.name }}</a
-                    >
-                    <!-- ngIf: overall.histock.pwt != "" --><span
-                      class="ng-binding ng-scope"
-                      >(
-                      {{ main_data.histock.pwt | roundOff | twoCommas }}%)</span
-                    ><!-- end ngIf: overall.histock.pwt != "" -->
-                  </div>
-                </div>
-              </div>
-              <div class="pf-profile-sec3">
-                <div class="pf-profile-txt4">Highest Sector Allocation</div>
-                <div class="pf-profile-txt2 ng-binding">
-                  {{ main_data.hisect }} ({{
-                    main_data.hisectpwt | roundOff | twoCommas
-                  }}%)
-                </div>
-              </div>
+            </ng-container>
 
-              <div class="pf-profile-sec3">
-                <div class="pf-profile-txt4">Highest Market Cap Allocation</div>
-                <div class="pf-profile-txt2 ng-binding">
-                  {{ main_data.himcap }} ({{
-                    main_data.himcappwt | roundOff | twoCommas
-                  }}%)
+            <ng-template #loadingTemplate>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
                 </div>
               </div>
-              <div class="pf-profile-sec4">
-                <div>
-                  <div class="pf-profile-txt1">Portfolio Construct</div>
-                  <div
-                    [ngClass]="main_data.diversified.color"
-                    class="pf-profile-txt2"
-                  >
-                    {{ main_data.diversified.text }}
-                  </div>
-                </div>
-                <div>
-                  <div class="pf-profile-txt1">Inception Date</div>
-                  <div class="pf-profile-txt2">
-                    <i class="ng-binding">{{ main_data.incepdt }}</i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end ngIf: loader[0].pf_overall_profile == false && error_flag[0].overall_profile == 0 -->
+            </ng-template>
           </div>
 
           <!-- expand -->
           <div
             *ngIf="SHOW_BUTTON"
             class="card-reveal animate-slide"
-            [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+            [ngClass]="{ 'ng-hide': isCollapsePP }"
           >
             <span class="card-title grey-text text-darken-4">
               Card Title<i
                 class="material-icons right"
-                (click)="isCollapseTodayContri = !isCollapseTodayContri"
+                (click)="isCollapsePP = !isCollapsePP"
                 >close</i
               >
             </span>
@@ -412,7 +431,6 @@
           (sendClick_State)="receiveClickState($event)"
           (send_head)="receiveHead($event)"
           [HEAD]="'Overall Contributors'"
-
           [DATA]="data_contri"
         />
       </section>

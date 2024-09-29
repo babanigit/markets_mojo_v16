@@ -5,7 +5,7 @@ import {
   Input,
 
 } from '@angular/core';
-import { IContri } from 'src/app/models/pp/overall';
+import { IContri_overallSwiper } from 'src/app/models/pp/overall';
 import { IScorecard } from 'src/app/models/pp/return';
 import {  IScore_risk } from 'src/app/models/pp/risk';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';

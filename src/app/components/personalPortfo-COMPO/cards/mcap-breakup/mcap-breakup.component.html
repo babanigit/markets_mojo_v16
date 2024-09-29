@@ -247,7 +247,12 @@
           alt="ArrowRight"
           height="16"
         />
-        Full Details
+        <span *ngIf="isLoading">
+          Loading...
+        </span>
+        <span *ngIf="!isLoading  "> Full Details </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+        
       </a>
     </div>
   </div>

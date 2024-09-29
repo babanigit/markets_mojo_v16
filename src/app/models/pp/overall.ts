@@ -4,8 +4,8 @@ export interface IOverall {
   data: IOverall_Data
 }
 
- export interface IOverall_Data  {
-  pv?:string| number
+export interface IOverall_Data {
+  pv?: string | number
   quality: Quality
   valuation: Valuation
   fin_trend: FinTrend
@@ -44,46 +44,46 @@ export interface IOverall {
   overallage: string
 }
 
- interface Quality {
+interface Quality {
   color: string
   text: string
 }
 
- interface Valuation {
+interface Valuation {
   color: string
   text: string
 }
 
- interface FinTrend {
+interface FinTrend {
   color: string
   text: string
 }
 
- interface Liquidity {
+interface Liquidity {
   color: string
   c_text: string
   text: string
 }
 
- interface Risk {
+interface Risk {
   color: string
   c_text: string
   text: string
   beta: string
 }
 
- interface Diversified {
+interface Diversified {
   color: string
   text: string
-  c_text?:string
+  c_text?: string
 }
 
- interface Technical {
+interface Technical {
   color: string
   text: string
 }
 
- interface Return {
+interface Return {
   txt1: string
   txt2: string
   compperform: string
@@ -102,26 +102,26 @@ export interface IOverall {
   dotclr: string
 }
 
- interface Dir {
+interface Dir {
   comperformby: number
   senperfomby: number
 }
 
- interface Histock {
+interface Histock {
   sid: number
   name: string
   pwt: number
 }
 
- export interface IOverall_sub {
+export interface IOverall_sub {
   unrgaindir: number
-  contri: IContri[]
-  drags: Drag[]
-  gainers: Gainer[]
-  losers: Loser[]
+  contri: IContri_overallSwiper[]
+  drags: IDrag_overallSwiper[]
+  gainers: IGainer_overallSwiper[]
+  losers: ILoser_overallSwiper[]
 }
 
-export interface IContri {
+export interface IContri_overallSwiper {
   sid: number
   sname: string
   short: string
@@ -150,7 +150,7 @@ export interface IContri {
   dgaindir: number
 }
 
- interface Dotsum {
+interface Dotsum {
   q_rank: any
   stk_sect: any
   q_txt: string
@@ -184,19 +184,19 @@ export interface IContri {
   s_clr: string
 }
 
- interface ProductIconList {
+interface ProductIconList {
   name: string
   text: string
   url: string
   product_class: string
 }
 
- interface MoreButton {
+interface MoreButton {
   show: number
   text: string
 }
 
- interface Drag {
+export interface IDrag_overallSwiper {
   sid: number
   sname: string
   short: string
@@ -225,7 +225,7 @@ export interface IContri {
   dgaindir: number
 }
 
- interface Dotsum2 {
+interface Dotsum2 {
   q_rank: any
   stk_sect: any
   q_txt: string
@@ -259,19 +259,19 @@ export interface IContri {
   s_clr: string
 }
 
- interface ProductIconList2 {
+interface ProductIconList2 {
   name: string
   text: string
   url: string
   product_class: string
 }
 
- interface MoreButton2 {
+interface MoreButton2 {
   show: number
   text: string
 }
 
- interface Gainer {
+export interface IGainer_overallSwiper {
   sid: number
   sname: string
   short: string
@@ -300,7 +300,7 @@ export interface IContri {
   dgaindir: number
 }
 
- interface Dotsum3 {
+interface Dotsum3 {
   q_rank: any
   stk_sect: any
   q_txt: string
@@ -334,19 +334,19 @@ export interface IContri {
   s_clr: string
 }
 
- interface ProductIconList3 {
+interface ProductIconList3 {
   name: string
   text: string
   url: string
   product_class: string
 }
 
- interface MoreButton3 {
+interface MoreButton3 {
   show: number
   text: string
 }
 
- interface Loser {
+export interface ILoser_overallSwiper {
   sid: number
   sname: string
   short: string
@@ -375,7 +375,7 @@ export interface IContri {
   dgaindir: number
 }
 
- interface Dotsum4 {
+interface Dotsum4 {
   q_rank: any
   stk_sect: any
   q_txt: string
@@ -409,14 +409,14 @@ export interface IContri {
   s_clr: string
 }
 
- interface ProductIconList4 {
+interface ProductIconList4 {
   name: string
   text: string
   url: string
   product_class: string
 }
 
- interface MoreButton4 {
+interface MoreButton4 {
   show: number
   text: string
 }
