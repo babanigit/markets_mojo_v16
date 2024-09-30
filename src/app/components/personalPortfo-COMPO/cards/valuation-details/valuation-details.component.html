@@ -1,18 +1,20 @@
 <div class="card">
-    <div class="card-content">
-      <div class="card-head">
-        <h2>
-          Valuation Analysis Details
-          <span
-            class="card-title activator info-act"
-            ng-click="isCollapseValDtls = !isCollapseValDtls"
-          ></span>
-        </h2>
-      </div>
-      <div
-        class="liquidityDetails list-mojo ng-scope"
-        ng-if="loader[0].pf_val_dtls == false &amp;&amp; error_flag[0].valuation_details == 0"
-      >
+  <div class="card-content">
+    <div class="card-head">
+      <h2>
+        Valuation Analysis Details
+        <span
+          class="card-title activator info-act"
+          (click)="isCollapseValDtls = !isCollapseValDtls"
+        ></span>
+      </h2>
+    </div>
+
+    <ng-container *ngIf="DATA_holding!; else loadingTemplate">
+      <!-- <ng-container *ngIf="DATA_holding.length > 0; else noDataTemplate"> -->
+      <!-- Content to show if data exists -->
+
+      <div class="liquidityDetails list-mojo ng-scope">
         <table class="table25">
           <thead>
             <tr>
@@ -26,7 +28,7 @@
               </th>
             </tr>
           </thead>
-          <tbody *ngIf="DATA_holding!">
+          <tbody>
             <tr
               *ngFor="let item of DATA_holding.list | keyvalue"
               class="ng-scope"
@@ -35,7 +37,9 @@
                 <div>
                   <a
                     [href]="
-                      'https://www.marketsmojo.com/Stocks?StockId=' + item.value.sid + '&Exchange=0'
+                      'https://www.marketsmojo.com/Stocks?StockId=' +
+                      item.value.sid +
+                      '&Exchange=0'
                     "
                     target="_blank"
                     class="ng-binding"
@@ -86,54 +90,73 @@
           </tbody>
         </table>
       </div>
-      <!-- end ngIf: loader[0].pf_val_dtls == false && error_flag[0].valuation_details == 0 -->
-    </div>
 
-    <!-- slider -->
-    <div
-      class="card-reveal animate-slide ng-hide"
-      ng-show="isCollapseValDtls"
-    >
-      <span class="card-title grey-text text-darken-4"
-        >Card Title<i
-          class="material-icons right"
-          ng-click="isCollapseValDtls = !isCollapseValDtls"
-          >close</i
-        ></span
-      >
-      <div class="card-reveal-text">
-        <ul>
-          <li>Details of Valuation of your portfolio stocks</li>
-          <li>
-            Click on Full details to see the information for all stocks
-          </li>
-        </ul>
-      </div>
-    </div>
+      <!-- </ng-container> -->
+    </ng-container>
 
-  </div>
-
-  <!-- detail button -->
-  <div class="porbottomlink">
-    <div class="bottom-card-links">
-      <div class="bottom-card-links">
-        <a
-        (click)="sendToParent()"
-          class="seefull waves-light"
-          href="javascript:void(0)"
-          ng-click="modalOpen('quality_details',2)"
-          ><img
-            src="https://i.marketsmojo.com/arrow_rt.png"
-            alt="ArrowRight"
-            height="16"
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
           />
-          Full Details</a
-        >
+        </div>
       </div>
-    </div>
+    </ng-template>
+
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
   </div>
 
- <!-- details -->
+  <!-- slider -->
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseValDtls }"
+    ng-show="isCollapseValDtls"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        (click)="isCollapseValDtls = !isCollapseValDtls"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>Details of Valuation of your portfolio stocks</li>
+        <li>Click on Full details to see the information for all stocks</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- detail button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0)"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Full Details</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- details -->
 <div [hidden]="true">
   <div
     #childDiv
@@ -155,11 +178,18 @@
           </tr>
         </thead>
         <tbody *ngIf="DATA_holding!">
-          <tr *ngFor="let item of DATA_holding.list| keyvalue" class="ng-scope">
+          <tr
+            *ngFor="let item of DATA_holding.list | keyvalue"
+            class="ng-scope"
+          >
             <td>
               <div>
                 <a
-                  [href]="'https://www.marketsmojo.com/Stocks?StockId=' + item.value.sid + '&Exchange=0'"
+                  [href]="
+                    'https://www.marketsmojo.com/Stocks?StockId=' +
+                    item.value.sid +
+                    '&Exchange=0'
+                  "
                   target="_blank"
                   class="ng-binding"
                   >{{ item.value.sname }}
@@ -179,21 +209,15 @@
               </div>
             </td>
 
-            <td
-              class="txt-lt selected-td ng-binding ng-scope"
-            >
+            <td class="txt-lt selected-td ng-binding ng-scope">
               {{ item.value.dotsum.q_txt }}
             </td>
 
-            <td
-              class="txt-lt ng-binding change-compare-bg"
-            >
+            <td class="txt-lt ng-binding change-compare-bg">
               {{ item.value.dotsum.v_txt }}
             </td>
 
-            <td
-              class="txt-lt ng-binding"
-            >
+            <td class="txt-lt ng-binding">
               {{ item.value.dotsum.f_txt }}
               <p class="ng-binding">
                 (Score {{ item.value.dotsum.mfin_score }} )

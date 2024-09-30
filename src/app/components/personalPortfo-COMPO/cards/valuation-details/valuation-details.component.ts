@@ -28,6 +28,8 @@ export class ValuationDetailsComponent {
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
 
+  isCollapseValDtls=true
+
   constructor(
     public fun: PpFunctionsService,
     private serv: GetPersonalPFService,

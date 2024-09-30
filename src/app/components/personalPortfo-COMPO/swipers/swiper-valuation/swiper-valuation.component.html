@@ -33,13 +33,11 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <ng-container *ngIf="score!">
-          <app-scorecard
-            [DATA]="score"
-            [HEAD]="'Valuation'"
-            [SHOW_BUTTON]="false"
-          />
-        </ng-container>
+        <app-scorecard
+          [DATA]="score"
+          [HEAD]="'Valuation'"
+          [SHOW_BUTTON]="false"
+        />
       </section>
 
       <!-- summary -->
@@ -49,9 +47,7 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <ng-container *ngIf="DATA_qvfl!">
           <app-summary [DATA]="DATA_qvfl" [HEAD]="'Valuation'" />
-        </ng-container>
       </section>
 
       <!-- table -->
@@ -62,16 +58,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-      <app-valuation-details
-      (sendElement)="receiveElement($event)"
-      (sendClick_State)="receiveClickState($event)"
-      (send_head)="receiveHead($event)"
-      [HEAD]="'Quality Details'"
-      [DATA_holding]="DATA_holding"
-      />
-
-
+        <app-valuation-details
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'Quality Details'"
+          [DATA_holding]="DATA_holding"
+        />
       </section>
     </div>
     <div class="swiper-scrollbar"></div>
