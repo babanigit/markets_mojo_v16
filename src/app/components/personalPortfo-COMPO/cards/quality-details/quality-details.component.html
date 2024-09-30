@@ -5,79 +5,117 @@
         {{ HEAD }}
         <span
           class="card-title activator info-act"
-          ng-click="isCollapseQualDtls = !isCollapseQualDtls"
+          (click)="isCollapseQualDtls = !isCollapseQualDtls"
         ></span>
       </h2>
     </div>
 
-    <div class="liquidityDetails list-mojo ng-scope">
-      <table class="table25">
-        <thead>
-          <tr>
-            <th class="textcenter">Company</th>
-            <th class="textcenter no-mob">Industry</th>
-            <!--                                        <th class="textcenter no-mob">Quarter</th>-->
-            <th class="textcenter">Quality</th>
+    <ng-container *ngIf="holding_list!; else loadingTemplate">
+      <!-- <ng-container *ngIf="holding_list.length > 0; else noDataTemplate"> -->
+      <!-- Content to show if data exists -->
 
-            <th class="no-mob textcenter">Portfolio<br />Weight</th>
-            <th class="no-mob textcenter">Latest Value</th>
-          </tr>
-        </thead>
-        <tbody *ngIf="holding_list!">
-          <tr *ngFor="let item of holding_list | keyvalue" class="ng-scope">
-            <td>
-              <div>
-                <a
-                  [href]="'https://www.marketsmojo.com/Stocks?StockId=' + item.value.sid + '&Exchange=0'"
-                  target="_blank"
-                  class="ng-binding"
-                  >{{ item.value.sname }}
-                </a>
-                <br />
-                <span class="mojo-hover">
-                  <span
-                    [ngClass]="this.fun.getClassbyClr(item.value.dotsum.q_clr)"
-                  ></span>
-                  <span
-                    [ngClass]="this.fun.getClassbyClr(item.value.dotsum.v_clr)"
-                  ></span>
-                  <span
-                    [ngClass]="this.fun.getClassbyClr(item.value.dotsum.v_clr)"
-                  ></span>
-                </span>
-              </div>
-            </td>
+      <div class="liquidityDetails list-mojo ng-scope">
+        <table class="table25">
+          <thead>
+            <tr>
+              <th class="textcenter">Company</th>
+              <th class="textcenter no-mob">Industry</th>
+              <th class="textcenter">Quality</th>
+              <th class="no-mob textcenter">Portfolio<br />Weight</th>
+              <th class="no-mob textcenter">Latest Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of holding_list | keyvalue" class="ng-scope">
+              <td>
+                <div>
+                  <a
+                    [href]="
+                      'https://www.marketsmojo.com/Stocks?StockId=' +
+                      item.value.sid +
+                      '&Exchange=0'
+                    "
+                    target="_blank"
+                    class="ng-binding"
+                    >{{ item.value.sname }}
+                  </a>
+                  <br />
+                  <span class="mojo-hover">
+                    <span
+                      [ngClass]="
+                        this.fun.getClassbyClr(item.value.dotsum.q_clr)
+                      "
+                    ></span>
+                    <span
+                      [ngClass]="
+                        this.fun.getClassbyClr(item.value.dotsum.v_clr)
+                      "
+                    ></span>
+                    <span
+                      [ngClass]="
+                        this.fun.getClassbyClr(item.value.dotsum.v_clr)
+                      "
+                    ></span>
+                  </span>
+                </div>
+              </td>
 
-            <td class="txt-lt no-mob ng-binding">
-              {{ item.value.indname }}
-            </td>
+              <td class="txt-lt no-mob ng-binding">
+                {{ item.value.indname }}
+              </td>
 
-            <td
-              class="txt-lt selected-td ng-binding ng-scope"
-              [ngClass]="item.value.dotsum.q_clr"
-            >
-              {{ item.value.dotsum.q_txt }}
-            </td>
+              <td
+                class="txt-lt selected-td ng-binding ng-scope"
+                [ngClass]="item.value.dotsum.q_clr"
+              >
+                {{ item.value.dotsum.q_txt }}
+              </td>
 
-            <td class="no-mob ng-binding">
-              {{ item.value.pwt | roundOff | twoCommas }}%
-            </td>
-            <td class="no-mob ng-binding">
-              {{ item.value.lval | roundOff | twoCommas }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- end ngIf: loader[0].pf_qual_dtls == false && error_flag[0].quality_details == 0 -->
+              <td class="no-mob ng-binding">
+                {{ item.value.pwt | roundOff | twoCommas }}%
+              </td>
+              <td class="no-mob ng-binding">
+                {{ item.value.lval | roundOff | twoCommas }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- </ng-container> -->
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
   </div>
 
   <!-- slider -->
-  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseQualDtls">
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseQualDtls }"
+    ng-show="isCollapseQualDtls"
+  >
     <span class="card-title grey-text text-darken-4"
       >Card Title<i
         class="material-icons right"
-        ng-click="isCollapseQualDtls = !isCollapseQualDtls"
+        (click)="isCollapseQualDtls = !isCollapseQualDtls"
         >close</i
       ></span
     >
@@ -102,7 +140,6 @@
         (click)="sendToParent()"
         class="seefull waves-light"
         href="javascript:void(0)"
-        ng-click="modalOpen('quality_details', 1)"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"
           alt="ArrowRight"
@@ -140,7 +177,11 @@
             <td>
               <div>
                 <a
-                  [href]="'https://www.marketsmojo.com/Stocks?StockId=' + item.value.sid + '&Exchange=0'"
+                  [href]="
+                    'https://www.marketsmojo.com/Stocks?StockId=' +
+                    item.value.sid +
+                    '&Exchange=0'
+                  "
                   target="_blank"
                   class="ng-binding"
                   >{{ item.value.sname }}

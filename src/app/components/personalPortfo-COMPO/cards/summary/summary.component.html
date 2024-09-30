@@ -12,8 +12,6 @@
     </div>
 
     <!-- body -->
-    <ng-container> </ng-container>
-
     <ng-container *ngIf="MAIN!; else loadingTemplate">
       <!-- Content to show if data exists -->
 
@@ -146,7 +144,6 @@
       <p class="condi-p pad010 ng-binding">
         {{ MAIN.summary_txt }}
       </p>
-      
     </ng-container>
 
     <ng-template #loadingTemplate>
