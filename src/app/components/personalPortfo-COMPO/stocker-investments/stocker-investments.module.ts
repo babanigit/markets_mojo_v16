@@ -5,6 +5,7 @@ import { TablesComponent } from '../tables/tables.component';
 import { DemoComponent } from '../../demos/demo/demo.component';
 import { SwiperDemoComponent } from '../../demos/swiper-demo/swiper-demo.component';
 import { OrderObjectByPipe } from 'src/app/pipes/pp/orderObjectBy/order-object-by.pipe';
+import { HighestObjPipe } from 'src/app/pipes/pp/highest-obj.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { OrderObjectByPipe } from 'src/app/pipes/pp/orderObjectBy/order-object-b
     SwiperDemoComponent,
     DemoComponent,
     OrderObjectByPipe,
+    HighestObjPipe
 
   ],
 })

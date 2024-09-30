@@ -67,7 +67,7 @@
             <!-- ngIf: loader[0].pf_today_graph == true -->
 
             <div
-              *ngIf="PortfolioGraph_data!"
+              *ngIf="graphToday_data && PortfolioGraph_data"
               class="tabcol"
               ng-show="loader[0].pf_today_graph == false"
             >
@@ -78,9 +78,25 @@
                     <a
                       href="javascript:void(0)"
                       id=""
-                      ng-class="act_tab_class['1D']"
-                      class="red"
-                      ng-click=" getToday(0,1);"
+                      [ngClass]="{
+                        red:
+                          this.fun.getDirClrDefault(
+                            graphToday_data.portdir,
+                            'gray'
+                          ) === 'red',
+                        green:
+                          this.fun.getDirClrDefault(
+                            graphToday_data.portdir,
+                            'gray'
+                          ) === 'green',
+                        gray:
+                          this.fun.getDirClrDefault(
+                            graphToday_data.portdir,
+                            'gray'
+                          ) === 'gray',
+                        active: send_button == keybutton
+                      }"
+                      (click)="buttonClicked('1D')"
                       >1D</a
                     >
                   </li>
@@ -92,12 +108,26 @@
                     ng-repeat="value in act_tab_name"
                   >
                     <a
+                      href="javascript:void(0)"
                       id=""
-                      class="green"
-                      [ngClass]="
-                        this.fun.getDirClrDefault(item.value.portdir, 'gray')
-                      "
-                      [ngClass]="{ active: item.key === send_button }"
+                      [ngClass]="{
+                        red:
+                          this.fun.getDirClrDefault(
+                            item.value.portdir,
+                            'gray'
+                          ) === 'red',
+                        green:
+                          this.fun.getDirClrDefault(
+                            item.value.portdir,
+                            'gray'
+                          ) === 'green',
+                        gray:
+                          this.fun.getDirClrDefault(
+                            item.value.portdir,
+                            'gray'
+                          ) === 'gray',
+                        active: item.key === send_button
+                      }"
                       (click)="buttonClicked(item.key)"
                     >
                       {{ item.key }}
@@ -106,7 +136,7 @@
 
                   <li
                     class="tab no-mob no-tab2 ng-scope"
-                    ng-if="act_today_graph_tab != '1D'"
+                    *ngIf="send_button !== keybutton"
                   >
                     <a
                       href="javascript:void(0)"
@@ -121,7 +151,7 @@
 
                   <li
                     class="tab no-mob no-tab2 ng-scope"
-                    ng-if="act_today_graph_tab != '1D'"
+                    *ngIf="send_button !== keybutton"
                   >
                     <a
                       href="javascript:void(0)"
@@ -250,7 +280,7 @@
                       <!-- graph -->
                       <div style="padding: 0px 0px">
                         <app-graph-today
-                          (graphToday_data)="(graphToday_data)"
+                          [GraphToday_data]="graphToday_data"
                           [send_button]="send_button"
                           [PortfolioGraph_data]="PortfolioGraph_data"
                           [switch_button]="switch_button"
@@ -261,7 +291,10 @@
 
                   <!-- portfolio, composite index  -->
                   <div class="cardgraphright">
-                    <div class="valuation-new">
+                    <div
+                      *ngIf="PortfolioGraph_data[send_button]"
+                      class="valuation-new"
+                    >
                       <div class="stockmargin">
                         <div
                           class="sector-per"
@@ -326,81 +359,143 @@
                         </div>
                       </div>
                     </div>
+
+                    <div
+                      *ngIf="!PortfolioGraph_data[send_button]"
+                      class="valuation-new"
+                    >
+                      <div class="stockmargin">
+                        <div
+                          class="sector-per"
+                          [ngClass]="
+                            this.fun.getDirClrDefault(
+                              graphToday_data.portdir,
+                              'orange'
+                            ) + '-border'
+                          "
+                          style="display: block"
+                        >
+                          <h6 class="stockName">PORTFOLIO</h6>
+                          <p class="Dcolor ng-binding">
+                            {{ graphToday_data.port | roundOff | twoCommas }}%
+                          </p>
+                        </div>
+                      </div>
+                      <div class="stockmargin">
+                        <div
+                          class="sector-per"
+                          [ngClass]="
+                            this.fun.getDirClrDefault(
+                              graphToday_data.compdir,
+                              'orange'
+                            ) + '-border'
+                          "
+                          style="display: block"
+                        >
+                          <h6>COMPOSITE INDEX</h6>
+                          <p class="Dcolor ng-binding">
+                            {{ graphToday_data.comp | roundOff | twoCommas }}%
+                          </p>
+                        </div>
+                      </div>
+                      <div class="stockmargin">
+                        <div
+                          class="sector-per green-border"
+                          [ngClass]="
+                            this.fun.getDirClrDefault(
+                              graphToday_data.sensexdir,
+                              'orange'
+                            ) + '-border'
+                          "
+                          style="display: block"
+                        >
+                          <h6>SENSEX</h6>
+                          <p class="Dcolor ng-binding">
+                            {{ graphToday_data.sensex | roundOff | twoCommas }}%
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <!-- top contri, top drag -->
                   <div
                     class="cardgraphbottom ng-scope"
-                    ng-if="act_today_graph_tab == '1D'"
+                    *ngIf="send_button == keybutton"
                   >
                     <div class="row adv-dec no-mob pr-gr-bottright-content">
-                      <div class="col-xs-6">
+                      <div *ngIf="data_contri" class="col-xs-6">
                         <div
                           id="gainer"
                           data=""
-                          ng-class="
-                            actionToday.overall.contri[0]['dgaindir'] == 1
+                          [ngClass]="
+                            data_contri[0]['dgaindir'] == 1
                               ? 'advance'
                               : 'decliens'
                           "
-                          class="advance"
                         >
                           <h6>TOP CONTRIBUTOR</h6>
-                          <!-- ngIf: error_flag[0].actionToday_contri == 1 -->
-                          <!-- ngIf: error_flag[0].actionToday_contri != 1 -->
+
                           <div
                             ng-if="error_flag[0].actionToday_contri != 1"
                             class="ng-binding ng-scope"
                           >
-                            Coal India
+                            {{ data_contri[0]["short"] }}
                           </div>
-                          <!-- end ngIf: error_flag[0].actionToday_contri != 1 -->
-                          <!-- ngIf: error_flag[0].actionToday_contri != 1 -->
+
                           <h4
                             ng-if="error_flag[0].actionToday_contri != 1"
                             class="ng-scope"
                           >
-                            <span><b class="ng-binding">532</b></span>
-                            <span class="ng-binding">(1.37%)</span>
+                            <span
+                              ><b class="ng-binding">{{
+                                data_contri[0]["dgain"]
+                              }}</b></span
+                            >
+                            <span class="ng-binding"
+                              >({{ data_contri[0]["dgainp"] }}%)</span
+                            >
                           </h4>
-                          <!-- end ngIf: error_flag[0].actionToday_contri != 1 -->
                         </div>
                       </div>
 
                       <!-- top contri, top drag -->
-                      <div class="col-xs-6">
+                      <div *ngIf="data_drags" class="col-xs-6">
                         <div
                           id="gainer"
                           data=""
-                          ng-class="
-                            actionToday.overall.drags[0]['dgaindir'] == 1
+                          [ngClass]="
+                            data_drags[0]['dgaindir'] == 1
                               ? 'advance'
                               : 'decliens'
                           "
-                          class="decliens"
                         >
                           <h6>TOP DRAG</h6>
-                          <!-- ngIf: error_flag[0].actionToday_drags == 1 -->
-                          <!-- ngIf: error_flag[0].actionToday_drags != 1 -->
-                          <div
-                            ng-if="error_flag[0].actionToday_drags != 1"
-                            class="ng-binding ng-scope"
-                          >
-                            Jubilant Inds.
+
+                          <div class="ng-binding ng-scope">
+                            {{ data_drags[0]["short"] }}
                           </div>
-                          <!-- end ngIf: error_flag[0].actionToday_drags != 1 -->
-                          <!-- ngIf: error_flag[0].actionToday_drags != 1 -->
-                          <h4
-                            ng-if="error_flag[0].actionToday_drags != 1"
-                            class="ng-scope"
-                          >
-                            <span><b class="ng-binding">-4,393</b></span>
-                            <span class="ng-binding">(-4.62%)</span>
+
+                          <h4 class="ng-scope">
+                            <span
+                              ><b class="ng-binding">{{
+                                data_drags[0]["dgain"]
+                              }}</b></span
+                            >
+                            <span class="ng-binding"
+                              >({{ data_drags[0]["dgainp"] }}%)</span
+                            >
                           </h4>
-                          <!-- end ngIf: error_flag[0].actionToday_drags != 1 -->
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  <div
+                    class="topheadarea tophead ng-binding ng-scope"
+                    *ngIf="send_button != keybutton"
+                  >
+                    Portfolio movement adjusted for cash inflows and outflows
                   </div>
                 </div>
               </div>

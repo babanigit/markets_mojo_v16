@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { LazyLoadDirective } from './directives/lazy-load.directive';
 import { LazyLoadDirective } from './lazy-load.directive';
+import { HighestObjPipe } from './pipes/pp/highest-obj.pipe';
 
 @NgModule({
   declarations: [AppComponent, LazyLoadDirective],

@@ -5,9 +5,8 @@ import * as Highcharts from 'highcharts';
 
 import { IPortfolioGraph_Data } from 'src/app/models/pp/PortfolioGraph';
 import { IGraphToday_Data } from 'src/app/models/pp/today';
-import { ITodayGraph_Data } from 'src/app/models/pp/todayGraph';
 
-type GraphKeys = keyof ITodayGraph_Data;
+type GraphKeys = keyof IPortfolioGraph_Data;
 
 @Component({
   selector: 'app-graph-today',
@@ -17,22 +16,23 @@ type GraphKeys = keyof ITodayGraph_Data;
   imports: [ChartModule, CommonModule],
 })
 export class GraphTodayComponent implements OnChanges {
-  @Input() PortfolioGraph_data: IPortfolioGraph_Data | undefined;
-  @Input() send_button: string | undefined;
-  @Input() switch_button: string | undefined;
-
-  @Input() graphToday_data : IGraphToday_Data | undefined;
-
   areaChart: Chart = new Chart({});
 
+  @Input() send_button: string | undefined;
+  @Input() switch_button: string | undefined;
+  @Input() PortfolioGraph_data: IPortfolioGraph_Data | undefined;
+  @Input() GraphToday_data: IGraphToday_Data | undefined;
+
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['PortfolioGraph_data'] || changes['send_button'] || changes['switch_button']) {
+    console.log('ngOnChanges triggered', changes);
+    if (changes['PortfolioGraph_data'] || changes['GraphToday_data'] || changes['send_button'] || changes['switch_button']) {
       this.updateChart();
     }
   }
 
-  private extractDataPoints(data: ITodayGraph_Data | undefined, key: GraphKeys): [number, number][] {
+  private extractDataPoints(data: IPortfolioGraph_Data | undefined, key: GraphKeys): [number, number][] {
     if (!data || !data[key]?.plotgraph) {
+      console.warn(`No data available for key: ${key}`);
       return [];
     }
 
@@ -44,24 +44,88 @@ export class GraphTodayComponent implements OnChanges {
   }
 
   private updateChart(): void {
-    if (!this.PortfolioGraph_data || !this.send_button) {
-      console.error('Invalid graph data or send_button');
+    console.log('Updating chart');
+    console.log('send_button:', this.send_button);
+    console.log('GraphToday_data:', this.GraphToday_data);
+    console.log('PortfolioGraph_data:', this.PortfolioGraph_data);
+
+    if (!this.send_button) {
+      console.error('send_button is undefined');
       return;
     }
 
-    const key = this.send_button as GraphKeys;
-    const dataPoints = this.extractDataPoints(this.PortfolioGraph_data, key);
+    let dataPoints: [number, number][] = [];
+    console.log("form update the graphtoday is : ", this.GraphToday_data)
+
+    if (this.send_button === '1D' && this.GraphToday_data) {
+      console.log('Processing 1D data');
+      const plotpts = this.GraphToday_data['plotpts'];
+
+      console.log("the poinst are hehehe : ", plotpts)
+
+      if (plotpts && plotpts.length > 0) {
+        dataPoints = this.processGraphTodayData(plotpts);
+      } else {
+        console.warn('No plot points available in GraphToday_data');
+      }
+    } else if (this.PortfolioGraph_data) {
+      console.log('Processing PortfolioGraph data');
+      const key = this.send_button as GraphKeys;
+      dataPoints = this.extractDataPoints(this.PortfolioGraph_data, key);
+    } else {
+      console.error('Invalid graph data');
+      return;
+    }
 
     if (dataPoints.length === 0) {
-      console.warn('No data points available');
+      console.warn('No data points available after processing');
       return;
     }
+
+    this.renderChart(dataPoints);
+  }
+
+  private processGraphTodayData(plotpts: any[]): [number, number][] {
+    return plotpts.map((point) => {
+      try {
+        const [time, meridiem] = point.time.split(' ');
+        const [hour, minute] = time.split(':').map(Number);
+
+        if (isNaN(hour) || isNaN(minute)) {
+          throw new Error('Invalid hour or minute');
+        }
+
+        const isPM = meridiem === 'PM';
+        const hoursIn24Format = isPM && hour !== 12 ? hour + 12 : (hour === 12 && !isPM ? 0 : hour);
+
+        const now = new Date();
+        const timestamp = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hoursIn24Format, minute, 0).getTime();
+
+        if (isNaN(timestamp)) {
+          throw new Error('Invalid timestamp');
+        }
+
+        const value = Number(point.y);
+        if (isNaN(value)) {
+          throw new Error('Invalid y value');
+        }
+
+        return [timestamp, value];
+      } catch (error) {
+        console.error('Error processing data point:', error, 'Point:', point);
+        return null;
+      }
+    }).filter((point): point is [number, number] => point !== null);
+  }
+
+  private renderChart(dataPoints: [number, number][]): void {
+    console.log('Rendering chart with data points:', dataPoints);
 
     dataPoints.sort((a, b) => a[0] - b[0]);
 
     const minY = Math.min(...dataPoints.map(([, y]) => y));
     const maxY = Math.max(...dataPoints.map(([, y]) => y));
-    const previousClose = dataPoints[0][1]; // Assuming the first point is the previous close
+    const previousClose = dataPoints[0][1];
 
     this.areaChart = new Chart({
       chart: { type: 'area', height: 260 },

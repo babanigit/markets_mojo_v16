@@ -8,10 +8,10 @@
   "1M":      The1_M;
   "3M":      The1_M;
   "6M":      The1_M;
-  YTD:       The1_M;
+  "YTD":       The1_M;
   "1Y":      The1_M;
   "3Y":      The1_M;
-  inception: The1_M;
+  "inception": The1_M;
 }
 
  interface The1_M {
