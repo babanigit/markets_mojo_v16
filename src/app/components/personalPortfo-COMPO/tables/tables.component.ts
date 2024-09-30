@@ -1,96 +1,57 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  AfterViewInit,
-  signal,
-  ChangeDetectorRef,
-  ChangeDetectionStrategy,
-} from '@angular/core';
-
+import { Component, OnInit, ViewChild, AfterViewInit, signal, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { PopupComponent } from '../../others/popup/popup.component';
 import { columns } from './Columns';
-
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { IColumns } from 'src/app/models/pp/column';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 
-export type TableType =
-  | 'OVERVIEW'
-  | 'HOLDING'
-  | 'PRICE'
-  | 'CONTRIBUTION'
-  | 'DIVIDEND'
-  | 'MOJO'
-  | 'RISK'
-  | 'LIQUIDITY'
-  | 'TAX'
-  | 'RATIOS'
-  | 'FINANCIALS'
-  | 'RETURNS'
-  | 'RESULTS'
-  | 'TOTAL_RETURNS';
+export type TableType = 'OVERVIEW' | 'HOLDING' | 'PRICE' | 'CONTRIBUTION' | 'DIVIDEND' | 'MOJO' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS' | 'FINANCIALS' | 'RETURNS' | 'RESULTS' | 'TOTAL_RETURNS';
 
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
   styleUrls: ['./tables.component.css'],
   standalone: true,
-  imports: [
-    MatSortModule,
-    MatTableModule,
-    CommonModule,
-    MatIconModule,
-    MatExpansionModule,
-    PopupComponent,
-
-    ScrollingModule
-  ],
+  imports: [MatSortModule, MatTableModule, CommonModule, MatIconModule, MatExpansionModule, PopupComponent, ScrollingModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TablesComponent implements OnInit, AfterViewInit {
-
   @ViewChild(MatSort) sort!: MatSort;
 
   dataSource = new MatTableDataSource<any>([]);
   displayedColumns: string[] = [];
-
   private dataCache: { [key in TableType]?: any[] } = {};
   col: IColumns = columns;
   TYPE: TableType = 'HOLDING';
 
-  readonly NAVBAR_ITEMS: TableType[] = [
-    'OVERVIEW',
-    'HOLDING',
-    'PRICE',
-    'CONTRIBUTION',
-    'DIVIDEND',
-    'MOJO',
-    'RISK',
-    'LIQUIDITY',
-    'TAX',
-    'RATIOS',
-    'FINANCIALS',
-    'RETURNS',
-    'RESULTS',
-    'TOTAL_RETURNS',
-  ];
-
+  readonly NAVBAR_ITEMS: TableType[] = ['OVERVIEW', 'HOLDING', 'PRICE', 'CONTRIBUTION', 'DIVIDEND', 'MOJO', 'RISK', 'LIQUIDITY', 'TAX', 'RATIOS', 'FINANCIALS', 'RETURNS', 'RESULTS', 'TOTAL_RETURNS'];
   readonly panelOpenState = signal(false);
   expandedElement: any;
   showPopup = false;
 
-  constructor(
-    private serv: GetPersonalPFService,
-    private cdr: ChangeDetectorRef
-  ) {
+  private readonly columnMap: { [key in TableType]: string[] } = {
+    OVERVIEW: ['short', 'score', 'cmp_price', 'vol', 'unrgain', 'tech_txt', 'f_txt', 'tusk'],
+    HOLDING: ['short', 'score', 'cmp', 'iprice', 'ival', 'dgain', 'unrgain', 'lval'],
+    PRICE: ['short', 'score', 'cmp', 'cvol', 'dh', 'dl', 'wk52h', 'wk52l', 'ath', 'atl'],
+    CONTRIBUTION: ['short', 'score', 'cmp', 'mcap', 'unrgain', 'unrgaincontri', 'pwt', 'lval'],
+    DIVIDEND: ['short', 'score', 'cmp', 'div', 'unrgain', 'tret', 'lval'],
+    MOJO: ['short', 'score', 'cmp', 'q_txt', 'v_txt', 'f_txt', 'tech_txt', 'pwt', 'lval'],
+    RISK: ['short', 'score', 'cmp', 'mcap', 'volatility', 'riskadj', 'beta', 'riskval'],
+    LIQUIDITY: ['short', 'score', 'cmp', 'qty', 'd5avgvol', 'd5delivol', 'risk', 'lval'],
+    TAX: ['short', 'score', 'cmp', 'jan31price', 'qty', 'avghold', 'sttax', 'dayleft', 'lttax', 'lval', 'ptv'],
+    RATIOS: ['short', 'score', 'cmp', 'mcap', 'divy', 'pe', 'roe', 'debeq', 'pbv'],
+    FINANCIALS: ['short', 'score', 'cmp', 'year', 'netsale', 'othinc', 'opprof', 'intpaid', 'tax', 'netprof', 'eps'],
+    RETURNS: ['short', 'score', 'cmp', 'D1', 'W1', 'M1', 'M3', 'Y1', 'Y3', 'Y5'],
+    RESULTS: ['short', 'score', 'cmp', 'resdt', 'f_txt', 'rescomm', 'resultdt', 'pv'],
+    TOTAL_RETURNS: ['short', 'score', 'cmp', 'qty', 'rgain', 'unrgain', 'tgain', 'tgainp'],
+  };
 
-  }
+  constructor(private serv: GetPersonalPFService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.getColumns('HOLDING');
@@ -105,237 +66,57 @@ export class TablesComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private fetchStocks(type: TableType) {
+  onClick(type: TableType): void {
+    this.TYPE = type;
+    this.getColumns(type);
+    const fetchType: TableType = ['PRICE', 'CONTRIBUTION', 'DIVIDEND', 'MOJO'].includes(type) ? 'HOLDING' : type;
+    this.dataCache[fetchType] ? this.updateStocks(fetchType) : this.fetchStocks(fetchType);
+  }
 
+  private fetchStocks(type: TableType) {
     if (this.dataCache[type]) {
-      // console.log('If dataCache : ', this.dataCache[type]);
       this.updateStocks(type);
       return;
     }
 
-    if (
-      type === 'PRICE' ||
-      type === 'CONTRIBUTION' ||
-      type === 'DIVIDEND' ||
-      type === 'MOJO'
-    ) {
-      type = 'HOLDING';
-    }
+    const fetchType: TableType = ['PRICE', 'CONTRIBUTION', 'DIVIDEND', 'MOJO'].includes(type) ? 'HOLDING' : type;
 
-    this.serv.getOverviewStocks(type).subscribe({
+    this.serv.getOverviewStocks(fetchType).subscribe({
       next: (response) => {
-        // console.log('Fetched data from API response is : ', response.data);
-        const elements = ['RISK', 'RATIOS', 'FINANCIALS', 'RETURNS'].includes(
-          type
-        )
+        const elements = ['RISK', 'RATIOS', 'FINANCIALS', 'RETURNS'].includes(fetchType)
           ? Object.values(response.data)
           : Object.values(response.data.list);
-        this.dataCache[type] = elements;
-        this.updateStocks(type);
+        this.dataCache[fetchType] = elements;
+        this.updateStocks(fetchType);
       },
       error: (err) => console.error('Failed to load data', err),
     });
 
-    this.cdr.detectChanges(); // Trigger change detection
+    this.cdr.detectChanges();
   }
 
   private updateStocks(type: TableType): void {
     this.dataSource.data = this.dataCache[type] || [];
-    // console.log('updated dataSource is : ', this.dataSource);
   }
 
   private getColumns(type: TableType): void {
-    const columnMap: { [key in TableType]: string[] } = {
-      OVERVIEW: [
-        'short',
-        'score',
-        'cmp_price',
-        'vol',
-        'unrgain',
-        'tech_txt',
-        'f_txt',
-        'tusk',
-      ],
-      HOLDING: [
-        'short',
-        'score',
-        'cmp',
-        'iprice',
-        'ival',
-        'dgain',
-        'unrgain',
-        'lval',
-      ],
-      PRICE: [
-        'short',
-        'score',
-        'cmp',
-        'cvol',
-        'dh',
-        'dl',
-        'wk52h',
-        'wk52l',
-        'ath',
-        'atl',
-      ],
-      CONTRIBUTION: [
-        'short',
-        'score',
-        'cmp',
-        'mcap',
-        'unrgain',
-        'unrgaincontri',
-        'pwt',
-        'lval',
-      ],
-      DIVIDEND: ['short', 'score', 'cmp', 'div', 'unrgain', 'tret', 'lval'],
-      MOJO: [
-        'short',
-        'score',
-        'cmp',
-        'q_txt',
-        'v_txt',
-        'f_txt',
-        'tech_txt',
-        'pwt',
-        'lval',
-      ],
-      RISK: [
-        'short',
-        'score',
-        'cmp',
-        'mcap',
-        'volatility',
-        'riskadj',
-        'beta',
-        'riskval',
-      ],
-      LIQUIDITY: [
-        'short',
-        'score',
-        'cmp',
-        'qty',
-        'd5avgvol',
-        'd5delivol',
-        'risk',
-        'lval',
-      ],
-      TAX: [
-        'short',
-        'score',
-        'cmp',
-        'jan31price',
-        'qty',
-        'avghold',
-        'sttax',
-        'dayleft',
-        'lttax',
-        'lval',
-        'ptv',
-      ],
-      RATIOS: [
-        'short',
-        'score',
-        'cmp',
-        'mcap',
-        'divy',
-        'pe',
-        'roe',
-        'debeq',
-        'pbv',
-      ],
-      FINANCIALS: [
-        'short',
-        'score',
-        'cmp',
-        'year',
-        'netsale',
-        'othinc',
-        'opprof',
-        'intpaid',
-        'tax',
-        'netprof',
-        'eps',
-      ],
-      RETURNS: [
-        'short',
-        'score',
-        'cmp',
-        'D1',
-        'W1',
-        'M1',
-        'M3',
-        'Y1',
-        'Y3',
-        'Y5',
-      ],
-      RESULTS: [
-        'short',
-        'score',
-        'cmp',
-        'resdt',
-        'f_txt',
-        'rescomm',
-        'resultdt',
-        'pv',
-      ],
-      TOTAL_RETURNS: [
-        'short',
-        'score',
-        'cmp',
-        'qty',
-        'rgain',
-        'unrgain',
-        'tgain',
-        'tgainp',
-      ],
-    };
-    this.displayedColumns = columnMap[type] || [];
-  }
-
-  onClick(type: TableType): void {
-    this.TYPE = type;
-    this.getColumns(type);
-
-    // fetchtype will not take "price,cont,div,mojo"
-    const fetchType: TableType = [
-      'PRICE',
-      'CONTRIBUTION',
-      'DIVIDEND',
-      'MOJO',
-    ].includes(type)
-      ? 'HOLDING'
-      : type;
-
-      // if dataChache type
-    this.dataCache[fetchType]
-      ? this.updateStocks(fetchType)
-      : this.fetchStocks(fetchType);
-
+    this.displayedColumns = this.columnMap[type] || [];
   }
 
   private sortData(sort: Sort) {
-
     const data = this.dataSource.data.slice();
     if (!sort.active || sort.direction === '') {
       this.dataSource.data = data;
       return;
     }
 
-    const sortedData = data.sort((a: any, b: any) =>
-      this.compare(
-        this.getPropertyValue(a, sort.active),
-        this.getPropertyValue(b, sort.active),
-        sort.direction === 'asc'
-      )
+    const sortedData = data.sort((a, b) =>
+      this.compare(this.getPropertyValue(a, sort.active), this.getPropertyValue(b, sort.active), sort.direction === 'asc')
     );
 
     this.dataSource = new MatTableDataSource(sortedData);
     this.dataSource.sort = this.sort;
-
-    // this.dataSource.setData(sortedData);
     this.cdr.detectChanges();
-
   }
 
   private getPropertyValue(item: any, property: string): any {
@@ -347,16 +128,12 @@ export class TablesComponent implements OnInit, AfterViewInit {
 
   private compare(a: any, b: any, isAsc: boolean): number {
     if (a === b) return 0;
-    if (typeof a === 'string' && typeof b === 'string')
-      return isAsc ? a.localeCompare(b) : b.localeCompare(a);
+    if (typeof a === 'string' && typeof b === 'string') return isAsc ? a.localeCompare(b) : b.localeCompare(a);
     return isAsc ? a - b : b - a;
   }
 
   sortBy(property: string) {
-    const sortState: Sort = {
-      active: property,
-      direction: this.sort.direction === 'asc' ? 'desc' : 'asc',
-    };
+    const sortState: Sort = { active: property, direction: this.sort.direction === 'asc' ? 'desc' : 'asc' };
     this.sort.active = property;
     this.sort.direction = sortState.direction;
     this.sortData(sortState);
@@ -367,42 +144,19 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   getSortIconClass(column: string): string {
-    return this.sort?.active === column
-      ? this.sort.direction === 'asc'
-        ? 'arrow_upward'
-        : 'arrow_downward'
-      : '';
+    return this.sort?.active === column ? (this.sort.direction === 'asc' ? 'arrow_upward' : 'arrow_downward') : '';
   }
 
   getColor(value: string): string {
     const numValue = parseFloat(value);
-    return isNaN(numValue)
-      ? 'black'
-      : numValue === 0
-      ? ''
-      : numValue < 0
-      ? 'red'
-      : 'green';
+    return isNaN(numValue) ? 'black' : numValue === 0 ? '' : numValue < 0 ? 'red' : 'green';
   }
 
   getBgColor(value: string): string {
-    const colorMap: { [key: string]: string } = {
-      green: '#ccffcc',
-      Green: '#ccffcc',
-      red: '#ffcccc',
-      Red: '#ffcccc',
-      orange: '#ffcc99',
-      Orange: '#ffcc99',
-    };
+    const colorMap: { [key: string]: string } = { green: '#ccffcc', Green: '#ccffcc', red: '#ffcccc', Red: '#ffcccc', orange: '#ffcc99', Orange: '#ffcc99' };
     if (colorMap[value]) return colorMap[value];
     const numValue = parseFloat(value);
-    return isNaN(numValue)
-      ? 'white'
-      : numValue === 0
-      ? 'white'
-      : numValue < 0
-      ? '#ffcccc'
-      : '#ccffcc';
+    return isNaN(numValue) ? 'white' : numValue === 0 ? 'white' : numValue < 0 ? '#ffcccc' : '#ccffcc';
   }
 
   togglePanel(element: any) {
@@ -431,26 +185,18 @@ export class TablesComponent implements OnInit, AfterViewInit {
       const numValue = Number(value) || 0;
       return total + (numValue === -999999 ? 0 : numValue);
     }, 0);
-    // return 0;
   }
 
   formatNumberWithCommas(value: string | number): string {
     const numValue = typeof value === 'string' ? parseFloat(value) : value;
-    return numValue === -999999
-      ? '-'
-      : isNaN(numValue)
-      ? ''
-
-      : new Intl.NumberFormat('en-US').format(numValue);
+    return numValue === -999999 ? '-' : isNaN(numValue) ? '' : new Intl.NumberFormat('en-US').format(numValue);
   }
 
   getExpandedHeight(element: any): number {
-    return element.details?.length
-      ? element.details.length * (this.TYPE === 'TAX' ? 60 : 80)
-      : 0;
+    return element.details?.length ? element.details.length * (this.TYPE === 'TAX' ? 60 : 80) : 0;
   }
 
-  trackByIndex(index: number, item: any): number {
+  trackByIndex(index: number): number {
     return index;
   }
 }
