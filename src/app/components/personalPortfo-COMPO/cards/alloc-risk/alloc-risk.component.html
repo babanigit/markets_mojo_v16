@@ -6,7 +6,7 @@
         {{ HEAD }}
         <span
           class="card-title activator info-act"
-          ng-click="isCollapseRiskAlloc = !isCollapseRiskAlloc"
+          (click)="isCollapseRiskAlloc = !isCollapseRiskAlloc"
         ></span>
       </h2>
     </div>
@@ -39,11 +39,15 @@
       </div>
     </div>
   </div>
-  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseRiskAlloc">
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseRiskAlloc }"
+    ng-show="isCollapseRiskAlloc"
+  >
     <span class="card-title grey-text text-darken-4"
       >Card Title<i
         class="material-icons right"
-        ng-click="isCollapseRiskAlloc = !isCollapseRiskAlloc"
+        (click)="isCollapseRiskAlloc = !isCollapseRiskAlloc"
         >close</i
       ></span
     >
@@ -68,21 +72,17 @@
       <a
         (click)="sendToParent()"
         class="seefull waves-light"
-        ng-click='modalOpen("risk_allocation")'
+        href="javascript:void(0);"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"
           alt="ArrowRight"
           height="16"
         />
-        
-        <span *ngIf="isLoading">
-          Loading...
-        </span>
-        <span *ngIf="!isLoading  "> Full Details </span>
+
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Full Details </span>
         <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
-        
-        </a
-      >
+      </a>
     </div>
   </div>
 </div>

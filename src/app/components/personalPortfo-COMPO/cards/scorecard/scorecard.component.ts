@@ -41,7 +41,6 @@ export class ScorecardComponent {
 
   // Method to get direction color default
   getDirClrDefault(value: string | number, defaultColor: string): string {
-    // console.log('hello');
     return this.fun.getDirClrDefault(value, defaultColor);
   }
 

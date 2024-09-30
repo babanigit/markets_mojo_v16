@@ -38,6 +38,7 @@ import { VolatilityComponent } from '../../cards/volatility/volatility.component
 import { ReturnVarComponent } from '../../cards/return-var/return-var.component';
 import { RiskAdjReturnsComponent } from '../../cards/risk-adj-returns/risk-adj-returns.component';
 import { AllocRiskComponent } from "../../cards/alloc-risk/alloc-risk.component";
+import { IRisk_Data_Datum } from 'src/app/models/pp/RiskPopup';
 
 @Component({
   selector: 'app-swiper-risk-analysis',
@@ -56,7 +57,7 @@ import { AllocRiskComponent } from "../../cards/alloc-risk/alloc-risk.component"
     ReturnVarComponent,
     RiskAdjReturnsComponent,
     AllocRiskComponent
-],
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -68,11 +69,13 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
   beta: IBeta | undefined;
   volatility: IVolatility | undefined;
   var_data: IVar | undefined;
-  return_risk_data : IReturn_risk | undefined;
+  return_risk_data: IReturn_risk | undefined;
 
   pieFromat: series_Data_pie[] | undefined;
 
   ixrrData: I_Ixrr_Data | undefined;
+
+  riskPopup_data_from_emit: { [key: string]: IRisk_Data_Datum } | undefined;
 
   @Output() send_element = new EventEmitter<string>(); //for input value
 
@@ -85,7 +88,7 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) { }
 
   recieveElemment(str: string) {
     // console.log('the str is : ', str);
@@ -114,8 +117,15 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
   receiveHead(str: string) {
     this.send_head.emit(str);
   }
-  receiveLoadingState(state:boolean) {
+  receiveLoadingState(state: boolean) {
     this.loading_state.emit(state)
+  }
+
+  receivePopupData(data: { [key: string]: IRisk_Data_Datum }) {
+    this.riskPopup_data_from_emit = data;
+    console.log('riskPopup_data : ', data);
+    
+    this.cdr.detectChanges(); // Trigger change detection
   }
 
   // to format
@@ -141,7 +151,7 @@ export class SwiperRiskAnalysisComponent implements AfterViewInit, OnInit {
       this.beta = res.data.beta;
       this.volatility = res.data.volatility;
       this.var_data = res.data.var;
-      this.return_risk_data=res.data.return;
+      this.return_risk_data = res.data.return;
 
       // console.log(
       //   'res.data.allocation.graph.data ',

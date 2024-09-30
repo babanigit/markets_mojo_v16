@@ -5,47 +5,68 @@
         {{ HEAD }}
         <span
           class="card-title activator info-act"
-          ng-click="isCollapseRiskBeta = !isCollapseRiskBeta"
+          (click)="isCollapseRiskBeta = !isCollapseRiskBeta"
         ></span>
       </h2>
     </div>
 
-    <div class="intraday col-green" id="returnsBetaCardContent" *ngIf="beta!">
-      <div
-        [ngClass]="this.fun.getDirClrDefault(beta.txt1dir, 'orange')"
-        class="txt-hed-1"
-      >
-        {{ beta.txt1 }}
-      </div>
-      <p class="txt-cr ng-binding">
-        {{ beta.txt2 }}
-      </p>
-      <p class="txt-cr ng-binding">
-        {{ beta.txt3 }}
-      </p>
-      <div>
+    <ng-container *ngIf="beta!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+
+      <div class="intraday col-green" id="returnsBetaCardContent">
         <div
-          id="container_riskbeta"
-          style="height: 200px"
-          data-highcharts-chart="7"
-          ng-show="riskdata.error == '' &amp;&amp; loader[0].pf_risk_beta == false "
-          class=""
+          [ngClass]="this.fun.getDirClrDefault(beta.txt1dir, 'orange')"
+          class="txt-hed-1"
         >
-          <!-- graph -->
-          <ng-container *ngIf="beta.graph!">
-            <app-line-graph [chartData]="beta.graph" />
-          </ng-container>
+          {{ beta.txt1 }}
+        </div>
+        <p class="txt-cr ng-binding">
+          {{ beta.txt2 }}
+        </p>
+        <p class="txt-cr ng-binding">
+          {{ beta.txt3 }}
+        </p>
+        <div>
+          <div
+            id="container_riskbeta"
+            style="height: 200px"
+            data-highcharts-chart="7"
+            ng-show="riskdata.error == '' &amp;&amp; loader[0].pf_risk_beta == false "
+            class=""
+          >
+            <!-- graph -->
+            <ng-container *ngIf="beta.graph!">
+              <app-line-graph [chartData]="beta.graph" />
+            </ng-container>
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
   </div>
 
   <!-- slider -->
-  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseRiskBeta">
+  <div
+    class="card-reveal animate-slide"
+    ng-show="isCollapseRiskBeta"
+    [ngClass]="{ 'ng-hide': isCollapseRiskBeta }"
+  >
     <span class="card-title grey-text text-darken-4"
       >Card Title<i
         class="material-icons right"
-        ng-click="isCollapseRiskBeta = !isCollapseRiskBeta"
+        (click)="isCollapseRiskBeta = !isCollapseRiskBeta"
         >close</i
       ></span
     >
@@ -85,20 +106,16 @@
       <a
         (click)="sendToParent()"
         class="seefull waves-light"
-        ng-click='getRisk();modalOpen("risk_beta")'
+        href="javascript:void(0);"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"
           alt="ArrowRight"
           height="16"
         />
-        <span *ngIf="isLoading">
-          Loading...
-        </span>
-        <span *ngIf="!isLoading  "> All Stocks </span>
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> All Stocks </span>
         <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
-        
-        </a
-      >
+      </a>
     </div>
   </div>
 </div>

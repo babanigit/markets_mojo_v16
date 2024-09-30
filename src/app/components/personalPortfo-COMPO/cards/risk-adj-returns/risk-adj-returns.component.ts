@@ -39,11 +39,15 @@ export class RiskAdjReturnsComponent implements OnInit {
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
 
+  @Input() riskPopup_data_from_emit: { [key: string]: IRisk_Data_Datum } | undefined;
   riskPopup_data: { [key: string]: IRisk_Data_Datum } | undefined;
+  @Output() send_popup = new EventEmitter<{ [key: string]: IRisk_Data_Datum }>(); //for
+
   isLoading: boolean = false;
   clickedOnce: boolean = false;
   error: string | null = null;
   isFetched: boolean = false; // Flag to track fetch status
+  isCollapseRiskRar=true
 
   constructor(
     public fun: PpFunctionsService,
@@ -56,6 +60,15 @@ export class RiskAdjReturnsComponent implements OnInit {
   
   sendToParent() {
     this.clickedOnce = true;
+
+    
+    if (this.riskPopup_data_from_emit) {
+      this.riskPopup_data = this.riskPopup_data_from_emit
+      setTimeout(() => {
+        this.emitData();
+      }, 0); 
+      return;
+    }
 
     // Check if data has already been fetched
     if (this.isFetched) {
@@ -124,6 +137,8 @@ export class RiskAdjReturnsComponent implements OnInit {
       this.sendElement.emit(clonedElement);
       this.sendClick_State.emit(true);
       this.send_head.emit(this.HEAD);
+      this.send_popup.emit(this.riskPopup_data); // Emit riskPopup_data to parent component
+
       console.log('Data emitted');
     } else {
       this.error = 'Unable to emit data: ' +

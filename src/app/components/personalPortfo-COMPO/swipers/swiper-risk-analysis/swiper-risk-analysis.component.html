@@ -30,9 +30,7 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <ng-container *ngIf="score!">
-          <app-scorecard [DATA]="score" [HEAD]="'Risk'" [SHOW_BUTTON]="false" />
-        </ng-container>
+        <app-scorecard [DATA]="score" [HEAD]="'Risk'" [SHOW_BUTTON]="false" />
       </section>
 
       <script>
@@ -55,56 +53,74 @@
               <h2>Risk Summary</h2>
             </div>
 
-            <div class="risk-scroll list-mojo ng-scope" *ngIf="main_data!">
-              <div class="risk-txt1 red">{{ main_data.beta.txt1 }}</div>
-              <div class="risk-txt2 ng-binding">
-                {{ main_data.beta.txt3 }}
-              </div>
-              <div class="comp-peers2">
-                <div>
-                  <span>Portfolio risk analysis</span>
+            <ng-container *ngIf="main_data!; else loadingTemplateRiskSummary">
+              <!-- Content to show if data exists -->
+              <div class="risk-scroll list-mojo ng-scope">
+                <div class="risk-txt1 red">{{ main_data.beta.txt1 }}</div>
+                <div class="risk-txt2 ng-binding">
+                  {{ main_data.beta.txt3 }}
                 </div>
-              </div>
-              <!-- ngIf: (riskdata.error) !== "" && loader[0].pf_risk_sum == false -->
-              <!-- ngIf: (riskdata.error) === '' && loader[0].pf_risk_sum == false  -->
-              <div class="risk-summary-container ng-scope">
-                <div class="rsk1">
-                  <div class="risk-txt4 ng-binding">
-                    {{ main_data.volatility.txt1 }}
+                <div class="comp-peers2">
+                  <div>
+                    <span>Portfolio risk analysis</span>
                   </div>
-                  <p class="ng-binding">
-                    {{ main_data.volatility.txt2 }}
-                  </p>
                 </div>
+                <!-- ngIf: (riskdata.error) !== "" && loader[0].pf_risk_sum == false -->
+                <!-- ngIf: (riskdata.error) === '' && loader[0].pf_risk_sum == false  -->
+                <div class="risk-summary-container ng-scope">
+                  <div class="rsk1">
+                    <div class="risk-txt4 ng-binding">
+                      {{ main_data.volatility.txt1 }}
+                    </div>
+                    <p class="ng-binding">
+                      {{ main_data.volatility.txt2 }}
+                    </p>
+                  </div>
 
-                <div class="rsk2">
-                  <div class="risk-txt4 ng-binding">
-                    {{ main_data.return.txt1 }}
+                  <div class="rsk2">
+                    <div class="risk-txt4 ng-binding">
+                      {{ main_data.return.txt1 }}
+                    </div>
+                    <p
+                      [innerHTML]="main_data.return.txt2"
+                      class="ng-binding"
+                    ></p>
                   </div>
-                  <p [innerHTML]="main_data.return.txt2" class="ng-binding"></p>
-                </div>
 
-                <div class="rsk3">
-                  <div class="risk-txt4 ng-binding">
-                    {{ main_data.allocation.txt1 }}
+                  <div class="rsk3">
+                    <div class="risk-txt4 ng-binding">
+                      {{ main_data.allocation.txt1 }}
+                    </div>
+                    <p class="ng-binding">
+                      {{ main_data.allocation.txt2 }}
+                    </p>
                   </div>
-                  <p class="ng-binding">
-                    {{ main_data.allocation.txt2 }}
-                  </p>
-                </div>
 
-                <div class="rsk4">
-                  <div class="risk-txt4 ng-binding">
-                    {{ main_data.var.txt1 }}
+                  <div class="rsk4">
+                    <div class="risk-txt4 ng-binding">
+                      {{ main_data.var.txt1 }}
+                    </div>
+                    <p class="ng-binding">
+                      {{ main_data.var.txt3 }}
+                    </p>
                   </div>
-                  <p class="ng-binding">
-                    {{ main_data.var.txt3 }}
-                  </p>
+                </div>
+                <!-- end ngIf: (riskdata.error) === '' && loader[0].pf_risk_sum == false  -->
+              </div>
+            </ng-container>
+
+            <ng-template #loadingTemplateRiskSummary>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
                 </div>
               </div>
-              <!-- end ngIf: (riskdata.error) === '' && loader[0].pf_risk_sum == false  -->
-            </div>
-            <!-- end ngIf: loader[0].pf_risk_sum == false && error_flag[0].risk_summary == 0 -->
+            </ng-template>
           </div>
         </div>
       </section>
@@ -119,11 +135,12 @@
           (sendElement)="receiveElement($event)"
           (sendClick_State)="receiveClickState($event)"
           (send_head)="receiveHead($event)"
-
           (loading_state)="receiveLoadingState($event)"
-
           [HEAD]="'Beta'"
           [beta]="beta"
+
+          (send_popup)="receivePopupData($event)"
+          [riskPopup_data_from_emit]="riskPopup_data_from_emit"
         />
       </section>
 
@@ -139,6 +156,9 @@
           (send_head)="receiveHead($event)"
           [HEAD]="'Volatility'"
           [volatility]="volatility"
+          
+          (send_popup)="receivePopupData($event)"
+          [riskPopup_data_from_emit]="riskPopup_data_from_emit"
         />
       </section>
 
@@ -154,6 +174,9 @@
           (send_head)="receiveHead($event)"
           [HEAD]="' Value at risk (VAR) '"
           [var_data]="var_data"
+
+          (send_popup)="receivePopupData($event)"
+          [riskPopup_data_from_emit]="riskPopup_data_from_emit"
         />
       </section>
 
@@ -169,6 +192,9 @@
           (send_head)="receiveHead($event)"
           [HEAD]="' Risk Adjusted Returns '"
           [return_risk]="return_risk_data"
+
+          (send_popup)="receivePopupData($event)"
+          [riskPopup_data_from_emit]="riskPopup_data_from_emit"
         />
       </section>
 
@@ -178,7 +204,6 @@
         data-scrolled="0"
         data-visited="0"
       >
-
         <app-alloc-risk
           (sendElement)="receiveElement($event)"
           (sendClick_State)="receiveClickState($event)"
@@ -186,10 +211,11 @@
           [HEAD]="'Allocation Risk'"
           [data_allocation]="data_allocation"
           [pieFromat]="pieFromat"
+          
+          (send_popup)="receivePopupData($event)"
+          [riskPopup_data_from_emit]="riskPopup_data_from_emit"
         />
-
       </section>
-
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">
