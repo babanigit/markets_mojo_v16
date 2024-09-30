@@ -34,6 +34,8 @@ export class SwiperDiversificationComponent implements OnInit {
 
   @Input() SHOW_BUTTON: Boolean = true;
   isCollapseTodayContri: boolean = true;
+  isCollapseDiversSummary=true
+  isCollapseDiversStock=true
 
   @Input() score: any;
 

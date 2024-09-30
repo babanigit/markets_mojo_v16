@@ -50,6 +50,7 @@ export class DiversificationComponent implements OnInit {
   error: string | null = null;
   isFetched: boolean = false; // Flag to track fetch status
 
+  isCollapseDiversSector=true
 
   @ViewChild('childDiv') childDiv: ElementRef<HTMLDivElement> | undefined;
   @Output() sendElement = new EventEmitter<HTMLDivElement>();
