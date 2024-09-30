@@ -6,13 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class HighestObjPipe implements PipeTransform {
 
-  transform(value: any[]): any {
-    if (!Array.isArray(value) || value.length === 0) {
-      return null; // Return null if input is not valid
+  transform(items: any[], no: boolean): any[] {
+    if (!items || items.length === 0) {
+      return items;
     }
 
-    return value.reduce((prev, current) => {
-      return (prev.dgain > current.dgain) ? prev : current;
-    });
+    if(no){
+      return items.sort((a, b) => b.dgain - a.dgain);
+    }else{
+      return items.sort((a, b) => a.dgain - b.dgain);
+    }
+    
   }
 }

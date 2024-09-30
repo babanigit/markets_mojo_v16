@@ -182,67 +182,71 @@
     </div>
   </div>
 
-  <!-- element2 done -->
-  <div id="element2">
-    <!-- <ng-container
-     *appLazyLoad (appLazyLoad)="loadComponent2()" 
-     > -->
-    <ng-container>
-      <app-swiper-doing-overall (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
-        (send_head)="receiveHead($event)" (send_element)="recievedDataEvent($event)"
-        (send_data)="recieveData($event)" />
-    </ng-container>
+
+
+<div *ngIf="TO_SHOW">
+
+    <!-- element2 done -->
+    <div id="element2">
+      <!-- <ng-container
+       *appLazyLoad (appLazyLoad)="loadComponent2()" 
+       > -->
+      <ng-container>
+        <app-swiper-doing-overall (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)" (send_element)="recievedDataEvent($event)"
+          (send_data)="recieveData($event)" />
+      </ng-container>
+    </div>
+  
+    <!-- element3  -->
+    <div id="element3">
+      <!-- <ng-container
+       *appLazyLoad (appLazyLoad)="loadComponent3()" 
+       > -->
+      <ng-container>
+        <app-swiper-return-analysis (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)" [score]="overallData?.return" />
+      </ng-container>
+    </div>
+  
+    <!-- element4 -->
+    <div id="element4">
+      <app-swiper-risk-analysis (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)" [score]="overallData?.risk" />
+    </div>
+  
+    <div id="element5">
+      <app-swiper-liquidity (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)" [score]="overallData?.liquidity" (send_QVFLData)="recieve_QvflData($event)" />
+    </div>
+  
+    <div id="element6">
+      <app-swiper-diversification (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)" [score]="overallData?.diversified" />
+    </div>
+  
+    <div id="element7">
+      <app-swiper-quality (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)" [score]="overallData?.quality" (send_holdingsData)="recieve_HoldingData($event)"
+        [DATA_qvfl]="qvflData" />
+    </div>
+  
+    <div id="element8">
+      <app-swiper-valuation (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)" [score]="overallData?.valuation" [DATA_holding]="holdingData"
+        [DATA_qvfl]="qvflData" />
+    </div>
+  
+    <div id="element9">
+      <app-swiper-financial-trend (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)" [score]="overallData?.fin_trend" [DATA_holding]="holdingData"
+        [DATA_qvfl]="qvflData" />
+    </div>
+  
+    <div id="element10">
+      <app-swiper-tax (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)" (taxPopup_data)="receiveTaxPopupData($event)" />
+    </div>
   </div>
 
-  <!-- element3  -->
-  <div id="element3">
-    <!-- <ng-container
-     *appLazyLoad (appLazyLoad)="loadComponent3()" 
-     > -->
-    <ng-container>
-      <app-swiper-return-analysis (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
-        (send_head)="receiveHead($event)" [score]="overallData?.return" />
-    </ng-container>
-  </div>
-
-  <!-- element4 -->
-  <div id="element4">
-    <app-swiper-risk-analysis (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
-      (send_head)="receiveHead($event)" [score]="overallData?.risk" />
-  </div>
-
-  <div id="element5">
-    <app-swiper-liquidity (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
-      (send_head)="receiveHead($event)" [score]="overallData?.liquidity" (send_QVFLData)="recieve_QvflData($event)" />
-  </div>
-
-  <div id="element6">
-    <app-swiper-diversification (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
-      (send_head)="receiveHead($event)" [score]="overallData?.diversified" />
-  </div>
-
-  <div id="element7">
-    <app-swiper-quality (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
-      (send_head)="receiveHead($event)" [score]="overallData?.quality" (send_holdingsData)="recieve_HoldingData($event)"
-      [DATA_qvfl]="qvflData" />
-  </div>
-
-  <div id="element8">
-    <app-swiper-valuation (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
-      (send_head)="receiveHead($event)" [score]="overallData?.valuation" [DATA_holding]="holdingData"
-      [DATA_qvfl]="qvflData" />
-  </div>
-
-  <div id="element9">
-    <app-swiper-financial-trend (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
-      (send_head)="receiveHead($event)" [score]="overallData?.fin_trend" [DATA_holding]="holdingData"
-      [DATA_qvfl]="qvflData" />
-  </div>
-
-  <div id="element10">
-    <app-swiper-tax (sendElement)="receiveElement($event)" (sendClick_State)="receiveClickState($event)"
-      (send_head)="receiveHead($event)" (taxPopup_data)="receiveTaxPopupData($event)" />
-  </div>
 </div>
-
-<div *ngIf="TO_SHOW"></div>
