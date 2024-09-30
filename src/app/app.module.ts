@@ -6,9 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+// import { LazyLoadDirective } from './directives/lazy-load.directive';
+import { LazyLoadDirective } from './lazy-load.directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LazyLoadDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,

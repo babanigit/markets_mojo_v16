@@ -1,36 +1,51 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  EventEmitter,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+  import {
+    AfterViewInit,
+    ChangeDetectionStrategy,
+    Component,
+    ElementRef,
+    EventEmitter,
+    OnInit,
+    Output,
+    ViewChild,
+  } from '@angular/core';
 
-import { ChangeDetectorRef } from '@angular/core';
-import { IOverall_Data } from 'src/app/models/pp/overall';
-import { IQvfl_Data } from 'src/app/models/pp/qvfl';
-import { IHoldingsData } from 'src/app/models/table/holding';
-import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
-import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
+  import { ChangeDetectorRef } from '@angular/core';
+  import { IOverall_Data } from 'src/app/models/pp/overall';
+  import { IQvfl_Data } from 'src/app/models/pp/qvfl';
+  import { IHoldingsData } from 'src/app/models/table/holding';
+  import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+  import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ItaxHistroyPopup_data } from 'src/app/models/pp/taxHistoryPopup';
+  import { FormBuilder, FormGroup } from '@angular/forms';
+  import { ItaxHistroyPopup_data } from 'src/app/models/pp/taxHistoryPopup';
 
-interface TaxHistory {
-  fy: string;
-  label: string;
-}
+  interface TaxHistory {
+    fy: string;
+    label: string;
+  }
 
-@Component({
-  selector: 'app-stocker-investments',
-  templateUrl: './stocker-investments.component.html',
-  styleUrls: ['./stocker-investments.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class StockerInvestmentsComponent {
+  @Component({
+    selector: 'app-stocker-investments',
+    templateUrl: './stocker-investments.component.html',
+    styleUrls: ['./stocker-investments.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+  })
+  export class StockerInvestmentsComponent {
+
+
+    component2Loaded = true;
+    component3Loaded = false;
+    // Add flags for other components
+
+    loadComponent2() {
+      this.component2Loaded = true;
+    }
+
+    loadComponent3() {
+      this.component3Loaded = true;
+    }
+
+
   taxHistory_data: any | undefined;
   // recive tax data
   receiveTaxPopupData(hello: ItaxHistroyPopup_data) {

@@ -44,6 +44,7 @@ import { TwoCommasPipe } from "../../pipes/pp/twoCommas/two-commas.pipe";
     // childerns
     StockerInvestmentsComponent,
     MutualFundsInvestmentsComponent,
+    // LazyLoadDirective
   ],
   imports: [
     // ModalModule.forRoot(),
@@ -70,7 +71,8 @@ import { TwoCommasPipe } from "../../pipes/pp/twoCommas/two-commas.pipe";
     OrderObjectByPipe,
     UniquePipe,
     RoundOffPipe,
-    TwoCommasPipe
+    TwoCommasPipe,
+
 ],
 })
 export class PersonalPortfoliosModule {}

@@ -240,12 +240,16 @@
       </div>
     </div>
   </div>
-  <div *ngIf="TO_SHOW || true">
 
 
     
   <!-- element2 done -->
   <div id="element2">
+    <!-- <ng-container
+     *appLazyLoad (appLazyLoad)="loadComponent2()" 
+     > -->
+     <ng-container >
+
     <app-swiper-doing-overall
       (sendElement)="receiveElement($event)"
       (sendClick_State)="receiveClickState($event)"
@@ -253,16 +257,26 @@
       (send_element)="recievedDataEvent($event)"
       (send_data)="recieveData($event)"
     />
+  </ng-container>
+
   </div>
 
   <!-- element3  -->
   <div id="element3">
+    <!-- <ng-container
+     *appLazyLoad (appLazyLoad)="loadComponent3()" 
+     > -->
+     <ng-container >
+
     <app-swiper-return-analysis
       (sendElement)="receiveElement($event)"
       (sendClick_State)="receiveClickState($event)"
       (send_head)="receiveHead($event)"
       [score]="overallData?.return"
     />
+
+  </ng-container>
+
   </div>
 
   <!-- element4 -->
@@ -338,6 +352,12 @@
 
 
   </div>
+
+
+
+
+  <div *ngIf="TO_SHOW ">
+
 </div>
 
 <!-- footer -->
