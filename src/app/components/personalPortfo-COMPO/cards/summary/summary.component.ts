@@ -35,6 +35,7 @@ export class SummaryComponent {
   @Input() HEAD: string | undefined; //props
   // show button
   @Input() SHOW_BUTTON: Boolean = true;
+  isCollapseValSum=true
 
   pieFromat: series_Data_pie[] | undefined;
 

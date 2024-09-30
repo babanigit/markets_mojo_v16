@@ -43,6 +43,8 @@ export class DetailsLiquiComponent {
   @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
   @Output() send_head = new EventEmitter<string>(); //for
 
+  isCollapseLiqAnalysis=true
+
   sendToParent() {
     if (this.childDiv) {
       console.log('clicked');

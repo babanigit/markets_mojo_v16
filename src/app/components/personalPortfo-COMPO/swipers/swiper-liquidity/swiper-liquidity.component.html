@@ -26,6 +26,7 @@
       sect-reveal="true"
       style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
     >
+
       <!-- scorecard -->
       <section
         data-reveal="true"
@@ -34,13 +35,11 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <ng-container *ngIf="score!">
           <app-scorecard
             [DATA]="score"
             [HEAD]="'Liquidity'"
             [SHOW_BUTTON]="false"
           />
-        </ng-container>
       </section>
 
       <!-- summary -->
@@ -68,6 +67,7 @@
           [Liquidity_List]="Liquidity_List"
         />
       </section>
+
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">

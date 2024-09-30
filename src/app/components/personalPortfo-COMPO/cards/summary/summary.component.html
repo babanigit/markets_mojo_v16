@@ -6,13 +6,17 @@
         {{ HEAD }} Summary
         <span
           class="card-title activator info-act"
-          ng-click="isCollapseValSum = !isCollapseValSum"
+          (click)="isCollapseValSum = !isCollapseValSum"
         ></span>
       </h2>
     </div>
 
     <!-- body -->
-    <ng-container *ngIf="MAIN!">
+    <ng-container> </ng-container>
+
+    <ng-container *ngIf="MAIN!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+
       <div class="ql-sec">
         <div class="sec1">
           <div class="pbt-mojo">
@@ -28,7 +32,7 @@
             data-highcharts-chart="11"
             *ngIf="pieFromat!"
           >
-            <app-radius-chart [PIE]="pieFromat" />
+            <app-radius-chart *ngIf="pieFromat" [PIE]="pieFromat" />
           </div>
         </div>
 
@@ -142,14 +146,32 @@
       <p class="condi-p pad010 ng-binding">
         {{ MAIN.summary_txt }}
       </p>
+      
     </ng-container>
 
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+
     <!-- extend -->
-    <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseValSum">
+    <div
+      class="card-reveal animate-slide"
+      [ngClass]="{ 'ng-hide': isCollapseValSum }"
+      ng-show="isCollapseValSum"
+    >
       <span class="card-title grey-text text-darken-4"
         >Card Title<i
           class="material-icons right"
-          ng-click="isCollapseValSum = !isCollapseValSum"
+          (click)="isCollapseValSum = !isCollapseValSum"
           >close</i
         ></span
       >
