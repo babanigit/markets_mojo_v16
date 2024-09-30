@@ -1,80 +1,126 @@
 <div class="card">
   <div class="card-content">
     <div class="card-head">
-      <h2>Average age<span class="card-title activator info-act"></span></h2>
+      <h2>
+        Average age
+        <span
+          *ngIf="SHOW_BUTTON"
+          class="card-title activator info-act"
+          (click)="isCollapse = !isCollapse"
+        ></span>
+      </h2>
     </div>
 
-    <div
-      class="price-mojo col-green list-mojo ng-scope"
-      *ngIf="data_taxAnalysis!"
-    >
-      <div class=" ">
-        <div class="txt-hed-1 priced ng-binding">
-          {{ data_taxAnalysis.agetxt }}
+    <ng-container *ngIf="data_taxAnalysis!; else loadingTemplate">
+      <ng-container
+        *ngIf="data_taxAnalysis.list.length > 0; else noDataTemplate"
+      >
+        <!-- Content to show if data exists -->
+
+        <div class="price-mojo col-green list-mojo ng-scope">
+          <div class=" ">
+            <div class="txt-hed-1 priced ng-binding">
+              {{ data_taxAnalysis.agetxt }}
+            </div>
+            <p>is the average age of your portfolio</p>
+            <table class="table1">
+              <thead>
+                <tr>
+                  <th class="textcenter">Stock Name</th>
+                  <th class="textcenter">
+                    Quantity
+                    <p class="scr-txt-2">Latest Value</p>
+                  </th>
+                  <th class="textcenter">
+                    Holdings <span class="scr-txt-2">(Yrs)</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let item of data_taxAnalysis.list"
+                  ng-repeat="value in taxAnalysis.list"
+                  class="ng-scope"
+                >
+                  <td>
+                    <div>
+                      <a
+                        [href]="
+                          'https://www.marketsmojo.com/Stocks?StockId=' +
+                          item.sid +
+                          '&Exchange=0'
+                        "
+                        target="_blank"
+                        class="ng-binding"
+                        >{{ item.sname }}
+                      </a>
+                      <br />
+                      <span class="mojo-hover">
+                        <span
+                          [ngClass]="this.fun.getClassbyClr(item.dotsum.q_clr)"
+                        ></span>
+                        <span
+                          [ngClass]="this.fun.getClassbyClr(item.dotsum.v_clr)"
+                        ></span>
+                        <span
+                          [ngClass]="this.fun.getClassbyClr(item.dotsum.v_clr)"
+                        ></span>
+                      </span>
+                    </div>
+                  </td>
+
+                  <td class="ng-binding">
+                    {{ item.iqty | roundOff | twoCommas }}
+                    <br />
+                    <p class="scr-txt-2 ng-binding">
+                      {{ item.lval | roundOff | twoCommas }}
+                    </p>
+                  </td>
+                  <td class="ng-binding">
+                    {{ item.yearhold | roundOff | twoCommas }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <p>is the average age of your portfolio</p>
-        <table class="table1">
-          <thead>
-            <tr>
-              <th class="textcenter">Stock Name</th>
-              <th class="textcenter">
-                Quantity
-                <p class="scr-txt-2">Latest Value</p>
-              </th>
-              <th class="textcenter">
-                Holdings <span class="scr-txt-2">(Yrs)</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              *ngFor="let item of data_taxAnalysis.list"
-              ng-repeat="value in taxAnalysis.list"
-              class="ng-scope"
-            >
-              <td>
-                <div>
-                  <a
-                    [href]="'https://www.marketsmojo.com/Stocks?StockId=' + item.sid + '&Exchange=0'"
-                    target="_blank"
-                    class="ng-binding"
-                    >{{ item.sname }}
-                  </a>
-                  <br />
-                  <span class="mojo-hover">
-                    <span
-                      [ngClass]="this.fun.getClassbyClr(item.dotsum.q_clr)"
-                    ></span>
-                    <span
-                      [ngClass]="this.fun.getClassbyClr(item.dotsum.v_clr)"
-                    ></span>
-                    <span
-                      [ngClass]="this.fun.getClassbyClr(item.dotsum.v_clr)"
-                    ></span>
-                  </span>
-                </div>
-              </td>
+      </ng-container>
+    </ng-container>
 
-              <td class="ng-binding">
-                {{ item.iqty | roundOff | twoCommas }}
-                <br />
-                <p class="scr-txt-2 ng-binding">
-                  {{ item.lval | roundOff | twoCommas }}
-                </p>
-              </td>
-              <td class="ng-binding">
-                {{ item.yearhold | roundOff | twoCommas }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
       </div>
-    </div>
+    </ng-template>
+
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
   </div>
-  <div class="card-reveal" style="display: none">
-    <span class="card-title grey-text text-darken-4"
-      >Card Title<i class="material-icons right">close</i></span
-    >
+
+  <!-- extend -->
+  <div
+    *ngIf="SHOW_BUTTON"
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapse }"
+  >
+    <span class="card-title grey-text text-darken-4">
+      Card Title<i
+        class="material-icons right"
+        (click)="isCollapse = !isCollapse"
+        >close</i
+      >
+    </span>
     <div class="card-reveal-text">
       <ul>
         <li>
@@ -131,10 +177,7 @@
 
         <tbody *ngIf="data_taxAnalysis!">
           <tr></tr>
-          <tr
-            *ngFor="let sector of data_taxAnalysis.list"
-            class="ng-scope"
-          >
+          <tr *ngFor="let sector of data_taxAnalysis.list" class="ng-scope">
             <td>
               <div>
                 <a

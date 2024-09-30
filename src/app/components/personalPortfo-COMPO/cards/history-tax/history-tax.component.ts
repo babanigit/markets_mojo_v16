@@ -54,6 +54,8 @@ export class HistoryTaxComponent implements OnInit {
   error: string | null = null;
   isFetched: boolean = false; // Flag to track fetch status
 
+  isCollapseTaxHist=true
+
   constructor(
     public fun: PpFunctionsService,
     private serv: GetPersonalPFService,

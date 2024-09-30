@@ -48,6 +48,7 @@ export class ShortTermCapitalComponent implements OnInit {
   clickedOnce: boolean = false;
   error: string | null = null;
   isFetched: boolean = false; // Flag to track fetch status
+  isCollapseTaxCap=true
 
   constructor(
     public fun: PpFunctionsService,

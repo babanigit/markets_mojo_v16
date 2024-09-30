@@ -4,95 +4,89 @@
       <h2>Post Tax Value (Rs)</h2>
     </div>
 
-    <div class="pf-profile taxAnalysis ng-scope" *ngIf="data_taxAnalysis!">
-      <div class="pf-profile-sec1">
-        <div>
-          <div class="pf-profile-txt1">Portfolio Value</div>
-          <div class="pf-profile-txt2 ng-binding">
-            {{ data_taxAnalysis.lval | roundOff | twoCommas }}
+    <ng-container *ngIf="data_taxAnalysis!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+      <div class="pf-profile taxAnalysis ng-scope">
+        <div class="pf-profile-sec1">
+          <div>
+            <div class="pf-profile-txt1">Portfolio Value</div>
+            <div class="pf-profile-txt2 ng-binding">
+              {{ data_taxAnalysis.lval | roundOff | twoCommas }}
+            </div>
+          </div>
+          <div>
+            <div class="pf-profile-txt1">Post Tax Value</div>
+            <div class="pf-profile-txt2 ng-binding">
+              {{ data_taxAnalysis.ptv | roundOff | twoCommas }}
+            </div>
           </div>
         </div>
-        <div>
-          <div class="pf-profile-txt1">Post Tax Value</div>
-          <div class="pf-profile-txt2 ng-binding">
-            {{ data_taxAnalysis.ptv | roundOff | twoCommas }}
-          </div>
-        </div>
-      </div>
-      <div class="pf-net-breakup">
-        <table style="width: 100%">
-          <tbody>
-            <tr>
-              <td class="pf-">Short Term Capital Gains Tax</td>
-              <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(
-                    data_taxAnalysis.dir.sttax,
-                    'orange'
-                  )
-                "
-                class="ng-binding"
-              >
-                {{ data_taxAnalysis.sttax | roundOff | twoCommas }}
-              </td>
-            </tr>
-            <tr>
-              <td class="pf-">Long Term Capital Gains Tax</td>
-              <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(
-                    data_taxAnalysis.dir.lttax,
-                    'orange'
-                  )
-                "
-                class="ng-binding"
-              >
-                {{ data_taxAnalysis.lttax | roundOff | twoCommas }}
-              </td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th class="pf-">Total Tax:</th>
-              <th style="text-align: right" class="ng-binding">
-                {{ data_taxAnalysis.totaltax | roundOff | twoCommas }}
-              </th>
-            </tr>
-          </tfoot>
-        </table>
-        <div class="condi-p">
+        <div class="pf-net-breakup">
+          <table style="width: 100%">
+            <tbody>
+              <tr>
+                <td class="pf-">Short Term Capital Gains Tax</td>
+                <td
+                  [ngClass]="
+                    this.fun.getDirClrDefault(
+                      data_taxAnalysis.dir.sttax,
+                      'orange'
+                    )
+                  "
+                  class="ng-binding"
+                >
+                  {{ data_taxAnalysis.sttax | roundOff | twoCommas }}
+                </td>
+              </tr>
+              <tr>
+                <td class="pf-">Long Term Capital Gains Tax</td>
+                <td
+                  [ngClass]="
+                    this.fun.getDirClrDefault(
+                      data_taxAnalysis.dir.lttax,
+                      'orange'
+                    )
+                  "
+                  class="ng-binding"
+                >
+                  {{ data_taxAnalysis.lttax | roundOff | twoCommas }}
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th class="pf-">Total Tax:</th>
+                <th style="text-align: right" class="ng-binding">
+                  {{ data_taxAnalysis.totaltax | roundOff | twoCommas }}
+                </th>
+              </tr>
+            </tfoot>
+          </table>
           <div class="condi-p">
-            <p class="ng-binding">
-              {{ data_taxAnalysis.ptvtxt }}
-            </p>
+            <div class="condi-p">
+              <p class="ng-binding">
+                {{ data_taxAnalysis.ptvtxt }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- slider -->
-    <div class="card-reveal" style="display: none">
-      <span class="card-title grey-text text-darken-4"
-        >Card Title<i class="material-icons right">close</i></span
-      >
-      <div class="card-reveal-text">
-        <ul>
-          <li>
-            The card depicts the derivation of post-tax value of the current
-            portfolio assuming all stocks are sold at the latest price
-          </li>
-          <li>
-            This is notional value and there is no guarantee that when you go to
-            sell in the market, the shares can be sold at the exact same prices
-            and realize the same value
-          </li>
-          <li>
-            Click on Past Tax history to see tax on stocks sold in the past
-            financial years
-          </li>
-        </ul>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
       </div>
-    </div>
+    </ng-template>
+    
   </div>
 </div>
 
@@ -146,7 +140,9 @@
                     target="_blank"
                     class="ng-binding"
                     [href]="
-                      'https://www.marketsmojo.com/Stocks?StockId=' + sector.dotsum.sid + '&Exchange=0'
+                      'https://www.marketsmojo.com/Stocks?StockId=' +
+                      sector.dotsum.sid +
+                      '&Exchange=0'
                     "
                     >{{ sector.short }}</a
                   >

@@ -4,63 +4,93 @@
       <h2>
         Tax History<span
           class="card-title activator info-act"
-          ng-click="isCollapseTaxHist = !isCollapseTaxHist"
+          (click)="isCollapseTaxHist = !isCollapseTaxHist"
         ></span>
       </h2>
     </div>
 
-    <div class="price-mojo col-green ng-scope">
-      <table class="table1 ng-scope">
-        <thead>
-          <tr>
-            <th class="textcenter">
-              Financial<br />
-              Year
-            </th>
-            <th class="textcenter">
-              Short<br />
-              Term Tax
-            </th>
-            <th class="textcenter">
-              Long<br />
-              Term Tax
-            </th>
-            <!--<th class="textcenter">Total Tax</th>-->
-          </tr>
-        </thead>
-        <tbody *ngIf="data_taxHistory!">
-          <!-- end ngRepeat: value in taxHistory|limitTo:10 -->
-          <tr
-            *ngFor="let item of data_taxHistory.total | keyvalue"
-            class="ng-scope"
-          >
-            <td class="ng-binding">{{ item.value.fy }}</td>
+    <ng-container *ngIf="data_taxHistory!; else loadingTemplate">
+      <!-- <ng-container *ngIf="DATA.length > 0; else noDataTemplate"> -->
+      <!-- Content to show if data exists -->
 
-            <td *ngIf="item.value.status == 1" class="ng-binding ng-scope">
-              {{ item.value.sttax | roundOff | twoCommas }}
-            </td>
+      <div class="price-mojo col-green ng-scope">
+        <table class="table1 ng-scope">
+          <thead>
+            <tr>
+              <th class="textcenter">
+                Financial<br />
+                Year
+              </th>
+              <th class="textcenter">
+                Short<br />
+                Term Tax
+              </th>
+              <th class="textcenter">
+                Long<br />
+                Term Tax
+              </th>
+              <!--<th class="textcenter">Total Tax</th>-->
+            </tr>
+          </thead>
+          <tbody>
+            <!-- end ngRepeat: value in taxHistory|limitTo:10 -->
+            <tr
+              *ngFor="let item of data_taxHistory.total | keyvalue"
+              class="ng-scope"
+            >
+              <td class="ng-binding">{{ item.value.fy }}</td>
 
-            <td *ngIf="item.value.status == 1" class="ng-binding ng-scope">
-              {{ item.value.lttax | roundOff | twoCommas }}
-            </td>
+              <td *ngIf="item.value.status == 1" class="ng-binding ng-scope">
+                {{ item.value.sttax | roundOff | twoCommas }}
+              </td>
 
-            <td *ngIf="item.value.status == 0" colspan="2" class="ng-scope">
-              <div class="alerttax alert-warningtax mar-empty">
-                No Stocks sold during this year
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+              <td *ngIf="item.value.status == 1" class="ng-binding ng-scope">
+                {{ item.value.lttax | roundOff | twoCommas }}
+              </td>
+
+              <td *ngIf="item.value.status == 0" colspan="2" class="ng-scope">
+                <div class="alerttax alert-warningtax mar-empty">
+                  No Stocks sold during this year
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- </ng-container> -->
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
   </div>
 
   <!-- extend -->
-  <div class="card-reveal animate-slide ng-hide" ng-show="isCollapseTaxHist">
+  <div class="card-reveal animate-slide "
+  [ngClass]="{ 'ng-hide': isCollapseTaxHist }"
+
+  ng-show="isCollapseTaxHist">
     <span class="card-title grey-text text-darken-4"
       >Card Title<i
         class="material-icons right"
-        ng-click="isCollapseTaxHist = !isCollapseTaxHist"
+        (click)="isCollapseTaxHist = !isCollapseTaxHist"
         >close</i
       ></span
     >
@@ -87,7 +117,6 @@
         (click)="sendToParent()"
         class="seefull waves-light"
         href="javascript:void(0)"
-        ng-click="getTaxHistoryPopup();modalOpen('tax_history_popup',1)"
         ><img
           src="https://i.marketsmojo.com/arrow_rt.png"
           alt="ArrowRight"
@@ -97,8 +126,7 @@
         <span *ngIf="isLoading"> Loading... </span>
         <span *ngIf="!isLoading"> Full Details </span>
         <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
-        </a
-      >
+      </a>
     </div>
   </div>
 </div>

@@ -39,7 +39,7 @@ export class AverageAgeComponent implements OnInit {
   clickedOnce: boolean = false;
   error: string | null = null;
   isFetched: boolean = false; // Flag to track fetch status
-
+  isCollapse=true
 
   constructor(
     public fun: PpFunctionsService,

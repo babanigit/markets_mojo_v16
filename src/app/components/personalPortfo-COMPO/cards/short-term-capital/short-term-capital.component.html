@@ -1,168 +1,189 @@
 <div class="card">
-    <div class="card-content">
+  <div class="card-content">
+    <div class="card-head">
+      <h2>
+        Short Term Capital Gains<span
+          class="card-title activator info-act"
+          (click)="isCollapseTaxCap = !isCollapseTaxCap"
+        ></span>
+      </h2>
+    </div>
 
-      <div class="card-head">
-        <h2>
-          Short Term Capital Gains<span
-            class="card-title activator info-act"
-            ng-click="isCollapseTaxCap = !isCollapseTaxCap"
-          ></span>
-        </h2>
-      </div>
+    <ng-container *ngIf="data_taxAnalysis!; else loadingTemplate">
+      <!-- <ng-container *ngIf="DATA.length > 0; else noDataTemplate"> -->
+      <!-- Content to show if data exists -->
 
       <div
         class="price-mojo col-green ng-scope"
-        *ngIf="data_taxAnalysis?.expire?.error !== undefined "
+        *ngIf="data_taxAnalysis.expire.error !== undefined"
       >
-        <div
-          class="alert alert-warning ng-binding"
-          style="margin-top: 0px"
-        >
-          {{ data_taxAnalysis?.expire?.error }}
+        <div class="alert alert-warning ng-binding" style="margin-top: 0px">
+          {{ data_taxAnalysis.expire.error }}
         </div>
       </div>
-      <!-- end ngIf: (taxAnalysis.expire.error) !== undefined && loader[0].pf_tax_cap_gain == false -->
-      <!-- ngIf: taxAnalysis.expire.error === undefined && loader[0].pf_tax_cap_gain == false  && error_flag[0].tax_capgain == 0 -->
-    </div>
 
-    <!-- extedn -->
-    <div
-      class="card-reveal animate-slide ng-hide"
-      ng-show="isCollapseTaxCap"
-    >
-      <span class="card-title grey-text text-darken-4"
-        >Card Title<i
-          class="material-icons right"
-          ng-click="isCollapseTaxCap = !isCollapseTaxCap"
-          >close</i
-        ></span
-      >
-      <div class="card-reveal-text">
-        <ul>
-          <li>
-            The card gives transaction level information regarding number
-            of days left for a stock tranche purchased to move out of
-            short term capital gains tax territory
-          </li>
-          <li>
-            Click on full details for all transaction level information
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+      <!-- </ng-container> -->
+    </ng-container>
 
-  <!-- full details button -->
-  <div class="porbottomlink">
-    <div class="bottom-card-links">
-      <div class="bottom-card-links">
-        <a
-        (click)="sendToParent()"
-          class="seefull waves-light"
-          ng-click="getTaxAnalysisPop();modalOpen('tax_cap_gain_popup',1)"
-          ><img
-            src="https://i.marketsmojo.com/arrow_rt.png"
-            alt="ArrowRight"
-            height="16"
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
           />
-          
-          <span *ngIf="isLoading"> Loading... </span>
-          <span *ngIf="!isLoading"> Full Details </span>
-          <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
-          </a
-        >
+        </div>
       </div>
-    </div>
+    </ng-template>
+
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
   </div>
 
-  <!-- details -->
+  <!-- extedn -->
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseTaxCap }"
+    ng-show="isCollapseTaxCap"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        (click)="isCollapseTaxCap = !isCollapseTaxCap"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          The card gives transaction level information regarding number of days
+          left for a stock tranche purchased to move out of short term capital
+          gains tax territory
+        </li>
+        <li>Click on full details for all transaction level information</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- full details button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0)"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Full Details </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- details -->
 <!-- detail -->
 <div [hidden]="true">
-    <div #childDiv class="modal-content contentbg ng-scope">
-      <div class="list-mojo">
-        <table class="table1 mod-table">
-          <thead>
-            <tr>
-              <th>Company</th>
-              <th>Quantity</th>
-              <th>Inv date</th>
-              <th>ST Tax</th>
-              <th>LT Tax (If Sold)</th>
-              <th>Day's left (to ST Tax)</th>
-              <th>Latest Value</th>
+  <div #childDiv class="modal-content contentbg ng-scope">
+    <div class="list-mojo">
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Quantity</th>
+            <th>Inv date</th>
+            <th>ST Tax</th>
+            <th>LT Tax (If Sold)</th>
+            <th>Day's left (to ST Tax)</th>
+            <th>Latest Value</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="taxAnalysisPopup_data!">
+          <ng-container *ngFor="let sector of taxAnalysisPopup_data.list">
+            <tr
+              class="mod-hed-td ng-scope"
+              ng-repeat-start="value in taxAnalysisPopList|orderBy:orderByFieldTaxPop:reverseSortTaxPop"
+            >
+              <td>
+                <div>
+                  <a
+                    target="_blank"
+                    class="ng-binding"
+                    [href]="
+                      'https://www.marketsmojo.com/Stocks?StockId=' +
+                      sector.dotsum.sid +
+                      '&Exchange=0'
+                    "
+                    >{{ sector.short }}</a
+                  >
+                  <span class="mojo-hover">
+                    <span
+                      [ngClass]="this.fun.getClassbyClr(sector.dotsum.q_clr)"
+                    ></span>
+                    <span
+                      [ngClass]="this.fun.getClassbyClr(sector.dotsum.v_clr)"
+                    ></span>
+                    <span
+                      [ngClass]="this.fun.getClassbyClr(sector.dotsum.q_clr)"
+                    ></span>
+                  </span>
+                </div>
+              </td>
+              <td class="ng-binding">
+                {{ sector.iqty | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding">{{ sector.idate }}</td>
+              <td class="ng-binding">
+                {{ sector.stgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding">
+                {{ sector.ltgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding">
+                {{ sector.days }}
+              </td>
+              <td class="ng-binding">
+                {{ sector.lval | roundOff | twoCommas }}
+              </td>
             </tr>
-          </thead>
-          <tbody *ngIf="taxAnalysisPopup_data!">
-            <ng-container *ngFor="let sector of taxAnalysisPopup_data.list">
-              <tr
-                class="mod-hed-td ng-scope"
-                ng-repeat-start="value in taxAnalysisPopList|orderBy:orderByFieldTaxPop:reverseSortTaxPop"
-              >
-                <td>
-                  <div>
-                    <a
-                      target="_blank"
-                      class="ng-binding"
-                      [href]="
-                        'https://www.marketsmojo.com/Stocks?StockId=' + sector.dotsum.sid + '&Exchange=0'
-                      "
-                      >{{ sector.short }}</a
-                    >
-                    <span class="mojo-hover">
-                      <span
-                        [ngClass]="this.fun.getClassbyClr(sector.dotsum.q_clr)"
-                      ></span>
-                      <span
-                        [ngClass]="this.fun.getClassbyClr(sector.dotsum.v_clr)"
-                      ></span>
-                      <span
-                        [ngClass]="this.fun.getClassbyClr(sector.dotsum.q_clr)"
-                      ></span>
-                    </span>
-                  </div>
+
+            <ng-container *ngIf="sector.details!">
+              <tr *ngFor="let stock of sector.details" class="ng-scope">
+                <td></td>
+                <td class="ng-binding">
+                  {{ stock.iqty | roundOff | twoCommas }}
+                </td>
+                <td class="ng-binding">{{ stock.idate }}</td>
+                <td class="ng-binding">
+                  {{ stock.stgain | roundOff | twoCommas }}
                 </td>
                 <td class="ng-binding">
-                  {{ sector.iqty | roundOff | twoCommas }}
-                </td>
-                <td class="ng-binding">{{ sector.idate }}</td>
-                <td class="ng-binding">
-                  {{ sector.stgain | roundOff | twoCommas }}
+                  {{ stock.ltgain | roundOff | twoCommas }}
                 </td>
                 <td class="ng-binding">
-                  {{ sector.ltgain | roundOff | twoCommas }}
+                  {{ stock.days }}
                 </td>
                 <td class="ng-binding">
-                  {{ sector.days }}
-                </td>
-                <td class="ng-binding">
-                  {{ sector.lval | roundOff | twoCommas }}
+                  {{ stock.lval | roundOff | twoCommas }}
                 </td>
               </tr>
-  
-              <ng-container *ngIf="sector.details!">
-                <tr *ngFor="let stock of sector.details" class="ng-scope">
-                  <td></td>
-                  <td class="ng-binding">
-                    {{ stock.iqty | roundOff | twoCommas }}
-                  </td>
-                  <td class="ng-binding">{{ stock.idate }}</td>
-                  <td class="ng-binding">
-                    {{ stock.stgain | roundOff | twoCommas }}
-                  </td>
-                  <td class="ng-binding">
-                    {{ stock.ltgain | roundOff | twoCommas }}
-                  </td>
-                  <td class="ng-binding">
-                    {{ stock.days }}
-                  </td>
-                  <td class="ng-binding">
-                    {{ stock.lval | roundOff | twoCommas }}
-                  </td>
-                </tr>
-              </ng-container>
             </ng-container>
-          </tbody>
-        </table>
-      </div>
+          </ng-container>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
