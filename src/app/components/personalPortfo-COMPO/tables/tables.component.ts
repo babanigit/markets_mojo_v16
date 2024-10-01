@@ -10,6 +10,7 @@ import { columns } from './Columns';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { IColumns } from 'src/app/models/pp/column';
 import { BehaviorSubject, Observable, tap, map } from 'rxjs';
+import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 
 export type TableType = 'OVERVIEW' | 'HOLDING' | 'PRICE' | 'CONTRIBUTION' | 'DIVIDEND' | 'MOJO' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS' | 'FINANCIALS' | 'RETURNS' | 'RESULTS' | 'TOTAL_RETURNS';
 
@@ -61,8 +62,25 @@ export class TablesComponent implements OnInit, AfterViewInit {
     TOTAL_RETURNS: ['short', 'score', 'cmp', 'qty', 'rgain', 'unrgain', 'tgain', 'tgainp'],
   };
   
-  constructor(private serv: GetPersonalPFService, private cdr: ChangeDetectorRef) {
+  constructor(private serv: GetPersonalPFService, 
+    public fun : PpFunctionsService,
+    private cdr: ChangeDetectorRef) {
     this.data$ = this.dataSubject.asObservable();
+  }
+
+  getDirClrDefault(value: string | number, def: string): string {
+    console.log("fun getDirClrDefault called ")
+    // Convert value to a number if it is a string
+    const numericValue = typeof value === 'string' ? parseFloat(value) : value;
+
+    // Determine the color based on the numeric value
+    if (numericValue === 0) {
+      return def; // Use the default value if provided and value is zero
+    } else if (numericValue < 0) {
+      return 'red';
+    } else {
+      return 'green';
+    }
   }
 
   ngOnInit() {

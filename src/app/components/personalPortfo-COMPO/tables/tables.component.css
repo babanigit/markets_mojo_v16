@@ -1,3 +1,23 @@
+.mat-expansion-panel-header {
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  padding:0 0px;
+  border-radius:inherit;
+  transition:height 225ms cubic-bezier(0.4, 0, 0.2, 1);
+  height:var(--mat-expansion-header-collapsed-state-height);
+  font-family:var(--mat-expansion-header-text-font);
+  font-size:var(--mat-expansion-header-text-size);
+  font-weight:var(--mat-expansion-header-text-weight);
+  line-height:var(--mat-expansion-header-text-line-height);
+  letter-spacing:var(--mat-expansion-header-text-tracking)
+}
+
+.mat-content.mat-content-hide-toggle {
+  /* margin-right: none !important; */
+}
+
+
 .expanded-panel {
   padding: 0 !important;
   margin: 0 !important;
@@ -6,9 +26,9 @@
   padding: 0 !important;
 }
 .detail-item {
-  margin-bottom: 5px;
-  padding-right: 5px;
-  margin-top: 4px;
+  /* margin-bottom: 5px; */
+  /* padding-right: 5px; */
+  /* margin-top: 4px; */
 }
 .detail-item hr {
   border: 0.5px solid black;
@@ -16,15 +36,13 @@
 
 /* Ensure that the span containing text and icons is a flex container */
 th span {
-  display: flex;
-  align-items: center; /* Center items vertically */
-  gap: 8px; /* Space between text and icon */
+
   background-color: gainsboro;
 }
 
 th {
   border: 1px solid gray;
-  background-color: gainsboro;
+  background-color: #eee;
 }
 
 td {
@@ -43,18 +61,16 @@ td {
 
 /* Make the arrow visible when its parent span is hovered */
 span:hover .mat-icon {
-  opacity: 1; /* Show on hover */
-  color: gray; /* Gray color on hover */
 }
 
 /* Make the arrow black when it is active (clicked) */
 span.active .mat-icon {
   opacity: 1; /* Ensure it is visible when active */
-  color: black; /* Black color when active */
 }
 
 /* Arrow pointing up */
 .arrow_upward {
+  color: black;
   display: inline-block;
   transform: scaleY(1); /* Default orientation */
   transition: transform 0.3s ease; /* Smooth flipping animation */
@@ -62,6 +78,7 @@ span.active .mat-icon {
 
 /* Arrow pointing down */
 .arrow_downward {
+  color: black;
   display: inline-block;
   transform: scaleY(-1); /* Flip the arrow vertically */
   transition: transform 0.3s ease; /* Smooth flipping animation */
@@ -101,7 +118,7 @@ span.active .mat-icon {
 }
 
 .header-cell {
-  text-align: center;
+  /* text-align: center; */
   background-color: #1a1a1a;
   color: white;
 }
@@ -125,8 +142,7 @@ span.active .mat-icon {
 }
 
 .price-container {
-  display: flex;
-  justify-content: space-between;
+
 }
 
 .price-small-text,
@@ -137,8 +153,7 @@ span.active .mat-icon {
 }
 
 .score-info {
-  display: flex;
-  align-items: center;
+  
 }
 
 .score-text {
@@ -150,19 +165,15 @@ span.active .mat-icon {
 }
 
 .details-container {
-  display: flex;
-  flex-direction: column;
+
 }
 
 .detail-item {
-  display: flex;
-  justify-content: space-between;
+
 }
 
 .detail-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ 
 }
 
 .detail-separator {
@@ -191,43 +202,44 @@ span.active .mat-icon {
 
 /* Ensure the expansion panel header is always at the top */
 .mat-expansion-panel-header {
-  display: flex;
-  align-items: center;
+ 
 }
 
 /* Ensure the content inside the panel sticks to the top */
-.panel-content {
+/* .panel-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
+} */
 
 /* Style the panel content to be consistent */
 .mat-expansion-panel-body {
-  padding: 16px;
+  /* padding: 16px; */
 }
 
 /* Optional: Adjust image positioning if needed */
 .mat-expansion-panel-header img {
-  margin-right: 8px;
+  /* margin-right: 8px; */
 }
 
-.circle {
+/* .circle {
   margin: 3px;
-  width: 40px; /* Width of the circle */
-  height: 40px; /* Height of the circle (should be the same as width) */
-  background-color: #3498db; /* Fallback color */
-  border-radius: 50%; /* Makes the div a circle */
+  width: 40px;
+  height: 40px; 
+  background-color: #3498db;
+  border-radius: 50%;
   display: flex;
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
+  justify-content: center;
+  align-items: center;
   color: white;
   font-size: 20px;
   font-family: Arial, sans-serif;
   text-align: center;
-}
+} */
 
 .arrow-img {
+  color: black;
+  background-color: black;
   width: 20px; /* Adjust the size of the image as needed */
   height: 20px; /* Adjust the size of the image as needed */
   display: block; /* Removes any inline spacing issues */
@@ -244,7 +256,7 @@ span.active .mat-icon {
 /* claude */
 /* Compact table styles */
 .mat-expansion-panel-header {
-  padding: 0 8px;
+  /* padding: 0 8px; */
   height: auto !important;
   min-height: 36px;
 }
@@ -264,16 +276,6 @@ span.active .mat-icon {
   overflow-x: auto;
 }
 
-.viewport {
-  height: 100%;
-  width: 100%;
-}
-
-/* Optional: If you want to allow horizontal scrolling for very narrow screens */
-.table-container {
-  width: 100%;
-  overflow-x: auto;
-}
 
 /* expanded height */
 
