@@ -9,7 +9,7 @@ import { PopupComponent } from '../../others/popup/popup.component';
 import { columns } from './Columns';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { IColumns } from 'src/app/models/pp/column';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap, map } from 'rxjs';
 
 export type TableType = 'OVERVIEW' | 'HOLDING' | 'PRICE' | 'CONTRIBUTION' | 'DIVIDEND' | 'MOJO' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS' | 'FINANCIALS' | 'RETURNS' | 'RESULTS' | 'TOTAL_RETURNS';
 
@@ -26,11 +26,11 @@ export class TablesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(CdkVirtualScrollViewport) viewport!: CdkVirtualScrollViewport;
 
-  dataSource = new MatTableDataSource<any>([]);
-  displayedColumns: string[] = [];
-  private dataCache: { [key in TableType]?: any[] } = {};
   private dataSubject = new BehaviorSubject<any[]>([]);
   data$: Observable<any[]>;
+  
+  displayedColumns: string[] = [];
+  private dataCache: { [key in TableType]?: any[] } = {};
 
   col: IColumns = columns;
   TYPE: TableType = 'HOLDING';
@@ -38,7 +38,6 @@ export class TablesComponent implements OnInit, AfterViewInit {
   itemSize = 50; // Height of each row in pixels
   pageSize = 10; // Number of items to load at once
   bufferSize = 5; // Number of items to buffer
-
 
   readonly NAVBAR_ITEMS: TableType[] = ['OVERVIEW', 'HOLDING', 'PRICE', 'CONTRIBUTION', 'DIVIDEND', 'MOJO', 'RISK', 'LIQUIDITY', 'TAX', 'RATIOS', 'FINANCIALS', 'RETURNS', 'RESULTS', 'TOTAL_RETURNS'];
   readonly panelOpenState = signal(false);
@@ -72,11 +71,8 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (this.sort) {
-      this.dataSource.sort = this.sort;
-      this.sort.sortChange.subscribe(this.sortData.bind(this));
-      this.cdr.detectChanges();
-    }
+    this.sort.sortChange.subscribe(() => this.sortData());
+    this.cdr.detectChanges();
 
     this.viewport.scrolledIndexChange.pipe(
       tap(index => {
@@ -114,61 +110,52 @@ export class TablesComponent implements OnInit, AfterViewInit {
       },
       error: (err) => console.error('Failed to load data', err),
     });
-
-    this.cdr.detectChanges();
   }
 
   private updateStocks(type: TableType): void {
     const data = this.dataCache[type] || [];
     this.dataSubject.next(data.slice(0, this.pageSize));
-    this.dataSource.data = data;
+    this.sortData();
+    this.cdr.detectChanges();
   }
 
   private fetchMore() {
     const currentLength = this.dataSubject.value.length;
-    const nextBatch = this.dataSource.data.slice(currentLength, currentLength + this.pageSize);
+    const nextBatch = this.dataCache[this.TYPE]?.slice(currentLength, currentLength + this.pageSize) || [];
     this.dataSubject.next([...this.dataSubject.value, ...nextBatch]);
   }
-
 
   private getColumns(type: TableType): void {
     this.displayedColumns = this.columnMap[type] || [];
   }
 
-  private sortData(sort: Sort) {
-    const data = this.dataSource.data.slice();
-    if (!sort.active || sort.direction === '') {
-      this.dataSource.data = data;
-      return;
+  sortData() {
+    if (this.sort.active && this.sort.direction !== '') {
+      this.data$ = this.dataSubject.pipe(
+        map(data => {
+          return data.slice().sort((a, b) => {
+            const isAsc = this.sort.direction === 'asc';
+            return this.compare(this.getPropertyValue(a, this.sort.active), this.getPropertyValue(b, this.sort.active), isAsc);
+          });
+        })
+      );
+    } else {
+      this.data$ = this.dataSubject.asObservable();
     }
-
-    const sortedData = data.sort((a, b) =>
-      this.compare(this.getPropertyValue(a, sort.active), this.getPropertyValue(b, sort.active), sort.direction === 'asc')
-    );
-
-    this.dataSource = new MatTableDataSource(sortedData);
-    this.dataSource.sort = this.sort;
-    this.cdr.detectChanges();
   }
 
-  private getPropertyValue(item: any, property: string): any {
-    if (['D1', 'W1', 'M1', 'M3', 'Y1', 'Y3', 'Y5'].includes(property)) {
-      return item.returns?.[property]?.val;
-    }
-    return property.split('.').reduce((obj, key) => obj?.[key], item);
-  }
-
-  private compare(a: any, b: any, isAsc: boolean): number {
-    if (a === b) return 0;
-    if (typeof a === 'string' && typeof b === 'string') return isAsc ? a.localeCompare(b) : b.localeCompare(a);
-    return isAsc ? a - b : b - a;
+  private compare(a: any, b: any, isAsc: boolean) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
 
   sortBy(property: string) {
-    const sortState: Sort = { active: property, direction: this.sort.direction === 'asc' ? 'desc' : 'asc' };
-    this.sort.active = property;
-    this.sort.direction = sortState.direction;
-    this.sortData(sortState);
+    if (this.sort.active === property) {
+      this.sort.direction = this.sort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sort.active = property;
+      this.sort.direction = 'asc';
+    }
+    this.sortData();
   }
 
   isSortActive(column: string): boolean {
@@ -212,7 +199,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   getTotal(propertyPath: string): number {
-    return this.dataSource.data.reduce((total, item) => {
+    return this.dataSubject.value.reduce((total, item) => {
       const value = this.getPropertyValue(item, propertyPath);
       const numValue = Number(value) || 0;
       return total + (numValue === -999999 ? 0 : numValue);
@@ -230,5 +217,12 @@ export class TablesComponent implements OnInit, AfterViewInit {
 
   trackByIndex(index: number): number {
     return index;
+  }
+
+  private getPropertyValue(item: any, property: string): any {
+    if (['D1', 'W1', 'M1', 'M3', 'Y1', 'Y3', 'Y5'].includes(property)) {
+      return item.returns?.[property]?.val;
+    }
+    return property.split('.').reduce((obj, key) => obj?.[key], item);
   }
 }
