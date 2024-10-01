@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // import { LazyLoadDirective } from './directives/lazy-load.directive';
 import { LazyLoadDirective } from './lazy-load.directive';
 import { HighestObjPipe } from './pipes/pp/highest-obj.pipe';
+import { DirClrDefaultPipe } from './pipes/dir-clr-default.pipe';
 
 @NgModule({
   declarations: [AppComponent, LazyLoadDirective],

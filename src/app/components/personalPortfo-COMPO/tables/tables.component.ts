@@ -11,6 +11,7 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import { IColumns } from 'src/app/models/pp/column';
 import { BehaviorSubject, Observable, tap, map } from 'rxjs';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { DirClrDefaultPipe } from 'src/app/pipes/dir-clr-default.pipe';
 
 export type TableType = 'OVERVIEW' | 'HOLDING' | 'PRICE' | 'CONTRIBUTION' | 'DIVIDEND' | 'MOJO' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS' | 'FINANCIALS' | 'RETURNS' | 'RESULTS' | 'TOTAL_RETURNS';
 
@@ -19,7 +20,9 @@ export type TableType = 'OVERVIEW' | 'HOLDING' | 'PRICE' | 'CONTRIBUTION' | 'DIV
   templateUrl: './tables.component.html',
   styleUrls: ['./tables.component.css'],
   standalone: true,
-  imports: [MatSortModule, MatTableModule, CommonModule, MatIconModule, MatExpansionModule, PopupComponent, ScrollingModule],
+  imports: [
+    DirClrDefaultPipe,
+    MatSortModule, MatTableModule, CommonModule, MatIconModule, MatExpansionModule, PopupComponent, ScrollingModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TablesComponent implements OnInit, AfterViewInit {

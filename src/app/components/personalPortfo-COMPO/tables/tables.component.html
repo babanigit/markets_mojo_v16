@@ -401,7 +401,8 @@
         <td
           mat-cell
           *matCellDef="let element"
-          [ngClass]="this.getDirClrDefault(element.cmpdir, 'gray') + ' txt-rt'"
+          [ngClass]="(element.cmpdir | dirClrDefault: 'gray') + ' txt-rt'"
+
           class="ng-binding"
         >
           <mat-accordion>
@@ -639,9 +640,7 @@
         <td
           mat-cell
           *matCellDef="let element"
-          [ngClass]="
-            this.getDirClrDefault(element.dgaindir, 'gray') + ' txt-rt'
-          "
+          [ngClass]="(element.dgaindir | dirClrDefault: 'gray') + ' txt-rt'"
           class="ng-binding"
         >
           <mat-accordion>
@@ -721,9 +720,9 @@
         <td
           mat-cell
           *matCellDef="let element"
-          [ngClass]="
-            this.getDirClrDefault(element.unrgaindir, 'gray') + ' txt-rt'
-          "
+
+          [ngClass]="(element.unrgaindir | dirClrDefault: 'gray') + ' txt-rt'"
+
           class="ng-binding"
         >
           <mat-accordion>
