@@ -4,11 +4,12 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CdkVirtualScrollViewport, ScrollingModule } from '@angular/cdk/scrolling';
 import { PopupComponent } from '../../others/popup/popup.component';
 import { columns } from './Columns';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { IColumns } from 'src/app/models/pp/column';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 export type TableType = 'OVERVIEW' | 'HOLDING' | 'PRICE' | 'CONTRIBUTION' | 'DIVIDEND' | 'MOJO' | 'RISK' | 'LIQUIDITY' | 'TAX' | 'RATIOS' | 'FINANCIALS' | 'RETURNS' | 'RESULTS' | 'TOTAL_RETURNS';
 
@@ -21,13 +22,23 @@ export type TableType = 'OVERVIEW' | 'HOLDING' | 'PRICE' | 'CONTRIBUTION' | 'DIV
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TablesComponent implements OnInit, AfterViewInit {
+  
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(CdkVirtualScrollViewport) viewport!: CdkVirtualScrollViewport;
 
   dataSource = new MatTableDataSource<any>([]);
   displayedColumns: string[] = [];
   private dataCache: { [key in TableType]?: any[] } = {};
+  private dataSubject = new BehaviorSubject<any[]>([]);
+  data$: Observable<any[]>;
+
   col: IColumns = columns;
   TYPE: TableType = 'HOLDING';
+  
+  itemSize = 50; // Height of each row in pixels
+  pageSize = 10; // Number of items to load at once
+  bufferSize = 5; // Number of items to buffer
+
 
   readonly NAVBAR_ITEMS: TableType[] = ['OVERVIEW', 'HOLDING', 'PRICE', 'CONTRIBUTION', 'DIVIDEND', 'MOJO', 'RISK', 'LIQUIDITY', 'TAX', 'RATIOS', 'FINANCIALS', 'RETURNS', 'RESULTS', 'TOTAL_RETURNS'];
   readonly panelOpenState = signal(false);
@@ -50,8 +61,10 @@ export class TablesComponent implements OnInit, AfterViewInit {
     RESULTS: ['short', 'score', 'cmp', 'resdt', 'f_txt', 'rescomm', 'resultdt', 'pv'],
     TOTAL_RETURNS: ['short', 'score', 'cmp', 'qty', 'rgain', 'unrgain', 'tgain', 'tgainp'],
   };
-
-  constructor(private serv: GetPersonalPFService, private cdr: ChangeDetectorRef) { }
+  
+  constructor(private serv: GetPersonalPFService, private cdr: ChangeDetectorRef) {
+    this.data$ = this.dataSubject.asObservable();
+  }
 
   ngOnInit() {
     this.getColumns('HOLDING');
@@ -64,6 +77,16 @@ export class TablesComponent implements OnInit, AfterViewInit {
       this.sort.sortChange.subscribe(this.sortData.bind(this));
       this.cdr.detectChanges();
     }
+
+    this.viewport.scrolledIndexChange.pipe(
+      tap(index => {
+        const end = this.viewport.getRenderedRange().end;
+        const total = this.viewport.getDataLength();
+        if (end === total) {
+          this.fetchMore();
+        }
+      })
+    ).subscribe();
   }
 
   onClick(type: TableType): void {
@@ -96,8 +119,17 @@ export class TablesComponent implements OnInit, AfterViewInit {
   }
 
   private updateStocks(type: TableType): void {
-    this.dataSource.data = this.dataCache[type] || [];
+    const data = this.dataCache[type] || [];
+    this.dataSubject.next(data.slice(0, this.pageSize));
+    this.dataSource.data = data;
   }
+
+  private fetchMore() {
+    const currentLength = this.dataSubject.value.length;
+    const nextBatch = this.dataSource.data.slice(currentLength, currentLength + this.pageSize);
+    this.dataSubject.next([...this.dataSubject.value, ...nextBatch]);
+  }
+
 
   private getColumns(type: TableType): void {
     this.displayedColumns = this.columnMap[type] || [];

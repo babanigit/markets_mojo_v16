@@ -14,10 +14,10 @@
 
 
 <div style="background-color: white" class="mat-table">
-<!-- <cdk-virtual-scroll-viewport itemSize="50" class="mat-table"> -->
+  <cdk-virtual-scroll-viewport [itemSize]="itemSize"  class="mat-table">
 
   <!-- table -->
-  <table mat-table [dataSource]="dataSource" matSort>
+  <table mat-table [dataSource]="data$" matSort>
 
     <ng-container>
       <!-- holding  -->
@@ -2577,7 +2577,7 @@
     </ng-container>
 
     <!-- Header, footer and Row Definitions -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
 
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     <tr
@@ -2596,5 +2596,5 @@
     ></tr>
   </table>
 
-<!-- </cdk-virtual-scroll-viewport> -->
+</cdk-virtual-scroll-viewport>
 </div>

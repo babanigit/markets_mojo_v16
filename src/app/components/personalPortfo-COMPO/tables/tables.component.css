@@ -254,11 +254,11 @@ span.active .mat-icon {
 .mat-table {
 
   /* newly added */
-  /* height: 600px;
+  height: 600px;
   width: 100%;
   overflow: auto;
   border: 1px solid black;
-  background-color: white; */
+  background-color: white;
 
   /* old */
   overflow-x: auto;
