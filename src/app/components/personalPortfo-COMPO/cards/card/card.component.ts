@@ -18,6 +18,7 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
 import { ModelOpenComponent } from '../../model-open/model-open.component';
 import { DemoComponent } from 'src/app/components/demos/demo/demo.component';
 import { IContri_overall_today, IDrags_overall_today } from 'src/app/models/pp/today';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 // import { ModalModule } from 'ngx-bootstrap/modal';
 // import { NgbModal, NgbModalRef, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -32,7 +33,7 @@ import { IContri_overall_today, IDrags_overall_today } from 'src/app/models/pp/t
     TwoCommasPipe,
     ModelOpenComponent,
     DemoComponent,
-    // NgbModule,
+    DirClrDefaultPipe
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -47,7 +48,7 @@ export class CardComponent implements OnInit, OnChanges {
   constructor(
     private fun: PpFunctionsService,
     // private modalService: NgbModal
-  ) {}
+  ) { }
 
   @ViewChild('childDiv') childDiv: ElementRef<HTMLDivElement> | undefined;
   @Output() sendElement = new EventEmitter<HTMLDivElement>();
@@ -94,11 +95,6 @@ export class CardComponent implements OnInit, OnChanges {
     return this.fun.getClassbyClr(color);
   }
 
-  // Method to get direction color default
-  getDirClrDefault(value: string | number, defaultColor: string): string {
-    // console.log('hello');
-    return this.fun.getDirClrDefault(value, defaultColor);
-  }
 
   trackByFn(index: number, item: any): any {
     return item.dotsum.sid; // Use a unique identifier if possible
@@ -106,13 +102,6 @@ export class CardComponent implements OnInit, OnChanges {
 
   openChart() {
     console.log('hello ');
-    // this.modalRef = this.modalService.open(CardComponent, {
-    //   size: 'sm',
-    //   centered: true,
-    //   backdrop: 'static',
-    //   windowClass: 'productIconPopup-modal',
-    // });
-    // You can pass data via the component instance
-    // this.modalRef.componentInstance.product_icon_list = this.product_icon_list;
+
   }
 }

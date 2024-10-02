@@ -21,13 +21,14 @@ import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-mcap-breakup',
   templateUrl: './mcap-breakup.component.html',
   styleUrls: ['./mcap-breakup.component.css'],
   standalone: true,
-  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, OrderObjectByPipe],
+  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, OrderObjectByPipe, DirClrDefaultPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class McapBreakupComponent implements OnInit {

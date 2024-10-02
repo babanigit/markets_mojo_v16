@@ -43,6 +43,7 @@ import {
   IUserMessaging,
   IUserMessaging_data,
 } from 'src/app/models/pp/userMessagin';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 type PortfolioKeys = keyof IPortfolioGraph_Data;
 
@@ -60,7 +61,8 @@ type PortfolioKeys = keyof IPortfolioGraph_Data;
     ModelOpenComponent,
     NewsComponent,
     McapBreakupComponent,
-  ],
+    DirClrDefaultPipe
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

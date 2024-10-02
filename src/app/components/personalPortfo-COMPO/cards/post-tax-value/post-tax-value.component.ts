@@ -8,6 +8,7 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import { TwoCommasPipe } from "../../../../pipes/pp/twoCommas/two-commas.pipe";
 import { RoundOffPipe } from "../../../../pipes/pp/roundOff/round-off.pipe";
 import { ITaxAnalysisPopup, ITaxAnalysisPopup_data } from 'src/app/models/pp/taxAnalysisPopup';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-post-tax-value',
@@ -17,8 +18,9 @@ import { ITaxAnalysisPopup, ITaxAnalysisPopup_data } from 'src/app/models/pp/tax
   imports: [
     CommonModule,
     TwoCommasPipe,
-    RoundOffPipe
-  ],
+    RoundOffPipe,
+    DirClrDefaultPipe
+],
   changeDetection: ChangeDetectionStrategy.OnPush,
 
 })

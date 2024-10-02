@@ -118,9 +118,8 @@
                     {{ sector.qty }}
                   </td>
                   <td
-                    [ngClass]="
-                      this.fun.getDirClrDefault(sector.rgaindir, 'gray')
-                    "
+                  [ngClass]=" sector.rgaindir | dirClrDefault : 'grey' "	
+                  
                     class="no-mob no-tab no-tab2"
                   >
                     <span class="1">

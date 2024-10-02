@@ -32,6 +32,7 @@ import { OrderObjectByPipe } from "../../pipes/pp/orderObjectBy/order-object-by.
 import { UniquePipe } from 'src/app/pipes/pp/unique.pipe';
 import { RoundOffPipe } from "../../pipes/pp/roundOff/round-off.pipe";
 import { TwoCommasPipe } from "../../pipes/pp/twoCommas/two-commas.pipe";
+import { DirClrDefaultPipe } from "../../pipes/dir-clr-default.pipe";
 
 
 
@@ -72,7 +73,7 @@ import { TwoCommasPipe } from "../../pipes/pp/twoCommas/two-commas.pipe";
     UniquePipe,
     RoundOffPipe,
     TwoCommasPipe,
-
+    DirClrDefaultPipe
 ],
 })
 export class PersonalPortfoliosModule {}

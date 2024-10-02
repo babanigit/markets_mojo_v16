@@ -14,13 +14,14 @@ import { IOverall_Data } from 'src/app/models/pp/overall';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-overall-portfolio-analysis',
   templateUrl: './overall-portfolio-analysis.component.html',
   styleUrls: ['./overall-portfolio-analysis.component.css'],
   standalone: true,
-  imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
+  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, DirClrDefaultPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OverallPortfolioAnalysisComponent implements OnChanges {
@@ -53,10 +54,7 @@ export class OverallPortfolioAnalysisComponent implements OnChanges {
   }
 
   // Method to get direction color default
-  getDirClrDefault(value: string | number, defaultColor: string): string {
-    return this.fun.getDirClrDefault(value, defaultColor);
-  }
-
+  
   trackByFn(index: number, item: any): any {
     return item.dotsum.sid; // Use a unique identifier if possible
   }

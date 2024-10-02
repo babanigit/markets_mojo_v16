@@ -21,6 +21,7 @@ import { LineGraphComponent } from '../../graph/line-graph/line-graph.component'
 import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.component';
 import { series_Data_pie } from 'src/app/models/pp/pie';
 import { retry, tap, catchError, of } from 'rxjs';
+import { DirClrDefaultPipe } from 'src/app/pipes/dir-clr-default.pipe';
 
 @Component({
   selector: 'app-alloc-risk',
@@ -33,6 +34,7 @@ import { retry, tap, catchError, of } from 'rxjs';
     TwoCommasPipe,
     LineGraphComponent,
     RadiusChartComponent,
+    DirClrDefaultPipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

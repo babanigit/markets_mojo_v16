@@ -82,7 +82,7 @@
                   {{ item.days | roundOff | twoCommas }}
                 </td>
                 <td
-                  [ngClass]="this.fun.getDirClrDefault(item.riskdir, 'orange')"
+                [ngClass]=" item.riskdir | dirClrDefault : 'orange' "	
                   class="no-mob ng-binding"
                 >
                   {{ item.risk }}

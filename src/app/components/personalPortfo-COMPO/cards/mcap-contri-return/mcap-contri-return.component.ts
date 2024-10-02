@@ -11,13 +11,14 @@ import { IMcap } from 'src/app/models/pp/return';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-mcap-contri-return',
   templateUrl: './mcap-contri-return.component.html',
   styleUrls: ['./mcap-contri-return.component.css'],
   standalone: true,
-  imports: [CommonModule, TwoCommasPipe, RoundOffPipe],
+  imports: [CommonModule, TwoCommasPipe, RoundOffPipe, DirClrDefaultPipe],
 })
 export class McapContriReturnComponent {
   constructor(public fun: PpFunctionsService) {}

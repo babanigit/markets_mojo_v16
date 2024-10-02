@@ -47,7 +47,7 @@
               <tr>
                 <th class="pf-">Total Gain/Loss</th>
                 <th
-                  [ngClass]="this.fun.getDirClrDefault(DATA.tgaindir, 'orange')"
+                  [ngClass]="DATA.tgaindir | dirClrDefault : 'gray'"
                   class="ng-binding"
                 >
                   Rs {{ DATA.tgain | roundOff | twoCommas }}
@@ -60,7 +60,7 @@
                 <!-- ngIf: overall.rgain == 'NA' -->
                 <!-- ngIf: overall.rgain != 'NA' -->
                 <td
-                  [ngClass]="this.fun.getDirClrDefault(DATA.rgaindir, 'orange')"
+                  [ngClass]="DATA.tgaindir | dirClrDefault : 'orange'"
                   class="ng-binding ng-scope"
                 >
                   Rs {{ DATA.rgain | roundOff | twoCommas }}
@@ -72,7 +72,7 @@
                 <!-- ngIf: overall.dividend == 'NA' -->
                 <!-- ngIf: overall.dividend != 'NA' -->
                 <td
-                  [ngClass]="this.fun.getDirClrDefault(DATA.divdir, 'orange')"
+                  [ngClass]="DATA.divdir | dirClrDefault : 'orange'"
                   class="ng-binding ng-scope"
                 >
                   Rs {{ DATA.dividend | roundOff | twoCommas }}
@@ -84,9 +84,7 @@
                 <!-- ngIf: overall.unrgain == 'NA' -->
                 <!-- ngIf: overall.unrgain != 'NA' -->
                 <td
-                  [ngClass]="
-                    this.fun.getDirClrDefault(DATA.unrgaindir, 'orange')
-                  "
+                  [ngClass]="DATA.unrgaindir | dirClrDefault : 'orange'"
                   class="ng-binding ng-scope"
                 >
                   Rs {{ DATA.unrgain | roundOff | twoCommas }}
@@ -100,7 +98,6 @@
           </div>
         </div>
       </div>
-
     </ng-container>
 
     <ng-template #loadingTemplate>

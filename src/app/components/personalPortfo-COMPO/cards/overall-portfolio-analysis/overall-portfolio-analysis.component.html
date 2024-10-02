@@ -28,7 +28,7 @@
                   ><i class="ng-binding"> {{ DATA.return.dt }} </i></small
                 >
                 <div
-                  [ngClass]="getDirClrDefault(DATA.return.returndir, 'orange')"
+                  [ngClass]="DATA.return.returndir | dirClrDefault : 'orange'"
                   class="pf-box-txt1"
                 >
                   {{ DATA.return.return }}

@@ -161,10 +161,7 @@
               </td>
               <td
                 [ngClass]="
-                  this.fun.getDirClrDefault(
-                    sector.value.total.unrgaindir,
-                    'gray'
-                  )
+                  sector.value.total.unrgaindir | dirClrDefault : 'gray'
                 "
                 class="ng-binding ng-scope"
               >
@@ -181,9 +178,7 @@
                 {{ (stock.value.pwt | roundOff | twoCommas) || "0.00" }}%
               </td>
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(stock.value.unrgaindir, 'gray')
-                "
+                [ngClass]="stock.value.unrgaindir | dirClrDefault : 'gray'"
                 class="ng-binding ng-scope"
               >
                 {{ stock.value.unrgain | roundOff | twoCommas }}

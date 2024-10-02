@@ -260,14 +260,14 @@
                   <div>
                     <div class="pf-profile-txt1">Total Returns(%)</div>
                     <div
-                      [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
+                      [ngClass]="main_data.tretdir | dirClrDefault : 'orange'"
                       class="ng-binding pf-profile-txt2"
                     >
                       {{ main_data.tret | roundOff | twoCommas }}
                     </div>
                     <!-- ngIf: overall.tretp != "" -->
                     <div
-                      [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
+                      [ngClass]="main_data.tretdir | dirClrDefault : 'orange'"
                       class="ng-binding ng-scope pf-profile-txt3"
                     >
                       ({{ main_data.tretp | roundOff | twoCommas }}%)
@@ -362,7 +362,6 @@
                   </div>
                 </div>
               </div>
-
             </ng-container>
 
             <ng-template #loadingTemplate>

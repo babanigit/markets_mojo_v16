@@ -4,17 +4,19 @@ import { IHoldings } from 'src/app/models/pp/return';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-stocks-contri-return',
   templateUrl: './stocks-contri-return.component.html',
   styleUrls: ['./stocks-contri-return.component.css'],
   standalone:true,
-  imports:[
+  imports: [
     CommonModule,
     TwoCommasPipe,
     RoundOffPipe,
-  ]
+    DirClrDefaultPipe
+]
 })
 export class StocksContriReturnComponent {
 

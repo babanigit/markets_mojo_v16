@@ -15,7 +15,7 @@
 
       <div class="intraday col-green" id="returnsBetaCardContent">
         <div
-          [ngClass]="this.fun.getDirClrDefault(beta.txt1dir, 'orange')"
+          [ngClass]="beta.txt1dir | dirClrDefault : 'gray'"
           class="txt-hed-1"
         >
           {{ beta.txt1 }}

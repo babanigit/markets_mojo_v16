@@ -22,6 +22,7 @@ import { CardComponent } from '../../cards/card/card.component';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { OverallPortfolioAnalysisComponent } from '../../cards/overall-portfolio-analysis/overall-portfolio-analysis.component';
 import { IContri_overallSwiper, IDrag_overallSwiper, IGainer_overallSwiper, ILoser_overallSwiper, IOverall_Data } from 'src/app/models/pp/overall';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 @Component({
   selector: 'app-swiper-doing-overall',
   templateUrl: './swiper-doing-overall.component.html',
@@ -35,7 +36,8 @@ import { IContri_overallSwiper, IDrag_overallSwiper, IGainer_overallSwiper, ILos
     GraphTodayComponent,
     BreakupComponent,
     OverallPortfolioAnalysisComponent,
-  ],
+    DirClrDefaultPipe
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -125,10 +127,7 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
   }
 
   // Method to get direction color default
-  getDirClrDefault(value: string | number, defaultColor: string): string {
-    // console.log('hello');
-    return this.fun.getDirClrDefault(value, defaultColor);
-  }
+
 
   trackByFn(index: number, item: any): any {
     return item.dotsum.sid; // Use a unique identifier if possible

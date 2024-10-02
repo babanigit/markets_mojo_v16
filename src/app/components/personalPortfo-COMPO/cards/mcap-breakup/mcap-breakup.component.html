@@ -21,9 +21,7 @@
           <div class="pf-undr-txt txt-cr pf-by-margin pf-by-margin02">
             <h6
               class="ng-binding"
-              [ngClass]="
-                this.fun.getDirClrDefault(data_mcap.large.labeldir, 'orange')
-              "
+              [ngClass]="data_mcap.large.labeldir | dirClrDefault : 'orange'"
             >
               {{ data_mcap.large.label }}
             </h6>
@@ -35,10 +33,7 @@
                   <div class="pf-txt-1"><span>Large Caps</span></div>
                   <div
                     [ngClass]="
-                      this.fun.getDirClrDefault(
-                        data_mcap.large.gaindir,
-                        'orange'
-                      )
+                      data_mcap.large.gaindir | dirClrDefault : 'orange'
                     "
                     class="ng-binding pf-txt-2"
                   >
@@ -54,10 +49,7 @@
                   <div class="pf-txt-1">Sensex</div>
                   <div
                     [ngClass]="
-                      this.fun.getDirClrDefault(
-                        data_mcap.large.idxpdir,
-                        'orange'
-                      )
+                      data_mcap.large.idxpdir | dirClrDefault : 'orange'
                     "
                     class="ng-binding pf-txt-2"
                   >
@@ -71,9 +63,7 @@
         <div class="pf-by-m-cap-sec pf-by-margin">
           <div class="pf-undr-txt txt-cr pf-by-margin">
             <h6
-              [ngClass]="
-                this.fun.getDirClrDefault(data_mcap.mid.labeldir, 'orange')
-              "
+              [ngClass]="data_mcap.large.labeldir | dirClrDefault : 'orange'"
               class="ng-binding"
             >
               {{ data_mcap.mid.label }}
@@ -85,9 +75,7 @@
                 <td>
                   <div class="pf-txt-1"><span>Mid Caps</span></div>
                   <div
-                    [ngClass]="
-                      this.fun.getDirClrDefault(data_mcap.mid.gaindir, 'orange')
-                    "
+                    [ngClass]="data_mcap.mid.gaindir | dirClrDefault : 'orange'"
                     class="ng-binding pf-txt-2"
                   >
                     Rs.{{ data_mcap.mid.gain | roundOff | twoCommas }} ({{
@@ -101,9 +89,7 @@
                 <td>
                   <div class="pf-txt-1">BSE Midcap</div>
                   <div
-                    [ngClass]="
-                      this.fun.getDirClrDefault(data_mcap.mid.idxpdir, 'orange')
-                    "
+                    [ngClass]="data_mcap.mid.idxpdir | dirClrDefault : 'orange'"
                     class="ng-binding pf-txt-2"
                   >
                     ({{ data_mcap.mid.idxp | roundOff | twoCommas }}%)
@@ -118,10 +104,7 @@
             <h6
               class="ng-binding"
               [ngClass]="
-                this.fun.getDirClrDefault(
-                  data_mcap.smallmicro.labeldir,
-                  'orange'
-                )
+                data_mcap.smallmicro.labeldir | dirClrDefault : 'orange'
               "
             >
               {{ data_mcap.smallmicro.label }}
@@ -136,10 +119,7 @@
                   </div>
                   <div
                     [ngClass]="
-                      this.fun.getDirClrDefault(
-                        data_mcap.smallmicro.gaindir,
-                        'orange'
-                      )
+                      data_mcap.smallmicro.gaindir | dirClrDefault : 'orange'
                     "
                     class="ng-binding pf-txt-2"
                   >
@@ -156,10 +136,7 @@
                   <div class="pf-txt-1">BSE Smallcap</div>
                   <div
                     [ngClass]="
-                      this.fun.getDirClrDefault(
-                        data_mcap.smallmicro.idxpdir,
-                        'orange'
-                      )
+                      data_mcap.smallmicro.idxpdir | dirClrDefault : 'orange'
                     "
                     class="ng-binding pf-txt-2"
                   >
@@ -247,12 +224,9 @@
           alt="ArrowRight"
           height="16"
         />
-        <span *ngIf="isLoading">
-          Loading...
-        </span>
-        <span *ngIf="!isLoading  "> Full Details </span>
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Full Details </span>
         <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
-        
       </a>
     </div>
   </div>
@@ -260,10 +234,7 @@
 
 <!-- detailed data -->
 <div [hidden]="true">
-  <div
-    #childDiv
-    class="modal-content contentbg ng-scope"
-  >
+  <div #childDiv class="modal-content contentbg ng-scope">
     <div>
       <table class="table1 mod-table">
         <thead>
@@ -288,10 +259,8 @@
             </td>
             <td
               [ngClass]="
-                this.fun.getDirClrDefault(
-                  diversify_Data['Large Cap'].total['dgainpdir'],
-                  'grey'
-                )
+                diversify_Data['Large Cap'].total['dgainpdir']
+                  | dirClrDefault : 'grey'
               "
               class="ng-binding"
             >
@@ -325,9 +294,7 @@
               {{ item.value.pwt | roundOff | twoCommas }}%
             </td>
             <td
-              [ngClass]="
-                this.fun.getDirClrDefault(item.value.dgainpdir, 'grey')
-              "
+              [ngClass]="item.value.dgainpdir | dirClrDefault : 'grey'"
               class="ng-binding"
             >
               {{ item.value.dgain | roundOff | twoCommas }}
@@ -347,10 +314,8 @@
             </td>
             <td
               [ngClass]="
-                this.fun.getDirClrDefault(
-                  diversify_Data['Mid Cap'].total['dgainpdir'],
-                  'grey'
-                )
+                diversify_Data['Mid Cap'].total['dgainpdir']
+                  | dirClrDefault : 'grey'
               "
               class="ng-binding"
             >
@@ -381,9 +346,7 @@
               {{ item.value.pwt | roundOff | twoCommas }}%
             </td>
             <td
-              [ngClass]="
-                this.fun.getDirClrDefault(item.value.dgainpdir, 'grey')
-              "
+              [ngClass]="item.value.dgainpdir | dirClrDefault : 'grey'"
               class="ng-binding"
             >
               {{ item.value.dgain | roundOff | twoCommas }}
@@ -403,10 +366,8 @@
             </td>
             <td
               [ngClass]="
-                this.fun.getDirClrDefault(
-                  diversify_Data['Small Cap'].total['dgainpdir'],
-                  'grey'
-                )
+                diversify_Data['Small Cap'].total['dgainpdir']
+                  | dirClrDefault : 'grey'
               "
               class="ng-binding"
             >
@@ -440,9 +401,7 @@
               {{ item.value.pwt | roundOff | twoCommas }}%
             </td>
             <td
-              [ngClass]="
-                this.fun.getDirClrDefault(item.value.dgainpdir, 'grey')
-              "
+              [ngClass]="item.value.dgainpdir | dirClrDefault : 'grey'"
               class="ng-binding"
             >
               {{ item.value.dgain | roundOff | twoCommas }}
@@ -462,10 +421,8 @@
             </td>
             <td
               [ngClass]="
-                this.fun.getDirClrDefault(
-                  diversify_Data['Micro Cap'].total['dgainpdir'],
-                  'grey'
-                )
+                diversify_Data['Micro Cap'].total['dgainpdir']
+                  | dirClrDefault : 'grey'
               "
               class="ng-binding"
             >
@@ -499,9 +456,7 @@
               {{ item.value.pwt | roundOff | twoCommas }}%
             </td>
             <td
-              [ngClass]="
-                this.fun.getDirClrDefault(item.value.dgainpdir, 'grey')
-              "
+              [ngClass]="item.value.dgainpdir | dirClrDefault : 'grey'"
               class="ng-binding"
             >
               {{ item.value.dgain | roundOff | twoCommas }}

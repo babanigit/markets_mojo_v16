@@ -16,6 +16,7 @@ import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-f
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { LineGraphComponent } from '../graph/line-graph/line-graph.component';
 import { NumberFormatPipe } from "../../../pipes/pp/number-format.pipe";
+import { DirClrDefaultPipe } from "../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-details-liqui',
@@ -23,7 +24,7 @@ import { NumberFormatPipe } from "../../../pipes/pp/number-format.pipe";
   styleUrls: ['./details-liqui.component.css'],
 
   standalone: true,
-  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, LineGraphComponent, NumberFormatPipe],
+  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, LineGraphComponent, NumberFormatPipe, DirClrDefaultPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailsLiquiComponent {

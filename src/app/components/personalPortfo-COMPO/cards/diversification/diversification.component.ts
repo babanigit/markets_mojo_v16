@@ -22,6 +22,7 @@ import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/ge
 import { LineGraphComponent } from '../../graph/line-graph/line-graph.component';
 import { catchError, retry, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-diversification',
@@ -34,7 +35,8 @@ import { of } from 'rxjs';
     RoundOffPipe,
     TwoCommasPipe,
     LineGraphComponent,
-  ],
+    DirClrDefaultPipe
+],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DiversificationComponent implements OnInit {

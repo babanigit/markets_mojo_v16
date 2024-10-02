@@ -15,6 +15,7 @@ import { graph_Data2 } from 'src/app/models/pp/risk';
 import { series_Data_pie } from 'src/app/models/pp/pie';
 import { ModelOpenComponent } from '../../model-open/model-open.component';
 import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.component';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-summary',
@@ -27,7 +28,8 @@ import { RadiusChartComponent } from '../../graph/radius-chart/radius-chart.comp
     TwoCommasPipe,
     RadiusChartComponent,
     ModelOpenComponent,
-  ],
+    DirClrDefaultPipe
+],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SummaryComponent {

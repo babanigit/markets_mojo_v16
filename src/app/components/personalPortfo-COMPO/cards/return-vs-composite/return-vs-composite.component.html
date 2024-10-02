@@ -21,8 +21,7 @@
         <div class="current-trend">
           <div
             [ngClass]="
-              'score-' +
-              this.fun.getDirClrDefault(data_retcompo.W1.returndir, 'orange')
+              'score-' + data_retcompo.W1.returndir | dirClrDefault : 'orange'
             "
           >
             <h6 class="ng-binding">
@@ -30,9 +29,7 @@
               {{ data_retcompo.W1.return }}
             </h6>
             <p
-              [ngClass]="
-                this.fun.getDirClrDefault(data_retcompo.W1.compodir, 'orange')
-              "
+              [ngClass]="data_retcompo.W1.compodir | dirClrDefault : 'orange'"
               class="ng-binding alignp"
             >
               {{ data_retcompo.W1.compo }}
@@ -41,8 +38,7 @@
 
           <div
             [ngClass]="
-              'score-' +
-              this.fun.getDirClrDefault(data_retcompo.M1.returndir, 'orange')
+              'score-' + data_retcompo.M1.returndir | dirClrDefault : 'orange'
             "
           >
             <h6 class="ng-binding">
@@ -50,9 +46,7 @@
               {{ data_retcompo.M1.return }}
             </h6>
             <p
-              [ngClass]="
-                this.fun.getDirClrDefault(data_retcompo.M1.compodir, 'orange')
-              "
+              [ngClass]="data_retcompo.M1.compodir | dirClrDefault : 'orange'"
               class="ng-binding alignp"
             >
               {{ data_retcompo.M1.compo }}
@@ -61,8 +55,7 @@
 
           <div
             [ngClass]="
-              'score-' +
-              this.fun.getDirClrDefault(data_retcompo.M3.returndir, 'orange')
+              'score-' + data_retcompo.M3.returndir | dirClrDefault : 'orange'
             "
           >
             <h6 class="ng-binding">
@@ -70,9 +63,7 @@
               {{ data_retcompo.M3.return }}
             </h6>
             <p
-              [ngClass]="
-                this.fun.getDirClrDefault(data_retcompo.M3.compodir, 'orange')
-              "
+              [ngClass]="data_retcompo.M3.compodir | dirClrDefault : 'orange'"
               class="ng-binding alignp"
             >
               {{ data_retcompo.M3.compo }}
@@ -83,8 +74,7 @@
         <div class="current-trend">
           <div
             [ngClass]="
-              'score-' +
-              this.fun.getDirClrDefault(data_retcompo.M6.returndir, 'orange')
+              'score-' + data_retcompo.M6.returndir | dirClrDefault : 'orange'
             "
           >
             <h6 class="ng-binding">
@@ -92,9 +82,7 @@
               {{ data_retcompo.M6.return }}
             </h6>
             <p
-              [ngClass]="
-                this.fun.getDirClrDefault(data_retcompo.M6.compodir, 'orange')
-              "
+              [ngClass]="data_retcompo.M6.compodir | dirClrDefault : 'orange'"
               class="ng-binding alignp"
             >
               {{ data_retcompo.M6.compo }}
@@ -103,8 +91,7 @@
 
           <div
             [ngClass]="
-              'score-' +
-              this.fun.getDirClrDefault(data_retcompo.YTD.returndir, 'orange')
+              'score-' + data_retcompo.YTD.returndir | dirClrDefault : 'orange'
             "
           >
             <h6 class="ng-binding">
@@ -112,9 +99,7 @@
               {{ data_retcompo.YTD.return }}
             </h6>
             <p
-              [ngClass]="
-                this.fun.getDirClrDefault(data_retcompo.YTD.compodir, 'orange')
-              "
+              [ngClass]="data_retcompo.YTD.compodir | dirClrDefault : 'orange'"
               class="ng-binding alignp"
             >
               {{ data_retcompo.YTD.compo }}
@@ -123,8 +108,7 @@
 
           <div
             [ngClass]="
-              'score-' +
-              this.fun.getDirClrDefault(data_retcompo.Y1.returndir, 'orange')
+              'score-' + data_retcompo.Y1.returndir | dirClrDefault : 'orange'
             "
           >
             <h6 class="ng-binding">
@@ -132,9 +116,7 @@
               {{ data_retcompo.Y1.return }}
             </h6>
             <p
-              [ngClass]="
-                this.fun.getDirClrDefault(data_retcompo.Y1.compodir, 'orange')
-              "
+              [ngClass]="data_retcompo.Y1.compodir | dirClrDefault : 'orange'"
               class="ng-binding alignp"
             >
               {{ data_retcompo.Y1.compo }}
@@ -145,8 +127,7 @@
         <div class="current-trend">
           <div
             [ngClass]="
-              'score-' +
-              this.fun.getDirClrDefault(data_retcompo.Y2.returndir, 'orange')
+              'score-' + data_retcompo.Y2.returndir | dirClrDefault : 'orange'
             "
           >
             <h6 class="ng-binding">
@@ -154,9 +135,7 @@
               {{ data_retcompo.Y2.return }}
             </h6>
             <p
-              [ngClass]="
-                this.fun.getDirClrDefault(data_retcompo.Y2.compodir, 'orange')
-              "
+              [ngClass]="data_retcompo.Y2.compodir | dirClrDefault : 'orange'"
               class="ng-binding alignp"
             >
               {{ data_retcompo.Y2.compo }}
@@ -165,8 +144,7 @@
 
           <div
             [ngClass]="
-              'score-' +
-              this.fun.getDirClrDefault(data_retcompo.Y3.returndir, 'orange')
+              'score-' + data_retcompo.Y3.returndir | dirClrDefault : 'orange'
             "
           >
             <h6 class="ng-binding">
@@ -174,9 +152,7 @@
               {{ data_retcompo.Y3.return }}
             </h6>
             <p
-              [ngClass]="
-                this.fun.getDirClrDefault(data_retcompo.Y3.compodir, 'orange')
-              "
+              [ngClass]="data_retcompo.Y3.compodir | dirClrDefault : 'orange'"
               class="ng-binding alignp"
             >
               {{ data_retcompo.Y3.compo }}
@@ -185,8 +161,7 @@
 
           <div
             [ngClass]="
-              'score-' +
-              this.fun.getDirClrDefault(data_scorecard.returndir, 'orange')
+              'score-' + data_scorecard.returndir | dirClrDefault : 'orange'
             "
           >
             <h6 class="ng-binding">
@@ -194,9 +169,7 @@
               {{ data_scorecard.return }}
             </h6>
             <p
-              [ngClass]="
-                this.fun.getDirClrDefault(data_scorecard.compodir, 'orange')
-              "
+              [ngClass]="data_scorecard.compodir | dirClrDefault : 'orange'"
               class="ng-binding alignp"
             >
               {{ data_scorecard.compo }}
@@ -205,11 +178,7 @@
         </div>
       </div>
 
-      <div
-        class="indics-new ng-scope"
-        ng-if="loader[0].pf_return_composite == false  &amp;&amp; error_flag[0].return_compo == 0"
-        style=""
-      >
+      <div class="indics-new ng-scope">
         <span class="green"><i class="fa fa-stop"></i></span>
         <span class="red"><i class="fa fa-stop"></i></span>
         <span>Portfolio Returns</span>
@@ -217,11 +186,7 @@
         <span>CI Returns</span>
       </div>
 
-      <div
-        class="foot-note ng-binding ng-scope"
-        ng-if="loader[0].pf_return_composite == false  &amp;&amp; error_flag[0].return_compo == 0"
-        style=""
-      >
+      <div class="foot-note ng-binding ng-scope">
         Returns include Dividends and Realized Gain; Inception from 26 Dec 2016
       </div>
     </ng-container>
@@ -429,9 +394,7 @@
                 </ng-container>
               </td>
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(item.value.W1.dir, 'white')
-                "
+                [ngClass]="item.value.W1.dir | dirClrDefault : 'white'"
                 class="txt-rt no-mob no-tab2"
               >
                 <span class="ng-binding ng-scope"
@@ -440,9 +403,7 @@
               </td>
 
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(item.value.M1.dir, 'white')
-                "
+                [ngClass]="item.value.M1.dir | dirClrDefault : 'white'"
                 class="txt-rt no-mob no-tab2"
               >
                 <span class="ng-binding ng-scope">{{
@@ -451,9 +412,7 @@
               </td>
 
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(item.value.M3.dir, 'white')
-                "
+                [ngClass]="item.value.M3.dir | dirClrDefault : 'white'"
                 class="txt-rt no-mob no-tab2"
               >
                 <span class="ng-binding ng-scope">{{
@@ -462,9 +421,7 @@
               </td>
 
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(item.value.M6.dir, 'white')
-                "
+                [ngClass]="item.value.M6.dir | dirClrDefault : 'white'"
                 class="txt-rt no-mob no-tab2"
               >
                 <span class="ng-binding ng-scope">{{
@@ -473,9 +430,7 @@
               </td>
 
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(item.value.YTD.dir, 'white')
-                "
+                [ngClass]="item.value.YTD.dir | dirClrDefault : 'white'"
                 class="txt-rt"
               >
                 <span class="ng-binding ng-scope">{{
@@ -484,9 +439,7 @@
               </td>
 
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(item.value.Y1.dir, 'white')
-                "
+                [ngClass]="item.value.Y1.dir | dirClrDefault : 'white'"
                 class="txt-rt no-mob no-tab2"
               >
                 <span class="ng-binding ng-scope">{{
@@ -495,9 +448,7 @@
               </td>
 
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(item.value.Y2.dir, 'white')
-                "
+                [ngClass]="item.value.Y2.dir | dirClrDefault : 'white'"
                 class="txt-rt no-mob no-tab2"
               >
                 <span class="ng-binding ng-scope">{{
@@ -506,9 +457,7 @@
               </td>
 
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(item.value.Y3.dir, 'white')
-                "
+                [ngClass]="item.value.Y3.dir | dirClrDefault : 'white'"
                 class="txt-rt no-mob no-tab2"
               >
                 <span class="ng-binding ng-scope">{{
@@ -517,9 +466,7 @@
               </td>
 
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(item.value.incept.dir, 'white')
-                "
+                [ngClass]="item.value.incept.dir | dirClrDefault : 'white'"
                 class="txt-rt"
               >
                 <span class="ng-binding ng-scope">{{

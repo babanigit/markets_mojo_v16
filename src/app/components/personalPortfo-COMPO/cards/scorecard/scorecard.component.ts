@@ -39,11 +39,6 @@ export class ScorecardComponent {
     return this.fun.getClassbyClr(color);
   }
 
-  // Method to get direction color default
-  getDirClrDefault(value: string | number, defaultColor: string): string {
-    return this.fun.getDirClrDefault(value, defaultColor);
-  }
-
   trackByFn(index: number, item: any): any {
     return item.dotsum.sid; // Use a unique identifier if possible
   }

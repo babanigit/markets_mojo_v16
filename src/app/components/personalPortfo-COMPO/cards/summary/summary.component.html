@@ -20,7 +20,7 @@
           <div class="pbt-mojo">
             <div
               [innerHTML]="MAIN.score.text"
-              [ngClass]="this.fun.getDirClrDefault(MAIN.score.color, 'orange')"
+              [ngClass]=" MAIN.score.color | dirClrDefault : 'orange' "	
               class="ng-binding"
             ></div>
           </div>

@@ -40,17 +40,13 @@
                   {{ item.absret | roundOff | twoCommas }}
                 </td>
                 <td
-                  [ngClass]="
-                    this.fun.getDirClrDefault(item.abs_perc_dir, 'orange')
-                  "
+                  [ngClass]="item.abs_perc_dir | dirClrDefault : 'orange'"
                   class="ng-binding ng-scope"
                 >
                   {{ item.abs_perc | roundOff | twoCommas }}%
                 </td>
                 <td
-                  [ngClass]="
-                    this.fun.getDirClrDefault(item.portxirr_perc_dir, 'orange')
-                  "
+                  [ngClass]="item.portxirr_perc_dir | dirClrDefault : 'orange'"
                   class="ng-binding ng-scope"
                 >
                   {{ item.portxirr_perc | roundOff | twoCommas }}%
@@ -157,29 +153,25 @@
             <td class="ng-binding">{{ item.period }}</td>
             <td class="ng-binding">{{ item.absret | roundOff | twoCommas }}</td>
             <td
-              [ngClass]="this.fun.getDirClrDefault(item.abs_perc_dir, 'white')"
+              [ngClass]="item.abs_perc_dir | dirClrDefault : 'white'"
               class="ng-binding"
             >
               {{ item.abs_perc | roundOff | twoCommas }}%
             </td>
             <td
-              [ngClass]="this.fun.getDirClrDefault(item.comp_perc_dir, 'white')"
+              [ngClass]="item.comp_perc_dir | dirClrDefault : 'white'"
               class="ng-binding"
             >
               {{ item.comp_perc | roundOff | twoCommas }}%
             </td>
             <td
-              [ngClass]="
-                this.fun.getDirClrDefault(item.portxirr_perc_dir, 'white')
-              "
+              [ngClass]="item.portxirr_perc_dir | dirClrDefault : 'white'"
               class="ng-binding"
             >
               {{ item.portxirr_perc | roundOff | twoCommas }}%
             </td>
             <td
-              [ngClass]="
-                this.fun.getDirClrDefault(item.compxirr_perc_dir, 'white')
-              "
+              [ngClass]="item.compxirr_perc_dir | dirClrDefault : 'white'"
               class="ng-binding"
             >
               {{ item.compxirr_perc | roundOff | twoCommas }}%

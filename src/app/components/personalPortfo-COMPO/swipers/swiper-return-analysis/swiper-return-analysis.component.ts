@@ -38,6 +38,7 @@ import { DividendContriReturnComponent } from '../../cards/dividend-contri-retur
 import { SectorsContriReturnComponent } from '../../cards/sectors-contri-return/sectors-contri-return.component';
 import { McapContriReturnComponent } from '../../cards/mcap-contri-return/mcap-contri-return.component';
 import { StocksContriReturnComponent } from '../../cards/stocks-contri-return/stocks-contri-return.component';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-swiper-return-analysis',
@@ -59,8 +60,8 @@ import { StocksContriReturnComponent } from '../../cards/stocks-contri-return/st
     SectorsContriReturnComponent,
     McapContriReturnComponent,
     StocksContriReturnComponent,
-
-  ],
+    DirClrDefaultPipe
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

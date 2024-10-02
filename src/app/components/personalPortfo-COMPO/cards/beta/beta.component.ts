@@ -18,13 +18,14 @@ import { LineGraphComponent } from '../../graph/line-graph/line-graph.component'
 import { GetPersonalPFService } from 'src/app/services/personal-portfolio/get/get-personal-pf.service';
 import { IRisk_Data_Datum, IRiskPopup } from 'src/app/models/pp/RiskPopup';
 import { retry, tap, catchError, of } from 'rxjs';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-beta',
   templateUrl: './beta.component.html',
   styleUrls: ['./beta.component.css'],
   standalone: true,
-  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, LineGraphComponent],
+  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, LineGraphComponent, DirClrDefaultPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 
 })

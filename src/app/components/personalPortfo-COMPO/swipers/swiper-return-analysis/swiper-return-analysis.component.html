@@ -69,10 +69,7 @@
                 <div class="high-risk-head">
                   <div
                     [ngClass]="
-                      this.fun.getDirClrDefault(
-                        main_data.scorecard.returndir,
-                        'orange'
-                      )
+                      main_data.scorecard.returndir | dirClrDefault : 'orange'
                     "
                     class="high-risk-head"
                   >
@@ -93,22 +90,16 @@
                 <div class="cf">
                   <div
                     [ngClass]="
-                      'score-card ' +
-                      this.fun.getDirClrDefault(
-                        main_data.scorecard.comperformby,
-                        'orange'
-                      ) +
-                      '-score'
+                      (main_data.scorecard.comperformby
+                        | dirClrDefault : 'orange') + '-score'
                     "
                   >
                     <p>
                       Composite
                       <strong
                         [ngClass]="
-                          this.fun.getDirClrDefault(
-                            main_data.scorecard.compodir,
-                            'orange'
-                          )
+                          main_data.scorecard.compodir
+                            | dirClrDefault : 'orange'
                         "
                         class="ng-binding"
                         >{{
@@ -125,22 +116,15 @@
                   </div>
                   <div
                     [ngClass]="
-                      'score-card ' +
-                      this.fun.getDirClrDefault(
-                        main_data.scorecard.senperfomby,
-                        'orange'
-                      ) +
-                      '-score'
+                      (main_data.scorecard.senperfomby
+                        | dirClrDefault : 'orange') + '-score'
                     "
                   >
                     <p>
                       Sensex
                       <strong
                         [ngClass]="
-                          this.fun.getDirClrDefault(
-                            main_data.scorecard.sendir,
-                            'orange'
-                          )
+                          main_data.scorecard.sendir | dirClrDefault : 'orange'
                         "
                         class="ng-binding"
                         >{{
@@ -204,7 +188,6 @@
                 </div>
               </div>
             </ng-template>
-
           </div>
         </div>
       </section>
@@ -277,10 +260,10 @@
         data-scrolled="0"
         data-visited="0"
       >
-          <app-breakup
-            [DATA]="data_networth"
-            [HEAD]="'Portfolio Networth Break-Up'"
-          />
+        <app-breakup
+          [DATA]="data_networth"
+          [HEAD]="'Portfolio Networth Break-Up'"
+        />
       </section>
 
       <!-- calendar year return graph -->
@@ -361,7 +344,6 @@
           [data_holding]="data_holding"
         />
       </section>
-      
     </div>
     <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next" style="margin-top: 0px">

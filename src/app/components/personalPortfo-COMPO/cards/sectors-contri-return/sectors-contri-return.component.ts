@@ -4,13 +4,14 @@ import { IDivcontri, ISector } from 'src/app/models/pp/return';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-sectors-contri-return',
   templateUrl: './sectors-contri-return.component.html',
   styleUrls: ['./sectors-contri-return.component.css'],
   standalone:true,
-  imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
+  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, DirClrDefaultPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SectorsContriReturnComponent {

@@ -12,13 +12,14 @@ import { I_Ixrr_Data } from 'src/app/models/pp/ixrr';
 import { RoundOffPipe } from 'src/app/pipes/pp/roundOff/round-off.pipe';
 import { TwoCommasPipe } from 'src/app/pipes/pp/twoCommas/two-commas.pipe';
 import { PpFunctionsService } from 'src/app/services/personal-portfolio/fun/pp-functions.service';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 
 @Component({
   selector: 'app-return-absolute-and-irr',
   templateUrl: './return-absolute-and-irr.component.html',
   styleUrls: ['./return-absolute-and-irr.component.css'],
   standalone: true,
-  imports: [CommonModule, RoundOffPipe, TwoCommasPipe],
+  imports: [CommonModule, RoundOffPipe, TwoCommasPipe, DirClrDefaultPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReturnAbsoluteAndIrrComponent {

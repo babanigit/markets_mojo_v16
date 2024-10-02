@@ -80,20 +80,14 @@
                       id=""
                       [ngClass]="{
                         red:
-                          this.fun.getDirClrDefault(
-                            graphToday_data.portdir,
-                            'gray'
-                          ) === 'red',
+                          (graphToday_data.portdir | dirClrDefault : 'grey') ===
+                          'red',
                         green:
-                          this.fun.getDirClrDefault(
-                            graphToday_data.portdir,
-                            'gray'
-                          ) === 'green',
-                        gray:
-                          this.fun.getDirClrDefault(
-                            graphToday_data.portdir,
-                            'gray'
-                          ) === 'gray',
+                          (graphToday_data.portdir | dirClrDefault : 'grey') ===
+                          'green',
+                        grey:
+                          (graphToday_data.portdir | dirClrDefault : 'grey') ===
+                          'grey',
                         active: send_button == keybutton
                       }"
                       (click)="buttonClicked('1D')"
@@ -112,20 +106,14 @@
                       id=""
                       [ngClass]="{
                         red:
-                          this.fun.getDirClrDefault(
-                            item.value.portdir,
-                            'gray'
-                          ) === 'red',
+                          (item.value.portdir | dirClrDefault : 'grey') ===
+                          'red',
                         green:
-                          this.fun.getDirClrDefault(
-                            item.value.portdir,
-                            'gray'
-                          ) === 'green',
-                        gray:
-                          this.fun.getDirClrDefault(
-                            item.value.portdir,
-                            'gray'
-                          ) === 'gray',
+                          (item.value.portdir | dirClrDefault : 'grey') ===
+                          'green',
+                        grey:
+                          (item.value.portdir | dirClrDefault : 'grey') ===
+                          'grey',
                         active: item.key === send_button
                       }"
                       (click)="buttonClicked(item.key)"
@@ -298,12 +286,10 @@
                       <div class="stockmargin">
                         <div
                           class="sector-per"
-                          [ngClass]="
-                            this.fun.getDirClrDefault(
-                              PortfolioGraph_data[send_button].portdir,
-                              'orange'
-                            ) + '-border'
-                          "
+
+                          [ngClass]="  (PortfolioGraph_data[send_button].portdir | dirClrDefault : 'orange') + '-border'  "	
+
+                         
                           style="display: block"
                         >
                           <h6 class="stockName">PORTFOLIO</h6>
@@ -319,12 +305,9 @@
                       <div class="stockmargin">
                         <div
                           class="sector-per"
-                          [ngClass]="
-                            this.fun.getDirClrDefault(
-                              PortfolioGraph_data[send_button].compdir,
-                              'orange'
-                            ) + '-border'
-                          "
+                          [ngClass]="  ( PortfolioGraph_data[send_button].compdir | dirClrDefault : 'orange') + '-border'  "	
+
+                        
                           style="display: block"
                         >
                           <h6>COMPOSITE INDEX</h6>
@@ -340,12 +323,9 @@
                       <div class="stockmargin">
                         <div
                           class="sector-per green-border"
-                          [ngClass]="
-                            this.fun.getDirClrDefault(
-                              PortfolioGraph_data[send_button].sensexdir,
-                              'orange'
-                            ) + '-border'
-                          "
+                          [ngClass]="  (   PortfolioGraph_data[send_button].sensexdir | dirClrDefault : 'orange') + '-border'  "	
+
+                         
                           style="display: block"
                         >
                           <h6>SENSEX</h6>
@@ -367,12 +347,9 @@
                       <div class="stockmargin">
                         <div
                           class="sector-per"
-                          [ngClass]="
-                            this.fun.getDirClrDefault(
-                              graphToday_data.portdir,
-                              'orange'
-                            ) + '-border'
-                          "
+                          [ngClass]="  (   graphToday_data.portdir | dirClrDefault : 'orange') + '-border'  "	
+
+                        
                           style="display: block"
                         >
                           <h6 class="stockName">PORTFOLIO</h6>
@@ -384,12 +361,9 @@
                       <div class="stockmargin">
                         <div
                           class="sector-per"
-                          [ngClass]="
-                            this.fun.getDirClrDefault(
-                              graphToday_data.compdir,
-                              'orange'
-                            ) + '-border'
-                          "
+                          [ngClass]="  (   graphToday_data.compdir | dirClrDefault : 'orange') + '-border'  "	
+
+                        
                           style="display: block"
                         >
                           <h6>COMPOSITE INDEX</h6>
@@ -401,12 +375,9 @@
                       <div class="stockmargin">
                         <div
                           class="sector-per green-border"
-                          [ngClass]="
-                            this.fun.getDirClrDefault(
-                              graphToday_data.sensexdir,
-                              'orange'
-                            ) + '-border'
-                          "
+                          [ngClass]="  (   graphToday_data.sensexdir | dirClrDefault : 'orange') + '-border'  "	
+
+                          
                           style="display: block"
                         >
                           <h6>SENSEX</h6>
@@ -699,11 +670,14 @@
       </section>
 
       <script type="text/ng-template" id="landingvideo">
-        <!--************new video**********-->
-        <div id="videomodel" class="colapsearea modal bs-modal-lg"  style="display:block;">
-            <a class="modal-action modal-close close-blk" ng-click="commonModalClose('landingvideo')" href="javascript:void(0)"><i class="fa fa-times"></i></a>
-            <iframe class="iframevideonew" src="https://www.youtube.com/embed/KXHQUESIMk4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <!--<iframe class="iframevideonew" src="https://sandbox-st.marketsmojo.com/images/landing/marketsmojoFinalcut.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+          <!--************new video**********-->
+        <div id="videomodel" class="colapsearea modal bs-modal-lg" style="display:block;">
+          <a class="modal-action modal-close close-blk" ng-click="commonModalClose('landingvideo')"
+            href="javascript:void(0)"><i class="fa fa-times"></i></a>
+          <iframe class="iframevideonew" src="https://www.youtube.com/embed/KXHQUESIMk4" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <!--<iframe class="iframevideonew" src="https://sandbox-st.marketsmojo.com/images/landing/marketsmojoFinalcut.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
         </div>
       </script>
 

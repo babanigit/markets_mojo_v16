@@ -28,10 +28,7 @@
                 <td class="pf-">Short Term Capital Gains Tax</td>
                 <td
                   [ngClass]="
-                    this.fun.getDirClrDefault(
-                      data_taxAnalysis.dir.sttax,
-                      'orange'
-                    )
+                    data_taxAnalysis.dir.sttax | dirClrDefault : 'orange'
                   "
                   class="ng-binding"
                 >
@@ -41,12 +38,9 @@
               <tr>
                 <td class="pf-">Long Term Capital Gains Tax</td>
                 <td
-                  [ngClass]="
-                    this.fun.getDirClrDefault(
-                      data_taxAnalysis.dir.lttax,
-                      'orange'
-                    )
-                  "
+
+                [ngClass]="  data_taxAnalysis.dir.lttax | dirClrDefault : 'orange' "	
+                
                   class="ng-binding"
                 >
                   {{ data_taxAnalysis.lttax | roundOff | twoCommas }}
@@ -71,7 +65,6 @@
           </div>
         </div>
       </div>
-
     </ng-container>
 
     <ng-template #loadingTemplate>
@@ -86,7 +79,6 @@
         </div>
       </div>
     </ng-template>
-    
   </div>
 </div>
 

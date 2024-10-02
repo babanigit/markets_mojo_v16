@@ -40,9 +40,7 @@
                 <td class="ng-binding">{{ mcap.value.txt }}</td>
 
                 <td
-                  [ngClass]="
-                    this.fun.getDirClrDefault(mcap.value.tgaindir, 'orange')
-                  "
+                  [ngClass]="mcap.value.tgaindir | dirClrDefault : 'orange'"
                   class="ng-binding ng-scope"
                 >
                   {{ mcap.value.tgain | roundOff | twoCommas }}
@@ -160,9 +158,7 @@
                 {{ sector.value.pwt | roundOff | twoCommas }}%
               </td>
               <td
-                [ngClass]="
-                  this.fun.getDirClrDefault(sector.value.tgaindir, 'gray')
-                "
+                [ngClass]="sector.value.tgaindir | dirClrDefault : 'grey'"
                 class="ng-binding ng-scope"
               >
                 {{ sector.value.tgain | roundOff | twoCommas }}
@@ -178,7 +174,7 @@
                 {{ (stock.pwt | roundOff | twoCommas) || "0.00" }}%
               </td>
               <td
-                [ngClass]="this.fun.getDirClrDefault(stock.tgaindir, 'gray')"
+                [ngClass]="stock.tgaindir | dirClrDefault : 'grey'"
                 class="ng-binding ng-scope"
               >
                 {{ stock.tgain | roundOff | twoCommas }}
