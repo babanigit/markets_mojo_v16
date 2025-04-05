@@ -1,0 +1,127 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+    "advtax": {
+      "1": {
+        "date": "15-Jun-24",
+        "rawdate": "2024-06-15",
+        "stgain": "-",
+        "ltgain": "-",
+        "sttax": "-",
+        "lttax": "-",
+        "advtax": "-"
+      },
+      "2": {
+        "date": "15-Sep-24",
+        "rawdate": "2024-09-15",
+        "stgain": "-",
+        "ltgain": "-",
+        "sttax": "-",
+        "lttax": "-",
+        "advtax": "-"
+      },
+      "3": {
+        "date": "15-Dec-24",
+        "rawdate": "2024-12-15",
+        "stgain": "-",
+        "ltgain": "-",
+        "sttax": "-",
+        "lttax": "-",
+        "advtax": "-"
+      },
+      "4": {
+        "date": "15-Mar-25",
+        "rawdate": "2025-03-15",
+        "stgain": "-",
+        "ltgain": "-",
+        "sttax": "-",
+        "lttax": "-",
+        "advtax": "-"
+      },
+      "5": {
+        "date": "31-Mar-25",
+        "rawdate": "2025-03-31",
+        "stgain": "-",
+        "ltgain": "-",
+        "sttax": "-",
+        "lttax": "-",
+        "advtax": "-"
+      }
+    },
+    "total": {
+      "2024-25": {
+        "fy": "2024-25",
+        "status": 0,
+        "rgain": 0,
+        "sttax": 0,
+        "lttax": 0,
+        "totaltax": 0,
+        "capgain": 0
+      },
+      "2023-24": {
+        "fy": "2023-24",
+        "status": 1,
+        "rgain": 3143,
+        "sttax": 105,
+        "lttax": 244,
+        "totaltax": 349,
+        "capgain": 16
+      },
+      "2022-23": {
+        "fy": "2022-23",
+        "status": 1,
+        "rgain": 1973,
+        "sttax": 0,
+        "lttax": 197,
+        "totaltax": 197,
+        "capgain": 0
+      },
+      "2021-22": {
+        "fy": "2021-22",
+        "status": 1,
+        "rgain": -5900,
+        "sttax": 0,
+        "lttax": -590,
+        "totaltax": -590,
+        "capgain": 0
+      },
+      "2019-20": {
+        "fy": "2019-20",
+        "status": 1,
+        "rgain": 27240,
+        "sttax": 3113,
+        "lttax": 132,
+        "totaltax": 3245,
+        "capgain": 467
+      },
+      "2018-19": {
+        "fy": "2018-19",
+        "status": 1,
+        "rgain": 660,
+        "sttax": 99,
+        "lttax": 0,
+        "totaltax": 99,
+        "capgain": 15
+      },
+      "2017-18": {
+        "fy": "2017-18",
+        "status": 1,
+        "rgain": 23757,
+        "sttax": 3564,
+        "lttax": 0,
+        "totaltax": 3564,
+        "capgain": 535
+      },
+      "2016-17": {
+        "fy": "2016-17",
+        "status": 1,
+        "rgain": 20402,
+        "sttax": 3060,
+        "lttax": 0,
+        "totaltax": 3060,
+        "capgain": 459
+      }
+    }
+  }
+}

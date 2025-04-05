@@ -1,0 +1,170 @@
+<div class="card">
+  <div class="card-content dividend">
+    <div class="card-head">
+      <h2>
+        Dividend Contribution to Returns<span
+          *ngIf="SHOW_BUTTON"
+          (click)="isCollapse = !isCollapse"
+          class="card-title activator info-act"
+        ></span>
+      </h2>
+    </div>
+
+    <ng-container *ngIf="data_divcontri!; else loadingTemplate">
+      <ng-container *ngIf="data_divcontri.list.length > 0; else noDataTemplate">
+        <!-- Content to show if data exists -->
+
+        <div class="price-mojo col-green ng-scope">
+          <div class="txt-hed-1 priced ng-binding">
+            {{ data_divcontri.txt1 }}
+          </div>
+          <p class="ng-binding">{{ data_divcontri.txt2 }}</p>
+          <table class="table1 divd-table">
+            <thead>
+              <tr>
+                <th class="textcenter">
+                  Time<br />
+                  Period
+                </th>
+                <th class="textcenter">
+                  Dividend<br />
+                  Received (Abs)
+                </th>
+                <th class="textcenter">
+                  Price<br />
+                  Return (%)
+                </th>
+
+                <th class="textcenter">
+                  Total<br />
+                  Return (%)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data_divcontri.list" class="ng-scope">
+                <td class="ng-binding">{{ item.period }}</td>
+
+                <td class="ng-binding ng-scope">
+                  {{ item.divrec | roundOff | twoCommas }}
+                </td>
+
+                <td class="ng-binding ng-scope">
+                  {{ item.price | roundOff | twoCommas }}%
+                </td>
+                <!-- end ngIf: rowArr.total != 'NA' -->
+                <!-- ngIf: rowArr.total != 'NA' -->
+                <td class="ng-binding ng-scope">
+                  {{ item.total | roundOff | twoCommas }}%
+                </td>
+                <!-- end ngIf: rowArr.total != 'NA' -->
+              </tr>
+            </tbody>
+          </table>
+          <div class="foot-note ng-binding">
+            *Absolute Returns from 26 Dec 2016
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- slider -->
+  <div
+    *ngIf="SHOW_BUTTON"
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapse }"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        (click)="isCollapse = !isCollapse"
+        class="material-icons right"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          The card gives the total return made by the portfolio in different
+          time periods and the contribution of dividend received to your total
+          returns
+        </li>
+        <li>Total returns also include returns made on shares sold by you</li>
+        <li>
+          Click on Dividend History to see dividend received by you from
+          different stocks in chronological order
+        </li>
+        <li>All returns are absolute</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- extend details -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light modal-trigger"
+        ng-click="dividendReturnPopup()"
+        href="javascript:void(0);"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Dividend History </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- extend details -->
+<div [hidden]="true">
+  <div #childDiv class="modal-content contentbg">
+    <div class="list-mojo">
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Company</th>
+            <th>Dividend Received</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="divContriPopup_data!">
+          <tr *ngFor="let item of divContriPopup_data" class="ng-scope">
+            <td class="ng-binding">{{ item.date }}</td>
+            <td class="ng-binding">{{ item.sname }}</td>
+            <td class="ng-binding">
+              Rs. {{ item.dividend | roundOff | twoCommas }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

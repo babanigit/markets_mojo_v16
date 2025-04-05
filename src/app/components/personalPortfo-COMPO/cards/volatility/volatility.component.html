@@ -1,0 +1,159 @@
+<div class="card">
+  <div class="card-content volatility">
+    <div class="card-head">
+      <h2>
+        {{ HEAD }}
+        <span
+          class="card-title activator info-act"
+          (click)="isCollapseRiskVol = !isCollapseRiskVol"
+        ></span>
+      </h2>
+    </div>
+
+    <ng-container *ngIf="volatility!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+
+      <div class="quality ng-scope">
+        <div class="valuation-head" id="vd_valuationDtail">
+          <div class="txt-hed-1 txt-cr red ng-binding">
+            {{ volatility.txt1 }}
+          </div>
+          <p class="sales_txt txt-cr ng-binding">
+            {{ volatility.txt2 }}
+          </p>
+          <div class="comp-peers2">
+            <div><span class="small-txt">Standard Deviation</span></div>
+          </div>
+          <div class="price-eps">
+            <div class="green-border">
+              <h6>Portfolio</h6>
+              <p class="ng-binding">
+                {{ volatility.port | roundOff | twoCommas }}%
+              </p>
+            </div>
+            <div class="green-border">
+              <h6>Comp Ind</h6>
+              <p class="ng-binding">
+                {{ volatility.comp | roundOff | twoCommas }}%
+              </p>
+            </div>
+            <div class="green-border">
+              <h6>Sensex</h6>
+              <p class="ng-binding">
+                {{ volatility.sensex | roundOff | twoCommas }}%
+              </p>
+            </div>
+          </div>
+          <div class="condi-cent"></div>
+          <br />
+          <div class="condi-p">
+            <p class="ng-binding">
+              {{ volatility.txt3 }}
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- extend -->
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseRiskVol }"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        (click)="isCollapseRiskVol = !isCollapseRiskVol"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          Your portfolio volatility is compared with your customized composite
+          benchmark index and sensex
+        </li>
+        <li>
+          Volatility is calculated as the standard deviation of daily change in
+          the indices since the day you made your portfolio
+        </li>
+        <li>
+          Click on Full details to see 1-year standard deviation of your
+          portfolio stocks
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- detail button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0);"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Full Details </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- detail -->
+<div [hidden]="true">
+  <div
+    #childDiv
+    class="modal-content contentbg ng-scope"
+    ng-if="loader[0].pf_risk_score != true"
+  >
+    <div class="list-mojo">
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Volatility</th>
+            <th>Latest Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ng-scope" *ngFor="let item of riskPopup_data | keyvalue">
+            <td class="ng-binding">{{ item.value.sname }}</td>
+            <!-- <td class="ng-binding">
+              {{ (item.value.orgbeta | roundOff | twoCommas) || "NA" }}
+            </td> -->
+            <td class="ng-binding">
+              {{ (item.value.volatility | roundOff | twoCommas) || "NA" }}
+            </td>
+            <td class="ng-binding">
+              {{ (item.value.lval | roundOff | twoCommas) || "NA" }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -70,7 +70,7 @@
         "tgainpdir": 1,
         "details": []
       },
-      "468567": {
+      "468539": {
         "sid": 468567,
         "sname": "Bharti Airtel Ltd",
         "short": "Bharti Airtel",
@@ -2627,7 +2627,7 @@
           }
         ]
       },
-      "758477": {
+      "758472": {
         "sid": 758477,
         "sname": "Sun TV Network Ltd.",
         "short": "Sun TV Network",
@@ -3297,7 +3297,7 @@
         "tgainpdir": 1,
         "details": []
       },
-      "837957": {
+      "847957": {
         "sid": 837957,
         "sname": "Larsen & Toubro Ltd.",
         "short": "Larsen & Toubro",
@@ -3536,7 +3536,7 @@
         "tgainpdir": 1,
         "details": []
       },
-      "639617": {
+      "639317": {
         "sid": 639617,
         "sname": "Exide Industries Ltd",
         "short": "Exide Inds.",
@@ -3958,7 +3958,7 @@
         "tgainpdir": 1,
         "details": []
       },
-      "234277": {
+      "234177": {
         "sid": 234277,
         "sname": "Persistent Systems Ltd",
         "short": "Persistent Sys",
@@ -4374,6 +4374,8 @@
         "tgainpdir": 1,
         "details": []
       }
+
+
     },
     "total": {
       "rgain": 71276,

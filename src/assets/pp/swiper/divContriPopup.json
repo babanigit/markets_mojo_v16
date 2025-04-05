@@ -1,0 +1,97 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": [
+      {
+          "sid": 513374,
+          "date": "16 Jan 2023",
+          "rawdt": "2023-01-16",
+          "sname": "TCS",
+          "dividend": 67
+      },
+      {
+          "sid": 234277,
+          "date": "30 Jan 2024",
+          "rawdt": "2024-01-30",
+          "sname": "Persistent Sys",
+          "dividend": 32
+      },
+      {
+          "sid": 1003648,
+          "date": "21 Feb 2024",
+          "rawdt": "2024-02-21",
+          "sname": "Life Insurance",
+          "dividend": 4
+      },
+      {
+          "sid": 972470,
+          "date": "03 Apr 2024",
+          "rawdt": "2024-04-03",
+          "sname": "Ashok Leyland",
+          "dividend": 139
+      },
+      {
+          "sid": 513374,
+          "date": "16 May 2024",
+          "rawdt": "2024-05-16",
+          "sname": "TCS",
+          "dividend": 28
+      },
+      {
+          "sid": 347516,
+          "date": "22 May 2024",
+          "rawdt": "2024-05-22",
+          "sname": "St Bk of India",
+          "dividend": 27
+      },
+      {
+          "sid": 397071,
+          "date": "04 Jun 2024",
+          "rawdt": "2024-06-04",
+          "sname": "ITC",
+          "dividend": 150
+      },
+      {
+          "sid": 837957,
+          "date": "20 Jun 2024",
+          "rawdt": "2024-06-20",
+          "sname": "Larsen & Toubro",
+          "dividend": 196
+      },
+      {
+          "sid": 616556,
+          "date": "21 Jun 2024",
+          "rawdt": "2024-06-21",
+          "sname": "Punjab Natl.Bank",
+          "dividend": 75
+      },
+      {
+          "sid": 431628,
+          "date": "28 Jun 2024",
+          "rawdt": "2024-06-28",
+          "sname": "REC Ltd",
+          "dividend": 415
+      },
+      {
+          "sid": 234277,
+          "date": "09 Jul 2024",
+          "rawdt": "2024-07-09",
+          "sname": "Persistent Sys",
+          "dividend": 10
+      },
+      {
+          "sid": 1003648,
+          "date": "19 Jul 2024",
+          "rawdt": "2024-07-19",
+          "sname": "Life Insurance",
+          "dividend": 6
+      },
+      {
+          "sid": 421555,
+          "date": "16 Aug 2024",
+          "rawdt": "2024-08-16",
+          "sname": "Coal India",
+          "dividend": 500
+      }
+  ]
+}

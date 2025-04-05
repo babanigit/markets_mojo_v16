@@ -3,6 +3,13 @@ import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
   OnInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  EventEmitter,
+  Output,
+  Input,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
@@ -14,6 +21,8 @@ import { GraphTodayComponent } from '../../graph/graph-today/graph-today.compone
 import { CardComponent } from '../../cards/card/card.component';
 import { BreakupComponent } from '../../cards/breakup/breakup.component';
 import { OverallPortfolioAnalysisComponent } from '../../cards/overall-portfolio-analysis/overall-portfolio-analysis.component';
+import { IContri_overallSwiper, IDrag_overallSwiper, IGainer_overallSwiper, ILoser_overallSwiper, IOverall_Data } from 'src/app/models/pp/overall';
+import { DirClrDefaultPipe } from "../../../../pipes/dir-clr-default.pipe";
 @Component({
   selector: 'app-swiper-doing-overall',
   templateUrl: './swiper-doing-overall.component.html',
@@ -26,30 +35,54 @@ import { OverallPortfolioAnalysisComponent } from '../../cards/overall-portfolio
     CardComponent,
     GraphTodayComponent,
     BreakupComponent,
-    OverallPortfolioAnalysisComponent
-  ],
+    OverallPortfolioAnalysisComponent,
+    DirClrDefaultPipe
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
-  main_data: any = [];
-
-  // data
-  data_news: any = [];
-  data_corpact: any = [];
-  data_summary: any = [];
+  main_data: IOverall_Data | undefined;
 
   // data.overall
-  data_contri: any = [];
-  data_drags: any = [];
-  data_gainers: any = [];
-  data_losers: any = [];
+  data_contri: IContri_overallSwiper | undefined
+  data_drags: IDrag_overallSwiper | undefined
+  data_gainers: IGainer_overallSwiper | undefined
+  data_losers: ILoser_overallSwiper | undefined
 
+  // emit
+  @Output() send_element = new EventEmitter<string>(); //for input value
+  @Output() send_data = new EventEmitter<IOverall_Data>(); //for input value
+
+
+  @Input() SHOW_BUTTON: Boolean = true;
+  isCollapsePP: boolean = true;
 
   constructor(
     private serv: GetPersonalPFService,
     public fun: PpFunctionsService,
+    private cdr: ChangeDetectorRef
+  ) { }
 
-  ) {}
+  @Output() sendElement = new EventEmitter<HTMLDivElement>();
+  @Output() sendClick_State = new EventEmitter<boolean>(); //for input value
+  @Output() send_head = new EventEmitter<string>(); //for
+
+  receiveElement(element: HTMLDivElement) {
+    this.sendElement.emit(element)
+  }
+  receiveClickState(state: boolean) {
+    this.sendClick_State.emit(state)
+    // this.click_state = state;
+  }
+
+  receiveHead(str: string) {
+    this.send_head.emit(str);
+  }
+
+  recieveElemment(str: string) {
+    this.send_element.emit(str)
+  }
 
   ngOnInit(): void {
     this.fetchData();
@@ -58,28 +91,14 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
   fetchData(): void {
     this.serv.getSwitcherDatas('overall').subscribe((res) => {
       this.main_data = res.data;
-      console.log('res : ', res.data);
-
       this.data_contri = res.data.overall.contri;
-      console.log('data_contri ', this.data_contri);
-
       this.data_drags = res.data.overall.drags;
-      console.log('data_drags ', this.data_drags);
-
       this.data_gainers = res.data.overall.gainers;
-      console.log('data_gainers ', this.data_gainers);
-
       this.data_losers = res.data.overall.losers;
-      console.log('data_losers ', this.data_losers);
 
-      this.data_summary = res.data.summary;
-      console.log('data_summary ', this.data_summary);
+      this.send_data.emit(this.main_data)
 
-      this.data_news = res.data.news;
-      console.log('data_news ', this.data_news);
-
-      this.data_corpact = res.data.corpact;
-      console.log('data_corpact ', this.data_corpact);
+      this.cdr.detectChanges(); // Trigger change detection
     });
   }
 
@@ -87,13 +106,7 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
     Swiper.use([Navigation, Pagination, Scrollbar, Autoplay]);
     const swiper = new Swiper('.swiper-6', {
       slidesPerView: 'auto',
-      // slidesPerGroup: 3,
       spaceBetween: 30,
-      // loop: true,
-      // autoplay: {
-      //   delay: 1000,
-      //   disableOnInteraction: false,
-      // },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -104,24 +117,19 @@ export class SwiperDoingOverallComponent implements AfterViewInit, OnInit {
       },
     });
 
-    // console.log('Swiper instance:', swiper);
   }
 
+  // Method to get class by color
+  getClassByColor(color: string): string {
+    console.log('hello');
+    // return 'green';
+    return this.fun.getClassbyClr(color);
+  }
 
-    // Method to get class by color
-    getClassByColor(color: string): string {
-      console.log('hello');
-      // return 'green';
-      return this.fun.getClassbyClr(color);
-    }
+  // Method to get direction color default
 
-    // Method to get direction color default
-    getDirClrDefault(value: string, defaultColor: string): string {
-      // console.log('hello');
-      return this.fun.getDirClrDefault(value, defaultColor);
-    }
 
-    trackByFn(index: number, item: any): any {
-      return item.dotsum.sid; // Use a unique identifier if possible
-    }
+  trackByFn(index: number, item: any): any {
+    return item.dotsum.sid; // Use a unique identifier if possible
+  }
 }

@@ -1,0 +1,284 @@
+<div
+  class="slide-card cf ng-scope"
+  id="MenusectTax"
+  ng-if="other_card_visibile"
+>
+  <div class="swiper-container swiper-6 swiper-container-horizontal">
+    <div class="section-head cf">
+      <h3>Tax Analysis</h3>
+    </div>
+    <div class="SectionDetails">
+      <span class="txt-sml no-tab"></span>
+      <div
+        class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
+      >
+        <span
+          class="swiper-pagination-bullet swiper-pagination-bullet-active"
+        ></span
+        ><span class="swiper-pagination-bullet"></span>
+      </div>
+    </div>
+    <div
+      class="swiper-wrapper reco-slide"
+      id="sectTax"
+      sect-reveal="true"
+      style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
+    >
+      <!-- post tax value -->
+      <section
+        data-reveal="true"
+        id="sectTax_pst"
+        class="swiper-slide small-card marginright swiper-slide-visible swiper-slide-active"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-post-tax-value
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'Post Tax Value (Rs)'"
+          [data_taxAnalysis]="data_taxAnalysis"
+        />
+      </section>
+
+      <!-- history tax -->
+      <section
+        class="swiper-slide small-card marginright swiper-slide-visible swiper-slide-next"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-history-tax
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          (taxPopup_data)="receiveTaxPopupData($event)"
+
+          [HEAD]="'Tax History'"
+          [data_taxHistory]="data_taxHistory"
+        />
+      </section>
+
+      <!-- advance tax -->
+      <section
+        class="swiper-slide small-card marginright swiper-slide-visible"
+        data-scrolled="0"
+        data-visited="0"
+        style="display: none"
+      >
+        <div class="card">
+          <div class="card-content">
+            <div class="card-head">
+              <h2>
+                Advance Tax<span
+                  class="card-title activator info-act"
+                  ng-click="isCollapseTaxHistAD = !isCollapseTaxHistAD"
+                ></span>
+              </h2>
+            </div>
+            <!-- ngIf: loader[0].pf_tax_hist == true -->
+            <!-- ngIf: loader[0].pf_tax_hist == false && error_flag[0].tax_hist == 1 -->
+
+            <!-- ngIf: loader[0].pf_tax_hist == false  && error_flag[0].tax_hist == 0 -->
+            <div
+              class="price-mojo col-green ng-scope"
+              ng-if="loader[0].pf_tax_hist == false  &amp;&amp; error_flag[0].tax_hist == 0"
+            >
+              <!-- ngIf: advanceTax.length==0 -->
+              <!-- ngIf: advanceTax.length>0 -->
+              <table class="table1 ng-scope" ng-if="advanceTax.length > 0">
+                <thead>
+                  <tr>
+                    <th class="textcenter">Date till<br /></th>
+                    <th class="textcenter">ST Capital <br />Gains</th>
+                    <th class="textcenter">LT Capital<br />Gains</th>
+                    <th class="textcenter">Advance Tax <br />Payable</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- ngRepeat: value in advanceTax -->
+                  <tr ng-repeat="value in advanceTax" class="ng-scope">
+                    <td class="ng-binding">15-Jun-24</td>
+                    <!-- ngIf: value.stgain == '-' -->
+                    <td ng-if="value.stgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.stgain == '-' -->
+                    <!-- ngIf: value.stgain !== '-' -->
+                    <!-- ngIf: value.ltgain == '-' -->
+                    <td ng-if="value.ltgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.ltgain == '-' -->
+                    <!-- ngIf: value.ltgain !== '-' -->
+                    <!-- ngIf: value.advtax == '-' -->
+                    <td ng-if="value.advtax == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.advtax == '-' -->
+                    <!-- ngIf: value.advtax !== '-' -->
+                  </tr>
+                  <!-- end ngRepeat: value in advanceTax -->
+                  <tr ng-repeat="value in advanceTax" class="ng-scope">
+                    <td class="ng-binding">15-Sep-24</td>
+                    <!-- ngIf: value.stgain == '-' -->
+                    <td ng-if="value.stgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.stgain == '-' -->
+                    <!-- ngIf: value.stgain !== '-' -->
+                    <!-- ngIf: value.ltgain == '-' -->
+                    <td ng-if="value.ltgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.ltgain == '-' -->
+                    <!-- ngIf: value.ltgain !== '-' -->
+                    <!-- ngIf: value.advtax == '-' -->
+                    <td ng-if="value.advtax == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.advtax == '-' -->
+                    <!-- ngIf: value.advtax !== '-' -->
+                  </tr>
+                  <!-- end ngRepeat: value in advanceTax -->
+                  <tr ng-repeat="value in advanceTax" class="ng-scope">
+                    <td class="ng-binding">15-Dec-24</td>
+                    <!-- ngIf: value.stgain == '-' -->
+                    <td ng-if="value.stgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.stgain == '-' -->
+                    <!-- ngIf: value.stgain !== '-' -->
+                    <!-- ngIf: value.ltgain == '-' -->
+                    <td ng-if="value.ltgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.ltgain == '-' -->
+                    <!-- ngIf: value.ltgain !== '-' -->
+                    <!-- ngIf: value.advtax == '-' -->
+                    <td ng-if="value.advtax == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.advtax == '-' -->
+                    <!-- ngIf: value.advtax !== '-' -->
+                  </tr>
+                  <!-- end ngRepeat: value in advanceTax -->
+                  <tr ng-repeat="value in advanceTax" class="ng-scope">
+                    <td class="ng-binding">15-Mar-25</td>
+                    <!-- ngIf: value.stgain == '-' -->
+                    <td ng-if="value.stgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.stgain == '-' -->
+                    <!-- ngIf: value.stgain !== '-' -->
+                    <!-- ngIf: value.ltgain == '-' -->
+                    <td ng-if="value.ltgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.ltgain == '-' -->
+                    <!-- ngIf: value.ltgain !== '-' -->
+                    <!-- ngIf: value.advtax == '-' -->
+                    <td ng-if="value.advtax == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.advtax == '-' -->
+                    <!-- ngIf: value.advtax !== '-' -->
+                  </tr>
+                  <!-- end ngRepeat: value in advanceTax -->
+                  <tr ng-repeat="value in advanceTax" class="ng-scope">
+                    <td class="ng-binding">31-Mar-25</td>
+                    <!-- ngIf: value.stgain == '-' -->
+                    <td ng-if="value.stgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.stgain == '-' -->
+                    <!-- ngIf: value.stgain !== '-' -->
+                    <!-- ngIf: value.ltgain == '-' -->
+                    <td ng-if="value.ltgain == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.ltgain == '-' -->
+                    <!-- ngIf: value.ltgain !== '-' -->
+                    <!-- ngIf: value.advtax == '-' -->
+                    <td ng-if="value.advtax == '-'" class="ng-scope">-</td>
+                    <!-- end ngIf: value.advtax == '-' -->
+                    <!-- ngIf: value.advtax !== '-' -->
+                  </tr>
+                  <!-- end ngRepeat: value in advanceTax -->
+                </tbody>
+              </table>
+              <!-- end ngIf: advanceTax.length>0 -->
+            </div>
+            <!-- end ngIf: loader[0].pf_tax_hist == false  && error_flag[0].tax_hist == 0 -->
+          </div>
+          <div
+            class="card-reveal animate-slide ng-hide"
+            ng-show="isCollapseTaxHistAD"
+          >
+            <span class="card-title grey-text text-darken-4"
+              >Card Title<i
+                class="material-icons right"
+                ng-click="isCollapseTaxHistAD = !isCollapseTaxHistAD"
+                >close</i
+              ></span
+            >
+            <div class="card-reveal-text">
+              <ul>
+                <li>
+                  The tax liability has been calculated only on the capital
+                  gains realized during the year as reflecting above and does
+                  not include advance tax on gains, if any, and on other income.
+                  Surcharge and cess at applicable rates are charged.
+                </li>
+                <li>
+                  The tax figure provided above is only indicative and the
+                  subscriber/visitor on the site is advised to consult his/her
+                  tax advisors for arriving at the final tax workings. The
+                  website, ` directors of the company owning this website as
+                  well as those employees engaged in carrying our any activity
+                  for the company shall not be held responsible for any tax
+                  workings.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="porbottomlink">
+          <div class="bottom-card-links">
+            <div class="bottom-card-links">
+              <a
+                class="seefull waves-light"
+                href="javascript:void(0)"
+                ng-click="getTaxHistoryPopup();modalOpen('tax_history_popup',1)"
+                ><img
+                  src="https://i.marketsmojo.com/arrow_rt.png"
+                  alt="ArrowRight"
+                  height="16"
+                />
+                Full Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- short term capital -->
+      <section
+        class="swiper-slide small-card marginright swiper-slide-visible"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-short-term-capital
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'Post Tax Value (Rs)'"
+          [data_taxAnalysis]="data_taxAnalysis"
+        />
+      </section>
+
+      <!-- average age -->
+      <section
+        data-reveal="true"
+        id="sectTax_avgage"
+        class="swiper-slide small-card marginright swiper-slide-visible"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-average-age
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'Tax - Average Age'"
+          [data_taxAnalysis]="data_taxAnalysis"
+        />
+      </section>
+    </div>
+    
+    <div class="swiper-scrollbar"></div>
+    <div class="swiper-button-next" style="margin-top: 0px">
+      <a class="btn-floating btn-large waves-effect waves-light black">
+        <i class="material-icons large">skip_next</i>
+      </a>
+    </div>
+    <div
+      class="swiper-button-prev swiper-button-disabled"
+      style="margin-top: 0px"
+    >
+      <a class="btn-floating btn-large waves-effect waves-light black">
+        <i class="material-icons large">skip_previous</i>
+      </a>
+    </div>
+  </div>
+</div>

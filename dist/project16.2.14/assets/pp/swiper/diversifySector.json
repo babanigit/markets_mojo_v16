@@ -1,0 +1,530 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+    "Pesticides & Agrochemicals": {
+      "name": "Pesticides & Agrochemicals",
+      "id": 18,
+      "chgp": -0.28,
+      "details": {
+        "454045": {
+          "short": "Jubilant Inds.",
+          "indcode": 18,
+          "indname": "Pesticides & Agrochemicals",
+          "mcap": "Small Cap",
+          "sect_chgp": -0.28,
+          "chgp": 1.08,
+          "unrgain": 64588,
+          "unrgaindir": 1,
+          "dgain": 912.5,
+          "dgainpdir": 1,
+          "dgainp": 1.08,
+          "stockprevval": 84190,
+          "y1ret": 153.79,
+          "quartile": 1,
+          "pwt": 33.45,
+          "contri": 48.29
+        }
+      },
+      "total": {
+        "pwt": 33.45,
+        "contri": 48.29,
+        "unrgain": 64588,
+        "dgain": 913,
+        "unrgaindir": 1
+      }
+    },
+    "Mining & Minerals": {
+      "name": "Mining & Minerals",
+      "id": 52,
+      "chgp": -0.49,
+      "details": {
+        "421555": {
+          "short": "Coal India",
+          "indcode": 52,
+          "indname": "Mining & Minerals",
+          "mcap": "Large Cap",
+          "sect_chgp": -0.49,
+          "chgp": -0.47,
+          "unrgain": 23799,
+          "unrgaindir": 1,
+          "dgain": -188,
+          "dgainpdir": -1,
+          "dgainp": -0.46728971962616817,
+          "stockprevval": 40420,
+          "y1ret": 75.38,
+          "quartile": 4,
+          "pwt": 15.81,
+          "contri": 17.79
+        }
+      },
+      "total": {
+        "pwt": 15.81,
+        "contri": 17.79,
+        "unrgain": 23799,
+        "dgain": -188,
+        "unrgaindir": 1
+      }
+    },
+    "Finance/NBFC": {
+      "name": "Finance/NBFC",
+      "id": 5,
+      "chgp": 0.04,
+      "details": {
+        "431628": {
+          "short": "REC Ltd",
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "mcap": "Large Cap",
+          "sect_chgp": 0.04,
+          "chgp": -0.08,
+          "unrgain": 27860,
+          "unrgaindir": 1,
+          "dgain": -26.099999999998545,
+          "dgainpdir": -1,
+          "dgainp": -0.08269778553707156,
+          "stockprevval": 31586.8,
+          "y1ret": 103.57,
+          "quartile": 2,
+          "pwt": 12.4,
+          "contri": 20.83
+        },
+        "1002872": {
+          "short": "HDFC Life Insur.",
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "mcap": "Large Cap",
+          "sect_chgp": 0.04,
+          "chgp": 1.66,
+          "unrgain": 240,
+          "unrgaindir": 1,
+          "dgain": 59.5,
+          "dgainpdir": 1,
+          "dgainp": 1.66,
+          "stockprevval": 3580,
+          "y1ret": 13.04,
+          "quartile": 1,
+          "pwt": 1.43,
+          "contri": 0.18
+        },
+        "1003648": {
+          "short": "Life Insurance",
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "mcap": "Large Cap",
+          "sect_chgp": 0.04,
+          "chgp": 1.5,
+          "unrgain": 119,
+          "unrgaindir": 1,
+          "dgain": 15.25,
+          "dgainpdir": 1,
+          "dgainp": 1.5,
+          "stockprevval": 1018.5,
+          "y1ret": 60.27,
+          "quartile": "",
+          "pwt": 0.41,
+          "contri": 0.09
+        },
+        "151046": {
+          "short": "Innovassynth Inv",
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "mcap": "Micro Cap",
+          "sect_chgp": 0.04,
+          "chgp": 2,
+          "unrgain": 682,
+          "unrgaindir": 1,
+          "dgain": 14.759999999999991,
+          "dgainpdir": 1,
+          "dgainp": 2,
+          "stockprevval": 739.71,
+          "y1ret": 187.19,
+          "quartile": 4,
+          "pwt": 0.3,
+          "contri": 0.51
+        },
+        "1003566": {
+          "short": "One 97",
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "mcap": "Large Cap",
+          "sect_chgp": 0.04,
+          "chgp": -0.42,
+          "unrgain": -75,
+          "unrgaindir": -1,
+          "dgain": -2.900000000000091,
+          "dgainpdir": -1,
+          "dgainp": -0.42,
+          "stockprevval": 686.95,
+          "y1ret": -19.73,
+          "quartile": "",
+          "pwt": 0.27,
+          "contri": -0.06
+        }
+      },
+      "total": {
+        "pwt": 14.81,
+        "contri": 21.55,
+        "unrgain": 28826,
+        "dgain": 61,
+        "unrgaindir": 1
+      }
+    },
+    "Capital Goods": {
+      "name": "Capital Goods",
+      "id": 19,
+      "chgp": -0.61,
+      "details": {
+        "837957": {
+          "short": "Larsen & Toubro",
+          "indcode": 19,
+          "indname": "Capital Goods",
+          "mcap": "Large Cap",
+          "sect_chgp": -0.61,
+          "chgp": -0.4,
+          "unrgain": 14648,
+          "unrgaindir": 1,
+          "dgain": -105.35000000000036,
+          "dgainpdir": -1,
+          "dgainp": -0.39804284580798865,
+          "stockprevval": 26572.35,
+          "y1ret": 29.83,
+          "quartile": 2,
+          "pwt": 10.4,
+          "contri": 10.95
+        }
+      },
+      "total": {
+        "pwt": 10.4,
+        "contri": 10.95,
+        "unrgain": 14648,
+        "dgain": -105,
+        "unrgaindir": 1
+      }
+    },
+    "Tea/Coffee": {
+      "name": "Tea/Coffee",
+      "id": 10,
+      "chgp": 0.83,
+      "details": {
+        "834364": {
+          "short": "Mcleod Russel",
+          "indcode": 10,
+          "indname": "Tea/Coffee",
+          "mcap": "Micro Cap",
+          "sect_chgp": 0.83,
+          "chgp": -0.28,
+          "unrgain": -3501,
+          "unrgaindir": -1,
+          "dgain": -37.44999999999891,
+          "dgainpdir": -1,
+          "dgainp": -0.28,
+          "stockprevval": 13251.949999999999,
+          "y1ret": 13.51,
+          "quartile": 4,
+          "pwt": 5.19,
+          "contri": -2.62
+        }
+      },
+      "total": {
+        "pwt": 5.19,
+        "contri": -2.62,
+        "unrgain": -3501,
+        "dgain": -37,
+        "unrgaindir": -1
+      }
+    },
+    "Bank - Private": {
+      "name": "Bank - Private",
+      "id": 50,
+      "chgp": -0.04,
+      "details": {
+        "119922": {
+          "short": "City Union Bank",
+          "indcode": 50,
+          "indname": "Bank - Private",
+          "mcap": "Mid Cap",
+          "sect_chgp": -0.04,
+          "chgp": -0.09,
+          "unrgain": -1306,
+          "unrgaindir": -1,
+          "dgain": -11.25,
+          "dgainpdir": -1,
+          "dgainp": -0.08992805755395684,
+          "stockprevval": 12521.25,
+          "y1ret": 29.55,
+          "quartile": 2,
+          "pwt": 4.92,
+          "contri": -0.98
+        }
+      },
+      "total": {
+        "pwt": 4.92,
+        "contri": -0.98,
+        "unrgain": -1306,
+        "dgain": -11,
+        "unrgaindir": -1
+      }
+    },
+    "Finance - Housing": {
+      "name": "Finance - Housing",
+      "id": 108,
+      "chgp": -0.54,
+      "details": {
+        "141783": {
+          "short": "LIC Housing Fin.",
+          "indcode": 108,
+          "indname": "Finance - Housing",
+          "mcap": "Large Cap",
+          "sect_chgp": -0.54,
+          "chgp": -0.27,
+          "unrgain": -1925,
+          "unrgaindir": -1,
+          "dgain": -28.799999999999272,
+          "dgainpdir": -1,
+          "dgainp": -0.27,
+          "stockprevval": 10640,
+          "y1ret": 42.92,
+          "quartile": 3,
+          "pwt": 4.17,
+          "contri": -1.44
+        }
+      },
+      "total": {
+        "pwt": 4.17,
+        "contri": -1.44,
+        "unrgain": -1925,
+        "dgain": -29,
+        "unrgaindir": -1
+      }
+    },
+    "Power Generation/Distribution": {
+      "name": "Power Generation/Distribution",
+      "id": 28,
+      "chgp": -0.55,
+      "details": {
+        "302744": {
+          "short": "JP Power Ven.",
+          "indcode": 28,
+          "indname": "Power Generation/Distribution",
+          "mcap": "Mid Cap",
+          "sect_chgp": -0.55,
+          "chgp": -0.85,
+          "unrgain": 1076,
+          "unrgaindir": 1,
+          "dgain": -60.45000000000073,
+          "dgainpdir": -1,
+          "dgainp": -0.85,
+          "stockprevval": 7100.860000000001,
+          "y1ret": 65.75,
+          "quartile": 4,
+          "pwt": 2.77,
+          "contri": 0.8
+        },
+        "400868": {
+          "short": "Reliance Infra.",
+          "indcode": 28,
+          "indname": "Power Generation/Distribution",
+          "mcap": "Mid Cap",
+          "sect_chgp": -0.55,
+          "chgp": -1.25,
+          "unrgain": -3455,
+          "unrgaindir": -1,
+          "dgain": -84,
+          "dgainpdir": -1,
+          "dgainp": -1.2698412698412698,
+          "stockprevval": 6699,
+          "y1ret": 92.86,
+          "quartile": 4,
+          "pwt": 2.6,
+          "contri": -2.58
+        }
+      },
+      "total": {
+        "pwt": 5.37,
+        "contri": -1.78,
+        "unrgain": -2379,
+        "dgain": -144,
+        "unrgaindir": -1
+      }
+    },
+    "IT - Software": {
+      "name": "IT - Software",
+      "id": 57,
+      "chgp": 0.57,
+      "details": {
+        "234277": {
+          "short": "Persistent Sys",
+          "indcode": 57,
+          "indname": "IT - Software ",
+          "mcap": "Large Cap",
+          "sect_chgp": 0.57,
+          "chgp": 1.26,
+          "unrgain": -2250,
+          "unrgaindir": -1,
+          "dgain": 66.94999999999982,
+          "dgainpdir": 1,
+          "dgainp": 1.26,
+          "stockprevval": 5332.95,
+          "y1ret": 84.36,
+          "quartile": 1,
+          "pwt": 2.12,
+          "contri": -1.68
+        },
+        "1003511": {
+          "short": "Zomato Ltd",
+          "indcode": 57,
+          "indname": "IT - Software ",
+          "mcap": "Large Cap",
+          "sect_chgp": 0.57,
+          "chgp": -0.82,
+          "unrgain": 148,
+          "unrgaindir": 1,
+          "dgain": -2.349999999999966,
+          "dgainpdir": -1,
+          "dgainp": -0.82,
+          "stockprevval": 285.4,
+          "y1ret": 183.39,
+          "quartile": "",
+          "pwt": 0.11,
+          "contri": 0.11
+        }
+      },
+      "total": {
+        "pwt": 2.23,
+        "contri": -1.57,
+        "unrgain": -2102,
+        "dgain": 65,
+        "unrgaindir": -1
+      }
+    },
+    "Public Banks": {
+      "name": "Public Banks",
+      "id": 36,
+      "chgp": 0.01,
+      "details": {
+        "616556": {
+          "short": "Punjab Natl.Bank",
+          "indcode": 36,
+          "indname": "Public Banks",
+          "mcap": "Large Cap",
+          "sect_chgp": 0.01,
+          "chgp": 1.76,
+          "unrgain": -658,
+          "unrgaindir": -1,
+          "dgain": 92.5,
+          "dgainpdir": 1,
+          "dgainp": 1.76,
+          "stockprevval": 5250,
+          "y1ret": 34.67,
+          "quartile": 3,
+          "pwt": 2.1,
+          "contri": -0.49
+        }
+      },
+      "total": {
+        "pwt": 2.1,
+        "contri": -0.49,
+        "unrgain": -658,
+        "dgain": 93,
+        "unrgaindir": -1
+      }
+    },
+    "Tyres & Allied": {
+      "name": "Tyres & Allied",
+      "id": 47,
+      "chgp": -0.73,
+      "details": {
+        "304521": {
+          "short": "CEAT",
+          "indcode": 47,
+          "indname": "Tyres & Allied",
+          "mcap": "Mid Cap",
+          "sect_chgp": -0.73,
+          "chgp": -0.01,
+          "unrgain": 618,
+          "unrgaindir": 1,
+          "dgain": -0.20000000000027285,
+          "dgainpdir": -1,
+          "dgainp": -0.01,
+          "stockprevval": 3110.4,
+          "y1ret": 46.15,
+          "quartile": 2,
+          "pwt": 1.22,
+          "contri": 0.46
+        }
+      },
+      "total": {
+        "pwt": 1.22,
+        "contri": 0.46,
+        "unrgain": 618,
+        "dgain": 0,
+        "unrgaindir": 1
+      }
+    },
+    "Textile - Machinery": {
+      "name": "Textile - Machinery",
+      "id": 64,
+      "chgp": -0.68,
+      "details": {
+        "10039196": {
+          "short": "Shree Karni",
+          "indcode": 64,
+          "indname": "Textile - Machinery",
+          "mcap": "Micro Cap",
+          "sect_chgp": -0.68,
+          "chgp": 0,
+          "unrgain": 80,
+          "unrgaindir": 1,
+          "dgain": 0,
+          "dgainpdir": 0,
+          "dgainp": 0,
+          "stockprevval": 800,
+          "y1ret": "",
+          "quartile": "",
+          "pwt": 0.31,
+          "contri": 0.06
+        }
+      },
+      "total": {
+        "pwt": 0.31,
+        "contri": 0.06,
+        "unrgain": 80,
+        "dgain": 0,
+        "unrgaindir": 1
+      }
+    },
+    "Chemicals": {
+      "name": "Chemicals",
+      "id": 11,
+      "chgp": -0.58,
+      "details": {
+        "161419": {
+          "short": "Syschem (India)",
+          "indcode": 11,
+          "indname": "Chemicals",
+          "mcap": "Micro Cap",
+          "sect_chgp": -0.58,
+          "chgp": -1.31,
+          "unrgain": 5,
+          "unrgaindir": 1,
+          "dgain": -0.5900000000000034,
+          "dgainpdir": -1,
+          "dgainp": -1.31,
+          "stockprevval": 45.1,
+          "y1ret": -17.63,
+          "quartile": 2,
+          "pwt": 0.02,
+          "contri": 0
+        }
+      },
+      "total": {
+        "pwt": 0.02,
+        "contri": 0,
+        "unrgain": 5,
+        "dgain": -1,
+        "unrgaindir": 1
+      }
+    }
+  }
+}

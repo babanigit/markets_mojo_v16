@@ -1,0 +1,320 @@
+<div
+  class="slide-card cf ng-scope"
+  id="MenusectDiverse"
+  ng-if="other_card_visibile"
+>
+  <div class="swiper-container swiper-6 swiper-container-horizontal">
+    <div class="section-head cf">
+      <h3>Diversification analysis</h3>
+    </div>
+    <div class="SectionDetails">
+      <span class="txt-sml no-tab"></span>
+      <div
+        class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
+      >
+        <span
+          class="swiper-pagination-bullet swiper-pagination-bullet-active"
+        ></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span>
+      </div>
+    </div>
+    <div
+      class="swiper-wrapper reco-slide"
+      id="sectDiverse"
+      sect-reveal="true"
+      style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
+    >
+      <!-- scorecard -->
+      <section
+        data-reveal="true"
+        id="sectDiverse_score"
+        class="swiper-slide small-card marginright swiper-slide-visible swiper-slide-active"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-scorecard
+          [DATA]="score"
+          [HEAD]="'Diversification'"
+          [SHOW_BUTTON]="false"
+        />
+      </section>
+
+      <!--  Is my portfolio diversified? - Summary -->
+      <section
+        class="swiper-slide small-card marginright swiper-slide-visible swiper-slide-next"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div class="card">
+          <div class="card-content portdivers">
+            <div class="card-head">
+              <h2>
+                Is my portfolio diversified? - Summary<span
+                  class="card-title activator info-act"
+                  (click)="isCollapseDiversSummary = !isCollapseDiversSummary"
+                ></span>
+              </h2>
+            </div>
+
+            <ng-container *ngIf="main_data!; else loadingTemplateSummary">
+              <!-- Content to show if data exists -->
+              <div class="mojo-txt3 ng-scope">
+                <div class="mt-head txt-cr">
+                  Portfolio Construct
+                  <span [ngClass]="main_data.score.color">
+                    {{ main_data.score.text }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="alpha-col ng-scope">
+                <table class="table05">
+                  <tbody>
+                    <tr class="yellow-table">
+                      <td class="table-col05">
+                        Number of stocks except Tail Stocks:
+                      </td>
+                      <td class="table-col06">
+                        <span class="pull-right new-badge ng-binding">
+                          {{ main_data.summary.remain | roundOff | twoCommas }}
+                        </span>
+                      </td>
+                    </tr>
+                    <tr class="red-table">
+                      <td class="table-col05">Top 3 Holdings Percentage:</td>
+                      <td class="table-col06">
+                        <span class="pull-right new-badge ng-binding">
+                          {{ main_data.summary.top3hp | roundOff | twoCommas }}%
+                        </span>
+                      </td>
+                    </tr>
+                    <tr class="red-table">
+                      <td class="table-col05">Highest Holding</td>
+                      <td class="table-col06">
+                        <span class="pull-right new-badge ng-binding"
+                          >{{
+                            main_data.summary.hihold | roundOff | twoCommas
+                          }}%</span
+                        >
+                      </td>
+                    </tr>
+                    <tr class="yellow-table">
+                      <td class="table-col05">Highest Sector</td>
+                      <td class="table-col06">
+                        <span class="pull-right new-badge ng-binding">
+                          {{
+                            main_data.summary.hisect | roundOff | twoCommas
+                          }}%</span
+                        >
+                      </td>
+                    </tr>
+                    <tr class="red-table">
+                      <td class="table-col05">Allocation Large Cap</td>
+                      <td class="table-col06">
+                        <span class="pull-right new-badge ng-binding">
+                          {{
+                            main_data.summary.lcap | roundOff | twoCommas
+                          }}%</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="condi-p ng-binding">
+                {{ main_data.summary.txt }}
+              </p>
+            </ng-container>
+
+            <ng-template #loadingTemplateSummary>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
+                </div>
+              </div>
+            </ng-template>
+          </div>
+          <div
+            class="card-reveal animate-slide"
+            ng-show="isCollapseDiversSummary"
+            [ngClass]="{ 'ng-hide': isCollapseDiversSummary }"
+          >
+            <span class="card-title grey-text text-darken-4"
+              >Card Title<i
+                class="material-icons right"
+                (click)="isCollapseDiversSummary = !isCollapseDiversSummary"
+                >close</i
+              ></span
+            >
+            <div class="card-reveal-text">
+              <ul>
+                <li>
+                  Diversification is assessed basis the construct of your
+                  portfolio
+                </li>
+                <li>
+                  We not only look at the number of stocks but also your
+                  allocation to Sectors, Market Caps and holdings
+                </li>
+                <li>
+                  We exclude tail stocks while studying number of stocks; tail
+                  stocks are the ones with less than 1% allocation in portfolio
+                </li>
+                <li>We penalize under as well as over diversification</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- graph 1 -->
+      <section
+        class="swiper-slide small-card marginright swiper-slide-visible"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-diversification
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [fetch_text]="'Sector'"
+          [DATA]="data_sector"
+          [HEAD]="'Sectors'"
+        />
+      </section>
+
+      <!-- 2 -->
+      <section
+        class="swiper-slide small-card marginright swiper-slide-visible"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-diversification
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [fetch_text]="'Mcap'"
+          [DATA]="data_mcap"
+          [HEAD]="'Market Cap'"
+        />
+      </section>
+
+      <!-- 3 -->
+      <section
+        class="swiper-slide small-card marginright"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-diversification
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [fetch_text]="'Holdings'"
+          [DATA]="data_holding"
+          [HEAD]="'Top Holdings'"
+          [TEXT]="'STOCKS'"
+        />
+      </section>
+
+      <!-- stocks -->
+      <section
+        data-reveal="true"
+        id="sectDiverse_stock"
+        class="swiper-slide small-card marginright"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <div class="card">
+          <div class="card-content">
+            <div class="card-head">
+              <h2>
+                Diversification - Stocks
+                <span
+                  class="card-title activator info-act"
+                  (click)="isCollapseDiversStock = !isCollapseDiversStock"
+                ></span>
+              </h2>
+            </div>
+
+            <ng-container *ngIf="main_data!; else loadingTemplatediverStocks">
+              <!-- Content to show if data exists -->
+              <div class="diversifiedstock">
+                <ul class="ullist pfulist list-mojo">
+                  <li *ngFor="let item of main_data.stocks" class="ng-scope">
+                    <strong [ngClass]="item.clr"> {{ item.main }} </strong>
+                    <p [innerHTML]="item.sub" class="ng-binding"></p>
+                  </li>
+                </ul>
+              </div>
+            </ng-container>
+
+            <ng-template #loadingTemplatediverStocks>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
+                </div>
+              </div>
+            </ng-template>
+          </div>
+          <div
+            class="card-reveal animate-slide"
+            [ngClass]="{ 'ng-hide': isCollapseDiversStock }"
+            ng-show="isCollapseDiversStock"
+          >
+            <span class="card-title grey-text text-darken-4"
+              >Card Title<i
+                class="material-icons right"
+                (click)="isCollapseDiversStock = !isCollapseDiversStock"
+                >close</i
+              ></span
+            >
+            <div class="card-reveal-text">
+              <ul>
+                <li>
+                  This card evaluates how well your investments are spread out
+                  across stocks
+                </li>
+                <li>
+                  We exclude tail stocks while studying number of stocks; tail
+                  stocks are the ones with less than 1% allocation in portfolio
+                </li>
+                <li>We penalize under as well as over diversification</li>
+                <li>
+                  High exposures in one stocks exposes your portfolio to adverse
+                  news or developments related to that stock
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="swiper-scrollbar"></div>
+    <div class="swiper-button-next" style="margin-top: 0px">
+      <a class="btn-floating btn-large waves-effect waves-light black">
+        <i class="material-icons large">skip_next</i>
+      </a>
+    </div>
+    <div
+      class="swiper-button-prev swiper-button-disabled"
+      style="margin-top: 0px"
+    >
+      <a class="btn-floating btn-large waves-effect waves-light black">
+        <i class="material-icons large">skip_previous</i>
+      </a>
+    </div>
+  </div>
+</div>

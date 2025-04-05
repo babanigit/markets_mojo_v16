@@ -1,0 +1,191 @@
+<div class="card">
+  <div class="card-content dividend">
+    <div class="card-head">
+      <h2>
+        {{ HEAD }}
+        <span
+          class="card-title activator info-act"
+          (click)="isCollapseRetMcap = !isCollapseRetMcap"
+        ></span>
+      </h2>
+    </div>
+
+    <ng-container *ngIf="data_Mcap!; else loadingTemplate">
+      <ng-container
+        *ngIf="getObjectKeys(data_Mcap.list).length > 0; else noDataTemplate"
+      >
+        <!-- Content to show if data exists -->
+        <div class="price-mojo col-green ng-scope">
+          <div class="txt-hed-1 priced ng-binding">
+            {{ data_Mcap.txt1 }}
+          </div>
+          <table class="table1 divd-table">
+            <thead>
+              <tr>
+                <th class="textcenter">
+                  MCap <br />
+                  Category
+                </th>
+
+                <th class="textcenter">Total<br />Return</th>
+                <th class="textcenter">Return<br />Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let mcap of data_Mcap.list | keyvalue"
+                ng-repeat="(key, rowArr) in returnData.mcap.list"
+                class="ng-scope"
+              >
+                <td class="ng-binding">{{ mcap.value.txt }}</td>
+
+                <td
+                  [ngClass]="mcap.value.tgaindir | dirClrDefault : 'orange'"
+                  class="ng-binding ng-scope"
+                >
+                  {{ mcap.value.tgain | roundOff | twoCommas }}
+                </td>
+
+                <td class="ng-binding ng-scope">
+                  {{ mcap.value.tgainp | roundOff | twoCommas }}%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="foot-note ng-binding"></div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div>
+        <p>No data found.</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- slider -->
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseRetMcap }"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        (click)="isCollapseRetMcap = !isCollapseRetMcap"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          Contribution of Market Cap categories in the portfolio to the
+          Unrealized Gain/Loss of your current portfolio
+        </li>
+        <li>
+          The sum of contribution would add up to the total percentage
+          Unrealized Gain/Loss of your portfolio
+        </li>
+        <li>
+          Unrealized gain/loss is the money that will be made if the current
+          portfolio is liquidated at the latest prices. This is notional gain
+          and there is no guarantee that when you go to sell in the market, the
+          shares can be sold at the exact same prices to make the same gain.
+        </li>
+        <li>
+          Click on Full Details to see bifurcation of market cap return
+          contribution basis your portfolio stocks
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- full details button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0);"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Full Details</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- full details -->
+<div [hidden]="true">
+  <div #childDiv class="modal-content contentbg">
+    <div class="list-mojo">
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th class="ng-binding">MCap Category <br /></th>
+            <th>
+              Portfolio<br />
+              Weight
+            </th>
+            <th>Total<br />Return</th>
+            <th>Return<br />Contribution</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="data_Mcap!">
+          <ng-container *ngFor="let sector of data_Mcap.list | keyvalue">
+            <tr class="mod-hed-td ng-scope">
+              <td class="ng-binding">{{ sector.value.txt }}</td>
+              <td class="ng-binding ng-scope">
+                {{ sector.value.pwt | roundOff | twoCommas }}%
+              </td>
+              <td
+                [ngClass]="sector.value.tgaindir | dirClrDefault : 'grey'"
+                class="ng-binding ng-scope"
+              >
+                {{ sector.value.tgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding ng-scope">
+                {{ sector.value.tgainp | roundOff | twoCommas }}%
+              </td>
+            </tr>
+
+            <tr *ngFor="let stock of sector.value.list">
+              <td class="ng-binding">{{ stock.sname }}</td>
+              <td class="ng-binding ng-scope">
+                {{ (stock.pwt | roundOff | twoCommas) || "0.00" }}%
+              </td>
+              <td
+                [ngClass]="stock.tgaindir | dirClrDefault : 'grey'"
+                class="ng-binding ng-scope"
+              >
+                {{ stock.tgain | roundOff | twoCommas }}
+              </td>
+              <td class="ng-binding ng-scope">
+                {{ stock.tgainp | roundOff | twoCommas }}%
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

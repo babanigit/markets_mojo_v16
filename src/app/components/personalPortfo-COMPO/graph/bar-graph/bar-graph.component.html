@@ -1,0 +1,33 @@
+<!-- button -->
+<div id="tabcol_new">
+  <ul class="nav nav-tabs"
+  *ngIf="chartData!"
+  >
+
+    <li
+      class="tab ng-scope"
+      *ngFor="let item of chartData.years | topNPipe : 3"
+    >
+      <a
+        (click)="updateChart(item)"
+        href="javascript:void(0)"
+        class="ng-binding"
+        [ngClass]="this.currentYear == item ? 'active' : ''"
+      >
+        {{ item }}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- graph -->
+<div class="tab-content" ng-show="caltab == 0">
+  <div
+    id="container_calendar_return0"
+    class="graph-return"
+    data-highcharts-chart="8"
+  >
+    <!-- graph chart -->
+    <div #container></div>
+  </div>
+</div>

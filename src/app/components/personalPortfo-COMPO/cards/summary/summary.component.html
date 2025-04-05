@@ -1,0 +1,185 @@
+<div class="card">
+  <div class="card-content liquidity">
+    <!-- head -->
+    <div class="card-head">
+      <h2>
+        {{ HEAD }} Summary
+        <span
+          class="card-title activator info-act"
+          (click)="isCollapseValSum = !isCollapseValSum"
+        ></span>
+      </h2>
+    </div>
+
+    <!-- body -->
+    <ng-container *ngIf="MAIN!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+
+      <div class="ql-sec">
+        <div class="sec1">
+          <div class="pbt-mojo">
+            <div
+              [innerHTML]="MAIN.score.text"
+              [ngClass]=" MAIN.score.color | dirClrDefault : 'orange' "	
+              class="ng-binding"
+            ></div>
+          </div>
+          <div
+            class="smallgraph"
+            id="container_val_summary"
+            data-highcharts-chart="11"
+            *ngIf="pieFromat!"
+          >
+            <app-radius-chart *ngIf="pieFromat" [PIE]="pieFromat" />
+          </div>
+        </div>
+
+        <!-- if Liquidity -->
+        <ng-container *ngIf="this.HEAD == 'Liquidity'">
+          <div class="sec2">
+            <strong> Stocks where you may face liquidity issues </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['lissue']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+          <div class="sec2">
+            <strong> Liquidity Issue is due to </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.issue_due_txt"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <!-- if Quality -->
+        <ng-container *ngIf="this.HEAD == 'Quality'">
+          <div class="sec2">
+            <strong> Stocks with Below Average Quality </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['avg']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+          <div class="sec2">
+            <strong> Stocks with Excellent Quality </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['excel']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <!-- if Valuation -->
+        <ng-container *ngIf="this.HEAD == 'Valuation'">
+          <div class="sec2">
+            <strong> Stocks with Expensive or worse Valuation </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['expen']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+          <div class="sec2">
+            <strong> Stocks with Attractive or better Valuation </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['attr']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <!-- if Financial -->
+        <ng-container *ngIf="this.HEAD == 'Financial'">
+          <div class="sec2">
+            <strong> Stocks with Negative or worse Financial Trend </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['negative']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+          <div class="sec2">
+            <strong>
+              Stocks with Very Positive or better Financial Trend
+            </strong>
+            <ul class="ullist">
+              <li
+                *ngFor="let item of MAIN.summary['positive']"
+                class="ng-binding ng-scope"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+      </div>
+
+      <p class="condi-p pad010 ng-binding">
+        {{ MAIN.summary_txt }}
+      </p>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- extend -->
+    <div
+      class="card-reveal animate-slide"
+      [ngClass]="{ 'ng-hide': isCollapseValSum }"
+      ng-show="isCollapseValSum"
+    >
+      <span class="card-title grey-text text-darken-4"
+        >Card Title<i
+          class="material-icons right"
+          (click)="isCollapseValSum = !isCollapseValSum"
+          >close</i
+        ></span
+      >
+      <div class="card-reveal-text">
+        <ul>
+          <li>
+            The card depicts the bifurcation of your portfolio as per the
+            quality grade calculated by Markets mojo process
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

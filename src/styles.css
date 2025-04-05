@@ -5,8 +5,8 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 
-/* markets mojo style urls */
 
+/* markets mojo style urls */
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Solway:wght@400;500&family=Bebas+Neue&family=Quicksand:wght@300;400;600;700&family=Roboto+Condensed&family=Roboto:wght@300;400;600;700&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;600;700&family=Crimson+Text&family=Galada:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700,900|Material+Icons");
@@ -17,12 +17,22 @@
 
 /* others */
 @import url("https://c.marketsmojo.com/bootstrap.min.css?v=20230418110518");
+@import url('https://c.marketsmojo.com/pfplus_style.css?v=20240913092200');
 @import url('https://c.marketsmojo.com/pfplus_style.css?v=20240906145500');
 @import url("https://c.marketsmojo.com/angular-swiper/swiper.css?v=20230418110518");
 @import url("https://c.marketsmojo.com/header_nav.css?v=20240906145500");
-@import url("https://c.marketsmojo.com/mojoprofessional/verdict.css?v=20240906145500");
 @import url("https://c.marketsmojo.com/mm-header/header.css?v=20240906145500");
 @import url('https://c.marketsmojo.com/networth_style1.css?v=20240906145500');
+/* @import url("https://c.marketsmojo.com/mojoprofessional/verdict.css?v=20240906145500"); */
+
+
+/* insta */
+/* @import url('https://static.cdninstagram.com/rsrc.php/v3/yF/l/0,cross/v9VXC4-7o1I.css');
+@import url('https://static.xx.fbcdn.net/rsrc.php/v3/yf/l/0,cross/VWgg-YkpZuD.css');
+@import url('data:text/css; charset=utf-8,.nw7X77B.nw7X77B%7Bdisplay%3Anone%7D%23bootloader_5m_9xdB%7Bheight%3A42px%3B%7D');
+ */
+
+
 
 
 /* to remove that div which is generating below app-root div */

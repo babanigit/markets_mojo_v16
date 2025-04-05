@@ -1,0 +1,112 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+    "list": [
+      {
+        "period": "6 Months",
+        "discard": 1,
+        "abs_perc": "27.28",
+        "abs_perc_dir": 1,
+        "comp_perc": "25.92",
+        "comp_perc_dir": 1,
+        "absret": 48225,
+        "compxirr_perc": "65.90",
+        "compxirr_perc_dir": 1,
+        "portxirr_perc": "63.35",
+        "portxirr_perc_dir": 1
+      },
+      {
+        "period": "YTD",
+        "discard": 1,
+        "abs_perc": "53.57",
+        "abs_perc_dir": 1,
+        "comp_perc": "26.70",
+        "comp_perc_dir": 1,
+        "absret": 79449,
+        "compxirr_perc": "44.18",
+        "compxirr_perc_dir": 1,
+        "portxirr_perc": "86.76",
+        "portxirr_perc_dir": 1
+      },
+      {
+        "period": "1 Year",
+        "discard": 1,
+        "abs_perc": "80.65",
+        "abs_perc_dir": 1,
+        "comp_perc": "39.85",
+        "comp_perc_dir": 1,
+        "absret": 102126,
+        "compxirr_perc": "45.46",
+        "compxirr_perc_dir": 1,
+        "portxirr_perc": "87.71",
+        "portxirr_perc_dir": 1
+      },
+      {
+        "period": "2 Year",
+        "discard": 0,
+        "abs_perc": "123.67",
+        "abs_perc_dir": 1,
+        "comp_perc": "57.34",
+        "comp_perc_dir": 1,
+        "absret": 128149,
+        "compxirr_perc": "21.36",
+        "compxirr_perc_dir": 1,
+        "portxirr_perc": "50.99",
+        "portxirr_perc_dir": 1
+      },
+      {
+        "period": "3 Year",
+        "discard": 1,
+        "abs_perc": "169.75",
+        "abs_perc_dir": 1,
+        "comp_perc": "57.55",
+        "comp_perc_dir": 1,
+        "absret": 146080,
+        "compxirr_perc": "10.43",
+        "compxirr_perc_dir": 1,
+        "portxirr_perc": "39.17",
+        "portxirr_perc_dir": 1
+      },
+      {
+        "period": "4 Year",
+        "discard": 0,
+        "abs_perc": "337.33",
+        "abs_perc_dir": 1,
+        "comp_perc": "146.79",
+        "comp_perc_dir": 1,
+        "absret": 185706,
+        "compxirr_perc": "19.29",
+        "compxirr_perc_dir": 1,
+        "portxirr_perc": "44.50",
+        "portxirr_perc_dir": 1
+      },
+      {
+        "period": "5 Year",
+        "discard": 0,
+        "abs_perc": "62.32",
+        "abs_perc_dir": 1,
+        "comp_perc": "60.67",
+        "comp_perc_dir": 1,
+        "absret": 196264,
+        "compxirr_perc": "-6.91",
+        "compxirr_perc_dir": -1,
+        "portxirr_perc": "10.16",
+        "portxirr_perc_dir": 1
+      },
+      {
+        "period": "Inception",
+        "discard": 1,
+        "abs_perc": "59.94",
+        "abs_perc_dir": 1,
+        "comp_perc": "75.35",
+        "comp_perc_dir": 1,
+        "absret": 199168,
+        "compxirr_perc": "4.15",
+        "compxirr_perc_dir": 1,
+        "portxirr_perc": "7.11",
+        "portxirr_perc_dir": 1
+      }
+    ]
+  }
+}

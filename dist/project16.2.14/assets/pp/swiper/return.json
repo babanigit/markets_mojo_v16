@@ -2,8 +2,10 @@
   "code": "200",
   "message": "Success",
   "data": {
+
     "sector": {
       "list": {
+
         "Bank - Private": {
           "txt": "Bank - Private",
           "list": [
@@ -837,6 +839,7 @@
           "pwt": 0.02,
           "pwtflag": 1
         }
+
       },
       "summtxt": "20.82% of your returns is contributed by Pesticides & Agrochemicals",
       "txt1": "Pesticides & Agrochemicals sector has contributed 20.82% to your returns"
@@ -2111,6 +2114,7 @@
         "2023": 67,
         "2024": 1592
       },
+
       "port": {
         "2016": {
           "data": -13.46,
@@ -2346,6 +2350,8 @@
           "year": "2024"
         }
       }
+
     }
+
   }
 }

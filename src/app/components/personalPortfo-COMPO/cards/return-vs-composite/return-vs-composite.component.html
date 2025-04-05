@@ -1,0 +1,482 @@
+<div class="card">
+  <div class="card-content compositeindex">
+    <!-- head -->
+    <div class="card-head">
+      <h2>
+        Return v/s Composite Index
+        <span
+          class="card-title activator info-act"
+          (click)="isCollapseRetCompo = !isCollapseRetCompo"
+        ></span>
+      </h2>
+    </div>
+
+    <!-- body -->
+
+    <ng-container
+      *ngIf="data_retcompo! && data_scorecard!; else loadingTemplate"
+    >
+      <!-- Content to show if data exists -->
+      <div class="score-card-cft red-score no-bor ng-scope">
+        <div class="current-trend">
+          <div
+            [ngClass]="
+              'score-' + data_retcompo.W1.returndir | dirClrDefault : 'orange'
+            "
+          >
+            <h6 class="ng-binding">
+              1W<br />
+              {{ data_retcompo.W1.return }}
+            </h6>
+            <p
+              [ngClass]="data_retcompo.W1.compodir | dirClrDefault : 'orange'"
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.W1.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' + data_retcompo.M1.returndir | dirClrDefault : 'orange'
+            "
+          >
+            <h6 class="ng-binding">
+              1M<br />
+              {{ data_retcompo.M1.return }}
+            </h6>
+            <p
+              [ngClass]="data_retcompo.M1.compodir | dirClrDefault : 'orange'"
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.M1.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' + data_retcompo.M3.returndir | dirClrDefault : 'orange'
+            "
+          >
+            <h6 class="ng-binding">
+              3M<br />
+              {{ data_retcompo.M3.return }}
+            </h6>
+            <p
+              [ngClass]="data_retcompo.M3.compodir | dirClrDefault : 'orange'"
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.M3.compo }}
+            </p>
+          </div>
+        </div>
+
+        <div class="current-trend">
+          <div
+            [ngClass]="
+              'score-' + data_retcompo.M6.returndir | dirClrDefault : 'orange'
+            "
+          >
+            <h6 class="ng-binding">
+              6M<br />
+              {{ data_retcompo.M6.return }}
+            </h6>
+            <p
+              [ngClass]="data_retcompo.M6.compodir | dirClrDefault : 'orange'"
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.M6.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' + data_retcompo.YTD.returndir | dirClrDefault : 'orange'
+            "
+          >
+            <h6 class="ng-binding">
+              YTD<br />
+              {{ data_retcompo.YTD.return }}
+            </h6>
+            <p
+              [ngClass]="data_retcompo.YTD.compodir | dirClrDefault : 'orange'"
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.YTD.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' + data_retcompo.Y1.returndir | dirClrDefault : 'orange'
+            "
+          >
+            <h6 class="ng-binding">
+              1Y<br />
+              {{ data_retcompo.Y1.return }}
+            </h6>
+            <p
+              [ngClass]="data_retcompo.Y1.compodir | dirClrDefault : 'orange'"
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.Y1.compo }}
+            </p>
+          </div>
+        </div>
+
+        <div class="current-trend">
+          <div
+            [ngClass]="
+              'score-' + data_retcompo.Y2.returndir | dirClrDefault : 'orange'
+            "
+          >
+            <h6 class="ng-binding">
+              2Y<br />
+              {{ data_retcompo.Y2.return }}
+            </h6>
+            <p
+              [ngClass]="data_retcompo.Y2.compodir | dirClrDefault : 'orange'"
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.Y2.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' + data_retcompo.Y3.returndir | dirClrDefault : 'orange'
+            "
+          >
+            <h6 class="ng-binding">
+              3Y<br />
+              {{ data_retcompo.Y3.return }}
+            </h6>
+            <p
+              [ngClass]="data_retcompo.Y3.compodir | dirClrDefault : 'orange'"
+              class="ng-binding alignp"
+            >
+              {{ data_retcompo.Y3.compo }}
+            </p>
+          </div>
+
+          <div
+            [ngClass]="
+              'score-' + data_scorecard.returndir | dirClrDefault : 'orange'
+            "
+          >
+            <h6 class="ng-binding">
+              INCEPTION<br />
+              {{ data_scorecard.return }}
+            </h6>
+            <p
+              [ngClass]="data_scorecard.compodir | dirClrDefault : 'orange'"
+              class="ng-binding alignp"
+            >
+              {{ data_scorecard.compo }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="indics-new ng-scope">
+        <span class="green"><i class="fa fa-stop"></i></span>
+        <span class="red"><i class="fa fa-stop"></i></span>
+        <span>Portfolio Returns</span>
+        <span class="greybox"><i class="fa fa-stop"></i></span>
+        <span>CI Returns</span>
+      </div>
+
+      <div class="foot-note ng-binding ng-scope">
+        Returns include Dividends and Realized Gain; Inception from 26 Dec 2016
+      </div>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- slider -->
+  <div
+    class="card-reveal animate-slide ng-hide"
+    [ngClass]="{ 'ng-hide': isCollapseRetCompo }"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        (click)="isCollapseRetCompo = !isCollapseRetCompo"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          The card gives the returns given by your portfolio and your customized
+          Composite Benchmark Index over different time periods
+        </li>
+        <li>
+          Portfolio returns consider not just returns made on our current
+          investments but also on your past investments as well as the dividends
+          received
+        </li>
+        <li>
+          The returns do not include the tax impact on securities sold or the
+          notional tax that you may pay if you liquidate your holdings today
+        </li>
+        <li>
+          Percentage change in the coloured boxes are returns given by the
+          portfolio and in the grey box are the returns given by the composite
+          index in the corresponding time period
+        </li>
+        <li>
+          The colour of the box is basis returns given by the portfolio in the
+          respective time periods with Green box signifying positive returns and
+          Red box signifying negative returns
+        </li>
+        <li>All returns are absolute</li>
+        <li>
+          Click on Compare Returns to see returns of different broad market
+          indices during the same period
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- extend button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light modal-trigger"
+        href="javascript:void(0);"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Compare Returns </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- extend detials  -->
+<div [hidden]="true">
+  <div #childDiv>
+    <ng-container class="modal-content contentbg">
+      <div id="" class="list-mojo ng-scope">
+        <table class="table1">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <!-- ngRepeat: (key,value) in returnpopup_data_heading -->
+              <th
+                ng-repeat="(key,value) in returnpopup_data_heading"
+                ng-class='(value!="YTD" &amp;&amp;  value!="incept")?"no-mob no-tab2":""'
+                class="ng-binding ng-scope no-mob no-tab2"
+              >
+                1 Week
+              </th>
+              <!-- end ngRepeat: (key,value) in returnpopup_data_heading -->
+              <th
+                ng-repeat="(key,value) in returnpopup_data_heading"
+                ng-class='(value!="YTD" &amp;&amp;  value!="incept")?"no-mob no-tab2":""'
+                class="ng-binding ng-scope no-mob no-tab2"
+              >
+                1 Month
+              </th>
+              <!-- end ngRepeat: (key,value) in returnpopup_data_heading -->
+              <th
+                ng-repeat="(key,value) in returnpopup_data_heading"
+                ng-class='(value!="YTD" &amp;&amp;  value!="incept")?"no-mob no-tab2":""'
+                class="ng-binding ng-scope no-mob no-tab2"
+              >
+                3 Month
+              </th>
+              <!-- end ngRepeat: (key,value) in returnpopup_data_heading -->
+              <th
+                ng-repeat="(key,value) in returnpopup_data_heading"
+                ng-class='(value!="YTD" &amp;&amp;  value!="incept")?"no-mob no-tab2":""'
+                class="ng-binding ng-scope no-mob no-tab2"
+              >
+                6 Month
+              </th>
+              <!-- end ngRepeat: (key,value) in returnpopup_data_heading -->
+              <th
+                ng-repeat="(key,value) in returnpopup_data_heading"
+                ng-class='(value!="YTD" &amp;&amp;  value!="incept")?"no-mob no-tab2":""'
+                class="ng-binding ng-scope"
+              >
+                YTD
+              </th>
+              <!-- end ngRepeat: (key,value) in returnpopup_data_heading -->
+              <th
+                ng-repeat="(key,value) in returnpopup_data_heading"
+                ng-class='(value!="YTD" &amp;&amp;  value!="incept")?"no-mob no-tab2":""'
+                class="ng-binding ng-scope no-mob no-tab2"
+              >
+                1 Year
+              </th>
+              <!-- end ngRepeat: (key,value) in returnpopup_data_heading -->
+              <th
+                ng-repeat="(key,value) in returnpopup_data_heading"
+                ng-class='(value!="YTD" &amp;&amp;  value!="incept")?"no-mob no-tab2":""'
+                class="ng-binding ng-scope no-mob no-tab2"
+              >
+                2 Year
+              </th>
+              <!-- end ngRepeat: (key,value) in returnpopup_data_heading -->
+              <th
+                ng-repeat="(key,value) in returnpopup_data_heading"
+                ng-class='(value!="YTD" &amp;&amp;  value!="incept")?"no-mob no-tab2":""'
+                class="ng-binding ng-scope no-mob no-tab2"
+              >
+                3 Year
+              </th>
+              <!-- end ngRepeat: (key,value) in returnpopup_data_heading -->
+              <th
+                ng-repeat="(key,value) in returnpopup_data_heading"
+                ng-class='(value!="YTD" &amp;&amp;  value!="incept")?"no-mob no-tab2":""'
+                class="ng-binding ng-scope"
+              >
+                Inception
+              </th>
+              <!-- end ngRepeat: (key,value) in returnpopup_data_heading -->
+            </tr>
+          </thead>
+
+          <tbody *ngIf="compare_return_data!">
+            <tr
+              *ngFor="let item of compare_return_data | keyvalue"
+              class="ng-scope"
+            >
+              <td class="ng-binding">
+                <ng-container *ngIf="item.key === 'absret'">
+                  Absolute Return (Rs.)
+                </ng-container>
+
+                <ng-container *ngIf="item.key === 'divrec'">
+                  Dividend Received (Rs.)
+                </ng-container>
+
+                <ng-container *ngIf="item.key === 'return'">
+                  Return (%)
+                </ng-container>
+
+                <ng-container *ngIf="item.key === 'comp'">
+                  Composite Index (%)
+                </ng-container>
+
+                <ng-container *ngIf="item.key === 'sensex'">
+                  Sensex (%)
+                </ng-container>
+
+                <ng-container *ngIf="item.key === 'midcap'">
+                  BSE Mid Cap (%)
+                </ng-container>
+
+                <ng-container *ngIf="item.key === 'smallcap'">
+                  BSE Small Cap (%)
+                </ng-container>
+              </td>
+              <td
+                [ngClass]="item.value.W1.dir | dirClrDefault : 'white'"
+                class="txt-rt no-mob no-tab2"
+              >
+                <span class="ng-binding ng-scope"
+                  >{{ item.value.W1.val | roundOff | twoCommas }}
+                </span>
+              </td>
+
+              <td
+                [ngClass]="item.value.M1.dir | dirClrDefault : 'white'"
+                class="txt-rt no-mob no-tab2"
+              >
+                <span class="ng-binding ng-scope">{{
+                  item.value.M1.val | roundOff | twoCommas
+                }}</span>
+              </td>
+
+              <td
+                [ngClass]="item.value.M3.dir | dirClrDefault : 'white'"
+                class="txt-rt no-mob no-tab2"
+              >
+                <span class="ng-binding ng-scope">{{
+                  item.value.M3.val | roundOff | twoCommas
+                }}</span>
+              </td>
+
+              <td
+                [ngClass]="item.value.M6.dir | dirClrDefault : 'white'"
+                class="txt-rt no-mob no-tab2"
+              >
+                <span class="ng-binding ng-scope">{{
+                  item.value.M6.val | roundOff | twoCommas
+                }}</span>
+              </td>
+
+              <td
+                [ngClass]="item.value.YTD.dir | dirClrDefault : 'white'"
+                class="txt-rt"
+              >
+                <span class="ng-binding ng-scope">{{
+                  item.value.YTD.val | roundOff | twoCommas
+                }}</span>
+              </td>
+
+              <td
+                [ngClass]="item.value.Y1.dir | dirClrDefault : 'white'"
+                class="txt-rt no-mob no-tab2"
+              >
+                <span class="ng-binding ng-scope">{{
+                  item.value.Y1.val | roundOff | twoCommas
+                }}</span>
+              </td>
+
+              <td
+                [ngClass]="item.value.Y2.dir | dirClrDefault : 'white'"
+                class="txt-rt no-mob no-tab2"
+              >
+                <span class="ng-binding ng-scope">{{
+                  item.value.Y2.val | roundOff | twoCommas
+                }}</span>
+              </td>
+
+              <td
+                [ngClass]="item.value.Y3.dir | dirClrDefault : 'white'"
+                class="txt-rt no-mob no-tab2"
+              >
+                <span class="ng-binding ng-scope">{{
+                  item.value.Y3.val | roundOff | twoCommas
+                }}</span>
+              </td>
+
+              <td
+                [ngClass]="item.value.incept.dir | dirClrDefault : 'white'"
+                class="txt-rt"
+              >
+                <span class="ng-binding ng-scope">{{
+                  item.value.incept.val | roundOff | twoCommas
+                }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+  </div>
+</div>

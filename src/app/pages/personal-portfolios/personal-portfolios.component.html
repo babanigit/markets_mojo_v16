@@ -1,32 +1,15 @@
-<!-- <app-demo /> -->
-<div style="background: url(https://i.marketsmojo.com/bg.gif)">
 
+<!-- <app-demo /> -->
+
+<div style="background: url(https://i.marketsmojo.com/bg.gif)">S
   <div id="midcontent2">
     <div class="main-bodynet" id="stockpfpricemsg">
       <div class="padding0 ng-scope" id="midcontent3" ng-controller="pf_video">
         <!-- message -->
+
         <app-pf-price-msg />
 
-        <!-- end ngIf: transaction.pf_score.show -->
-        <!--****************************-->
 
-        <!-- <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="personal_flex">
-        <div class="personal_flex2 no-mob no-tab2" ng-click="showImportModal(1)">
-          <a href="" class="importbuttonnew">Add Stocks</a>
-        </div>
-        <div class="imttext">
-          You can add stocks to your portfolio by searching and adding them or by importing your stock holdings from top 10 top brokers in just one click . We don't store your login credentials, your information is safe.
-        </div>
-        <div class="personal_flex2 no-web no-tab" ng-click="showImportModal(1)">
-          <a href="" class="importbuttonnew12">Add Stocks <span><img src="https://i.marketsmojo.com/portfolio/rightar.png"></span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
         <div class="container-fluid padding0 no-mob no-tab2">
           <div class="row">
@@ -364,48 +347,7 @@
     </ul>
   </div> -->
 
-  <!-- old -->
-  <!-- <nav
-    style="
-      display: flex;
-      justify-items: center;
-      place-content: center;
-      gap: 20px;
-      height: auto;
-      padding: 1% 0%;
-      /* padding: 2%; */
-    "
-    class="middmenubar navpadd ulpadd"
-  >
-    <div>
-      <a
-        [routerLink]="['/portfolio-plus/networth-tracker']"
-        [queryParams]="{ selected_menu: 'all' }"
-        >All</a
-      >
-    </div>
-
-    <div>
-      <a [routerLink]="['/portfolio-plus/stock-investments']">
-        stock-investments
-      </a>
-    </div>
-
-    <div>
-      <a [routerLink]="['/portfolio-plus/mutualfund-investments']">
-        mutualfund-investments
-      </a>
-    </div>
-
-    <div>
-      <a
-        [routerLink]="['/portfolio-plus/networth-tracker']"
-        [queryParams]="{ selected_menu: 'commodity' }"
-        >Commodity</a
-      >
-    </div>
-  </nav> -->
-
+ 
   <!-- routes childers -->
   <div style="width: 100%">
     <router-outlet> </router-outlet>
@@ -413,5 +355,4 @@
 
   <!-- <app-ipo-footer /> -->
   <app-ipo-footer-new />
-
 </div>

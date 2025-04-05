@@ -20,6 +20,7 @@
         ><span class="swiper-pagination-bullet"></span>
       </div>
     </div>
+
     <div
       class="swiper-wrapper reco-slide"
       id="sectToday"
@@ -38,7 +39,6 @@
       >
         <div class="card">
           <div class="card-content movementcard">
-
             <!-- head -->
             <div id="pricemovement" class="card-head">
               <h2>
@@ -48,6 +48,8 @@
                 <span class="no-web no-tab"
                   >Portfolio Movement (Cash Adjusted)</span
                 >
+
+                <!-- refresh button -->
                 <!--<span class="card-title activator info-act" ng-click="isCollapseTodayMov = !isCollapseTodayMov"></span>-->
                 <span class="pull-right" style="display: block">
                   <a
@@ -64,8 +66,11 @@
 
             <!-- ngIf: loader[0].pf_today_graph == true -->
 
-            <div class="tabcol" ng-show="loader[0].pf_today_graph == false">
-
+            <div
+              *ngIf="graphToday_data && PortfolioGraph_data"
+              class="tabcol"
+              ng-show="loader[0].pf_today_graph == false"
+            >
               <!-- button section -->
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
@@ -73,116 +78,83 @@
                     <a
                       href="javascript:void(0)"
                       id=""
-                      ng-class="act_tab_class['1D']"
-                      class="active red"
-                      ng-click=" getToday(0,1);"
-                      style=""
+                      [ngClass]="{
+                        red:
+                          (graphToday_data.portdir | dirClrDefault : 'grey') ===
+                          'red',
+                        green:
+                          (graphToday_data.portdir | dirClrDefault : 'grey') ===
+                          'green',
+                        grey:
+                          (graphToday_data.portdir | dirClrDefault : 'grey') ===
+                          'grey',
+                        active: send_button == keybutton
+                      }"
+                      (click)="buttonClicked('1D')"
                       >1D</a
                     >
                   </li>
+
                   <!-- ngRepeat: value in act_tab_name -->
                   <li
+                    *ngFor="let item of PortfolioGraph_data | keyvalue"
                     class="tab ng-scope"
                     ng-repeat="value in act_tab_name"
-                    style=""
                   >
                     <a
                       href="javascript:void(0)"
                       id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >1M</a
+                      [ngClass]="{
+                        red:
+                          (item.value.portdir | dirClrDefault : 'grey') ===
+                          'red',
+                        green:
+                          (item.value.portdir | dirClrDefault : 'grey') ===
+                          'green',
+                        grey:
+                          (item.value.portdir | dirClrDefault : 'grey') ===
+                          'grey',
+                        active: item.key === send_button
+                      }"
+                      (click)="buttonClicked(item.key)"
                     >
+                      {{ item.key }}
+                    </a>
                   </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
+
+                  <li
+                    class="tab no-mob no-tab2 ng-scope"
+                    *ngIf="send_button !== keybutton"
+                  >
                     <a
                       href="javascript:void(0)"
                       id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >3M</a
+                      (click)="switchFun('flow')"
+                      [ngClass]="
+                        switch_button === 'flow' ? 'active' : 'buttonactive'
+                      "
+                      >Cash Flow</a
                     >
                   </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
+
+                  <li
+                    class="tab no-mob no-tab2 ng-scope"
+                    *ngIf="send_button !== keybutton"
+                  >
                     <a
                       href="javascript:void(0)"
                       id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >6M</a
+                      (click)="switchFun('adj')"
+                      [ngClass]="
+                        switch_button === 'adj' ? 'active' : 'buttonactive'
+                      "
+                      >Cash Adjusted</a
                     >
                   </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
-                    <a
-                      href="javascript:void(0)"
-                      id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >YTD</a
-                    >
-                  </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
-                    <a
-                      href="javascript:void(0)"
-                      id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >1Y</a
-                    >
-                  </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
-                    <a
-                      href="javascript:void(0)"
-                      id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >3Y</a
-                    >
-                  </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
-                    <a
-                      href="javascript:void(0)"
-                      id=""
-                      class="green"
-                      ng-class="act_tab_class[value]"
-                      ng-click=" getActGraph(value,act_today_graph_type)"
-                      >INCEPTION</a
-                    >
-                  </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <!--									<li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['3M']}}"  ng-class="{active:act_today_graph_tab == '3M'}"  ng-click="act_today_graph_tab = '3M'; getActGraph('3M',act_today_graph_type)">3M</a>
-                </li>
-                                                                      <li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['YTD']}}"  ng-class="{active:act_today_graph_tab == 'YTD'}"  ng-click="act_today_graph_tab = 'YTD'; getActGraph('YTD',act_today_graph_type)">YTD </a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['1Y']}}" ng-class="{active:act_today_graph_tab == '1Y'}"  ng-click="act_today_graph_tab = '1Y'; getActGraph('1Y',act_today_graph_type)">1Y</a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['3Y']}}" ng-class="{active:act_today_graph_tab == '3Y'}"  ng-click="act_today_graph_tab = '3Y'; getActGraph('3Y',act_today_graph_type)">3Y</a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="{{graph_tab_clr['inception']}}" ng-class="{active:act_today_graph_tab == 'inception'}"  ng-click="act_today_graph_tab = 'inception'; getActGraph('inception',act_today_graph_type)">Inception</a>
-                </li>-->
-                  <!-- ngIf: act_today_graph_tab !='1D' -->
-                  <!-- ngIf: act_today_graph_tab !='1D' -->
                 </ul>
               </div>
 
-              <!-- button section  -->
+              <!-- button section for mobile view -->
               <div id="tabcol" class="no-web no-tab">
                 <div class="col-md-12">
                   <div class="tabdropdown pf-menu">
@@ -192,13 +164,13 @@
                       class="ng-pristine ng-untouched ng-valid ng-not-empty"
                     >
                       <option value="1D" selected="selected">1D</option>
+
                       <!-- ngRepeat: value in act_tab_name -->
                       <option
                         ng-repeat="value in act_tab_name"
                         ng-value="value"
                         class="ng-binding ng-scope"
                         value="string:1M"
-                        style=""
                       >
                         1M
                       </option>
@@ -268,20 +240,16 @@
               </div>
 
               <div class="tab-content">
-                <!-- ngIf: loader[0].pf_today_graph == false && error_flag[0].actionToday_graph == 1 && actionToday.error != 1 -->
-                <!-- ngIf: loader[0].pf_today_graph == false && actionToday.error == 1 -->
-
                 <div
                   class="cardmiddle"
                   ng-show="loader[0].pf_today_graph == false &amp;&amp; error_flag[0].actionToday_graph == 0 &amp;&amp; actionToday.error != 1"
-                  style=""
                 >
+                  <!-- graph section -->
                   <div
                     class="cardgraph"
                     id="container_actiontoday"
                     data-highcharts-chart="70"
                   >
-
                     <div
                       id="highcharts-1rl6spd-237"
                       style="
@@ -297,651 +265,215 @@
                       dir="ltr"
                       class="highcharts-container"
                     >
-
-                    <!-- graph section -->
-
-                    <app-graph-today />
-                      <!-- <svg
-                        version="1.1"
-                        class="highcharts-root"
-                        style="
-                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
-                            Arial, Helvetica, sans-serif;
-                          font-size: 12px;
-                        "
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="600"
-                        height="260"
-                        viewBox="0 0 600 260"
-                      >
-                        <desc>Created with Highstock 6.1.0</desc>
-                        <defs>
-                          <clipPath id="highcharts-1rl6spd-238">
-                            <rect
-                              x="0"
-                              y="0"
-                              width="550"
-                              height="210"
-                              fill="none"
-                            ></rect>
-                          </clipPath>
-                          <clipPath id="highcharts-1rl6spd-240">
-                            <rect
-                              x="0"
-                              y="0"
-                              width="550"
-                              height="210"
-                              fill="none"
-                            ></rect>
-                          </clipPath>
-                        </defs>
-                        <rect
-                          fill="#fff"
-                          class="highcharts-background"
-                          stroke="#fff"
-                          stroke-width="1"
-                          x="0.5"
-                          y="0.5"
-                          width="598"
-                          height="258"
-                          rx="0"
-                          ry="0"
-                        ></rect>
-                        <rect
-                          fill="none"
-                          class="highcharts-plot-background"
-                          x="40"
-                          y="25"
-                          width="550"
-                          height="210"
-                        ></rect>
-                        <g class="highcharts-pane-group"></g>
-                        <g class="highcharts-grid highcharts-xaxis-grid">
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 45.5 25 L 45.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 71.5 25 L 71.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 97.5 25 L 97.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 122.5 25 L 122.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 148.5 25 L 148.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 173.5 25 L 173.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 199.5 25 L 199.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 224.5 25 L 224.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 250.5 25 L 250.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 276.5 25 L 276.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 301.5 25 L 301.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 327.5 25 L 327.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 352.5 25 L 352.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 378.5 25 L 378.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 404.5 25 L 404.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 429.5 25 L 429.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 455.5 25 L 455.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 480.5 25 L 480.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 506.5 25 L 506.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 531.5 25 L 531.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 557.5 25 L 557.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 583.5 25 L 583.5 235"
-                            opacity="1"
-                          ></path>
-                        </g>
-                        <g class="highcharts-grid highcharts-yaxis-grid">
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 235.5 L 590 235.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 165.5 L 590 165.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 95.5 L 590 95.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 25.5 L 590 25.5"
-                            opacity="1"
-                          ></path>
-                        </g>
-                        <rect
-                          fill="none"
-                          class="highcharts-plot-border"
-                          x="40"
-                          y="25"
-                          width="550"
-                          height="210"
-                        ></rect>
-                        <g class="highcharts-axis highcharts-xaxis">
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 45.5 225 L 45.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 71.5 225 L 71.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 97.5 225 L 97.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 122.5 225 L 122.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 148.5 225 L 148.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 173.5 225 L 173.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 199.5 225 L 199.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 224.5 225 L 224.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 250.5 225 L 250.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 276.5 225 L 276.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 301.5 225 L 301.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 327.5 225 L 327.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 352.5 225 L 352.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 378.5 225 L 378.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 404.5 225 L 404.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 429.5 225 L 429.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 455.5 225 L 455.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 480.5 225 L 480.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 506.5 225 L 506.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 531.5 225 L 531.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 557.5 225 L 557.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 583.5 225 L 583.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-axis-line"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 40 225.5 L 590 225.5"
-                          ></path>
-                        </g>
-                        <g class="highcharts-axis highcharts-yaxis">
-                          <path
-                            fill="none"
-                            class="highcharts-axis-line"
-                            d="M 10 25 L 10 235"
-                          ></path>
-                        </g>
-                        <g class="highcharts-series-group">
-                          <g
-                            class="highcharts-series highcharts-series-0 highcharts-line-series highcharts-color-0"
-                            transform="translate(40,25) scale(1 1)"
-                            clip-path="url(#highcharts-1rl6spd-240)"
-                          >
-                            <path
-                              fill="#3FC499"
-                              d="M 6.3953488372093 70.54851999999991 L 19.186046511628 19.561079999999606 L 31.976744186047 19.20016000000004 L 44.767441860465 26.300399999999684 L 57.558139534884 44.839199999999835 L 70.348837209302 42.494760000000355 L 83.139534883721 47.03299999999999 L 95.93023255814 59.96816000000004 L 108.72093023256 57.80207999999959 L 121.51162790698 59.65092000000038 L 134.3023255814 46.8325199999999 L 147.09302325581 49.7319200000004 L 159.88372093023 76.64832000000007 L 159.88372093023 210 L 6.3953488372093 210"
-                              stroke="#3FC499"
-                              stroke-width="2"
-                              stroke-linejoin="round"
-                              stroke-linecap="round"
-                            ></path>
-                            <path
-                              fill="#DD7470"
-                              d="M 159.88372093023 76.64832000000007 L 172.67441860465 77.53116000000003 L 185.46511627907 89.24832000000006 L 198.25581395349 93.4914400000003 L 211.04651162791 97.85860000000032 L 223.83720930233 91.63532000000006 L 236.62790697674 75.37487999999976 L 249.41860465116 75.31271999999973 L 262.20930232558 109.5385199999999 L 275 118.14292000000039 L 287.79069767442 127.21323999999964 L 300.58139534884 117.11083999999997 L 313.37209302326 170.6434800000001 L 326.16279069767 135.7434400000003 L 338.95348837209 130.8599600000002 L 351.74418604651 126.19432000000006 L 364.53488372093 127.76680000000016 L 377.32558139535 126.82432000000006 L 390.11627906977 140.46283999999997 L 402.90697674419 176.76119999999983 L 415.6976744186 169.6690799999996 L 428.48837209302 182.5325599999997 L 441.27906976744 194.40567999999993 L 454.06976744186 198.29096000000018 L 466.86046511628 200.01576000000037 L 479.6511627907 185.4960799999996 L 492.44186046512 190.0525199999999 L 505.23255813953 180.95839999999967 L 518.02325581395 190.09480000000016 L 530.81395348837 191.22516000000002 L 543.60465116279 191.0935599999997 L 543.60465116279 210 L 159.88372093023 210"
-                              stroke="#DD7470"
-                              stroke-width="2"
-                              stroke-linejoin="round"
-                              stroke-linecap="round"
-                            ></path>
-                            <path
-                              fill="none"
-                              d="M -3.6046511627906996 70.54851999999991 L 6.3953488372093 70.54851999999991 L 19.186046511628 19.561079999999606 L 31.976744186047 19.20016000000004 L 44.767441860465 26.300399999999684 L 57.558139534884 44.839199999999835 L 70.348837209302 42.494760000000355 L 83.139534883721 47.03299999999999 L 95.93023255814 59.96816000000004 L 108.72093023256 57.80207999999959 L 121.51162790698 59.65092000000038 L 134.3023255814 46.8325199999999 L 147.09302325581 49.7319200000004 L 159.88372093023 76.64832000000007 L 159.88372093023 210 L 6.3953488372093 210 L 16.3953488372093 210 M 149.88372093023 76.64832000000007 L 159.88372093023 76.64832000000007 L 172.67441860465 77.53116000000003 L 185.46511627907 89.24832000000006 L 198.25581395349 93.4914400000003 L 211.04651162791 97.85860000000032 L 223.83720930233 91.63532000000006 L 236.62790697674 75.37487999999976 L 249.41860465116 75.31271999999973 L 262.20930232558 109.5385199999999 L 275 118.14292000000039 L 287.79069767442 127.21323999999964 L 300.58139534884 117.11083999999997 L 313.37209302326 170.6434800000001 L 326.16279069767 135.7434400000003 L 338.95348837209 130.8599600000002 L 351.74418604651 126.19432000000006 L 364.53488372093 127.76680000000016 L 377.32558139535 126.82432000000006 L 390.11627906977 140.46283999999997 L 402.90697674419 176.76119999999983 L 415.6976744186 169.6690799999996 L 428.48837209302 182.5325599999997 L 441.27906976744 194.40567999999993 L 454.06976744186 198.29096000000018 L 466.86046511628 200.01576000000037 L 479.6511627907 185.4960799999996 L 492.44186046512 190.0525199999999 L 505.23255813953 180.95839999999967 L 518.02325581395 190.09480000000016 L 530.81395348837 191.22516000000002 L 543.60465116279 191.0935599999997 L 543.60465116279 210 L 159.88372093023 210 L 169.88372093023 210"
-                              stroke-linejoin="round"
-                              visibility="visible"
-                              stroke="rgba(192,192,192,0.002)"
-                              stroke-width="22"
-                              class="highcharts-tracker"
-                            ></path>
-                          </g>
-                          <g
-                            class="highcharts-markers highcharts-series-0 highcharts-line-series highcharts-color-0 highcharts-tracker"
-                            transform="translate(40,25) scale(1 1)"
-                          ></g>
-                        </g>
-                        <text
-                          x="300"
-                          text-anchor="middle"
-                          class="highcharts-subtitle"
-                          style="color: #666666; fill: #666666"
-                          y="24"
-                        ></text>
-                        <g class="highcharts-plot-lines-5">
-                          <path
-                            fill="none"
-                            stroke="#3FC499"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 44.5 L 590 44.5"
-                          ></path>
-                          <path
-                            fill="none"
-                            stroke="#DD7470"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 225.5 L 590 225.5"
-                          ></path>
-                          <path
-                            fill="none"
-                            stroke="#c0c1c2"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 96.5 L 590 96.5"
-                          ></path>
-                        </g>
-                        <g
-                          class="highcharts-axis-labels highcharts-xaxis-labels"
-                        ></g>
-                        <g
-                          class="highcharts-axis-labels highcharts-yaxis-labels"
-                        ></g></svg
-                      ><span
-                        class="highcharts-title"
-                        style="
-                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
-                            Arial, Helvetica, sans-serif;
-                          font-size: 1em;
-                          position: absolute;
-                          white-space: nowrap;
-                          margin-left: 0px;
-                          margin-top: 0px;
-                          left: 293px;
-                          top: 3px;
-                          color: rgb(51, 51, 51);
-                        "
-                      ></span> -->
-
+                      <!-- graph -->
+                      <div style="padding: 0px 0px">
+                        <app-graph-today
+                          [GraphToday_data]="graphToday_data"
+                          [send_button]="send_button"
+                          [PortfolioGraph_data]="PortfolioGraph_data"
+                          [switch_button]="switch_button"
+                        />
+                      </div>
                     </div>
-
                   </div>
-
 
                   <!-- portfolio, composite index  -->
                   <div class="cardgraphright">
-                    <div class="valuation-new">
+                    <div
+                      *ngIf="PortfolioGraph_data[send_button]"
+                      class="valuation-new"
+                    >
                       <div class="stockmargin">
                         <div
-                          class="sector-per red-border"
-                          ng-class="
-                            getDirClrDefault(actionTodayGraphweb.portdir) +
-                            '-border'
-                          "
+                          class="sector-per"
+
+                          [ngClass]="  (PortfolioGraph_data[send_button].portdir | dirClrDefault : 'orange') + '-border'  "	
+
+                         
                           style="display: block"
                         >
                           <h6 class="stockName">PORTFOLIO</h6>
-                          <p class="Dcolor ng-binding">-1.78%</p>
+                          <p class="Dcolor ng-binding">
+                            {{
+                              PortfolioGraph_data[send_button].portret
+                                | roundOff
+                                | twoCommas
+                            }}%
+                          </p>
                         </div>
                       </div>
                       <div class="stockmargin">
                         <div
-                          class="sector-per green-border"
-                          ng-class="
-                            getDirClrDefault(actionTodayGraphweb.compdir) +
-                            '-border'
-                          "
+                          class="sector-per"
+                          [ngClass]="  ( PortfolioGraph_data[send_button].compdir | dirClrDefault : 'orange') + '-border'  "	
+
+                        
                           style="display: block"
                         >
                           <h6>COMPOSITE INDEX</h6>
-                          <p class="Dcolor ng-binding">0.87%</p>
+                          <p class="Dcolor ng-binding">
+                            {{
+                              PortfolioGraph_data[send_button].compret
+                                | roundOff
+                                | twoCommas
+                            }}%
+                          </p>
                         </div>
                       </div>
                       <div class="stockmargin">
                         <div
                           class="sector-per green-border"
-                          ng-class="
-                            getDirClrDefault(actionTodayGraphweb.sensexdir) +
-                            '-border'
-                          "
+                          [ngClass]="  (   PortfolioGraph_data[send_button].sensexdir | dirClrDefault : 'orange') + '-border'  "	
+
+                         
                           style="display: block"
                         >
                           <h6>SENSEX</h6>
-                          <p class="Dcolor ng-binding">0.44%</p>
+                          <p class="Dcolor ng-binding">
+                            {{
+                              PortfolioGraph_data[send_button].sensex
+                                | roundOff
+                                | twoCommas
+                            }}%
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      *ngIf="!PortfolioGraph_data[send_button]"
+                      class="valuation-new"
+                    >
+                      <div class="stockmargin">
+                        <div
+                          class="sector-per"
+                          [ngClass]="  (   graphToday_data.portdir | dirClrDefault : 'orange') + '-border'  "	
+
+                        
+                          style="display: block"
+                        >
+                          <h6 class="stockName">PORTFOLIO</h6>
+                          <p class="Dcolor ng-binding">
+                            {{ graphToday_data.port | roundOff | twoCommas }}%
+                          </p>
+                        </div>
+                      </div>
+                      <div class="stockmargin">
+                        <div
+                          class="sector-per"
+                          [ngClass]="  (   graphToday_data.compdir | dirClrDefault : 'orange') + '-border'  "	
+
+                        
+                          style="display: block"
+                        >
+                          <h6>COMPOSITE INDEX</h6>
+                          <p class="Dcolor ng-binding">
+                            {{ graphToday_data.comp | roundOff | twoCommas }}%
+                          </p>
+                        </div>
+                      </div>
+                      <div class="stockmargin">
+                        <div
+                          class="sector-per green-border"
+                          [ngClass]="  (   graphToday_data.sensexdir | dirClrDefault : 'orange') + '-border'  "	
+
+                          
+                          style="display: block"
+                        >
+                          <h6>SENSEX</h6>
+                          <p class="Dcolor ng-binding">
+                            {{ graphToday_data.sensex | roundOff | twoCommas }}%
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-
-                  <!-- ngIf: act_today_graph_tab =='1D' -->
+                  <!-- top contri, top drag -->
                   <div
                     class="cardgraphbottom ng-scope"
-                    ng-if="act_today_graph_tab == '1D'"
+                    *ngIf="send_button == keybutton"
                   >
                     <div class="row adv-dec no-mob pr-gr-bottright-content">
-
-                      <div class="col-xs-6">
+                      <div *ngIf="data_contri" class="col-xs-6">
                         <div
                           id="gainer"
                           data=""
-                          ng-class="
-                            actionToday.overall.contri[0]['dgaindir'] == 1
+                          [ngClass]="
+                            data_contri[0]['dgaindir'] == 1
                               ? 'advance'
                               : 'decliens'
                           "
-                          class="advance"
-                          style=""
                         >
                           <h6>TOP CONTRIBUTOR</h6>
-                          <!-- ngIf: error_flag[0].actionToday_contri == 1 -->
-                          <!-- ngIf: error_flag[0].actionToday_contri != 1 -->
+
                           <div
                             ng-if="error_flag[0].actionToday_contri != 1"
                             class="ng-binding ng-scope"
                           >
-                            Coal India
+                            {{ data_contri[0]["short"] }}
                           </div>
-                          <!-- end ngIf: error_flag[0].actionToday_contri != 1 -->
-                          <!-- ngIf: error_flag[0].actionToday_contri != 1 -->
+
                           <h4
                             ng-if="error_flag[0].actionToday_contri != 1"
                             class="ng-scope"
                           >
-                            <span><b class="ng-binding">532</b></span>
-                            <span class="ng-binding">(1.37%)</span>
+                            <span
+                              ><b class="ng-binding">{{
+                                data_contri[0]["dgain"]
+                              }}</b></span
+                            >
+                            <span class="ng-binding"
+                              >({{ data_contri[0]["dgainp"] }}%)</span
+                            >
                           </h4>
-                          <!-- end ngIf: error_flag[0].actionToday_contri != 1 -->
                         </div>
                       </div>
 
                       <!-- top contri, top drag -->
-                      <div class="col-xs-6">
+                      <div *ngIf="data_drags" class="col-xs-6">
                         <div
                           id="gainer"
                           data=""
-                          ng-class="
-                            actionToday.overall.drags[0]['dgaindir'] == 1
+                          [ngClass]="
+                            data_drags[0]['dgaindir'] == 1
                               ? 'advance'
                               : 'decliens'
                           "
-                          class="decliens"
                         >
                           <h6>TOP DRAG</h6>
-                          <!-- ngIf: error_flag[0].actionToday_drags == 1 -->
-                          <!-- ngIf: error_flag[0].actionToday_drags != 1 -->
-                          <div
-                            ng-if="error_flag[0].actionToday_drags != 1"
-                            class="ng-binding ng-scope"
-                          >
-                            Jubilant Inds.
+
+                          <div class="ng-binding ng-scope">
+                            {{ data_drags[0]["short"] }}
                           </div>
-                          <!-- end ngIf: error_flag[0].actionToday_drags != 1 -->
-                          <!-- ngIf: error_flag[0].actionToday_drags != 1 -->
-                          <h4
-                            ng-if="error_flag[0].actionToday_drags != 1"
-                            class="ng-scope"
-                          >
-                            <span><b class="ng-binding">-4,393</b></span>
-                            <span class="ng-binding">(-4.62%)</span>
+
+                          <h4 class="ng-scope">
+                            <span
+                              ><b class="ng-binding">{{
+                                data_drags[0]["dgain"]
+                              }}</b></span
+                            >
+                            <span class="ng-binding"
+                              >({{ data_drags[0]["dgainp"] }}%)</span
+                            >
                           </h4>
-                          <!-- end ngIf: error_flag[0].actionToday_drags != 1 -->
                         </div>
                       </div>
-
                     </div>
                   </div>
 
-                  <!-- end ngIf: act_today_graph_tab =='1D' -->
-                  <!-- ngIf: act_today_graph_tab !='1D' -->
+                  <div
+                    class="topheadarea tophead ng-binding ng-scope"
+                    *ngIf="send_button != keybutton"
+                  >
+                    Portfolio movement adjusted for cash inflows and outflows
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- slider -->
+          <!-- extend -->
           <div
             class="card-reveal animate-slide ng-hide"
             ng-show="isCollapseTodayMov"
@@ -1059,7 +591,6 @@
               </p>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -1070,68 +601,83 @@
         style="padding: 0px !important"
         data-scrolled="0"
         data-visited="0"
-        ng-if="!block_clmm_content &amp;&amp; showcardsData.next_webinar.show_banner == 'yes' &amp;&amp; (showcardsData.next_webinar.webinar_card_img == '' || showcardsData.next_webinar.webinar_card_img == undefined)"
       >
-        <!-- ngIf: showcardsData.next_webinar.isyoutubelive == 'yes' -->
-        <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' --><a
-          ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
-          href="https://www.marketsmojo.com/mojo/webinar?wid=1398&amp;utm_source=MM_AllUsers_SiteCard_WebinarInvite_0_0&amp;fp=1"
-          class="ng-scope"
-        >
-          <div class="card webinarconetnt">
-            <div class="card-content">
-              <p class="webinar2">Webinar on</p>
-              <p class="webinar3 ng-binding">
-                Revealing the MojoOne Stock of the Month
-              </p>
-              <!--<p class="webbutton">{{showcardsData.next_webinar.sitecard_reg_text}}</p>-->
-              <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p
-                ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
-                class="webbutton ng-scope"
-                dynamic="showcardsData.next_webinar.sitecard_reg_text"
-              >
-                <span class="wbbt22 blinknew22 ng-scope"
-                  >Reserve your seat</span
+        <ng-container *ngIf="nextWeb_userMessage!; else loadingTemplatewebinar">
+          <!-- Content to show if data exists -->
+          <a [href]="nextWeb_userMessage.sitecard_link" class="ng-scope">
+            <div class="card webinarconetnt">
+              <div class="card-content">
+                <p class="webinar2">Webinar on</p>
+
+                <p class="webinar3 ng-binding">
+                  {{ nextWeb_userMessage.topic }}
+                </p>
+
+                <p
+                  *ngIf="nextWeb_userMessage.isyoutubelive != 'yes'"
+                  class="webbutton ng-scope"
+                  dynamic="showcardsData.next_webinar.sitecard_reg_text"
                 >
-              </p>
-              <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p
-                ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
-                class="webinar4 ng-scope"
-              >
-                Join me on
-              </p>
-              <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p class="webinar4_1 ng-binding">10 Sep '24</p>
-              <p class="webinar4_2 ng-binding">7:00 PM on YouTube</p>
-              <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p
-                ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
-                class="webinar5 ng-scope"
-              >
-                <img src="https://i.marketsmojo.com/pdf/bottom-logo_new.png" />
-              </p>
-              <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
-              <p class="webinar6">
-                <img
-                  ng-src="https://i.marketsmojo.com/webinar/amit-golia.png"
-                  src="https://i.marketsmojo.com/webinar/amit-golia.png"
-                />
-              </p>
+                  <span class="wbbt22 blinknew22 ng-scope">
+                    Reserve your seat
+                  </span>
+                </p>
+                <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <p
+                  ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
+                  class="webinar4 ng-scope"
+                >
+                  Join me on
+                </p>
+                <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <p class="webinar4_1 ng-binding">10 Sep '24</p>
+                <p class="webinar4_2 ng-binding">7:00 PM on YouTube</p>
+                <!-- ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <p
+                  ng-if="showcardsData.next_webinar.isyoutubelive != 'yes'"
+                  class="webinar5 ng-scope"
+                >
+                  <img
+                    src="https://i.marketsmojo.com/pdf/bottom-logo_new.png"
+                  />
+                </p>
+                <!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+                <p class="webinar6">
+                  <img
+                    ng-src="https://i.marketsmojo.com/webinar/amit-golia.png"
+                    src="https://i.marketsmojo.com/webinar/amit-golia.png"
+                  />
+                </p>
+              </div>
+            </div>
+            <!-- ngIf: showcardsData.next_webinar.isyoutubelive == 'yes' -->
+          </a>
+        </ng-container>
+
+        <ng-template #loadingTemplatewebinar>
+          <!-- Content to show while loading -->
+          <div>
+            <div id="loading" class="ng-scope">
+              <img
+                id="loading-image"
+                src="https://i.marketsmojo.com/loading.gif"
+                alt="Loading..."
+              />
             </div>
           </div>
-          <!-- ngIf: showcardsData.next_webinar.isyoutubelive == 'yes' --> </a
-        ><!-- end ngIf: showcardsData.next_webinar.isyoutubelive != 'yes' -->
+        </ng-template>
       </section>
 
       <script type="text/ng-template" id="landingvideo">
-        <!--************new video**********-->
-        <div id="videomodel" class="colapsearea modal bs-modal-lg"  style="display:block;">
-            <a class="modal-action modal-close close-blk" ng-click="commonModalClose('landingvideo')" href="javascript:void(0)"><i class="fa fa-times"></i></a>
-            <iframe class="iframevideonew" src="https://www.youtube.com/embed/KXHQUESIMk4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <!--<iframe class="iframevideonew" src="https://sandbox-st.marketsmojo.com/images/landing/marketsmojoFinalcut.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+          <!--************new video**********-->
+        <div id="videomodel" class="colapsearea modal bs-modal-lg" style="display:block;">
+          <a class="modal-action modal-close close-blk" ng-click="commonModalClose('landingvideo')"
+            href="javascript:void(0)"><i class="fa fa-times"></i></a>
+          <iframe class="iframevideonew" src="https://www.youtube.com/embed/KXHQUESIMk4" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <!--<iframe class="iframevideonew" src="https://sandbox-st.marketsmojo.com/images/landing/marketsmojoFinalcut.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
         </div>
       </script>
 
@@ -1141,7 +687,6 @@
         class="swiper-slide padnno-sec marginright no-web no-tab swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"
-        style=""
       >
         <div class="card">
           <div class="card-content movementcard">
@@ -1166,11 +711,7 @@
               <div id="tabcol-new" class="day-week cf no-mob no-tab2">
                 <ul class="nav nav-tabs">
                   <!-- ngRepeat: value in act_tab_name -->
-                  <li
-                    class="tab ng-scope"
-                    ng-repeat="value in act_tab_name"
-                    style=""
-                  >
+                  <li class="tab ng-scope" ng-repeat="value in act_tab_name">
                     <a
                       href="javascript:void(0)"
                       id=""
@@ -1246,22 +787,6 @@
                       >INCEPTION</a
                     >
                   </li>
-                  <!-- end ngRepeat: value in act_tab_name -->
-                  <!--									<li class="tab">
-                  <a href="javascript:void(0)" id="" class="green"  ng-class="{active:act_today_graph_tab_mob == '3M'}"  ng-click="act_today_graph_tab_mob = '3M'; getActGraph('3M','adj','container_actiontoday_mob',1)">3M</a>
-                </li>
-                                                                      <li class="tab">
-                  <a href="javascript:void(0)" id="" class="red"  ng-class="{active:act_today_graph_tab_mob == 'YTD'}"  ng-click="act_today_graph_tab_mob = 'YTD'; getActGraph('YTD','adj','container_actiontoday_mob',1)">YTD </a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="green" ng-class="{active:act_today_graph_tab_mob == '1Y'}"  ng-click="act_today_graph_tab_mob = '1Y'; getActGraph('1Y','adj','container_actiontoday_mob',1)">1Y</a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="green" ng-class="{active:act_today_graph_tab_mob == '3Y'}"  ng-click="act_today_graph_tab_mob = '3Y'; getActGraph('3Y','adj','container_actiontoday_mob',1)">3Y</a>
-                </li>
-                <li class="tab">
-                  <a href="javascript:void(0)" id="" class="green" ng-class="{active:act_today_graph_tab_mob == 'inception'}"  ng-click="act_today_graph_tab_mob = 'inception'; getActGraph('inception','adj','container_actiontoday_mob',1)">Inception</a>
-                </li>                                                                        -->
                 </ul>
               </div>
 
@@ -1280,7 +805,6 @@
                         class="ng-binding ng-scope"
                         value="string:1M"
                         selected="selected"
-                        style=""
                       >
                         1M
                       </option>
@@ -1356,7 +880,6 @@
                 <div
                   class="cardmiddle"
                   ng-show="loader[0].pf_today_graph_mob == false &amp;&amp; error_flag[0].actionToday_graph_mob == 0 &amp;&amp; actionToday.error != 1"
-                  style=""
                 >
                   <div
                     class="cardgraph"
@@ -1378,291 +901,7 @@
                         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
                       "
                     >
-                      <svg
-                        version="1.1"
-                        class="highcharts-root"
-                        style="
-                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
-                            Arial, Helvetica, sans-serif;
-                          font-size: 12px;
-                        "
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="600"
-                        height="260"
-                        viewBox="0 0 600 260"
-                      >
-                        <desc>Created with Highstock 6.1.0</desc>
-                        <defs>
-                          <clipPath id="highcharts-1rl6spd-234">
-                            <rect
-                              x="0"
-                              y="0"
-                              width="550"
-                              height="210"
-                              fill="none"
-                            ></rect>
-                          </clipPath>
-                          <clipPath id="highcharts-1rl6spd-236">
-                            <rect
-                              x="0"
-                              y="0"
-                              width="550"
-                              height="210"
-                              fill="none"
-                            ></rect>
-                          </clipPath>
-                        </defs>
-                        <rect
-                          fill="#fff"
-                          class="highcharts-background"
-                          stroke="#fff"
-                          stroke-width="1"
-                          x="0.5"
-                          y="0.5"
-                          width="598"
-                          height="258"
-                          rx="0"
-                          ry="0"
-                        ></rect>
-                        <rect
-                          fill="none"
-                          class="highcharts-plot-background"
-                          x="40"
-                          y="25"
-                          width="550"
-                          height="210"
-                        ></rect>
-                        <g class="highcharts-pane-group"></g>
-                        <g class="highcharts-grid highcharts-xaxis-grid">
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 131.5 25 L 131.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 222.5 25 L 222.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 314.5 25 L 314.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 406.5 25 L 406.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 497.5 25 L 497.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 589.5 25 L 589.5 235"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 39.5 25 L 39.5 235"
-                            opacity="1"
-                          ></path>
-                        </g>
-                        <g class="highcharts-grid highcharts-yaxis-grid">
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 235.5 L 590 235.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 165.5 L 590 165.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 95.5 L 590 95.5"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-grid-line"
-                            d="M 40 25.5 L 590 25.5"
-                            opacity="1"
-                          ></path>
-                        </g>
-                        <rect
-                          fill="none"
-                          class="highcharts-plot-border"
-                          x="40"
-                          y="25"
-                          width="550"
-                          height="210"
-                        ></rect>
-                        <g class="highcharts-axis highcharts-xaxis">
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 131.5 225 L 131.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 222.5 225 L 222.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 314.5 225 L 314.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 406.5 225 L 406.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 497.5 225 L 497.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 590.5 225 L 590.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-tick"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 39.5 225 L 39.5 215"
-                            opacity="1"
-                          ></path>
-                          <path
-                            fill="none"
-                            class="highcharts-axis-line"
-                            stroke="#ccd6eb"
-                            stroke-width="1"
-                            d="M 40 225.5 L 590 225.5"
-                          ></path>
-                        </g>
-                        <g class="highcharts-axis highcharts-yaxis">
-                          <path
-                            fill="none"
-                            class="highcharts-axis-line"
-                            d="M 10 25 L 10 235"
-                          ></path>
-                        </g>
-                        <g class="highcharts-series-group">
-                          <g
-                            class="highcharts-series highcharts-series-0 highcharts-line-series highcharts-color-0"
-                            transform="translate(40,25) scale(1 1)"
-                            clip-path="url(#highcharts-1rl6spd-236)"
-                          >
-                            <path
-                              fill="#3FC499"
-                              d="M 45.833333333333 138.11987000000002 L 137.5 93.83640000000008 L 229.16666666667 17.176740000000052 L 320.83333333333 20.90333000000001 L 412.5 10.506860000000074 L 504.16666666667 47.77338999999992 L 504.16666666667 210 L 45.833333333333 210"
-                              stroke="#3FC499"
-                              stroke-width="2"
-                              stroke-linejoin="round"
-                              stroke-linecap="round"
-                            ></path>
-                            <path
-                              fill="none"
-                              d="M 35.833333333333 138.11987000000002 L 45.833333333333 138.11987000000002 L 137.5 93.83640000000008 L 229.16666666667 17.176740000000052 L 320.83333333333 20.90333000000001 L 412.5 10.506860000000074 L 504.16666666667 47.77338999999992 L 504.16666666667 210 L 45.833333333333 210 L 55.833333333333 210"
-                              stroke-linejoin="round"
-                              visibility="visible"
-                              stroke="rgba(192,192,192,0.002)"
-                              stroke-width="22"
-                              class="highcharts-tracker"
-                            ></path>
-                          </g>
-                          <g
-                            class="highcharts-markers highcharts-series-0 highcharts-line-series highcharts-color-0 highcharts-tracker"
-                            transform="translate(40,25) scale(1 1)"
-                          ></g>
-                        </g>
-                        <text
-                          x="300"
-                          text-anchor="middle"
-                          class="highcharts-subtitle"
-                          style="color: #666666; fill: #666666"
-                          y="24"
-                        ></text>
-                        <g class="highcharts-plot-lines-5">
-                          <path
-                            fill="none"
-                            stroke="#3FC499"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 36.5 L 590 36.5"
-                          ></path>
-                          <path
-                            fill="none"
-                            stroke="#DD7470"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 163.5 L 590 163.5"
-                          ></path>
-                          <path
-                            fill="none"
-                            stroke="#c0c1c2"
-                            stroke-width="1"
-                            stroke-dasharray="none"
-                            d="M 40 163.5 L 590 163.5"
-                          ></path>
-                        </g>
-                        <g
-                          class="highcharts-axis-labels highcharts-xaxis-labels"
-                        ></g>
-                        <g
-                          class="highcharts-axis-labels highcharts-yaxis-labels"
-                        ></g></svg
-                      ><span
-                        class="highcharts-title"
-                        style="
-                          font-family: 'Lucida Grande', 'Lucida Sans Unicode',
-                            Arial, Helvetica, sans-serif;
-                          font-size: 1em;
-                          position: absolute;
-                          white-space: nowrap;
-                          margin-left: 0px;
-                          margin-top: 0px;
-                          left: 293px;
-                          top: 3px;
-                          color: rgb(51, 51, 51);
-                        "
-                      ></span>
+                      graph
                     </div>
                   </div>
                   <div class="cardgraphright">
@@ -1843,70 +1082,77 @@
                 Today's Portfolio Summary
                 <span
                   class="card-title activator info-act"
-                  ng-click="isCollapseTodayHappen = !isCollapseTodayHappen"
+                  (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 ></span>
-                <!-- ngIf: loader[0].pf_today_summary == false && actionToday.graph!='' --><span
+                <span
                   id="dtSummary"
                   class="pricesummrytext02 ng-binding ng-scope"
                   ng-if="loader[0].pf_today_summary == false &amp;&amp; actionToday.graph!=''"
-                  style=""
-                ></span
-                ><!-- end ngIf: loader[0].pf_today_summary == false && actionToday.graph!='' -->
-                <!--<a href="javascript:void(0)" onclick="GetSummary();" class="ref-text"> <i class="fa fa-refresh refresh-text"></i> Refresh </a>-->
+                ></span>
               </h2>
             </div>
-            <!-- ngIf: loader[0].pf_today_summary == true -->
-            <!-- ngIf: loader[0].pf_today_summary == false && error_flag[0].actionToday_summary == 1  && actionToday.error != 1 -->
-            <!-- ngIf: loader[0].pf_today_summary == false && actionToday.error == 1 -->
 
-            <!-- ngIf: loader[0].pf_today_summary == false  && error_flag[0].actionToday_summary == 0 && actionToday.error == 0 -->
-            <div
-              class="qtrl-details list-mojo ng-scope"
-              ng-if="loader[0].pf_today_summary == false  &amp;&amp; error_flag[0].actionToday_summary == 0 &amp;&amp; actionToday.error == 0"
-            >
-              <!-- ngRepeat: news in todaySummary -->
-
-              <div
-                *ngFor="let item of data_summary"
-                [ngClass]="{
-                  'qtr-green': item.color === 'green',
-                  'qtr-red': item.color === 'red',
-                  'qtr-gray': item.color === 'gray'
-                }"
+            <ng-container *ngIf="data_summary; else loadingTemplateSummary">
+              <ng-container
+                *ngIf="data_summary.length > 0; else noDataTemplateSummary"
               >
-                >
-                <span
-                  [ngClass]="{
-                    green: item.color === 'green',
-                    red: item.color === 'red',
-                    gray: item.color === 'gray'
-                  }"
-                >
-                  ><b class="ng-binding">{{ item.header }} </b></span
-                >
-                :
+                <!-- Content to show if data exists -->
+                <div class="qtrl-details list-mojo ng-scope">
+                  <div
+                    *ngFor="let item of data_summary"
+                    [ngClass]="{
+                        'qtr-green': item.color === 'green',
+                        'qtr-red': item.color === 'red',
+                      }"
+                  >
+                    <span
+                      [ngClass]="{
+                          green: item.color === 'green',
+                          red: item.color === 'red',
+                        }"
+                    >
+                      <b class="ng-binding">{{ item.header }} </b></span
+                    >
+                    :
+                    <span
+                      class="ng-binding"
+                      [innerHTML]="this.fun.getSanitizedHtml(item.text)"
+                    ></span>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
 
-                <span
-                  class="ng-binding"
-                  [innerHTML]="this.fun.getSanitizedHtml(item.text)"
-                ></span>
-                >
+            <ng-template #loadingTemplateSummary>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
+                </div>
               </div>
+            </ng-template>
 
-              <!-- end ngRepeat: news in todaySummary -->
-            </div>
-            <!-- end ngIf: loader[0].pf_today_summary == false  && error_flag[0].actionToday_summary == 0 && actionToday.error == 0 -->
+            <ng-template #noDataTemplateSummary>
+              <!-- Content to show if no data found -->
+              <div class="alert alert-warning mar-empty ng-scope">
+                <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
+              </div>
+            </ng-template>
           </div>
 
           <!-- extend button -->
           <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseTodayHappen"
+            class="card-reveal animate-slide"
+            [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
           >
             <span class="card-title grey-text text-darken-4">
               Card Title<i
                 class="material-icons right"
-                ng-click="isCollapseTodayHappen = !isCollapseTodayHappen"
+                (click)="isCollapseTodayContri = !isCollapseTodayContri"
                 >close</i
               >
             </span>
@@ -1930,32 +1176,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-        <app-card [DATA]="data_contri" [HEAD]="'Today\'s Contributors'"   />
-
-        <!-- full details button -->
-        <div class="porbottomlink">
-          <div
-            class="bottom-card-links ng-scope"
-            ng-controller="ModalDemoCtrl as $ctrl"
-          >
-            <div class="bottom-card-links">
-              <a
-                ng-click="setActionTodayPopup('contri'); modalOpen('actionToday_popup', 1)"
-                href="javascript:void(0)"
-                class="seefull waves-effect waves-light modal-trigger"
-              >
-                <img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details
-              </a>
-            </div>
-          </div>
-        </div>
-
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [DATA]="data_contri"
+          [HEAD]="'Today\'s Contributors'"
+        />
       </section>
 
       <!-- today's drags -->
@@ -1964,29 +1191,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_drags" [HEAD]="' Today\'s Drags'" />
-
-        <div class="porbottomlink">
-          <div
-            class="bottom-card-links ng-scope"
-            ng-controller="ModalDemoCtrl as $ctrl"
-          >
-            <div class="bottom-card-links">
-              <a
-                ng-click="setActionTodayPopup('drags'); modalOpen('actionToday_popup', 1)"
-                href="javascript:void(0)"
-                class="seefull waves-effect waves-light modal-trigger"
-              >
-                <img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details
-              </a>
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="' Today\'s Drags'"
+          [DATA]="data_drags"
+        />
       </section>
 
       <!-- news -->
@@ -1995,112 +1206,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <div class="card" id="newspupup">
-          <div class="card-content">
-            <div class="card-head">
-              <h2>
-                News
-                <span
-                  class="card-title activator info-act"
-                  ng-click="isCollapseTodayNews = !isCollapseTodayNews"
-                ></span>
-              </h2>
-            </div>
-            <!-- ngIf: loader[0].pf_today_news == true -->
-            <!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 1 -->
-
-            <div class="news list-mojo">
-              <!-- ngRepeat: value in actionToday.news|orderBy:'-rawdate' --><!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 -->
-              <div
-                *ngFor="let item of data_news"
-                ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_news == 0"
-                class="ng-scope"
-              >
-                <!-- ngIf: value.imgurl=='' -->
-                <div class="news-item ng-scope" ng-if="value.imgurl == ''">
-                  <div class="news-cont-noimg">
-                    <div class="newshead">
-                      <a
-                        [href]="'/Stocks?StockId=' + item.sid + '&Exchange=0'"
-                        target="_blank"
-                        ><strong class="ng-binding">
-                          {{ item.sname }} :
-                        </strong></a
-                      >
-
-                      <a
-                        [href]="item.siteurl"
-                        target="_blank"
-                        class="ng-binding"
-                      >
-                        {{ item.title }}
-                      </a>
-                    </div>
-                    <div class="news-date ng-binding">
-                      {{ item.date }}
-                      <span class="ng-binding"> {{ item.domain }} </span>
-                    </div>
-                  </div>
-                </div>
-                <!-- end ngIf: value.imgurl=='' -->
-                <!-- ngIf: value.imgurl!='' -->
-              </div>
-
-              <!-- end ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_news == 0 --><!-- end ngRepeat: value in actionToday.news|orderBy:'-rawdate' -->
-            </div>
-          </div>
-          <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseTodayNews"
-          >
-            <span class="card-title grey-text text-darken-4">
-              Card Title<i
-                class="material-icons right"
-                ng-click="isCollapseTodayNews = !isCollapseTodayNews"
-                >close</i
-              >
-            </span>
-            <div class="card-reveal-text">
-              <ul>
-                <li>
-                  The card lists the latest news from across the web on your
-                  portfolio stocks
-                </li>
-                <li>Click on See More News for more news items</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                ng-click="modalOpen('actionToday_news', 0)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                See More News</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                ng-click="modalOpen('actionToday_news', 0)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                See More News</a
-              >
-            </div>
-          </div>
-        </div>
+        <app-news
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'News'"
+          [data_news]="data_news"
+        />
       </section>
 
       <!-- corporate action -->
@@ -2117,36 +1229,85 @@
                 Corporate Action
                 <span
                   class="card-title activator info-act"
-                  ng-click="isCollapseTodayCorp = !isCollapseTodayCorp"
+                  (click)="isCollapseCorpAction = !isCollapseCorpAction"
                 ></span>
               </h2>
             </div>
 
-            <!-- ngIf: loader[0].pf_today_corp == true -->
-            <!-- ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_corp == 1 -->
-            <div
-              *ngIf="data_contri && data_contri.length > 0"
-              class="alert alert-warning mar-empty ng-scope"
-              ng-if="loader[0].pf_today_news == false &amp;&amp; error_flag[0].actionToday_corp == 1"
+            <ng-container
+              *ngIf="data_corpact!; else loadingTemplateDataCorpact"
             >
-              <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
-            </div>
-            <!-- end ngIf: loader[0].pf_today_news == false && error_flag[0].actionToday_corp == 1 -->
+              <ng-container
+                *ngIf="data_corpact.length > 0; else noDataTemplateDataCorpact"
+              >
+                <!-- Content to show if data exists -->
+                <div class="news list-mojo">
+                  <div
+                    id="tabsCorporate"
+                    ng-if="loader[0].pf_today_corp == false &amp;&amp; error_flag[0].actionToday_corp == 0"
+                    class="ng-scope"
+                  >
+                    <div
+                      class="news news-scroll-new ng-scope"
+                      *ngFor="let item of data_corpact"
+                    >
+                      <div class="news-item">
+                        <div>
+                          <a
+                            [href]="
+                              'https://www.marketsmojo.com/Stocks?StockId=' +
+                              item.sid +
+                              '&Exchange=0'
+                            "
+                            target="_blank"
+                            ><strong class="ng-binding">
+                              {{ item.sname }} -
+                            </strong></a
+                          >
+                          <span class="ng-binding">
+                            Upcoming {{ item.txt }}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
 
-            <div class="news list-mojo">
-              <!-- ngIf: loader[0].pf_today_corp == false && error_flag[0].actionToday_corp == 0 -->
-            </div>
+            <ng-template #loadingTemplateDataCorpact>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
+                </div>
+              </div>
+            </ng-template>
+
+            <ng-template #noDataTemplateDataCorpact>
+              <!-- Content to show if no data found -->
+              <div class="alert alert-warning mar-empty ng-scope">
+                <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
+              </div>
+            </ng-template>
           </div>
 
           <!-- vertical slider -->
           <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseTodayCorp"
+            class="card-reveal animate-slide"
+            [ngClass]="{
+              'ng-hide ng-animate ng-hide-animate ng-hide-add ':
+                isCollapseCorpAction
+            }"
           >
             <span class="card-title grey-text text-darken-4">
               Card Title<i
                 class="material-icons right"
-                ng-click="isCollapseTodayCorp = !isCollapseTodayCorp"
+                (click)="isCollapseCorpAction = !isCollapseCorpAction"
                 >close</i
               >
             </span>
@@ -2163,255 +1324,19 @@
         </div>
       </section>
 
-      <!-- Total Gainers brakup  -->
+      <!-- Today gain brakup mcap  -->
       <section
-        style=""
-        class="swiper-slide small-card marginright"
+        class="swiper-slide small-card marginright swiper-slide-visible"
         data-scrolled="0"
         data-visited="0"
       >
-        <div class="card">
-          <div class="card-content breakupcard">
-
-            <!-- head -->
-            <div class="card-head">
-              <h2>
-                <div>
-                  Today's gain breakup by Market Cap
-                  <span
-                    class="card-title activator info-act"
-                    ng-click="isCollapseTodayBreak = !isCollapseTodayBreak"
-                  ></span>
-                </div>
-              </h2>
-            </div>
-
-            <!--  -->
-            <!-- ngIf: loader[0].pf_today_mcap == true -->
-            <div class="pf-rtn-breakup">
-              <div class="pf-by-m-cap-sec pf-by-margin">
-                <div class="pf-undr-txt txt-cr pf-by-margin pf-by-margin02">
-                  <h6
-                    ng-class="getDirClrDefault(actionToday.mcap.large.labeldir)"
-                    class="ng-binding red"
-                    style=""
-                  >
-                    Underperformed
-                  </h6>
-                </div>
-                <table class="pftbl-lt">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="pf-txt-1"><span>Large Caps</span></div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(actionToday.mcap.large.gaindir)
-                          "
-                          class="ng-binding pf-txt-2 red"
-                          style=""
-                        >
-                          Rs.-102(-0.09%)
-                        </div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-3">V/S</div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-1">Sensex</div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(
-                              actionToday.mcap.large.idxpdir,
-                              'orange'
-                            )
-                          "
-                          class="ng-binding pf-txt-2 green"
-                          style=""
-                        >
-                          (0.44%)
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="pf-by-m-cap-sec pf-by-margin">
-                <div class="pf-undr-txt txt-cr pf-by-margin">
-                  <h6
-                    ng-class="getDirClrDefault(actionToday.mcap.mid.labeldir)"
-                    class="ng-binding green"
-                    style=""
-                  >
-                    Outperformed
-                  </h6>
-                </div>
-                <table class="pftbl-lt">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="pf-txt-1"><span>Mid Caps</span></div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(actionToday.mcap.mid.gaindir)
-                          "
-                          class="ng-binding pf-txt-2 green"
-                          style=""
-                        >
-                          Rs.247(0.93%)
-                        </div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-3">V/S</div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-1">BSE Midcap</div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(
-                              actionToday.mcap.mid.idxpdir,
-                              'orange'
-                            )
-                          "
-                          class="ng-binding pf-txt-2 green"
-                          style=""
-                        >
-                          (0.53%)
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="pf-by-m-cap-sec pf-by-margin">
-                <div class="pf-undr-txt txt-cr pf-by-margin">
-                  <h6
-                    ng-class="
-                      getDirClrDefault(actionToday.mcap.smallmicro.labeldir)
-                    "
-                    class="ng-binding red"
-                    style=""
-                  >
-                    Underperformed
-                  </h6>
-                </div>
-                <table class="pftbl-lt">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="pf-txt-1">
-                          <span>Small / Micro Caps</span>
-                        </div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(
-                              actionToday.mcap.smallmicro.gaindir
-                            )
-                          "
-                          class="ng-binding pf-txt-2 red"
-                          style=""
-                        >
-                          Rs.-4,393(-4.62%)
-                        </div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-3">V/S</div>
-                      </td>
-                      <td>
-                        <div class="pf-txt-1">BSE Smallcap</div>
-                        <div
-                          ng-class="
-                            'pf-txt-2 ' +
-                            getDirClrDefault(
-                              actionToday.mcap.smallmicro.idxpdir,
-                              'orange'
-                            )
-                          "
-                          class="ng-binding pf-txt-2 green"
-                          style=""
-                        >
-                          (1.53%)
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseTodayBreak"
-          >
-            <span class="card-title grey-text text-darken-4">
-              Card Title<i
-                class="material-icons right"
-                ng-click="isCollapseTodayBreak = !isCollapseTodayBreak"
-                >close</i
-              >
-            </span>
-            <div class="card-reveal-text">
-              <ul>
-                <li>
-                  Your portfolio stocks are grouped as per their market cap
-                  categories and the performance of the group is compared with
-                  its market index
-                </li>
-                <li>
-                  Returns include effect of buys/sell transactions during the
-                  day
-                </li>
-                <li>
-                  It helps to identify which part of your portfolio is pulling
-                  and dragging your portfolio today
-                </li>
-                <li>
-                  Click on All Stocks to see breakup of the information on the
-                  card
-                </li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- full details -->
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                href="javascript:void(0)"
-                ng-click="getDiversMcap();modalOpen('divrse_sector_pop_today', 0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                href="javascript:void(0)"
-                ng-click="getDiversMcap();modalOpen('divrse_sector_pop_today', 0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
-
+        <app-mcap-breakup
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'Today\'s gain breakup by Market Cap '"
+          [data_mcap]="data_mcap"
+        />
       </section>
 
       <!-- gainers -->
@@ -2420,29 +1345,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_gainers" [HEAD]="' Today\'s Gainers'" />
-
-        <div class="porbottomlink">
-          <div
-            class="bottom-card-links ng-scope"
-            ng-controller="ModalDemoCtrl as $ctrl"
-          >
-            <div class="bottom-card-links">
-              <a
-                ng-click="setActionTodayPopup('gainers'); modalOpen('actionToday_popup', 1)"
-                href="javascript:void(0)"
-                class="seefull waves-effect waves-light modal-trigger"
-              >
-                <img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details
-              </a>
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [DATA]="data_gainers"
+          [HEAD]="' Today\'s Gainers'"
+        />
       </section>
 
       <!-- losers -->
@@ -2451,32 +1360,14 @@
         id="sectToday_losers"
         class="swiper-slide small-card marginright"
       >
-
-        <app-card [DATA]="data_losers" [HEAD]="' Today\'s Losers'" />
-
-        <div class="porbottomlink">
-          <div
-            class="bottom-card-links ng-scope"
-            ng-controller="ModalDemoCtrl as $ctrl"
-          >
-            <div class="bottom-card-links">
-              <a
-                ng-click="setActionTodayPopup('losers'); modalOpen('actionToday_popup', 1)"
-                href="javascript:void(0)"
-                class="seefull waves-effect waves-light modal-trigger"
-              >
-                <img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details
-              </a>
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [DATA]="data_losers"
+          [HEAD]="' Today\'s Losers'"
+        />
       </section>
-
     </div>
     <!-- <div class="swiper-scrollbar"></div> -->
     <div class="swiper-button-next" style="margin-top: 0px">

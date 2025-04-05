@@ -1,0 +1,84 @@
+<div
+  class="slide-card cf ng-scope"
+  id="MenusectFintrend"
+  ng-if="other_card_visibile"
+>
+  <div class="swiper-container swiper-6 swiper-container-horizontal">
+    <div class="section-head cf">
+      <h3>Financial Trend</h3>
+    </div>
+    <div class="SectionDetails">
+      <span class="txt-sml no-tab"></span>
+      <div
+        class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
+      >
+        <span
+          class="swiper-pagination-bullet swiper-pagination-bullet-active"
+        ></span
+        ><span class="swiper-pagination-bullet"></span
+        ><span class="swiper-pagination-bullet"></span>
+      </div>
+    </div>
+    <div
+      class="swiper-wrapper reco-slide"
+      id="sectFintrend"
+      sect-reveal="true"
+      style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px)"
+    >
+      <!-- scorecard -->
+      <section
+        data-reveal="true"
+        id="sectFintrend_scorecard"
+        class="swiper-slide small-card marginright swiper-slide-visible swiper-slide-active"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-scorecard
+          [DATA]="score"
+          [HEAD]="'Financial'"
+          [SHOW_BUTTON]="false"
+        />
+      </section>
+
+      <!-- summary -->
+      <section
+        id="sectFintrend_summary"
+        class="swiper-slide padnno-sec marginright swiper-slide-visible swiper-slide-next"
+        data-scrolled="0"
+        data-visited="0"
+      >
+          <app-summary [DATA]="DATA_qvfl" [HEAD]="'Financial'" />
+      </section>
+
+      <!-- table -->
+      <section
+        id="sectFintrend_details"
+        class="swiper-slide padnno-sec marginright swiper-slide-visible"
+        data-scrolled="0"
+        data-visited="0"
+      >
+        <app-fin-trend-details
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'Quality Details'"
+          [DATA_holding]="DATA_holding"
+        />
+      </section>
+    </div>
+    <div class="swiper-scrollbar"></div>
+    <div class="swiper-button-next" style="margin-top: 0px">
+      <a class="btn-floating btn-large waves-effect waves-light black">
+        <i class="material-icons large">skip_next</i>
+      </a>
+    </div>
+    <div
+      class="swiper-button-prev swiper-button-disabled"
+      style="margin-top: 0px"
+    >
+      <a class="btn-floating btn-large waves-effect waves-light black">
+        <i class="material-icons large">skip_previous</i>
+      </a>
+    </div>
+  </div>
+</div>

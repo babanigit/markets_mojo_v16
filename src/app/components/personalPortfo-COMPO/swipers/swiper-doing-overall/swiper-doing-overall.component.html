@@ -31,7 +31,7 @@
       sect-reveal="true"
       style="transform: translate3d(-783px, 0px, 0px); transition-duration: 0ms"
     >
-      <!-- overall porfolio analysis -->
+      <!-- not this -->
       <section
         data-reveal="true"
         id="sectOverall_analysis"
@@ -39,13 +39,15 @@
         data-scrolled="0"
         data-visited="0"
       >
-
-      <app-overall-portfolio-analysis [DATA]="main_data" [HEAD]="'Overall portfolio analysis'" />
+        <!-- <app-overall-portfolio-analysis
+          [DATA]="main_data"
+          [HEAD]="'Overall portfolio analysis'"
+        /> -->
 
         <div class="card">
           <div class="card-content">
             <div class="card-head">
-              <h2>Overall portfolio analysis</h2>
+              <h2>Overall portfolio analysis hello</h2>
             </div>
             <!-- ngIf: loader[0].pf_overall_analysis == true -->
             <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 1 -->
@@ -57,8 +59,6 @@
               style=""
             >
               <div class="row">
-
-
                 <div
                   class="pf-box col-md-12"
                   ng-click="other_section_visible('MenusectReturn')"
@@ -167,9 +167,6 @@
                     >
                   </div>
                 </div>
-
-
-
               </div>
             </div>
             <!-- end ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
@@ -177,7 +174,7 @@
         </div>
       </section>
 
-      <!-- heros of mm -->
+      <!-- Overall portfolio analysis-->
       <section
         data-reveal="true"
         id="sectOverall_analysis"
@@ -185,315 +182,14 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <div id="returnsOverview" class="card">
-          <div class="card-content">
-            <div class="card-head">
-              <h2>
-                Overall portfolio analysis
-                <span
-                  class="card-title activator info-act"
-                  ng-click="isCollapseOverallAnalysis = !isCollapseOverallAnalysis"
-                ></span>
-              </h2>
-            </div>
-            <!-- ngIf: loader[0].pf_overall_analysis == true -->
-            <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 1 -->
-
-            <!-- ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
-            <div
-              class="card-body ng-scope"
-              ng-if="loader[0].pf_overall_analysis == false &amp;&amp; error_flag[0].overall_analysis == 0"
-              style=""
-            >
-              <div class="pf-overall-boxs">
-                <div class="pf-box-set">
-                  <div
-                    class="pf-box red-bx"
-                    ng-click="other_section_visible('MenusectReturn')"
-                  >
-                    <a
-                      class="pf-bx-a"
-                      href="javascript:void(0)"
-                      onclick="javascript:jumpToSectionV2('#navReturns')"
-                    >
-                      <div class="pf-box-hed">RETURNS</div>
-                      <small style="color: black"
-                        ><i class="ng-binding">26 Dec 2016</i></small
-                      >
-                      <div class="pf-box-txt1 red">60.68%</div>
-                      <div class="pf-box-txt2 ng-binding">
-                        Underperformed Composite Index by -13.77%
-                      </div>
-                      <div class="pf-box-txt4 ng-binding">
-                        Composite Index Returns 74.45%
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="pf-box red-bx"
-                    ng-click="other_section_visible('MenusectRisk')"
-                  >
-                    <a
-                      class="pf-bx-a"
-                      href="javascript:void(0)"
-                      onclick="javascript:jumpToSectionV2('#navRisk')"
-                    >
-                      <div class="pf-box-hed">RISK</div>
-                      <div class="pf-box-txt1 red">High Risk</div>
-                      <div class="pf-box-txt2 ng-binding">
-                        High Beta (adjusted) of 1.45 with sensex
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="pf-box green-bx"
-                    ng-click="other_section_visible('MenusectLiq')"
-                  >
-                    <a
-                      class="pf-bx-a"
-                      href="javascript:void(0)"
-                      onclick="javascript:jumpToSectionV2('#navLiquidity')"
-                    >
-                      <div class="pf-box-hed">LIQUIDITY</div>
-                      <div class="pf-box-txt1 green">No Liquidity Issues</div>
-                      <div class="pf-box-txt2 ng-binding">
-                        None of your portfolio stocks seem to have liquidity
-                        issues
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="pf-box red-bx"
-                    ng-click="other_section_visible('MenusectDiverse')"
-                  >
-                    <a
-                      class="pf-bx-a"
-                      href="javascript:void(0)"
-                      onclick="javascript:jumpToSectionV2('#navDiversification')"
-                    >
-                      <div class="pf-box-hed">DIVERSIFICATION</div>
-                      <div class="pf-box-txt1 red">Highly Concentrated</div>
-                      <div class="pf-box-txt2"></div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="pf-overall-boxs2">
-                <div class="pf-box-set">
-                  <div
-                    class="pf-box red-bx"
-                    ng-click="other_section_visible('MenusectQuality')"
-                  >
-                    <a
-                      class="pf-bx-a"
-                      href="javascript:void(0)"
-                      onclick="javascript:jumpToSectionV2('#navQuality')"
-                    >
-                      <div class="pf-box-hed">QUALITY</div>
-                      <div
-                        class="pf-box-txt2 ng-binding"
-                        ng-bind-html="overall.quality.text"
-                      >
-                        <strong class="red">60.0%</strong> of your portfolio has
-                        Average or Below Average Quality
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="pf-box red-bx"
-                    ng-click="other_section_visible('MenusectValuation')"
-                  >
-                    <a
-                      class="pf-bx-a"
-                      href="javascript:void(0)"
-                      onclick="javascript:jumpToSectionV2('#navValuation')"
-                    >
-                      <div class="pf-box-hed">VALUATION</div>
-                      <div
-                        class="pf-box-txt2 ng-binding"
-                        ng-bind-html="overall.valuation.text"
-                      >
-                        <strong class="red">58.0%</strong> of your portfolio has
-                        Expensive or worse Valuation
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="pf-box yellow-bx"
-                    ng-click="other_section_visible('MenusectFintrend')"
-                  >
-                    <a
-                      class="pf-bx-a"
-                      href="javascript:void(0)"
-                      onclick="javascript:jumpToSectionV2('#navFinancialTrend')"
-                    >
-                      <div class="pf-box-hed">FINANCIAL TREND</div>
-                      <div
-                        class="pf-box-txt2 ng-binding"
-                        ng-bind-html="overall.fin_trend.text"
-                      >
-                        <strong class="yellow">64.0%</strong> of your portfolio
-                        has Positive or better Financial Trend
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end ngIf: loader[0].pf_overall_analysis == false && error_flag[0].overall_analysis == 0 -->
-          </div>
-          <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseOverallAnalysis"
-          >
-            <span class="card-title grey-text text-darken-4">
-              Card Title<i
-                class="material-icons right"
-                ng-click="isCollapseOverallAnalysis = !isCollapseOverallAnalysis"
-                >close</i
-              >
-            </span>
-            <div class="card-reveal-text">
-              <p>7 Dot Portfolio Analysis</p>
-              <ul>
-                <li>
-                  <b>Returns</b>
-                  <ul>
-                    <li>
-                      Your portfolio returns since you created your portfolio
-                      are compared to returns generated by your composite index
-                      during the same period
-                    </li>
-                    <li>
-                      Colour of the dot is dependent on the relative performance
-                      of your portfolio and composite index
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b>Risk</b>
-                  <ul>
-                    <li>
-                      Your portfolio volatility (standard deviation) since you
-                      created your portfolio is compared to volatility of your
-                      composite index during the same period
-                    </li>
-                    <li>
-                      Colour of the dot is dependent on the relative performance
-                      of your portfolio and composite index
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b> Liquidity</b>
-                  <ul>
-                    <li>
-                      Proportion of your portfolio that may consist of stocks
-                      with liquidity issue
-                    </li>
-                    <li>
-                      Liquidity issue may be if
-                      <ul>
-                        <li>
-                          Quantity held is more than 2% of the stock’s 5-day
-                          average volume or,
-                        </li>
-                        <li>
-                          Quantity held is more than 5% of the stock’s 5-day
-                          average delivery volume or,
-                        </li>
-                        <li>
-                          Stocks that may take more than 1 day to liquidate
-                          (basis 2% of 5-day average volume) or,
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      While selling stocks with liquidity issues, you may face
-                      longer time or you may not get exit at your desired price
-                      Diversification
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b>Diversification</b>
-                  <ul>
-                    <li>
-                      Diversification is assessed basis the construct of your
-                      portfolio
-                    </li>
-                    <li>
-                      We not only look at the number of stocks but also your
-                      allocation to Sectors, Market Caps and holdings
-                    </li>
-                    <li>
-                      We exclude tail stocks while studying number of stocks;
-                      tail stocks are the ones with less than 1% allocation in
-                      portfolio
-                    </li>
-                    <li>We penalize under as well as over diversification</li>
-                  </ul>
-                </li>
-                <li>
-                  <b> Quality</b>
-                  <ul>
-                    <li>
-                      Construct of your portfolio and Quality of your portfolio
-                      stocks as per Markets Mojo’s Quality assessment module
-                    </li>
-                    <li>
-                      Quality signifies long term financial performance of a
-                      company vis-à-vis its competitors in the industry. We
-                      believe high quality companies with consistent record of
-                      financial performance will reward investors in the long
-                      run.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b>Valuation</b>
-                  <ul>
-                    <li>
-                      Construct of your portfolio and Valuation of your
-                      portfolio stocks as per Markets Mojo’s Valuation
-                      assessment module
-                    </li>
-                    <li>
-                      Valuation refers to attractiveness of the company at its
-                      current stock price by looking at its past financial
-                      performance and valuation matrices. We believe valuation
-                      helps the investor to estimate the timing of entry and
-                      exit in stocks.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b>Financial Trend</b>
-                  <ul>
-                    <li>
-                      Construct of your portfolio and Financial Trend of your
-                      portfolio stocks as per Markets Mojo’s Financial Trend
-                      assessment module
-                    </li>
-                    <li>
-                      Financial trend analyses result of the company in the
-                      recent quarters. We believe companies which have been
-                      trending higher on financial trend in the latest periods
-                      have potential to generate returns in the short term.
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <p><em>Colour Significance</em></p>
-              <p><em>Green: Portfolio has done well in this area</em></p>
-              <p><em>Yellow: Portfolio needs improvement in this area</em></p>
-              <p><em>Red: Portfolio has done badly in this area</em></p>
-            </div>
-          </div>
-        </div>
+        <app-overall-portfolio-analysis
+          [DATA]="main_data"
+          [HEAD]="'Overall portfolio analysis hello'"
+          (send_element)="recieveElemment($event)"
+        />
       </section>
 
-      <!-- -->
+      <!-- heros -->
       <section
         ng-if="!block_clmm_content"
         class="swiper-slide small-card marginright ng-scope swiper-slide-visible"
@@ -521,7 +217,6 @@
         </div>
       </section>
 
-      <!-- end ngIf: !block_clmm_content -->
       <script>
         function getStarted(url) {
           ga("send", "event", "Banners", "click", "Screener_Withrates");
@@ -545,114 +240,154 @@
                 Portfolio Profile
                 <span
                   class="card-title activator info-act"
-                  ng-click="isCollapseOverallProfile = !isCollapseOverallProfile"
+                  (click)="isCollapsePP = !isCollapsePP"
                 ></span>
               </h2>
             </div>
 
             <!-- body -->
-            <div
-              class="card-body"
-              ng-if="loader[0].pf_overall_profile == false &amp;&amp; error_flag[0].overall_profile == 0"
-              style=""
-            >
-              <div class="pf-profile-sec1">
-                <div>
-                  <div class="pf-profile-txt1">Portfolio Value</div>
-                  <div class="pf-profile-txt2 ng-binding">
-                    {{ main_data.lval | roundOff | twoCommas }}
-                  </div>
-                </div>
-                <div>
-                  <div class="pf-profile-txt1">Total Returns(%)</div>
-                  <div
-                    [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
-                    class="ng-binding pf-profile-txt2"
-                  >
-                    {{ main_data.tret | roundOff | twoCommas }}
-                  </div>
-                  <!-- ngIf: overall.tretp != "" -->
-                  <div
-                    [ngClass]="getDirClrDefault(main_data.tretdir, 'orange')"
-                    class="ng-binding ng-scope pf-profile-txt3"
-                  >
-                    ({{ main_data.tretp | roundOff | twoCommas }}%)
-                  </div>
-                  <!-- end ngIf: overall.tretp != "" -->
-                </div>
-              </div>
+            <ng-container *ngIf="main_data!; else loadingTemplate">
+              <!-- Content to show if data exists -->
 
-              <div class="pf-profile-sec2">
-                <div>
-                  <div class="pf-profile-txt2 ng-binding">{{ main_data.tstock | roundOff | twoCommas }}</div>
-                  <div class="pf-profile-txt3C">Stocks</div>
-                </div>
-                <div>
-                  <div class="pf-profile-txt2 ng-binding">{{ main_data.tsector | roundOff | twoCommas }}</div>
-                  <div class="pf-profile-txt3C">Sectors</div>
-                </div>
-                <div>
-                  <div class="pf-profile-txt2 ng-binding">
-                    {{ main_data.tailcnt | roundOff | twoCommas }}
-                    <small class="ng-binding">({{ main_data.tailpwt | roundOff | twoCommas }}%)</small>
+              <div class="card-body">
+                <div class="pf-profile-sec1">
+                  <div>
+                    <div class="pf-profile-txt1">Portfolio Value</div>
+                    <div class="pf-profile-txt2 ng-binding">
+                      {{ main_data.lval | roundOff | twoCommas }}
+                    </div>
                   </div>
-                  <div class="pf-profile-txt3C">Tail Stock</div>
-                </div>
-              </div>
-              <div class="pf-profile-sec3">
-                <div>
-                  <div class="pf-profile-txt4">Highest Stock Holding</div>
-                  <div class="pf-profile-txt2">
-                    <a
-                      target="_blank"
-                      class="ng-binding"
-                      [href]="'/Stocks?StockId=' + main_data?.histock?.sid + '&Exchange=0'"
-                      >{{ main_data?.histock?.name }}</a
+                  <div>
+                    <div class="pf-profile-txt1">Total Returns(%)</div>
+                    <div
+                      [ngClass]="main_data.tretdir | dirClrDefault : 'orange'"
+                      class="ng-binding pf-profile-txt2"
                     >
-                    <!-- ngIf: overall.histock.pwt != "" --><span
+                      {{ main_data.tret | roundOff | twoCommas }}
+                    </div>
+                    <!-- ngIf: overall.tretp != "" -->
+                    <div
+                      [ngClass]="main_data.tretdir | dirClrDefault : 'orange'"
+                      class="ng-binding ng-scope pf-profile-txt3"
+                    >
+                      ({{ main_data.tretp | roundOff | twoCommas }}%)
+                    </div>
+                    <!-- end ngIf: overall.tretp != "" -->
+                  </div>
+                </div>
 
-                      class="ng-binding ng-scope"
-                      >( {{ main_data?.histock?.pwt | roundOff | twoCommas }}%)</span
-                    ><!-- end ngIf: overall.histock.pwt != "" -->
+                <div class="pf-profile-sec2">
+                  <div>
+                    <div class="pf-profile-txt2 ng-binding">
+                      {{ main_data.tstock | roundOff | twoCommas }}
+                    </div>
+                    <div class="pf-profile-txt3C">Stocks</div>
+                  </div>
+                  <div>
+                    <div class="pf-profile-txt2 ng-binding">
+                      {{ main_data.tsector | roundOff | twoCommas }}
+                    </div>
+                    <div class="pf-profile-txt3C">Sectors</div>
+                  </div>
+                  <div>
+                    <div class="pf-profile-txt2 ng-binding">
+                      {{ main_data.tailcnt | roundOff | twoCommas }}
+                      <small class="ng-binding"
+                        >({{
+                          main_data.tailpwt | roundOff | twoCommas
+                        }}%)</small
+                      >
+                    </div>
+                    <div class="pf-profile-txt3C">Tail Stock</div>
+                  </div>
+                </div>
+                <div class="pf-profile-sec3">
+                  <div>
+                    <div class="pf-profile-txt4">Highest Stock Holding</div>
+                    <div class="pf-profile-txt2">
+                      <a
+                        target="_blank"
+                        class="ng-binding"
+                        [href]="
+                          'https://www.marketsmojo.com/Stocks?StockId=' +
+                          main_data.histock.sid +
+                          '&Exchange=0'
+                        "
+                        >{{ main_data.histock.name }}</a
+                      >
+                      <!-- ngIf: overall.histock.pwt != "" --><span
+                        class="ng-binding ng-scope"
+                        >(
+                        {{
+                          main_data.histock.pwt | roundOff | twoCommas
+                        }}%)</span
+                      ><!-- end ngIf: overall.histock.pwt != "" -->
+                    </div>
+                  </div>
+                </div>
+                <div class="pf-profile-sec3">
+                  <div class="pf-profile-txt4">Highest Sector Allocation</div>
+                  <div class="pf-profile-txt2 ng-binding">
+                    {{ main_data.hisect }} ({{
+                      main_data.hisectpwt | roundOff | twoCommas
+                    }}%)
+                  </div>
+                </div>
+
+                <div class="pf-profile-sec3">
+                  <div class="pf-profile-txt4">
+                    Highest Market Cap Allocation
+                  </div>
+                  <div class="pf-profile-txt2 ng-binding">
+                    {{ main_data.himcap }} ({{
+                      main_data.himcappwt | roundOff | twoCommas
+                    }}%)
+                  </div>
+                </div>
+                <div class="pf-profile-sec4">
+                  <div>
+                    <div class="pf-profile-txt1">Portfolio Construct</div>
+                    <div
+                      [ngClass]="main_data.diversified.color"
+                      class="pf-profile-txt2"
+                    >
+                      {{ main_data.diversified.text }}
+                    </div>
+                  </div>
+                  <div>
+                    <div class="pf-profile-txt1">Inception Date</div>
+                    <div class="pf-profile-txt2">
+                      <i class="ng-binding">{{ main_data.incepdt }}</i>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="pf-profile-sec3">
-                <div class="pf-profile-txt4">Highest Sector Allocation</div>
-                <div class="pf-profile-txt2 ng-binding">
-                  {{main_data.hisect}} ({{ main_data.hisectpwt | roundOff | twoCommas }}%)
-                </div>
-              </div>
+            </ng-container>
 
-              <div class="pf-profile-sec3">
-                <div class="pf-profile-txt4">Highest Market Cap Allocation</div>
-                <div class="pf-profile-txt2 ng-binding">{{main_data.himcap}} ({{ main_data.himcappwt | roundOff | twoCommas }}%)</div>
-              </div>
-              <div class="pf-profile-sec4">
-                <div>
-                  <div class="pf-profile-txt1">Portfolio Construct</div>
-                  <div
-                  [ngClass]="main_data?.diversified?.color"
-                  class="pf-profile-txt2 "> {{main_data?.diversified?.text}} </div>
-                </div>
-                <div>
-                  <div class="pf-profile-txt1">Inception Date</div>
-                  <div class="pf-profile-txt2">
-                    <i class="ng-binding">{{main_data.incepdt}}</i>
-                  </div>
+            <ng-template #loadingTemplate>
+              <!-- Content to show while loading -->
+              <div>
+                <div id="loading" class="ng-scope">
+                  <img
+                    id="loading-image"
+                    src="https://i.marketsmojo.com/loading.gif"
+                    alt="Loading..."
+                  />
                 </div>
               </div>
-            </div>
-            <!-- end ngIf: loader[0].pf_overall_profile == false && error_flag[0].overall_profile == 0 -->
+            </ng-template>
           </div>
+
+          <!-- expand -->
           <div
-            class="card-reveal animate-slide ng-hide"
-            ng-show="isCollapseOverallProfile"
+            *ngIf="SHOW_BUTTON"
+            class="card-reveal animate-slide"
+            [ngClass]="{ 'ng-hide': isCollapsePP }"
           >
             <span class="card-title grey-text text-darken-4">
               Card Title<i
                 class="material-icons right"
-                ng-click="isCollapseOverallProfile = !isCollapseOverallProfile"
+                (click)="isCollapsePP = !isCollapsePP"
                 >close</i
               >
             </span>
@@ -686,44 +421,17 @@
 
       <!--  Overall Contributors -->
       <section
-        data-reveal="true"
-        id="sectOverall_contri"
         class="swiper-slide small-card marginright"
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_contri" [HEAD]="'Overall Contributors'" />
-
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                ng-click="setOverallPopup('contri');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                ng-click="setOverallPopup('contri');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [HEAD]="'Overall Contributors'"
+          [DATA]="data_contri"
+        />
       </section>
 
       <!--  Overall Drags -->
@@ -734,38 +442,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_drags" [HEAD]="'Overall Drags'" />
-
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                ng-click="setOverallPopup('drags');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                ng-click="setOverallPopup('drags');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [DATA]="data_drags"
+          [HEAD]="'Overall Drags'"
+        />
       </section>
 
       <!-- Overall Gainers -->
@@ -776,38 +459,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_gainers" [HEAD]="'Overall Gainers'" />
-
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                ng-click="setOverallPopup('gainers');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                ng-click="setOverallPopup('gainers');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [DATA]="data_gainers"
+          [HEAD]="'Overall Gainers'"
+        />
       </section>
 
       <!--  Overall Losers -->
@@ -818,38 +476,13 @@
         data-scrolled="0"
         data-visited="0"
       >
-        <app-card [DATA]="data_losers" [HEAD]="'Overall Losers'" />
-
-        <div class="porbottomlink">
-          <div class="bottom-card-links">
-            <div class="bottom-card-links no-web">
-              <a
-                class="seefull waves-light modal-trigger"
-                ng-click="setOverallPopup('losers');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-            <div class="bottom-card-links no-mob">
-              <a
-                class="seefull waves-light"
-                ng-click="setOverallPopup('losers');modalOpen('overall_popup', 1)"
-                href="javascript:void(0)"
-                ><img
-                  src="https://i.marketsmojo.com/arrow_rt.png"
-                  alt="ArrowRight"
-                  height="16"
-                />
-                Full Details</a
-              >
-            </div>
-          </div>
-        </div>
+        <app-card
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [DATA]="data_losers"
+          [HEAD]="'Overall Losers'"
+        />
       </section>
 
       <!--//////section end//////////-->

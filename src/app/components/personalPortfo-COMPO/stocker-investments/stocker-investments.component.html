@@ -1,7 +1,175 @@
+<!-- model -->
+<app-model-open *ngIf="click_state">
+  <a
+    (click)="click_state = !click_state"
+    class="modal-action modal-close close-blk no-mob"
+    ng-click="modalClose('actionToday_popup')"
+    href="javascript:void(0)"
+    ><i class="fa fa-times"></i
+  ></a>
+  <div class="close-mob">
+    <a
+      (click)="click_state = !click_state"
+      href="javascript:void(0)"
+      ng-click="modalClose('actionToday_popup')"
+      class="modal-action modal-close"
+      ><i class="fa fa-times"></i
+    ></a>
+  </div>
+  <div class="mod-cont cf">
+    <div class="modal-secnd">
+      <div class="model-head cf">
+        <div class="comp-name ng-binding">{{ getHead }}</div>
+
+        <!-- tax history select options -->
+        <ng-container *ngIf="getHead == 'Tax History'">
+          <select
+            class="select ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"
+            ng-model="hist_year"
+            ng-show="loader[0].pf_tax_hist_pop == false"
+          >
+            <ng-container *ngIf="taxHistory_data">
+              <option
+                *ngFor="
+                  let item of taxHistory_data.total
+                    | keyvalue
+                    | orderObjectBy : 'fy'
+                "
+                class="optionbg ng-binding ng-scope"
+                (click)="sendClick(item.key)"
+              >
+                FY {{ item.key }}
+              </option>
+            </ng-container>
+          </select>
+        </ng-container>
+      </div>
+
+      <div
+        class="modal-content contentbg ng-scope"
+        ng-if="loader[0].pf_today_popup == false"
+      >
+        <!-- for tax history -->
+        <ng-container *ngIf="getHead == 'Tax History'">
+          <div class="modal-content contentbg list-mojo ng-scope">
+            <div *ngIf="!taxHistory_data.list[year]" class="ng-scope">
+              <div class="alert alert-warning mar-empty">
+                <h4>No Stocks sold during this year</h4>
+              </div>
+            </div>
+
+            <table
+              *ngIf="taxHistory_data.list[year]"
+              class="table1 ng-scope"
+              ng-if="taxHistory1[hist_year].status == 1"
+            >
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Date</th>
+                  <th class="no-mob no-tab no-tab2">Quantity sold</th>
+                  <th class="no-mob no-tab no-tab2">Realized Gain/Loss</th>
+                  <th>Short Term Tax</th>
+                  <th>LT Tax</th>
+                  <!--<th class="no-mob no-tab no-tab2">Total Tax</th>-->
+                </tr>
+              </thead>
+              <tbody *ngIf="taxHistory_data">
+                <tr
+                  *ngFor="
+                    let sector of taxHistory_data.list[year] | unique : 'sid'
+                  "
+                  ng-repeat="(key,value) in taxHistoryPop.list[hist_year]"
+                  class="ng-scope"
+                >
+                  <td>
+                    <div>
+                      <a
+                        target="_blank"
+                        class="ng-binding"
+                        [href]="
+                          'https://www.marketsmojo.com/Stocks?StockId=' +
+                          sector.dotsum.sid +
+                          '&Exchange=0'
+                        "
+                        >{{ sector.short }}</a
+                      >
+                      <span class="mojo-hover">
+                        <span
+                          [ngClass]="
+                            this.fun.getClassbyClr(sector.dotsum.q_clr)
+                          "
+                        ></span>
+                        <span
+                          [ngClass]="
+                            this.fun.getClassbyClr(sector.dotsum.v_clr)
+                          "
+                        ></span>
+                        <span
+                          [ngClass]="
+                            this.fun.getClassbyClr(sector.dotsum.q_clr)
+                          "
+                        ></span>
+                      </span>
+                    </div>
+                  </td>
+                  <td class="ng-binding">{{ sector.date }}</td>
+                  <td class="no-mob no-tab no-tab2 ng-binding">
+                    {{ sector.qty }}
+                  </td>
+                  <td
+                  [ngClass]=" sector.rgaindir | dirClrDefault : 'grey' "	
+                  
+                    class="no-mob no-tab no-tab2"
+                  >
+                    <span class="1">
+                      {{ sector.rgain | roundOff | twoCommas }}
+                    </span>
+                  </td>
+                  <td class="ng-binding">
+                    {{ sector.sttax | roundOff | twoCommas }}
+                  </td>
+                  <td class="ng-binding">
+                    {{ sector.lttax | roundOff | twoCommas }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td></td>
+                  <td class="no-mob no-tab no-tab2"></td>
+                  <td class="no-mob no-tab no-tab2 ng-binding">
+                    {{
+                      taxHistory_data.total[year]?.rgain | roundOff | twoCommas
+                    }}
+                  </td>
+                  <td class="ng-binding">
+                    {{
+                      taxHistory_data.total[year]?.sttax | roundOff | twoCommas
+                    }}
+                  </td>
+                  <td class="ng-binding">
+                    {{
+                      taxHistory_data.total[year]?.lttax | roundOff | twoCommas
+                    }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- end ngIf: taxHistory1[hist_year].status==1 -->
+          </div>
+        </ng-container>
+
+        <!-- parent container -->
+        <div #parentContainer></div>
+      </div>
+    </div>
+  </div>
+</app-model-open>
+
 <div>
   <!-- tracker  overall analysis etc...-->
-  <!-- new -->
 
+  <!--navbar-->
   <div class="tabcol">
     <div id="tabcol-modal" class="no-mob no-tab2">
       <ul class="nav nav-tabs">
@@ -29,6 +197,7 @@
             "
             ><strong>Download Report</strong>
             <img
+              alt=""
               src="https://i.marketsmojo.com/pdf-file-download.png"
               style="height: 16px; width: 16px"
           /></a>
@@ -43,75 +212,137 @@
   </div>
 
   <div>
-    <app-swiper-how-am />
+    <app-swiper-how-am
+      (sendElement)="receiveElement($event)"
+      (sendClick_State)="receiveClickState($event)"
+      (send_head)="receiveHead($event)"
+    />
   </div>
 
-  <div id="element2">
-    <app-swiper-doing-overall />
-  </div>
-
-  <!-- new -->
+  <!-- button to show extra -->
   <div
-  *ngIf="!TO_SHOW"
-  class="container-fluid hideInteraction ng-scope" style="padding-bottom:300px;" id="lnkAllCardsToggle">
-		<div class="row">
-			<div class="col-md-12">
-				<div style="text-align:center !important;" class="pf-info-txt">
-					<button
-          (click)="showMore()"
-          type="button" class="btn btn-info blu-but_new">Click here for a comprehensive - <b>7 Mojo parameter analysis</b> on your portfolio</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-  <!-- remaining elements -->
+    *ngIf="!TO_SHOW"
+    class="container-fluid hideInteraction ng-scope"
+    style="padding-bottom: 300px"
+    id="lnkAllCardsToggle"
+  >
+    <div class="row">
+      <div class="col-md-12">
+        <div style="text-align: center !important" class="pf-info-txt">
+          <button
+            (click)="showMore()"
+            type="button"
+            class="btn btn-info blu-but_new"
+          >
+            Click here for a comprehensive - <b>7 Mojo parameter analysis</b> on
+            your portfolio
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div *ngIf="TO_SHOW">
+    <!-- element2 done -->
+    <div id="element2">
+      <!-- <ng-container
+       *appLazyLoad (appLazyLoad)="loadComponent2()" 
+       > -->
+      <ng-container>
+        <app-swiper-doing-overall
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          (send_element)="recievedDataEvent($event)"
+          (send_data)="recieveData($event)"
+        />
+      </ng-container>
+    </div>
 
-
+    <!-- element3  -->
     <div id="element3">
-      <app-swiper-return-analysis />
+      <!-- <ng-container
+       *appLazyLoad (appLazyLoad)="loadComponent3()" 
+       > -->
+      <ng-container>
+        <app-swiper-return-analysis
+          (sendElement)="receiveElement($event)"
+          (sendClick_State)="receiveClickState($event)"
+          (send_head)="receiveHead($event)"
+          [score]="overallData?.return"
+        />
+      </ng-container>
     </div>
 
+    <!-- element4 -->
     <div id="element4">
-      <app-swiper-risk-analysis />
+      <app-swiper-risk-analysis
+        (sendElement)="receiveElement($event)"
+        (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)"
+        [score]="overallData?.risk"
+      />
     </div>
 
-    <!-- <div id="element5">
-      <p class="heading">Liquidity Analysis</p>
-      <app-demo />
+    <div id="element5">
+      <app-swiper-liquidity
+        (sendElement)="receiveElement($event)"
+        (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)"
+        [score]="overallData?.liquidity"
+        (send_QVFLData)="recieve_QvflData($event)"
+      />
     </div>
 
     <div id="element6">
-      <p class="heading">Diversification Analysis</p>
-      <app-demo />
+      <app-swiper-diversification
+        (sendElement)="receiveElement($event)"
+        (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)"
+        [score]="overallData?.diversified"
+      />
     </div>
 
     <div id="element7">
-      <p class="heading">Quality</p>
-      <app-demo />
+      <app-swiper-quality
+        (sendElement)="receiveElement($event)"
+        (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)"
+        [score]="overallData?.quality"
+        (send_holdingsData)="recieve_HoldingData($event)"
+        [DATA_qvfl]="qvflData"
+      />
     </div>
 
     <div id="element8">
-      <p class="heading">Valuation</p>
-      <app-demo />
+      <app-swiper-valuation
+        (sendElement)="receiveElement($event)"
+        (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)"
+        [score]="overallData?.valuation"
+        [DATA_holding]="holdingData"
+        [DATA_qvfl]="qvflData"
+      />
     </div>
 
     <div id="element9">
-      <p class="heading">Financial Trend</p>
-      <app-demo />
+      <app-swiper-financial-trend
+        (sendElement)="receiveElement($event)"
+        (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)"
+        [score]="overallData?.fin_trend"
+        [DATA_holding]="holdingData"
+        [DATA_qvfl]="qvflData"
+      />
     </div>
 
     <div id="element10">
-      <p class="heading">Tax Analysis</p>
-      <app-demo />
-    </div> -->
-
-
+      <app-swiper-tax
+        (sendElement)="receiveElement($event)"
+        (sendClick_State)="receiveClickState($event)"
+        (send_head)="receiveHead($event)"
+        (taxPopup_data)="receiveTaxPopupData($event)"
+      />
+    </div>
   </div>
 </div>
-
-<!-- footer -->
-<!-- <app-ipo-footer /> -->

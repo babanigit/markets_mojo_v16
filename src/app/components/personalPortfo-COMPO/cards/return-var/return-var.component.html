@@ -1,0 +1,142 @@
+<div class="card">
+  <div class="card-content valuerisk">
+    <div class="card-head">
+      <h2>
+        Value at risk (VAR)
+        <span
+          class="card-title activator info-act"
+          (click)="isCollapseRiskVar = !isCollapseRiskVar"
+        ></span>
+      </h2>
+    </div>
+
+    <ng-container *ngIf="var_data!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+       
+      <div class="quality ng-scope">
+        <div class="valuation-head" id="vd_valuationDtail">
+          <div class="high-risk-head ng-binding">
+            {{ var_data.txt1 }}
+          </div>
+          <p class="sales_txt txt-cr ng-binding">
+            {{ var_data.txt2 }}
+          </p>
+          <p class="sales_txt txt-cr ng-binding">
+            {{ var_data.txt3 }}
+          </p>
+        </div>
+        <br />
+        <br />
+      </div>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+
+  <!-- slider -->
+  <div class="card-reveal animate-slide"
+  [ngClass]="{ 'ng-hide': isCollapseRiskVar }"
+
+  ng-show="isCollapseRiskVar">
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        (click)="isCollapseRiskVar = !isCollapseRiskVar"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          Value at Risk (VAR) measures the extent of loss at a given probability
+        </li>
+        <li>
+          We have used 99% confidence interval to measure the extent of loss on
+          any given day
+        </li>
+        <li>
+          This means that there is a very low probability (1%) that on any day
+          your loss can be higher than the amount mentioned
+        </li>
+        <li>
+          Please note VAR signifies the minimum loss and not the maximum loss
+        </li>
+        <li>Click on Full Details to see VAR of your portfolio stocks</li>
+        <li>
+          Beta is a measure of sensitivity of the portfolio with broader market
+          (Sensex)
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- full details  button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light"
+        href="javascript:void(0);"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        <span *ngIf="isLoading"> Loading... </span>
+        <span *ngIf="!isLoading"> Full Details </span>
+        <!-- <span *ngIf="this.error"> {{this.error}} </span> -->
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- full details -->
+
+<!-- detail -->
+<div [hidden]="true">
+  <div
+    #childDiv
+    class="modal-content contentbg ng-scope"
+    ng-if="loader[0].pf_risk_score != true"
+  >
+    <div class="list-mojo">
+      <table class="table1 mod-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>VAR(In Rs)</th>
+            <th>Latest Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ng-scope" *ngFor="let item of riskPopup_data | keyvalue">
+            <td class="ng-binding">{{ item.value.sname }}</td>
+            <!-- <td class="ng-binding">
+              {{ (item.value.orgbeta | roundOff | twoCommas) || "NA" }}
+            </td> -->
+            <td class="ng-binding">
+              {{ (item.value.riskval | roundOff | twoCommas) || "NA" }}
+            </td>
+            <td class="ng-binding">
+              {{ (item.value.lval | roundOff | twoCommas) || "NA" }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

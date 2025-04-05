@@ -1,0 +1,212 @@
+<div class="card">
+  <!-- card -->
+  <div class="card-content calendaryrs">
+    <div class="card-head">
+      <h2>
+        {{ HEAD }}
+        <span
+          class="card-title activator info-act"
+          (click)="isCollapseRetYear = !isCollapseRetYear"
+        ></span>
+      </h2>
+    </div>
+
+    <!-- body -->
+    <ng-container *ngIf="data_calender!; else loadingTemplate">
+      <!-- Content to show if data exists -->
+
+      <div
+        class="quality"
+        ng-show="loader[0].pf_return_year == false &amp;&amp; error_flag[0].return_calendar == 0"
+      >
+        <div class="graphtabarea">
+          <div class="tabcol" data="0">
+            <!-- buttons and graph -->
+            <app-bar-graph [chartData]="data_calender" />
+          </div>
+        </div>
+      </div>
+      <div
+        class="foot-note"
+        ng-show="loader[0].pf_return_year == false &amp;&amp; error_flag[0].return_calendar == 0"
+      >
+        Absolute Total Returns
+      </div>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- slider -->
+  <div
+    class="card-reveal animate-slide"
+    [ngClass]="{ 'ng-hide': isCollapseRetYear }"
+  >
+    <span class="card-title grey-text text-darken-4"
+      >Card Title<i
+        class="material-icons right"
+        (click)="isCollapseRetYear = !isCollapseRetYear"
+        >close</i
+      ></span
+    >
+    <div class="card-reveal-text">
+      <ul>
+        <li>
+          The card gives the returns given by your portfolio and other indices
+          including your customized Composite Benchmark Index over different
+          calendar years when your portfolio was active.
+        </li>
+        <li>
+          Portfolio returns consider not just returns made on our current
+          investments but also on your past investments as well as the dividends
+          received.
+        </li>
+        <li>
+          The returns do not include the tax impact on securities sold or the
+          notional tax that you may pay if you liquidate your holdings today
+        </li>
+        <li>Click on tabs of different years to see comparative graphs</li>
+        <li>
+          Click on Compare Returns to see returns of different broad market
+          indices during the past calendar years
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- detail button -->
+<div class="porbottomlink">
+  <div class="bottom-card-links">
+    <div class="bottom-card-links">
+      <a
+        (click)="sendToParent()"
+        class="seefull waves-light modal-trigger"
+        href="javascript:void(0);"
+        ><img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Compare Returns</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- detail section -->
+<div [hidden]="true">
+  <!-- #childDiv -->
+
+  <div #childDiv class="modal-content contentbg">
+    <div class="list-mojo">
+      <table *ngIf="data_calender!" class="table1 mod-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+
+            <th
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{ item }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Absolute Return (Rs.)</td>
+
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{ (data_calender.absret[item] | roundOff | twoCommas) || "NA" }}%
+            </td>
+          </tr>
+          <tr>
+            <td>Dividend Received (Rs.)</td>
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{ (data_calender.divrec[item] | roundOff | twoCommas) || "NA" }}%
+            </td>
+          </tr>
+          <tr>
+            <td>Return (%)</td>
+
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.port[item].data | roundOff | twoCommas) || "NA"
+              }}%
+            </td>
+          </tr>
+          <tr>
+            <td>Composite Index (%)</td>
+
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.comp[item].data | roundOff | twoCommas) || "NA"
+              }}%
+            </td>
+          </tr>
+          <tr>
+            <td>Sensex (%)</td>
+
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.sensex[item].data | roundOff | twoCommas) ||
+                  "NA"
+              }}%
+            </td>
+          </tr>
+          <tr>
+            <td>BSE Mid Cap (%)</td>
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.midcap[item].data | roundOff | twoCommas) ||
+                  "NA"
+              }}%
+            </td>
+          </tr>
+          <tr>
+            <td>BSE Small Cap (%)</td>
+            <td
+              *ngFor="let item of data_calender.years"
+              class="ng-binding ng-scope"
+            >
+              {{
+                (data_calender.smallcap[item].data | roundOff | twoCommas) ||
+                  "NA"
+              }}%
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

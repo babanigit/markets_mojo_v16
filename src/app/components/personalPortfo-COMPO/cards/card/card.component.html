@@ -1,107 +1,128 @@
 <div class="card">
   <div class="card-content">
-
     <!-- head -->
     <div class="card-head">
       <h2>
         {{ HEAD }}
         <span
-        *ngIf="SHOW_BUTTON"
+          *ngIf="SHOW_BUTTON"
           class="card-title activator info-act"
-          (click)="isCollapseTodayContri = !isCollapseTodayContri"
+          (click)="isCollapse = !isCollapse"
         ></span>
       </h2>
     </div>
 
     <!-- body -->
-    <div
-      class="contributors list-mojo ng-scope"
-      ng-if="loader[0].pf_today_contri == false &amp;&amp; error_flag[0].actionToday_contri == 0"
-    >
+    <ng-container *ngIf="DATA!; else loadingTemplate">
+      <ng-container *ngIf="DATA.length > 0; else noDataTemplate">
+        <!-- Content to show if data exists -->
 
-    <!-- table -->
-      <table class="table1">
+        <div #childDiv class="contributors list-mojo ng-scope">
+          <!-- table -->
+          <table class="table1">
+            <thead>
+              <tr>
+                <th class="textcenter">
+                  Company <br />
+                  Price
+                </th>
+                <th class="textcenter">Day's Gain<br />in %</th>
+                <th class="textcenter">Latest<br />Value</th>
+              </tr>
+            </thead>
 
-        <thead>
-          <tr>
-            <th class="textcenter">
-              Company <br />
-              Price
-            </th>
-            <th class="textcenter">Day's Gain<br />in %</th>
-            <th class="textcenter">Latest<br />Value</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <!-- ngRepeat: value in actionToday.overall.contri| limitTo:limit -->
-
-          <!-- start -->
-          <tr
-            ng-repeat="value in actionToday.overall.contri| limitTo:limit"
-            class="ng-scope"
-            *ngFor="let item of DATA ; trackBy: trackByFn"
-          >
-            <td>
-              <div>
-                <a
-                  [href]="'/Stocks?StockId=' + item.dotsum.sid + '&Exchange=0'"
-                  target="_blank"
-                  class="ng-binding"
+            <tbody>
+              <!-- start -->
+              <tr
+                class="ng-scope"
+                *ngFor="let item of DATA; trackBy: trackByFn"
+              >
+                <td>
+                  <div>
+                    <a
+                      [href]="
+                        'https://www.marketsmojo.com/Stocks?StockId=' +
+                        item.dotsum.sid +
+                        '&Exchange=0'
+                      "
+                      target="_blank"
+                      class="ng-binding"
+                    >
+                      {{ item.short }}
+                    </a>
+                    <br />
+                    <span
+                      ><span
+                        [ngClass]="getClassByColor(item.dotsum.q_clr)"
+                      ></span>
+                      <span
+                        [ngClass]="getClassByColor(item.dotsum.v_clr)"
+                      ></span>
+                      <span
+                        [ngClass]="getClassByColor(item.dotsum.f_clr)"
+                      ></span>
+                    </span>
+                  </div>
+                  <p class="ng-binding">
+                    {{ item.cmp | roundOff | twoCommas }}
+                  </p>
+                </td>
+                <td
+                  [ngClass]="
+                    item.dgaindir | dirClrDefault : 'orange' + ' txt-rt'
+                  "
+                  class="txt-rt"
                 >
-                  {{ item.short }}
-                </a>
-                <br />
-                <span
-                  ><span
-                    [ngClass]="getClassByColor(item.dotsum.q_clr)"
-                  ></span>
-                  <span
-                    [ngClass]="getClassByColor(item.dotsum.v_clr)"
-                  ></span>
-                  <span
-                    [ngClass]="getClassByColor(item.dotsum.f_clr)"
-                  ></span>
-                </span>
-              </div>
-              <p class="ng-binding">
-                {{ item.cmp | roundOff | twoCommas }}
-              </p>
-            </td>
-            <td
-              [ngClass]="
-                getDirClrDefault(item.dgaindir, 'orange') + ' txt-rt'
-              "
-            >
-              <p class="pf-tbl-txt1 ng-binding">
-                {{ item.dgain | roundOff | twoCommas }}%
-              </p>
-              <p class="pf-tbl-txt2 ng-binding">
-                {{ item.dgainp | roundOff | twoCommas }}%
-              </p>
-            </td>
+                  <p class="pf-tbl-txt1 ng-binding">
+                    {{ item.dgain | roundOff | twoCommas }}%
+                  </p>
+                  <p class="pf-tbl-txt2 ng-binding">
+                    {{ item.dgainp | roundOff | twoCommas }}%
+                  </p>
+                </td>
 
-            <td class="txt-rt pf-tbl-txt3 ng-binding">
-              {{ item.lval | roundOff | twoCommas }}
-            </td>
-          </tr>
-          <!-- end -->
-        </tbody>
-      </table>
+                <td class="txt-rt pf-tbl-txt3 ng-binding">
+                  {{ item.lval | roundOff | twoCommas }}
+                </td>
+              </tr>
+              <!-- end -->
+            </tbody>
+          </table>
+        </div>
+      </ng-container>
+    </ng-container>
 
-    </div>
+    <ng-template #loadingTemplate>
+      <!-- Content to show while loading -->
+      <div>
+        <div id="loading" class="ng-scope">
+          <img
+            id="loading-image"
+            src="https://i.marketsmojo.com/loading.gif"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #noDataTemplate>
+      <!-- Content to show if no data found -->
+      <div class="alert alert-warning mar-empty ng-scope">
+        <h4 dynamic="Act_corp_ErrorMsg">No Upcoming Events</h4>
+      </div>
+    </ng-template>
   </div>
 
-  <!-- extend button -->
+  <!-- extend -->
   <div
-  *ngIf="SHOW_BUTTON"
+    *ngIf="SHOW_BUTTON"
     class="card-reveal animate-slide"
-    [ngClass]="{ 'ng-hide': isCollapseTodayContri }"
+    [ngClass]="{ 'ng-hide': isCollapse }"
   >
     <span class="card-title grey-text text-darken-4">
       Card Title<i
         class="material-icons right"
-        (click)="isCollapseTodayContri = !isCollapseTodayContri"
+        (click)="isCollapse = !isCollapse"
         >close</i
       >
     </span>
@@ -116,5 +137,27 @@
       </ul>
     </div>
   </div>
+</div>
 
+<!-- full details button -->
+<div class="porbottomlink">
+  <div
+    (click)="sendToParent()"
+    class="bottom-card-links ng-scope"
+    ng-controller="ModalDemoCtrl as $ctrl"
+  >
+    <div class="bottom-card-links">
+      <a
+        href="javascript:void(0)"
+        class="seefull waves-effect waves-light modal-trigger"
+      >
+        <img
+          src="https://i.marketsmojo.com/arrow_rt.png"
+          alt="ArrowRight"
+          height="16"
+        />
+        Full Details
+      </a>
+    </div>
+  </div>
 </div>
