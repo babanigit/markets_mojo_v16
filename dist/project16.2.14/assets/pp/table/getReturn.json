@@ -1,0 +1,1699 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+      "421555": {
+          "sid": 421555,
+          "sname": "Coal India Ltd.",
+          "short": "Coal India",
+          "dotsum": {
+              "q_rank": 2,
+              "stk_sect": 27,
+              "q_txt": "Excellent",
+              "v_rank": -1,
+              "v_txt": "Fair",
+              "f_pts": 0,
+              "f_txt": "Flat",
+              "f_clr": "orange",
+              "sid": 421555,
+              "f_dir": -1,
+              "prev_score": 5,
+              "q_dir": 0,
+              "tech_score": 0.72,
+              "tech_txt": "Mildly Bullish",
+              "tech_clr": "Green",
+              "q_clr": "green",
+              "v_clr": "orange",
+              "score": 70,
+              "score_date": "2024-09-05",
+              "scoreText": "Buy",
+              "prevScoreText": "Strong Buy",
+              "prevScoreTextDate": "2024-07-18",
+              "prevScore": 80,
+              "final_score_grade_41": "Hold",
+              "final_score_41_or": 68,
+              "current_final_score_grade_41": "Hold",
+              "current_final_score_41": 68,
+              "mfin_score": 0,
+              "scoreTextChange": 0,
+              "curfscore": 70,
+              "s_clr": "btnbuy"
+          },
+          "indcode": 52,
+          "indname": "Mining & Minerals",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 502.7,
+          "chg": -1,
+          "chgp": -0.2,
+          "cmpdir": -1,
+          "prevclose": 503.7,
+          "mcap": "Large Cap",
+          "sect_chgp": 0.18,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": -0.2,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": -4.72,
+                  "dir": -1
+              },
+              "M1": {
+                  "val": -0.74,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": 9.19,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 9.08,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 33.71,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 96.94,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 243.73,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 157.99,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 35.41,
+                  "dir": 1
+              }
+          }
+      },
+      "454045": {
+          "sid": 454045,
+          "sname": "Jubilant Industries Ltd",
+          "short": "Jubilant Inds.",
+          "dotsum": {
+              "q_rank": 19,
+              "stk_sect": 24,
+              "q_txt": "Below Average",
+              "v_rank": -1,
+              "v_txt": "Expensive",
+              "f_pts": 15,
+              "f_txt": "Positive",
+              "f_clr": "green",
+              "sid": 454045,
+              "f_dir": 1,
+              "prev_score": -1,
+              "q_dir": 0,
+              "tech_score": 0.89,
+              "tech_txt": "Mildly Bullish",
+              "tech_clr": "Green",
+              "q_clr": "red",
+              "v_clr": "red",
+              "score": 44,
+              "score_date": "2024-09-05",
+              "scoreText": "Sell",
+              "prevScoreText": "Hold",
+              "prevScoreTextDate": "2024-09-02",
+              "prevScore": 51,
+              "final_score_grade_41": "Sell",
+              "final_score_41_or": 32,
+              "current_final_score_grade_41": "Sell",
+              "current_final_score_41": 32,
+              "mfin_score": 15,
+              "scoreTextChange": 0,
+              "curfscore": 44,
+              "s_clr": "btnsell"
+          },
+          "indcode": 18,
+          "indname": "Pesticides & Agrochem",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 1736.25,
+          "chg": 24.8,
+          "chgp": 1.45,
+          "cmpdir": 1,
+          "prevclose": 1711.45,
+          "mcap": "Small Cap",
+          "sect_chgp": 0.55,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 1.45,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 1.77,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 20.07,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 36.66,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 25.47,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 187.79,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 140.59,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 230.02,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 1908.39,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 1864.08,
+                  "dir": 1
+              }
+          }
+      },
+      "119922": {
+          "sid": 119922,
+          "sname": "City Union Bank Ltd.",
+          "short": "City Union Bank",
+          "dotsum": {
+              "q_rank": 6,
+              "stk_sect": 20,
+              "q_txt": "Good",
+              "v_rank": 3,
+              "v_txt": "Attractive",
+              "f_pts": 5,
+              "f_txt": "Flat",
+              "f_clr": "orange",
+              "sid": 119922,
+              "f_dir": -1,
+              "prev_score": 6,
+              "q_dir": 0,
+              "tech_score": 1.06,
+              "tech_txt": "Bullish",
+              "tech_clr": "Green",
+              "q_clr": "green",
+              "v_clr": "green",
+              "score": 72,
+              "score_date": "2024-09-05",
+              "scoreText": "Buy",
+              "prevScoreText": "Hold",
+              "prevScoreTextDate": "2024-08-19",
+              "prevScore": 65,
+              "final_score_grade_41": "Hold",
+              "final_score_41_or": 62,
+              "current_final_score_grade_41": "Hold",
+              "current_final_score_41": 62,
+              "mfin_score": 5,
+              "scoreTextChange": 0,
+              "curfscore": 72,
+              "s_clr": "btnbuy"
+          },
+          "indcode": 50,
+          "indname": "Private Banks",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 169.95,
+          "chg": 1.35,
+          "chgp": 0.8,
+          "cmpdir": 1,
+          "prevclose": 168.6,
+          "mcap": "Mid Cap",
+          "sect_chgp": 0.02,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 0.8,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.77,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 4.97,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 17.49,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 23.51,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 14.14,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 31.64,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 10.21,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": -13.02,
+                  "dir": -1
+              },
+              "Y10": {
+                  "val": 167.76,
+                  "dir": 1
+              }
+          }
+      },
+      "400868": {
+          "sid": 400868,
+          "sname": "Reliance Infrastructure Ltd",
+          "short": "Reliance Infra.",
+          "dotsum": {
+              "q_rank": 5,
+              "stk_sect": 37,
+              "q_txt": "Below Average",
+              "v_rank": 2,
+              "v_txt": "Attractive",
+              "f_pts": 13,
+              "f_txt": "Positive",
+              "f_clr": "green",
+              "sid": 400868,
+              "f_dir": 1,
+              "prev_score": -2,
+              "q_dir": 0,
+              "tech_score": -0.17,
+              "tech_txt": "Mildly Bearish",
+              "tech_clr": "Red",
+              "q_clr": "red",
+              "v_clr": "green",
+              "score": 34,
+              "score_date": "2024-09-05",
+              "scoreText": "Sell",
+              "prevScoreText": "Hold",
+              "prevScoreTextDate": "2024-08-27",
+              "prevScore": 50,
+              "final_score_grade_41": "Sell",
+              "final_score_41_or": 40,
+              "current_final_score_grade_41": "Sell",
+              "current_final_score_41": 40,
+              "mfin_score": 13,
+              "scoreTextChange": 0,
+              "curfscore": 34,
+              "s_clr": "btnsell"
+          },
+          "indcode": 28,
+          "indname": "Power ",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 217.35,
+          "chg": 5.2,
+          "chgp": 2.45,
+          "cmpdir": 1,
+          "prevclose": 212.15,
+          "mcap": "Mid Cap",
+          "sect_chgp": -0.42,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 2.45,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 2.62,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 11.2,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 44.95,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": -4.1,
+                  "dir": -1
+              },
+              "YTD": {
+                  "val": 3.43,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 14.12,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 208.3,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 482.71,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": -69.13,
+                  "dir": -1
+              }
+          }
+      },
+      "431628": {
+          "sid": 431628,
+          "sname": "REC Ltd",
+          "short": "REC Ltd",
+          "dotsum": {
+              "q_rank": 8,
+              "stk_sect": 899,
+              "q_txt": "Good",
+              "v_rank": -1,
+              "v_txt": "Expensive",
+              "f_pts": 9,
+              "f_txt": "Positive",
+              "f_clr": "green",
+              "sid": 431628,
+              "f_dir": -1,
+              "prev_score": 17,
+              "q_dir": 0,
+              "tech_score": 1.17,
+              "tech_txt": "Bullish",
+              "tech_clr": "Green",
+              "q_clr": "green",
+              "v_clr": "red",
+              "score": 65,
+              "score_date": "2024-09-05",
+              "scoreText": "Hold",
+              "prevScoreText": "Buy",
+              "prevScoreTextDate": "2024-09-02",
+              "prevScore": 72,
+              "final_score_grade_41": "Hold",
+              "final_score_41_or": 62,
+              "current_final_score_grade_41": "Hold",
+              "current_final_score_41": 62,
+              "mfin_score": 9,
+              "scoreTextChange": 0,
+              "curfscore": 72,
+              "s_clr": "btnhold"
+          },
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 630,
+          "chg": 6.5,
+          "chgp": 1.04,
+          "cmpdir": 1,
+          "prevclose": 623.5,
+          "mcap": "Large Cap",
+          "sect_chgp": 0.27,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 1.04,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.6,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 8.8,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 37.12,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 35.5,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 52.65,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 162.12,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 444.39,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 492.17,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 513.47,
+                  "dir": 1
+              }
+          }
+      },
+      "837957": {
+          "sid": 837957,
+          "sname": "Larsen & Toubro Ltd.",
+          "short": "Larsen & Toubro",
+          "dotsum": {
+              "q_rank": 6,
+              "stk_sect": 91,
+              "q_txt": "Average",
+              "v_rank": 0,
+              "v_txt": "Attractive",
+              "f_pts": 4,
+              "f_txt": "Flat",
+              "f_clr": "orange",
+              "sid": 837957,
+              "f_dir": -1,
+              "prev_score": 15,
+              "q_dir": 0,
+              "tech_score": 0.72,
+              "tech_txt": "Mildly Bullish",
+              "tech_clr": "Green",
+              "q_clr": "orange",
+              "v_clr": "green",
+              "score": 58,
+              "score_date": "2024-09-05",
+              "scoreText": "Hold",
+              "prevScoreText": "Buy",
+              "prevScoreTextDate": "2024-07-24",
+              "prevScore": 71,
+              "final_score_grade_41": "Hold",
+              "final_score_41_or": 52,
+              "current_final_score_grade_41": "Hold",
+              "current_final_score_41": 52,
+              "mfin_score": 4,
+              "scoreTextChange": 0,
+              "curfscore": 58,
+              "s_clr": "btnhold"
+          },
+          "indcode": 19,
+          "indname": "Capital Goods",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 3632.55,
+          "chg": -25.45,
+          "chgp": -0.7,
+          "cmpdir": -1,
+          "prevclose": 3658,
+          "mcap": "Large Cap",
+          "sect_chgp": -0.21,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": -0.7,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": -1.35,
+                  "dir": -1
+              },
+              "M1": {
+                  "val": 2.96,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 6.54,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 0.59,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 2.99,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 32.88,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 115.38,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 175.1,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 238.59,
+                  "dir": 1
+              }
+          }
+      },
+      "151046": {
+          "sid": 151046,
+          "sname": "Innovassynth Investments Ltd",
+          "short": "Innovassynth Inv",
+          "dotsum": {
+              "q_rank": -99997,
+              "stk_sect": 0,
+              "q_txt": "Does not qualify",
+              "v_rank": -2,
+              "v_txt": "Risky",
+              "f_pts": 1,
+              "f_txt": "Flat",
+              "f_clr": "orange",
+              "sid": 151046,
+              "f_dir": -1,
+              "prev_score": 16,
+              "q_dir": 0,
+              "tech_score": 1.56,
+              "tech_txt": "Bullish",
+              "tech_clr": "Green",
+              "q_clr": "grey",
+              "v_clr": "red",
+              "score": 0,
+              "score_date": "2024-09-05",
+              "scoreText": "Not Rated",
+              "prevScoreText": "",
+              "prevScoreTextDate": "2024-09-05",
+              "prevScore": 0,
+              "final_score_grade_41": "Not Rated",
+              "final_score_41_or": 0,
+              "current_final_score_grade_41": "Not Rated",
+              "current_final_score_41": "",
+              "mfin_score": 1,
+              "scoreTextChange": 0,
+              "curfscore": "",
+              "s_clr": "btnunactive"
+          },
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 73.92,
+          "chg": 3.52,
+          "chgp": 5,
+          "cmpdir": 1,
+          "prevclose": 70.4,
+          "mcap": "Micro Cap",
+          "sect_chgp": 0.27,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 5,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 27.6,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 189.77,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 190.11,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 156.13,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 236.92,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 178.73,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 284,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 744.8,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 1038.98,
+                  "dir": 1
+              }
+          }
+      },
+      "616556": {
+          "sid": 616556,
+          "sname": "Punjab National Bank",
+          "short": "Punjab Natl.Bank",
+          "dotsum": {
+              "q_rank": 10,
+              "stk_sect": 21,
+              "q_txt": "Average",
+              "v_rank": -1,
+              "v_txt": "Very Attractive",
+              "f_pts": 26,
+              "f_txt": "Very Positive",
+              "f_clr": "green",
+              "sid": 616556,
+              "f_dir": -1,
+              "prev_score": 29,
+              "q_dir": 0,
+              "tech_score": 0.39,
+              "tech_txt": "Mildly Bullish",
+              "tech_clr": "Green",
+              "q_clr": "orange",
+              "v_clr": "green",
+              "score": 72,
+              "score_date": "2024-09-05",
+              "scoreText": "Buy",
+              "prevScoreText": "Hold",
+              "prevScoreTextDate": "2024-05-14",
+              "prevScore": 67,
+              "final_score_grade_41": "Buy",
+              "final_score_41_or": 72,
+              "current_final_score_grade_41": "Buy",
+              "current_final_score_41": 72,
+              "mfin_score": 26,
+              "scoreTextChange": 0,
+              "curfscore": 72,
+              "s_clr": "btnbuy"
+          },
+          "indcode": 36,
+          "indname": "Public Banks",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 112.75,
+          "chg": -0.25,
+          "chgp": -0.22,
+          "cmpdir": -1,
+          "prevclose": 113,
+          "mcap": "Large Cap",
+          "sect_chgp": 0.1,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": -0.22,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": -2.38,
+                  "dir": -1
+              },
+              "M1": {
+                  "val": -1.05,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": -7.43,
+                  "dir": -1
+              },
+              "M6": {
+                  "val": -13.07,
+                  "dir": -1
+              },
+              "YTD": {
+                  "val": 17.71,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 67.43,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 196.32,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 84.53,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": -39.75,
+                  "dir": -1
+              }
+          }
+      },
+      "1002872": {
+          "sid": 1002872,
+          "sname": "HDFC Life Insurance Company Ltd",
+          "short": "HDFC Life Insur.",
+          "dotsum": {
+              "q_rank": -99999,
+              "stk_sect": 0,
+              "q_txt": "Average",
+              "v_rank": -2,
+              "v_txt": "Expensive",
+              "f_pts": 9,
+              "f_txt": "Positive",
+              "f_clr": "green",
+              "sid": 1002872,
+              "f_dir": 1,
+              "prev_score": 8,
+              "q_dir": "NA",
+              "tech_score": 1.5,
+              "tech_txt": "Bullish",
+              "tech_clr": "Green",
+              "q_clr": "orange",
+              "v_clr": "red",
+              "score": 65,
+              "score_date": "2024-09-05",
+              "scoreText": "Hold",
+              "prevScoreText": "Sell",
+              "prevScoreTextDate": "2024-07-31",
+              "prevScore": 48,
+              "final_score_grade_41": "Hold",
+              "final_score_41_or": 52,
+              "current_final_score_grade_41": "Hold",
+              "current_final_score_41": 52,
+              "mfin_score": 9,
+              "scoreTextChange": 0,
+              "curfscore": 65,
+              "s_clr": "btnhold"
+          },
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 753,
+          "chg": -5.4,
+          "chgp": -0.71,
+          "cmpdir": -1,
+          "prevclose": 758.4,
+          "mcap": "Large Cap",
+          "sect_chgp": 0.27,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": -0.71,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": 2.25,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 6.13,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 36.52,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 23.93,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 16.37,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 17.5,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 2.53,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 42.45,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
+      },
+      "302744": {
+          "sid": 302744,
+          "sname": "Jaiprakash Power Ventures Ltd",
+          "short": "JP Power Ven.",
+          "dotsum": {
+              "q_rank": 14,
+              "stk_sect": 37,
+              "q_txt": "Average",
+              "v_rank": -1,
+              "v_txt": "Very Attractive",
+              "f_pts": 26,
+              "f_txt": "Very Positive",
+              "f_clr": "green",
+              "sid": 302744,
+              "f_dir": -1,
+              "prev_score": 33,
+              "q_dir": 1,
+              "tech_score": 0.44,
+              "tech_txt": "Mildly Bullish",
+              "tech_clr": "Green",
+              "q_clr": "orange",
+              "v_clr": "green",
+              "score": 72,
+              "score_date": "2024-09-05",
+              "scoreText": "Buy",
+              "prevScoreText": "Hold",
+              "prevScoreTextDate": "2024-07-29",
+              "prevScore": 58,
+              "final_score_grade_41": "Buy",
+              "final_score_41_or": 72,
+              "current_final_score_grade_41": "Buy",
+              "current_final_score_41": 72,
+              "mfin_score": 26,
+              "scoreTextChange": 0,
+              "curfscore": 72,
+              "s_clr": "btnbuy"
+          },
+          "indcode": 28,
+          "indname": "Power ",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 18,
+          "chg": 0.05,
+          "chgp": 0.28,
+          "cmpdir": 1,
+          "prevclose": 17.95,
+          "mcap": "Mid Cap",
+          "sect_chgp": -0.42,
+          "show_mojostock": "yes",
+          "show_fallstock": "no",
+          "product_icon_list": [
+              {
+                  "name": "Hidden Turnarounds",
+                  "text": "since 13 months 8 days",
+                  "url": "https://www.marketsmojo.com/mojopro/strategy/1",
+                  "product_class": "skyblue-tag"
+              },
+              {
+                  "name": "MomentumNow Stocks",
+                  "text": "since 6 months 7 days",
+                  "url": "https://www.marketsmojo.com/mojopro/strategy/2",
+                  "product_class": "purple-tag"
+              }
+          ],
+          "more_button": {
+              "show": 1,
+              "text": "+1 More"
+          },
+          "returns": {
+              "D1": {
+                  "val": 0.28,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.33,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": -4.31,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": -1.04,
+                  "dir": -1
+              },
+              "M6": {
+                  "val": 2.45,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 29.03,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 111.02,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 346.65,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 1004.29,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 32.84,
+                  "dir": 1
+              }
+          }
+      },
+      "10039196": {
+          "sid": 10039196,
+          "sname": "Shree Karni Fabcom Ltd",
+          "short": "Shree Karni",
+          "dotsum": {
+              "q_rank": "",
+              "stk_sect": "",
+              "q_txt": "Average",
+              "v_rank": "",
+              "v_txt": "Very Expensive",
+              "f_pts": null,
+              "f_txt": null,
+              "sid": 10039196,
+              "f_dir": "NA",
+              "prev_score": "",
+              "q_dir": 1,
+              "tech_score": 0.25,
+              "tech_txt": "Mildly Bullish",
+              "tech_clr": "Green",
+              "q_clr": "orange",
+              "v_clr": "red",
+              "f_clr": "grey",
+              "score": 0,
+              "score_date": "2024-09-05",
+              "scoreText": "Not Rated",
+              "prevScoreText": "",
+              "prevScoreTextDate": "2024-03-15",
+              "prevScore": "",
+              "final_score_grade_41": "Not Rated",
+              "final_score_41_or": 0,
+              "current_final_score_grade_41": "Not Rated",
+              "current_final_score_41": "",
+              "mfin_score": "",
+              "scoreTextChange": 0,
+              "curfscore": "",
+              "s_clr": "btnunactive"
+          },
+          "indcode": 64,
+          "indname": "Textile - Machinery",
+          "exch": "NSE",
+          "exchcode": 1,
+          "cmp": 818,
+          "chg": -4.2,
+          "chgp": -0.51,
+          "cmpdir": -1,
+          "prevclose": 822.2,
+          "mcap": "Micro Cap",
+          "sect_chgp": 0.5,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": -0.51,
+                  "dir": -1
+              },
+              "W1": {
+                  "val": 7.07,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 13.61,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 96,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "YTD": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y1": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y3": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y5": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
+      },
+      "234277": {
+          "sid": 234277,
+          "sname": "Persistent Systems Ltd",
+          "short": "Persistent Sys",
+          "dotsum": {
+              "q_rank": 16,
+              "stk_sect": 191,
+              "q_txt": "Excellent",
+              "v_rank": 0,
+              "v_txt": "Very Expensive",
+              "f_pts": 13,
+              "f_txt": "Positive",
+              "f_clr": "green",
+              "sid": 234277,
+              "f_dir": 1,
+              "prev_score": 6,
+              "q_dir": 0,
+              "tech_score": 1.78,
+              "tech_txt": "Bullish",
+              "tech_clr": "Green",
+              "q_clr": "green",
+              "v_clr": "red",
+              "score": 78,
+              "score_date": "2024-09-05",
+              "scoreText": "Buy",
+              "prevScoreText": "Hold",
+              "prevScoreTextDate": "2024-04-22",
+              "prevScore": 65,
+              "final_score_grade_41": "Buy",
+              "final_score_41_or": 70,
+              "current_final_score_grade_41": "Buy",
+              "current_final_score_41": 70,
+              "mfin_score": 13,
+              "scoreTextChange": 0,
+              "curfscore": 78,
+              "s_clr": "btnbuy"
+          },
+          "indcode": 57,
+          "indname": "IT - Software ",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 5253.55,
+          "chg": 5.55,
+          "chgp": 0.11,
+          "cmpdir": 1,
+          "prevclose": 5248,
+          "mcap": "Large Cap",
+          "sect_chgp": -0.14,
+          "show_mojostock": "yes",
+          "show_fallstock": "no",
+          "product_icon_list": [
+              {
+                  "name": "Stock of the Month",
+                  "text": "since 8 months 25 days",
+                  "url": "https://www.marketsmojo.com/mojo/stock-of-the-month",
+                  "product_class": "som-tag"
+              }
+          ],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 0.11,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 3.58,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 15.59,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 47.31,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 27.42,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 42.23,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 77.42,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 205.38,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 1769.76,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 1510.53,
+                  "dir": 1
+              }
+          }
+      },
+      "304521": {
+          "sid": 304521,
+          "sname": "CEAT Ltd",
+          "short": "CEAT",
+          "dotsum": {
+              "q_rank": 6,
+              "stk_sect": 13,
+              "q_txt": "Good",
+              "v_rank": 0,
+              "v_txt": "Attractive",
+              "f_pts": 3,
+              "f_txt": "Flat",
+              "f_clr": "orange",
+              "sid": 304521,
+              "f_dir": -1,
+              "prev_score": 10,
+              "q_dir": 0,
+              "tech_score": 1.39,
+              "tech_txt": "Bullish",
+              "tech_clr": "Green",
+              "q_clr": "green",
+              "v_clr": "green",
+              "score": 65,
+              "score_date": "2024-09-05",
+              "scoreText": "Hold",
+              "prevScoreText": "Buy",
+              "prevScoreTextDate": "2024-09-02",
+              "prevScore": 72,
+              "final_score_grade_41": "Hold",
+              "final_score_41_or": 62,
+              "current_final_score_grade_41": "Hold",
+              "current_final_score_41": 62,
+              "mfin_score": 3,
+              "scoreTextChange": 0,
+              "curfscore": 72,
+              "s_clr": "btnhold"
+          },
+          "indcode": 47,
+          "indname": "Tyres",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 2926,
+          "chg": 33.6,
+          "chgp": 1.16,
+          "cmpdir": 1,
+          "prevclose": 2892.4,
+          "mcap": "Mid Cap",
+          "sect_chgp": 0.49,
+          "show_mojostock": "yes",
+          "show_fallstock": "no",
+          "product_icon_list": [
+              {
+                  "name": "Stock of the Month",
+                  "text": "since 7 months 26 days",
+                  "url": "https://www.marketsmojo.com/mojo/stock-of-the-month",
+                  "product_class": "som-tag"
+              }
+          ],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 1.16,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 4.49,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 14.67,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 22.49,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 2.04,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 20.52,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 30.55,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 123.45,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 222.66,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 351.2,
+                  "dir": 1
+              }
+          }
+      },
+      "1003511": {
+          "sid": 1003511,
+          "sname": "Zomato Ltd",
+          "short": "Zomato Ltd",
+          "dotsum": {
+              "q_rank": "",
+              "stk_sect": "",
+              "q_txt": "Average",
+              "v_rank": "",
+              "v_txt": "Risky",
+              "f_pts": 34,
+              "f_txt": "Outstanding",
+              "f_clr": "green",
+              "sid": 1003511,
+              "f_dir": 1,
+              "prev_score": 32,
+              "q_dir": 1,
+              "tech_score": 1.2,
+              "tech_txt": "Bullish",
+              "tech_clr": "Green",
+              "q_clr": "orange",
+              "v_clr": "red",
+              "score": 71,
+              "score_date": "2024-09-05",
+              "scoreText": "Buy",
+              "prevScoreText": "Hold",
+              "prevScoreTextDate": "2024-08-02",
+              "prevScore": 57,
+              "final_score_grade_41": "Hold",
+              "final_score_41_or": 60,
+              "current_final_score_grade_41": "Hold",
+              "current_final_score_41": 60,
+              "mfin_score": 34,
+              "scoreTextChange": 0,
+              "curfscore": 71,
+              "s_clr": "btnbuy"
+          },
+          "indcode": 57,
+          "indname": "IT - Software ",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 254.8,
+          "chg": 11.9,
+          "chgp": 4.9,
+          "cmpdir": 1,
+          "prevclose": 242.9,
+          "mcap": "Large Cap",
+          "sect_chgp": -0.14,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 4.9,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 1.03,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": -0.59,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": 38.67,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 53.45,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 105.98,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 159.42,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 70.26,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
+      },
+      "1003648": {
+          "sid": 1003648,
+          "sname": "Life Insurance Corporation of India",
+          "short": "Life Insurance",
+          "dotsum": {
+              "q_rank": "",
+              "stk_sect": "",
+              "q_txt": "Average",
+              "v_rank": "",
+              "v_txt": "Very Attractive",
+              "f_pts": 1,
+              "f_txt": "Flat",
+              "f_clr": "orange",
+              "sid": 1003648,
+              "f_dir": 1,
+              "prev_score": -3,
+              "q_dir": "NA",
+              "tech_score": 0.53,
+              "tech_txt": "Mildly Bullish",
+              "tech_clr": "Green",
+              "q_clr": "orange",
+              "v_clr": "green",
+              "score": 61,
+              "score_date": "2024-09-05",
+              "scoreText": "Hold",
+              "prevScoreText": "Sell",
+              "prevScoreTextDate": "2023-07-10",
+              "prevScore": 45,
+              "final_score_grade_41": "Hold",
+              "final_score_41_or": 56,
+              "current_final_score_grade_41": "Hold",
+              "current_final_score_41": 56,
+              "mfin_score": 1,
+              "scoreTextChange": 0,
+              "curfscore": 61,
+              "s_clr": "btnhold"
+          },
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 1070,
+          "chg": 5.45,
+          "chgp": 0.51,
+          "cmpdir": 1,
+          "prevclose": 1064.55,
+          "mcap": "Large Cap",
+          "sect_chgp": 0.27,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 0.51,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.03,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": -3.32,
+                  "dir": -1
+              },
+              "M3": {
+                  "val": 13.56,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 4.21,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": 28.41,
+                  "dir": 1
+              },
+              "Y1": {
+                  "val": 62.1,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y5": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
+      },
+      "1003566": {
+          "sid": 1003566,
+          "sname": "One 97 Communications Ltd",
+          "short": "One 97",
+          "dotsum": {
+              "q_rank": "",
+              "stk_sect": "",
+              "q_txt": "Average",
+              "v_rank": "",
+              "v_txt": "Risky",
+              "f_pts": -14,
+              "f_txt": "Negative",
+              "f_clr": "red",
+              "sid": 1003566,
+              "f_dir": -1,
+              "prev_score": -8,
+              "q_dir": 0,
+              "tech_score": -0.24,
+              "tech_txt": "Mildly Bearish",
+              "tech_clr": "Red",
+              "q_clr": "orange",
+              "v_clr": "red",
+              "score": 23,
+              "score_date": "2024-09-05",
+              "scoreText": "Strong Sell",
+              "prevScoreText": "Sell",
+              "prevScoreTextDate": "2024-05-22",
+              "prevScore": 37,
+              "final_score_grade_41": "Strong Sell",
+              "final_score_41_or": 24,
+              "current_final_score_grade_41": "Strong Sell",
+              "current_final_score_41": 24,
+              "mfin_score": -14,
+              "scoreTextChange": 0,
+              "curfscore": 23,
+              "s_clr": "btnssell"
+          },
+          "indcode": 5,
+          "indname": "Finance/NBFC",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 616.65,
+          "chg": 2.55,
+          "chgp": 0.42,
+          "cmpdir": 1,
+          "prevclose": 614.1,
+          "mcap": "Large Cap",
+          "sect_chgp": 0.27,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 0.42,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 11.22,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 23.63,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 81.45,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": 52.6,
+                  "dir": 1
+              },
+              "YTD": {
+                  "val": -2.94,
+                  "dir": -1
+              },
+              "Y1": {
+                  "val": -30,
+                  "dir": -1
+              },
+              "Y3": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y5": {
+                  "val": "NA",
+                  "dir": 0
+              },
+              "Y10": {
+                  "val": "NA",
+                  "dir": 0
+              }
+          }
+      },
+      "161419": {
+          "sid": 161419,
+          "sname": "Syschem (India) Ltd",
+          "short": "Syschem (India)",
+          "dotsum": {
+              "q_rank": -99997,
+              "stk_sect": 0,
+              "q_txt": "Average",
+              "v_rank": -2,
+              "v_txt": "Expensive",
+              "f_pts": 0,
+              "f_txt": "Flat",
+              "f_clr": "orange",
+              "sid": 161419,
+              "f_dir": -1,
+              "prev_score": 2,
+              "q_dir": 0,
+              "tech_score": -0.22,
+              "tech_txt": "Mildly Bearish",
+              "tech_clr": "Red",
+              "q_clr": "orange",
+              "v_clr": "red",
+              "score": 37,
+              "score_date": "2024-09-05",
+              "scoreText": "Sell",
+              "prevScoreText": "Hold",
+              "prevScoreTextDate": "2024-05-21",
+              "prevScore": 52,
+              "final_score_grade_41": "Sell",
+              "final_score_41_or": 44,
+              "current_final_score_grade_41": "Sell",
+              "current_final_score_41": 44,
+              "mfin_score": 0,
+              "scoreTextChange": 0,
+              "curfscore": 37,
+              "s_clr": "btnsell"
+          },
+          "indcode": 11,
+          "indname": "Chemicals",
+          "exch": "BSE",
+          "exchcode": 0,
+          "cmp": 49.51,
+          "chg": 0.13,
+          "chgp": 0.26,
+          "cmpdir": 1,
+          "prevclose": 49.38,
+          "mcap": "Micro Cap",
+          "sect_chgp": 0.5,
+          "show_mojostock": "no",
+          "show_fallstock": "no",
+          "product_icon_list": [],
+          "more_button": {
+              "show": 0,
+              "text": ""
+          },
+          "returns": {
+              "D1": {
+                  "val": 0.26,
+                  "dir": 1
+              },
+              "W1": {
+                  "val": 0.88,
+                  "dir": 1
+              },
+              "M1": {
+                  "val": 13.11,
+                  "dir": 1
+              },
+              "M3": {
+                  "val": 6.89,
+                  "dir": 1
+              },
+              "M6": {
+                  "val": -14.13,
+                  "dir": -1
+              },
+              "YTD": {
+                  "val": -1.1,
+                  "dir": -1
+              },
+              "Y1": {
+                  "val": 3.48,
+                  "dir": 1
+              },
+              "Y3": {
+                  "val": 595.9,
+                  "dir": 1
+              },
+              "Y5": {
+                  "val": 665,
+                  "dir": 1
+              },
+              "Y10": {
+                  "val": 557.71,
+                  "dir": 1
+              }
+          }
+      }
+  }
+}

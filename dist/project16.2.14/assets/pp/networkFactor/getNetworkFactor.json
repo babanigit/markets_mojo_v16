@@ -1,0 +1,201 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+    "list": {
+      "Assets": {
+        "list": {
+          "stocks": {
+            "id": 1,
+            "name": "Stocks",
+            "uname": "stocks",
+            "data": {
+              "lval": 235567,
+              "ival": 104501,
+              "dgain": -1954,
+              "dgaindir": -1,
+              "dgainp": "-0.83",
+              "unrgain": 131065,
+              "unrgainp": "125.42",
+              "unrgaindir": 1
+            }
+          },
+          "mf": {
+            "id": 2,
+            "name": "Mutual Funds",
+            "uname": "mf",
+            "data": {
+              "lval": 516700,
+              "ival": 337749,
+              "dgain": 1060,
+              "dgaindir": 0,
+              "dgainp": 0,
+              "unrgain": 178951,
+              "unrgainp": "52.98",
+              "unrgaindir": 1
+            }
+          },
+          "ppf": {
+            "id": 4,
+            "name": "PPF",
+            "uname": "ppf",
+            "data": {
+              "lval": 0,
+              "ival": 0,
+              "dgain": 0,
+              "dgaindir": 0,
+              "dgainp": 0,
+              "unrgain": 0,
+              "unrgainp": 0,
+              "unrgaindir": 0
+            }
+          },
+          "esop": {
+            "id": 6,
+            "name": "ESOP",
+            "uname": "esop",
+            "data": {
+              "lval": 0,
+              "ival": 0,
+              "dgain": 0,
+              "dgaindir": 0,
+              "dgainp": 0,
+              "unrgain": 0,
+              "unrgainp": 0,
+              "unrgaindir": 0
+            }
+          },
+          "commodity": {
+            "id": 6,
+            "name": "Commodity",
+            "uname": "commodity",
+            "data": {
+              "lval": 0,
+              "ival": 0,
+              "dgain": 0,
+              "dgaindir": 0,
+              "dgainp": 0,
+              "unrgain": 0,
+              "unrgainp": 0,
+              "unrgaindir": 0
+            }
+          },
+          "fixedincome": {
+            "id": 8,
+            "name": "Fixed Income",
+            "uname": "fixedincome",
+            "data": {
+              "lval": 0,
+              "ival": 0,
+              "dgain": 0,
+              "dgaindir": 0,
+              "dgainp": 0,
+              "unrgain": 0,
+              "unrgainp": 0,
+              "unrgaindir": 0
+            }
+          },
+          "others": {
+            "id": 9,
+            "name": "Others",
+            "uname": "others",
+            "data": {
+              "lval": 0,
+              "ival": 0,
+              "dgain": 0,
+              "dgaindir": 0,
+              "dgainp": 0,
+              "unrgain": 0,
+              "unrgainp": 0,
+              "unrgaindir": 0
+            }
+          },
+          "property": {
+            "id": 13,
+            "name": "Property",
+            "uname": "property",
+            "data": {
+              "lval": 0,
+              "ival": 0,
+              "dgain": 0,
+              "dgaindir": 0,
+              "dgainp": 0,
+              "unrgain": 0,
+              "unrgainp": 0,
+              "unrgaindir": 0
+            }
+          },
+          "cash": {
+            "id": 14,
+            "name": "Cash",
+            "uname": "cash",
+            "data": {
+              "lval": 0,
+              "ival": 0,
+              "dgain": 0,
+              "dgaindir": 0,
+              "dgainp": 0,
+              "unrgain": 0,
+              "unrgainp": 0,
+              "unrgaindir": 0
+            }
+          }
+        }
+      },
+      "Liabilities": {
+        "list": {
+          "loans": {
+            "id": 10,
+            "name": "Loans",
+            "uname": "loans",
+            "data": {
+              "lval": 0,
+              "ival": 0,
+              "dgain": 0,
+              "dgaindir": 0,
+              "dgainp": 0,
+              "unrgain": 0,
+              "unrgainp": 0,
+              "unrgaindir": 0
+            }
+          },
+          "other-borrowing": {
+            "id": 15,
+            "name": "Borrowings",
+            "uname": "other-borrowing",
+            "data": {
+              "lval": 0,
+              "ival": 0
+            }
+          }
+        }
+      }
+    },
+    "total": {
+      "net": {
+        "val": 752267,
+        "chg": 310017,
+        "chgp": "70.10",
+        "dir": 1
+      },
+      "assets": {
+        "val": 752267,
+        "chg": 310017,
+        "chgp": "70.10",
+        "dir": 1
+      },
+      "insurance": {
+        "val": 0,
+        "chg": 0,
+        "chgp": "nan",
+        "dir": 0
+      },
+      "liabilities": {
+        "val": 0,
+        "chg": 0,
+        "chgp": "nan",
+        "dir": 0
+      }
+    }
+  }
+}

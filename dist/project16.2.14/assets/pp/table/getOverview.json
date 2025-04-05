@@ -1,0 +1,1682 @@
+{
+  "code": "200",
+  "message": "Success",
+  "data": {
+      "max_event_cnt": 2,
+      "list": {
+          "421555": {
+              "sid": 421555,
+              "sname": "Coal India Ltd.",
+              "short": "Coal India",
+              "dotsum": {
+                  "q_rank": 2,
+                  "stk_sect": 27,
+                  "q_txt": "Excellent",
+                  "v_rank": -1,
+                  "v_txt": "Expensive",
+                  "f_pts": 0,
+                  "f_txt": "Flat",
+                  "f_clr": "orange",
+                  "sid": 421555,
+                  "f_dir": -1,
+                  "prev_score": 5,
+                  "q_dir": 0,
+                  "tech_score": 1.17,
+                  "tech_txt": "Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "green",
+                  "v_clr": "red",
+                  "score": 74,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Buy",
+                  "prevScoreText": "Strong Buy",
+                  "prevScoreTextDate": "2024-07-18",
+                  "prevScore": 80,
+                  "final_score_grade_41": "Hold",
+                  "final_score_41_or": 64,
+                  "current_final_score_grade_41": "Hold",
+                  "current_final_score_41": 64,
+                  "mfin_score": 0,
+                  "scoreTextChange": 0,
+                  "curfscore": 74,
+                  "s_clr": "btnbuy"
+              },
+              "indcode": 52,
+              "indname": "Mining & Minerals",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 531.3,
+              "chg": -0.75,
+              "chgp": -0.14,
+              "cmpdir": -1,
+              "prevclose": 532.05,
+              "mcap": "Large Cap",
+              "sect_chgp": 0.23,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 2203071,
+              "volperc": 2.06,
+              "voldir": 1,
+              "unrgain": 26071,
+              "unrgainp": 158.64,
+              "unrgaindir": 1,
+              "dgain": -60,
+              "dgainp": -0.14,
+              "dgaindir": -1,
+              "lval": 42504,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "Close to 52 Week High",
+                          "msg": "2.1% away from 52 week high of Rs 542",
+                          "dir": 1
+                      },
+                      {
+                          "header": "Trend Reversal",
+                          "msg": "Stock has fallen after 4 days of consecutive gain",
+                          "dir": -1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-31",
+                      "chgp": 1.75,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": -0.08,
+                      "dir": -1
+                  },
+                  "dt": "31st Jul",
+                  "rawdt": "2024-07-31",
+                  "srtdt": "2024-07-31",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=421555&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1722364200
+          },
+          "454045": {
+              "sid": 454045,
+              "sname": "Jubilant Industries Ltd",
+              "short": "Jubilant Inds.",
+              "dotsum": {
+                  "q_rank": 19,
+                  "stk_sect": 24,
+                  "q_txt": "Below Average",
+                  "v_rank": -1,
+                  "v_txt": "Expensive",
+                  "f_pts": 15,
+                  "f_txt": "Positive",
+                  "f_clr": "green",
+                  "sid": 454045,
+                  "f_dir": 1,
+                  "prev_score": -1,
+                  "q_dir": 0,
+                  "tech_score": 1.06,
+                  "tech_txt": "Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "red",
+                  "v_clr": "red",
+                  "score": 51,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Hold",
+                  "prevScoreText": "Sell",
+                  "prevScoreTextDate": "2024-08-20",
+                  "prevScore": 44,
+                  "final_score_grade_41": "Sell",
+                  "final_score_41_or": 32,
+                  "current_final_score_grade_41": "Sell",
+                  "current_final_score_41": 32,
+                  "mfin_score": 15,
+                  "scoreTextChange": 0,
+                  "curfscore": 51,
+                  "s_clr": "btnhold"
+              },
+              "indcode": 18,
+              "indname": "Pesticides & Agrochem",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 1681,
+              "chg": 52,
+              "chgp": 3.19,
+              "cmpdir": 1,
+              "prevclose": 1629,
+              "mcap": "Small Cap",
+              "sect_chgp": 2.49,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 2569,
+              "volperc": -90.63,
+              "voldir": -1,
+              "unrgain": 63535,
+              "unrgainp": 309.7,
+              "unrgaindir": 1,
+              "dgain": 2600,
+              "dgainp": 3.19,
+              "dgaindir": 1,
+              "lval": 84050,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 0,
+                  "list": [],
+                  "txt": "-"
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-08-12",
+                      "chgp": 11.31,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": 14.9,
+                      "dir": 1
+                  },
+                  "dt": "12th Aug",
+                  "rawdt": "2024-08-12",
+                  "srtdt": "2024-08-12",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=454045&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1723401000
+          },
+          "119922": {
+              "sid": 119922,
+              "sname": "City Union Bank Ltd.",
+              "short": "City Union Bank",
+              "dotsum": {
+                  "q_rank": 6,
+                  "stk_sect": 20,
+                  "q_txt": "Good",
+                  "v_rank": 3,
+                  "v_txt": "Attractive",
+                  "f_pts": 5,
+                  "f_txt": "Flat",
+                  "f_clr": "orange",
+                  "sid": 119922,
+                  "f_dir": -1,
+                  "prev_score": 6,
+                  "q_dir": 0,
+                  "tech_score": 1.22,
+                  "tech_txt": "Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "green",
+                  "v_clr": "green",
+                  "score": 72,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Buy",
+                  "prevScoreText": "Hold",
+                  "prevScoreTextDate": "2024-08-19",
+                  "prevScore": 65,
+                  "final_score_grade_41": "Hold",
+                  "final_score_41_or": 62,
+                  "current_final_score_grade_41": "Hold",
+                  "current_final_score_41": 62,
+                  "mfin_score": 5,
+                  "scoreTextChange": 0,
+                  "curfscore": 72,
+                  "s_clr": "btnbuy"
+              },
+              "indcode": 50,
+              "indname": "Private Banks",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 171.85,
+              "chg": 1.95,
+              "chgp": 1.15,
+              "cmpdir": 1,
+              "prevclose": 169.9,
+              "mcap": "Mid Cap",
+              "sect_chgp": 0.41,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 1097331,
+              "volperc": 113.3,
+              "voldir": 1,
+              "unrgain": -928,
+              "unrgainp": -6.71,
+              "unrgaindir": -1,
+              "dgain": 146,
+              "dgainp": 1.15,
+              "dgaindir": 1,
+              "lval": 12889,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "Close to 52 Week High",
+                          "msg": "3.15% away from 52 week high of Rs 176.7",
+                          "dir": 1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-26",
+                      "chgp": 7.14,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": 4.75,
+                      "dir": 1
+                  },
+                  "dt": "26th Jul",
+                  "rawdt": "2024-07-26",
+                  "srtdt": "2024-07-26",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=119922&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1721932200
+          },
+          "400868": {
+              "sid": 400868,
+              "sname": "Reliance Infrastructure Ltd",
+              "short": "Reliance Infra.",
+              "dotsum": {
+                  "q_rank": 5,
+                  "stk_sect": 37,
+                  "q_txt": "Below Average",
+                  "v_rank": 2,
+                  "v_txt": "Very Attractive",
+                  "f_pts": 13,
+                  "f_txt": "Positive",
+                  "f_clr": "green",
+                  "sid": 400868,
+                  "f_dir": 1,
+                  "prev_score": -2,
+                  "q_dir": 0,
+                  "tech_score": 0.28,
+                  "tech_txt": "Mildly Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "red",
+                  "v_clr": "green",
+                  "score": 53,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Hold",
+                  "prevScoreText": "Sell",
+                  "prevScoreTextDate": "2024-08-16",
+                  "prevScore": 47,
+                  "final_score_grade_41": "Sell",
+                  "final_score_41_or": 44,
+                  "current_final_score_grade_41": "Sell",
+                  "current_final_score_41": 44,
+                  "mfin_score": 13,
+                  "scoreTextChange": 0,
+                  "curfscore": 53,
+                  "s_clr": "btnhold"
+              },
+              "indcode": 28,
+              "indname": "Power ",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 240.65,
+              "chg": -2.5,
+              "chgp": -1.03,
+              "cmpdir": -1,
+              "prevclose": 243.15,
+              "mcap": "Mid Cap",
+              "sect_chgp": -0.44,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 5022609,
+              "volperc": -4.63,
+              "voldir": -1,
+              "unrgain": -5257,
+              "unrgainp": -52.2,
+              "unrgaindir": -1,
+              "dgain": -50,
+              "dgainp": -1.03,
+              "dgaindir": -1,
+              "lval": 4813,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "Trend Reversal",
+                          "msg": "Stock has fallen after 3 days of consecutive gain",
+                          "dir": -1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-08-14",
+                      "chgp": 9.26,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": 12.51,
+                      "dir": 1
+                  },
+                  "dt": "14th Aug",
+                  "rawdt": "2024-08-14",
+                  "srtdt": "2024-08-14",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=400868&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1723573800
+          },
+          "431628": {
+              "sid": 431628,
+              "sname": "REC Ltd",
+              "short": "REC Ltd",
+              "dotsum": {
+                  "q_rank": 8,
+                  "stk_sect": 899,
+                  "q_txt": "Good",
+                  "v_rank": -1,
+                  "v_txt": "Expensive",
+                  "f_pts": 9,
+                  "f_txt": "Positive",
+                  "f_clr": "green",
+                  "sid": 431628,
+                  "f_dir": -1,
+                  "prev_score": 17,
+                  "q_dir": 0,
+                  "tech_score": 1,
+                  "tech_txt": "Mildly Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "green",
+                  "v_clr": "red",
+                  "score": 72,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Buy",
+                  "prevScoreText": "Hold",
+                  "prevScoreTextDate": "2024-08-19",
+                  "prevScore": 68,
+                  "final_score_grade_41": "Hold",
+                  "final_score_41_or": 62,
+                  "current_final_score_grade_41": "Hold",
+                  "current_final_score_41": 62,
+                  "mfin_score": 9,
+                  "scoreTextChange": 0,
+                  "curfscore": 65,
+                  "s_clr": "btnbuy"
+              },
+              "indcode": 5,
+              "indname": "Finance/NBFC",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 596,
+              "chg": 1.75,
+              "chgp": 0.29,
+              "cmpdir": 1,
+              "prevclose": 594.25,
+              "mcap": "Large Cap",
+              "sect_chgp": 0.25,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 1134170,
+              "volperc": -48.59,
+              "voldir": -1,
+              "unrgain": 30868,
+              "unrgainp": 834.19,
+              "unrgaindir": 1,
+              "dgain": 102,
+              "dgainp": 0.29,
+              "dgaindir": 1,
+              "lval": 34568,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 0,
+                  "list": [],
+                  "txt": "-"
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-27",
+                      "chgp": -7.53,
+                      "dir": -1
+                  },
+                  "D15": {
+                      "chgp": 0.94,
+                      "dir": 1
+                  },
+                  "dt": "27th Jul",
+                  "rawdt": "2024-07-27",
+                  "srtdt": "2024-07-27",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=431628&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1722018600
+          },
+          "837957": {
+              "sid": 837957,
+              "sname": "Larsen & Toubro Ltd.",
+              "short": "Larsen & Toubro",
+              "dotsum": {
+                  "q_rank": 6,
+                  "stk_sect": 91,
+                  "q_txt": "Average",
+                  "v_rank": 0,
+                  "v_txt": "Attractive",
+                  "f_pts": 4,
+                  "f_txt": "Flat",
+                  "f_clr": "orange",
+                  "sid": 837957,
+                  "f_dir": -1,
+                  "prev_score": 15,
+                  "q_dir": 0,
+                  "tech_score": 0.67,
+                  "tech_txt": "Mildly Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "orange",
+                  "v_clr": "green",
+                  "score": 58,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Hold",
+                  "prevScoreText": "Buy",
+                  "prevScoreTextDate": "2024-07-24",
+                  "prevScore": 71,
+                  "final_score_grade_41": "Hold",
+                  "final_score_41_or": 52,
+                  "current_final_score_grade_41": "Hold",
+                  "current_final_score_41": 52,
+                  "mfin_score": 4,
+                  "scoreTextChange": 0,
+                  "curfscore": 58,
+                  "s_clr": "btnhold"
+              },
+              "indcode": 19,
+              "indname": "Capital Goods",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 3593.35,
+              "chg": -2.5,
+              "chgp": -0.07,
+              "cmpdir": -1,
+              "prevclose": 3595.85,
+              "mcap": "Large Cap",
+              "sect_chgp": 0.03,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 224677,
+              "volperc": -58.19,
+              "voldir": -1,
+              "unrgain": 13335,
+              "unrgainp": 112.83,
+              "unrgaindir": 1,
+              "dgain": -18,
+              "dgainp": -0.07,
+              "dgaindir": -1,
+              "lval": 25153,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "Trend Reversal",
+                          "msg": "Stock has fallen after 2 days of consecutive gain",
+                          "dir": -1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-24",
+                      "chgp": 2.1,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": -1.42,
+                      "dir": -1
+                  },
+                  "dt": "24th Jul",
+                  "rawdt": "2024-07-24",
+                  "srtdt": "2024-07-24",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=837957&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1721759400
+          },
+          "151046": {
+              "sid": 151046,
+              "sname": "Innovassynth Investments Ltd",
+              "short": "Innovassynth Inv",
+              "dotsum": {
+                  "q_rank": -99997,
+                  "stk_sect": 0,
+                  "q_txt": "Does not qualify",
+                  "v_rank": -2,
+                  "v_txt": "Risky",
+                  "f_pts": 1,
+                  "f_txt": "Flat",
+                  "f_clr": "orange",
+                  "sid": 151046,
+                  "f_dir": -1,
+                  "prev_score": 16,
+                  "q_dir": 0,
+                  "tech_score": 0.56,
+                  "tech_txt": "Mildly Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "grey",
+                  "v_clr": "red",
+                  "score": 0,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Not Rated",
+                  "prevScoreText": "",
+                  "prevScoreTextDate": "2024-08-22",
+                  "prevScore": 0,
+                  "final_score_grade_41": "Not Rated",
+                  "final_score_41_or": 0,
+                  "current_final_score_grade_41": "Not Rated",
+                  "current_final_score_41": "",
+                  "mfin_score": 1,
+                  "scoreTextChange": 0,
+                  "curfscore": "",
+                  "s_clr": "btnunactive"
+              },
+              "indcode": 5,
+              "indname": "Finance/NBFC",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 34.56,
+              "chg": 5.76,
+              "chgp": 20,
+              "cmpdir": 1,
+              "prevclose": 28.8,
+              "mcap": "Micro Cap",
+              "sect_chgp": 0.25,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 28574,
+              "volperc": 148.56,
+              "voldir": 1,
+              "unrgain": 238,
+              "unrgainp": 328.25,
+              "unrgaindir": 1,
+              "dgain": 52,
+              "dgainp": 20,
+              "dgaindir": 1,
+              "lval": 311,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "Close to 52 Week High",
+                          "msg": "4.2% away from 52 week high of Rs 36.01",
+                          "dir": 1
+                      },
+                      {
+                          "header": "Consecutive Gain",
+                          "msg": "Stock has been gaining for the last 2 days and has risen 44% returns in the period",
+                          "dir": 1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-08-12",
+                      "chgp": 33.64,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": 32.92,
+                      "dir": 1
+                  },
+                  "dt": "12th Aug",
+                  "rawdt": "2024-08-12",
+                  "srtdt": "2024-08-12",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=151046&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1723401000
+          },
+          "616556": {
+              "sid": 616556,
+              "sname": "Punjab National Bank",
+              "short": "Punjab Natl.Bank",
+              "dotsum": {
+                  "q_rank": 10,
+                  "stk_sect": 21,
+                  "q_txt": "Average",
+                  "v_rank": -1,
+                  "v_txt": "Very Attractive",
+                  "f_pts": 26,
+                  "f_txt": "Very Positive",
+                  "f_clr": "green",
+                  "sid": 616556,
+                  "f_dir": -1,
+                  "prev_score": 29,
+                  "q_dir": 0,
+                  "tech_score": 0.33,
+                  "tech_txt": "Mildly Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "orange",
+                  "v_clr": "green",
+                  "score": 72,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Buy",
+                  "prevScoreText": "Hold",
+                  "prevScoreTextDate": "2024-05-14",
+                  "prevScore": 67,
+                  "final_score_grade_41": "Buy",
+                  "final_score_41_or": 72,
+                  "current_final_score_grade_41": "Buy",
+                  "current_final_score_41": 72,
+                  "mfin_score": 26,
+                  "scoreTextChange": 0,
+                  "curfscore": 72,
+                  "s_clr": "btnbuy"
+              },
+              "indcode": 36,
+              "indname": "Public Banks",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 117.75,
+              "chg": 1.3,
+              "chgp": 1.12,
+              "cmpdir": 1,
+              "prevclose": 116.45,
+              "mcap": "Large Cap",
+              "sect_chgp": 0.54,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 7984429,
+              "volperc": -12.78,
+              "voldir": -1,
+              "unrgain": -113,
+              "unrgainp": -1.88,
+              "unrgaindir": -1,
+              "dgain": 65,
+              "dgainp": 1.12,
+              "dgaindir": 1,
+              "lval": 5888,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 0,
+                  "list": [],
+                  "txt": "-"
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-27",
+                      "chgp": -7.25,
+                      "dir": -1
+                  },
+                  "D15": {
+                      "chgp": 1.55,
+                      "dir": 1
+                  },
+                  "dt": "27th Jul",
+                  "rawdt": "2024-07-27",
+                  "srtdt": "2024-07-27",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=616556&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1722018600
+          },
+          "1002872": {
+              "sid": 1002872,
+              "sname": "HDFC Life Insurance Company Ltd",
+              "short": "HDFC Life Insur.",
+              "dotsum": {
+                  "q_rank": -99999,
+                  "stk_sect": 0,
+                  "q_txt": "Average",
+                  "v_rank": -2,
+                  "v_txt": "Expensive",
+                  "f_pts": 9,
+                  "f_txt": "Positive",
+                  "f_clr": "green",
+                  "sid": 1002872,
+                  "f_dir": 1,
+                  "prev_score": 8,
+                  "q_dir": "NA",
+                  "tech_score": 1.39,
+                  "tech_txt": "Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "orange",
+                  "v_clr": "red",
+                  "score": 65,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Hold",
+                  "prevScoreText": "Sell",
+                  "prevScoreTextDate": "2024-07-31",
+                  "prevScore": 48,
+                  "final_score_grade_41": "Hold",
+                  "final_score_41_or": 52,
+                  "current_final_score_grade_41": "Hold",
+                  "current_final_score_41": 52,
+                  "mfin_score": 9,
+                  "scoreTextChange": 0,
+                  "curfscore": 65,
+                  "s_clr": "btnhold"
+              },
+              "indcode": 5,
+              "indname": "Finance/NBFC",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 727.75,
+              "chg": 3.2,
+              "chgp": 0.44,
+              "cmpdir": 1,
+              "prevclose": 724.55,
+              "mcap": "Large Cap",
+              "sect_chgp": 0.25,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 996234,
+              "volperc": -19.35,
+              "voldir": -1,
+              "unrgain": 239,
+              "unrgainp": 7.02,
+              "unrgaindir": 1,
+              "dgain": 16,
+              "dgainp": 0.44,
+              "dgaindir": 1,
+              "lval": 3639,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "New 52 Week High",
+                          "msg": "Rs.729.2 hit today",
+                          "dir": 1
+                      },
+                      {
+                          "header": "Consecutive Gain",
+                          "msg": "Stock has been gaining for the last 3 days and has risen 5.98% returns in the period",
+                          "dir": 1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-15",
+                      "chgp": 14.09,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": 4.49,
+                      "dir": 1
+                  },
+                  "dt": "15th Jul",
+                  "rawdt": "2024-07-15",
+                  "srtdt": "2024-07-15",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=1002872&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1720981800
+          },
+          "302744": {
+              "sid": 302744,
+              "sname": "Jaiprakash Power Ventures Ltd",
+              "short": "JP Power Ven.",
+              "dotsum": {
+                  "q_rank": 14,
+                  "stk_sect": 37,
+                  "q_txt": "Average",
+                  "v_rank": -1,
+                  "v_txt": "Very Attractive",
+                  "f_pts": 26,
+                  "f_txt": "Very Positive",
+                  "f_clr": "green",
+                  "sid": 302744,
+                  "f_dir": -1,
+                  "prev_score": 33,
+                  "q_dir": 1,
+                  "tech_score": 0.22,
+                  "tech_txt": "Mildly Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "orange",
+                  "v_clr": "green",
+                  "score": 72,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Buy",
+                  "prevScoreText": "Hold",
+                  "prevScoreTextDate": "2024-07-29",
+                  "prevScore": 58,
+                  "final_score_grade_41": "Buy",
+                  "final_score_41_or": 72,
+                  "current_final_score_grade_41": "Buy",
+                  "current_final_score_41": 72,
+                  "mfin_score": 26,
+                  "scoreTextChange": 0,
+                  "curfscore": 72,
+                  "s_clr": "btnbuy"
+              },
+              "indcode": 28,
+              "indname": "Power ",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 18.85,
+              "chg": 0.07,
+              "chgp": 0.37,
+              "cmpdir": 1,
+              "prevclose": 18.78,
+              "mcap": "Mid Cap",
+              "sect_chgp": -0.44,
+              "show_mojostock": "yes",
+              "show_fallstock": "no",
+              "product_icon_list": [
+                  {
+                      "name": "Hidden Turnarounds",
+                      "text": "since 12 months 25 days",
+                      "url": "https://www.marketsmojo.com/mojopro/strategy/1",
+                      "product_class": "skyblue-tag"
+                  },
+                  {
+                      "name": "MomentumNow Stocks",
+                      "text": "since 5 months 24 days",
+                      "url": "https://www.marketsmojo.com/mojopro/strategy/2",
+                      "product_class": "purple-tag"
+                  }
+              ],
+              "more_button": {
+                  "show": 1,
+                  "text": "+1 More"
+              },
+              "traded": "Traded",
+              "vol": 19219460,
+              "volperc": 54.9,
+              "voldir": 1,
+              "unrgain": 1632,
+              "unrgainp": 27.36,
+              "unrgaindir": 1,
+              "dgain": 28,
+              "dgainp": 0.37,
+              "dgaindir": 1,
+              "lval": 7597,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "Trend Reversal",
+                          "msg": "Stock has fallen after 4 days of consecutive gain",
+                          "dir": -1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-27",
+                      "chgp": -2.84,
+                      "dir": -1
+                  },
+                  "D15": {
+                      "chgp": -0.16,
+                      "dir": -1
+                  },
+                  "dt": "27th Jul",
+                  "rawdt": "2024-07-27",
+                  "srtdt": "2024-07-27",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=302744&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1722018600
+          },
+          "10039196": {
+              "sid": 10039196,
+              "sname": "Shree Karni Fabcom Ltd",
+              "short": "Shree Karni",
+              "dotsum": {
+                  "q_rank": "",
+                  "stk_sect": "",
+                  "q_txt": "Average",
+                  "v_rank": "",
+                  "v_txt": "Expensive",
+                  "f_pts": null,
+                  "f_txt": null,
+                  "sid": 10039196,
+                  "f_dir": "NA",
+                  "prev_score": "",
+                  "q_dir": 1,
+                  "tech_score": -0.17,
+                  "tech_txt": "Mildly Bearish",
+                  "tech_clr": "Red",
+                  "q_clr": "orange",
+                  "v_clr": "red",
+                  "f_clr": "grey",
+                  "score": 0,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Not Rated",
+                  "prevScoreText": "",
+                  "prevScoreTextDate": "2024-03-15",
+                  "prevScore": "",
+                  "final_score_grade_41": "Not Rated",
+                  "final_score_41_or": 0,
+                  "current_final_score_grade_41": "Not Rated",
+                  "current_final_score_41": "",
+                  "mfin_score": "",
+                  "scoreTextChange": 0,
+                  "curfscore": "",
+                  "s_clr": "btnunactive"
+              },
+              "indcode": 64,
+              "indname": "Textile - Machinery",
+              "exch": "NSE",
+              "exchcode": 1,
+              "cmp": 740,
+              "chg": 15,
+              "chgp": 2.07,
+              "cmpdir": 1,
+              "prevclose": 725,
+              "mcap": "Micro Cap",
+              "sect_chgp": -0.03,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 1800,
+              "volperc": 1400,
+              "voldir": 1,
+              "unrgain": 20,
+              "unrgainp": 2.78,
+              "unrgaindir": 1,
+              "dgain": 15,
+              "dgainp": 2.07,
+              "dgaindir": 1,
+              "lval": 740,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 0,
+                  "list": [],
+                  "txt": "-"
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-05-29",
+                      "chgp": 82.04,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": 2.78,
+                      "dir": 1
+                  },
+                  "dt": "NA",
+                  "rawdt": "2024-05-29",
+                  "srtdt": "2024-05-29",
+                  "sortorder": 3,
+                  "flag": 1,
+                  "msg": "Result Awaited"
+              },
+              "orgresdt": -19800
+          },
+          "234277": {
+              "sid": 234277,
+              "sname": "Persistent Systems Ltd",
+              "short": "Persistent Sys",
+              "dotsum": {
+                  "q_rank": 16,
+                  "stk_sect": 191,
+                  "q_txt": "Excellent",
+                  "v_rank": 0,
+                  "v_txt": "Very Expensive",
+                  "f_pts": 13,
+                  "f_txt": "Positive",
+                  "f_clr": "green",
+                  "sid": 234277,
+                  "f_dir": 1,
+                  "prev_score": 6,
+                  "q_dir": 0,
+                  "tech_score": 1.78,
+                  "tech_txt": "Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "green",
+                  "v_clr": "red",
+                  "score": 78,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Buy",
+                  "prevScoreText": "Hold",
+                  "prevScoreTextDate": "2024-04-22",
+                  "prevScore": 65,
+                  "final_score_grade_41": "Buy",
+                  "final_score_41_or": 70,
+                  "current_final_score_grade_41": "Buy",
+                  "current_final_score_41": 70,
+                  "mfin_score": 13,
+                  "scoreTextChange": 0,
+                  "curfscore": 78,
+                  "s_clr": "btnbuy"
+              },
+              "indcode": 57,
+              "indname": "IT - Software ",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 4965,
+              "chg": 42.55,
+              "chgp": 0.86,
+              "cmpdir": 1,
+              "prevclose": 4922.45,
+              "mcap": "Large Cap",
+              "sect_chgp": 0.11,
+              "show_mojostock": "yes",
+              "show_fallstock": "no",
+              "product_icon_list": [
+                  {
+                      "name": "Stock of the Month",
+                      "text": "since 8 months 11 days",
+                      "url": "https://www.marketsmojo.com/mojo/stock-of-the-month",
+                      "product_class": "som-tag"
+                  }
+              ],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 50528,
+              "volperc": -64.48,
+              "voldir": -1,
+              "unrgain": -2685,
+              "unrgainp": -35.1,
+              "unrgaindir": -1,
+              "dgain": 43,
+              "dgainp": 0.86,
+              "dgaindir": 1,
+              "lval": 4965,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "Close to 52 Week High",
+                          "msg": "0.98% away from 52 week high of Rs 4995.5",
+                          "dir": 1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-18",
+                      "chgp": 1.26,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": 6.36,
+                      "dir": 1
+                  },
+                  "dt": "18th Jul",
+                  "rawdt": "2024-07-18",
+                  "srtdt": "2024-07-18",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=234277&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1721241000
+          },
+          "304521": {
+              "sid": 304521,
+              "sname": "CEAT Ltd",
+              "short": "CEAT",
+              "dotsum": {
+                  "q_rank": 6,
+                  "stk_sect": 13,
+                  "q_txt": "Good",
+                  "v_rank": 0,
+                  "v_txt": "Attractive",
+                  "f_pts": 3,
+                  "f_txt": "Flat",
+                  "f_clr": "orange",
+                  "sid": 304521,
+                  "f_dir": -1,
+                  "prev_score": 10,
+                  "q_dir": 0,
+                  "tech_score": 1.28,
+                  "tech_txt": "Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "green",
+                  "v_clr": "green",
+                  "score": 72,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Buy",
+                  "prevScoreText": "Hold",
+                  "prevScoreTextDate": "2024-08-19",
+                  "prevScore": 65,
+                  "final_score_grade_41": "Hold",
+                  "final_score_41_or": 62,
+                  "current_final_score_grade_41": "Hold",
+                  "current_final_score_41": 62,
+                  "mfin_score": 3,
+                  "scoreTextChange": 0,
+                  "curfscore": 72,
+                  "s_clr": "btnbuy"
+              },
+              "indcode": 47,
+              "indname": "Tyres",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 2855.25,
+              "chg": 32.95,
+              "chgp": 1.17,
+              "cmpdir": 1,
+              "prevclose": 2822.3,
+              "mcap": "Mid Cap",
+              "sect_chgp": 0.41,
+              "show_mojostock": "yes",
+              "show_fallstock": "no",
+              "product_icon_list": [
+                  {
+                      "name": "Stock of the Month",
+                      "text": "since 7 months 12 days",
+                      "url": "https://www.marketsmojo.com/mojo/stock-of-the-month",
+                      "product_class": "som-tag"
+                  }
+              ],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 76206,
+              "volperc": 10.31,
+              "voldir": 1,
+              "unrgain": 363,
+              "unrgainp": 14.58,
+              "unrgaindir": 1,
+              "dgain": 33,
+              "dgainp": 1.17,
+              "dgaindir": 1,
+              "lval": 2855,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "Consecutive Gain",
+                          "msg": "Stock has been gaining for the last 5 days and has risen 9.24% returns in the period",
+                          "dir": 1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-18",
+                      "chgp": 3.12,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": 6.25,
+                      "dir": 1
+                  },
+                  "dt": "18th Jul",
+                  "rawdt": "2024-07-18",
+                  "srtdt": "2024-07-18",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=304521&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1721241000
+          },
+          "1003511": {
+              "sid": 1003511,
+              "sname": "Zomato Ltd",
+              "short": "Zomato Ltd",
+              "dotsum": {
+                  "q_rank": "",
+                  "stk_sect": "",
+                  "q_txt": "Average",
+                  "v_rank": "",
+                  "v_txt": "Risky",
+                  "f_pts": 34,
+                  "f_txt": "Outstanding",
+                  "f_clr": "green",
+                  "sid": 1003511,
+                  "f_dir": 1,
+                  "prev_score": 32,
+                  "q_dir": 1,
+                  "tech_score": 1.7,
+                  "tech_txt": "Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "orange",
+                  "v_clr": "red",
+                  "score": 71,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Buy",
+                  "prevScoreText": "Hold",
+                  "prevScoreTextDate": "2024-08-02",
+                  "prevScore": 57,
+                  "final_score_grade_41": "Hold",
+                  "final_score_41_or": 60,
+                  "current_final_score_grade_41": "Hold",
+                  "current_final_score_41": 60,
+                  "mfin_score": 34,
+                  "scoreTextChange": 0,
+                  "curfscore": 71,
+                  "s_clr": "btnbuy"
+              },
+              "indcode": 57,
+              "indname": "IT - Software ",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 259.95,
+              "chg": 0,
+              "chgp": 0,
+              "cmpdir": 0,
+              "prevclose": 259.95,
+              "mcap": "Large Cap",
+              "sect_chgp": 0.11,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 39828561,
+              "volperc": -42.78,
+              "voldir": -1,
+              "unrgain": 125,
+              "unrgainp": 92.63,
+              "unrgaindir": 1,
+              "dgain": 0,
+              "dgainp": 0,
+              "dgaindir": 0,
+              "lval": 260,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 0,
+                  "list": [],
+                  "txt": "-"
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-08-01",
+                      "chgp": 11.04,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": -2.18,
+                      "dir": -1
+                  },
+                  "dt": "1st Aug",
+                  "rawdt": "2024-08-01",
+                  "srtdt": "2024-08-01",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=1003511&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1722450600
+          },
+          "1003648": {
+              "sid": 1003648,
+              "sname": "Life Insurance Corporation of India",
+              "short": "Life Insurance",
+              "dotsum": {
+                  "q_rank": "",
+                  "stk_sect": "",
+                  "q_txt": "Average",
+                  "v_rank": "",
+                  "v_txt": "Very Attractive",
+                  "f_pts": 1,
+                  "f_txt": "Flat",
+                  "f_clr": "orange",
+                  "sid": 1003648,
+                  "f_dir": 1,
+                  "prev_score": -3,
+                  "q_dir": "NA",
+                  "tech_score": 1.42,
+                  "tech_txt": "Bullish",
+                  "tech_clr": "Green",
+                  "q_clr": "orange",
+                  "v_clr": "green",
+                  "score": 68,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Hold",
+                  "prevScoreText": "Sell",
+                  "prevScoreTextDate": "2023-07-10",
+                  "prevScore": 45,
+                  "final_score_grade_41": "Hold",
+                  "final_score_41_or": 56,
+                  "current_final_score_grade_41": "Hold",
+                  "current_final_score_41": 56,
+                  "mfin_score": 1,
+                  "scoreTextChange": 0,
+                  "curfscore": 68,
+                  "s_clr": "btnhold"
+              },
+              "indcode": 5,
+              "indname": "Finance/NBFC",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 1081.05,
+              "chg": -2.65,
+              "chgp": -0.24,
+              "cmpdir": -1,
+              "prevclose": 1083.7,
+              "mcap": "Large Cap",
+              "sect_chgp": 0.25,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 319492,
+              "volperc": -64.28,
+              "voldir": -1,
+              "unrgain": 167,
+              "unrgainp": 18.22,
+              "unrgaindir": 1,
+              "dgain": -3,
+              "dgainp": -0.24,
+              "dgaindir": -1,
+              "lval": 1081,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 0,
+                  "list": [],
+                  "txt": "-"
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-08-09",
+                      "chgp": -4.64,
+                      "dir": -1
+                  },
+                  "D15": {
+                      "chgp": -3.81,
+                      "dir": -1
+                  },
+                  "dt": "9th Aug",
+                  "rawdt": "2024-08-09",
+                  "srtdt": "2024-08-09",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=1003648&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1723141800
+          },
+          "1003566": {
+              "sid": 1003566,
+              "sname": "One 97 Communications Ltd",
+              "short": "One 97",
+              "dotsum": {
+                  "q_rank": "",
+                  "stk_sect": "",
+                  "q_txt": "Average",
+                  "v_rank": "",
+                  "v_txt": "Risky",
+                  "f_pts": -14,
+                  "f_txt": "Negative",
+                  "f_clr": "red",
+                  "sid": 1003566,
+                  "f_dir": -1,
+                  "prev_score": -8,
+                  "q_dir": 0,
+                  "tech_score": 0,
+                  "tech_txt": "Sideways",
+                  "tech_clr": "Orange",
+                  "q_clr": "orange",
+                  "v_clr": "red",
+                  "score": 28,
+                  "score_date": "2024-08-22",
+                  "scoreText": "Strong Sell",
+                  "prevScoreText": "Sell",
+                  "prevScoreTextDate": "2024-05-22",
+                  "prevScore": 37,
+                  "final_score_grade_41": "Strong Sell",
+                  "final_score_41_or": 24,
+                  "current_final_score_grade_41": "Strong Sell",
+                  "current_final_score_41": 24,
+                  "mfin_score": -14,
+                  "scoreTextChange": 0,
+                  "curfscore": 28,
+                  "s_clr": "btnssell"
+              },
+              "indcode": 5,
+              "indname": "Finance/NBFC",
+              "exch": "BSE",
+              "exchcode": 0,
+              "cmp": 583.75,
+              "chg": 9.95,
+              "chgp": 1.73,
+              "cmpdir": 1,
+              "prevclose": 573.8,
+              "mcap": "Large Cap",
+              "sect_chgp": 0.25,
+              "show_mojostock": "no",
+              "show_fallstock": "no",
+              "product_icon_list": [],
+              "more_button": {
+                  "show": 0,
+                  "text": ""
+              },
+              "traded": "Traded",
+              "vol": 8049669,
+              "volperc": 146.99,
+              "voldir": 1,
+              "unrgain": -175,
+              "unrgainp": -23.11,
+              "unrgaindir": -1,
+              "dgain": 10,
+              "dgainp": 1.73,
+              "dgaindir": 1,
+              "lval": 584,
+              "action": {
+                  "bell": {
+                      "flag": 0,
+                      "msg": ""
+                  },
+                  "status": 1,
+                  "list": [
+                      {
+                          "header": "Consecutive Gain",
+                          "msg": "Stock has been gaining for the last 2 days and has risen 2.23% returns in the period",
+                          "dir": 1
+                      }
+                  ],
+                  "txt": ""
+              },
+              "reco": {
+                  "status": 0,
+                  "txt": "No Recos in the last one month"
+              },
+              "result": {
+                  "resultdt": {
+                      "resdt": "2024-07-19",
+                      "chgp": 27.26,
+                      "dir": 1
+                  },
+                  "D15": {
+                      "chgp": 15.15,
+                      "dir": 1
+                  },
+                  "dt": "19th Jul",
+                  "rawdt": "2024-07-19",
+                  "srtdt": "2024-07-19",
+                  "sortorder": 1,
+                  "flag": 0,
+                  "msg": "<a href=\"https://www.marketsmojo.com/Stocks?StockId=1003566&Exchange=0\">Check Result</a>"
+              },
+              "orgresdt": 1721327400
+          }
+      },
+      "other": {
+          "paid": 1
+      }
+  }
+}
