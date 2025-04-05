@@ -3,14 +3,17 @@ FROM nginx:alpine
 # Set working directory
 WORKDIR /usr/share/nginx/html
 
-# Clear default Nginx static files
+# Remove default nginx website
 RUN rm -rf ./*
 
-# Copy your Angular build output (adjust path if needed)
+# Copy Angular build output
 COPY dist/project16.2.14/ ./
+
+# Copy custom Nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port
 EXPOSE 80
 
-# Start Nginx
+# Run nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
